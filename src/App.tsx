@@ -15,11 +15,28 @@ import {
   Sun,
   MessageCircle
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+// Add global checkout for GA tracking
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedActivityId, setSelectedActivityId] = useState<string | null>(null);
+
+  // Helper function for tracking events
+  const trackEvent = (action: string, category: string, label: string) => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', action, {
+        'event_category': category,
+        'event_label': label
+      });
+    }
+  };
 
   const activities = [
     {
@@ -89,7 +106,10 @@ export default function App() {
           <a href="#about" onClick={() => setSelectedActivityId(null)} className="hover:text-luxury-gold transition-colors">The Experience</a>
           <a href="#destinations" onClick={() => setSelectedActivityId(null)} className="hover:text-luxury-gold transition-colors">Portfolio</a>
           <a href="#concierge" className="hover:text-luxury-gold transition-colors">Private Concierge</a>
-          <button className="px-6 py-2 border border-white/30 rounded-full hover:bg-white hover:text-black transition-all">
+          <button 
+            onClick={() => trackEvent('inquiry_click', 'engagement', 'header_inquiry')}
+            className="px-6 py-2 border border-white/30 rounded-full hover:bg-white hover:text-black transition-all"
+          >
             Inquire
           </button>
         </div>
@@ -218,6 +238,7 @@ export default function App() {
                     variants={fadeUp}
                     onClick={() => {
                       setSelectedActivityId(item.id);
+                      trackEvent('select_content', 'portfolio', item.title);
                       window.scrollTo(0, 0);
                     }}
                     className="group relative flex flex-col h-full bg-luxury-cream rounded-2xl overflow-hidden border border-luxury-black/5 cursor-pointer"
@@ -307,6 +328,7 @@ export default function App() {
                       href="https://wa.me/94722968210"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackEvent('whatsapp_click', 'conversion', selectedActivity.title)}
                       className="w-full flex items-center justify-center gap-3 py-5 md:py-6 bg-luxury-green text-white rounded-full font-serif text-lg md:text-xl hover:bg-luxury-gold transition-all duration-500 shadow-xl hover:shadow-luxury-gold/20"
                     >
                       <MessageCircle className="w-5 h-5 md:w-6 md:h-6" />
@@ -379,6 +401,7 @@ export default function App() {
                       key={other.id}
                       onClick={() => {
                         setSelectedActivityId(other.id);
+                        trackEvent('select_content', 'related_portfolio', other.title);
                         window.scrollTo(0, 0);
                       }}
                       className="group flex gap-4 md:gap-6 items-center p-4 md:p-6 bg-white rounded-2xl border border-luxury-black/5 cursor-pointer hover:border-luxury-gold hover:shadow-lg transition-all duration-500"
@@ -445,6 +468,7 @@ export default function App() {
                 href="https://wa.me/94722968210"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent('whatsapp_click', 'conversion', 'footer_cta')}
                 whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(197, 160, 89, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
                 className="group relative flex items-center justify-center gap-4 px-10 md:px-16 py-6 md:py-8 bg-luxury-green text-white rounded-full font-serif text-lg md:text-2xl shadow-xl transition-all duration-500 overflow-hidden"
