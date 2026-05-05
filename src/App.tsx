@@ -107,16 +107,31 @@ const ExperienceDetail = () => {
     );
   }
 
-  const handleShare = () => {
-    if (navigator.share) {
+  const handleShare = (platform?: 'x' | 'fb') => {
+    const shareText = `Discover ${selectedActivity.title} with Plan Sri Lanka — Pure luxury in the heart of the Indian Ocean.`;
+    const shareUrl = window.location.href;
+
+    if (!platform && navigator.share) {
       navigator.share({
         title: selectedActivity.title,
-        text: selectedActivity.description,
-        url: window.location.href,
-      }).catch(console.error);
-    } else {
-      const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+        text: shareText,
+        url: shareUrl,
+      }).catch((err) => {
+        if (err.name !== 'AbortError') console.error(err);
+      });
+      return;
+    }
+
+    if (platform === 'x') {
+      const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+      window.open(xUrl, '_blank');
+    } else if (platform === 'fb') {
+      const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
       window.open(fbUrl, '_blank');
+    } else {
+      // Default fallback if choice not specified and navigator.share fails
+      const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+      window.open(xUrl, '_blank');
     }
   };
 
@@ -138,12 +153,32 @@ const ExperienceDetail = () => {
             <ArrowRight className="w-4 h-4 rotate-180" /> Back to Portfolio
           </button>
           
-          <button 
-            onClick={handleShare}
-            className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] font-bold text-luxury-gold hover:text-luxury-green transition-colors"
-          >
-            Share Experience <Share2 className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-6">
+            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-luxury-black/30 hidden sm:block">Share to:</span>
+            <div className="flex items-center gap-4">
+              <button 
+                onClick={() => handleShare('x')}
+                className="p-2 text-luxury-gold hover:text-luxury-green transition-colors"
+                title="Share on X"
+              >
+                <Twitter className="w-4 h-4" />
+              </button>
+              <button 
+                onClick={() => handleShare('fb')}
+                className="p-2 text-luxury-gold hover:text-luxury-green transition-colors"
+                title="Share on Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </button>
+              <button 
+                onClick={() => handleShare()}
+                className="p-2 text-luxury-gold hover:text-luxury-green transition-colors"
+                title="Other options"
+              >
+                <Share2 className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12 md:gap-20">
