@@ -48,27 +48,38 @@ async function startServer() {
 
         if (activity) {
           const metaTags = `
+    <!-- Primary Meta Tags -->
     <title>${activity.title} | Plan Sri Lanka</title>
+    <meta name="title" content="${activity.title} | Plan Sri Lanka" />
     <meta name="description" content="${activity.description}" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://plan-srilanka.com${url}" />
     <meta property="og:title" content="${activity.title} | Plan Sri Lanka" />
     <meta property="og:description" content="${activity.description}" />
     <meta property="og:image" content="${activity.image}" />
-    <meta property="og:url" content="https://plan-srilanka.com${url}" />
-    <meta property="og:type" content="website" />
+    <meta property="og:image:secure_url" content="${activity.image}" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Plan Sri Lanka" />
+
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@PlanSriLanka" />
+    <meta name="twitter:url" content="https://plan-srilanka.com${url}" />
     <meta name="twitter:title" content="${activity.title} | Plan Sri Lanka" />
     <meta name="twitter:description" content="${activity.description}" />
     <meta name="twitter:image" content="${activity.image}" />
-    <meta name="twitter:creator" content="@PlanSriLanka" />`;
+    <meta name="twitter:site" content="@PlanSriLanka" />`;
 
           // Safer replacement: remove existing similar tags specifically
           const tagsToRemove = [
             /<title>.*?<\/title>/gi,
-            /<meta\s+name="description"\s+content=".*?"\s*\/?>/gi,
-            /<meta\s+property="og:.*?"\s+content=".*?"\s*\/?>/gi,
-            /<meta\s+name="twitter:.*?"\s+content=".*?"\s*\/?>/gi
+            /<meta\s+(?:name|property)="description"\s+content="[^"]*"\s*\/?>/gi,
+            /<meta\s+(?:name|property)="title"\s+content="[^"]*"\s*\/?>/gi,
+            /<meta\s+property="og:.*?"\s+content="[^"]*"\s*\/?>/gi,
+            /<meta\s+name="twitter:.*?"\s+content="[^"]*"\s*\/?>/gi
           ];
 
           tagsToRemove.forEach(regex => {
