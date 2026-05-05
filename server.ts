@@ -3,7 +3,7 @@ import { createServer as createViteServer } from "vite";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { activities } from "./src/data/activities.js";
+import { activities } from "./src/data/activities";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -40,56 +40,67 @@ async function startServer() {
         template = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8");
       }
 
-      // Metadata Injection Logic for Experience Pages
+      // Metadata Injection Logic
       const experienceMatch = url.match(/\/experience\/([^/?#]+)/);
+      let title = "Plan Sri Lanka | Curated Luxury Travel";
+      let description = "Bespoke luxury journeys through the teardrop of the Indian Ocean. Unrivalled service for the discerning traveller.";
+      let image = "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630";
+      const absoluteUrl = `https://plan-srilanka.com${url === '/' ? '' : url}`;
+
       if (experienceMatch) {
         const slug = experienceMatch[1];
         const activity = activities.find(a => a.slug === slug);
-
         if (activity) {
-          const metaTags = `
+          title = `${activity.title} | Plan Sri Lanka`;
+          description = activity.description;
+          image = activity.image;
+        }
+      }
+
+      const metaTags = `
     <!-- Primary Meta Tags -->
-    <title>${activity.title} | Plan Sri Lanka</title>
-    <meta name="title" content="${activity.title} | Plan Sri Lanka" />
-    <meta name="description" content="${activity.description}" />
+    <title>${title}</title>
+    <meta name="title" content="${title}" />
+    <meta name="description" content="${description}" />
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://plan-srilanka.com${url}" />
-    <meta property="og:title" content="${activity.title} | Plan Sri Lanka" />
-    <meta property="og:description" content="${activity.description}" />
-    <meta property="og:image" content="${activity.image}" />
-    <meta property="og:image:secure_url" content="${activity.image}" />
+    <meta property="og:url" content="${absoluteUrl}" />
+    <meta property="og:title" content="${title}" />
+    <meta property="og:description" content="${description}" />
+    <meta property="og:image" content="${image}" />
+    <meta property="og:image:secure_url" content="${image}" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="${title}" />
     <meta property="og:site_name" content="Plan Sri Lanka" />
+    <meta property="og:locale" content="en_GB" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://plan-srilanka.com${url}" />
-    <meta name="twitter:title" content="${activity.title} | Plan Sri Lanka" />
-    <meta name="twitter:description" content="${activity.description}" />
-    <meta name="twitter:image" content="${activity.image}" />
-    <meta name="twitter:site" content="@PlanSriLanka" />`;
+    <meta name="twitter:url" content="${absoluteUrl}" />
+    <meta name="twitter:title" content="${title}" />
+    <meta name="twitter:description" content="${description}" />
+    <meta name="twitter:image" content="${image}" />
+    <meta name="twitter:site" content="@PlanSriLanka" />
+    <meta name="twitter:creator" content="@PlanSriLanka" />`;
 
-          // Safer replacement: remove existing similar tags specifically
-          const tagsToRemove = [
-            /<title>.*?<\/title>/gi,
-            /<meta\s+(?:name|property)="description"\s+content="[^"]*"\s*\/?>/gi,
-            /<meta\s+(?:name|property)="title"\s+content="[^"]*"\s*\/?>/gi,
-            /<meta\s+property="og:.*?"\s+content="[^"]*"\s*\/?>/gi,
-            /<meta\s+name="twitter:.*?"\s+content="[^"]*"\s*\/?>/gi
-          ];
+      // Safer replacement: remove existing similar tags specifically
+      const tagsToRemove = [
+        /<title>.*?<\/title>/gi,
+        /<meta\s+(?:name|property)="description"\s+content="[^"]*"\s*\/?>/gi,
+        /<meta\s+(?:name|property)="title"\s+content="[^"]*"\s*\/?>/gi,
+        /<meta\s+property="og:.*?"\s+content="[^"]*"\s*\/?>/gi,
+        /<meta\s+name="twitter:.*?"\s+content="[^"]*"\s*\/?>/gi
+      ];
 
-          tagsToRemove.forEach(regex => {
-            template = template.replace(regex, "");
-          });
-          
-          // Insert new ones before </head>
-          template = template.replace(/<\/head>/i, `${metaTags}\n  </head>`);
-        }
-      }
+      tagsToRemove.forEach(regex => {
+        template = template.replace(regex, "");
+      });
+      
+      // Insert new ones before </head>
+      template = template.replace(/<\/head>/i, `${metaTags}\n  </head>`);
 
       res.status(200).set({ "Content-Type": "text/html" }).end(template);
     } catch (e) {
