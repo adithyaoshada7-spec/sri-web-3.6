@@ -14,10 +14,12 @@ import {
   Coffee,
   Sun,
   MessageCircle,
-  Share2
+  Share2,
+  Mail
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams, Link, Routes, Route, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 // Add global checkout for GA tracking
 declare global {
@@ -107,7 +109,7 @@ const ExperienceDetail = () => {
     );
   }
 
-  const handleShare = (platform?: 'x' | 'fb') => {
+  const handleShare = (platform?: 'x' | 'fb' | 'wa' | 'mail') => {
     const shareText = `Discover ${selectedActivity.title} with Plan Sri Lanka — Pure luxury in the heart of the Indian Ocean.`;
     const shareUrl = window.location.href;
 
@@ -128,6 +130,12 @@ const ExperienceDetail = () => {
     } else if (platform === 'fb') {
       const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
       window.open(fbUrl, '_blank');
+    } else if (platform === 'wa') {
+      const waUrl = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`;
+      window.open(waUrl, '_blank');
+    } else if (platform === 'mail') {
+      const mailUrl = `mailto:?subject=${encodeURIComponent(selectedActivity.title)}&body=${encodeURIComponent(shareText + '\n\n' + shareUrl)}`;
+      window.open(mailUrl, '_blank');
     } else {
       // Default fallback if choice not specified and navigator.share fails
       const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
@@ -144,6 +152,18 @@ const ExperienceDetail = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="pt-24 md:pt-32 bg-luxury-cream min-h-screen"
     >
+      <Helmet>
+        <title>{selectedActivity.title} | Plan Sri Lanka</title>
+        <meta name="description" content={selectedActivity.description} />
+        <meta property="og:title" content={`${selectedActivity.title} | Plan Sri Lanka`} />
+        <meta property="og:description" content={selectedActivity.description} />
+        <meta property="og:image" content={selectedActivity.image} />
+        <meta property="og:url" content={window.location.href} />
+        <meta name="twitter:title" content={selectedActivity.title} />
+        <meta name="twitter:description" content={selectedActivity.description} />
+        <meta name="twitter:image" content={selectedActivity.image} />
+      </Helmet>
+
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center mb-8 md:mb-12">
           <button 
@@ -154,7 +174,7 @@ const ExperienceDetail = () => {
           </button>
           
           <div className="flex items-center gap-6">
-            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-luxury-black/30 hidden sm:block">Share to:</span>
+            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-luxury-black/30 hidden sm:block">Share:</span>
             <div className="flex items-center gap-4">
               <button 
                 onClick={() => handleShare('x')}
@@ -169,6 +189,20 @@ const ExperienceDetail = () => {
                 title="Share on Facebook"
               >
                 <Facebook className="w-4 h-4" />
+              </button>
+              <button 
+                onClick={() => handleShare('wa')}
+                className="p-2 text-luxury-gold hover:text-luxury-green transition-colors"
+                title="Share on WhatsApp"
+              >
+                <MessageCircle className="w-4 h-4" />
+              </button>
+              <button 
+                onClick={() => handleShare('mail')}
+                className="p-2 text-luxury-gold hover:text-luxury-green transition-colors"
+                title="Share via Email"
+              >
+                <Mail className="w-4 h-4" />
               </button>
               <button 
                 onClick={() => handleShare()}
