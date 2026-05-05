@@ -13,7 +13,8 @@ import {
   Star,
   Coffee,
   Sun,
-  MessageCircle
+  MessageCircle,
+  Share2
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams, Link, Routes, Route, useLocation } from "react-router-dom";
@@ -77,6 +78,15 @@ const ExperienceDetail = () => {
   const navigate = useNavigate();
   const selectedActivity = activities.find(a => a.slug === slug);
 
+  useEffect(() => {
+    if (selectedActivity) {
+      document.title = `${selectedActivity.title} | Plan Sri Lanka`;
+    }
+    return () => {
+      document.title = 'Plan Sri Lanka | Curated Luxury Travel';
+    };
+  }, [selectedActivity]);
+
   if (!selectedActivity) {
     return (
       <motion.div
@@ -97,6 +107,19 @@ const ExperienceDetail = () => {
     );
   }
 
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: selectedActivity.title,
+        text: selectedActivity.description,
+        url: window.location.href,
+      }).catch(console.error);
+    } else {
+      const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+      window.open(fbUrl, '_blank');
+    }
+  };
+
   return (
     <motion.div
       key="detail"
@@ -107,12 +130,21 @@ const ExperienceDetail = () => {
       className="pt-24 md:pt-32 bg-luxury-cream min-h-screen"
     >
       <div className="max-w-7xl mx-auto px-6">
-        <button 
-          onClick={() => navigate('/')}
-          className="group flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] font-bold text-luxury-black/40 mb-8 md:mb-12 hover:text-luxury-gold transition-colors"
-        >
-          <ArrowRight className="w-4 h-4 rotate-180" /> Back to Portfolio
-        </button>
+        <div className="flex justify-between items-center mb-8 md:mb-12">
+          <button 
+            onClick={() => navigate('/')}
+            className="group flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] font-bold text-luxury-black/40 hover:text-luxury-gold transition-colors"
+          >
+            <ArrowRight className="w-4 h-4 rotate-180" /> Back to Portfolio
+          </button>
+          
+          <button 
+            onClick={handleShare}
+            className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] font-bold text-luxury-gold hover:text-luxury-green transition-colors"
+          >
+            Share Experience <Share2 className="w-4 h-4" />
+          </button>
+        </div>
         
         <div className="grid lg:grid-cols-2 gap-12 md:gap-20">
           <motion.div
