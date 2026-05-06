@@ -41,7 +41,7 @@ export const activities: Activity[] = [
     location: "Colombo Marina",
     description: "Escape the city for a 3-hour Colombo sailing cruise. Experience stunning skyline views, golden-hour swimming, and paddle boarding.",
     longDescription: "Escape the city for a 3-hour Colombo sailing cruise. Depart from the Marina at 4:00 PM to enjoy stunning skyline views, welcome drinks, and snacks. Dive into the sea for a swim or try stand-up paddle boarding at the Port City beach before returning at 7:00 PM. Perfect for families!",
-    image: "https://cdn-idgij.nitrocdn.com/PYIkwxaiDQkwbmZMkHODMuuEAfVTLOht/assets/images/optimized/rev-412ad82/www.sail-lanka-charter.com/wp-content/uploads/2023/02/IMG_11577a-1024x635.jpg",
+    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1",
     iconName: "Wind",
     features: ["Skyline Views at Sunset", "Swimming & Paddle Boarding", "Welcome Drinks & Snacks", "Family-Friendly Charter"],
     stats: { duration: "3 Hours", exclusivity: "Private", season: "Year Round" },

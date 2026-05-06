@@ -246,7 +246,7 @@ const ExperienceDetail = () => {
               <img 
                 src={selectedActivity.image} 
                 alt={selectedActivity.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2000ms] ease-out"
                 referrerPolicy="no-referrer"
               />
             </div>
