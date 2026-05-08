@@ -45,7 +45,9 @@ async function startServer() {
       let title = "Plan Sri Lanka | Curated Luxury Travel";
       let description = "Bespoke luxury journeys through the teardrop of the Indian Ocean. Unrivalled service for the discerning traveller.";
       let image = "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630";
-      const absoluteUrl = `https://plan-srilanka.com${url === '/' ? '' : url}`;
+      const domain = "https://plan-srilanka.com";
+      const urlPath = url === '/' ? '' : url;
+      const absoluteUrl = `${domain}${urlPath}`;
 
       if (experienceMatch) {
         const slug = experienceMatch[1];
@@ -62,6 +64,7 @@ async function startServer() {
     <title>${title}</title>
     <meta name="title" content="${title}" />
     <meta name="description" content="${description}" />
+    <link rel="canonical" href="${absoluteUrl}" />
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
@@ -92,7 +95,8 @@ async function startServer() {
         /<meta\s+(?:name|property)="description"\s+content="[^"]*"\s*\/?>/gi,
         /<meta\s+(?:name|property)="title"\s+content="[^"]*"\s*\/?>/gi,
         /<meta\s+property="og:.*?"\s+content="[^"]*"\s*\/?>/gi,
-        /<meta\s+name="twitter:.*?"\s+content="[^"]*"\s*\/?>/gi
+        /<meta\s+name="twitter:.*?"\s+content="[^"]*"\s*\/?>/gi,
+        /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/gi
       ];
 
       tagsToRemove.forEach(regex => {
