@@ -43,7 +43,7 @@ export const activities: Activity[] = [
   },
   {
     id: "safari",
-    slug: "colombo-sailing-cruise",
+    slug: "italian-vibe-tour",
     title: "Plan Your Italian Vibe Tour In Sri Lanka",
     location: "Colombo Marina",
     description: "Escape the city for a 3-hour Colombo sailing cruise. Experience stunning skyline views, golden-hour swimming, and paddle boarding.",
