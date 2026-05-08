@@ -196,9 +196,30 @@ const ExperienceDetail = () => {
             transition={{ delay: 0.3 }}
           >
             <span className="text-luxury-gold font-serif italic text-lg md:text-xl mb-3 md:mb-4 block">{selectedActivity.location}</span>
-            <h1 className="text-4xl md:text-7xl font-serif text-luxury-green mb-6 md:mb-8 leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)' }}>
-              {selectedActivity.title}
+            <h1 className="text-4xl md:text-7xl font-serif text-luxury-green mb-4 md:mb-6 leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)' }}>
+              {selectedActivity.title.includes("Italian") ? (
+                <>
+                  {selectedActivity.title.split("Italian")[0]}
+                  <span className="font-bold italic whitespace-nowrap">Italian</span>
+                  {selectedActivity.title.split("Italian")[1]}
+                </>
+              ) : (
+                selectedActivity.title
+              )}
             </h1>
+            {selectedActivity.subheading && (
+              <p className="text-xl md:text-2xl font-serif italic mb-6 md:mb-8 text-luxury-gold">
+                {selectedActivity.subheading.includes("Italian") ? (
+                  <>
+                    {selectedActivity.subheading.split("Italian")[0]}
+                    <span className="font-bold italic whitespace-nowrap">Italian</span>
+                    {selectedActivity.subheading.split("Italian")[1]}
+                  </>
+                ) : (
+                  selectedActivity.subheading
+                )}
+              </p>
+            )}
             
             <div className="flex gap-8 md:gap-12 mb-8 md:mb-12 border-y border-luxury-black/5 py-6 md:py-8 overflow-x-auto no-scrollbar">
               {selectedActivity.stats && Object.entries(selectedActivity.stats).map(([label, value]) => (
@@ -209,9 +230,43 @@ const ExperienceDetail = () => {
               ))}
             </div>
 
-            <div className="prose prose-luxury lg:max-max-w-none text-luxury-black/70 font-light text-base md:text-lg leading-relaxed space-y-6">
-              <p>{selectedActivity.longDescription}</p>
+            <div className="mt-10 max-w-3xl">
+              <p className="font-sans text-base md:text-lg text-luxury-black/80 leading-relaxed border-l-2 border-luxury-gold/30 pl-6 md:pl-8 py-2">
+                {selectedActivity.longDescription}
+              </p>
             </div>
+
+            {selectedActivity.gallery && (
+              <div className="mt-12 md:mt-16">
+                <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-luxury-black/30 mb-6 block">
+                  The <span className="font-bold italic">Italian</span> Vibe Gallery.
+                </span>
+                <div className="grid grid-cols-3 gap-3 md:gap-4">
+                  {selectedActivity.gallery.slice(0, 3).map((img, idx) => (
+                    <motion.div 
+                      key={idx}
+                      whileHover={{ y: -5 }}
+                      className="aspect-square rounded-xl overflow-hidden shadow-sm border border-luxury-black/5"
+                    >
+                      <img 
+                        src={img} 
+                        alt={`Gallery ${idx + 1}`} 
+                        className="w-full h-full object-cover" 
+                        referrerPolicy="no-referrer"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="mt-4 flex justify-between items-center">
+                  <p className="text-[10px] text-luxury-black/40 italic">Captured by our guests</p>
+                  <label className="text-[10px] uppercase tracking-widest font-bold text-luxury-gold cursor-pointer hover:text-luxury-green transition-colors flex items-center gap-2">
+                    <Share2 className="w-3 h-3" />
+                    <span>Upload your memories</span>
+                    <input type="file" className="hidden" accept="image/*" multiple />
+                  </label>
+                </div>
+              </div>
+            )}
 
             <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
               {selectedActivity.features.map((feature, i) => (
@@ -223,6 +278,7 @@ const ExperienceDetail = () => {
             </div>
 
             <div className="mt-12 md:mt-16 flex flex-col items-center">
+              <h3 className="text-2xl md:text-3xl font-serif text-luxury-green mb-8 italic text-center">"I Want Plan My Trip"</h3>
               <a 
                 href="https://wa.me/94722968210"
                 target="_blank"
@@ -231,7 +287,7 @@ const ExperienceDetail = () => {
                 className="w-full flex items-center justify-center gap-3 py-5 md:py-6 bg-luxury-green text-white rounded-full font-serif text-lg md:text-xl hover:bg-luxury-gold transition-all duration-500 shadow-xl hover:shadow-luxury-gold/20"
               >
                 <MessageCircle className="w-5 h-5 md:w-6 md:h-6" />
-                <span>WhatsApp Concierge</span>
+                <span>Get My <span className="font-bold italic px-1 whitespace-nowrap">Italian</span> Vibe Tour.</span>
               </a>
             </div>
           </motion.div>
@@ -346,6 +402,15 @@ export default function App() {
 
   return (
     <div className="min-h-screen selection:bg-luxury-gold/30">
+      {/* Sri Lankan Heritage Accent Line */}
+      <div className="fixed top-0 left-0 w-full z-[100] h-1.5 pointer-events-none">
+        <div className="w-full h-full flex">
+          <div className="h-full w-[10%] bg-[#006233]" title="Green" />
+          <div className="h-full w-[10%] bg-[#FFBE29]" title="Orange" />
+          <div className="h-full flex-grow bg-[#8D153B]" title="Maroon" />
+        </div>
+      </div>
+      
       {/* Navigation */}
       <nav className="fixed top-0 left-0 w-full z-50 px-4 md:px-6 py-6 md:py-8 flex justify-between items-center bg-transparent mix-blend-difference text-white">
         <Link 
@@ -511,7 +576,30 @@ export default function App() {
                           </div>
                           <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-luxury-black/40 font-bold">Limited Availability</span>
                         </div>
-                        <h3 className="text-xl md:text-2xl font-serif text-luxury-green mb-3 md:mb-4 group-hover:text-luxury-gold transition-colors">{item.title}</h3>
+                        <h3 className="text-xl md:text-2xl font-serif text-luxury-green mb-2 md:mb-3 group-hover:text-luxury-gold transition-colors">
+                          {item.title.includes("Italian") ? (
+                            <>
+                              {item.title.split("Italian")[0]}
+                              <span className="font-bold italic whitespace-nowrap">Italian</span>
+                              {item.title.split("Italian")[1]}
+                            </>
+                          ) : (
+                            item.title
+                          )}
+                        </h3>
+                        {item.subheading && (
+                          <p className="text-sm md:text-base font-serif italic mb-3 md:mb-4 text-luxury-gold">
+                            {item.subheading.includes("Italian") ? (
+                              <>
+                                {item.subheading.split("Italian")[0]}
+                                <span className="font-bold italic whitespace-nowrap">Italian</span>
+                                {item.subheading.split("Italian")[1]}
+                              </>
+                            ) : (
+                              item.subheading
+                            )}
+                          </p>
+                        )}
                         <p className="text-luxury-black/60 text-xs md:text-sm leading-relaxed mb-6 md:mb-8 flex-grow">
                           {item.description}
                         </p>
@@ -571,6 +659,7 @@ export default function App() {
             <p className="text-luxury-black/60 text-base md:text-lg mb-10 md:mb-12 max-w-2xl mx-auto px-4">
               We will handle your tour.
             </p>
+            <h3 className="text-2xl md:text-4xl font-serif text-luxury-green mb-8 italic">"I Want Plan My Trip"</h3>
             <div className="flex flex-col items-center justify-center px-4">
               <motion.a 
                 href="https://wa.me/94722968210"
@@ -583,7 +672,9 @@ export default function App() {
               >
                 <div className="absolute inset-0 bg-luxury-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out -z-10" />
                 <MessageCircle className="w-6 h-6 md:w-8 md:h-8 group-hover:text-white transition-colors" />
-                <span className="tracking-tight group-hover:text-white transition-colors">Start Your Private Inquiry</span>
+                <span className="tracking-tight group-hover:text-white transition-colors uppercase tracking-widest text-xs">
+                  Get My <span className="font-bold italic px-1 whitespace-nowrap">Italian</span> Vibe Tour.
+                </span>
                 <div className="absolute -right-4 -top-4 w-12 h-12 bg-white/10 rounded-full blur-2xl group-hover:bg-luxury-gold/30 transition-all" />
               </motion.a>
               <p className="mt-8 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.3em] text-luxury-black/30">

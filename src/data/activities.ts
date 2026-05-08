@@ -8,6 +8,8 @@ export interface Activity {
   image: string;
   iconName: string;
   features: string[];
+  subheading?: string;
+  gallery?: string[];
   stats: Record<string, string>;
   testimonial: {
     quote: string;
@@ -27,6 +29,11 @@ export const activities: Activity[] = [
     image: "https://static.goto-where.com/6279-albums-8.jpg",
     iconName: "Compass",
     features: ["Artisanal Wood-Fired Pizza", "Signature Cocktails", "Direct Beachfront Access", "Sunset Gastronomy"],
+    gallery: [
+      "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1510629954389-c1e0da47d4ec?auto=format&fit=crop&q=80&w=600"
+    ],
     stats: { duration: "Evening", exclusivity: "Vibrant", season: "Year Round" },
     testimonial: {
       quote: "The best gold-hour spot on the south coast. The cocktail list is as impressive as the view.",
@@ -37,14 +44,20 @@ export const activities: Activity[] = [
   {
     id: "safari",
     slug: "colombo-sailing-cruise",
-    title: "Family Sailing Cruise: Colombo Skyline",
+    title: "Plan Your Italian Vibe Tour In Sri Lanka",
     location: "Colombo Marina",
     description: "Escape the city for a 3-hour Colombo sailing cruise. Experience stunning skyline views, golden-hour swimming, and paddle boarding.",
-    longDescription: "Escape the city for a 3-hour Colombo sailing cruise. Depart from the Marina at 4:00 PM to enjoy stunning skyline views, welcome drinks, and snacks. Dive into the sea for a swim or try stand-up paddle boarding at the Port City beach before returning at 7:00 PM. Perfect for families!",
+    longDescription: "Unforgettable Italian Vibe Tour where coastal beauty, stylish experiences, music, food, and relaxed luxury come together. Designed for travelers who want more than just a trip, this tour creates moments full of culture, connection, celebration, and unforgettable memories inspired by the charm and energy of the Italian lifestyle.",
     image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1",
     iconName: "Wind",
+    subheading: "Feel Italian vibe in Sri Lanka",
     features: ["Skyline Views at Sunset", "Swimming & Paddle Boarding", "Welcome Drinks & Snacks", "Family-Friendly Charter"],
-    stats: { duration: "3 Hours", exclusivity: "Private", season: "Year Round" },
+    gallery: [
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/55/fe/a0/beautiful-atmosphere.jpg?w=500&h=-1&s=1",
+      "https://tse1.mm.bing.net/th/id/OIP.D8NDdYZcaIEfS9pL_G5mdgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://www.holidify.com/images/cmsuploads/compressed/271276120_20220516234537.jpg"
+    ],
+    stats: { duration: "Customizable", exclusivity: "Private", season: "Year Round" },
     testimonial: {
       quote: "I escaped the city's noise for a cozy cruise over the Colombo seas with my family. I saw the beautiful, evolving skyline at sunset.",
       author: "The Silva Family",
