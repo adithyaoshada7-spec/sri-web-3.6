@@ -22,6 +22,8 @@
     <meta name="twitter:description" content="Bespoke luxury journeys through the teardrop of the Indian Ocean. Unrivalled service for the discerning traveller." />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200" />
 
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=2000" />
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-603R9V6R5B"></script>
     <script>
@@ -38,10 +40,17 @@
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "wlumsz9q0i");
     </script>
+    <style>
+      /* Critical CSS for above-the-fold content */
+      :root { --luxury-green: #00302b; --luxury-cream: #f9f6f0; }
+      body { margin: 0; background-color: var(--luxury-cream); }
+      #root { min-height: 100vh; }
+      .hero-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)); }
+    </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" defer src="/src/main.tsx"></script>
   </body>
 </html>
 
