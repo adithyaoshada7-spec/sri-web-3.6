@@ -126,23 +126,6 @@ const ExperienceDetail = () => {
             </div>
             Back to Collection
           </motion.button>
-          
-          <div className="flex items-center gap-2">
-            {[
-              { icon: <Twitter className="w-4 h-4" />, p: 'x' },
-              { icon: <Facebook className="w-4 h-4" />, p: 'fb' },
-              { icon: <MessageCircle className="w-4 h-4" />, p: 'wa' }
-            ].map((btn, i) => (
-              <motion.button 
-                key={i}
-                whileHover={{ scale: 1.1, color: "#C5A059" }}
-                onClick={() => handleShare(btn.p as any)}
-                className="p-3 bg-white/5 rounded-full backdrop-blur-sm border border-white/10 hover:border-luxury-gold transition-all"
-              >
-                {btn.icon}
-              </motion.button>
-            ))}
-          </div>
         </nav>
 
         {/* Hero Content Area */}
@@ -173,7 +156,7 @@ const ExperienceDetail = () => {
 
               <div className="grid md:grid-cols-2 gap-12 items-end">
                 <div>
-                  <p className="text-xl md:text-3xl text-white/80 font-serif italic leading-relaxed mb-10 max-w-2xl">
+                  <p className="text-2xl md:text-3xl text-white font-serif italic leading-relaxed mb-10 max-w-2xl tracking-tight">
                     {selectedActivity.description}
                   </p>
                   
@@ -352,37 +335,6 @@ const ExperienceDetail = () => {
           </div>
         )}
 
-        {/* Related Paths */}
-        <div className="mt-40 pt-32 border-t border-luxury-black/5">
-          <h3 className="text-4xl font-serif text-luxury-green mb-16 text-center italic">Other Extraordinary Journeys</h3>
-          <div className="grid md:grid-cols-2 gap-10">
-            {activities.filter(a => a.slug !== slug).map(other => (
-              <motion.div 
-                key={other.id}
-                whileHover={{ y: -10 }}
-                onClick={() => navigate(`/experience/${other.slug}`)}
-                className="group flex flex-col md:flex-row gap-10 p-10 bg-white rounded-[40px] border border-luxury-black/5 cursor-pointer shadow-sm hover:shadow-2xl transition-all"
-              >
-                <div className="w-full md:w-40 h-40 rounded-3xl overflow-hidden flex-shrink-0">
-                  <img src={other.image} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
-                </div>
-                <div className="flex flex-col justify-center">
-                  <h4 className="font-serif text-3xl text-luxury-green group-hover:text-luxury-gold mb-3 transition-colors">{other.title}</h4>
-                  <div className="flex items-center gap-3">
-                    <span className="text-luxury-black/40 text-[10px] uppercase tracking-[0.2em]">{other.location}</span>
-                    <div className="w-4 h-[1px] bg-luxury-gold/30" />
-                    <span className="text-luxury-gold text-[10px] uppercase tracking-[0.2em] font-bold">Discover Path</span>
-                  </div>
-                </div>
-                <div className="ml-auto hidden md:flex items-center">
-                  <div className="w-12 h-12 rounded-full border border-luxury-black/5 flex items-center justify-center group-hover:bg-luxury-gold group-hover:text-white transition-all">
-                    <ArrowRight className="w-5 h-5" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </div>
     </motion.div>
   );

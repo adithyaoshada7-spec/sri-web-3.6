@@ -6,10 +6,10 @@ export const FeatureSection = () => (
     <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
         {[
-          { icon: <Star />, title: "Private Jets", desc: "Arrive in style with our seamless private aviation partnerships." },
-          { icon: <MapPin />, title: "Secret Paths", desc: "Access ancient temples and gardens closed to the general public." },
-          { icon: <Wind />, title: "Wellness First", desc: "Private Ayurvedic masters curated for your physical restoration." },
-          { icon: <Palmtree />, title: "Estate Buyouts", desc: "Complete exclusivity with full estate takeovers for your party." },
+          { icon: <Star />, title: "Aperitivo at Sea", desc: "Savor a glass of prosecco as the sun dips below the horizon." },
+          { icon: <MapPin />, title: "Sunset Skyline", desc: "Navigate the Colombo coast with unrivaled views of the evolving city." },
+          { icon: <Wind />, title: "Pure Serenity", desc: "Golden-hour swimming and paddle boarding in the tranquil ocean." },
+          { icon: <Palmtree />, title: "Private Charter", desc: "The entire vessel is yours—complete exclusivity for up to 12 guests." },
         ].map((feature, i) => (
           <motion.div 
             key={i}

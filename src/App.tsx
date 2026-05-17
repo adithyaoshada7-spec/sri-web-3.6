@@ -28,9 +28,6 @@ const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
 
-// A/B Treatment Logic: Pipeline Flow vs Standard
-type Variant = 'A' | 'B';
-
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
   Compass: <Compass className="w-5 h-5" />,
@@ -44,20 +41,6 @@ export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [variant, setVariant] = useState<Variant | null>(null);
-
-  // Initialize A/B Test
-  useEffect(() => {
-    let savedVariant = localStorage.getItem('ab_test_variant') as Variant | null;
-    if (!savedVariant) {
-      savedVariant = Math.random() > 0.5 ? 'B' : 'A';
-      localStorage.setItem('ab_test_variant', savedVariant);
-    }
-    setVariant(savedVariant);
-    
-    // Send assignment event to Clarity and GA
-    trackEvent('Pipeline_Structure_Test', 'ab_test', savedVariant);
-  }, []);
 
   // Scroll to top on location change
   useEffect(() => {
@@ -82,8 +65,8 @@ export default function App() {
     <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-black/40 z-10" />
       <img 
-        src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=2000"
-        alt="Sri Lanka Highlands"
+        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1"
+        alt="Italian Vibe Tour"
         className="absolute inset-0 w-full h-full object-cover scale-105"
         referrerPolicy="no-referrer"
         {...{ fetchPriority: "high" } as any}
@@ -168,12 +151,9 @@ export default function App() {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h2 className="text-4xl md:text-5xl font-serif text-luxury-green">Chosen Experiences</h2>
-            <p className="mt-4 text-luxury-black/50 tracking-wide uppercase text-[10px] md:text-xs">Hand-picked for our limited clientele</p>
+            <h2 className="text-4xl md:text-5xl font-serif text-luxury-green tracking-tight">The Signature Experience</h2>
+            <p className="mt-4 text-luxury-black/50 tracking-[0.3em] uppercase text-[10px] md:text-xs font-bold">Unrivalled Luxury • One Private Charter</p>
           </motion.div>
-          <button className="group flex items-center gap-3 text-[10px] md:text-sm font-medium tracking-widest uppercase text-luxury-gold w-fit">
-            Explore Portfolio <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
         </div>
 
         <motion.div 
@@ -181,9 +161,9 @@ export default function App() {
           initial="initial"
           viewport={{ once: true }}
           variants={staggerContainer}
-          className="grid md:grid-cols-3 gap-6 md:gap-8"
+          className="grid grid-cols-1 gap-12"
         >
-          {activities.map((item) => (
+          {activities.filter(a => a.slug === 'italian-vibe-tour').map((item) => (
             <motion.div 
               key={item.id}
               variants={fadeUp}
@@ -191,53 +171,46 @@ export default function App() {
                 trackEvent('select_content', 'portfolio', item.title);
                 navigate(`/experience/${item.slug}`);
               }}
-              className="group relative flex flex-col h-full bg-luxury-cream rounded-2xl overflow-hidden border border-luxury-black/5 cursor-pointer"
+              className="group relative flex flex-col md:flex-row h-full bg-luxury-cream rounded-[40px] overflow-hidden border border-luxury-black/5 cursor-pointer col-span-full shadow-2xl"
             >
-              <div className="aspect-[4/5] overflow-hidden">
+              <div className="md:w-1/2 aspect-[4/3] md:aspect-auto overflow-hidden">
                 <img 
                   src={item.image} 
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3000ms]"
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
               </div>
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="text-luxury-gold p-2 bg-white rounded-full shadow-sm">
+              <div className="md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="text-luxury-gold p-3 bg-white rounded-full shadow-sm">
                     {IconMap[item.iconName] || <Star className="w-5 h-5" />}
                   </div>
-                  <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-luxury-black/40 font-bold">Limited Availability</span>
+                  <span className="text-[11px] uppercase tracking-[0.4em] text-luxury-black/40 font-bold">Limited Signature Collection</span>
                 </div>
-                <h3 className="text-xl md:text-2xl font-serif text-luxury-green mb-2 md:mb-3 group-hover:text-luxury-gold transition-colors">
+                <h3 className="text-4xl md:text-7xl font-serif text-luxury-green mb-6 leading-tight group-hover:text-luxury-gold transition-colors">
                   {item.title.includes("Italian") ? (
                     <>
                       {item.title.split("Italian")[0]}
-                      <span className="font-bold italic whitespace-nowrap">Italian</span>
+                      <span className="font-bold italic">Italian</span>
                       {item.title.split("Italian")[1]}
                     </>
-                  ) : (
-                    item.title
-                  )}
+                  ) : item.title}
                 </h3>
-                {item.subheading && (
-                  <p className="text-sm md:text-base font-serif italic mb-3 md:mb-4 text-luxury-gold">
-                    {item.subheading.includes("Italian") ? (
-                      <>
-                        {item.subheading.split("Italian")[0]}
-                        <span className="font-bold italic whitespace-nowrap">Italian</span>
-                        {item.subheading.split("Italian")[1]}
-                      </>
-                    ) : (
-                      item.subheading
-                    )}
-                  </p>
-                )}
-                <p className="text-luxury-black/60 text-xs md:text-sm leading-relaxed mb-6 md:mb-8 flex-grow">
-                  {item.description}
+                <p className="text-xl md:text-2xl font-serif italic mb-8 text-luxury-gold leading-relaxed">
+                  {item.subheading}
                 </p>
-                <button className="w-full py-4 border border-luxury-green/10 rounded-xl text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-luxury-green hover:text-white transition-all flex items-center justify-center gap-2">
-                  View Details <ArrowRight className="w-3 h-3" />
+                <div className="grid grid-cols-2 gap-8 mb-12 border-y border-luxury-black/5 py-8">
+                  {item.stats && Object.entries(item.stats).map(([label, value]) => (
+                    <div key={label}>
+                      <span className="text-[10px] uppercase tracking-widest text-luxury-black/30 font-bold block mb-2">{label}</span>
+                      <span className="font-serif text-xl text-luxury-green italic">{value as string}</span>
+                    </div>
+                  ))}
+                </div>
+                <button className="w-full md:w-fit px-12 py-6 bg-luxury-green text-white rounded-full text-sm font-bold uppercase tracking-[0.3em] hover:bg-luxury-gold hover:shadow-xl transition-all flex items-center justify-center gap-4">
+                  Step Inside The Experience <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
             </motion.div>
@@ -257,10 +230,9 @@ export default function App() {
           variants={fadeUp}
         >
           <span className="text-luxury-gold font-serif italic mb-4 block">Limited Time Invitation</span>
-          <h2 className="text-3xl md:text-6xl font-serif text-luxury-green mb-8">Complementary Private Chauffeur</h2>
-          <p className="text-luxury-black/70 mb-12 text-base md:text-lg">
-            Book your <span className="font-bold italic">Italian Vibe Tour In Sri Lanka</span> this month and receive a dedicated English-speaking chauffeur for your entire stay. 
-            Experience absolute freedom with zero logistical friction.
+          <h2 className="text-3xl md:text-6xl font-serif text-luxury-green mb-8">Exclusive Family Discovery</h2>
+          <p className="text-luxury-black/90 mb-12 text-xl md:text-2xl font-serif leading-relaxed tracking-tight">
+            Book your first family tour with us for <span className="font-bold italic text-luxury-gold border-b border-luxury-gold/30 pb-0.5">FREE</span> and discover local travel tips, hidden places, coastal experiences, and personalized recommendations inspired by the Italian vibe.
           </p>
           <div className="p-8 border-2 border-luxury-gold/20 rounded-3xl bg-luxury-cream/30">
             <p className="font-serif italic text-luxury-gold text-xl">"Luxury is not a price, it's a feeling of being understood."</p>
@@ -292,7 +264,7 @@ export default function App() {
         
         <div className="hidden md:flex gap-12 items-center text-[10px] uppercase tracking-[0.3em] font-medium">
           <Link to="/#about" className="hover:text-luxury-gold transition-colors">The Experience</Link>
-          <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">Portfolio</Link>
+          <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">The Tour</Link>
           <a href="#concierge" className="hover:text-luxury-gold transition-colors">Private Concierge</a>
           <a 
             href="https://wa.me/94722968210"
@@ -324,36 +296,16 @@ export default function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Dynamic Rendering Support for A/B Testing */}
-            {variant && (
-              variant === 'B' ? (
-                <>
-                  <Hero />
-                  <About />
-                  <Destinations />
-                  <Suspense fallback={<div className="h-40 bg-luxury-green" />}>
-                    <FeatureSection />
-                  </Suspense>
-                  <OfferSection />
-                  <Suspense fallback={<div className="h-40 bg-luxury-cream" />}>
-                    <CallToAction trackEvent={trackEvent} fadeUp={fadeUp} />
-                  </Suspense>
-                </>
-              ) : (
-                <>
-                  <Hero />
-                  <Suspense fallback={<div className="h-40 bg-luxury-green" />}>
-                    <FeatureSection />
-                  </Suspense>
-                  <Destinations />
-                  <About />
-                  <OfferSection />
-                  <Suspense fallback={<div className="h-40 bg-luxury-cream" />}>
-                    <CallToAction trackEvent={trackEvent} fadeUp={fadeUp} />
-                  </Suspense>
-                </>
-              )
-            )}
+            <Hero />
+            <About />
+            <Destinations />
+            <Suspense fallback={<div className="h-40 bg-luxury-green" />}>
+              <FeatureSection />
+            </Suspense>
+            <OfferSection />
+            <Suspense fallback={<div className="h-40 bg-luxury-cream" />}>
+              <CallToAction trackEvent={trackEvent} fadeUp={fadeUp} />
+            </Suspense>
           </motion.div>
         } />
         
@@ -384,7 +336,7 @@ export default function App() {
         </button>
         <div className="flex flex-col gap-8 text-4xl font-serif italic text-center">
           <a href="#about" onClick={() => setIsMenuOpen(false)}>Experience</a>
-          <a href="#destinations" onClick={() => setIsMenuOpen(false)}>Destinations</a>
+          <a href="#destinations" onClick={() => setIsMenuOpen(false)}>The Tour</a>
           <a href="#concierge" onClick={() => setIsMenuOpen(false)}>Concierge</a>
           <a 
             href="https://wa.me/94722968210" 

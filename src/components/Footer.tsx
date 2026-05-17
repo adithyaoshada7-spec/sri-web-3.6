@@ -6,7 +6,7 @@ export const Footer = () => (
     <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 md:mb-20 text-sm">
         <div className="col-span-1 md:col-span-2">
-          <Link to="/" className="inline-block text-xl font-serif tracking-[0.2em] font-bold text-white mb-6 md:mb-8 hover:text-luxury-gold transition-colors">PLAN SRI LANKA</Link>
+          <Link to="/" className="inline-block text-xl font-serif tracking-[0.2em] font-bold text-white mb-6 md:mb-8 hover:text-luxury-gold transition-colors">ITALIAN VIBE</Link>
           <p className="max-w-xs leading-relaxed text-xs md:text-sm">
             The ultimate travel concierge for the Indian Ocean. Dedicated to preservation, luxury, and the art of travel.
           </p>
