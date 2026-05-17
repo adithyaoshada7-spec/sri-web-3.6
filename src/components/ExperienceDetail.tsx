@@ -148,7 +148,7 @@ const ExperienceDetail = () => {
                       className="w-full sm:w-auto px-10 py-5 bg-luxury-gold text-white rounded-full font-serif text-xl shadow-xl shadow-luxury-gold/20 flex items-center justify-center gap-4 group"
                     >
                       <MessageCircle className="w-6 h-6" />
-                      <span>Book Access</span>
+                      <span>Book My First Tour Free</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </motion.a>
                     
