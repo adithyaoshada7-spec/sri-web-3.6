@@ -121,16 +121,9 @@ const ExperienceDetail = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
+              className="flex flex-col items-center md:items-start text-center md:text-left"
             >
-              <div className="flex items-center gap-4 mb-6">
-                <span className="px-4 py-1.5 bg-luxury-gold/20 backdrop-blur-md rounded-full text-luxury-gold text-xs font-serif italic border border-luxury-gold/30">
-                  {selectedActivity.location}
-                </span>
-                <span className="w-8 h-[1px] bg-white/20" />
-                <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/60">The Exclusive Portfolio</span>
-              </div>
-              
-              <h1 className="text-6xl md:text-[11rem] font-serif text-white mb-8 leading-[0.85] tracking-tighter">
+              <h1 className="text-5xl md:text-[11rem] font-serif text-white mb-8 leading-[0.9] md:leading-[0.85] tracking-tighter">
                 {selectedActivity.title.includes("Italian") ? (
                   <>
                     {selectedActivity.title.split("Italian")[0]}
@@ -140,31 +133,31 @@ const ExperienceDetail = () => {
                 ) : selectedActivity.title}
               </h1>
 
-              <div className="grid md:grid-cols-2 gap-12 items-end">
-                <div>
-                  <p className="text-2xl md:text-3xl text-white font-serif italic leading-relaxed mb-10 max-w-2xl tracking-tight">
+              <div className="grid md:grid-cols-2 gap-12 items-end w-full">
+                <div className="flex flex-col items-center md:items-start">
+                  <p className="text-sm sm:text-base text-white/90 font-sans leading-relaxed mb-10 max-w-2xl px-4 md:px-0">
                     {selectedActivity.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-4">
+                  <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                     <motion.a
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       href="https://wa.me/94722968210"
                       target="_blank"
-                      className="px-10 py-5 bg-luxury-gold text-white rounded-full font-serif text-xl shadow-xl shadow-luxury-gold/20 flex items-center gap-4 group"
+                      className="w-full sm:w-auto px-10 py-5 bg-luxury-gold text-white rounded-full font-serif text-xl shadow-xl shadow-luxury-gold/20 flex items-center justify-center gap-4 group"
                     >
                       <MessageCircle className="w-6 h-6" />
-                      <span>Book Instant Access</span>
+                      <span>Book Access</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </motion.a>
                     
                     <button 
                       onClick={() => setShowAtmosphere(true)}
-                      className="px-10 py-5 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-full font-serif text-xl flex items-center gap-4 hover:bg-white hover:text-black transition-all"
+                      className="w-full sm:w-auto px-10 py-5 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-full font-serif text-xl flex items-center justify-center gap-4 hover:bg-white hover:text-black transition-all"
                     >
                       <Play className="w-6 h-6 fill-current" />
-                      <span>Experience Atmosphere</span>
+                      <span>Atmosphere</span>
                     </button>
                   </div>
                 </div>

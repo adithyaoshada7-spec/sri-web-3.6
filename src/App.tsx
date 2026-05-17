@@ -182,7 +182,7 @@ export default function App() {
                   loading="lazy"
                 />
               </div>
-              <div className="md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+              <div className="md:w-1/2 p-8 md:p-16 flex flex-col justify-center items-center md:items-start text-center md:text-left">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="text-luxury-gold p-3 bg-white rounded-full shadow-sm">
                     {IconMap[item.iconName] || <Star className="w-5 h-5" />}
@@ -201,16 +201,16 @@ export default function App() {
                 <p className="text-xl md:text-2xl font-serif italic mb-8 text-luxury-gold leading-relaxed">
                   {item.subheading}
                 </p>
-                <div className="grid grid-cols-2 gap-8 mb-12 border-y border-luxury-black/5 py-8">
+                <div className="grid grid-cols-2 gap-8 mb-12 border-y border-luxury-black/5 py-8 w-full max-w-xs md:max-w-none">
                   {item.stats && Object.entries(item.stats).map(([label, value]) => (
-                    <div key={label}>
+                    <div key={label} className="flex flex-col items-center md:items-start">
                       <span className="text-[10px] uppercase tracking-widest text-luxury-black/30 font-bold block mb-2">{label}</span>
                       <span className="font-serif text-xl text-luxury-green italic">{value as string}</span>
                     </div>
                   ))}
                 </div>
-                <button className="w-full md:w-fit px-12 py-6 bg-luxury-green text-white rounded-full text-sm font-bold uppercase tracking-[0.3em] hover:bg-luxury-gold hover:shadow-xl transition-all flex items-center justify-center gap-4">
-                  Step Inside The Experience <ArrowRight className="w-5 h-5" />
+                <button className="w-full md:w-fit px-12 py-6 bg-luxury-green text-white rounded-full text-sm font-bold uppercase tracking-[0.3em] hover:bg-luxury-gold hover:shadow-xl transition-all flex items-center justify-center gap-4 group/btn">
+                  Step Inside <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-2 transition-transform" />
                 </button>
               </div>
             </motion.div>
@@ -221,21 +221,36 @@ export default function App() {
   );
 
   const OfferSection = () => (
-    <section className="py-20 md:py-32 bg-white px-6">
+    <section className="py-24 md:py-40 bg-white px-6">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
           whileInView="animate"
           initial="initial"
           viewport={{ once: true }}
           variants={fadeUp}
+          className="flex flex-col items-center"
         >
-          <span className="text-luxury-gold font-serif italic mb-4 block">Limited Time Invitation</span>
-          <h2 className="text-3xl md:text-6xl font-serif text-luxury-green mb-8">Exclusive Family Discovery</h2>
-          <p className="text-luxury-black/90 mb-12 text-xl md:text-2xl font-serif leading-relaxed tracking-tight">
-            Book your first family tour with us for <span className="font-bold italic text-luxury-gold border-b border-luxury-gold/30 pb-0.5">FREE</span> and discover local travel tips, hidden places, coastal experiences, and personalized recommendations inspired by the Italian vibe.
+          <span className="text-luxury-gold font-serif italic mb-6 block text-lg">Limited Time Invitation</span>
+          <h2 className="text-4xl md:text-7xl font-serif text-luxury-green mb-10 leading-[1.1] tracking-tight">Exclusive Family Discovery</h2>
+          <p className="text-luxury-black/80 mb-12 text-[15px] md:text-lg font-sans leading-relaxed max-w-2xl mx-auto px-4">
+            Book your first family tour with us for <span className="font-bold text-luxury-gold border-b border-luxury-gold/30 pb-0.5">FREE</span> and discover local travel tips, hidden places, coastal experiences, and personalized recommendations inspired by the Italian vibe.
           </p>
-          <div className="p-8 border-2 border-luxury-gold/20 rounded-3xl bg-luxury-cream/30">
-            <p className="font-serif italic text-luxury-gold text-xl">"Luxury is not a price, it's a feeling of being understood."</p>
+          
+          <a 
+            href="https://wa.me/94722968210"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent('whatsapp_click', 'conversion', 'offer_section_claim')}
+            className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-luxury-green text-white rounded-full font-bold uppercase tracking-[0.2em] text-xs shadow-xl transition-all hover:bg-luxury-gold hover:scale-105 mb-16"
+          >
+            Claim Your Free Session <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
+
+          <div className="p-8 md:p-12 border border-luxury-gold/20 rounded-[40px] bg-luxury-cream/30 relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-2 h-full bg-luxury-gold/10" />
+            <p className="font-serif italic text-luxury-gold text-xl md:text-2xl leading-relaxed relative z-10">
+              "Luxury is not a price, it's a feeling of being understood."
+            </p>
           </div>
         </motion.div>
       </div>

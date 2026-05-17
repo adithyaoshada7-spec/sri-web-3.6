@@ -25,12 +25,16 @@ export const CallToAction = ({ trackEvent, fadeUp }: CTAProps) => (
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent('whatsapp_click', 'conversion', 'footer_cta')}
-            className="group relative flex items-center justify-center gap-4 px-10 md:px-16 py-6 md:py-8 bg-luxury-green text-white rounded-full font-serif text-lg md:text-2xl shadow-xl transition-all duration-500 overflow-hidden hover:bg-luxury-gold"
+            className="group relative flex flex-col md:flex-row items-center justify-center gap-4 px-10 md:px-16 py-8 md:py-10 bg-luxury-green text-white rounded-full transition-all duration-500 overflow-hidden hover:bg-luxury-gold hover:shadow-2xl hover:scale-[1.02]"
           >
-            <MessageCircle className="w-6 h-6 md:w-8 md:h-8" />
-            <span className="tracking-tight uppercase tracking-widest text-xs">Book Your Tour</span>
+            <div className="flex items-center gap-4">
+              <MessageCircle className="w-6 h-6 md:w-8 md:h-8" />
+              <span className="font-serif text-xl md:text-3xl italic tracking-tight">Begin The Conversation</span>
+            </div>
+            <div className="hidden md:block w-px h-8 bg-white/20 mx-2" />
+            <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-bold opacity-80">Book Your Private Tour</span>
           </a>
-          <p className="mt-8 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.3em] text-luxury-black/30">
+          <p className="mt-8 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.4em] text-luxury-black/30">
             Direct access to our Mayfair desk
           </p>
         </div>
