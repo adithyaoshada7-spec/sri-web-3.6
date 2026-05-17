@@ -98,7 +98,7 @@ const ExperienceDetail = () => {
 
       {/* CINEMATIC HERO (First 15-20%) */}
       <section className="relative h-[95vh] min-h-[700px] overflow-hidden">
-        {/* Background Layer */}
+        {/* Cinematic Background */}
         <motion.div 
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -113,20 +113,6 @@ const ExperienceDetail = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-transparent to-luxury-black/30" />
         </motion.div>
-
-        {/* Global Navigation Overlay */}
-        <nav className="relative z-30 p-6 md:p-10 flex justify-between items-center text-white">
-          <motion.button 
-            whileHover={{ x: -10 }}
-            onClick={() => navigate('/')}
-            className="group flex items-center gap-4 text-[11px] uppercase tracking-[0.4em] font-bold"
-          >
-            <div className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center group-hover:border-luxury-gold transition-colors">
-              <ArrowRight className="w-4 h-4 rotate-180" />
-            </div>
-            Back to Collection
-          </motion.button>
-        </nav>
 
         {/* Hero Content Area */}
         <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 md:p-20 pointer-events-none">

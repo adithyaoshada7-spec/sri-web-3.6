@@ -255,36 +255,58 @@ export default function App() {
       
       {/* Navigation */}
       <nav className="fixed top-0 left-0 w-full z-50 px-4 md:px-6 py-6 md:py-8 flex justify-between items-center bg-transparent mix-blend-difference text-white">
-        <Link 
-          to="/"
-          className="text-lg md:text-xl font-serif tracking-[0.2em] font-bold cursor-pointer"
-        >
-          ITALIAN VIBE
-        </Link>
-        
-        <div className="hidden md:flex gap-12 items-center text-[10px] uppercase tracking-[0.3em] font-medium">
-          <Link to="/#about" className="hover:text-luxury-gold transition-colors">The Experience</Link>
-          <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">The Tour</Link>
-          <a href="#concierge" className="hover:text-luxury-gold transition-colors">Private Concierge</a>
-          <a 
-            href="https://wa.me/94722968210"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => {
-              trackEvent('whatsapp_click', 'engagement', 'header_book_now');
-            }}
-            className="px-6 py-2 bg-luxury-gold text-white rounded-full hover:bg-white hover:text-black transition-all shadow-lg font-bold"
-          >
-            Book Now
-          </a>
+        <div className="w-32"> {/* Spacer/Logo container */}
+          {location.pathname === '/' && (
+            <Link 
+              to="/"
+              className="text-lg md:text-xl font-serif tracking-[0.2em] font-bold cursor-pointer"
+            >
+              ITALIAN VIBE
+            </Link>
+          )}
         </div>
+        
+        <div className="flex items-center gap-6 md:gap-12">
+          <div className="hidden md:flex gap-12 items-center text-[10px] uppercase tracking-[0.3em] font-medium">
+            <Link to="/#about" className="hover:text-luxury-gold transition-colors">The Experience</Link>
+            <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">The Tour</Link>
+            <a href="#concierge" className="hover:text-luxury-gold transition-colors">Private Concierge</a>
+            <a 
+              href="https://wa.me/94722968210"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                trackEvent('whatsapp_click', 'engagement', 'header_book_now');
+              }}
+              className="px-6 py-2 bg-luxury-gold text-white rounded-full hover:bg-white hover:text-black transition-all shadow-lg font-bold"
+            >
+              Book Now
+            </a>
+          </div>
 
-        <button 
-          className="md:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X /> : <Menu />}
-        </button>
+          <div className="flex items-center gap-4">
+            {location.pathname.startsWith('/experience/') && (
+              <motion.button 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                onClick={() => navigate('/')}
+                className="group flex items-center"
+                title="Back to Collection"
+              >
+                <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:border-luxury-gold transition-colors bg-black/20 backdrop-blur-sm">
+                  <ArrowRight className="w-5 h-5 rotate-180" />
+                </div>
+              </motion.button>
+            )}
+
+            <button 
+              className="p-2 hover:text-luxury-gold transition-colors bg-black/20 backdrop-blur-sm rounded-full md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
       </nav>
 
       <Routes>
