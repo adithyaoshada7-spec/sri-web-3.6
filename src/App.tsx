@@ -232,8 +232,14 @@ export default function App() {
         >
           <span className="text-luxury-gold font-serif italic mb-6 block text-lg">Limited Time Invitation</span>
           <h2 className="text-4xl md:text-7xl font-serif text-luxury-green mb-10 leading-[1.1] tracking-tight">Exclusive Family Discovery</h2>
-          <p className="text-luxury-black/80 mb-12 text-[15px] md:text-lg font-sans leading-relaxed max-w-2xl mx-auto px-4">
-            Book your first family tour with us for <span className="font-bold text-luxury-gold border-b border-luxury-gold/30 pb-0.5">FREE</span> and discover local travel tips, hidden places, coastal experiences, and personalized recommendations inspired by the Italian vibe.
+          <p className="text-luxury-black/80 mb-12 text-sm sm:text-base font-sans leading-relaxed max-w-2xl mx-auto px-4">
+            <span className="bg-luxury-gold/10 px-2 py-1 rounded-lg border border-luxury-gold/20 inline-block mb-2 sm:inline">Book your first family tour with us for <span className="font-bold text-luxury-gold">FREE</span></span> and discover local travel tips, hidden places, coastal experiences, and personalized recommendations inspired by the Italian vibe. 
+            <button 
+              onClick={() => document.getElementById('destinations')?.scrollIntoView({ behavior: 'smooth' })}
+              className="ml-1 text-luxury-gold hover:text-luxury-green transition-colors cursor-pointer border-b border-luxury-gold/30 font-medium"
+            >
+              And here are some pictures we capture during the tour
+            </button>
           </p>
           
           <a 

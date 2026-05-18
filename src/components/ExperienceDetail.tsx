@@ -32,7 +32,6 @@ const trackEvent = (action: string, category: string, label: string) => {
 const ExperienceDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const [showAtmosphere, setShowAtmosphere] = useState(false);
   const selectedActivity = activities.find(a => a.slug === slug);
 
   useEffect(() => {
@@ -136,7 +135,20 @@ const ExperienceDetail = () => {
               <div className="grid md:grid-cols-2 gap-12 items-end w-full">
                 <div className="flex flex-col items-center md:items-start">
                   <p className="text-sm sm:text-base text-white/90 font-sans leading-relaxed mb-10 max-w-2xl px-4 md:px-0">
-                    {selectedActivity.description}
+                    {selectedActivity.description.includes("Book your first family tour with us for FREE") ? (
+                      <>
+                        <span className="bg-white/10 px-2 py-1 rounded-lg border border-white/20 font-medium inline-block mb-2 sm:inline mr-1 text-white">
+                          Book your first family tour with us for <span className="font-bold text-luxury-gold">FREE</span>
+                        </span>
+                        {selectedActivity.description.split("Book your first family tour with us for FREE")[1].split("And here are some pictures we capture during the tour")[0]}
+                        <button 
+                          onClick={() => document.getElementById('captured-moments')?.scrollIntoView({ behavior: 'smooth' })}
+                          className="text-luxury-gold hover:text-white transition-colors cursor-pointer border-b border-luxury-gold/30 font-medium"
+                        >
+                          And here are some pictures we capture during the tour
+                        </button>
+                      </>
+                    ) : selectedActivity.description}
                   </p>
                   
                   <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -151,14 +163,6 @@ const ExperienceDetail = () => {
                       <span>Book My First Tour Free</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </motion.a>
-                    
-                    <button 
-                      onClick={() => setShowAtmosphere(true)}
-                      className="w-full sm:w-auto px-10 py-5 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-full font-serif text-xl flex items-center justify-center gap-4 hover:bg-white hover:text-black transition-all"
-                    >
-                      <Play className="w-6 h-6 fill-current" />
-                      <span>Atmosphere</span>
-                    </button>
                   </div>
                 </div>
 
@@ -189,43 +193,8 @@ const ExperienceDetail = () => {
         </motion.div>
       </section>
 
-      {/* Atmosphere Modal */}
-      <AnimatePresence>
-        {showAtmosphere && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-luxury-black flex items-center justify-center p-6 md:p-20"
-          >
-            <button 
-              onClick={() => setShowAtmosphere(false)}
-              className="absolute top-10 right-10 text-white/50 hover:text-white uppercase tracking-widest text-xs flex items-center gap-2"
-            >
-              Close <span className="text-xl">×</span>
-            </button>
-            <div className="w-full max-w-7xl aspect-video rounded-3xl overflow-hidden shadow-2xl relative">
-               <img src={selectedActivity.image} className="w-full h-full object-cover" />
-               <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                  <div className="text-center text-white px-6">
-                    <h2 className="text-4xl md:text-7xl font-serif italic mb-4">The Atmosphere of Italian Vibe</h2>
-                    <p className="text-xl md:text-2xl text-white/60 mb-8 max-w-2xl mx-auto">Visual narratives captured during our elite charters. Immersive video stories arriving soon.</p>
-                    <div className="grid grid-cols-3 gap-4">
-                      {selectedActivity.gallery?.map((img, i) => (
-                        <div key={i} className="aspect-square rounded-2xl overflow-hidden border border-white/10">
-                          <img src={img} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* MAIN BODY CONTENT */}
-      <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-32">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-32">
           {/* Left: Deep Storytelling */}
           <div className="space-y-16">
@@ -236,23 +205,50 @@ const ExperienceDetail = () => {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-10">
-              {selectedActivity.features.map((feature, i) => (
-                <motion.div 
-                  key={i} 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="p-8 bg-white rounded-3xl border border-luxury-black/5 flex flex-col gap-4 shadow-sm"
-                >
-                  <div className="w-10 h-10 bg-luxury-cream rounded-xl flex items-center justify-center text-luxury-gold">
-                    <Star className="w-5 h-5 fill-current" />
-                  </div>
-                  <span className="text-base font-bold text-luxury-green leading-snug tracking-tight">{feature}</span>
-                </motion.div>
-              ))}
-            </div>
+            {selectedActivity.slug === 'italian-vibe-tour' ? (
+              <div className="space-y-12">
+                <div className="grid grid-cols-2 gap-4">
+                  {selectedActivity.gallery?.slice(0, 4).map((img, i) => (
+                    <motion.div 
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="aspect-square rounded-2xl overflow-hidden shadow-md border border-luxury-gold/10"
+                    >
+                      <img src={img} alt="Tour Moment" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="grid grid-cols-2 gap-6">
+                  {selectedActivity.features.map((feature, i) => (
+                    <div key={i} className="flex items-center gap-3 text-luxury-green font-serif italic text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-luxury-gold" />
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="grid sm:grid-cols-2 gap-10">
+                {selectedActivity.features.map((feature, i) => (
+                  <motion.div 
+                    key={i} 
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="p-8 bg-white rounded-3xl border border-luxury-black/5 flex flex-col gap-4 shadow-sm"
+                  >
+                    <div className="w-10 h-10 bg-luxury-cream rounded-xl flex items-center justify-center text-luxury-gold">
+                      <Star className="w-5 h-5 fill-current" />
+                    </div>
+                    <span className="text-base font-bold text-luxury-green leading-snug tracking-tight">{feature}</span>
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Right: Immersive Media & Testimonial */}
@@ -274,31 +270,30 @@ const ExperienceDetail = () => {
                 <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl group-hover:bg-luxury-gold/10 transition-all duration-1000" />
              </div>
 
-             <div className="bg-white p-12 rounded-[40px] border border-luxury-black/5 shadow-luxury">
-                <h3 className="text-3xl font-serif text-luxury-green mb-10">Check Availability.</h3>
-                <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-                  <div className="group">
-                    <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-luxury-black/30 block mb-4 group-focus-within:text-luxury-gold transition-colors">Exclusive Invitation Email</label>
-                    <input 
-                      type="email" 
-                      placeholder="luxury@concierge.com"
-                      className="w-full px-8 py-5 bg-luxury-cream border-2 border-transparent rounded-2xl focus:border-luxury-gold outline-none transition-all font-serif italic text-lg"
-                    />
-                  </div>
-                  <button className="w-full py-6 bg-luxury-green text-white rounded-2xl font-serif text-xl hover:bg-luxury-black transition-all shadow-2xl flex items-center justify-center gap-4">
-                    Send Priority Request <ArrowRight className="w-5 h-5" />
-                  </button>
-                </form>
+             <div className="bg-white p-12 rounded-[40px] border border-luxury-black/5 shadow-luxury text-center">
+                <h3 className="text-3xl font-serif text-luxury-green mb-6">Skip the Form.</h3>
+                <p className="text-luxury-black/60 mb-10 font-sans">We value your time. Connect directly with our concierge via WhatsApp for instant availability and personalized planning.</p>
+                <a 
+                  href="https://wa.me/94722968210"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackEvent('whatsapp_click', 'conversion', 'detail_form_skip')}
+                  className="w-full py-6 bg-luxury-green text-white rounded-2xl font-serif text-xl hover:bg-luxury-black transition-all shadow-2xl flex items-center justify-center gap-4 group"
+                >
+                  <MessageCircle className="w-6 h-6" /> Talk to Us Now <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                </a>
              </div>
           </div>
         </div>
 
         {/* Gallery Section - Full Width Impact */}
         {selectedActivity.gallery && (
-          <div className="mt-40">
+          <div className="mt-40" id="captured-moments">
             <div className="text-center mb-20 space-y-4">
               <span className="text-luxury-gold font-serif italic text-xl">The Atmosphere</span>
-              <h2 className="text-5xl md:text-8xl font-serif text-luxury-green tracking-tighter">Captured Moments.</h2>
+              <h2 className="text-5xl md:text-8xl font-serif text-luxury-green tracking-tighter">
+                {selectedActivity.slug === 'italian-vibe-tour' ? "Italian Vibe, Sri Lankan Soul." : "Captured Moments."}
+              </h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {selectedActivity.gallery.map((img, idx) => (
