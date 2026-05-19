@@ -135,17 +135,17 @@ const ExperienceDetail = () => {
               <div className="grid md:grid-cols-2 gap-12 items-end w-full">
                 <div className="flex flex-col items-center md:items-start">
                   <p className="text-sm sm:text-base text-white/90 font-sans leading-relaxed mb-10 max-w-2xl px-4 md:px-0">
-                    {selectedActivity.description.includes("Book your first family tour with us for FREE") ? (
+                    {selectedActivity.description.includes("Your first private family discovery session is FREE") ? (
                       <>
                         <span className="bg-white/10 px-2 py-1 rounded-lg border border-white/20 font-medium inline-block mb-2 sm:inline mr-1 text-white">
-                          Book your first family tour with us for <span className="font-bold text-luxury-gold">FREE</span>
+                          Book Your First Family Trip <span className="font-bold text-luxury-gold">FREE</span>
                         </span>
-                        {selectedActivity.description.split("Book your first family tour with us for FREE")[1].split("And here are some pictures we capture during the tour")[0]}
+                        {selectedActivity.description.split("Your first private family discovery session is FREE")[1]}
                         <button 
                           onClick={() => document.getElementById('captured-moments')?.scrollIntoView({ behavior: 'smooth' })}
-                          className="text-luxury-gold hover:text-white transition-colors cursor-pointer border-b border-luxury-gold/30 font-medium"
+                          className="text-luxury-gold hover:text-white transition-colors cursor-pointer border-b border-luxury-gold/30 font-medium block mt-4"
                         >
-                          And here are some pictures we capture during the tour
+                          View tour photos from last week →
                         </button>
                       </>
                     ) : selectedActivity.description}
@@ -160,7 +160,7 @@ const ExperienceDetail = () => {
                       className="w-full sm:w-auto px-10 py-5 bg-luxury-gold text-white rounded-full font-serif text-xl shadow-xl shadow-luxury-gold/20 flex items-center justify-center gap-4 group"
                     >
                       <MessageCircle className="w-6 h-6" />
-                      <span>Book My First Tour Free</span>
+                      <span>Claim My Free Tour</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </motion.a>
                   </div>
@@ -199,7 +199,9 @@ const ExperienceDetail = () => {
           {/* Left: Deep Storytelling */}
           <div className="space-y-16">
             <div className="border-l-4 border-luxury-gold/30 pl-10">
-              <h3 className="text-3xl md:text-5xl font-serif text-luxury-green mb-8 italic">Behind the Selection.</h3>
+              <h3 className="text-3xl md:text-5xl font-serif text-luxury-green mb-8 italic">
+                {selectedActivity.slug === 'italian-vibe-tour' ? "The Essence of The Amalfi Indian Ocean." : "Behind the Selection."}
+              </h3>
               <p className="text-xl leading-relaxed text-luxury-black/70 font-light italic">
                 {selectedActivity.longDescription}
               </p>
@@ -271,8 +273,14 @@ const ExperienceDetail = () => {
              </div>
 
              <div className="bg-white p-12 rounded-[40px] border border-luxury-black/5 shadow-luxury text-center">
-                <h3 className="text-3xl font-serif text-luxury-green mb-6">Skip the Form.</h3>
-                <p className="text-luxury-black/60 mb-10 font-sans">We value your time. Connect directly with our concierge via WhatsApp for instant availability and personalized planning.</p>
+                <h3 className="text-3xl font-serif text-luxury-green mb-6">
+                  {selectedActivity.slug === 'italian-vibe-tour' ? "Reserve Your Vibe." : "Skip the Form."}
+                </h3>
+                <p className="text-luxury-black/60 mb-10 font-sans">
+                  {selectedActivity.slug === 'italian-vibe-tour' 
+                    ? "Our concierge is waiting to curate your private Mediterranean escape. No forms, just a direct conversation."
+                    : "We value your time. Connect directly with our concierge via WhatsApp for instant availability and personalized planning."}
+                </p>
                 <a 
                   href="https://wa.me/94722968210"
                   target="_blank"

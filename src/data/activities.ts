@@ -22,25 +22,25 @@ export const activities: Activity[] = [
   {
     id: "safari",
     slug: "italian-vibe-tour",
-    title: "Italian Vibe Tour In Sri Lanka",
+    title: "Italian Vibe Tour Sri Lanka",
     location: "Colombo Marina",
-    description: "Book your first family tour with us for FREE and discover local travel tips, hidden places, coastal experiences, and personalized recommendations inspired by the Italian vibe. And here are some pictures we capture during the tour",
-    longDescription: "Unforgettable Italian Vibe Tour where coastal beauty, stylish experiences, music, food, and relaxed luxury come together. Designed for travelers who want more than just a trip, this tour creates moments full of culture, connection, celebration, and unforgettable memories inspired by the charm and energy of the Italian lifestyle.",
+    description: "Experience the ultimate Mediterranean escape just a short flight from India. Your first private family discovery session is FREE. No forms, no hidden costs—just pure Italian-inspired luxury in the heart of Sri Lanka.",
+    longDescription: "Discover why Sri Lanka is the new favorite getaway for discerning Indian travelers. We bring the sun-drenched elegance of the Amalfi Coast to your doorstep. Our Italian Vibe Tour is a curated lifestyle experience designed for families who appreciate the finer things. From artisan dining that rivals the best of Tuscany to a soundtrack of Mediterranean ease, we offer an elite escape that feels a world away, yet remains perfectly close to home.",
     image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1",
     iconName: "Wind",
-    subheading: "Feel Italian vibe in Sri Lanka",
+    subheading: "The Amalfi Spirit, Indian Ocean Soul.",
     features: ["Skyline Views at Sunset", "Artisan Coastal Dining", "Curated Music & Vibe", "Private Family Moments"],
     gallery: [
-      "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&auto=format&fit=crop&q=60", // Luxury Yacht/Boat feel
-      "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?w=800&auto=format&fit=crop&q=60", // Coastal aesthetic
-      "https://images.unsplash.com/photo-1520116468419-955a7408cf57?w=800&auto=format&fit=crop&q=60", // Italian-style dining/drinks by sea
-      "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&auto=format&fit=crop&q=60"  // Joyful group/family moments
+      "https://www.bradtguides.com/wp-content/uploads/2022/10/Eliya-Kandy_train_Sri_Lanka_Melinda_Nagy_Shutterstock.jpg",
+      "https://tse1.explicit.bing.net/th/id/OIP.DoDwaNTXcnoo_uLeBxEPFAAAAA?cb=thfc1falcon&pid=ImgDet&w=184&h=244&c=7&dpr=1.3&o=7&rm=3",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/24/7b/29/24/open-door-sitting.jpg?w=200&h=200&s=1",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/44/75/06/plenty-of-plants-and.jpg?w=200&h=200&s=1"
     ],
-    stats: { duration: "3 Hours", exclusivity: "Private", capacity: "Up to 12 Guests" },
+    stats: { experience: "Elite Luxury", exclusivity: "Family Private", accessibility: "Short-Haul Escape" },
     testimonial: {
-      quote: "I escaped the city's noise for a cozy cruise over the Colombo seas with my family. I saw the beautiful, evolving skyline at sunset.",
+      quote: "It felt like we were suddenly in Positano, but with the warmth of Sri Lankan hospitality. The music, the food, the vibe—it was the first time our family felt truly 'away' without leaving the island. A masterpiece of relaxed luxury.",
       author: "The Silva Family",
-      title: "Island Connoisseurs"
+      title: "Mediterranean Soul in Colombo"
     }
   }
 ];

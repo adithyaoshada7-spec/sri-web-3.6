@@ -83,10 +83,10 @@ export default function App() {
         </motion.p>
         <motion.h1 
           {...fadeUp}
-          className="text-white text-4xl md:text-8xl font-serif mb-6 md:mb-8 leading-[1.1]"
+          className="text-white text-5xl md:text-[9rem] font-serif mb-6 md:mb-8 leading-[0.9] tracking-tighter"
         >
-          Italian Vibe <br /> 
-          <span className="italic text-luxury-gold">Tour In Sri Lanka</span>
+          The Amalfi Coast, <br /> 
+          <span className="italic text-luxury-gold">Now In Sri Lanka.</span>
         </motion.h1>
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
@@ -152,7 +152,7 @@ export default function App() {
             variants={fadeUp}
           >
             <h2 className="text-4xl md:text-5xl font-serif text-luxury-green tracking-tight">The Signature Experience</h2>
-            <p className="mt-4 text-luxury-black/50 tracking-[0.3em] uppercase text-[10px] md:text-xs font-bold">Unrivalled Luxury • One Private Charter</p>
+            <p className="mt-4 text-luxury-black/50 tracking-[0.3em] uppercase text-[10px] md:text-xs font-bold">Unrivalled Luxury • One Private Discovery</p>
           </motion.div>
         </div>
 
@@ -230,15 +230,15 @@ export default function App() {
           variants={fadeUp}
           className="flex flex-col items-center"
         >
-          <span className="text-luxury-gold font-serif italic mb-6 block text-lg">Limited Time Invitation</span>
-          <h2 className="text-4xl md:text-7xl font-serif text-luxury-green mb-10 leading-[1.1] tracking-tight">Exclusive Family Discovery</h2>
+          <span className="text-luxury-gold font-serif italic mb-6 block text-lg">Our Gift To Your Family</span>
+          <h2 className="text-4xl md:text-7xl font-serif text-luxury-green mb-10 leading-[1.1] tracking-tight">Your First Tour is <span className="italic">On Us.</span></h2>
           <p className="text-luxury-black/80 mb-12 text-sm sm:text-base font-sans leading-relaxed max-w-2xl mx-auto px-4">
-            <span className="bg-luxury-gold/10 px-2 py-1 rounded-lg border border-luxury-gold/20 inline-block mb-2 sm:inline">Book your first family tour with us for <span className="font-bold text-luxury-gold">FREE</span></span> and discover local travel tips, hidden places, coastal experiences, and personalized recommendations inspired by the Italian vibe. 
+            <span className="bg-luxury-gold/10 px-2 py-1 rounded-lg border border-luxury-gold/20 inline-block mb-2 sm:inline">Experience your first private family tour for <span className="font-bold text-luxury-gold text-lg">FREE</span></span>. Just a short flight away, discover a unique blend of Mediterranean soul and Sri Lankan beauty, curated for the modern Indian family.
             <button 
               onClick={() => document.getElementById('destinations')?.scrollIntoView({ behavior: 'smooth' })}
               className="ml-1 text-luxury-gold hover:text-luxury-green transition-colors cursor-pointer border-b border-luxury-gold/30 font-medium"
             >
-              And here are some pictures we capture during the tour
+              See photos from past tours
             </button>
           </p>
           
@@ -249,7 +249,7 @@ export default function App() {
             onClick={() => trackEvent('whatsapp_click', 'conversion', 'offer_section_claim')}
             className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-luxury-green text-white rounded-full font-bold uppercase tracking-[0.2em] text-xs shadow-xl transition-all hover:bg-luxury-gold hover:scale-105 mb-16"
           >
-            Claim Your Free Session <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            Claim Your Free Private Tour <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
 
           <div className="p-8 md:p-12 border border-luxury-gold/20 rounded-[40px] bg-luxury-cream/30 relative overflow-hidden group">
@@ -288,10 +288,10 @@ export default function App() {
         </div>
         
         <div className="flex items-center gap-6 md:gap-12">
-          <div className="hidden md:flex gap-12 items-center text-[10px] uppercase tracking-[0.3em] font-medium">
-            <Link to="/#about" className="hover:text-luxury-gold transition-colors">The Experience</Link>
-            <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">The Tour</Link>
-            <a href="#concierge" className="hover:text-luxury-gold transition-colors">Private Concierge</a>
+          <div className="hidden md:flex gap-12 items-center text-[10px] uppercase tracking-[0.4em] font-bold">
+            <Link to="/#about" className="hover:text-luxury-gold transition-colors">The Lifestyle</Link>
+            <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">The Collection</Link>
+            <a href="#concierge" className="hover:text-luxury-gold transition-colors">Concierge Desk</a>
             <a 
               href="https://wa.me/94722968210"
               target="_blank"
@@ -299,9 +299,9 @@ export default function App() {
               onClick={() => {
                 trackEvent('whatsapp_click', 'engagement', 'header_book_now');
               }}
-              className="px-6 py-2 bg-luxury-gold text-white rounded-full hover:bg-white hover:text-black transition-all shadow-lg font-bold"
+              className="px-8 py-3 bg-luxury-gold text-white rounded-full hover:bg-white hover:text-black transition-all shadow-lg text-[11px]"
             >
-              Book Now
+              Start Your Private Journey
             </a>
           </div>
 
