@@ -81,7 +81,16 @@ const ExperienceDetail = () => {
       </Helmet>
 
       {/* STICKY MOBILE CTA - Now High Contrast */}
-      <div className="fixed bottom-6 left-6 right-6 z-[100] md:hidden">
+      <div className="fixed bottom-6 left-6 right-6 z-[100] md:hidden flex flex-col items-center gap-2">
+        {selectedActivity.slug === 'italian-vibe-tour' && (
+          <div className="bg-emerald-950/90 text-emerald-300 px-4 py-1.5 rounded-full text-xs font-sans tracking-wide border border-emerald-500/30 flex items-center gap-2 shadow-lg backdrop-blur-md animate-bounce">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+            </span>
+            <span className="font-semibold">🔥 3 families from India booked today</span>
+          </div>
+        )}
         <motion.a
           initial={{ y: 50 }}
           animate={{ y: 0 }}
@@ -141,12 +150,24 @@ const ExperienceDetail = () => {
                           Book Your First Family Trip <span className="font-bold text-luxury-gold">FREE</span>
                         </span>
                         {selectedActivity.description.split("Your first private family discovery session is FREE")[1]}
-                        <button 
-                          onClick={() => document.getElementById('captured-moments')?.scrollIntoView({ behavior: 'smooth' })}
-                          className="text-luxury-gold hover:text-white transition-colors cursor-pointer border-b border-luxury-gold/30 font-medium block mt-4"
-                        >
-                          View tour photos from last week →
-                        </button>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-4">
+                          <button 
+                            onClick={() => document.getElementById('captured-moments')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="text-luxury-gold hover:text-white transition-colors cursor-pointer border-b border-luxury-gold/30 font-medium w-fit text-left"
+                          >
+                            View tour photos from last week →
+                          </button>
+                          
+                          {selectedActivity.slug === 'italian-vibe-tour' && (
+                            <span className="inline-flex items-center gap-2 bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-full text-xs text-emerald-400 font-medium w-fit">
+                              <span className="relative flex h-1.5 w-1.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
+                              </span>
+                              3 families from India booked today
+                            </span>
+                          )}
+                        </div>
                       </>
                     ) : selectedActivity.description}
                   </p>
@@ -209,6 +230,33 @@ const ExperienceDetail = () => {
 
             {selectedActivity.slug === 'italian-vibe-tour' ? (
               <div className="space-y-12">
+                <div className="bg-luxury-gold/5 p-10 rounded-[40px] border border-luxury-gold/10">
+                  <h4 className="text-2xl font-serif text-luxury-green mb-8 italic">The Dolce Vita Ritual</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                     <div className="space-y-3">
+                        <div className="w-8 h-8 rounded-full bg-luxury-gold/20 flex items-center justify-center text-luxury-gold">
+                           <Coffee className="w-4 h-4" />
+                        </div>
+                        <p className="font-bold text-xs uppercase tracking-widest text-luxury-green">The Aperitivo</p>
+                        <p className="text-sm text-luxury-black/60 leading-relaxed italic">Sunset spritz and artisan antipasti curated for the family palate.</p>
+                     </div>
+                     <div className="space-y-3">
+                        <div className="w-8 h-8 rounded-full bg-luxury-gold/20 flex items-center justify-center text-luxury-gold">
+                           <Wind className="w-4 h-4" />
+                        </div>
+                        <p className="font-bold text-xs uppercase tracking-widest text-luxury-green">The Soundtrack</p>
+                        <p className="text-sm text-luxury-black/60 leading-relaxed italic">Curated Mediterranean deep house and classic Italian jazz fusion.</p>
+                     </div>
+                     <div className="space-y-3">
+                        <div className="w-8 h-8 rounded-full bg-luxury-gold/20 flex items-center justify-center text-luxury-gold">
+                           <Star className="w-4 h-4" />
+                        </div>
+                        <p className="font-bold text-xs uppercase tracking-widest text-luxury-green">The Vibe</p>
+                        <p className="text-sm text-luxury-black/60 leading-relaxed italic">Slow living, linen textures, and the effortless style of an Amalfi getaway.</p>
+                     </div>
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-2 gap-4">
                   {selectedActivity.gallery?.slice(0, 4).map((img, i) => (
                     <motion.div 
@@ -273,6 +321,15 @@ const ExperienceDetail = () => {
              </div>
 
              <div className="bg-white p-12 rounded-[40px] border border-luxury-black/5 shadow-luxury text-center">
+                {selectedActivity.slug === 'italian-vibe-tour' && (
+                  <div className="mb-6 inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-150 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide shadow-sm">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                    </span>
+                    <span>3 families from India booked today</span>
+                  </div>
+                )}
                 <h3 className="text-3xl font-serif text-luxury-green mb-6">
                   {selectedActivity.slug === 'italian-vibe-tour' ? "Reserve Your Vibe." : "Skip the Form."}
                 </h3>
@@ -314,6 +371,19 @@ const ExperienceDetail = () => {
                 </motion.div>
               ))}
             </div>
+
+            {selectedActivity.slug === 'italian-vibe-tour' && (
+              <div className="mt-40 text-center max-w-3xl mx-auto space-y-8">
+                 <span className="text-luxury-gold font-serif italic text-2xl lowercase tracking-wider">La Dolce Far Niente.</span>
+                 <h3 className="text-4xl md:text-6xl font-serif text-luxury-green leading-tight">The Art of Doing Nothing.</h3>
+                 <p className="text-luxury-black/60 text-lg leading-relaxed italic">
+                   We invite you to leave the itinerary behind. On this journey, the luxury is in the stillness—the sound of the water, the taste of the coast, and the presence of your loved ones. Italian soul, perfectly at home in the Indian Ocean.
+                 </p>
+                 <div className="pt-10 flex justify-center">
+                    <div className="w-20 h-[1px] bg-luxury-gold/30" />
+                 </div>
+              </div>
+            )}
           </div>
         )}
 
