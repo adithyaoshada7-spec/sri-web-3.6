@@ -80,30 +80,6 @@ const ExperienceDetail = () => {
         <meta name="description" content={selectedActivity.description} />
       </Helmet>
 
-      {/* STICKY MOBILE CTA - Now High Contrast */}
-      <div className="fixed bottom-6 left-6 right-6 z-[100] md:hidden flex flex-col items-center gap-2">
-        {selectedActivity.slug === 'italian-vibe-tour' && (
-          <div className="bg-emerald-950/90 text-emerald-300 px-4 py-1.5 rounded-full text-xs font-sans tracking-wide border border-emerald-500/30 flex items-center gap-2 shadow-lg backdrop-blur-md animate-bounce">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
-            </span>
-            <span className="font-semibold">🔥 3 families from India booked today</span>
-          </div>
-        )}
-        <motion.a
-          initial={{ y: 50 }}
-          animate={{ y: 0 }}
-          href="https://wa.me/94722968210"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full flex items-center justify-center gap-3 py-5 bg-white text-luxury-black rounded-full font-serif text-lg shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-2 border-luxury-gold"
-        >
-          <MessageCircle className="w-5 h-5 text-luxury-gold" />
-          <span className="font-bold">Book Your Italian Vibe</span>
-        </motion.a>
-      </div>
-
       {/* CINEMATIC HERO (First 15-20%) */}
       <section className="relative h-[95vh] min-h-[700px] overflow-hidden">
         {/* Cinematic Background */}
@@ -123,7 +99,7 @@ const ExperienceDetail = () => {
         </motion.div>
 
         {/* Hero Content Area */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 md:p-20 pointer-events-none">
+        <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 pb-12 md:p-20 pointer-events-none">
           <div className="max-w-7xl mx-auto w-full pointer-events-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -133,11 +109,11 @@ const ExperienceDetail = () => {
             >
               <h1 className="text-5xl md:text-[11rem] font-serif text-white mb-8 leading-[0.9] md:leading-[0.85] tracking-tighter">
                 {selectedActivity.title.includes("Italian") ? (
-                  <>
-                    {selectedActivity.title.split("Italian")[0]}
-                    <span className="italic text-luxury-gold">Italian</span>
-                    {selectedActivity.title.split("Italian")[1]}
-                  </>
+                   <>
+                     {selectedActivity.title.split("Italian")[0]}
+                     <span className="italic text-luxury-gold">Italian</span>
+                     {selectedActivity.title.split("Italian")[1]}
+                   </>
                 ) : selectedActivity.title}
               </h1>
 
@@ -150,19 +126,28 @@ const ExperienceDetail = () => {
                         Book Your First Family Trip <span className="font-bold text-luxury-gold">FREE</span>
                       </span>
                       {selectedActivity.description.split("Your first private family discovery session is FREE")[1]}
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-4">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6 justify-center md:justify-start w-full">
                         <button 
                           onClick={() => document.getElementById('captured-moments')?.scrollIntoView({ behavior: 'smooth' })}
-                          className="text-luxury-gold hover:text-white transition-colors cursor-pointer border-b border-luxury-gold/30 font-medium w-fit text-left"
+                          className="text-luxury-gold hover:text-white transition-colors cursor-pointer border-b border-luxury-gold/30 font-medium text-sm sm:text-base whitespace-nowrap"
                         >
                           View tour photos from last week →
                         </button>
+                        {selectedActivity.slug === 'italian-vibe-tour' && (
+                          <div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/30 px-3 py-1.5 rounded-full text-xs text-emerald-400 font-sans font-semibold tracking-wide shadow-md">
+                            <span className="relative flex h-1.5 w-1.5">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
+                            </span>
+                            <span>🔥 3 families from India booked today</span>
+                          </div>
+                        )}
                       </div>
                     </>
                   ) : selectedActivity.description}
                 </div>
                   
-                  <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                  <div className="flex flex-col items-center md:items-start gap-4 w-full">
                     <motion.a
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
