@@ -143,24 +143,24 @@ const ExperienceDetail = () => {
 
               <div className="grid md:grid-cols-2 gap-12 items-end w-full">
                 <div className="flex flex-col items-center md:items-start">
-                  <p className="text-sm sm:text-base text-white/90 font-sans leading-relaxed mb-10 max-w-2xl px-4 md:px-0">
-                    {selectedActivity.description.includes("Your first private family discovery session is FREE") ? (
-                      <>
-                        <span className="bg-white/10 px-2 py-1 rounded-lg border border-white/20 font-medium inline-block mb-2 sm:inline mr-1 text-white">
-                          Book Your First Family Trip <span className="font-bold text-luxury-gold">FREE</span>
-                        </span>
-                        {selectedActivity.description.split("Your first private family discovery session is FREE")[1]}
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-4">
-                          <button 
-                            onClick={() => document.getElementById('captured-moments')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="text-luxury-gold hover:text-white transition-colors cursor-pointer border-b border-luxury-gold/30 font-medium w-fit text-left"
-                          >
-                            View tour photos from last week →
-                          </button>
-                        </div>
-                      </>
-                    ) : selectedActivity.description}
-                  </p>
+                <div className="text-sm sm:text-base text-white/90 font-sans leading-relaxed mb-10 max-w-2xl px-4 md:px-0">
+                  {selectedActivity.description.includes("Your first private family discovery session is FREE") ? (
+                    <>
+                      <span className="bg-white/10 px-2 py-1 rounded-lg border border-white/20 font-medium inline-block mb-2 sm:inline mr-1 text-white">
+                        Book Your First Family Trip <span className="font-bold text-luxury-gold">FREE</span>
+                      </span>
+                      {selectedActivity.description.split("Your first private family discovery session is FREE")[1]}
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-4">
+                        <button 
+                          onClick={() => document.getElementById('captured-moments')?.scrollIntoView({ behavior: 'smooth' })}
+                          className="text-luxury-gold hover:text-white transition-colors cursor-pointer border-b border-luxury-gold/30 font-medium w-fit text-left"
+                        >
+                          View tour photos from last week →
+                        </button>
+                      </div>
+                    </>
+                  ) : selectedActivity.description}
+                </div>
                   
                   <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                     <motion.a
