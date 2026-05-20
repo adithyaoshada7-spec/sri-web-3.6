@@ -157,16 +157,6 @@ const ExperienceDetail = () => {
                           >
                             View tour photos from last week →
                           </button>
-                          
-                          {selectedActivity.slug === 'italian-vibe-tour' && (
-                            <span className="inline-flex items-center gap-2 bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-full text-xs text-emerald-400 font-medium w-fit">
-                              <span className="relative flex h-1.5 w-1.5">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
-                              </span>
-                              3 families from India booked today
-                            </span>
-                          )}
                         </div>
                       </>
                     ) : selectedActivity.description}
