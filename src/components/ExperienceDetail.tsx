@@ -33,10 +33,13 @@ const ExperienceDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const selectedActivity = activities.find(a => a.slug === slug);
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   useEffect(() => {
     if (selectedActivity) {
-      document.title = `${selectedActivity.title} | Plan Sri Lanka`;
+      document.title = selectedActivity.slug === 'italian-vibe-tour'
+        ? "Sri Lanka Tour Packages from India | Italian Vibe Tour"
+        : `${selectedActivity.title} | Plan Sri Lanka`;
     }
     window.scrollTo(0, 0);
   }, [selectedActivity]);
@@ -76,8 +79,102 @@ const ExperienceDetail = () => {
       className="bg-luxury-cream min-h-screen relative"
     >
       <Helmet>
-        <title>{selectedActivity.title} | Plan Sri Lanka</title>
-        <meta name="description" content={selectedActivity.description} />
+        <title>
+          {selectedActivity.slug === 'italian-vibe-tour' 
+            ? "Sri Lanka Tour Packages from India | Italian Vibe Tour" 
+            : `${selectedActivity.title} | Plan Sri Lanka`}
+        </title>
+        <meta 
+          name="description" 
+          content={selectedActivity.slug === 'italian-vibe-tour' 
+            ? "Bespoke Sri Lanka travel and vacation packages from India. Experience the elite Italian Vibe Tour with curated itineraries, premium Colombo dining, and packages from Delhi/Mumbai." 
+            : selectedActivity.description} 
+        />
+        {selectedActivity.slug === 'italian-vibe-tour' && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TravelAgency",
+              "name": "Plan Sri Lanka",
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1",
+              "description": "Premium luxury Sri Lanka travel packages from India and direct Sri Lanka tour packages from Delhi. Curators of the exclusive Italian Vibe Tour in Colombo.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Colombo",
+                "addressCountry": "LK"
+              },
+              "offers": {
+                "@type": "AggregateOffer",
+                "priceCurrency": "USD",
+                "lowPrice": "0",
+                "highPrice": "1500",
+                "offerCount": "1",
+                "offers": [
+                  {
+                    "@type": "Offer",
+                    "name": "Italian Vibe Tour Sri Lanka - First Family Discovery Session Free",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  }
+                ]
+              }
+            })}
+          </script>
+        )}
+        {selectedActivity.slug === 'italian-vibe-tour' && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TouristTrip",
+              "name": "Italian Vibe Tour - Sri Lanka Tour Packages from India",
+              "description": "Premium luxury Sri Lanka travel packages from India and direct Sri Lanka tour packages from Delhi.",
+              "provider": {
+                "@type": "TravelAgency",
+                "name": "Plan Sri Lanka"
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "name": "Complimentary First Family Discovery Session"
+              }
+            })}
+          </script>
+        )}
+        {selectedActivity.slug === 'italian-vibe-tour' && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How easily can I book Sri Lanka packages from Delhi?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Booking our bespoke Sri Lanka packages from Delhi is simple. Discerning travellers can take a direct flight from Indira Gandhi International Airport (DEL) to Colombo Bandaranaike International Airport (CMB) in just under 3.5 hours. Our luxury concierge service will meet you directly at the runway for VIP fast-track customs clearance, followed by a private luxury drive to your coastal retreat."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What makes this the premium Sri Lanka tour itinerary from India?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Unlike standard commercial itineraries, this exclusive Sri Lanka tour itinerary from India is designed for the modern luxury traveller. It prioritizes the elegant slow-living philosophy of La Dolce Vita, combining Mediterranean dining, luxury harbor cruises, curated lounge soundtracks, and complete privacy for your family, rather than over-scheduled, rushed sightseeing."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do your Sri Lanka vacation packages from India include private custom experiences?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, all our luxury Sri Lanka vacation packages from India are entirely bespoke. We specialize in custom-tailored travel packages for families and couples seeking complete exclusivity, artisan dining, and high-contrast, beautiful Mediterranean atmospheres in the Indian Ocean."
+                  }
+                }
+              ]
+            })}
+          </script>
+        )}
       </Helmet>
 
       {/* CINEMATIC HERO (First 15-20%) */}
@@ -325,6 +422,195 @@ const ExperienceDetail = () => {
              </div>
           </div>
         </div>
+
+        {/* NEW SEO HUB FOR INDIAN TRAVELERS */}
+        {selectedActivity.slug === 'italian-vibe-tour' && (
+          <div className="mt-32 pt-20 border-t border-luxury-gold/20">
+            <div className="max-w-4xl mx-auto text-center mb-16 space-y-4">
+              <span className="text-luxury-gold font-serif italic text-lg uppercase tracking-wider block">Bespoke Indian Edition</span>
+              <h2 className="text-4xl md:text-6xl font-serif text-luxury-green leading-snug tracking-tight">
+                Elite Sri Lanka Tour Packages from India
+              </h2>
+              <p className="text-luxury-black/70 text-lg leading-relaxed max-w-2xl mx-auto font-light">
+                Discover the ultimate luxury holiday. Seamless direct connections, fast-track custom clearances, and curated coastal itineraries custom-tailored for families traveling from Delhi, Mumbai, and Bangalore.
+              </p>
+            </div>
+
+            {/* TWO COLUMN GRID FOR TRAVEL LAYOUT: ITINERARY DETAILS & TRANSIT BLUEPRINTS */}
+            <div className="grid md:grid-cols-2 gap-8 mb-20">
+              {/* Box 1: The Curated Itinerary Blueprint */}
+              <div className="bg-white p-10 md:p-12 rounded-[40px] border border-luxury-black/5 shadow-luxury space-y-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold">
+                    <Compass className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-serif text-luxury-green tracking-tight">The Sri Lanka Tour Itinerary from India</h3>
+                    <p className="text-xs text-luxury-gold uppercase tracking-[0.15em] font-medium mt-0.5">Slow Living Curated Map</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="flex gap-4 border-l-2 border-luxury-gold/20 pl-6 relative">
+                    <div className="absolute w-2.5 h-2.5 rounded-full bg-luxury-gold -left-[6px] top-1.5" />
+                    <div>
+                      <p className="font-bold text-xs uppercase text-luxury-green tracking-wider">Day 1: Delhi/Mumbai Arrival & Skyward Sunset</p>
+                      <p className="text-sm text-luxury-black/60 leading-relaxed mt-1 italic">
+                        Touch down in Colombo. Glide past the customs crowd via our airside fast-track service. Start with luxury skyline views and sunset cocktails.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 border-l-2 border-luxury-gold/20 pl-6 relative">
+                    <div className="absolute w-2.5 h-2.5 rounded-full bg-luxury-gold -left-[6px] top-1.5" />
+                    <div>
+                      <p className="font-bold text-xs uppercase text-luxury-green tracking-wider">Day 2: The Dolce Vita Coastal Experience</p>
+                      <p className="text-sm text-luxury-black/60 leading-relaxed mt-1 italic">
+                        A full morning of barefoot luxury, culminating in artisan coastal dining with artisan antipasti and Mediterranean deep house under the stars.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 border-l-2 border-luxury-gold/20 pl-6 relative">
+                    <div className="absolute w-2.5 h-2.5 rounded-full bg-luxury-gold -left-[6px] top-1.5" />
+                    <div>
+                      <p className="font-bold text-xs uppercase text-luxury-green tracking-wider">Day 3: Private Lagoon Sail & Gastronomy Journey</p>
+                      <p className="text-sm text-luxury-black/60 leading-relaxed mt-1 italic">
+                        Board a private yacht. Sail along the tranquil Colombo skyline before checking out with direct luxury airport shuttle transfers.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Box 2: Flight Connections and Transit Map */}
+              <div className="bg-luxury-green p-10 md:p-12 rounded-[40px] text-white flex flex-col justify-between relative overflow-hidden group">
+                <div className="space-y-8 z-10">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-luxury-gold">
+                      <Wind className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-serif text-white tracking-tight">Sri Lanka Packages from Delhi & Indian Hubs</h3>
+                      <p className="text-xs text-luxury-gold uppercase tracking-[0.15em] font-medium mt-0.5">Frictionless Premium Flight Paths</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6 text-sm font-light leading-relaxed">
+                    <p>
+                      Our signature <strong className="text-luxury-gold font-bold">sri lanka travel packages from india</strong> are designed around direct, hassle-free sky routes:
+                    </p>
+                    
+                    <ul className="space-y-4 text-xs font-serif italic text-white/90">
+                      <li className="flex justify-between border-b border-white/10 pb-2">
+                        <span>Delhi (DEL) direct to Colombo</span>
+                        <span className="text-luxury-gold font-sans font-bold">~3h 30m</span>
+                      </li>
+                      <li className="flex justify-between border-b border-white/10 pb-2">
+                        <span>Mumbai (BOM) direct to Colombo</span>
+                        <span className="text-luxury-gold font-sans font-bold">~2h 35m</span>
+                      </li>
+                      <li className="flex justify-between border-b border-white/10 pb-2">
+                        <span>Bangalore (BLR) direct to Colombo</span>
+                        <span className="text-luxury-gold font-sans font-bold">~1h 25m</span>
+                      </li>
+                      <li className="flex justify-between border-b border-white/10 pb-2">
+                        <span>Chennai (MAA) direct to Colombo</span>
+                        <span className="text-luxury-gold font-sans font-bold">~1h 15m</span>
+                      </li>
+                    </ul>
+
+                    <p className="text-xs text-white/75 italic">
+                      All trips include standard private yacht access, luxury private SUV ground transfers, and customizable dates to perfectly map to your airline itinerary.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="mt-8 pt-6 border-t border-white/10 z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-white/40 font-bold">Pricing Model</p>
+                    <p className="font-serif text-lg text-luxury-gold">First Session FREE • Zero Form Commitment</p>
+                  </div>
+                  <a 
+                    href="https://wa.me/94722968210"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 bg-white text-luxury-green rounded-full font-serif text-xs font-semibold hover:bg-luxury-gold hover:text-white transition-all flex items-center gap-2 group/btn"
+                  >
+                    <span>Request Booking Guide</span>
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+
+                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl group-hover:bg-luxury-gold/15 transition-all duration-1000" />
+              </div>
+            </div>
+
+            {/* ACCORDION FAQ HUB SECTION FOR RANKINGS */}
+            <div className="max-w-4xl mx-auto space-y-6">
+              <div className="text-center md:text-left mb-10">
+                <span className="text-luxury-gold font-serif italic text-sm uppercase tracking-wider block">Travel Sanctuary FAQ</span>
+                <h3 className="text-3xl font-serif text-luxury-green">Sri Lanka Vacation Packages from India FAQ</h3>
+                <p className="text-xs text-luxury-black/50 font-sans tracking-wide mt-1">Answering elite traveler queries organically</p>
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  {
+                    q: "How easily can I book Sri Lanka packages from Delhi?",
+                    a: "Direct flights run multiple times daily from Delhi (DEL). We arrange everything else—private fast-track custom approvals, luxury chauffeured air-conditioned SUVs directly from the airport terminal, and direct custom coordination. No forms or deposits are required to claim your initial getaway slot."
+                  },
+                  {
+                    q: "Why is this the most premium option for Sri Lanka tour packages from India?",
+                    a: "We steer clear of rigid schedules and standard tourist mini-buses. By aligning coastal Mediterranean relaxation (La Dolce Vita) with absolute luxury on the Sri Lankan coast, we offer a vacation package format designed specifically for the discerning elite families seeking highly intimate memories."
+                  },
+                  {
+                    q: "Can I customize the Sri Lanka tour itinerary from India with this trip?",
+                    a: "Absolutely. Our Italian Vibe voyage is completely fluid. You can request customized length extensions, specific culinary adjustments (such as curated vegetarian or Jain artisan plates), special anniversaries, or multiple luxury resort additions across Colombo, Nuwara Eliya, or Galle."
+                  },
+                  {
+                    q: "How does our Sri Lanka trip package from India save you from Google Ads booking traps?",
+                    a: "We offer complete luxury transparency. While commercial package portals load packages with hidden transport and meal costs, we provide an elite, private, fully-guided lifestyle experience where your initial family getaway launch is completely complimentary, curated directly via WhatsApp."
+                  }
+                ].map((faq, index) => {
+                  const isOpen = activeFaq === index;
+                  return (
+                    <div 
+                      key={index} 
+                      className="bg-white rounded-3xl border border-luxury-black/5 shadow-sm overflow-hidden"
+                    >
+                      <button
+                        onClick={() => setActiveFaq(isOpen ? null : index)}
+                        className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-luxury-gold/5 transition-colors"
+                      >
+                        <span className="font-serif text-base md:text-lg text-luxury-green font-medium tracking-tight">
+                          {faq.q}
+                        </span>
+                        <ChevronDown 
+                          className={`w-5 h-5 text-luxury-gold transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
+                        />
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <div className="px-8 pb-6 text-sm text-luxury-black/60 leading-relaxed font-light italic border-t border-luxury-black/[0.03] pt-4">
+                              {faq.a}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Gallery Section - Full Width Impact */}
         {selectedActivity.gallery && (
