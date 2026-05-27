@@ -38,7 +38,7 @@ const ExperienceDetail = () => {
   useEffect(() => {
     if (selectedActivity) {
       document.title = selectedActivity.slug === 'italian-vibe-tour'
-        ? "Sri Lanka Tour Packages from India | Italian Vibe Tour"
+        ? "Sri Lanka Tour Packages from India | Vibe Tour Sri Lanka"
         : `${selectedActivity.title} | Plan Sri Lanka`;
     }
     window.scrollTo(0, 0);
@@ -81,13 +81,13 @@ const ExperienceDetail = () => {
       <Helmet>
         <title>
           {selectedActivity.slug === 'italian-vibe-tour' 
-            ? "Sri Lanka Tour Packages from India | Italian Vibe Tour" 
+            ? "Sri Lanka Tour Packages from India | Vibe Tour Sri Lanka" 
             : `${selectedActivity.title} | Plan Sri Lanka`}
         </title>
         <meta 
           name="description" 
           content={selectedActivity.slug === 'italian-vibe-tour' 
-            ? "Bespoke Sri Lanka travel and vacation packages from India. Experience the elite Italian Vibe Tour with curated itineraries, premium Colombo dining, and packages from Delhi/Mumbai." 
+            ? "Bespoke Sri Lanka travel and vacation packages from India. Experience the elite Vibe Tour Sri Lanka with curated itineraries, premium Colombo dining, and packages from Delhi/Mumbai." 
             : selectedActivity.description} 
         />
         {selectedActivity.slug === 'italian-vibe-tour' && (
@@ -97,7 +97,7 @@ const ExperienceDetail = () => {
               "@type": "TravelAgency",
               "name": "Plan Sri Lanka",
               "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1",
-              "description": "Premium luxury Sri Lanka travel packages from India and direct Sri Lanka tour packages from Delhi. Curators of the exclusive Italian Vibe Tour in Colombo.",
+              "description": "Premium luxury Sri Lanka travel packages from India and direct Sri Lanka tour packages from Delhi. Curators of the exclusive Vibe Tour Sri Lanka.",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Colombo",
@@ -112,7 +112,7 @@ const ExperienceDetail = () => {
                 "offers": [
                   {
                     "@type": "Offer",
-                    "name": "Italian Vibe Tour Sri Lanka - First Family Discovery Session Free",
+                    "name": "Vibe Tour Sri Lanka - First Family Discovery Session Free",
                     "price": "0",
                     "priceCurrency": "USD"
                   }
@@ -126,7 +126,7 @@ const ExperienceDetail = () => {
             {JSON.stringify({
               "@context": "https://schema.org",
               "@type": "TouristTrip",
-              "name": "Italian Vibe Tour - Sri Lanka Tour Packages from India",
+              "name": "Vibe Tour Sri Lanka - Sri Lanka Tour Packages from India",
               "description": "Premium luxury Sri Lanka travel packages from India and direct Sri Lanka tour packages from Delhi.",
               "provider": {
                 "@type": "TravelAgency",
@@ -160,7 +160,7 @@ const ExperienceDetail = () => {
                   "name": "What makes this the premium Sri Lanka tour itinerary from India?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Unlike standard commercial itineraries, this exclusive Sri Lanka tour itinerary from India is designed for the modern luxury traveller. It prioritizes the elegant slow-living philosophy of La Dolce Vita, combining Mediterranean dining, luxury harbor cruises, curated lounge soundtracks, and complete privacy for your family, rather than over-scheduled, rushed sightseeing."
+                    "text": "Unlike standard commercial itineraries, this exclusive Sri Lanka tour itinerary from India is designed for the modern luxury traveller. It prioritizes the elegant slow-living philosophy of premium island living, combining seaside dining, luxury harbor cruises, curated lounge soundtracks, and complete privacy for your family, rather than over-scheduled, rushed sightseeing."
                   }
                 },
                 {
@@ -168,7 +168,7 @@ const ExperienceDetail = () => {
                   "name": "Do your Sri Lanka vacation packages from India include private custom experiences?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, all our luxury Sri Lanka vacation packages from India are entirely bespoke. We specialize in custom-tailored travel packages for families and couples seeking complete exclusivity, artisan dining, and high-contrast, beautiful Mediterranean atmospheres in the Indian Ocean."
+                    "text": "Yes, all our luxury Sri Lanka vacation packages from India are entirely bespoke. We specialize in custom-tailored travel packages for families and couples seeking complete exclusivity, artisan dining, and high-contrast, beautiful coastal atmospheres in the Indian Ocean."
                   }
                 }
               ]
@@ -205,11 +205,11 @@ const ExperienceDetail = () => {
               className="flex flex-col items-center md:items-start text-center md:text-left"
             >
               <h1 className="text-5xl md:text-[11rem] font-serif text-white mb-8 leading-[0.9] md:leading-[0.85] tracking-tighter">
-                {selectedActivity.title.includes("Italian") ? (
+                {selectedActivity.title.includes("Vibe") ? (
                    <>
-                     {selectedActivity.title.split("Italian")[0]}
-                     <span className="italic text-luxury-gold">Italian</span>
-                     {selectedActivity.title.split("Italian")[1]}
+                     {selectedActivity.title.split("Vibe")[0]}
+                     <span className="italic text-luxury-gold">Vibe</span>
+                     {selectedActivity.title.split("Vibe")[1]}
                    </>
                 ) : selectedActivity.title}
               </h1>
@@ -293,7 +293,7 @@ const ExperienceDetail = () => {
           <div className="space-y-16">
             <div className="border-l-4 border-luxury-gold/30 pl-10">
               <h3 className="text-3xl md:text-5xl font-serif text-luxury-green mb-8 italic">
-                {selectedActivity.slug === 'italian-vibe-tour' ? "The Essence of The Amalfi Indian Ocean." : "Behind the Selection."}
+                {selectedActivity.slug === 'italian-vibe-tour' ? "The Essence of Vibe Tour Sri Lanka." : "Behind the Selection."}
               </h3>
               <p className="text-xl leading-relaxed text-luxury-black/70 font-light italic">
                 {selectedActivity.longDescription}
@@ -303,28 +303,28 @@ const ExperienceDetail = () => {
             {selectedActivity.slug === 'italian-vibe-tour' ? (
               <div className="space-y-12">
                 <div className="bg-luxury-gold/5 p-10 rounded-[40px] border border-luxury-gold/10">
-                  <h4 className="text-2xl font-serif text-luxury-green mb-8 italic">The Dolce Vita Ritual</h4>
+                  <h4 className="text-2xl font-serif text-luxury-green mb-8 italic">The Slow Living Ritual</h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                      <div className="space-y-3">
                         <div className="w-8 h-8 rounded-full bg-luxury-gold/20 flex items-center justify-center text-luxury-gold">
                            <Coffee className="w-4 h-4" />
                         </div>
-                        <p className="font-bold text-xs uppercase tracking-widest text-luxury-green">The Aperitivo</p>
-                        <p className="text-sm text-luxury-black/60 leading-relaxed italic">Sunset spritz and artisan antipasti curated for the family palate.</p>
+                        <p className="font-bold text-xs uppercase tracking-widest text-luxury-green">The Sunset Vibe</p>
+                        <p className="text-sm text-luxury-black/60 leading-relaxed italic">Sunset coolers and artisan dishes curated for the family palate.</p>
                      </div>
                      <div className="space-y-3">
                         <div className="w-8 h-8 rounded-full bg-luxury-gold/20 flex items-center justify-center text-luxury-gold">
                            <Wind className="w-4 h-4" />
                         </div>
                         <p className="font-bold text-xs uppercase tracking-widest text-luxury-green">The Soundtrack</p>
-                        <p className="text-sm text-luxury-black/60 leading-relaxed italic">Curated Mediterranean deep house and classic Italian jazz fusion.</p>
+                        <p className="text-sm text-luxury-black/60 leading-relaxed italic">Curated coastal deep house and soulful acoustic sunset fusion.</p>
                      </div>
                      <div className="space-y-3">
                         <div className="w-8 h-8 rounded-full bg-luxury-gold/20 flex items-center justify-center text-luxury-gold">
                            <Star className="w-4 h-4" />
                         </div>
                         <p className="font-bold text-xs uppercase tracking-widest text-luxury-green">The Vibe</p>
-                        <p className="text-sm text-luxury-black/60 leading-relaxed italic">Slow living, linen textures, and the effortless style of an Amalfi getaway.</p>
+                        <p className="text-sm text-luxury-black/60 leading-relaxed italic">Slow living, linen textures, and the effortless style of a premium island getaway.</p>
                      </div>
                   </div>
                 </div>
@@ -407,7 +407,7 @@ const ExperienceDetail = () => {
                 </h3>
                 <p className="text-luxury-black/60 mb-10 font-sans">
                   {selectedActivity.slug === 'italian-vibe-tour' 
-                    ? "Our concierge is waiting to curate your private Mediterranean escape. No forms, just a direct conversation."
+                    ? "Our concierge is waiting to curate your private coastal escape. No forms, just a direct conversation."
                     : "We value your time. Connect directly with our concierge via WhatsApp for instant availability and personalized planning."}
                 </p>
                 <a 
@@ -464,9 +464,9 @@ const ExperienceDetail = () => {
                   <div className="flex gap-4 border-l-2 border-luxury-gold/20 pl-6 relative">
                     <div className="absolute w-2.5 h-2.5 rounded-full bg-luxury-gold -left-[6px] top-1.5" />
                     <div>
-                      <p className="font-bold text-xs uppercase text-luxury-green tracking-wider">Day 2: The Dolce Vita Coastal Experience</p>
+                      <p className="font-bold text-xs uppercase text-luxury-green tracking-wider">Day 2: The Premium Coastal Experience</p>
                       <p className="text-sm text-luxury-black/60 leading-relaxed mt-1 italic">
-                        A full morning of barefoot luxury, culminating in artisan coastal dining with artisan antipasti and Mediterranean deep house under the stars.
+                        A full morning of barefoot luxury, culminating in artisan coastal dining with artisan regional grills and curated deep house under the stars.
                       </p>
                     </div>
                   </div>
@@ -562,11 +562,11 @@ const ExperienceDetail = () => {
                   },
                   {
                     q: "Why is this the most premium option for Sri Lanka tour packages from India?",
-                    a: "We steer clear of rigid schedules and standard tourist mini-buses. By aligning coastal Mediterranean relaxation (La Dolce Vita) with absolute luxury on the Sri Lankan coast, we offer a vacation package format designed specifically for the discerning elite families seeking highly intimate memories."
+                    a: "We steer clear of rigid schedules and standard tourist mini-buses. By aligning premium coastal relaxation (Slow Living) with absolute luxury on the Sri Lankan coast, we offer a vacation package format designed specifically for the discerning elite families seeking highly intimate memories."
                   },
                   {
                     q: "Can I customize the Sri Lanka tour itinerary from India with this trip?",
-                    a: "Absolutely. Our Italian Vibe voyage is completely fluid. You can request customized length extensions, specific culinary adjustments (such as curated vegetarian or Jain artisan plates), special anniversaries, or multiple luxury resort additions across Colombo, Nuwara Eliya, or Galle."
+                    a: "Absolutely. Our Vibe Tour voyage is completely fluid. You can request customized length extensions, specific culinary adjustments (such as curated vegetarian or Jain artisan plates), special anniversaries, or multiple luxury resort additions across Colombo, Nuwara Eliya, or Galle."
                   },
                   {
                     q: "How does our Sri Lanka trip package from India save you from Google Ads booking traps?",
@@ -618,7 +618,7 @@ const ExperienceDetail = () => {
             <div className="text-center mb-20 space-y-4">
               <span className="text-luxury-gold font-serif italic text-xl">The Atmosphere</span>
               <h2 className="text-5xl md:text-8xl font-serif text-luxury-green tracking-tighter">
-                {selectedActivity.slug === 'italian-vibe-tour' ? "Italian Vibe, Sri Lankan Soul." : "Captured Moments."}
+                {selectedActivity.slug === 'italian-vibe-tour' ? "Premium Vibe, Sri Lankan Soul." : "Captured Moments."}
               </h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -635,10 +635,10 @@ const ExperienceDetail = () => {
 
             {selectedActivity.slug === 'italian-vibe-tour' && (
               <div className="mt-40 text-center max-w-3xl mx-auto space-y-8">
-                 <span className="text-luxury-gold font-serif italic text-2xl lowercase tracking-wider">La Dolce Far Niente.</span>
+                 <span className="text-luxury-gold font-serif italic text-2xl lowercase tracking-wider">The luxury of slow time.</span>
                  <h3 className="text-4xl md:text-6xl font-serif text-luxury-green leading-tight">The Art of Doing Nothing.</h3>
                  <p className="text-luxury-black/60 text-lg leading-relaxed italic">
-                   We invite you to leave the itinerary behind. On this journey, the luxury is in the stillness—the sound of the water, the taste of the coast, and the presence of your loved ones. Italian soul, perfectly at home in the Indian Ocean.
+                   We invite you to leave the itinerary behind. On this journey, the luxury is in the stillness—the sound of the water, the taste of the coast, and the presence of your loved ones. Pure soul, perfectly at home in the Indian Ocean.
                  </p>
                  <div className="pt-10 flex justify-center">
                     <div className="w-20 h-[1px] bg-luxury-gold/30" />

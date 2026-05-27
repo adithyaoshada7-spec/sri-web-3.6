@@ -22,13 +22,13 @@ export const activities: Activity[] = [
   {
     id: "safari",
     slug: "italian-vibe-tour",
-    title: "Italian Vibe Tour Sri Lanka",
+    title: "Vibe Tour Sri Lanka",
     location: "Colombo Marina",
-    description: "Experience the ultimate Mediterranean escape just a short flight from India. Your first private family discovery session is FREE. No forms, no hidden costs—just pure Italian-inspired luxury in the heart of Sri Lanka.",
-    longDescription: "Discover why Sri Lanka is the new favorite getaway for discerning Indian travelers. We bring the sun-drenched elegance of the Amalfi Coast to your doorstep. Our Italian Vibe Tour is a curated lifestyle experience designed for families who appreciate the finer things. From artisan dining that rivals the best of Tuscany to a soundtrack of Mediterranean ease, we offer an elite escape that feels a world away, yet remains perfectly close to home.",
+    description: "Experience the ultimate coastal getaway just a short flight from India. Your first private family discovery session is FREE. No forms, no hidden costs—just pure premium vibe-inspired luxury in the heart of Sri Lanka.",
+    longDescription: "Discover why Sri Lanka is the new favorite getaway for discerning Indian travelers. We bring the sun-drenched elegance of premier coastal living to your doorstep. Our Vibe Tour Sri Lanka is a curated lifestyle experience designed for families who appreciate the finer things. From artisan dining that rivals the world's best coastal retreats to a soundtrack of breezy island ease, we offer an elite escape that feels a world away, yet remains perfectly close to home.",
     image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1",
     iconName: "Wind",
-    subheading: "The Amalfi Spirit, Indian Ocean Soul.",
+    subheading: "The Island Spirit, Indian Ocean Soul.",
     features: ["Skyline Views at Sunset", "Artisan Coastal Dining", "Curated Music & Vibe", "Private Family Moments"],
     gallery: [
       "https://www.bradtguides.com/wp-content/uploads/2022/10/Eliya-Kandy_train_Sri_Lanka_Melinda_Nagy_Shutterstock.jpg",
@@ -38,9 +38,9 @@ export const activities: Activity[] = [
     ],
     stats: { experience: "Elite Luxury", exclusivity: "Family Private", accessibility: "Short-Haul Escape" },
     testimonial: {
-      quote: "It felt like we were suddenly in Positano, but with the warmth of Sri Lankan hospitality. The music, the food, the vibe—it was the first time our family felt truly 'away' without leaving the island. A masterpiece of relaxed luxury.",
+      quote: "It felt like we were suddenly in a bespoke coastal paradise, but with the warmth of Sri Lankan hospitality. The music, the food, the vibe—it was the first time our family felt truly 'away' without leaving the island. A masterpiece of relaxed luxury.",
       author: "The Silva Family",
-      title: "Mediterranean Soul in Colombo"
+      title: "Premium Vibe in Colombo"
     }
   }
 ];

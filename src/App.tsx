@@ -66,7 +66,7 @@ export default function App() {
       <div className="absolute inset-0 bg-black/40 z-10" />
       <img 
         src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1"
-        alt="Italian Vibe Tour"
+        alt="Vibe Tour Sri Lanka"
         className="absolute inset-0 w-full h-full object-cover scale-105"
         referrerPolicy="no-referrer"
         {...{ fetchPriority: "high" } as any}
@@ -85,7 +85,7 @@ export default function App() {
           {...fadeUp}
           className="text-white text-5xl md:text-[9rem] font-serif mb-6 md:mb-8 leading-[0.9] tracking-tighter"
         >
-          The Amalfi Coast, <br /> 
+          The Ultimate Getaway, <br /> 
           <span className="italic text-luxury-gold">Now In Sri Lanka.</span>
         </motion.h1>
         <motion.div 
@@ -131,10 +131,10 @@ export default function App() {
           className="text-luxury-black/70 space-y-6 text-base md:text-lg font-light leading-relaxed"
         >
           <p>
-            Unforgettable Italian Vibe Tour where coastal beauty, stylish experiences, music, food, and relaxed luxury come together. Designed for travelers who want more than just a trip, this tour creates moments full of culture, connection, celebration, and unforgettable memories inspired by the charm and energy of the Italian lifestyle.
+            Unforgettable Vibe Tour Sri Lanka where coastal beauty, stylish experiences, music, food, and relaxed luxury come together. Designed for travelers who want more than just a trip, this tour creates moments full of culture, connection, celebration, and unforgettable memories inspired by the charm and energy of the premium island lifestyle.
           </p>
           <p>
-            Feel the Italian vibe in Sri Lanka—with complete privacy, exceptional luxury, and soulful connection.
+            Feel the premium vibe in Sri Lanka—with complete privacy, exceptional luxury, and soulful connection.
           </p>
         </motion.div>
       </div>
@@ -190,11 +190,11 @@ export default function App() {
                   <span className="text-[11px] uppercase tracking-[0.4em] text-luxury-black/40 font-bold">Limited Signature Collection</span>
                 </div>
                 <h3 className="text-4xl md:text-7xl font-serif text-luxury-green mb-6 leading-tight group-hover:text-luxury-gold transition-colors">
-                  {item.title.includes("Italian") ? (
+                  {item.title.includes("Vibe") ? (
                     <>
-                      {item.title.split("Italian")[0]}
-                      <span className="font-bold italic">Italian</span>
-                      {item.title.split("Italian")[1]}
+                      {item.title.split("Vibe")[0]}
+                      <span className="font-bold italic">Vibe</span>
+                      {item.title.split("Vibe")[1]}
                     </>
                   ) : item.title}
                 </h3>
@@ -233,7 +233,7 @@ export default function App() {
           <span className="text-luxury-gold font-serif italic mb-6 block text-lg">Our Gift To Your Family</span>
           <h2 className="text-4xl md:text-7xl font-serif text-luxury-green mb-10 leading-[1.1] tracking-tight">Your First Tour is <span className="italic">On Us.</span></h2>
           <p className="text-luxury-black/80 mb-12 text-sm sm:text-base font-sans leading-relaxed max-w-2xl mx-auto px-4">
-            <span className="bg-luxury-gold/10 px-2 py-1 rounded-lg border border-luxury-gold/20 inline-block mb-2 sm:inline">Experience your first private family tour for <span className="font-bold text-luxury-gold text-lg">FREE</span></span>. Just a short flight away, discover a unique blend of Mediterranean soul and Sri Lankan beauty, curated for the modern Indian family.
+            <span className="bg-luxury-gold/10 px-2 py-1 rounded-lg border border-luxury-gold/20 inline-block mb-2 sm:inline">Experience your first private family tour for <span className="font-bold text-luxury-gold text-lg">FREE</span></span>. Just a short flight away, discover a unique blend of premium coastal soul and Sri Lankan beauty, curated for the modern Indian family.
             <button 
               onClick={() => document.getElementById('destinations')?.scrollIntoView({ behavior: 'smooth' })}
               className="ml-1 text-luxury-gold hover:text-luxury-green transition-colors cursor-pointer border-b border-luxury-gold/30 font-medium"
@@ -282,7 +282,7 @@ export default function App() {
               to="/"
               className="text-lg md:text-xl font-serif tracking-[0.2em] font-bold cursor-pointer"
             >
-              ITALIAN VIBE
+              VIBE TOUR
             </Link>
           )}
         </div>
@@ -391,7 +391,7 @@ export default function App() {
           </a>
         </div>
         <div className="text-center text-[10px] tracking-widest opacity-50 uppercase">
-          Italian Vibe Tour | London • Colombo
+          Vibe Tour Sri Lanka | London • Colombo
         </div>
       </motion.div>
     </div>
