@@ -250,6 +250,12 @@ const ExperienceDetail = () => {
                       whileTap={{ scale: 0.95 }}
                       href="https://wa.me/94722968210"
                       target="_blank"
+                      onClick={() => {
+                        trackEvent('whatsapp_click', 'conversion', 'detail_claim_free_tour');
+                        if (typeof window !== 'undefined' && (window as any).fbq) {
+                          (window as any).fbq('track', 'Lead');
+                        }
+                      }}
                       className="w-full sm:w-auto px-10 py-5 bg-luxury-gold text-white rounded-full font-serif text-xl shadow-xl shadow-luxury-gold/20 flex items-center justify-center gap-4 group"
                     >
                       <MessageCircle className="w-6 h-6" />
@@ -414,7 +420,12 @@ const ExperienceDetail = () => {
                   href="https://wa.me/94722968210"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackEvent('whatsapp_click', 'conversion', 'detail_form_skip')}
+                  onClick={() => {
+                    trackEvent('whatsapp_click', 'conversion', 'detail_form_skip');
+                    if (typeof window !== 'undefined' && (window as any).fbq) {
+                      (window as any).fbq('track', 'Lead');
+                    }
+                  }}
                   className="w-full py-6 bg-luxury-green text-white rounded-2xl font-serif text-xl hover:bg-luxury-black transition-all shadow-2xl flex items-center justify-center gap-4 group"
                 >
                   <MessageCircle className="w-6 h-6" /> Talk to Us Now <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -535,6 +546,12 @@ const ExperienceDetail = () => {
                     href="https://wa.me/94722968210"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => {
+                      trackEvent('whatsapp_click', 'engagement', 'detail_booking_guide_request');
+                      if (typeof window !== 'undefined' && (window as any).fbq) {
+                        (window as any).fbq('track', 'Lead');
+                      }
+                    }}
                     className="px-6 py-3 bg-white text-luxury-green rounded-full font-serif text-xs font-semibold hover:bg-luxury-gold hover:text-white transition-all flex items-center gap-2 group/btn"
                   >
                     <span>Request Booking Guide</span>
