@@ -24,6 +24,7 @@ import { trackEvent } from "./lib/analytics";
 import { activities } from "./data/activities";
 
 const ExperienceDetail = lazy(() => import("./components/ExperienceDetail"));
+const SrilankaCostPage = lazy(() => import("./components/SrilankaCostPage"));
 const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -282,20 +283,19 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 w-full z-50 px-4 md:px-6 py-6 md:py-8 flex justify-between items-center bg-transparent mix-blend-difference text-white">
         <div className="w-32"> {/* Spacer/Logo container */}
-          {location.pathname === '/' && (
-            <Link 
-              to="/"
-              className="text-lg md:text-xl font-serif tracking-[0.2em] font-bold cursor-pointer"
-            >
-              VIBE TOUR
-            </Link>
-          )}
+          <Link 
+            to="/"
+            className="text-lg md:text-xl font-serif tracking-[0.2em] font-bold cursor-pointer"
+          >
+            VIBE TOUR
+          </Link>
         </div>
         
         <div className="flex items-center gap-6 md:gap-12">
           <div className="hidden md:flex gap-12 items-center text-[10px] uppercase tracking-[0.4em] font-bold">
             <Link to="/#about" className="hover:text-luxury-gold transition-colors">The Lifestyle</Link>
             <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">The Collection</Link>
+            <Link to="/sri-lanka-trip-cost-from-india" className="hover:text-luxury-gold transition-colors text-luxury-gold font-bold">Trip Cost Guide</Link>
             <a href="#concierge" className="hover:text-luxury-gold transition-colors">Concierge Desk</a>
             <a 
               href="https://wa.me/94722968210"
@@ -360,6 +360,16 @@ export default function App() {
           </motion.div>
         } />
         
+        <Route path="/sri-lanka-trip-cost-from-india" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaCostPage />
+          </Suspense>
+        } />
+        
         <Route path="/experience/:slug" element={
           <Suspense fallback={
             <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
@@ -386,8 +396,9 @@ export default function App() {
           <X className="w-8 h-8" />
         </button>
         <div className="flex flex-col gap-8 text-4xl font-serif italic text-center">
-          <a href="#about" onClick={() => setIsMenuOpen(false)}>Experience</a>
-          <a href="#destinations" onClick={() => setIsMenuOpen(false)}>The Tour</a>
+          <Link to="/" onClick={() => setIsMenuOpen(false)}>Experience</Link>
+          <Link to="/#destinations" onClick={() => setIsMenuOpen(false)}>The Tour</Link>
+          <Link to="/sri-lanka-trip-cost-from-india" onClick={() => setIsMenuOpen(false)}>Trip Costs</Link>
           <a href="#concierge" onClick={() => setIsMenuOpen(false)}>Concierge</a>
           <a 
             href="https://wa.me/94722968210" 

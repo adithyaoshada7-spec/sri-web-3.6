@@ -49,7 +49,11 @@ async function startServer() {
       const urlPath = url === '/' ? '' : url;
       const absoluteUrl = `${domain}${urlPath}`;
 
-      if (experienceMatch) {
+      if (url.includes('/sri-lanka-trip-cost-from-india')) {
+        title = "Sri Lanka Trip Cost From India: Interactive 2026 Budget Planner";
+        description = "Ultimate breakdown of Sri Lanka trip costs from India. Direct flights, hotels, food, private SUVs, and visa rates. Calculate your custom 2026 vacation budget instantly.";
+        image = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1";
+      } else if (experienceMatch) {
         const slug = experienceMatch[1];
         const activity = activities.find(a => a.slug === slug);
         if (activity) {
