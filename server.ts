@@ -130,17 +130,17 @@ async function startServer() {
       }
 
       // Metadata Injection Logic
-      const experienceMatch = url.match(/\/experience\/([^/?#]+)/);
+      const experienceMatch = req.path.match(/\/experience\/([^/?#]+)/);
       let title = "Plan Sri Lanka | Curated Luxury Travel";
       let description = "Bespoke luxury journeys through the teardrop of the Indian Ocean. Unrivalled service for the discerning traveller.";
       let image = "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630";
       let ogType = "website";
       const domain = "https://plan-srilanka.com";
-      const urlPath = url === '/' ? '' : url;
-      const absoluteUrl = `${domain}${urlPath}`;
+      const normalizedPath = req.path === '/' ? '' : req.path.replace(/\/$/, "");
+      const absoluteUrl = `${domain}${normalizedPath}`;
 
-      // Check if URL matches any registered SEO Article route (ignoring slashes, search params, hash values)
-      const cleanPath = url.split(/[?#]/)[0].replace(/\/$/, "");
+      // Check if path matches any registered SEO Article route (ignoring trailing slashes)
+      const cleanPath = req.path.replace(/\/$/, "");
       const matchedArticle = seoArticles.find(art => art.path === cleanPath);
 
       if (matchedArticle) {
@@ -148,6 +148,7 @@ async function startServer() {
         description = matchedArticle.description;
         image = matchedArticle.image;
         ogType = matchedArticle.ogType;
+        console.log(`[SEO-Server] Route Matched: ${cleanPath} -> Title: "${title}"`);
       } else if (experienceMatch) {
         const slug = experienceMatch[1];
         const activity = activities.find(a => a.slug === slug);
@@ -188,22 +189,27 @@ async function startServer() {
     <meta name="twitter:site" content="@PlanSriLanka" />
     <meta name="twitter:creator" content="@PlanSriLanka" />`;
 
-      // Safer replacement: remove existing similar tags specifically
-      const tagsToRemove = [
-        /<title>.*?<\/title>/gi,
-        /<meta\s+(?:name|property)="description"\s+content="[^"]*"\s*\/?>/gi,
-        /<meta\s+(?:name|property)="title"\s+content="[^"]*"\s*\/?>/gi,
-        /<meta\s+property="og:.*?"\s+content="[^"]*"\s*\/?>/gi,
-        /<meta\s+name="twitter:.*?"\s+content="[^"]*"\s*\/?>/gi,
-        /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/gi
-      ];
+      // Robust whole-block replacement of original SEO tags in index.html (from <title> to <meta name="twitter:image" ... /> tag).
+      // This completely avoids any risk of having duplicate title, description, or og metadata tags.
+      const seoBlockRegex = /<title>[\s\S]*?<meta name="twitter:image"[^>]*>/i;
 
-      tagsToRemove.forEach(regex => {
-        template = template.replace(regex, "");
-      });
-      
-      // Insert new ones before </head>
-      template = template.replace(/<\/head>/i, `${metaTags}\n  </head>`);
+      if (seoBlockRegex.test(template)) {
+        template = template.replace(seoBlockRegex, metaTags.trim());
+      } else {
+        // Fallback: strip existing metadata recursively and append the new ones before </head>
+        const tagsToRemove = [
+          /<title>.*?<\/title>/gi,
+          /<meta\s+(?:name|property)="description"\s+content="[^"]*"\s*\/?>/gi,
+          /<meta\s+(?:name|property)="title"\s+content="[^"]*"\s*\/?>/gi,
+          /<meta\s+property="og:.*?"\s+content="[^"]*"\s*\/?>/gi,
+          /<meta\s+name="twitter:.*?"\s+content="[^"]*"\s*\/?>/gi,
+          /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/gi
+        ];
+        tagsToRemove.forEach(regex => {
+          template = template.replace(regex, "");
+        });
+        template = template.replace(/<\/head>/i, `${metaTags}\n  </head>`);
+      }
 
       res.status(200).set({ "Content-Type": "text/html" }).end(template);
     } catch (e) {
