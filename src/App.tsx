@@ -25,6 +25,7 @@ import { activities } from "./data/activities";
 
 const ExperienceDetail = lazy(() => import("./components/ExperienceDetail"));
 const SrilankaCostPage = lazy(() => import("./components/SrilankaCostPage"));
+const SrilankaItineraryPage = lazy(() => import("./components/SrilankaItineraryPage"));
 const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -367,6 +368,16 @@ export default function App() {
             </div>
           }>
             <SrilankaCostPage />
+          </Suspense>
+        } />
+        
+        <Route path="/sri-lanka-7-day-itinerary" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaItineraryPage />
           </Suspense>
         } />
         
