@@ -11,6 +11,38 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  // Scalable SEO articles and pages registry
+  interface Seometa {
+    path: string;
+    title: string;
+    description: string;
+    image: string;
+    ogType: string;
+    changefreq: string;
+    priority: string;
+  }
+
+  const seoArticles: Seometa[] = [
+    {
+      path: "/sri-lanka-trip-cost-from-india",
+      title: "Sri Lanka Trip Cost From India (2026 Guide) | Budget Calculator & Cost Breakdown",
+      description: "Discover the complete Sri Lanka trip cost from India. Compare budget, mid-range and luxury travel costs, flights, hotels, visa fees and use our free trip budget calculator.",
+      image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1",
+      ogType: "article",
+      changefreq: "weekly",
+      priority: "0.9"
+    },
+    {
+      path: "/sri-lanka-7-day-itinerary",
+      title: "Sri Lanka 7-Day Itinerary: The Classic Curated Route (2026)",
+      description: "The definitive day-by-day Sri Lanka 7-day itinerary for Indian travelers. Cover Sigiriya, Kandy, Ella train, Yala safari, and Galle Fort with exact pricing guides.",
+      image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+      ogType: "article",
+      changefreq: "weekly",
+      priority: "0.9"
+    }
+  ];
+
   // Dynamic sitemap.xml route for SEO compliance
   app.get("/sitemap.xml", (req, res) => {
     res.header("Content-Type", "application/xml");
@@ -19,10 +51,18 @@ async function startServer() {
     const today = new Date().toISOString().split('T')[0];
     
     const routes = [
-      { loc: `${baseUrl}/`, lastmod: "2026-06-02", changefreq: "monthly", priority: "1.0" },
-      { loc: `${baseUrl}/sri-lanka-trip-cost-from-india`, lastmod: today, changefreq: "weekly", priority: "0.9" },
-      { loc: `${baseUrl}/sri-lanka-7-day-itinerary`, lastmod: today, changefreq: "weekly", priority: "0.9" }
+      { loc: `${baseUrl}/`, lastmod: "2026-06-02", changefreq: "monthly", priority: "1.0" }
     ];
+
+    // Automatically inject all scalable SEO article routes
+    seoArticles.forEach(art => {
+      routes.push({
+        loc: `${baseUrl}${art.path}`,
+        lastmod: today,
+        changefreq: art.changefreq,
+        priority: art.priority
+      });
+    });
     
     const legacyExperiences = [
       "cultural-triangle",
@@ -94,18 +134,20 @@ async function startServer() {
       let title = "Plan Sri Lanka | Curated Luxury Travel";
       let description = "Bespoke luxury journeys through the teardrop of the Indian Ocean. Unrivalled service for the discerning traveller.";
       let image = "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630";
+      let ogType = "website";
       const domain = "https://plan-srilanka.com";
       const urlPath = url === '/' ? '' : url;
       const absoluteUrl = `${domain}${urlPath}`;
 
-      if (url.includes('/sri-lanka-trip-cost-from-india')) {
-        title = "Sri Lanka Trip Cost From India: Interactive 2026 Budget Planner";
-        description = "Ultimate breakdown of Sri Lanka trip costs from India. Direct flights, hotels, food, private SUVs, and visa rates. Calculate your custom 2026 vacation budget instantly.";
-        image = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1";
-      } else if (url.includes('/sri-lanka-7-day-itinerary')) {
-        title = "Sri Lanka 7-Day Itinerary: The Classic Curated Route (2026)";
-        description = "The definitive day-by-day Sri Lanka 7-day itinerary for Indian travelers. Cover Sigiriya, Kandy, Ella train, Yala safari, and Galle Fort with exact pricing guides.";
-        image = "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630";
+      // Check if URL matches any registered SEO Article route (ignoring slashes, search params, hash values)
+      const cleanPath = url.split(/[?#]/)[0].replace(/\/$/, "");
+      const matchedArticle = seoArticles.find(art => art.path === cleanPath);
+
+      if (matchedArticle) {
+        title = matchedArticle.title;
+        description = matchedArticle.description;
+        image = matchedArticle.image;
+        ogType = matchedArticle.ogType;
       } else if (experienceMatch) {
         const slug = experienceMatch[1];
         const activity = activities.find(a => a.slug === slug);
@@ -124,7 +166,7 @@ async function startServer() {
     <link rel="canonical" href="${absoluteUrl}" />
 
     <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="${ogType}" />
     <meta property="og:url" content="${absoluteUrl}" />
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${description}" />

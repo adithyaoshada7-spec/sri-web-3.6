@@ -222,9 +222,23 @@ Departure: ${leadForm.departure}`;
   return (
     <div className="bg-luxury-cream min-h-screen text-luxury-black font-sans leading-relaxed selection:bg-luxury-gold/30 pt-24 md:pt-32">
       <Helmet>
-        <title>Sri Lanka Trip Cost From India: Interactive 2026 Budget Planner</title>
-        <meta name="description" content="Ultimate breakdown of Sri Lanka trip costs from India. Direct flights, hotels, food, private SUVs, and visa rates. Calculate your custom 2026 vacation budget instantly." />
+        <title>Sri Lanka Trip Cost From India (2026 Guide) | Budget Calculator & Cost Breakdown</title>
+        <meta name="description" content="Discover the complete Sri Lanka trip cost from India. Compare budget, mid-range and luxury travel costs, flights, hotels, visa fees and use our free trip budget calculator." />
         <link rel="canonical" href="https://plan-srilanka.com/sri-lanka-trip-cost-from-india" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://plan-srilanka.com/sri-lanka-trip-cost-from-india" />
+        <meta property="og:title" content="Sri Lanka Trip Cost From India (2026 Guide) | Budget Calculator & Cost Breakdown" />
+        <meta property="og:description" content="Discover the complete Sri Lanka trip cost from India. Compare budget, mid-range and luxury travel costs, flights, hotels, visa fees and use our free trip budget calculator." />
+        <meta property="og:image" content="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1" />
+        <meta property="og:site_name" content="Plan Sri Lanka" />
+        
+        {/* Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Sri Lanka Trip Cost From India (2026 Guide) | Budget Calculator & Cost Breakdown" />
+        <meta name="twitter:description" content="Discover the complete Sri Lanka trip cost from India. Compare budget, mid-range and luxury travel costs, flights, hotels, visa fees and use our free trip budget calculator." />
+        <meta name="twitter:image" content="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1" />
         
         {/* ARTICLE SCHEMA */}
         <script type="application/ld+json">
