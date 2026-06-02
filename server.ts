@@ -34,8 +34,8 @@ async function startServer() {
     },
     {
       path: "/sri-lanka-7-day-itinerary",
-      title: "Sri Lanka 7-Day Itinerary: The Classic Curated Route (2026)",
-      description: "The definitive day-by-day Sri Lanka 7-day itinerary for Indian travelers. Cover Sigiriya, Kandy, Ella train, Yala safari, and Galle Fort with exact pricing guides.",
+      title: "Sri Lanka 7 Day Itinerary (2026) | Complete Travel Guide For Indian Travelers",
+      description: "Explore the perfect 7 day Sri Lanka itinerary including Colombo, Sigiriya, Kandy, Ella and Galle. Includes budget tips, hotels and travel planning advice.",
       image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
       ogType: "article",
       changefreq: "weekly",

@@ -139,22 +139,22 @@ Departure Hub: ${leadForm.departure}`;
   return (
     <div className="bg-luxury-cream min-h-screen text-luxury-black font-sans leading-relaxed selection:bg-luxury-gold/30 pt-24 md:pt-32">
       <Helmet>
-        <title>Sri Lanka 7-Day Itinerary: The Classic Curated Route (2026)</title>
-        <meta name="description" content="The definitive day-by-day Sri Lanka 7-day itinerary for Indian travelers. Cover Sigiriya, Kandy, Ella train, Yala safari, and Galle Fort with exact pricing guides." />
+        <title>Sri Lanka 7 Day Itinerary (2026) | Complete Travel Guide For Indian Travelers</title>
+        <meta name="description" content="Explore the perfect 7 day Sri Lanka itinerary including Colombo, Sigiriya, Kandy, Ella and Galle. Includes budget tips, hotels and travel planning advice." />
         <link rel="canonical" href="https://plan-srilanka.com/sri-lanka-7-day-itinerary" />
         
         {/* Open Graph Tags */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://plan-srilanka.com/sri-lanka-7-day-itinerary" />
-        <meta property="og:title" content="Sri Lanka 7-Day Itinerary: The Classic Curated Route (2026)" />
-        <meta property="og:description" content="The definitive day-by-day Sri Lanka 7-day itinerary for Indian travelers. Cover Sigiriya, Kandy, Ella train, Yala safari, and Galle Fort with exact pricing guides." />
+        <meta property="og:title" content="Sri Lanka 7 Day Itinerary (2026) | Complete Travel Guide For Indian Travelers" />
+        <meta property="og:description" content="Explore the perfect 7 day Sri Lanka itinerary including Colombo, Sigiriya, Kandy, Ella and Galle. Includes budget tips, hotels and travel planning advice." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
         <meta property="og:site_name" content="Plan Sri Lanka" />
         
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sri Lanka 7-Day Itinerary: The Classic Curated Route (2026)" />
-        <meta name="twitter:description" content="The definitive day-by-day Sri Lanka 7-day itinerary for Indian travelers. Cover Sigiriya, Kandy, Ella train, Yala safari, and Galle Fort with exact pricing guides." />
+        <meta name="twitter:title" content="Sri Lanka 7 Day Itinerary (2026) | Complete Travel Guide For Indian Travelers" />
+        <meta name="twitter:description" content="Explore the perfect 7 day Sri Lanka itinerary including Colombo, Sigiriya, Kandy, Ella and Galle. Includes budget tips, hotels and travel planning advice." />
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
         
         {/* ARTICLE SCHEMA */}
