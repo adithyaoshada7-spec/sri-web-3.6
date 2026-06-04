@@ -26,5 +26,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/sri-lanka-visa-for-indians",
+    title: "Sri Lanka Visa For Indians (2026 ETA Guide) | Apply Online & Entry Requirements",
+    description: "Unravel the Sri Lanka Visa for Indians. Discover how to get your Sri Lanka Tourist ETA online, latest requirements, application steps, and how to stay stress-free at the airport.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];

@@ -26,6 +26,7 @@ import { activities } from "./data/activities";
 const ExperienceDetail = lazy(() => import("./components/ExperienceDetail"));
 const SrilankaCostPage = lazy(() => import("./components/SrilankaCostPage"));
 const SrilankaItineraryPage = lazy(() => import("./components/SrilankaItineraryPage"));
+const SrilankaVisaPage = lazy(() => import("./components/SrilankaVisaPage"));
 const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -293,10 +294,11 @@ export default function App() {
         </div>
         
         <div className="flex items-center gap-6 md:gap-12">
-          <div className="hidden md:flex gap-12 items-center text-[10px] uppercase tracking-[0.4em] font-bold">
+          <div className="hidden md:flex gap-12 items-center text-[10px] uppercase tracking-[0.4em] font-bold font-sans">
             <Link to="/#about" className="hover:text-luxury-gold transition-colors">The Lifestyle</Link>
             <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">The Collection</Link>
-            <Link to="/sri-lanka-trip-cost-from-india" className="hover:text-luxury-gold transition-colors text-luxury-gold font-bold">Trip Cost Guide</Link>
+            <Link to="/sri-lanka-trip-cost-from-india" className="hover:text-luxury-gold transition-colors">Trip Costs</Link>
+            <Link to="/sri-lanka-visa-for-indians" className="hover:text-luxury-gold transition-colors text-luxury-gold font-bold">Visa Guide</Link>
             <a href="#concierge" className="hover:text-luxury-gold transition-colors">Concierge Desk</a>
             <a 
               href="https://wa.me/94722968210"
@@ -380,6 +382,16 @@ export default function App() {
             <SrilankaItineraryPage />
           </Suspense>
         } />
+
+        <Route path="/sri-lanka-visa-for-indians" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaVisaPage />
+          </Suspense>
+        } />
         
         <Route path="/experience/:slug" element={
           <Suspense fallback={
@@ -410,6 +422,7 @@ export default function App() {
           <Link to="/" onClick={() => setIsMenuOpen(false)}>Experience</Link>
           <Link to="/#destinations" onClick={() => setIsMenuOpen(false)}>The Tour</Link>
           <Link to="/sri-lanka-trip-cost-from-india" onClick={() => setIsMenuOpen(false)}>Trip Costs</Link>
+          <Link to="/sri-lanka-visa-for-indians" onClick={() => setIsMenuOpen(false)}>Visa Guide</Link>
           <a href="#concierge" onClick={() => setIsMenuOpen(false)}>Concierge</a>
           <a 
             href="https://wa.me/94722968210" 
