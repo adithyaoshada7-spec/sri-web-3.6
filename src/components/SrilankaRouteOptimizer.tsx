@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Heart, 
@@ -174,15 +174,21 @@ export default function SrilankaRouteOptimizer({ onSelectionChange }: SrilankaRo
     trackEvent("optimizer_priority_change", "engagement", id);
   };
 
+  // Keep reference to latest callback to avoid re-triggering effect on callback re-creation
+  const callbackRef = useRef(onSelectionChange);
   useEffect(() => {
-    if (onSelectionChange) {
-      onSelectionChange({
+    callbackRef.current = onSelectionChange;
+  }, [onSelectionChange]);
+
+  useEffect(() => {
+    if (callbackRef.current) {
+      callbackRef.current({
         style: selectedStyle,
         pace: selectedPace,
         priority: selectedPriority
       });
     }
-  }, [selectedStyle, selectedPace, selectedPriority, onSelectionChange]);
+  }, [selectedStyle, selectedPace, selectedPriority]);
 
   const handleScrollToConcierge = () => {
     trackEvent("optimizer_cta_click", "conversion", `${selectedStyle}_${selectedPace}`);

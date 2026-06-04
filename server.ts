@@ -159,21 +159,21 @@ async function startServer() {
     <meta name="twitter:site" content="@PlanSriLanka" />
     <meta name="twitter:creator" content="@PlanSriLanka" />`;
 
-      // Robust whole-block replacement of original SEO tags in index.html (from <title> to <meta name="twitter:image" ... /> tag).
-      // This completely avoids any risk of having duplicate title, description, or og metadata tags.
-      const seoBlockRegex = /<title>[\s\S]*?<meta name="twitter:image"[^>]*>/i;
+      // Robust whole-block replacement of original SEO tags in index.html (wrapped in <seo-meta>...</seo-meta>)
+      const seoBlockRegex = /<seo-meta>[\s\S]*?<\/seo-meta>/i;
 
       if (seoBlockRegex.test(template)) {
         template = template.replace(seoBlockRegex, metaTags.trim());
       } else {
         // Fallback: strip existing metadata recursively and append the new ones before </head>
+        // Implemented with robust, minification-compatible regular expressions
         const tagsToRemove = [
-          /<title>.*?<\/title>/gi,
-          /<meta\s+(?:name|property)="description"\s+content="[^"]*"\s*\/?>/gi,
-          /<meta\s+(?:name|property)="title"\s+content="[^"]*"\s*\/?>/gi,
-          /<meta\s+property="og:.*?"\s+content="[^"]*"\s*\/?>/gi,
-          /<meta\s+name="twitter:.*?"\s+content="[^"]*"\s*\/?>/gi,
-          /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/gi
+          /<title>[\s\S]*?<\/title>/gi,
+          /<meta\s+[^>]*?(?:name|property)\s*=\s*['"]?description['"]?[^>]*?>/gi,
+          /<meta\s+[^>]*?(?:name|property)\s*=\s*['"]?title['"]?[^>]*?>/gi,
+          /<meta\s+[^>]*?property\s*=\s*['"]?og:[^'">\s]+['"]?[^>]*?>/gi,
+          /<meta\s+[^>]*?name\s*=\s*['"]?twitter:[^'">\s]+['"]?[^>]*?>/gi,
+          /<link\s+[^>]*?rel\s*=\s*['"]?canonical['"]?[^>]*?>/gi
         ];
         tagsToRemove.forEach(regex => {
           template = template.replace(regex, "");
