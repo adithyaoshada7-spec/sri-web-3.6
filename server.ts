@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { activities } from "./src/data/activities";
+import { seoArticles } from "./src/data/seoArticles";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -11,37 +12,6 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  // Scalable SEO articles and pages registry
-  interface Seometa {
-    path: string;
-    title: string;
-    description: string;
-    image: string;
-    ogType: string;
-    changefreq: string;
-    priority: string;
-  }
-
-  const seoArticles: Seometa[] = [
-    {
-      path: "/sri-lanka-trip-cost-from-india",
-      title: "Sri Lanka Trip Cost From India (2026 Guide) | Budget Calculator & Cost Breakdown",
-      description: "Discover the complete Sri Lanka trip cost from India. Compare budget, mid-range and luxury travel costs, flights, hotels, visa fees and use our free trip budget calculator.",
-      image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1",
-      ogType: "article",
-      changefreq: "weekly",
-      priority: "0.9"
-    },
-    {
-      path: "/sri-lanka-7-day-itinerary",
-      title: "Sri Lanka 7 Day Itinerary (2026) | Complete Travel Guide For Indian Travelers",
-      description: "Explore the perfect 7 day Sri Lanka itinerary including Colombo, Sigiriya, Kandy, Ella and Galle. Includes budget tips, hotels and travel planning advice.",
-      image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
-      ogType: "article",
-      changefreq: "weekly",
-      priority: "0.9"
-    }
-  ];
 
   // Dynamic sitemap.xml route for SEO compliance
   app.get("/sitemap.xml", (req, res) => {
