@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -1154,13 +1155,9 @@ Departure: ${leadForm.departure}`;
               { title: "Best Time to Visit Sri Lanka Guide", desc: "Detailed breakdown of dual monsoon weather cycles.", link: "/best-time-to-visit-sri-lanka", label: "Check Seasons" },
               { title: "Romantic Honeymoon Escape Itinerary", desc: "Secluded cliff houses, jungle spas, and private yachts.", link: "/sri-lanka-honeymoon-itinerary", label: "Read Romance Guide" }
             ].map((node, index) => (
-              <a 
-                href={node.link} 
+              <Link 
+                to={node.link} 
                 key={index}
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert(`We are redirecting you to ${node.title} - custom compiled by our London desk.`);
-                }}
                 className="bg-white p-5 rounded-2xl border border-luxury-black/5 hover:border-luxury-gold transition-all block group"
               >
                 <div className="flex justify-between items-start gap-4">
@@ -1170,7 +1167,7 @@ Departure: ${leadForm.departure}`;
                   </div>
                   <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform shrink-0 mt-1" />
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </article>
