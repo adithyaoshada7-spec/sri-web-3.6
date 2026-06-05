@@ -216,13 +216,27 @@ WhatsApp: ${leadForm.whatsapp}`;
         <title>Sri Lanka Visa For Indians (2026 ETA Guide) | Apply Online & Entry Requirements</title>
         <meta name="description" content="Unravel the Sri Lanka Visa for Indians. Discover how to get your Sri Lanka Tourist ETA online, latest requirements, application steps, and how to stay stress-free at the airport." />
         <link rel="canonical" href="https://plan-srilanka.com/sri-lanka-visa-for-indians" />
+
+        {/* Open Graph / Facebook / WhatsApp */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://plan-srilanka.com/sri-lanka-visa-for-indians" />
+        <meta property="og:title" content="Sri Lanka Visa For Indians (2026 ETA Guide) | Apply Online & Entry Requirements" />
+        <meta property="og:description" content="Unravel the Sri Lanka Visa for Indians. Discover how to get your Sri Lanka Tourist ETA online, latest requirements, application steps, and how to stay stress-free at the airport." />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
+        <meta property="og:site_name" content="Plan Sri Lanka" />
+
+        {/* Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Sri Lanka Visa For Indians (2026 ETA Guide) | Apply Online & Entry Requirements" />
+        <meta name="twitter:description" content="Unravel the Sri Lanka Visa for Indians. Discover how to get your Sri Lanka Tourist ETA online, latest requirements, application steps, and how to stay stress-free at the airport." />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
         
         {/* Schema markup inject */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": faqList.slice(0, 10).map(faq => ({
+            "mainEntity": faqList.map(faq => ({
               "@type": "Question",
               "name": faq.q,
               "acceptedAnswer": {
