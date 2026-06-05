@@ -90,6 +90,50 @@ const ExperienceDetail = () => {
             ? "Bespoke Sri Lanka travel and vacation packages from India. Experience the elite Vibe Tour Sri Lanka with curated itineraries, premium Colombo dining, and packages from Delhi/Mumbai." 
             : selectedActivity.description} 
         />
+        <meta 
+          name="keywords" 
+          content={selectedActivity.slug === 'italian-vibe-tour' 
+            ? "Sri Lanka Tour Packages from India, Vibe Tour Sri Lanka, Sri Lanka tour package from Delhi, Sri Lanka travel packages from India, Sri Lanka vacation packages, Colombo custom tour"
+            : `${selectedActivity.title}, Sri Lanka travel, Plan Sri Lanka, custom itinerary`} 
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Plan Sri Lanka Editorial Desk" />
+        <meta name="publisher" content="Plan Sri Lanka" />
+        <link rel="canonical" href={`https://plan-srilanka.com/experience/${selectedActivity.slug}`} />
+
+        {/* Open Graph / Facebook / WhatsApp */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://plan-srilanka.com/experience/${selectedActivity.slug}`} />
+        <meta 
+          property="og:title" 
+          content={selectedActivity.slug === 'italian-vibe-tour' 
+            ? "Sri Lanka Tour Packages from India | Vibe Tour Sri Lanka" 
+            : `${selectedActivity.title} | Plan Sri Lanka`} 
+        />
+        <meta 
+          property="og:description" 
+          content={selectedActivity.slug === 'italian-vibe-tour' 
+            ? "Bespoke Sri Lanka travel and vacation packages from India. Experience the elite Vibe Tour Sri Lanka with curated itineraries, premium Colombo dining, and packages from Delhi/Mumbai." 
+            : selectedActivity.description} 
+        />
+        <meta property="og:image" content={selectedActivity.image} />
+        <meta property="og:site_name" content="Plan Sri Lanka" />
+
+        {/* Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta 
+          name="twitter:title" 
+          content={selectedActivity.slug === 'italian-vibe-tour' 
+            ? "Sri Lanka Tour Packages from India | Vibe Tour Sri Lanka" 
+            : `${selectedActivity.title} | Plan Sri Lanka`} 
+        />
+        <meta 
+          name="twitter:description" 
+          content={selectedActivity.slug === 'italian-vibe-tour' 
+            ? "Bespoke Sri Lanka travel and vacation packages from India. Experience the elite Vibe Tour Sri Lanka with curated itineraries, premium Colombo dining, and packages from Delhi/Mumbai." 
+            : selectedActivity.description} 
+        />
+        <meta name="twitter:image" content={selectedActivity.image} />
         {selectedActivity.slug === 'italian-vibe-tour' && (
           <script type="application/ld+json">
             {JSON.stringify({

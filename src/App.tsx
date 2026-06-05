@@ -30,6 +30,7 @@ const SrilankaVisaPage = lazy(() => import("./components/SrilankaVisaPage"));
 const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
+const FaqAccordion = lazy(() => import("./components/FaqAccordion"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -357,6 +358,9 @@ export default function App() {
               <FeatureSection />
             </Suspense>
             <OfferSection />
+            <Suspense fallback={<div className="h-40 bg-[#fcfbf7]" />}>
+              <FaqAccordion theme="cream" />
+            </Suspense>
             <Suspense fallback={<div className="h-40 bg-luxury-cream" />}>
               <CallToAction trackEvent={trackEvent} fadeUp={fadeUp} />
             </Suspense>
