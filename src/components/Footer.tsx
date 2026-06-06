@@ -23,6 +23,7 @@ export const Footer = () => (
             <li><Link to="/sri-lanka-trip-cost-from-india" className="hover:text-white transition-colors">Trip Cost Guide</Link></li>
             <li><Link to="/sri-lanka-7-day-itinerary" className="hover:text-white transition-colors">7-Day Itinerary</Link></li>
             <li><Link to="/sri-lanka-visa-for-indians" className="hover:text-white transition-colors">Visa Guide for Indians</Link></li>
+            <li><Link to="/best-time-to-visit-sri-lanka" className="hover:text-white transition-colors text-luxury-gold font-bold">Best Time to Visit Sri Lanka</Link></li>
           </ul>
         </div>
         <div>

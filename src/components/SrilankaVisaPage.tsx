@@ -934,7 +934,7 @@ WhatsApp: ${leadForm.whatsapp}`;
       {/* FOOTER RESOURCE LINK SECTION */}
       <section className="py-12 bg-[#fcfbf7] px-4 md:px-8 border-t border-[#1e3a2f]/5 max-w-6xl mx-auto">
         <h3 className="text-xs uppercase tracking-[0.2em] text-[#3a4d44] font-bold mb-6 text-center">Plan Sri Lanka Curated Resources</h3>
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-3 gap-4">
           <Link 
             to="/sri-lanka-trip-cost-from-india"
             className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/5 hover:border-[#d4af37] transition-all group flex justify-between items-center"
@@ -955,6 +955,18 @@ WhatsApp: ${leadForm.whatsapp}`;
               <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Pacing Optimization</span>
               <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37]">Sri Lanka 7 Day Signature Itinerary</h4>
               <p className="text-[11px] text-[#3a4d44]/75 mt-1 font-light">A curated road map comparing route pacing and transit times.</p>
+            </div>
+            <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+          </Link>
+
+          <Link 
+            to="/best-time-to-visit-sri-lanka"
+            className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/5 hover:border-[#d4af37] transition-all group flex justify-between items-center"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Seasonality Advisory</span>
+              <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37]">Best Time to Visit Sri Lanka (2026)</h4>
+              <p className="text-[11px] text-[#3a4d44]/75 mt-1 font-light">Choose your journey based on festival events, crowds & microclimates.</p>
             </div>
             <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
           </Link>

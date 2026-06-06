@@ -27,6 +27,7 @@ const ExperienceDetail = lazy(() => import("./components/ExperienceDetail"));
 const SrilankaCostPage = lazy(() => import("./components/SrilankaCostPage"));
 const SrilankaItineraryPage = lazy(() => import("./components/SrilankaItineraryPage"));
 const SrilankaVisaPage = lazy(() => import("./components/SrilankaVisaPage"));
+const SrilankaBestTimePage = lazy(() => import("./components/SrilankaBestTimePage"));
 const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -413,6 +414,16 @@ export default function App() {
             </div>
           }>
             <SrilankaVisaPage />
+          </Suspense>
+        } />
+
+        <Route path="/best-time-to-visit-sri-lanka" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaBestTimePage />
           </Suspense>
         } />
         

@@ -1135,17 +1135,17 @@ export default function SrilankaItineraryPage() {
           </div>
 
           {/* Internal links as naturally requested */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center pt-8 border-t border-luxury-black/5">
-            <Link to="/sri-lanka-trip-cost-from-india" className="text-xs text-luxury-gold font-bold hover:text-[#006233] border-r border-luxury-black/10 last:border-0 pr-2">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center pt-8 border-t border-luxury-black/5 font-sans uppercase tracking-[0.15em] text-[10px] font-bold">
+            <Link to="/sri-lanka-trip-cost-from-india" className="text-luxury-gold hover:text-[#006233] border-r border-luxury-black/10 last:border-0 pr-2 block">
               Trip Cost Guide
             </Link>
-            <a href="https://wa.me/94722968210" target="_blank" rel="noopener noreferrer" className="text-xs text-luxury-gold font-bold hover:text-[#006233] border-r border-luxury-black/10 last:border-0 pr-2">
-              e-Visa Assistance
-            </a>
-            <a href="#hero-section" className="text-xs text-luxury-gold font-bold hover:text-[#006233] border-r border-luxury-black/10 last:border-0 pr-2">
+            <Link to="/sri-lanka-visa-for-indians" className="text-luxury-gold hover:text-[#006233] border-r border-luxury-black/10 last:border-0 pr-2 block">
+              Visa Guide
+            </Link>
+            <Link to="/best-time-to-visit-sri-lanka" className="text-luxury-gold hover:text-[#006233] border-r border-luxury-black/10 last:border-0 pr-2 block">
               Best Time to Visit
-            </a>
-            <a href="#concierge-form" className="text-xs text-luxury-gold font-bold hover:text-[#006233]">
+            </Link>
+            <a href="#concierge-form" className="text-luxury-gold hover:text-[#006233] block">
               Bespoke Planner
             </a>
           </div>

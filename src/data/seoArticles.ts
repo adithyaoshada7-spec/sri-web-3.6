@@ -35,5 +35,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/best-time-to-visit-sri-lanka",
+    title: "Best Time To Visit Sri Lanka (2026) | Weather, Festivals & Travel Experiences",
+    description: "Discover the best time to visit Sri Lanka based on weather, festivals, beaches, wildlife, train journeys, and cultural experiences. Find the perfect month for your trip.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];
