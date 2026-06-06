@@ -351,6 +351,25 @@ export default function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
+            <Helmet>
+              <title>Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours</title>
+              <meta name="description" content="An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka." />
+              <link rel="canonical" href="https://plan-srilanka.com/" />
+              
+              {/* Open Graph / Facebook */}
+              <meta property="og:type" content="website" />
+              <meta property="og:site_name" content="Plan Sri Lanka" />
+              <meta property="og:title" content="Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours" />
+              <meta property="og:description" content="An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka." />
+              <meta property="og:url" content="https://plan-srilanka.com/" />
+              <meta property="og:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
+              
+              {/* Twitter Cards */}
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta name="twitter:title" content="Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours" />
+              <meta name="twitter:description" content="An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka." />
+              <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200" />
+            </Helmet>
             <Hero />
             <About />
             <Destinations />
