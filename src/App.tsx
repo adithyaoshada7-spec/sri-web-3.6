@@ -370,6 +370,109 @@ export default function App() {
               <meta name="twitter:title" content="Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours" />
               <meta name="twitter:description" content="An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka." />
               <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200" />
+
+              {/* WEBSITE SCHEMA FOR RICH SNIPPETS */}
+              <script type="application/ld+json">
+                {JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "WebSite",
+                  "name": "Plan Sri Lanka",
+                  "url": "https://plan-srilanka.com/",
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://plan-srilanka.com/?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                  }
+                })}
+              </script>
+
+              {/* TRAVEL AGENCY / ORGANIZATION SCHEMA */}
+              <script type="application/ld+json">
+                {JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "TravelAgency",
+                  "name": "Plan Sri Lanka",
+                  "url": "https://plan-srilanka.com/",
+                  "logo": "https://plan-srilanka.com/logo.png",
+                  "image": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+                  "description": "Exclusive boutique luxury travel concierge for families, couples, and honeymoons seeking bespoke Sri Lanka travel plans, vacation packages, and curated Vibe Tours.",
+                  "telephone": "+94722968210",
+                  "priceRange": "$$$",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Bespoke Regency Towers, Colpetty",
+                    "addressLocality": "Cardiff",
+                    "addressRegion": "Western Province",
+                    "postalCode": "00300",
+                    "addressCountry": "LK"
+                  },
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+94722968210",
+                    "contactType": "concierge assistance",
+                    "areaServed": ["IN", "GB", "US", "AE"],
+                    "availableLanguage": ["en", "hi"]
+                  }
+                })}
+              </script>
+
+              {/* FAQPAGE SCHEMA */}
+              <script type="application/ld+json">
+                {JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  "mainEntity": [
+                    {
+                      "@type": "Question",
+                      "name": "When is the absolute best time to visit Sri Lanka?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sri Lanka has a dual monsoon climate, making it a spectacular year-round destination. For the West Coast, South Coast, and Hill Country (Colombo, Galle, Ella, Kandy), the best weather is from December to April. For the East Coast and Ancient Cities (Trincomalee, Arugam Bay, Sigiriya), the dry sunny window peaks from May to September."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Do Indian passport holders need a visa before flying to Sri Lanka?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, all Indian travelers must obtain an entry clearance. We highly recommend securing a digital Tourist ETA (Electronic Travel Authorization) online at least 3-4 days prior to departure. This links directly to your passport, avoids long hours in arrival queues at Colombo airport, and ensures standard budget airline check-in clearance in India."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "What is the recommended currency, and are credit cards widely accepted?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The local currency is the Sri Lankan Rupee (LKR). While premium hotels, resorts, and high-end restaurants in major cities like Colombo and Galle accept Visa and Mastercard, we highly recommend carrying cash for local cafes, tuk-tuks, rural markets, and national park entries. ATMs are widely available across major towns."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "What type of power adapters and clothing should I pack?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sri Lanka primarily uses Type G (three rectangular pins, like the UK) and Type D (three round pins, like India) sockets. For clothing, lightweight breathable cottons or linens are perfect for warmer coastal towns. However, if you are visiting the Hill Country (Nuwara Eliya, Ella), temperature drops of up to 12°C require light sweeps, cardigans, or jackets."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "How should we organize local transit and getting around?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "For supreme comfort and complete peace of mind, hiring a private air-conditioned vehicle with a professional English-speaking chauffeur-guide is the elite choice. It allows you to explore remote hills and coastal roads at your own pace. Uber and PickMe apps are highly reliable in Colombo town zones; scenic local trains can be booked in advance for Ella routes."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Can we fully customize our Vibe Tour Sri Lanka package?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Absolutely. Every luxury journey we curate is built entirely around your family's speed, tastes, and desired mood. Whether you want a high-paced coastal surf tour, quiet secluded jungle spas, historic tea field estates, or gourmet private dining setups, our London and Colombo concierge desks coordinate the custom itinerary flawlessly."
+                      }
+                    }
+                  ]
+                })}
+              </script>
             </Helmet>
             <Hero />
             <About />
