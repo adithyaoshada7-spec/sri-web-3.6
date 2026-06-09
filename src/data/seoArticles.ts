@@ -53,5 +53,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/where-to-go-in-sri-lanka-in-june",
+    title: "Where To Go In Sri Lanka In June (2026 Guide) | Avoid Bad Weather",
+    description: "Avoid the biggest mistake travelers make in June! Discover which parts of Sri Lanka offer the best weather, beaches, ocean swimming, and seasonal experiences.",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];

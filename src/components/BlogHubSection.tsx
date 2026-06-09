@@ -47,6 +47,14 @@ const getArticleMeta = (path: string) => {
         readTime: "12 Min Read",
         badge: "Gold Standard"
       };
+    case "/where-to-go-in-sri-lanka-in-june":
+      return {
+        category: "Destination Intel",
+        tag: "June Optimizer",
+        icon: <Calendar className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "9 Min Read",
+        badge: "East vs South"
+      };
     default:
       return {
         category: "Travel Guide",

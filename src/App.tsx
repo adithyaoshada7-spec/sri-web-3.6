@@ -29,6 +29,7 @@ const SrilankaItineraryPage = lazy(() => import("./components/SrilankaItineraryP
 const SrilankaVisaPage = lazy(() => import("./components/SrilankaVisaPage"));
 const SrilankaBestTimePage = lazy(() => import("./components/SrilankaBestTimePage"));
 const SrilankaFamilyPage = lazy(() => import("./components/SrilankaFamilyPage"));
+const SrilankaJunePage = lazy(() => import("./components/SrilankaJunePage"));
 const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -545,6 +546,16 @@ export default function App() {
           </Suspense>
         } />
         
+        <Route path="/where-to-go-in-sri-lanka-in-june" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaJunePage />
+          </Suspense>
+        } />
+        
         <Route path="/experience/:slug" element={
           <Suspense fallback={
             <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
@@ -627,6 +638,7 @@ export default function App() {
             </span>
             <div className="space-y-3">
               {[
+                { title: "Where to Go in June (2026)", path: "/where-to-go-in-sri-lanka-in-june", badge: "June Weather", desc: "Which coast to choose to beat the monsoons." },
                 { title: "12-Day Family Itinerary with Kids", path: "/sri-lanka-family-itinerary", badge: "Kids Fun • 2026", desc: "Custom low-fatigue routes & baby safety." },
                 { title: "7-Day Sri Lanka Classic Itinerary", path: "/sri-lanka-7-day-itinerary", badge: "Most Popular", desc: "Ready-to-use perfect first trip loop." },
                 { title: "Best Time to Visit Sri Lanka Guide", path: "/best-time-to-visit-sri-lanka", badge: "Weather Guide", desc: "Dual monsoon & seasonal months." },
