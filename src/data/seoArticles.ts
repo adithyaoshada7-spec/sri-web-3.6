@@ -44,5 +44,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/sri-lanka-family-itinerary",
+    title: "Sri Lanka Family Itinerary (2026) | The Stress-Free Route For Kids",
+    description: "Discover the ultimate stress-free 12-day Sri Lanka family itinerary with kids. Solve transportation fatigue, find kid-approved beaches, child-safety tips & avoid common mistakes.",
+    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];

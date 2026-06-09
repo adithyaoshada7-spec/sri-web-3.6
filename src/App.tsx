@@ -28,10 +28,12 @@ const SrilankaCostPage = lazy(() => import("./components/SrilankaCostPage"));
 const SrilankaItineraryPage = lazy(() => import("./components/SrilankaItineraryPage"));
 const SrilankaVisaPage = lazy(() => import("./components/SrilankaVisaPage"));
 const SrilankaBestTimePage = lazy(() => import("./components/SrilankaBestTimePage"));
+const SrilankaFamilyPage = lazy(() => import("./components/SrilankaFamilyPage"));
 const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
 const FaqAccordion = lazy(() => import("./components/FaqAccordion"));
+const BlogHubSection = lazy(() => import("./components/BlogHubSection"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -482,6 +484,9 @@ export default function App() {
             </Suspense>
             <OfferSection />
             <Suspense fallback={<div className="h-40 bg-[#fcfbf7]" />}>
+              <BlogHubSection />
+            </Suspense>
+            <Suspense fallback={<div className="h-40 bg-[#fcfbf7]" />}>
               <FaqAccordion theme="cream" />
             </Suspense>
             <Suspense fallback={<div className="h-40 bg-luxury-cream" />}>
@@ -530,6 +535,16 @@ export default function App() {
           </Suspense>
         } />
         
+        <Route path="/sri-lanka-family-itinerary" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaFamilyPage />
+          </Suspense>
+        } />
+        
         <Route path="/experience/:slug" element={
           <Suspense fallback={
             <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
@@ -550,17 +565,102 @@ export default function App() {
       <motion.div 
         initial={{ opacity: 0, x: "100%" }}
         animate={{ opacity: isMenuOpen ? 1 : 0, x: isMenuOpen ? 0 : "100%" }}
-        className="fixed inset-0 bg-luxury-green z-[100] p-12 text-white flex flex-col justify-between"
+        className="fixed inset-0 bg-[#0e1c17] z-[150] px-6 py-6 text-white flex flex-col justify-start overflow-y-auto"
       >
-        <button onClick={() => setIsMenuOpen(false)} className="self-end p-2 border border-white/20 rounded-full">
-          <X className="w-8 h-8" />
-        </button>
-        <div className="flex flex-col gap-8 text-4xl font-serif italic text-center">
-          <Link to="/" onClick={() => setIsMenuOpen(false)}>Experience</Link>
-          <Link to="/#destinations" onClick={() => setIsMenuOpen(false)}>The Tour</Link>
-          <Link to="/sri-lanka-trip-cost-from-india" onClick={() => setIsMenuOpen(false)}>Trip Costs</Link>
-          <Link to="/sri-lanka-visa-for-indians" onClick={() => setIsMenuOpen(false)}>Visa Guide</Link>
-          <a href="#concierge" onClick={() => setIsMenuOpen(false)}>Concierge</a>
+        {/* Top Header */}
+        <div className="flex justify-between items-center pb-6 border-b border-white/10 mb-8">
+          <Link 
+            to="/" 
+            onClick={() => setIsMenuOpen(false)}
+            className="text-lg font-serif tracking-[0.2em] font-bold text-white"
+          >
+            VIBE TOUR
+          </Link>
+          <button 
+            onClick={() => setIsMenuOpen(false)} 
+            className="p-2 border border-white/20 rounded-full hover:border-[#d4af37] hover:text-[#d4af37] transition-colors"
+          >
+            <X className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Navigation Links Grid */}
+        <div className="space-y-8 flex-grow">
+          {/* Main Links */}
+          <div className="space-y-4">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#d4af37] font-bold block">
+              Bespoke Services
+            </span>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              <Link 
+                to="/" 
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  navigate("/");
+                }}
+                className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-white/20 transition-all flex flex-col gap-1"
+              >
+                <span className="font-serif font-bold text-base">Signature Home</span>
+                <span className="text-[10px] opacity-60">Curated lifestyle</span>
+              </Link>
+              <a 
+                href="/#destinations"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  navigate("/");
+                  setTimeout(() => {
+                    document.getElementById('destinations')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
+                className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-white/20 transition-all flex flex-col gap-1"
+              >
+                <span className="font-serif font-bold text-base">The Collection</span>
+                <span className="text-[10px] opacity-60">Past visual tours</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Blogs / Curated Travel Guides list */}
+          <div className="space-y-4">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#d4af37] font-bold block">
+              Expert Travel Blueprints (Blogs)
+            </span>
+            <div className="space-y-3">
+              {[
+                { title: "12-Day Family Itinerary with Kids", path: "/sri-lanka-family-itinerary", badge: "Kids Fun • 2026", desc: "Custom low-fatigue routes & baby safety." },
+                { title: "7-Day Sri Lanka Classic Itinerary", path: "/sri-lanka-7-day-itinerary", badge: "Most Popular", desc: "Ready-to-use perfect first trip loop." },
+                { title: "Best Time to Visit Sri Lanka Guide", path: "/best-time-to-visit-sri-lanka", badge: "Weather Guide", desc: "Dual monsoon & seasonal months." },
+                { title: "Sri Lanka Visa ETA Guide for Indians", path: "/sri-lanka-visa-for-indians", badge: "Waivers & ETA", desc: "How to register entry clearance." },
+                { title: "Complete Trip Cost & Calculator", path: "/sri-lanka-trip-cost-from-india", badge: "Financials", desc: "Real flight, hotels & taxi budgets." }
+              ].map((blog, idx) => (
+                <Link
+                  key={idx}
+                  to={blog.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-[#d4af37] hover:bg-white/10 transition-all flex justify-between items-center group"
+                >
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[8px] uppercase font-mono font-bold bg-[#d4af37]/20 text-[#d4af37] px-2 py-0.5 rounded-md">
+                        {blog.badge}
+                      </span>
+                    </div>
+                    <p className="font-serif font-bold text-sm text-white group-hover:text-[#d4af37] transition-colors leading-tight">
+                      {blog.title}
+                    </p>
+                    <p className="text-[10px] text-white/50 leading-relaxed font-light">
+                      {blog.desc}
+                    </p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform shrink-0 ml-3" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Area with Book Button */}
+        <div className="mt-12 pt-6 border-t border-white/10 space-y-6 shrink-0">
           <a 
             href="https://wa.me/94722968210" 
             target="_blank"
@@ -572,12 +672,13 @@ export default function App() {
                 (window as any).fbq('track', 'Lead');
               }
             }}
+            className="w-full py-4 bg-[#d4af37] text-black font-bold text-center rounded-full uppercase text-xs tracking-widest hover:bg-white transition-colors block"
           >
-            Book Now
+            Start Your Private Journey (WhatsApp)
           </a>
-        </div>
-        <div className="text-center text-[10px] tracking-widest opacity-50 uppercase">
-          Vibe Tour Sri Lanka | London • Colombo
+          <div className="text-center text-[10px] tracking-widest opacity-40 uppercase">
+            Vibe Tour Sri Lanka | London • Colombo
+          </div>
         </div>
       </motion.div>
     </div>

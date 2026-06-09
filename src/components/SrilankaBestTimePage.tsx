@@ -192,7 +192,7 @@ export default function SrilankaBestTimePage() {
     },
     {
       q: "How many days are recommended for a full-experience family holiday?",
-      a: "A 7-day to 10-day itinerary is the absolute sweet spot to cover the historical ruins, tea country, elephant safari, and Galle beach. Check out our proven [Sri Lanka 7 Day Itinerary](/sri-lanka-7-day-itinerary) for a ready-to-use, high-end family route."
+      a: "A 7-day to 10-day itinerary is the absolute sweet spot to cover the historical ruins, tea country, elephant safari, and Galle beach. Check out our proven [Sri Lanka 7 Day Itinerary](/sri-lanka-7-day-itinerary) for a ready-to-use, high-end route, or read our extensive [Sri Lanka Family Itinerary](/sri-lanka-family-itinerary) to design a vacation centered around child comfort and zero transport fatigue."
     },
     {
       q: "Is Sri Lanka safe for a honeymoon trip during September?",
