@@ -436,22 +436,70 @@ export default function SrilankaTripPlannerPage() {
   return (
     <div className="bg-[#FAF9F5] text-[#1e3a2f] min-h-screen font-sans antialiased overflow-x-hidden pt-2">
       <Helmet>
-        <title>Sri Lanka Travel Decision Assistant & Route Expert (2026)</title>
-        <meta name="description" content="Use Vibe Tour's direct Climatic Decision Tool to plan your Sri Lanka trip, allocate hotel budgets, visualize route loops and maximize vacation time." />
+        <title>Sri Lanka Trip Planner & Interactive Route Creator (2026)</title>
+        <meta name="description" content="Design your custom Sri Lanka itinerary with our real-time interactive route planner. Map daily destinations, preview climatic monsoon alerts, allocate budgets, and generate a downloadable day-by-day travel plan." />
+        <meta name="keywords" content="sri lanka trip planner, custom route creator, interactive travel map, sri lanka itinerary generator, monsoon climate advisor, hotel budget planner, travel sri lanka" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://plan-srilanka.com/sri-lanka-trip-planner" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Plan Sri Lanka" />
-        <meta property="og:title" content="Sri Lanka Travel Decision Assistant & Route Expert (2026)" />
-        <meta property="og:description" content="Use Vibe Tour's direct Climatic Decision Tool to plan your Sri Lanka trip, allocate hotel budgets, visualize route loops and maximize vacation time." />
+        <meta property="og:title" content="Sri Lanka Trip Planner & Interactive Route Creator (2026)" />
+        <meta property="og:description" content="Design your custom Sri Lanka itinerary with our real-time interactive route planner. Map daily destinations, preview climatic monsoon alerts, allocate budgets, and generate a downloadable day-by-day travel plan." />
         <meta property="og:url" content="https://plan-srilanka.com/sri-lanka-trip-planner" />
         <meta property="og:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
         
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sri Lanka Travel Decision Assistant & Route Expert (2026)" />
-        <meta name="twitter:description" content="Use Vibe Tour's direct Climatic Decision Tool to plan your Sri Lanka trip, allocate hotel budgets, visualize route loops and maximize vacation time." />
+        <meta name="twitter:title" content="Sri Lanka Trip Planner & Interactive Route Creator (2026)" />
+        <meta name="twitter:description" content="Design your custom Sri Lanka itinerary with our real-time interactive route planner. Map daily destinations, preview climatic monsoon alerts, allocate budgets, and generate a downloadable day-by-day travel plan." />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
+
+        {/* 1. WebApplication Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Sri Lanka Custom Route & Trip Planner",
+            "operatingSystem": "All",
+            "applicationCategory": "TravelApplication",
+            "browserRequirements": "Requires JavaScript. Requires HTML5.",
+            "url": "https://plan-srilanka.com/sri-lanka-trip-planner",
+            "description": "An interactive, web-based travel assistant designed to help user customized routes across Sri Lanka while factoring in the seasonal southwest monsoons, region weather forecasts, and customized accommodation budget guides.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0.00",
+              "priceCurrency": "USD"
+            }
+          })}
+        </script>
+
+        {/* 2. FAQ Page Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How does the Sri Lanka Trip Planner helper work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The custom planner allows travelers to dynamically configure their timeline length (7 to 15 days), adjust traveling pacing styles, choose local hotel price brackets (Hostel, Boutique, or Luxury Resorts) and view real-time climate warnings for the southwest monsoon wet zone. It visualizes daily paths on an interactive map."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I download my finalized Sri Lanka trip schedule?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, our trip planning application features a fully offline-friendly PDF export utility and live messaging prompts to share or print complete daily pacing details, hotel recommendations, and navigation markers."
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       {/* STICKY TOP STATUS / STEPPER HEADER */}
