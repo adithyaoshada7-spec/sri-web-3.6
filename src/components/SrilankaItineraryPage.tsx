@@ -24,7 +24,10 @@ import {
   Check,
   Smartphone,
   TrendingDown,
-  AlertCircle
+  AlertCircle,
+  Printer,
+  FileText,
+  Download
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 import SrilankaRouteOptimizer from "./SrilankaRouteOptimizer";
@@ -32,9 +35,10 @@ import SrilankaRouteOptimizer from "./SrilankaRouteOptimizer";
 export default function SrilankaItineraryPage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   
-  // Interactive Route Selection Tool State
+  // Interactive Route Selection State
   const [selectedStyle, setSelectedStyle] = useState<string>("first-time");
   const [selectedPriority, setSelectedPriority] = useState<string>("scenic-train");
+  const [pdfPreviewPage, setPdfPreviewPage] = useState<number>(1);
   
   // Lead form state
   const [leadForm, setLeadForm] = useState({
@@ -49,9 +53,66 @@ export default function SrilankaItineraryPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const [showStickyCta, setShowStickyCta] = useState(false);
+  const pdfTrackingCooldown = React.useRef(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0) {
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        if (scrollPercent >= 30) {
+          setShowStickyCta(true);
+        } else {
+          setShowStickyCta(false);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handlePdfDownload = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (pdfTrackingCooldown.current) return;
+    pdfTrackingCooldown.current = true;
+    setTimeout(() => {
+      pdfTrackingCooldown.current = false;
+    }, 2000); // 2 second duplicate lock
+
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag('event', 'itinerary_pdf_download', {
+        event_category: 'engagement',
+        event_label: 'sri_lanka_7_day_itinerary_pdf'
+      });
+    } else {
+      trackEvent('itinerary_pdf_download', 'engagement', 'sri_lanka_7_day_itinerary_pdf');
+    }
+
+    // Scroll to section for context, then trigger print
+    const element = document.getElementById("pdf-portfolio-section");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setTimeout(() => {
+      window.print();
+    }, 800);
+  };
+
+  const handleTripPlannerClick = () => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag('event', 'trip_planner_click', {
+        event_category: 'engagement',
+        event_label: 'trip_planner_cta'
+      });
+    } else {
+      trackEvent('trip_planner_click', 'engagement', 'trip_planner_cta');
+    }
+  };
 
   const handleWhatsAppRedirect = (source: string) => {
     trackEvent('whatsapp_click', 'conversion', `itinerary_page_${source}`);
@@ -434,22 +495,24 @@ export default function SrilankaItineraryPage() {
   return (
     <div className="bg-luxury-cream min-h-screen text-luxury-black font-sans leading-relaxed pt-24 md:pt-32">
       <Helmet>
-        <title>Sri Lanka 7 Day Itinerary (2026) | Complete Travel Guide For Indian Travelers</title>
-        <meta name="description" content="Maximize your 7 days in Sri Lanka without wasted vehicle transit. Our expert comparison tool, detailed daily routes, costs in INR, and tips solve transportation anxiety." />
+        <title>Sri Lanka 7 Day Itinerary (2026) | Complete Route Optimization & Free Printable PDF Guide</title>
+        <meta name="description" content="Maximize your 7 days in Sri Lanka with our field-tested route optimization guide. Get realistic driving loop comparisons, Indian Rupee (INR) cost estimates, hotel choices, and download our official printable PDF guide offline." />
+        <meta name="keywords" content="Sri Lanka 7 day itinerary, Sri Lanka route optimization, Sri Lanka travel guide, Sri Lanka itineraries, Plan Sri Lanka, Sri Lanka tour package, Sri Lanka driving loops, Indian travelers in Sri Lanka" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://plan-srilanka.com/sri-lanka-7-day-itinerary" />
         
         {/* Open Graph Tags */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://plan-srilanka.com/sri-lanka-7-day-itinerary" />
-        <meta property="og:title" content="Sri Lanka 7 Day Itinerary (2026) | Complete Travel Guide For Indian Travelers" />
-        <meta property="og:description" content="Maximize your 7 days in Sri Lanka without wasted vehicle transit. Our expert comparison tool, detailed daily routes, costs in INR, and tips solve transportation anxiety." />
+        <meta property="og:title" content="Sri Lanka 7 Day Itinerary (2026) | Complete Route Optimization & Free Printable PDF Guide" />
+        <meta property="og:description" content="Maximize your 7 days in Sri Lanka with our field-tested route optimization guide. Get realistic driving loop comparisons, Indian Rupee (INR) cost estimates, hotel choices, and download our official printable PDF guide offline." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
         <meta property="og:site_name" content="Plan Sri Lanka" />
         
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sri Lanka 7 Day Itinerary (2026) | Complete Travel Guide For Indian Travelers" />
-        <meta name="twitter:description" content="Maximize your 7 days in Sri Lanka without wasted vehicle transit. Our expert comparison tool, detailed daily routes, costs in INR, and tips solve transportation anxiety." />
+        <meta name="twitter:title" content="Sri Lanka 7 Day Itinerary (2026) | Complete Route Optimization & Free Printable PDF Guide" />
+        <meta name="twitter:description" content="Maximize your 7 days in Sri Lanka with our field-tested route optimization guide. Get realistic driving loop comparisons, Indian Rupee (INR) cost estimates, hotel choices, and download our official printable PDF guide offline." />
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200" />
         
         {/* ARTICLE SCHEMA */}
@@ -457,7 +520,7 @@ export default function SrilankaItineraryPage() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Sri Lanka 7 Day Itinerary (2026) | Make The Most Of Your Limited Vacation Time",
+            "headline": "Sri Lanka 7 Day Itinerary (2026) | Complete Route Optimization & Free Printable PDF Guide",
             "image": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
             "author": {
               "@type": "Person",
@@ -473,8 +536,8 @@ export default function SrilankaItineraryPage() {
               }
             },
             "datePublished": "2026-02-10T08:00:00Z",
-            "dateModified": "2026-06-04T03:47:43Z",
-            "description": "Struggling to plan a 7-day Sri Lanka itinerary without wasting hours in a car? View actual driving hour comparisons, interactive schedules, and save thousands."
+            "dateModified": "2026-06-11T07:30:00Z",
+            "description": "Struggling to plan a 7-day Sri Lanka itinerary without wasting hours in a car? View actual driving hour comparisons, interactive schedules, realistic INR budgets, and download our offline printable PDF guide."
           })}
         </script>
 
@@ -500,12 +563,73 @@ export default function SrilankaItineraryPage() {
           })}
         </script>
 
+        {/* HOW TO / ITINERARY STEP SCHEMA */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "7-Day Sri Lanka Route Itinerary Strategy",
+            "description": "The ultimate day-by-day travel guide and optimized loop to experience Sri Lanka in exactly 7 days.",
+            "image": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+            "totalTime": "P7D",
+            "estimatedCost": {
+              "@type": "MonetaryAmount",
+              "currency": "INR",
+              "value": "62000"
+            },
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Day 1: Arrival in Colombo & Oceanfront Stroll",
+                "text": "Upon landing at Colombo Airport (CMB), receive reception via your private air-conditioned vehicle transport. Check into your hotel and enjoy a sunset walk along the beachfront at Galle Face Green.",
+                "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-1"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Day 2: Sigiriya Ancient Citadel Climb",
+                "text": "Travel inland to the Cultural Triangle. Ascend the legendary Sigiriya Lion Rock fortress, enjoy an authentic rustic village lunch, and capture scenic sunset points.",
+                "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-2"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Day 3: Kandy Heritage & Cultural Highlights",
+                "text": "Drive to the hill capital, Kandy. Visit the sacred Temple of the Tooth Relic, stroll the Royal Botanical Gardens, and attend a traditional cultural dance show.",
+                "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-3"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Day 4: Scenic Mountain Train Journey to Ella",
+                "text": "Board the world-famous blue train from Nanu Oya to Ella through emerald tea estates. In the evening, photograph the architectural Nine Arch Bridge.",
+                "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-4"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Day 5: Ella Highland Hikes & Waterfalls",
+                "text": "Hike up Little Adam’s Peak for sunrise, visit the cascading Ravana Falls, and experience an authentic guided tea factory harvesting and tasting tour.",
+                "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-5"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Day 6: Flexible Mountain Leisure & Relaxation",
+                "text": "Indulge in organic Ayurvedic luxury spa treatments, experience an immersive culinary cooking class, or enjoy the vibrant mountain cafe culture of Ella.",
+                "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-6"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Day 7: Souvenir Shopping Hub & Flight Return",
+                "text": "Check out from Ella and travel via high-speed southern expressway back to Colombo. Enjoy souvenir curations at high-end hubs before airport drop-off.",
+                "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-7"
+              }
+            ]
+          })}
+        </script>
+
         {/* FAQ SCHEMA */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": faqs.slice(0, 10).map(faq => ({
+            "mainEntity": faqs.map(faq => ({
               "@type": "Question",
               "name": faq.q,
               "acceptedAnswer": {
@@ -536,19 +660,19 @@ export default function SrilankaItineraryPage() {
             Discover the best 7-day Sri Lanka route based on your travel style, interests, and available time. Spend less time trapped in vehicles and more time experiencing local soul.
           </p>
           
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4 max-w-3xl mx-auto">
+            <button
+              onClick={handlePdfDownload}
+              className="w-full sm:w-auto px-8 py-5 bg-white hover:bg-luxury-gold text-luxury-black hover:text-[#0c2f25] font-bold uppercase tracking-[0.12em] text-xs transition-all rounded-full flex items-center justify-center gap-2.5 shadow-xl hover:scale-105 cursor-pointer border-2 border-white"
+            >
+              📥 Download Free 7-Day Itinerary PDF
+            </button>
             <a 
               href="#concierge-form"
-              className="w-full sm:w-auto px-8 py-5 bg-luxury-gold hover:bg-white text-luxury-black font-bold uppercase tracking-[0.15em] text-xs transition-all rounded-full flex items-center justify-center gap-3 shadow-xl hover:scale-105"
+              className="w-full sm:w-auto px-8 py-5 bg-luxury-gold hover:bg-white text-luxury-black font-bold uppercase tracking-[0.12em] text-xs transition-all rounded-full flex items-center justify-center gap-3 shadow-xl hover:scale-105 border-2 border-luxury-gold"
             >
-              Get My Personalized Sri Lanka Travel Plan
+              Get My Personalized Plan
               <ArrowRight className="w-4 h-4" />
-            </a>
-            <a 
-              href="#interactive-comparison"
-              className="w-full sm:w-auto px-8 py-5 border border-white/20 hover:border-luxury-gold hover:bg-white/5 text-luxury-cream font-bold uppercase tracking-[0.15em] text-xs transition-all rounded-full"
-            >
-              Compare Routes First
             </a>
           </div>
           
@@ -768,6 +892,843 @@ export default function SrilankaItineraryPage() {
               Verify Route Pacing Details on WhatsApp
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: OFFICIAL ROUTE OPTIMIZATION PRINTABLE PORTFOLIO / PDF ACCESS */}
+      <section id="pdf-portfolio-section" className="py-20 md:py-28 px-4 md:px-6 bg-luxury-cream/10 border-b border-luxury-black/10">
+        <style dangerouslySetInnerHTML={{ __html: `
+          @media print {
+            body {
+              background: white !important;
+              color: black !important;
+              font-family: system-ui, -apple-system, sans-serif !important;
+            }
+            #hero-section, #biggest-mistake, #interactive-comparison, #why-recommended, #pdf-portfolio-section > div:not(#printable-pdf-document), #itinerary-details, #concierge-form, footer, header, nav, button, a {
+              display: none !important;
+            }
+            body > div:not(#printable-pdf-document) {
+              display: none !important;
+            }
+            #printable-pdf-document {
+              display: block !important;
+              visibility: visible !important;
+              position: absolute !important;
+              left: 0 !important;
+              top: 0 !important;
+              width: 100% !important;
+              margin: 0 !important;
+              padding: 0 !important;
+              background-color: white !important;
+            }
+            .print-page {
+              display: block !important;
+              page-break-after: always !important;
+              break-after: page !important;
+              margin: 0 !important;
+              padding: 40px !important;
+              min-height: 297mm !important;
+              box-sizing: border-box !important;
+              background-color: white !important;
+              color: #111111 !important;
+              position: relative !important;
+            }
+            .print-page:last-child {
+              page-break-after: avoid !important;
+              break-after: avoid !important;
+            }
+          }
+        `}} />
+
+        <div className="max-w-6xl mx-auto space-y-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-luxury-black/10">
+            <div className="space-y-3 max-w-2xl">
+              <span className="text-xs uppercase tracking-[0.25em] text-luxury-gold font-bold block">Document Repository</span>
+              <h2 className="text-3xl md:text-5xl font-serif text-luxury-green leading-tight">
+                Download Route Optimization <br />
+                <span className="italic font-normal text-luxury-gold font-serif">Guide & Budget Matrix (PDF)</span>
+              </h2>
+              <p className="text-sm text-luxury-black/75 font-light leading-relaxed">
+                Save Vibe Tour&apos;s field-tested 7-day blueprint directly on your mobile device or print a copy. It features precise driving comparisons, realistic Indian Rupee costs, selected driver recommendations, and a checklist.
+              </p>
+            </div>
+            <div className="shrink-0 flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={() => {
+                  trackEvent('print_itinerary_pdf', 'engagement', 'click_print_pdf');
+                  window.print();
+                }}
+                className="px-6 py-4 bg-[#0a231c] hover:bg-[#113a2e] text-white rounded-full font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer hover:scale-[1.03]"
+              >
+                <Printer className="w-4 h-4 text-luxury-gold" />
+                Print / Save PDF Guide
+              </button>
+              <a
+                href="#concierge-form"
+                className="px-6 py-4 bg-luxury-gold hover:bg-white text-luxury-black rounded-full font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-luxury-gold/50 transition-all text-center"
+              >
+                <FileText className="w-4 h-4" />
+                Get Custom Dated Version
+              </a>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-4 space-y-6">
+              <div className="bg-white rounded-3xl p-6 border border-luxury-black/5 shadow-sm space-y-4">
+                <h3 className="font-serif text-lg font-bold text-luxury-green">Document Chapters</h3>
+                <p className="text-xs text-luxury-black/60 leading-relaxed font-light">
+                  Click on the chapters below to preview the pages representing the exact printed PDF publication layout:
+                </p>
+
+                <div className="space-y-2 pt-2">
+                  {[
+                    { pageNum: 1, tag: "Page 1", title: "Route Mapping & Travel Times" },
+                    { pageNum: 2, tag: "Page 2", title: "Currency Budgets & Curated Hotels" },
+                    { pageNum: 3, tag: "Page 3", title: "Day 1 - 6 Printable Blueprints" },
+                    { pageNum: 4, tag: "Page 4", title: "Day 7 Details & Smart Checklist" },
+                  ].map((chapter) => (
+                    <button
+                      key={chapter.pageNum}
+                      onClick={() => setPdfPreviewPage(chapter.pageNum)}
+                      className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between cursor-pointer ${
+                        pdfPreviewPage === chapter.pageNum
+                          ? "bg-luxury-green text-white border-luxury-green shadow-sm"
+                          : "bg-luxury-cream/10 text-luxury-black border-luxury-black/5 hover:bg-luxury-cream/30"
+                      }`}
+                    >
+                      <div className="space-y-0.5">
+                        <span className={`text-[10px] font-mono uppercase font-bold tracking-widest ${
+                          pdfPreviewPage === chapter.pageNum ? "text-luxury-gold" : "text-luxury-black/40"
+                        }`}>
+                          {chapter.tag}
+                        </span>
+                        <h4 className="font-serif text-xs font-bold leading-tight">{chapter.title}</h4>
+                      </div>
+                      <span className="text-xs">➔</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-luxury-green text-luxury-cream rounded-3xl p-6 border border-white/5 space-y-4">
+                <div className="flex gap-3 items-center">
+                  <div className="w-8 h-8 rounded-full bg-luxury-gold/20 flex items-center justify-center">
+                    <CheckCircle className="w-4 h-4 text-luxury-gold" />
+                  </div>
+                  <h4 className="font-serif font-bold text-sm text-white">Indian Market Specialized</h4>
+                </div>
+                <p className="text-xs text-luxury-cream/70 leading-relaxed font-light">
+                  Curated exclusively for Indian passports. Costs are compiled and converted directly into **Indian Rupees (INR)** to prevent exchange surprises. Transit times represent high-speed driver routes that shield senior citizens and kids from motion sickness.
+                </p>
+                <div className="pt-2 text-[10px] font-mono tracking-widest text-luxury-gold uppercase font-bold">
+                  ✓ OFFLINE-READY PORTFOLIO
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-8">
+              <div className="text-center pb-2 flex justify-between items-center px-4">
+                <span className="text-[10px] font-mono tracking-widest text-luxury-gold uppercase font-bold">
+                  Digital Document Preview Box
+                </span>
+                <span className="text-xs text-luxury-black/50 font-mono">
+                  Page {pdfPreviewPage} of 4
+                </span>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-luxury-black/10 shadow-2xl relative overflow-hidden transition-all duration-300 min-h-[680px] p-6 sm:p-12 text-[#111111]">
+                <div className="absolute top-0 left-0 right-0 h-4.5 bg-[#4A79A5] flex items-center justify-between px-6">
+                  <span className="text-[8px] text-white/50 font-mono">PLAN-SRILANKA.COM</span>
+                  <span className="text-[8px] text-white/50 font-mono">2026 EDITION</span>
+                </div>
+
+                {pdfPreviewPage === 1 && (
+                  <div className="space-y-8 pt-4">
+                    <div className="bg-[#0f2a4a] text-white p-6 sm:p-8 rounded-lg space-y-3 relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 rounded-full filter blur-[30px]" />
+                      <h3 className="text-center font-serif text-2xl sm:text-4xl font-extrabold tracking-tight">
+                        SRI LANKA ITINERARY (2026)
+                      </h3>
+                      <p className="text-center text-xs sm:text-sm text-sky-200 tracking-wide font-light">
+                        Complete 7-Day Route Optimization Guide
+                      </p>
+                      <div className="flex flex-wrap justify-center gap-2 pt-2 text-[9px] uppercase font-bold tracking-wider">
+                        <span className="bg-[#4A79A5] text-white px-3 py-1 rounded">TAILORED FOR INDIAN TRAVELERS</span>
+                        <span className="bg-amber-600 text-white px-3 py-1 rounded">COUPLES & FIRST-TIMERS</span>
+                        <span className="bg-emerald-700 text-white px-3 py-1 rounded">OPTIMIZED LOOP</span>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-sm font-bold uppercase tracking-widest border-l-4 border-amber-500 pl-3 text-[#0f2a4a]">
+                        1. ROUTE MAPPING & TRAVEL TIME OPTIMIZATION
+                      </h4>
+                      <p className="text-xs text-neutral-700 leading-relaxed">
+                        A major pitfall for international travelers in Sri Lanka is over-scheduling. Backtracking across multiple geographic zones wastes valuable time inside cars. By choosing a balanced loop, you save energy and double your actual sightseeing hours. The optimized sequence drops down back to Colombo seamlessly on Day 7 via high-speed transit links.
+                      </p>
+
+                      <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-4 text-center">
+                        <p className="text-[11px] sm:text-xs font-bold text-[#0f2a4a] tracking-wide">
+                          Colombo (Day 1) <span className="text-amber-500">➔</span> Sigiriya (Day 2) <span className="text-amber-500">➔</span> Kandy (Day 3) <span className="text-amber-500">➔</span> Ella (Days 4-6) <span className="text-amber-500">➔</span> Colombo (Day 7)
+                        </p>
+                      </div>
+
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-left text-xs border-collapse">
+                          <thead>
+                            <tr className="bg-[#0f2a4a] text-white">
+                              <th className="p-3 font-serif font-bold">Strategy Route</th>
+                              <th className="p-3 font-serif font-bold">Destinations Included</th>
+                              <th className="p-3 font-serif font-bold">Total Commute</th>
+                              <th className="p-3 font-serif font-bold">Efficiency Rating</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-neutral-200">
+                            <tr className="bg-emerald-50/70">
+                              <td className="p-3 font-bold text-[#0f2a4a]">Route A (Balanced Strategy)</td>
+                              <td className="p-3 text-neutral-600 text-[11px]">Colombo → Sigiriya → Kandy → Ella</td>
+                              <td className="p-3 font-bold text-[#0f2a4a]">8.5 Hours Total</td>
+                              <td className="p-3 text-emerald-800 font-bold uppercase text-[10px]">Highly Optimized (Recommended)</td>
+                            </tr>
+                            <tr>
+                              <td className="p-3 font-bold text-red-900">Route B (Fast-Paced Loop)</td>
+                              <td className="p-3 text-neutral-500 text-[11px]">Sigiriya → Kandy → Ella → Yala → Galle</td>
+                              <td className="p-3 text-neutral-600 font-medium">14+ Hours Total</td>
+                              <td className="p-3 text-rose-800 font-bold uppercase text-[10px]">Extremely Exhausting (Avoid)</td>
+                            </tr>
+                            <tr className="bg-amber-50/30">
+                              <td className="p-3 font-bold text-neutral-800">Route C (Relaxed Highlands)</td>
+                              <td className="p-3 text-neutral-500 text-[11px]">Kandy → Nuwara Eliya → Ella</td>
+                              <td className="p-3 text-neutral-600">5.0 Hours Total</td>
+                              <td className="p-3 text-neutral-700 font-semibold text-[10px]">Good but omits cultural triangle</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3 pt-2">
+                      <h4 className="text-sm font-bold uppercase tracking-widest border-l-4 border-amber-500 pl-3 text-[#0f2a4a]">
+                        2. FINANCIAL BUDGET MATRIX & CURATED HOTELS
+                      </h4>
+                      <p className="text-xs text-neutral-700 leading-relaxed">
+                        This financial allocation is meticulously estimated for a couple traveling from India, converting expenses accurately into Indian Rupees (INR) for seamless planning.
+                      </p>
+                      <div className="text-right text-[10px] text-neutral-400 font-mono italic">
+                        Document Page 1 — Continued on next page...
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {pdfPreviewPage === 2 && (
+                  <div className="space-y-6 pt-4">
+                    <h4 className="text-sm font-bold uppercase tracking-widest border-l-4 border-amber-500 pl-3 text-[#0f2a4a]">
+                      2. BUDGET MATRIX & ACCOMMODATION (CONTINUED)
+                    </h4>
+
+                    <div className="overflow-x-auto bg-neutral-50 p-1 rounded-xl border border-neutral-200">
+                      <table className="w-full text-left text-xs border-collapse">
+                        <thead>
+                          <tr className="bg-[#0f2a4a] text-white">
+                            <th className="p-3 font-serif font-bold">Expense Category</th>
+                            <th className="p-3 font-serif font-bold">Value Budget (INR)</th>
+                            <th className="p-3 font-serif font-bold">Premium Luxury (INR)</th>
+                            <th className="p-3 font-serif font-bold">Strategic Planning Advice</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-neutral-200 text-[11px]">
+                          <tr>
+                            <td className="p-3 font-bold">Hotels (6 Nights)</td>
+                            <td className="p-3 text-neutral-700">₹18,000 - ₹25,000</td>
+                            <td className="p-3 font-semibold text-[#0f2a4a]">₹45,000 - ₹75,000</td>
+                            <td className="p-3 text-neutral-500">Value tiers include top-rated, pristine local boutique villas.</td>
+                          </tr>
+                          <tr className="bg-neutral-100/55">
+                            <td className="p-3 font-bold">Private AC Transport</td>
+                            <td className="p-3 text-neutral-700">₹22,000</td>
+                            <td className="p-3 font-semibold text-[#0f2a4a]">₹28,000</td>
+                            <td className="p-3 text-neutral-500">Includes dedicated driver, toll fees, fuel, and custom stops.</td>
+                          </tr>
+                          <tr>
+                            <td className="p-3 font-bold">Sightseeing Tickets</td>
+                            <td className="p-3 text-neutral-700">₹10,000</td>
+                            <td className="p-3 font-semibold text-[#0f2a4a]">₹14,000</td>
+                            <td className="p-3 text-neutral-500">Covers Sigiriya Rock and mountain railway passes. Book 30 days out.</td>
+                          </tr>
+                          <tr className="bg-neutral-100/55">
+                            <td className="p-3 font-bold">Food & Allowances</td>
+                            <td className="p-3 text-neutral-700">₹12,000</td>
+                            <td className="p-3 font-semibold text-[#0f2a4a]">₹20,000</td>
+                            <td className="p-3 text-neutral-500">Indian culinary dishes and vegetarian options are widely available.</td>
+                          </tr>
+                          <tr className="bg-amber-50 font-bold">
+                            <td className="p-3 text-amber-900">Total Estimated Run</td>
+                            <td className="p-3 text-neutral-800">₹62,000 Approx</td>
+                            <td className="p-3 text-[#0f2a4a]">₹1,07,000+ Approx</td>
+                            <td className="p-3 text-emerald-800 uppercase text-[10px] font-bold">Incredibly cost-effective island experience for couples.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f2a4a] pt-2">
+                        Curated Accommodation Selection Guide
+                      </h4>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-left text-xs border-collapse">
+                          <thead>
+                            <tr className="bg-[#4A79A5] text-white">
+                              <th className="p-2.5 font-bold">Stopover City</th>
+                              <th className="p-2.5 font-bold">Value Accommodation Pick</th>
+                              <th className="p-2.5 font-bold">Premium Luxury Selection</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-neutral-200 text-[11px]">
+                            <tr>
+                              <td className="p-2.5 font-bold">Colombo</td>
+                              <td className="p-2.5 text-neutral-600">Fairway Colombo / Cinnamon Red</td>
+                              <td className="p-2.5 text-[#0f2a4a] font-medium">The Kingsbury / Galle Face Hotel</td>
+                            </tr>
+                            <tr>
+                              <td className="p-2.5 font-bold">Sigiriya</td>
+                              <td className="p-2.5 text-neutral-600">Sigiriya Village / Hotel Sigiriya</td>
+                              <td className="p-2.5 text-[#0f2a4a] font-medium">Aliya Resort & Spa / Heritance Kandalama</td>
+                            </tr>
+                            <tr>
+                              <td className="p-2.5 font-bold">Kandy</td>
+                              <td className="p-2.5 text-neutral-600">The Radh / Hotel Topaz</td>
+                              <td className="p-2.5 text-[#0f2a4a] font-medium">Earl&apos;s Regency / Cinnamon Citadel</td>
+                            </tr>
+                            <tr>
+                              <td className="p-2.5 font-bold">Ella</td>
+                              <td className="p-2.5 text-neutral-600 font-light">Ella Flower Garden Resort / Oak Ray Ella</td>
+                              <td className="p-2.5 text-[#0f2a4a] font-medium">98 Acres Resort & Spa / EKHO Ella</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2.5">
+                      <h4 className="text-sm font-bold uppercase tracking-widest border-l-4 border-amber-500 pl-3 text-[#0f2a4a]">
+                        3. DAILY PRINTABLE FIELD BLUEPRINT
+                      </h4>
+                      <div className="border border-neutral-150 rounded-xl p-4 bg-white space-y-1.5 text-xs">
+                        <p className="font-bold text-[#0f2a4a]">Day 1: Arrival in Colombo & Oceanfront Stroll</p>
+                        <p className="text-neutral-600 text-[11px] leading-relaxed">
+                          Airport reception via private AC vehicle transport. Check-in to hotel. Take an evening casual walk down the lively Galle Face Green beachfront followed by a welcome dinner at an open-air oceanfront venue.
+                        </p>
+                        <hr className="border-neutral-100" />
+                        <div className="flex justify-between items-center text-[10px] text-neutral-500">
+                          <span><strong>Transit Time:</strong> 45 minutes</span>
+                          <span className="text-emerald-700 font-bold">Extremely High Availability</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {pdfPreviewPage === 3 && (
+                  <div className="space-y-4 pt-4">
+                    <h4 className="text-sm font-bold uppercase tracking-widest border-l-4 border-amber-500 pl-3 text-[#0f2a4a]">
+                      3. DAILY PRINTABLE FIELD BLUEPRINT (DAYS 2 - 6)
+                    </h4>
+
+                    {[
+                      {
+                        dayNum: 2,
+                        title: "Sigiriya Ancient Citadel Climb",
+                        desc: "Morning cross-country drive to the historic Cultural Triangle. Embark on a guided climb up the majestic Sigiriya Lion Rock Fortress. Enjoy an authentic rustic village lunch experience and witness magnificent sunset view points.",
+                        transit: "Approx. 3.5-4 Hours",
+                        tip: "Commute up the fortress by 3:30 PM to avoid peak heat."
+                      },
+                      {
+                        dayNum: 3,
+                        title: "Kandy Heritage & Cultural Highlights",
+                        desc: "Drive down to the hill country capital, Kandy, via a scenic spice garden. Explore the highly sacred Temple of the Tooth Relic and tour the lush, grand Royal Botanical Gardens. Attend a traditional cultural drumming & dance performance in the evening.",
+                        transit: "Approx. 2.5 Hours",
+                        code: "Dress Code: Modest white/light attire shielding shoulders and knees."
+                      },
+                      {
+                        dayNum: 4,
+                        title: "Scenic Mountain Train Journey to Ella",
+                        desc: "Board the classic highland train loop from Nanu Oya station into Ella. Marvel at emerald tea landscapes and misty valley panoramic frames. Enjoy a sunset photo-walk along the famous architectural Nine Arch Bridge.",
+                        transit: "3 Hours (Scenic Rails)",
+                        tip: "Reserve 1st or 2nd class observation cabins early."
+                      },
+                      {
+                        dayNum: 5,
+                        title: "Ella Highland Hikes & Waterfalls",
+                        desc: "Embark on a scenic morning hike up to the iconic Little Adam&apos;s Peak point. Capture beautiful photography at the cascading Ravana Falls. Enjoy an afternoon guided exploration through a local estate tea factory with sampling sessions.",
+                        transit: "Minimal local shifts",
+                        atm: "Atmosphere: Refreshing, cool highland breeze and cozy cafe settings."
+                      },
+                      {
+                        dayNum: 6,
+                        title: "Flexible Mountain Leisure & Relaxation",
+                        desc: "Configure this day entirely around your personal preferences: Indulge in traditional Ayurvedic spa therapy sessions, experience an immersive Sri Lankan culinary cooking class, or enjoy leisurely cafe exploration.",
+                        transit: "0 Hours (Stationary)",
+                        obj: "Objective: Deep recovery and decompression."
+                      },
+                    ].map((day) => (
+                      <div key={day.dayNum} className="border border-neutral-150 rounded-xl p-3 bg-neutral-50/50 space-y-1 text-xs">
+                        <p className="font-bold text-[#0f2a4a]">Day {day.dayNum}: {day.title}</p>
+                        <p className="text-neutral-600 text-[11px] leading-relaxed">
+                          {day.desc}
+                        </p>
+                        <hr className="border-neutral-100" />
+                        <div className="flex flex-wrap justify-between gap-2 text-[10px] text-neutral-500 italic">
+                          <span><strong>Transit Time:</strong> {day.transit}</span>
+                          {day.tip && <span className="text-amber-700 font-semibold">★ Pro Tip: {day.tip}</span>}
+                          {day.code && <span className="text-[#0f2a4a] font-semibold">👕 {day.code}</span>}
+                          {day.atm && <span className="text-[#4A79A5] font-semibold">⛰️ {day.atm}</span>}
+                          {day.obj && <span className="text-emerald-700 font-semibold">🎯 {day.obj}</span>}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {pdfPreviewPage === 4 && (
+                  <div className="space-y-6 pt-4">
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-bold uppercase tracking-widest border-l-4 border-amber-500 pl-3 text-[#0f2a4a]">
+                        3. DAILY PRINTABLE FIELD BLUEPRINT (DAY 7)
+                      </h4>
+                      <div className="border border-neutral-150 rounded-xl p-4 bg-neutral-50/50 space-y-1.5 text-xs">
+                        <p className="font-bold text-[#0f2a4a]">Day 7: Souvenir Shopping Hub & Flight Return</p>
+                        <p className="text-neutral-600 text-[11px] leading-relaxed">
+                          Check out from Ella and return via the high-speed highway connection to Colombo. Enjoy curated shopping stopovers at premium retail hubs (ODEL, Barefoot, House of Fashions) followed by a timely transit transfer to the airport for your evening flight.
+                        </p>
+                        <hr className="border-neutral-100" />
+                        <div className="flex justify-between items-center text-[10px] text-neutral-500">
+                          <span><strong>Transit Time:</strong> Approx. 5 Hours</span>
+                          <span className="text-red-700 font-bold">⚠️ Notice: Aim for terminal arrival 3 hours prior to takeoff.</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <h4 className="text-sm font-bold uppercase tracking-widest border-l-4 border-amber-500 pl-3 text-[#0f2a4a]">
+                        4. PRE-DEPARTURE SMART CHECKLIST
+                      </h4>
+                      <div className="grid sm:grid-cols-3 gap-4">
+                        <div className="border border-neutral-200 rounded-xl p-3.5 bg-neutral-50">
+                          <h5 className="font-bold text-xs text-[#0f2a4a] border-b border-neutral-200 pb-1.5 mb-2">
+                            Travel Paperwork
+                          </h5>
+                          <ul className="space-y-1.5 text-[11px] text-neutral-600">
+                            <li className="flex items-start gap-1.5"><span className="text-amber-500">•</span> Passport valid &gt; 6 months</li>
+                            <li className="flex items-start gap-1.5"><span className="text-amber-500">•</span> Approved Sri Lanka ETA Visa</li>
+                            <li className="flex items-start gap-1.5"><span className="text-amber-500">•</span> Printed Hotel confirmations</li>
+                            <li className="flex items-start gap-1.5"><span className="text-amber-500">•</span> Return air tickets block</li>
+                          </ul>
+                        </div>
+
+                        <div className="border border-neutral-200 rounded-xl p-3.5 bg-neutral-50">
+                          <h5 className="font-bold text-xs text-[#0f2a4a] border-b border-neutral-200 pb-1.5 mb-2">
+                            Packing & Wardrobe
+                          </h5>
+                          <ul className="space-y-1.5 text-[11px] text-neutral-600">
+                            <li className="flex items-start gap-1.5"><span className="text-amber-500">•</span> Light, breathable cotton outfits</li>
+                            <li className="flex items-start gap-1.5"><span className="text-amber-500">•</span> Elegant white temple clothing</li>
+                            <li className="flex items-start gap-1.5"><span className="text-amber-500">•</span> Trail runners or sneakers</li>
+                            <li className="flex items-start gap-1.5"><span className="text-amber-500">•</span> Light cardigan for Ella nights</li>
+                          </ul>
+                        </div>
+
+                        <div className="border border-neutral-200 rounded-xl p-3.5 bg-neutral-50">
+                          <h5 className="font-bold text-xs text-[#0f2a4a] border-b border-neutral-200 pb-1.5 mb-2">
+                            Electronics & Essentials
+                          </h5>
+                          <ul className="space-y-1.5 text-[11px] text-neutral-600">
+                            <li className="flex items-start gap-1.5"><span className="text-amber-500">•</span> Universal multi-pin adapter</li>
+                            <li className="flex items-start gap-1.5"><span className="text-amber-500">•</span> High SPF sunblock & repellent</li>
+                            <li className="flex items-start gap-1.5"><span className="text-amber-500">•</span> Activated international credit card</li>
+                            <li className="flex items-start gap-1.5"><span className="text-amber-500">•</span> Local currency (LKR) for tipping</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-[#0f2a4a] text-white p-4.5 rounded-xl text-center space-y-2 relative overflow-hidden">
+                      <p className="text-xs font-serif font-bold italic text-sky-200">
+                        Want a tailored experience unique to your exact travel dates?
+                      </p>
+                      <span className="inline-block bg-amber-500 hover:bg-amber-600 text-neutral-950 font-bold text-[9px] uppercase tracking-wider px-4 py-1.5 rounded-full">
+                        GENERATE YOUR CUSTOM ROUTE
+                      </span>
+                    </div>
+                  </div>
+                )}
+
+                <div className="absolute bottom-4 left-6 right-6 border-t border-neutral-200 pt-2 flex justify-between items-center text-[9px] text-neutral-400 font-mono">
+                  <span>Sri Lanka 7-Day Route Optimization Guide (2026)</span>
+                  <span>Page {pdfPreviewPage} of 4</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* HIDDEN PRINT TARGET */}
+          <div id="printable-pdf-document" className="hidden">
+            {/* PRINT PAGE 1 */}
+            <div className="print-page border-b border-neutral-300 pb-12">
+              <div className="flex justify-between items-center pb-2 border-b-2 border-[#1e3a2f] mb-6">
+                <span className="text-[10px] font-mono font-bold tracking-widest text-[#1e3a2f]">PLAN SRI LANKA</span>
+                <span className="text-[10px] font-mono text-[#1e3a2f]">2026 EDITION</span>
+              </div>
+
+              <div className="text-center space-y-2 bg-[#0f2a4a] text-white p-8 rounded-xl mb-8">
+                <h1 className="text-3xl font-bold tracking-tight">SRI LANKA ITINERARY (2026)</h1>
+                <p className="text-sm font-light text-sky-200">Complete 7-Day Route Optimization Guide</p>
+                <div className="text-[9px] font-mono font-bold tracking-widest space-x-2 text-amber-400">
+                  <span>TAILORED FOR INDIAN TRAVELERS</span>
+                  <span>|</span>
+                  <span>COUPLES & FIRST-TIMERS</span>
+                  <span>|</span>
+                  <span>OPTIMIZED LOOP</span>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3">
+                  1. ROUTE MAPPING & TRAVEL TIME OPTIMIZATION
+                </h2>
+                <p className="text-xs text-neutral-800 leading-relaxed">
+                  A major pitfall for international travelers in Sri Lanka is over-scheduling. Backtracking across multiple geographic zones wastes valuable time inside cars. By choosing a balanced loop, you save energy and double your actual sightseeing hours. The optimized sequence drops down back to Colombo seamlessly on Day 7 via high-speed transit links.
+                </p>
+
+                <div className="bg-neutral-100 p-4 text-center rounded-xl font-bold text-xs text-[#0f2a4a]">
+                  Colombo (Day 1) ➔ Sigiriya (Day 2) ➔ Kandy (Day 3) ➔ Ella (Days 4-6) ➔ Colombo (Day 7)
+                </div>
+
+                <div className="pt-2">
+                  <table className="w-full text-[11px] text-left border-collapse border border-neutral-300">
+                    <thead>
+                      <tr className="bg-[#0f2a4a] text-white text-[10px]">
+                        <th className="p-2 border border-neutral-300 font-bold">Strategy Route</th>
+                        <th className="p-2 border border-neutral-300 font-bold">Destinations Included</th>
+                        <th className="p-2 border border-neutral-300 font-bold">Total Commute</th>
+                        <th className="p-2 border border-neutral-300 font-bold">Efficiency Rating</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-emerald-50">
+                        <td className="p-2 border border-neutral-300 font-bold text-[#0f2a4a]">Route A (Balanced Strategy)</td>
+                        <td className="p-2 border border-neutral-300">Colombo → Sigiriya → Kandy → Ella</td>
+                        <td className="p-2 border border-neutral-300 font-bold">8.5 Hours Total</td>
+                        <td className="p-2 border border-neutral-300 font-bold text-emerald-800 uppercase text-[9px]">Highly Optimized (Recommended)</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border border-neutral-300 font-bold text-red-900">Route B (Fast-Paced Loop)</td>
+                        <td className="p-2 border border-neutral-300">Sigiriya → Kandy → Ella → Yala → Galle</td>
+                        <td className="p-2 border border-neutral-300">14+ Hours Total</td>
+                        <td className="p-2 border border-neutral-300 font-bold text-rose-800 uppercase text-[9px]">Extremely Exhausting (Avoid)</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border border-neutral-300 font-bold text-neutral-800">Route C (Relaxed Highlands)</td>
+                        <td className="p-2 border border-neutral-300">Kandy → Nuwara Eliya → Ella</td>
+                        <td className="p-2 border border-neutral-300">5.0 Hours Total</td>
+                        <td className="p-2 border border-neutral-300 font-medium text-neutral-600 text-[9px]">Good but omits cultural triangle</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 pt-4">
+                  2. FINANCIAL BUDGET MATRIX & CURATED HOTELS
+                </h2>
+                <p className="text-xs text-neutral-800 leading-relaxed">
+                  This financial allocation is meticulously estimated for a couple traveling from India, converting expenses accurately into Indian Rupees (INR) for seamless planning. Value tiers include top-rated, pristine local boutique villas.
+                </p>
+              </div>
+
+              <div className="absolute bottom-6 left-12 right-12 flex justify-between text-[9px] text-neutral-400 font-mono border-t border-neutral-200 pt-2">
+                <span>Sri Lanka 7-Day Route Optimization Guide (2026)</span>
+                <span>Page 1 of 4</span>
+              </div>
+            </div>
+
+            {/* PRINT PAGE 2 */}
+            <div className="print-page border-b border-neutral-300 pb-12">
+              <div className="flex justify-between items-center pb-2 border-b border-neutral-300 mb-6 font-mono text-[10px]">
+                <span className="font-bold text-[#1e3a2f]">PLAN SRI LANKA</span>
+                <span>2026 EDITION</span>
+              </div>
+
+              <div className="space-y-6">
+                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3">
+                  2. COMPREHENSIVE BUDGET MATRIX (INR)
+                </h2>
+
+                <table className="w-full text-left text-[11px] border-collapse border border-neutral-300">
+                  <thead>
+                    <tr className="bg-[#0f2a4a] text-white">
+                      <th className="p-2.5 border border-neutral-300 font-bold">Expense Category</th>
+                      <th className="p-2.5 border border-neutral-300 font-bold">Value Budget (INR)</th>
+                      <th className="p-2.5 border border-neutral-300 font-bold">Premium Luxury (INR)</th>
+                      <th className="p-2.5 border border-neutral-300 font-bold">Strategic Planning Advice</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="p-2 border border-neutral-300 font-bold">Hotels (6 Nights)</td>
+                      <td className="p-2 border border-neutral-300">₹18,000 - ₹25,000</td>
+                      <td className="p-2 border border-neutral-300 font-bold text-[#0f2a4a]">₹45,000 - ₹75,000</td>
+                      <td className="p-2 border border-neutral-300 text-neutral-600">Value tiers include top-rated, pristine local boutique villas.</td>
+                    </tr>
+                    <tr className="bg-neutral-50">
+                      <td className="p-2 border border-neutral-300 font-bold">Private AC Transport</td>
+                      <td className="p-2 border border-neutral-300">₹22,000</td>
+                      <td className="p-2 border border-neutral-300 font-bold text-[#0f2a4a]">₹28,000</td>
+                      <td className="p-2 border border-neutral-300 text-neutral-600">Includes dedicated driver, toll fees, fuel, and custom stops.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2 border border-neutral-300 font-bold">Sightseeing Tickets</td>
+                      <td className="p-2 border border-neutral-300">₹10,000</td>
+                      <td className="p-2 border border-neutral-300 font-bold text-[#0f2a4a]">₹14,000</td>
+                      <td className="p-2 border border-neutral-300 text-neutral-600">Covers Sigiriya Rock and mountain railway passes. Book 30 days out.</td>
+                    </tr>
+                    <tr className="bg-neutral-50">
+                      <td className="p-2 border border-neutral-300 font-bold">Food & Allowances</td>
+                      <td className="p-2 border border-neutral-300">₹12,000</td>
+                      <td className="p-2 border border-neutral-300 font-bold text-[#0f2a4a]">₹20,000</td>
+                      <td className="p-2 border border-neutral-300 text-neutral-600">Indian culinary dishes and vegetarian options are widely available.</td>
+                    </tr>
+                    <tr className="bg-amber-50 font-bold">
+                      <td className="p-2 border border-neutral-300 text-amber-900">Total Estimated Run</td>
+                      <td className="p-2 border border-neutral-300">₹62,000 Approx</td>
+                      <td className="p-2 border border-neutral-300 text-emerald-900">₹1,07,000+ Approx</td>
+                      <td className="p-2 border border-neutral-300 uppercase text-[9px] text-[#0f2a4a] font-bold">Incredibly cost-effective island experience for couples.</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 pt-2">
+                  CURATED ACCOMMODATION SELECTION GUIDE
+                </h2>
+
+                <table className="w-full text-left text-[11px] border-collapse border border-neutral-300">
+                  <thead>
+                    <tr className="bg-[#41698f] text-white">
+                      <th className="p-2 border border-neutral-300 font-bold">Stopover City</th>
+                      <th className="p-2 border border-neutral-300 font-bold">Value Accommodation Pick</th>
+                      <th className="p-2 border border-neutral-300 font-bold">Premium Luxury Selection</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="p-2 border border-neutral-300 font-bold">Colombo</td>
+                      <td className="p-2 border border-neutral-300">Fairway Colombo / Cinnamon Red</td>
+                      <td className="p-2 border border-neutral-300 text-[#0f2a4a] font-bold">The Kingsbury / Galle Face Hotel</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2 border border-neutral-300 font-bold">Sigiriya</td>
+                      <td className="p-2 border border-neutral-300">Sigiriya Village / Hotel Sigiriya</td>
+                      <td className="p-2 border border-neutral-300 text-[#0f2a4a] font-bold">Aliya Resort & Spa / Heritance Kandalama</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2 border border-neutral-300 font-bold">Kandy</td>
+                      <td className="p-2 border border-neutral-300">The Radh / Hotel Topaz</td>
+                      <td className="p-2 border border-neutral-300 text-[#0f2a4a] font-bold">Earl&apos;s Regency / Cinnamon Citadel</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2 border border-neutral-300 font-bold">Ella</td>
+                      <td className="p-2 border border-neutral-300">Ella Flower Garden Resort / Oak Ray Ella</td>
+                      <td className="p-2 border border-neutral-300 text-[#0f2a4a] font-bold">98 Acres Resort & Spa / EKHO Ella</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 pt-2">
+                  3. DAILY PRINTABLE FIELD BLUEPRINT (DAY 1)
+                </h2>
+                <div className="border border-neutral-300 rounded-xl p-4 bg-neutral-50/50 text-xs">
+                  <p className="font-bold text-[#0f2a4a] mb-1">Day 1: Arrival in Colombo & Oceanfront Stroll</p>
+                  <p className="text-neutral-700 leading-relaxed mb-2 text-[11px]">
+                    Airport reception via private AC vehicle transport. Check-in to hotel. Take an evening casual walk down the lively Galle Face Green beachfront followed by a welcome dinner at an open-air oceanfront venue.
+                  </p>
+                  <div className="flex justify-between items-center text-[10px] text-neutral-500 border-t border-neutral-200 pt-2 italic">
+                    <span><strong>Transit Time:</strong> 45 minutes</span>
+                    <span className="font-bold text-[#1e3a2f]">Indian Food: High availability</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute bottom-6 left-12 right-12 flex justify-between text-[9px] text-neutral-400 font-mono border-t border-neutral-200 pt-2">
+                <span>Sri Lanka 7-Day Route Optimization Guide (2026)</span>
+                <span>Page 2 of 4</span>
+              </div>
+            </div>
+
+            {/* PRINT PAGE 3 */}
+            <div className="print-page border-b border-neutral-300 pb-12">
+              <div className="flex justify-between items-center pb-2 border-b border-neutral-300 mb-6 font-mono text-[10px]">
+                <span className="font-bold text-[#1e3a2f]">PLAN SRI LANKA</span>
+                <span>2026 EDITION</span>
+              </div>
+
+              <div className="space-y-4">
+                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 mb-2">
+                  3. DAILY PRINTABLE FIELD BLUEPRINT (DAYS 2 - 6)
+                </h2>
+
+                {[
+                  {
+                    dayNum: 2,
+                    title: "Sigiriya Ancient Citadel Climb",
+                    desc: "Morning cross-country drive to the historic Cultural Triangle. Embark on a guided climb up the majestic Sigiriya Lion Rock Fortress. Enjoy an authentic rustic village lunch experience and witness magnificent sunset view points.",
+                    transit: "Approx. 3.5-4 Hours",
+                    tip: "Commute up the fortress by 3:30 PM to avoid peak heat."
+                  },
+                  {
+                    dayNum: 3,
+                    title: "Kandy Heritage & Cultural Highlights",
+                    desc: "Drive down to the hill country capital, Kandy, via a scenic spice garden. Explore the highly sacred Temple of the Tooth Relic and tour the lush, grand Royal Botanical Gardens. Attend a traditional cultural drumming & dance performance in the evening.",
+                    transit: "Approx. 2.5 Hours",
+                    tip: "Dress Code: Modest white/light attire shielding shoulders and knees."
+                  },
+                  {
+                    dayNum: 4,
+                    title: "Scenic Mountain Train Journey to Ella",
+                    desc: "Board the classic highland train loop from Nanu Oya station into Ella. Marvel at emerald tea landscapes and misty valley panoramic frames. Enjoy a sunset photo-walk along the famous architectural Nine Arch Bridge.",
+                    transit: "3 Hours (Scenic Rails)",
+                    tip: "Reserve 1st or 2nd class observation cabins early."
+                  },
+                  {
+                    dayNum: 5,
+                    title: "Ella Highland Hikes & Waterfalls",
+                    desc: "Embark on a scenic morning hike up to the iconic Little Adam&apos;s Peak point. Capture beautiful photography at the cascading Ravana Falls. Enjoy an afternoon guided exploration through a local estate tea factory with sampling sessions.",
+                    transit: "Minimal local shifts",
+                    tip: "Atmosphere: Refreshing, cool highland breeze and cozy cafe settings."
+                  },
+                  {
+                    dayNum: 6,
+                    title: "Flexible Mountain Leisure & Relaxation",
+                    desc: "Configure this day entirely around your personal preferences: Indulge in traditional Ayurvedic spa therapy sessions, experience an immersive Sri Lankan culinary cooking class, or enjoy leisurely cafe exploration.",
+                    transit: "0 Hours (Stationary)",
+                    tip: "Objective: Deep recovery and decompression."
+                  },
+                ].map((day) => (
+                  <div key={day.dayNum} className="border border-neutral-300 rounded-xl p-3 bg-neutral-50/50 text-xs">
+                    <p className="font-bold text-[#0f2a4a] mb-1">Day {day.dayNum}: {day.title}</p>
+                    <p className="text-neutral-700 leading-relaxed mb-1.5 text-[11px]">{day.desc}</p>
+                    <div className="flex flex-wrap justify-between gap-2 text-[10px] text-neutral-500 border-t border-neutral-150 pt-1.5 italic">
+                      <span><strong>Transit:</strong> {day.transit}</span>
+                      <span className="text-amber-800 font-bold">{day.tip}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="absolute bottom-6 left-12 right-12 flex justify-between text-[9px] text-neutral-400 font-mono border-t border-neutral-200 pt-2">
+                <span>Sri Lanka 7-Day Route Optimization Guide (2026)</span>
+                <span>Page 3 of 4</span>
+              </div>
+            </div>
+
+            {/* PRINT PAGE 4 */}
+            <div className="print-page pb-12">
+              <div className="flex justify-between items-center pb-2 border-b border-neutral-300 mb-6 font-mono text-[10px]">
+                <span className="font-bold text-[#1e3a2f]">PLAN SRI LANKA</span>
+                <span>2026 EDITION</span>
+              </div>
+
+              <div className="space-y-6">
+                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3">
+                  3. DAILY PRINTABLE FIELD BLUEPRINT (DAY 7)
+                </h2>
+                <div className="border border-neutral-300 rounded-xl p-4 bg-neutral-50/50 text-xs">
+                  <p className="font-bold text-[#0f2a4a] mb-1">Day 7: Souvenir Shopping Hub & Flight Return</p>
+                  <p className="text-neutral-700 leading-relaxed mb-2 text-[11px]">
+                    Check out from Ella and return via the high-speed highway connection to Colombo. Enjoy curated shopping stopovers at premium retail hubs (ODEL, Barefoot, House of Fashions) followed by a timely transit transfer to the airport for your evening flight.
+                  </p>
+                  <div className="flex justify-between items-center text-[10px] text-neutral-500 border-t border-neutral-200 pt-2 italic">
+                    <span><strong>Transit Time:</strong> Approx. 5 Hours</span>
+                    <span className="text-red-700 font-bold">Aim for terminal arrival 3 hours prior to takeoff.</span>
+                  </div>
+                </div>
+
+                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 pt-2">
+                  4. PRE-DEPARTURE SMART CHECKLIST
+                </h2>
+
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="border border-neutral-300 rounded-xl p-4 bg-neutral-50">
+                    <h3 className="font-bold text-xs border-b border-neutral-300 pb-1 mb-2 text-[#0f2a4a]">Travel Paperwork</h3>
+                    <ul className="space-y-1 text-[10px] text-neutral-600 list-disc pl-4">
+                      <li>Passport valid &gt; 6 months</li>
+                      <li>Approved Sri Lanka ETA Visa</li>
+                      <li>Printed Hotel confirmations</li>
+                      <li>Return air tickets block</li>
+                    </ul>
+                  </div>
+
+                  <div className="border border-neutral-300 rounded-xl p-4 bg-neutral-50">
+                    <h3 className="font-bold text-xs border-b border-neutral-300 pb-1 mb-2 text-[#0f2a4a]">Packing & Wardrobe</h3>
+                    <ul className="space-y-1 text-[10px] text-neutral-600 list-disc pl-4">
+                      <li>Light, breathable cotton</li>
+                      <li>White clothing for temples</li>
+                      <li>Trail runners or sneakers</li>
+                      <li>Light cardigan for Ella</li>
+                    </ul>
+                  </div>
+
+                  <div className="border border-neutral-300 rounded-xl p-4 bg-neutral-50">
+                    <h3 className="font-bold text-xs border-b border-neutral-300 pb-1 mb-2 text-[#0f2a4a]">Electronics & Essentials</h3>
+                    <ul className="space-y-1 text-[10px] text-neutral-600 list-disc pl-4">
+                      <li>Universal multi-pin adapter</li>
+                      <li>High SPF sunblock & repellent</li>
+                      <li>Active international credit card</li>
+                      <li>Local currency (LKR) cash</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="pt-8 text-center space-y-3 bg-[#0f2a4a] text-white p-6 rounded-xl">
+                  <p className="text-xs font-serif italic text-sky-200">
+                    Want an entirely customized experience unique to your exact dates?
+                  </p>
+                  <p className="text-[10px] font-bold tracking-widest uppercase">
+                    Scan our QR Code online or register your details with Vibe Touches.
+                  </p>
+                </div>
+              </div>
+
+              <div className="absolute bottom-6 left-12 right-12 flex justify-between text-[9px] text-neutral-400 font-mono border-t border-neutral-200 pt-2">
+                <span>Sri Lanka 7-Day Route Optimization Guide (2026)</span>
+                <span>Page 4 of 4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TRIP PLANNER CTA SECTION */}
+      <section className="py-16 px-6 bg-gradient-to-br from-[#0a231c] via-[#0c2f25] to-[#124235] text-white text-center relative overflow-hidden border-b border-luxury-black/10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(212,175,55,0.08),transparent_50%)]" />
+        <div className="max-w-4xl mx-auto space-y-6 relative z-10">
+          <span className="text-xs uppercase tracking-[0.2em] text-luxury-gold font-bold block">Interactive Decision Tool</span>
+          <h2 className="text-3xl md:text-4xl font-serif leading-tight">
+            Want a Custom Route for Your Specific Dates?
+          </h2>
+          <p className="text-sm md:text-base text-luxury-cream/80 max-w-2xl mx-auto font-light leading-relaxed">
+            Our smart planning algorithm helps you select the perfect climate cluster, estimate actual driving hours, and filter the absolute best boutique hotel rates instantly.
+          </p>
+          <div className="pt-2">
+            <Link
+              to="/sri-lanka-trip-planner"
+              onClick={handleTripPlannerClick}
+              className="inline-flex px-8 py-4.5 bg-luxury-gold hover:bg-white text-luxury-black font-bold uppercase tracking-[0.12em] text-xs transition-all rounded-full items-center gap-3 shadow-xl hover:scale-105 cursor-pointer"
+            >
+              Generate My Personalized Sri Lanka Route
+              <ArrowRight className="w-4 h-4 text-luxury-black" />
+            </Link>
           </div>
         </div>
       </section>
@@ -1097,6 +2058,26 @@ export default function SrilankaItineraryPage() {
         </div>
       </section>
 
+      {/* SECOND PDF CTA BANNER */}
+      <section className="py-16 px-6 bg-[#faf8f4] border-b border-luxury-black/10">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h3 className="text-2xl md:text-3xl font-serif text-luxury-green">
+            Need this Route Blueprint Offline?
+          </h3>
+          <p className="text-sm md:text-base text-luxury-black/70 max-w-2xl mx-auto font-light leading-relaxed">
+            Download our verified, high-contrast, offline-ready 7-Day Sri Lanka Route Optimization PDF. Perfect to present to your chauffeur driver or reference on the road during remote mountain transits.
+          </p>
+          <div className="pt-2">
+            <button
+              onClick={handlePdfDownload}
+              className="px-8 py-4.5 bg-[#0c2f25] hover:bg-luxury-gold text-white hover:text-[#0c2f25] font-bold uppercase tracking-[0.12em] text-xs transition-all rounded-full inline-flex items-center gap-2.5 shadow-xl hover:scale-105 cursor-pointer"
+            >
+              📥 Download Free 7-Day Itinerary PDF
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 9: FAQ (15+ FAQs) */}
       <section id="itinerary-faqs" className="py-20 md:py-28 px-6 bg-white border-b border-luxury-black/15">
         <div className="max-w-4xl mx-auto space-y-12">
@@ -1295,6 +2276,19 @@ export default function SrilankaItineraryPage() {
           </div>
         </div>
       </section>
+
+      {/* STICKY MOBILE CTA */}
+      {showStickyCta && (
+        <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden transition-all duration-300">
+          <button
+            onClick={handlePdfDownload}
+            className="w-full py-4 bg-[#0c2f25] text-white font-bold rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.45)] border border-luxury-gold flex items-center justify-center gap-2.5 text-xs uppercase tracking-wider animate-bounce-subtle cursor-pointer focus:outline-none"
+          >
+            <Download className="w-4 h-4 text-luxury-gold animate-pulse" />
+            <span>Download Itinerary PDF</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
