@@ -515,6 +515,28 @@ export default function SrilankaTripPlannerPage() {
         <meta name="twitter:description" content="Design your custom Sri Lanka itinerary with our real-time interactive route planner. Map daily destinations, preview climatic monsoon alerts, allocate budgets, and generate a downloadable day-by-day travel plan." />
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
 
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://plan-srilanka.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Trip Planner",
+                "item": "https://plan-srilanka.com/sri-lanka-trip-planner"
+              }
+            ]
+          })}
+        </script>
+
         {/* 1. WebApplication Schema */}
         <script type="application/ld+json">
           {JSON.stringify({

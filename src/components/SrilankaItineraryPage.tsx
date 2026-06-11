@@ -964,13 +964,14 @@ export default function SrilankaItineraryPage() {
                 <Printer className="w-4 h-4 text-luxury-gold" />
                 Print / Save PDF Guide
               </button>
-              <a
-                href="#concierge-form"
-                className="px-6 py-4 bg-luxury-gold hover:bg-white text-luxury-black rounded-full font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-luxury-gold/50 transition-all text-center"
+              <Link
+                to="/sri-lanka-trip-planner"
+                onClick={handleTripPlannerClick}
+                className="px-6 py-4 bg-luxury-gold hover:bg-white text-luxury-black rounded-full font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-luxury-gold transition-all text-center cursor-pointer hover:scale-[1.03]"
               >
-                <FileText className="w-4 h-4" />
-                Get Custom Dated Version
-              </a>
+                <FileText className="w-4 h-4 text-luxury-black" />
+                Customize Route via Interactive Planner
+              </Link>
             </div>
           </div>
 
@@ -1690,13 +1691,19 @@ export default function SrilankaItineraryPage() {
                   </div>
                 </div>
 
-                <div className="pt-8 text-center space-y-3 bg-[#0f2a4a] text-white p-6 rounded-xl">
+                <div className="pt-8 text-center space-y-3 bg-[#0f2a4a] text-white p-6 rounded-xl print:bg-[#0f2a4a] print:text-white">
                   <p className="text-xs font-serif italic text-sky-200">
-                    Want an entirely customized experience unique to your exact dates?
+                    Want an entirely customized 7-day route unique to your exact travel dates?
                   </p>
-                  <p className="text-[10px] font-bold tracking-widest uppercase">
-                    Scan our QR Code online or register your details with Vibe Touches.
-                  </p>
+                  <div className="pt-1 select-none">
+                    <Link
+                      to="/sri-lanka-trip-planner"
+                      onClick={handleTripPlannerClick}
+                      className="inline-flex px-6 py-3 bg-luxury-gold hover:bg-white text-luxury-black font-semibold uppercase tracking-wider text-[10px] rounded-full transition-all cursor-pointer hover:scale-[1.03]"
+                    >
+                      Use Our Interactive Trip Planner
+                    </Link>
+                  </div>
                 </div>
               </div>
 
