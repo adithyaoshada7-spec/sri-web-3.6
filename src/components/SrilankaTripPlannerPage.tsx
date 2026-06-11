@@ -181,6 +181,59 @@ export default function SrilankaTripPlannerPage() {
   const [travelMonth, setTravelMonth] = useState<string>("June 2026");
   const [selectedExperiences, setSelectedExperiences] = useState<string[]>(["beaches", "nature", "culture"]);
 
+  // --- GA4 GOOGLE ANALYTICS SPECIFIC TRACKING REFS & HANDLERS ---
+  const plannerStartedTracked = useRef(false);
+  const plannerCompletedTracked = useRef(false);
+
+  const trackPlannerStarted = () => {
+    if (!plannerStartedTracked.current) {
+      plannerStartedTracked.current = true;
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'planner_started');
+      }
+      console.log("[GA4 DEBUG] Event triggered: planner_started");
+    }
+  };
+
+  const trackPlannerCompleted = () => {
+    if (!plannerCompletedTracked.current) {
+      plannerCompletedTracked.current = true;
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'planner_completed');
+      }
+      console.log("[GA4 DEBUG] Event triggered: planner_completed");
+    }
+  };
+
+  // Event 1: planner_page_view
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'planner_page_view');
+    }
+    console.log("[GA4 DEBUG] Event triggered: planner_page_view");
+  }, []);
+
+  // Monitor edits to trigger planner_started / planner_completed
+  useEffect(() => {
+    const isDifferent = 
+      planningDays !== 7 || 
+      planningBudget !== 700 || 
+      selectedCompanion !== "couple" || 
+      travelMonth !== "June 2026" || 
+      selectedExperiences.length !== 3 ||
+      !selectedExperiences.includes("beaches") ||
+      !selectedExperiences.includes("nature") ||
+      !selectedExperiences.includes("culture");
+
+    if (isDifferent) {
+      if (!plannerStartedTracked.current) {
+        trackPlannerStarted();
+      } else if (!plannerCompletedTracked.current) {
+        trackPlannerCompleted();
+      }
+    }
+  }, [planningDays, planningBudget, selectedCompanion, travelMonth, selectedExperiences]);
+
   // Mobile navigation tabs
   const [mobileTab, setMobileTab] = useState<"configure" | "itinerary" | "hotels">("configure");
 
@@ -419,6 +472,12 @@ export default function SrilankaTripPlannerPage() {
       setIsSubmitting(false);
       setSubmitSuccess(true);
       trackEvent("trip_planner_lead_submit_success", "conversion", leadForm.estimatedBudget);
+      
+      // GA4 Event 4 Trigger: Form submit
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'planner_lead');
+      }
+      console.log("[GA4 DEBUG] Event triggered: planner_lead (Form submit)");
     }, 1200);
   };
 
@@ -825,6 +884,8 @@ export default function SrilankaTripPlannerPage() {
             {/* CTA TRIGGER PACK BUTTON */}
             <button 
               onClick={() => {
+                // Ensure recommended route generation is marked completed in GA4 if clicked
+                trackPlannerCompleted();
                 setLeadModalOpen(true);
                 trackEvent("trip_planner_button_main_cta_click", "engagement", "plan_my_trip");
               }}
@@ -1502,6 +1563,8 @@ export default function SrilankaTripPlannerPage() {
 
             <button 
               onClick={() => {
+                // Ensure recommended route generation is marked completed in GA4 if clicked
+                trackPlannerCompleted();
                 setLeadModalOpen(true);
                 trackEvent("trip_planner_footer_main_cta_click", "engagement", "customize_trip");
               }}
@@ -1637,6 +1700,13 @@ export default function SrilankaTripPlannerPage() {
                       href={`https://wa.me/94722968210?text=Hi%20Vibe%20Tour,%20I%20just%20planned%20my%20Srilanka%20trip%20online!%20My%20name%20is%20${encodeURIComponent(leadForm.name)}.%20Requesting%20my%20${planningDays}-day%20itinerary.`} 
                       target="_blank" 
                       rel="noopener noreferrer"
+                      onClick={() => {
+                        // GA4 Event 4 Trigger: WhatsApp CTA click
+                        if (typeof window !== 'undefined' && (window as any).gtag) {
+                          (window as any).gtag('event', 'planner_lead');
+                        }
+                        console.log("[GA4 DEBUG] Event triggered: planner_lead (WhatsApp click)");
+                      }}
                       className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white rounded-full font-bold text-xs uppercase tracking-wider hover:bg-emerald-700 transition-all"
                     >
                       Connect Instantly on WhatsApp
