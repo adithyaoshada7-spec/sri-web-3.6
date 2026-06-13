@@ -55,6 +55,14 @@ const getArticleMeta = (path: string) => {
         readTime: "9 Min Read",
         badge: "East vs South"
       };
+    case "/how-to-plan-a-trip-to-sri-lanka":
+      return {
+        category: "Master Coordination",
+        tag: "Trip Planner",
+        icon: <BookOpen className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "15 Min Read",
+        badge: "Pillar Guide"
+      };
     default:
       return {
         category: "Travel Guide",

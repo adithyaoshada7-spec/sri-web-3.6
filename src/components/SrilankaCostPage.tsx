@@ -1468,8 +1468,25 @@ Departure: ${leadForm.departure}`;
               </span>
               <div className="space-y-3">
                 <Link 
-                  to="/sri-lanka-trip-planner"
+                  to="/how-to-plan-a-trip-to-sri-lanka"
                   className="bg-white p-4 rounded-2xl border border-luxury-black/5 hover:border-luxury-gold hover:shadow-sm transition-all block group"
+                >
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="space-y-1">
+                      <p className="font-serif text-sm font-bold text-luxury-green group-hover:text-[#d4af37] transition-colors">
+                        Master Step-by-Step Trip Planning Guide
+                      </p>
+                      <p className="text-[11px] text-luxury-black/50 leading-relaxed font-light">
+                        Our comprehensive 3,500+ word landmark checklist covering monsoons, routing coordinates, itineraries, and essential EEAT tips.
+                      </p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform shrink-0 mt-1" />
+                  </div>
+                </Link>
+
+                <Link 
+                  to="/sri-lanka-trip-planner"
+                  className="bg-white p-4 rounded-2xl border border-[#0d5934]/30 hover:border-luxury-gold hover:shadow-sm transition-all block group"
                 >
                   <div className="flex justify-between items-start gap-4">
                     <div className="space-y-1">

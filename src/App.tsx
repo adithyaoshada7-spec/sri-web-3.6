@@ -31,6 +31,7 @@ const SrilankaBestTimePage = lazy(() => import("./components/SrilankaBestTimePag
 const SrilankaFamilyPage = lazy(() => import("./components/SrilankaFamilyPage"));
 const SrilankaJunePage = lazy(() => import("./components/SrilankaJunePage"));
 const SrilankaTripPlannerPage = lazy(() => import("./components/SrilankaTripPlannerPage"));
+const SrilankaTripPlannerPillarPage = lazy(() => import("./components/SrilankaTripPlannerPillarPage"));
 const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -304,6 +305,7 @@ export default function App() {
             <Link to="/#about" className="hover:text-luxury-gold transition-colors">The Lifestyle</Link>
             <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">The Collection</Link>
             <Link to="/sri-lanka-trip-cost-from-india" className="hover:text-luxury-gold transition-colors">Trip Costs</Link>
+            <Link to="/how-to-plan-a-trip-to-sri-lanka" className="hover:text-luxury-gold transition-colors">Trip Planner</Link>
             <Link to="/sri-lanka-visa-for-indians" className="hover:text-luxury-gold transition-colors text-luxury-gold font-bold">Visa Guide</Link>
             <a href="#concierge" className="hover:text-luxury-gold transition-colors">Concierge Desk</a>
             <a 
@@ -566,6 +568,16 @@ export default function App() {
             <SrilankaTripPlannerPage />
           </Suspense>
         } />
+
+        <Route path="/how-to-plan-a-trip-to-sri-lanka" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaTripPlannerPillarPage />
+          </Suspense>
+        } />
         
         <Route path="/experience/:slug" element={
           <Suspense fallback={
@@ -649,6 +661,7 @@ export default function App() {
             </span>
             <div className="space-y-3">
               {[
+                { title: "Sri Lanka Trip Planner (Guides)", path: "/how-to-plan-a-trip-to-sri-lanka", badge: "Master Pillar", desc: "Build your perfect Sri Lanka itinerary step-by-step." },
                 { title: "Bespoke Trip & Route Planner", path: "/sri-lanka-trip-planner", badge: "Decision Tool", desc: "Select the perfect climate cluster & save driving hours." },
                 { title: "Where to Go in June (2026)", path: "/where-to-go-in-sri-lanka-in-june", badge: "June Weather", desc: "Which coast to choose to beat the monsoons." },
                 { title: "12-Day Family Itinerary with Kids", path: "/sri-lanka-family-itinerary", badge: "Kids Fun • 2026", desc: "Custom low-fatigue routes & baby safety." },
