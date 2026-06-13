@@ -182,18 +182,7 @@ export default function SrilankaTripPlannerPage() {
   const [selectedExperiences, setSelectedExperiences] = useState<string[]>(["beaches", "nature", "culture"]);
 
   // --- GA4 GOOGLE ANALYTICS SPECIFIC TRACKING REFS & HANDLERS ---
-  const plannerStartedTracked = useRef(false);
   const plannerCompletedTracked = useRef(false);
-
-  const trackPlannerStarted = () => {
-    if (!plannerStartedTracked.current) {
-      plannerStartedTracked.current = true;
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'planner_started');
-      }
-      console.log("[GA4 DEBUG] Event triggered: planner_started");
-    }
-  };
 
   const trackPlannerCompleted = () => {
     if (!plannerCompletedTracked.current) {
@@ -213,7 +202,7 @@ export default function SrilankaTripPlannerPage() {
     console.log("[GA4 DEBUG] Event triggered: planner_page_view");
   }, []);
 
-  // Monitor edits to trigger planner_started / planner_completed
+  // Monitor edits to trigger planner_completed
   useEffect(() => {
     const isDifferent = 
       planningDays !== 7 || 
@@ -226,9 +215,7 @@ export default function SrilankaTripPlannerPage() {
       !selectedExperiences.includes("culture");
 
     if (isDifferent) {
-      if (!plannerStartedTracked.current) {
-        trackPlannerStarted();
-      } else if (!plannerCompletedTracked.current) {
+      if (!plannerCompletedTracked.current) {
         trackPlannerCompleted();
       }
     }
@@ -906,6 +893,29 @@ export default function SrilankaTripPlannerPage() {
             {/* CTA TRIGGER PACK BUTTON */}
             <button 
               onClick={() => {
+                // Send GA4 planner_started event with exact current tracker parameters
+                console.log("[GA4 AUDIT] Triggering planner_started event... gtag check:", typeof window !== 'undefined' && !!(window as any).gtag);
+                if (typeof window !== 'undefined' && (window as any).gtag) {
+                  console.log("[GA4 AUDIT] Firing window.gtag('event', 'planner_started') now.");
+                  (window as any).gtag('event', 'planner_started', {
+                    days: planningDays,
+                    budget: planningBudget,
+                    companion: selectedCompanion,
+                    travel_month: travelMonth,
+                    interests: selectedExperiences.join(',')
+                  });
+                  console.log("[GA4 AUDIT] window.gtag Successfully Fired!");
+                } else {
+                  console.warn("[GA4 AUDIT] gtag is undefined on the window object. Event not dispatched to Google Analytics.");
+                }
+                console.log("[GA4 DEBUG] Event triggered: planner_started", {
+                  days: planningDays,
+                  budget: planningBudget,
+                  companion: selectedCompanion,
+                  travel_month: travelMonth,
+                  interests: selectedExperiences.join(',')
+                });
+
                 // Ensure recommended route generation is marked completed in GA4 if clicked
                 trackPlannerCompleted();
                 setLeadModalOpen(true);
