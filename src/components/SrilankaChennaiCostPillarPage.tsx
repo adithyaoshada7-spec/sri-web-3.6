@@ -100,7 +100,7 @@ export default function SrilankaChennaiCostPillarPage() {
               {
                 "@type": "Question",
                 "name": "Is Sri Lanka cheaper than Maldives for travelers flying from Chennai?",
-                "answers": {
+                "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Yes, absolutely. A typical luxury-moderate 7-day holiday to Sri Lanka from Chennai costs roughly 50% to 65% less than a comparable resort stay in the Maldives. In Sri Lanka, you gain rich wildlife, rain forests, culture, and high mountain viewpoints without being confined to a single, expensive private island resort."
                 }
@@ -108,7 +108,7 @@ export default function SrilankaChennaiCostPillarPage() {
               {
                 "@type": "Question",
                 "name": "Is Sri Lanka worth visiting from Chennai on a budget?",
-                "answers": {
+                "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "100% yes! Sri Lanka lies incredibly close to Chennai, requiring just an 80-minute direct flight. Because of the currency exchange rate where the local Sri Lankan Rupee (LKR) trades highly favorably against the Indian Rupee (INR), the purchasing power of an Indian traveler is heavily magnified."
                 }
@@ -116,7 +116,7 @@ export default function SrilankaChennaiCostPillarPage() {
               {
                 "@type": "Question",
                 "name": "What is the absolute cheapest way to travel from Chennai to Sri Lanka?",
-                "answers": {
+                "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "The cheapest way is booking promotional low-cost tickets on airlines like IndiGo or Alliance Air directly from Chennai (MAA) to Colombo (CMB) or Jaffna (JAF), costing around ₹6,500 to ₹8,500 one-way when booked 2-3 months in advance."
                 }
@@ -124,7 +124,7 @@ export default function SrilankaChennaiCostPillarPage() {
               {
                 "@type": "Question",
                 "name": "How much cash should I carry from Chennai for my Sri Lanka trip?",
-                "answers": {
+                "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "For a 7-day trip, we advise carrying roughly ₹15,000 to ₹20,000 in physical cash per person to convert into Sri Lankan Rupees (LKR) at Colombo Airport. While larger hotels and upscale cafes accept credit cards (with global markup), street dining, village fruit vendors, and local transport operate strictly on local currency cash."
                 }
@@ -132,7 +132,7 @@ export default function SrilankaChennaiCostPillarPage() {
               {
                 "@type": "Question",
                 "name": "Is ₹48,000 enough for a complete Sri Lanka holiday from India?",
-                "answers": {
+                "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Yes, an exclusive land budget of ₹48,000 (excluding flights) is incredibly powerful. It easily feeds and lodges an Indian couple in high-standard private boutique rooms, pays for private transport (PickMe/trains), and covers high-value park safaris or UNESCO ticket entrances over a 7-day trip."
                 }
