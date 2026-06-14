@@ -32,6 +32,7 @@ const SrilankaFamilyPage = lazy(() => import("./components/SrilankaFamilyPage"))
 const SrilankaJunePage = lazy(() => import("./components/SrilankaJunePage"));
 const SrilankaTripPlannerPage = lazy(() => import("./components/SrilankaTripPlannerPage"));
 const SrilankaTripPlannerPillarPage = lazy(() => import("./components/SrilankaTripPlannerPillarPage"));
+const SrilankaChennaiCostPillarPage = lazy(() => import("./components/SrilankaChennaiCostPillarPage"));
 const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -576,6 +577,16 @@ export default function App() {
             </div>
           }>
             <SrilankaTripPlannerPillarPage />
+          </Suspense>
+        } />
+
+        <Route path="/how-much-will-it-take-to-visit-sri-lanka-from-chennai" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaChennaiCostPillarPage />
           </Suspense>
         } />
         

@@ -80,5 +80,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
+    title: "How Much Will It Take to Visit Sri Lanka From Chennai in 2026?",
+    description: "Your comprehensive master cost guide for visiting Sri Lanka from Chennai. Includes actual flight pricing, lodging, food, local transport budgets, and our growing Jaffna overland route guide.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];

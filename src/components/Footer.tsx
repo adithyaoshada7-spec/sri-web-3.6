@@ -20,7 +20,8 @@ export const Footer = () => (
         <div>
           <h5 className="text-white uppercase tracking-widest text-[10px] md:text-[11px] font-bold mb-4 md:mb-6">Resources</h5>
           <ul className="space-y-2.5 text-xs md:text-sm">
-            <li><Link to="/sri-lanka-trip-cost-from-india" className="hover:text-white transition-colors">Trip Cost Guide</Link></li>
+            <li><Link to="/sri-lanka-trip-cost-from-india" className="hover:text-white transition-colors">Trip Cost Guide (India)</Link></li>
+            <li><Link to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai" className="hover:text-[#d4af37] transition-colors">Chennai to Sri Lanka Cost</Link></li>
             <li><Link to="/sri-lanka-7-day-itinerary" className="hover:text-white transition-colors">7-Day Itinerary</Link></li>
             <li><Link to="/sri-lanka-visa-for-indians" className="hover:text-white transition-colors">Visa Guide for Indians</Link></li>
             <li><Link to="/best-time-to-visit-sri-lanka" className="hover:text-white transition-colors text-luxury-gold font-bold">Best Time to Visit Sri Lanka</Link></li>

@@ -63,6 +63,14 @@ const getArticleMeta = (path: string) => {
         readTime: "15 Min Read",
         badge: "Pillar Guide"
       };
+    case "/how-much-will-it-take-to-visit-sri-lanka-from-chennai":
+      return {
+        category: "Chennai Gateway",
+        tag: "Flights & Budgets",
+        icon: <DollarSign className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "15 Min Read",
+        badge: "Pillar Cost Guide"
+      };
     default:
       return {
         category: "Travel Guide",
