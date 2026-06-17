@@ -20,8 +20,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/sri-lanka-7-day-itinerary",
-    title: "Sri Lanka 7 Day Itinerary (2026) | Complete Travel Guide For Indian Travelers",
-    description: "Explore the perfect 7 day Sri Lanka itinerary including Colombo, Sigiriya, Kandy, Ella and Galle. Includes budget tips, hotels and travel planning advice.",
+    title: "Sri Lanka 7 Day Itinerary (2026 Costs & June Monsoon Updates Included)",
+    description: "The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",

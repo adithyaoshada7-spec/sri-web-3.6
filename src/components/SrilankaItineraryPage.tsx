@@ -264,72 +264,78 @@ export default function SrilankaItineraryPage() {
   const itineraryDays = [
     {
       day: "Day 1",
-      title: "Landing in Colombo & Uncovering its Hidden Coastal Charm",
-      driveTime: "45 mins (32 km via direct Airport Expressway)",
-      attractions: "Galle Face Green, Colombo Dutch Hospital colonial district, Galle Face Hotel evening sea mist trail.",
-      food: "Famous Sea-Bass or signature Lagoon Mud Crab at Ministry of Crab (Reserve 2 weeks early!), or local Hopper plates at Barefoot Garden Cafe.",
-      hotel: "Galle Face Hotel Colombo (Iconic colonial majesty overlooking the Indian Ocean) or Uga Residence (Ultra-private central boutique oasis).",
-      insider: "Indian airline flights usually touch down around late morning. Avoid congested central Colombo street transit by instructing your chauffeur to take the expressway directly. Use evening hours to exchange currency and secure local Dialog SIMs before departing inland tomorrow.",
-      slug: "colombo"
+      title: "Arrive in Negombo: Sandy Beaches & Coastal Acclimatization",
+      driveTime: "20 mins (15 km from Colombo Airport)",
+      attractions: "Negombo Lagoon, historic Dutch Canal, pristine golden sand beaches, lively fish markets, and a local catamaran sunset tour.",
+      food: "Succulent fresh lagoon crabs, giant prawns cooked in local spices, or delicious hopper plates at top seaside taverns.",
+      hotel: "Heritance Negombo (Sprawling premium beachfront sanctuary) or Jetwing Blue (Chic, modern resort on golden shores).",
+      insider: "Negombo is situated right next to the Colombo International Airport (CMB), unlike Colombo city which is a 45-minute drive away. Staying here on Day 1 lets you shake off travel fatigue immediately without navigating grueling city traffic, starting your Sri Lanka trip in true coastal comfort.",
+      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800",
+      slug: "negombo"
     },
     {
       day: "Day 2",
-      title: "Ancient Dambulla Cave Temple to the Mighty Sigiriya Citadel",
-      driveTime: "4.0 hours (170 km on comfortable state highways)",
-      attractions: "Ancient Golden Rock Cave Temple of Dambulla, Pidurangala Rock panoramic sunset views, private Sigiriya sanctuary.",
-      food: "Traditional local rice & 15 organic clay-pot vegetable curries served in an open village pavilion.",
-      hotel: "Jetwing Vil Uyana (Stunning wooden eco-dwellings over reed beds) or Heritance Kandalama (Breathtaking hotel designed into rocky mountainsides by architect Geoffrey Bawa).",
-      insider: "Make a quick rest stop at Dambulla along the drive. Climb Pidurangala in the late afternoon; it is vastly cheaper, less crowded, and provides the absolute best view of Sigiriya Lion Rock glowing at orange sunset.",
+      title: "Travel Inland to Cultural Triangle: Dambulla Cave Temple to Sigiriya",
+      driveTime: "3.5 hours (140 km on spacious highways)",
+      attractions: "The ancient Golden Rock Cave Temple of Dambulla (UNESCO site housing 150+ pristine Buddha statues), a private Minneriya herd elephant safari, and a golden hour hike up Pidurangala Rock.",
+      food: "A grand clay-pot buffet featuring 15+ organic curries, local wild red rice, and crispy papadums in a breezy paddy field pavilion.",
+      hotel: "Jetwing Vil Uyana (Ecological luxury dwellings nestled inside reed beds) or Heritance Kandalama (An architectural masterpiece integrated seamlessly into forest cliffs by Geoffrey Bawa).",
+      insider: "Climb Pidurangala in the late afternoon. It is inexpensive, uncrowded, and yields the absolute best 360-degree sunset panoramic view looking straight at the magnificent Sigiriya Lion Rock.",
+      image: "https://images.unsplash.com/photo-1588598126744-f8cf498660dd?auto=format&fit=crop&q=80&w=800",
       slug: "sigiriya-citadel"
     },
     {
       day: "Day 3",
-      title: "Conquering Sigiriya's Skypath Early Morning & Kandy Lake Temple",
-      driveTime: "2.5 hours (92 km)",
-      attractions: "Sigiriya Lion Rock Fortress archaeological site (1,200 steps to the summit sky ruins), Royal Botanical Gardens of Peradeniya, and Temple of the Sacred Tooth Relic.",
-      food: "Empire Cafe (A vibrant colonial-era fusion restaurant located steps away from Kandy Lake's Temple).",
-      hotel: "The Kings Pavilion (Prestige private hills retreat) or W15 Hanthana Estate (Exquisite high-end tea heritage estate).",
-      insider: "Start climbing Sigiriya by 7:00 AM sharp! This preserves energy, lets you conquer the metal staircases before they heat up, and ensures you beat the massive tour groups.",
+      title: "Climbing Sigiriya Lion Rock Sky Fortress & Driving to Kandy Hill Capital",
+      driveTime: "2.5 hours (92 km through tropical estates)",
+      attractions: "Sigiriya Lion Rock's majestic 5th-century ruins (1,200 steps to the summit sky palace), Kandy Lake botanical walk, and the highly sacred Temple of the Tooth Relic.",
+      food: "Empire Cafe (A bustling heritage hub serving artisan fusion curries and premium organic tea immediately adjacent to the Tooth Temple).",
+      hotel: "The Kings Pavilion (Ultra-private exclusive hills sanctuary) or Cinnamon Citadel Kandy (Peaceful resort set directly along the scenic Mahaweli River).",
+      insider: "Start climbing Sigiriya by 7:00 AM sharp! This lets you beat the scorching midday heat, preserves your energy, and avoids the massive tour groups.",
+      image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=800",
       slug: "kandy-temples"
     },
     {
       day: "Day 4",
-      title: "The Breathtaking Misty Blue Train Ride & Ella Mountain Valleys",
-      driveTime: "6.0 hours on the historic Observation Carriage Train (Chauffeur transfers large luggage by road)",
-      attractions: "Scenic tea country train route, cascading Ravana waterfalls, relaxed organic Ella town central street.",
-      food: "Cafe Chill (Famous multi-story tropical hub offering artisanal wood-fired pizzas, local Kottu Roti, and craft mocktails).",
-      hotel: "98 Acres Resort & Spa (Stunning luxury stone chalets built directly on a working organic tea estate) or Hide Ella.",
-      insider: "Do NOT attempt to drive this road segment. The train ride from Kandy (or Nanu-Oya near Nuwara Eliya) is ranked the most scenic on Earth. Send your heavy bags ahead with your private chauffeur in the AC car, while you board the train with just a light backpack.",
+      title: "Legendary Mountain Blue Train Ride & Exploring Ella Ridges",
+      driveTime: "6.0 hours on the world-famous Highland Train (Chauffeur transfers your heavy luggage seamlessly by road)",
+      attractions: "Scenic train journey through misty tea plantations, cascading waterfalls, and evening photo-run along the Nine Arch Bridge.",
+      food: "Cafe Chill (Ella's premier multi-story tropical lounge offering artisanal stone-fired pizzas, gourmet local Kotti, and fresh fruit nectars).",
+      hotel: "98 Acres Resort & Spa (Award-winning luxury chalets built of stone and thatch on a sprawling green tea estate) or EKHO Ella (Premium ridge boutique hotel with dramatic valley views).",
+      insider: "Do NOT attempt to drive this mountain lane. The train ride from Kandy is ranked the most beautiful rail route on earth. Enjoy total freedom by keeping only a light bag; your private chauffeur will meet you at the platform with your heavy luggage.",
+      image: "https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&q=80&w=800",
       slug: "scenic-blue-train"
     },
     {
       day: "Day 5",
-      title: "Sunrise at Nine Arch Bridge & Hiking Majestic Little Adam's Peak",
-      driveTime: "Minimal local transits via tuk-tuk or private car",
-      attractions: "Nine Arch Bridge (early morning photo run), Little Adam's Peak ridge climb, Ravana Pool Club lifestyle deck.",
-      food: "Matey Hut (Generous local family-run kitchen serving the finest fresh dhal curry, coconut sambol, and cooking lessons).",
-      hotel: "98 Acres Resort & Spa (Your second consecutive night here guarantees maximum physical relaxation).",
-      insider: "Get to Nine Arch Bridge by 9:00 AM. There is a scenic train scheduled to pass at approximately 9:15-9:30 AM which produces spectacular, postcard-worthy photos crossing the stone arches.",
-      slug: "ellas-peaks"
+      title: "Little Adam's Peak Ridge Sunrise Hike & Private Wildlife Safari in Yala",
+      driveTime: "2.0 hours (110 km descending from the mountains)",
+      attractions: "Sunrise trek to Little Adam's Peak pinnacle, viewing Ravana Falls, and a private jeep safari inside Yala National Park for tracking wild leopards.",
+      food: "A romantic gourmet open-air BBQ dinner featuring local lake fish and tropical wood-grilled prawns under starlight.",
+      hotel: "Cinnamon Wild Yala (Luxury jungle lodges where wild game roams freely up to your deck) or Wild Coast Tented Lodge (Spectacular luxury cocoon tents on a wild sandy beach).",
+      insider: "Yala Block 1 has the supreme leopard spotting frequency globally. Standard safaris can be crowded; speak to us about scheduling a private naturalist-led open 4x4 entry arriving through the gate exactly by 2:30 PM.",
+      slug: "yala-safari"
     },
     {
       day: "Day 6",
-      title: "Descending across Ella Gap to Galle Fort's Historic Ramparts",
-      driveTime: "3.5 hours (200 km via the comfortable Southern Expressway extension)",
-      attractions: "Historic Galle Fort walking tour by historic ramparts, colonial Dutch reformed church, boutique shopping alleys, sunset walk at Utrecht Bastion.",
-      food: "Fort Bazaar's Church Street Social (Exceptional Mediterranean-inspired culinary plates in a restored merchant manor).",
-      hotel: "Amangalla (World-renowned iconic luxury heritage sanctuary within Fort walls) or Le Grand Galle (Panoramic cliff oceanfront boutique).",
-      insider: "Avoid the slow coastal local road. The modern Southern Expressway is incredibly smooth. Take an evening walk around the Fort walls around 5:15 PM when the air is crisp and locals meet to fly kites and dive off the ramparts.",
-      slug: "galle-fort"
+      title: "Mirissa Sandy Beaches Sunset & Historic Galle Fort Walking Tour",
+      driveTime: "2.5 hours (125 km on direct coastal roads)",
+      attractions: "Scenic stilt fishermen photography, Coconut Tree Hill lookout, and a walking tour of the 17th-century Galle Fort ramparts, colonial Dutch churches, and boutique shopping lanes.",
+      food: "Church Street Social at Fort Bazaar (Exceptional modern Mediterranean and Sri Lankan coastal dishes in an elegantly restored colonial merchant house).",
+      hotel: "Amangalla (World-renowned iconic luxury heritage sanctuary inside Fort ramparts) or Le Grand Galle (Panoramic clifftop luxury hotel with pool overlooking the crashing surf).",
+      insider: "Enjoy stilt fishermen views around Weligama coast. Enter Galle Fort by 5:15 PM when the temperature drops; read the sunset markers from Utrecht Bastion as local kids fly vibrant kites above the ramparts.",
+      image: "https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&q=80&w=800",
+      slug: "mirissa-galle"
     },
     {
       day: "Day 7",
-      title: "Coastal River Mangroves & Departure Hub Chauffeur Dropoff",
-      driveTime: "2.0 hours (150 km back to Colombo / Airport)",
-      attractions: "Madu River scenic mangrove lagoon boat cruise, beach roadside tropical king coconut stands, Colombo Dutch Hospital souvenir run.",
-      food: "Roadside luxury oceanfront lunch in Bentota or a light, comforting snack at Colombo Barefoot Cafe before your flight.",
-      hotel: "Departure Flight (Ensure your flight departs after 4:00 PM for a beautifully relaxed final day).",
-      insider: "The Madu River cruise takes about 1.5 hours. It is the perfect last-day activity to see waterside monitor lizards and cinnamon peeling processes before your chauffeur delivers you directly to the CMB departures bay.",
+      title: "Historic Colombo City Exploration & Departures Dropoff",
+      driveTime: "2.0 hours (120 km via convenient southern expressway)",
+      attractions: "Colombo Dutch Hospital colonial markets, Red Mosque (Jami Ul-Alfar), upscale souvenir shopping at Barefoot, ODEL or Paradise Road.",
+      food: "A celebrated signature giant lagoon mud crab feast at the world-famous Ministry of Crab (pre-book 2 weeks early!), or a light organic lunch at the Barefoot Garden Cafe courtyard.",
+      hotel: "Departure Flight (Ensure your flight out of CMB departs after 4:30 PM for a beautifully relaxed, stress-free final day).",
+      insider: "Skip local coastal lanes. The Southern Expressway is extremely fast and smooth. Your chauffeur will deliver you right up to the CMB departures terminal with full luggage and shopping bags.",
+      image: "https://images.unsplash.com/photo-1565413340051-5e8211a76c02?auto=format&fit=crop&q=80&w=800",
       slug: "departure"
     }
   ];
@@ -427,6 +433,26 @@ export default function SrilankaItineraryPage() {
 
   const faqs = [
     {
+      q: "Is 7 days enough for Sri Lanka?",
+      a: "Yes, 7 days is absolutely enough to experience Sri Lanka’s most legendary highlights—ancient archaeological ruins, rolling green tea plantations, thrilling wildlife safaris, and colonial coastal beaches—provided you follow an optimized linear loop like ours and travel with a private chauffeur so you don't waste precious daylight hours on slow public transport."
+    },
+    {
+      q: "What is the best 7 day Sri Lanka itinerary?",
+      a: "The absolute best 7-day Sri Lanka itinerary is a curated linear loop that keeps transit times comfortable: Day 1 Negombo beach, Day 2 Sigiriya (UNESCO ruins), Day 3 Kandy (cultural tooth temple), Day 4 Ella (scenic blue highland train and Nine Arch Bridge), Day 5 Yala (leopard tracking wildlife safari), Day 6 Mirissa/Galle Fort, and Day 7 Colombo (city sightseeing & departure). This route hits all core vacation styles without exhausting backtrack driving."
+    },
+    {
+      q: "Can I visit Sri Lanka in one week?",
+      a: "Yes, you can beautifully visit major parts of Sri Lanka in one week! The secret is focusing on one clean geographical axis (such as our Negombo-Sigiriya-Kandy-Ella-Yala-Galle corridor) and completely omitting faraway northern or deep eastern provinces to keep transfers below an average of 2 hours daily."
+    },
+    {
+      q: "What does a 7 day Sri Lanka trip cost?",
+      a: "A 7-day Sri Lanka itinerary cost varies by style: a Budget style costs around $25-40/day, a comfortable Mid Range style ranges from $50-100/day, and a premium Luxury style ranges from $150+/day. For Indian travelers, complete value standard packages range from ₹32,000 to ₹44,000 per person excluding flights."
+    },
+    {
+      q: "Is June a good time to visit Sri Lanka?",
+      a: "Yes, June is a superb time to visit if you understand the weather patterns! While the south-west Yala monsoon causes light, scattered showers along Galle and Mirissa beaches, the ancient Cultural Triangle (Sigiriya, Dambulla), Kandy hills, and eastern coastlines are dry, bright, and gloriously sunny. Ella mountains are also beautifully misty and lush in June."
+    },
+    {
       q: "Do Indian passport holders need a visa for Sri Lanka in 2026?",
       a: "Yes, travelers from India require a visa. However, under the current reciprocal bilateral arrangements, Sri Lanka regularly issues a tourist visa (e-Visa or ETA) fee-free or at low cost to Indian passport holders. You should always register online at the official state portal before departure."
     },
@@ -495,24 +521,24 @@ export default function SrilankaItineraryPage() {
   return (
     <div className="bg-luxury-cream min-h-screen text-luxury-black font-sans leading-relaxed pt-24 md:pt-32">
       <Helmet>
-        <title>Sri Lanka 7 Day Itinerary (2026) | Complete Route Optimization & Free Printable PDF Guide</title>
-        <meta name="description" content="Maximize your 7 days in Sri Lanka with our field-tested route optimization guide. Get realistic driving loop comparisons, Indian Rupee (INR) cost estimates, hotel choices, and download our official printable PDF guide offline." />
-        <meta name="keywords" content="Sri Lanka 7 day itinerary, Sri Lanka route optimization, Sri Lanka travel guide, Sri Lanka itineraries, Plan Sri Lanka, Sri Lanka tour package, Sri Lanka driving loops, Indian travelers in Sri Lanka" />
+        <title>Sri Lanka 7 Day Itinerary (2026 Costs & June Monsoon Updates Included)</title>
+        <meta name="description" content="The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF." />
+        <meta name="keywords" content="Sri Lanka 7 day itinerary, Sri Lanka itinerary 7 days, sri lanka itinerary in june, Sri Lanka route optimization, Sri Lanka travel guide, Sri Lanka itineraries, Plan Sri Lanka, Sri Lanka tour package, Sri Lanka driving loops, Indian travelers in Sri Lanka" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://plan-srilanka.com/sri-lanka-7-day-itinerary" />
         
         {/* Open Graph Tags */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://plan-srilanka.com/sri-lanka-7-day-itinerary" />
-        <meta property="og:title" content="Sri Lanka 7 Day Itinerary (2026) | Complete Route Optimization & Free Printable PDF Guide" />
-        <meta property="og:description" content="Maximize your 7 days in Sri Lanka with our field-tested route optimization guide. Get realistic driving loop comparisons, Indian Rupee (INR) cost estimates, hotel choices, and download our official printable PDF guide offline." />
+        <meta property="og:title" content="Sri Lanka 7 Day Itinerary (2026 Costs & June Monsoon Updates Included)" />
+        <meta property="og:description" content="The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
         <meta property="og:site_name" content="Plan Sri Lanka" />
         
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sri Lanka 7 Day Itinerary (2026) | Complete Route Optimization & Free Printable PDF Guide" />
-        <meta name="twitter:description" content="Maximize your 7 days in Sri Lanka with our field-tested route optimization guide. Get realistic driving loop comparisons, Indian Rupee (INR) cost estimates, hotel choices, and download our official printable PDF guide offline." />
+        <meta name="twitter:title" content="Sri Lanka 7 Day Itinerary (2026 Costs & June Monsoon Updates Included)" />
+        <meta name="twitter:description" content="The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF." />
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200" />
         
         {/* ARTICLE SCHEMA */}
@@ -520,7 +546,7 @@ export default function SrilankaItineraryPage() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Sri Lanka 7 Day Itinerary (2026) | Complete Route Optimization & Free Printable PDF Guide",
+            "headline": "Sri Lanka 7 Day Itinerary (2026 Costs & June Monsoon Updates Included)",
             "image": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
             "author": {
               "@type": "Person",
@@ -536,8 +562,8 @@ export default function SrilankaItineraryPage() {
               }
             },
             "datePublished": "2026-02-10T08:00:00Z",
-            "dateModified": "2026-06-11T07:30:00Z",
-            "description": "Struggling to plan a 7-day Sri Lanka itinerary without wasting hours in a car? View actual driving hour comparisons, interactive schedules, realistic INR budgets, and download our offline printable PDF guide."
+            "dateModified": "2026-06-16T17:00:00Z",
+            "description": "The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF."
           })}
         </script>
 
@@ -580,44 +606,44 @@ export default function SrilankaItineraryPage() {
             "step": [
               {
                 "@type": "HowToStep",
-                "name": "Day 1: Arrival in Colombo & Oceanfront Stroll",
-                "text": "Upon landing at Colombo Airport (CMB), receive reception via your private air-conditioned vehicle transport. Check into your hotel and enjoy a sunset walk along the beachfront at Galle Face Green.",
+                "name": "Day 1: Arrive in Negombo: Rest and Coastal Acclimatization",
+                "text": "Upon landing at Colombo Airport (CMB), check into your beachfront hotel in Negombo. Evade city traffic congestion and acclimatize comfortably.",
                 "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-1"
               },
               {
                 "@type": "HowToStep",
-                "name": "Day 2: Sigiriya Ancient Citadel Climb",
-                "text": "Travel inland to the Cultural Triangle. Ascend the legendary Sigiriya Lion Rock fortress, enjoy an authentic rustic village lunch, and capture scenic sunset points.",
+                "name": "Day 2: Dambulla Cave Temple exploration and travel to Sigiriya",
+                "text": "Drive inland to the Cultural Triangle. Explore Dambulla Cave temples and climb Pidurangala Rock for golden sunset views looking at Sigiriya.",
                 "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-2"
               },
               {
                 "@type": "HowToStep",
-                "name": "Day 3: Kandy Heritage & Cultural Highlights",
-                "text": "Drive to the hill capital, Kandy. Visit the sacred Temple of the Tooth Relic, stroll the Royal Botanical Gardens, and attend a traditional cultural dance show.",
+                "name": "Day 3: Sigiriya Lion Rock early ascent and drive to Kandy",
+                "text": "Ascend Sigiriya Rock sky fortress by 7:00 AM sharp to beat the midday sun. Journey to the hill capital Kandy and visit Tooth Relic Temple.",
                 "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-3"
               },
               {
                 "@type": "HowToStep",
-                "name": "Day 4: Scenic Mountain Train Journey to Ella",
-                "text": "Board the world-famous blue train from Nanu Oya to Ella through emerald tea estates. In the evening, photograph the architectural Nine Arch Bridge.",
+                "name": "Day 4: Highland scenic blue train ride to Ella valley",
+                "text": "Embark on the ancient Observation train route from Kandy to Ella. Hike the scenic stone Nine Arch Bridge by red sunset.",
                 "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-4"
               },
               {
                 "@type": "HowToStep",
-                "name": "Day 5: Ella Highland Hikes & Waterfalls",
-                "text": "Hike up Little Adam’s Peak for sunrise, visit the cascading Ravana Falls, and experience an authentic guided tea factory harvesting and tasting tour.",
+                "name": "Day 5: Hike Little Adam's Peak and descend to Yala safari plains",
+                "text": "Climb Little Adam's Peak by crisp sunrise. Transfer down to the coastal savannas of Yala for a private leopard safari trek.",
                 "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-5"
               },
               {
                 "@type": "HowToStep",
-                "name": "Day 6: Flexible Mountain Leisure & Relaxation",
-                "text": "Indulge in organic Ayurvedic luxury spa treatments, experience an immersive culinary cooking class, or enjoy the vibrant mountain cafe culture of Ella.",
+                "name": "Day 6: Whale watching coastlines to historic Galle Fort",
+                "text": "View Weligama stilt fishermen and walk the historic 17th-century ramparts of Galle Fort before setting camp in a heritage block.",
                 "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-6"
               },
               {
                 "@type": "HowToStep",
-                "name": "Day 7: Souvenir Shopping Hub & Flight Return",
-                "text": "Check out from Ella and travel via high-speed southern expressway back to Colombo. Enjoy souvenir curations at high-end hubs before airport drop-off.",
+                "name": "Day 7: Southern Expressway to Colombo & Departures drop-off",
+                "text": "Bypass regional transits via Southern Expressway. Enjoy a crab lunch at Ministry of Crab and wrap souvenir curations before flight drop.",
                 "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-7"
               }
             ]
@@ -1753,6 +1779,136 @@ export default function SrilankaItineraryPage() {
             </p>
           </div>
 
+          {/* VISUAL ROUTE MAP & CONNECTIONS BLOCK */}
+          <div className="bg-[#fcfbf9] rounded-[32px] border border-luxury-black/5 p-6 md:p-10 space-y-8 shadow-sm">
+            <div className="text-center md:text-left space-y-2">
+              <span className="text-[10px] text-luxury-gold uppercase tracking-[0.2em] font-mono font-bold block">GEOGRAPHICAL BLUEPRINT</span>
+              <h3 className="font-serif text-xl md:text-2xl text-luxury-green font-bold">7-Day Sri Lanka Route Optimization Map</h3>
+              <p className="text-xs text-luxury-black/60 font-light leading-relaxed max-w-2xl">
+                A highly optimized circular loop starting near the international airport, winding through the ancient Cultural Triangle, across the high tea country, descending into the wildlife savanna, and returning along beautiful southern expressways.
+              </p>
+            </div>
+
+            {/* Interactive SVG-based Geographical Vector Connections Map */}
+            <div className="relative border border-luxury-black/[0.04] rounded-2xl bg-white p-4 md:p-8 overflow-hidden">
+              <div className="absolute top-4 right-4 bg-luxury-green text-white text-[9px] font-mono uppercase tracking-widest px-2.5 py-1 rounded bg-opacity-95">
+                Total Route: ~697 km
+              </div>
+
+              {/* The Visual SVG Connector Map */}
+              <div className="hidden md:block w-full h-[220px] relative mt-4">
+                <svg className="w-full h-full absolute inset-0 text-luxury-gold" viewBox="0 0 800 200" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4">
+                  {/* Negombo -> Sigiriya */}
+                  <path d="M 100 130 Q 180 50 260 60" />
+                  {/* Sigiriya -> Kandy */}
+                  <path d="M 260 60 Q 320 80 380 90" />
+                  {/* Kandy -> Ella */}
+                  <path d="M 380 90 Q 420 150 480 140" stroke="#006233" strokeDasharray="0" />
+                  {/* Ella -> Yala */}
+                  <path d="M 480 140 Q 540 170 590 150" />
+                  {/* Yala -> Galle/Mirissa */}
+                  <path d="M 590 150 Q 640 110 700 120" />
+                  {/* Galle/Mirissa -> Colombo */}
+                  <path d="M 700 120 Q 400 180 100 130" stroke="#004d3d" strokeDasharray="5" />
+                </svg>
+
+                {/* Nodes on Map */}
+                <div className="absolute left-[8%] bottom-[25%] flex flex-col items-center group cursor-pointer">
+                  <div className="w-5 h-5 bg-luxury-green border-2 border-luxury-gold rounded-full flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
+                    <span className="w-1.5 h-1.5 bg-luxury-gold rounded-full" />
+                  </div>
+                  <span className="text-[10px] uppercase font-mono font-bold tracking-wider mt-1 text-luxury-green">Negombo</span>
+                  <span className="text-[9px] text-luxury-black/50 font-mono">D1 (Arrive)</span>
+                </div>
+
+                <div className="absolute left-[30%] top-[15%] flex flex-col items-center group cursor-pointer">
+                  <div className="w-5 h-5 bg-luxury-green border-2 border-luxury-gold rounded-full flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
+                    <span className="w-1.5 h-1.5 bg-luxury-gold rounded-full" />
+                  </div>
+                  <span className="text-[10px] uppercase font-mono font-bold tracking-wider mt-1 text-luxury-green">Sigiriya</span>
+                  <span className="text-[9px] text-luxury-black/50 font-mono">D2 (Citadel)</span>
+                </div>
+
+                <div className="absolute left-[45%] top-[30%] flex flex-col items-center group cursor-pointer">
+                  <div className="w-5 h-5 bg-luxury-green border-2 border-luxury-gold rounded-full flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
+                    <span className="w-1.5 h-1.5 bg-luxury-gold rounded-full" />
+                  </div>
+                  <span className="text-[10px] uppercase font-mono font-bold tracking-wider mt-1 text-luxury-green">Kandy</span>
+                  <span className="text-[9px] text-luxury-black/50 font-mono">D3 (Tooth Temple)</span>
+                </div>
+
+                {/* High-priority Train Journey callout */}
+                <div className="absolute left-[54%] top-[10%] bg-amber-50 border border-luxury-gold/50 rounded-xl p-2.5 max-w-[120px] text-center z-10 shadow-sm">
+                  <span className="text-[8px] uppercase tracking-widest text-luxury-gold block font-bold">100% Scenic Train</span>
+                  <p className="text-[9px] text-luxury-black/70 leading-normal font-sans">Kandy to Ella Rail Transit</p>
+                </div>
+
+                <div className="absolute left-[58%] bottom-[20%] flex flex-col items-center group cursor-pointer">
+                  <div className="w-5 h-5 bg-luxury-green border-2 border-luxury-gold rounded-full flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform animate-pulse">
+                    <span className="w-1.5 h-1.5 bg-luxury-gold rounded-full" />
+                  </div>
+                  <span className="text-[10px] uppercase font-mono font-bold tracking-wider mt-1 text-luxury-green">Ella</span>
+                  <span className="text-[9px] text-luxury-black/50 font-mono">D4 (Tea Country)</span>
+                </div>
+
+                <div className="absolute left-[70%] bottom-[15%] flex flex-col items-center group cursor-pointer">
+                  <div className="w-5 h-5 bg-luxury-green border-2 border-luxury-gold rounded-full flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
+                    <span className="w-1.5 h-1.5 bg-luxury-gold rounded-full" />
+                  </div>
+                  <span className="text-[10px] uppercase font-mono font-bold tracking-wider mt-1 text-luxury-green">Yala Safari</span>
+                  <span className="text-[9px] text-luxury-black/50 font-mono">D5 (Leopards)</span>
+                </div>
+
+                <div className="absolute right-[5%] bottom-[30%] flex flex-col items-center group cursor-pointer">
+                  <div className="w-5 h-5 bg-luxury-green border-2 border-luxury-gold rounded-full flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
+                    <span className="w-1.5 h-1.5 bg-luxury-gold rounded-full" />
+                  </div>
+                  <span className="text-[10px] uppercase font-mono font-bold tracking-wider mt-1 text-luxury-green">Galle / Mirissa</span>
+                  <span className="text-[9px] text-luxury-black/50 font-mono">D6 (Coastal Fort)</span>
+                </div>
+              </div>
+
+              {/* Mobile Timeline/List Map representation (4G optimized) */}
+              <div className="grid grid-cols-2 md:grid-cols-7 gap-3 mt-4">
+                <div className="bg-[#FAF8F5] p-3.5 rounded-xl border border-luxury-black/5 text-center space-y-1">
+                  <span className="text-[9px] uppercase font-mono text-luxury-gold tracking-widest block font-bold">Day 1</span>
+                  <span className="font-serif font-bold text-luxury-green text-xs block">Negombo Beach</span>
+                  <span className="text-[9px] font-mono text-luxury-black/50">15 km drive (Relax)</span>
+                </div>
+                <div className="bg-[#FAF8F5] p-3.5 rounded-xl border border-luxury-black/5 text-center space-y-1">
+                  <span className="text-[9px] uppercase font-mono text-luxury-gold tracking-widest block font-bold">Day 2</span>
+                  <span className="font-serif font-bold text-luxury-green text-xs block">Sigiriya ruins</span>
+                  <span className="text-[9px] font-mono text-luxury-black/50">140 km (3.5 hrs)</span>
+                </div>
+                <div className="bg-[#FAF8F5] p-3.5 rounded-xl border border-luxury-black/5 text-center space-y-1">
+                  <span className="text-[9px] uppercase font-mono text-luxury-gold tracking-widest block font-bold">Day 3</span>
+                  <span className="font-serif font-bold text-luxury-green text-xs block">Kandy hills</span>
+                  <span className="text-[9px] font-mono text-luxury-black/50">92 km (2.5 hrs)</span>
+                </div>
+                <div className="bg-[#FAF8F5] p-3.5 rounded-xl border border-luxury-black/5 text-center space-y-1">
+                  <span className="text-[9px] uppercase font-mono text-luxury-gold tracking-widest block font-bold">Day 4</span>
+                  <span className="font-serif font-bold text-luxury-green text-xs block">Ella Tea Country</span>
+                  <span className="text-[9px] font-mono text-luxury-black/50">Blue Train (Scenic)</span>
+                </div>
+                <div className="bg-[#FAF8F5] p-3.5 rounded-xl border border-luxury-black/5 text-center space-y-1">
+                  <span className="text-[9px] uppercase font-mono text-luxury-gold tracking-widest block font-bold">Day 5</span>
+                  <span className="font-serif font-bold text-luxury-green text-xs block">Yala Savanna</span>
+                  <span className="text-[9px] font-mono text-luxury-black/50">110 km (2.0 hrs)</span>
+                </div>
+                <div className="bg-[#FAF8F5] p-3.5 rounded-xl border border-luxury-black/5 text-center space-y-1">
+                  <span className="text-[9px] uppercase font-mono text-luxury-gold tracking-widest block font-bold">Day 6</span>
+                  <span className="font-serif font-bold text-luxury-green text-xs block">Galle Fort</span>
+                  <span className="text-[9px] font-mono text-luxury-black/50">125 km (2.5 hrs)</span>
+                </div>
+                <div className="bg-[#FAF8F5] p-3.5 rounded-xl border border-luxury-black/5 text-center space-y-1 col-span-2 md:col-span-1">
+                  <span className="text-[9px] uppercase font-mono text-luxury-gold tracking-widest block font-bold">Day 7</span>
+                  <span className="font-serif font-bold text-luxury-green text-xs block">Colombo Hub</span>
+                  <span className="text-[9px] font-mono text-luxury-black/50">Fast Highway</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="space-y-12 pt-6">
             {itineraryDays.map((d, index) => (
               <div 
@@ -1780,6 +1936,16 @@ export default function SrilankaItineraryPage() {
                 {/* Day Breakdown Content */}
                 <div className="grid md:grid-cols-12 gap-8 text-xs md:text-sm">
                   <div className="md:col-span-8 space-y-4">
+                    {d.image && (
+                      <div className="relative h-48 sm:h-64 w-full rounded-2xl overflow-hidden shadow-md border border-luxury-black/5">
+                        <img 
+                          src={d.image} 
+                          alt={d.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                    )}
                     <div className="space-y-2">
                       <h4 className="font-serif font-bold text-base text-luxury-green flex items-center gap-2">
                         <Compass className="w-4 h-4 text-luxury-gold shrink-0" /> Key Sightseeing & Elements
@@ -1816,6 +1982,81 @@ export default function SrilankaItineraryPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* BESPOKE TRIP PLANNER CTA - AS REQUESTED */}
+          <div className="mt-16 bg-[#faf8f4] border border-luxury-gold/20 rounded-[32px] p-8 md:p-12 text-center space-y-6 max-w-3xl mx-auto shadow-sm">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-luxury-gold font-bold block">First-Time Visitor Guidance</span>
+            <p className="text-sm md:text-base text-luxury-black/80 font-light leading-relaxed">
+              This itinerary is designed for first-time visitors to experience the perfect blend of luxury cultural monuments, tea highland transits, safaris, and coastal walks in one single week.
+            </p>
+            <div className="bg-white px-5 py-4 rounded-2xl border border-luxury-black/[0.04] max-w-xl mx-auto space-y-1">
+              <span className="text-xs font-serif font-bold text-luxury-green block">Want a personalized itinerary based on your budget, travel style, and interests?</span>
+              <span className="text-xs text-luxury-black/50 block">Our algorithms and bespoke concierges are standing by to draw up your absolute custom blueprint.</span>
+            </div>
+            <div className="pt-2">
+              <Link
+                to="/sri-lanka-trip-planner"
+                onClick={handleTripPlannerClick}
+                className="inline-flex px-8 py-4.5 bg-luxury-green hover:bg-luxury-gold text-white hover:text-luxury-black font-bold uppercase tracking-[0.12em] text-xs transition-all rounded-full items-center gap-2.5 shadow-md hover:scale-105 cursor-pointer"
+              >
+                Use our Sri Lanka Trip Planner
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* NEW INTEGRATION: JUNE / MONSOON WEATHER OPTIMIZATION (Search Console: sri lanka itinerary in june) */}
+      <section id="june-weather" className="py-20 md:py-28 px-6 bg-[#FAF7F2] border-b border-luxury-black/15">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="text-center space-y-3">
+            <span className="text-xs uppercase tracking-[0.25em] text-luxury-gold font-bold block">Climate Verification Desk</span>
+            <h2 className="text-3xl md:text-5xl font-serif text-luxury-green leading-snug-tight">
+              Is This 7 Day Sri Lanka Itinerary Good in June?
+            </h2>
+            <p className="text-sm md:text-base text-luxury-black/60 max-w-2xl mx-auto font-light leading-relaxed">
+              Planning to travel during the dry-and-wet monsoon crossover? Let's analyze exactly how the Southwest Monsoon (Yala) impacts your 7-day travels inside Sri Lanka in June.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 pt-4">
+            <div className="bg-white rounded-2xl p-6 border border-luxury-black/5 space-y-3 shadow-sm">
+              <h4 className="font-serif font-bold text-sm text-luxury-green flex items-center gap-2">
+                <span className="w-2 h-2 bg-yellow-500 rounded-full" /> The South-West (Yala) Monsoon Dynamics
+              </h4>
+              <p className="text-xs text-luxury-black/70 leading-relaxed font-light">
+                In June, the Southwest Monsoon is fully active. This brings localized warm tropical rain and rough sea waters to the south-western coast—specifically affecting Colombo, Negombo, Galle, and Mirissa. Expect passing afternoon or evening downpours, but rarely continuous all-day rainfall.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 border border-luxury-black/5 space-y-3 shadow-sm">
+              <h4 className="font-serif font-bold text-sm text-luxury-green flex items-center gap-2">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full" /> Bone-Dry Cultural Triangle & Ella Mist
+              </h4>
+              <p className="text-xs text-luxury-black/70 leading-relaxed font-light">
+                Crucially, the Cultural Triangle (Sigiriya, Dambulla) is situated on the rain shadow side and remains hot, dry, and wind-swept in June. Meanwhile, the high elevation of Kandy and Ella is cool and beautifully misty—creating highly dramatic highland atmospheres for the iconic blue train trip.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-luxury-green text-white rounded-[24px] p-6 md:p-8 border border-luxury-gold/20 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2">
+              <h4 className="font-serif font-bold text-base text-luxury-gold">How to Customize this Route for June:</h4>
+              <p className="text-xs text-white/80 font-light leading-relaxed max-w-xl">
+                If traveling in June, we customize your base hotels to swap South Coast sandy nights for East Coast shores (Trincomalee / Nilaveli beach or Arugam Bay surf point) where the weather is bone-dry and seas are completely calm. We can also lock in premium colonial monsoon retreat packages at heritage villas.
+              </p>
+            </div>
+            <a
+              href="https://wa.me/94722968210"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 bg-luxury-gold text-luxury-black font-bold uppercase text-[10px] tracking-wider px-5 py-3 rounded-full hover:bg-white transition-all shadow-md cursor-pointer text-center"
+            >
+              Get Free Monsoon Route Plan
+            </a>
           </div>
         </div>
       </section>
@@ -1996,11 +2237,54 @@ export default function SrilankaItineraryPage() {
           <div className="text-center space-y-3">
             <span className="text-xs uppercase tracking-[0.25em] text-luxury-gold font-bold block">Financial Ledger</span>
             <h2 className="text-3xl md:text-5xl font-serif text-luxury-green leading-tight">
-              Cost Breakdown: <span className="italic">7 Days Sri Lanka in INR</span>
+              How Much Does a 7 Day Sri Lanka Itinerary Cost?
             </h2>
             <p className="text-sm md:text-base text-luxury-black/60 max-w-2xl mx-auto font-light">
               Complete cost transparency. We break down the estimated expenses for your trip based on three distinct lifestyle tiers. No surprises or hidden extras.
             </p>
+          </div>
+
+          {/* HIGH-RELEVANCE SEARCH INTENT COST COMPARISON TABLE */}
+          <div className="max-w-2xl mx-auto bg-white rounded-3xl border border-luxury-black/5 overflow-hidden shadow-sm">
+            <div className="bg-luxury-green text-white p-5 text-center">
+              <span className="text-[10px] uppercase font-mono tracking-widest text-luxury-gold font-bold">Estimated Daily Travel Style Budget</span>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse font-sans text-xs md:text-sm">
+                <thead>
+                  <tr className="bg-luxury-cream/15 border-b border-luxury-black/5">
+                    <th className="p-4 md:p-5 font-serif font-bold text-luxury-green">Travel Style</th>
+                    <th className="p-4 md:p-5 font-serif font-bold text-luxury-green text-right">Budget (Estimated / Day)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-luxury-black/[0.04]">
+                  <tr className="hover:bg-luxury-cream/5 transition-colors">
+                    <td className="p-4 md:p-5 font-bold text-luxury-green flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-slate-400" />
+                      Budget Style
+                    </td>
+                    <td className="p-4 md:p-5 font-mono text-right font-medium text-luxury-black/80">$25-40/day (Approx. ₹2,000 - ₹3,300)</td>
+                  </tr>
+                  <tr className="hover:bg-luxury-cream/5 transition-colors">
+                    <td className="p-4 md:p-5 font-bold text-luxury-green flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-luxury-gold" />
+                      Mid Range Style
+                    </td>
+                    <td className="p-4 md:p-5 font-mono text-right font-bold text-luxury-green">$50-100/day (Approx. ₹4,100 - ₹8,300)</td>
+                  </tr>
+                  <tr className="hover:bg-luxury-cream/5 transition-colors">
+                    <td className="p-4 md:p-5 font-bold text-luxury-green flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#0c2f25]" />
+                      Luxury Style
+                    </td>
+                    <td className="p-4 md:p-5 font-mono text-right font-bold text-luxury-gold">$150+/day (Approx. ₹12,500+)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="p-4 bg-luxury-cream/5 text-center text-[10px] text-luxury-black/50 border-t border-luxury-black/[0.04] leading-relaxed">
+              *Daily budget estimates include comfortable lodgings, clean standard driver transport shares, park admissions, and delicious local food pairings.
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 pt-6">
