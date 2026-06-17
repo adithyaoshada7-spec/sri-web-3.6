@@ -434,7 +434,12 @@ export default function SrilankaItineraryPage() {
   const faqs = [
     {
       q: "Is 7 days enough for Sri Lanka?",
-      a: "Yes, 7 days is absolutely enough to experience Sri Lanka’s most legendary highlights—ancient archaeological ruins, rolling green tea plantations, thrilling wildlife safaris, and colonial coastal beaches—provided you follow an optimized linear loop like ours and travel with a private chauffeur so you don't waste precious daylight hours on slow public transport."
+      plainText: "Yes, 7 days is absolutely enough to experience Sri Lanka’s most legendary highlights—ancient archaeological ruins, rolling green tea plantations, thrilling wildlife safaris, and colonial coastal beaches—provided you follow an optimized linear loop like ours and travel with a private chauffeur so you don't waste precious daylight hours on slow public transport. If you have active youngsters or are traveling with elderly parents, explore our dedicated Sri Lanka Family Itinerary (2026 Guide) built to eliminate transportation fatigue.",
+      a: (
+        <span>
+          Yes, 7 days is absolutely enough to experience Sri Lanka’s most legendary highlights—ancient archaeological ruins, rolling green tea plantations, thrilling wildlife safaris, and colonial coastal beaches—provided you follow an optimized linear loop like ours and travel with a private chauffeur so you don't waste precious daylight hours on slow public transport. If you have active youngsters or are traveling with elderly parents, explore our dedicated <Link to="/sri-lanka-family-itinerary" className="text-luxury-gold hover:underline font-bold">Sri Lanka Family Itinerary (2026 Guide)</Link> built to eliminate transportation fatigue.
+        </span>
+      )
     },
     {
       q: "What is the best 7 day Sri Lanka itinerary?",
@@ -446,23 +451,48 @@ export default function SrilankaItineraryPage() {
     },
     {
       q: "What does a 7 day Sri Lanka trip cost?",
-      a: "A 7-day Sri Lanka itinerary cost varies by style: a Budget style costs around $25-40/day, a comfortable Mid Range style ranges from $50-100/day, and a premium Luxury style ranges from $150+/day. For Indian travelers, complete value standard packages range from ₹32,000 to ₹44,000 per person excluding flights."
+      plainText: "A 7-day Sri Lanka itinerary cost varies by style: a Budget style costs around $25-40/day, a comfortable Mid Range style ranges from $50-100/day, and a premium Luxury style ranges from $150+/day. For Indian travelers, complete value standard packages range from ₹32,000 to ₹44,000 per person excluding flights. For a fully customized expense tracker, check out our master calculators inside the Sri Lanka Trip Cost From India (2026 Guide) or our specific Chennai to Sri Lanka Package Cost guide.",
+      a: (
+        <span>
+          A 7-day Sri Lanka itinerary cost varies by style: a Budget style costs around $25-40/day, a comfortable Mid Range style ranges from $50-100/day, and a premium Luxury style ranges from $150+/day. For Indian travelers, complete value standard packages range from ₹32,000 to ₹44,000 per person excluding flights. For a fully customized expense tracker, check out our master calculators inside the <Link to="/sri-lanka-trip-cost-from-india" className="text-luxury-gold hover:underline font-bold">Sri Lanka Trip Cost From India (2026 Guide)</Link> or our specific <Link to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai" className="text-luxury-gold hover:underline font-bold">Chennai to Sri Lanka Package Cost guide</Link>.
+        </span>
+      )
     },
     {
       q: "Is June a good time to visit Sri Lanka?",
-      a: "Yes, June is a superb time to visit if you understand the weather patterns! While the south-west Yala monsoon causes light, scattered showers along Galle and Mirissa beaches, the ancient Cultural Triangle (Sigiriya, Dambulla), Kandy hills, and eastern coastlines are dry, bright, and gloriously sunny. Ella mountains are also beautifully misty and lush in June."
+      plainText: "Yes, June is a superb time to visit if you understand the weather patterns! While the south-west Yala monsoon causes light, scattered showers along Galle and Mirissa beaches, the ancient Cultural Triangle (Sigiriya, Dambulla), Kandy hills, and eastern coastlines are dry, bright, and gloriously sunny. To avoid any potential monsoon disappointment, read our comprehensive handbook on Where To Go In Sri Lanka In June Guide.",
+      a: (
+        <span>
+          Yes, June is a superb time to visit if you understand the weather patterns! While the south-west Yala monsoon causes light, scattered showers along Galle and Mirissa beaches, the ancient Cultural Triangle (Sigiriya, Dambulla), Kandy hills, and eastern coastlines are dry, bright, and gloriously sunny. To avoid any potential monsoon disappointment, read our comprehensive handbook on <Link to="/where-to-go-in-sri-lanka-in-june" className="text-luxury-gold hover:underline font-bold">Where To Go In Sri Lanka In June Guide</Link>.
+        </span>
+      )
     },
     {
       q: "Do Indian passport holders need a visa for Sri Lanka in 2026?",
-      a: "Yes, travelers from India require a visa. However, under the current reciprocal bilateral arrangements, Sri Lanka regularly issues a tourist visa (e-Visa or ETA) fee-free or at low cost to Indian passport holders. You should always register online at the official state portal before departure."
+      plainText: "Yes, travelers from India require a visa. Under reciprocal bilateral agreements, Sri Lanka regularly issues tourist visas fee-free or at a highly subsidized rate to Indian passport holders. Find out how to complete the application process correctly in under 15 minutes by reviewing our Sri Lanka Visa For Indians (e-Visa / ETA Guide).",
+      a: (
+        <span>
+          Yes, travelers from India require a visa. Under reciprocal bilateral agreements, Sri Lanka regularly issues tourist visas fee-free or at a highly subsidized rate to Indian passport holders. Find out how to complete the application process correctly in under 15 minutes by reviewing our <Link to="/sri-lanka-visa-for-indians" className="text-luxury-gold hover:underline font-bold">Sri Lanka Visa For Indians (e-Visa / ETA Guide)</Link>.
+        </span>
+      )
     },
     {
       q: "What is the absolute best month for a 7-day Sri Lanka trip?",
-      a: "The classic loop covering Colombo, Sigiriya, Kandy, Ella, and Galle is at its absolute weather peak from December through mid-April. This is when the south/west coast beaches are dry and sandy, and the mountain hills are perfectly clear."
+      plainText: "The classic loop covering Colombo, Sigiriya, Kandy, Ella, and Galle is at its absolute weather peak from December through mid-April. This is when the south/west coast beaches are dry and sandy, and the mountain hills are perfectly clear. To find the optimal month matches for your specific holiday calendar, read our detailed report on the Best Time to Visit Sri Lanka.",
+      a: (
+        <span>
+          The classic loop covering Colombo, Sigiriya, Kandy, Ella, and Galle is at its absolute weather peak from December through mid-April. This is when the south/west coast beaches are dry and sandy, and the mountain hills are perfectly clear. To find the optimal month matches for your specific holiday calendar, read our detailed report on the <Link to="/best-time-to-visit-sri-lanka" className="text-luxury-gold hover:underline font-bold">Best Time to Visit Sri Lanka</Link>.
+        </span>
+      )
     },
     {
       q: "Does a 7-day tour feel way too rushed?",
-      a: "It depends entirely on your route design! If you attempt to cover the whole island, it feels terribly rushed. But if you follow our Balanced Route (Route A: Sigiriya → Kandy → Ella), you spend less than 1.5 hours in transit per day on average, leaving massive quantities of time for hikes, pools, and local meals."
+      plainText: "It depends entirely on your route design! If you attempt to cover the whole island, it feels terribly rushed. But if you follow our Balanced Route (Route A: Sigiriya → Kandy → Ella), you spend less than 1.5 hours in transit per day on average, leaving massive quantities of time for hikes, pools, and local meals. Work through all key routing factors in our manual on How to Plan a Trip to Sri Lanka (Master Guide).",
+      a: (
+        <span>
+          It depends entirely on your route design! If you attempt to cover the whole island, it feels terribly rushed. But if you follow our Balanced Route (Route A: Sigiriya → Kandy → Ella), you spend less than 1.5 hours in transit per day on average, leaving massive quantities of time for hikes, pools, and local meals. Work through all key routing factors in our manual on <Link to="/how-to-plan-a-trip-to-sri-lanka" className="text-luxury-gold hover:underline font-bold">How to Plan a Trip to Sri Lanka (Master Guide)</Link>.
+        </span>
+      )
     },
     {
       q: "How much does a private chauffeur-driven car cost for 7 days in Sri Lanka?",
@@ -521,7 +551,7 @@ export default function SrilankaItineraryPage() {
   return (
     <div className="bg-luxury-cream min-h-screen text-luxury-black font-sans leading-relaxed pt-24 md:pt-32">
       <Helmet>
-        <title>Sri Lanka 7 Day Itinerary (2026 Costs & June Monsoon Updates Included)</title>
+        <title>Sri Lanka 7-Day Itinerary (2026): Costs, Route & June Travel Guide</title>
         <meta name="description" content="The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF." />
         <meta name="keywords" content="Sri Lanka 7 day itinerary, Sri Lanka itinerary 7 days, sri lanka itinerary in june, Sri Lanka route optimization, Sri Lanka travel guide, Sri Lanka itineraries, Plan Sri Lanka, Sri Lanka tour package, Sri Lanka driving loops, Indian travelers in Sri Lanka" />
         <meta name="robots" content="index, follow" />
@@ -530,14 +560,14 @@ export default function SrilankaItineraryPage() {
         {/* Open Graph Tags */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://plan-srilanka.com/sri-lanka-7-day-itinerary" />
-        <meta property="og:title" content="Sri Lanka 7 Day Itinerary (2026 Costs & June Monsoon Updates Included)" />
+        <meta property="og:title" content="Sri Lanka 7-Day Itinerary (2026): Costs, Route & June Travel Guide" />
         <meta property="og:description" content="The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
         <meta property="og:site_name" content="Plan Sri Lanka" />
         
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sri Lanka 7 Day Itinerary (2026 Costs & June Monsoon Updates Included)" />
+        <meta name="twitter:title" content="Sri Lanka 7-Day Itinerary (2026): Costs, Route & June Travel Guide" />
         <meta name="twitter:description" content="The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF." />
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200" />
         
@@ -546,7 +576,7 @@ export default function SrilankaItineraryPage() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Sri Lanka 7 Day Itinerary (2026 Costs & June Monsoon Updates Included)",
+            "headline": "Sri Lanka 7-Day Itinerary (2026): Costs, Route & June Travel Guide",
             "image": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
             "author": {
               "@type": "Person",
@@ -660,7 +690,7 @@ export default function SrilankaItineraryPage() {
               "name": faq.q,
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": faq.a
+                "text": faq.plainText || (typeof faq.a === 'string' ? faq.a : "")
               }
             }))
           })}
@@ -677,9 +707,8 @@ export default function SrilankaItineraryPage() {
             <Sparkles className="w-3.5 h-3.5" /> Fast-Track Travel Guide for Indian Travelers
           </div>
           
-          <h1 className="text-4xl md:text-7xl font-serif text-white tracking-tight leading-tight max-w-4xl mx-auto">
-            Sri Lanka 7 Day Itinerary: <br className="hidden md:block" />
-            <span className="italic font-normal text-luxury-gold">Make The Most Of Your Limited Vacation Time</span>
+          <h1 className="text-4xl md:text-6xl font-serif text-white tracking-tight leading-tight max-w-4xl mx-auto">
+            Sri Lanka 7-Day Itinerary for 2026: Complete Route, Costs & Travel Tips
           </h1>
           
           <p className="text-base md:text-xl text-luxury-cream/80 font-light max-w-2xl mx-auto leading-relaxed">
@@ -828,7 +857,7 @@ export default function SrilankaItineraryPage() {
           <div className="bg-luxury-green/5 border border-luxury-green/10 rounded-2xl p-6 flex items-start gap-4 mt-8">
             <Info className="w-5 h-5 text-luxury-gold mt-1 shrink-0" />
             <p className="text-xs md:text-sm text-luxury-green/80 leading-relaxed font-light">
-              <strong>The Pro Strategy:</strong> The secret is keeping a 2-night base and omitting high-distance regions. Optimize your geography. Below is our dynamic planner built to compare these exact transit penalties realistically.
+              <strong>The Pro Strategy:</strong> The secret is keeping a 2-night base and omitting high-distance regions. Optimize your geography. Learn step-by-step how to layout your entire journey in our <Link to="/how-to-plan-a-trip-to-sri-lanka" className="text-luxury-gold hover:underline font-bold font-sans">Sri Lanka Trip Planner Guide</Link>, or use our interactive comparison route optimizer below to evaluate transit times.
             </p>
           </div>
         </div>
@@ -1411,7 +1440,7 @@ export default function SrilankaItineraryPage() {
               </div>
 
               <div className="text-center space-y-2 bg-[#0f2a4a] text-white p-8 rounded-xl mb-8">
-                <h1 className="text-3xl font-bold tracking-tight">SRI LANKA ITINERARY (2026)</h1>
+                <div className="text-3xl font-bold tracking-tight">SRI LANKA ITINERARY (2026)</div>
                 <p className="text-sm font-light text-sky-200">Complete 7-Day Route Optimization Guide</p>
                 <div className="text-[9px] font-mono font-bold tracking-widest space-x-2 text-amber-400">
                   <span>TAILORED FOR INDIAN TRAVELERS</span>
@@ -1423,9 +1452,9 @@ export default function SrilankaItineraryPage() {
               </div>
 
               <div className="space-y-6">
-                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3">
+                <div className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3">
                   1. ROUTE MAPPING & TRAVEL TIME OPTIMIZATION
-                </h2>
+                </div>
                 <p className="text-xs text-neutral-800 leading-relaxed">
                   A major pitfall for international travelers in Sri Lanka is over-scheduling. Backtracking across multiple geographic zones wastes valuable time inside cars. By choosing a balanced loop, you save energy and double your actual sightseeing hours. The optimized sequence drops down back to Colombo seamlessly on Day 7 via high-speed transit links.
                 </p>
@@ -1467,9 +1496,9 @@ export default function SrilankaItineraryPage() {
                   </table>
                 </div>
 
-                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 pt-4">
+                <div className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 pt-4">
                   2. FINANCIAL BUDGET MATRIX & CURATED HOTELS
-                </h2>
+                </div>
                 <p className="text-xs text-neutral-800 leading-relaxed">
                   This financial allocation is meticulously estimated for a couple traveling from India, converting expenses accurately into Indian Rupees (INR) for seamless planning. Value tiers include top-rated, pristine local boutique villas.
                 </p>
@@ -1489,9 +1518,9 @@ export default function SrilankaItineraryPage() {
               </div>
 
               <div className="space-y-6">
-                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3">
+                <div className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3">
                   2. COMPREHENSIVE BUDGET MATRIX (INR)
-                </h2>
+                </div>
 
                 <table className="w-full text-left text-[11px] border-collapse border border-neutral-300">
                   <thead>
@@ -1536,9 +1565,9 @@ export default function SrilankaItineraryPage() {
                   </tbody>
                 </table>
 
-                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 pt-2">
+                <div className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 pt-2">
                   CURATED ACCOMMODATION SELECTION GUIDE
-                </h2>
+                </div>
 
                 <table className="w-full text-left text-[11px] border-collapse border border-neutral-300">
                   <thead>
@@ -1572,9 +1601,9 @@ export default function SrilankaItineraryPage() {
                   </tbody>
                 </table>
 
-                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 pt-2">
+                <div className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 pt-2">
                   3. DAILY PRINTABLE FIELD BLUEPRINT (DAY 1)
-                </h2>
+                </div>
                 <div className="border border-neutral-300 rounded-xl p-4 bg-neutral-50/50 text-xs">
                   <p className="font-bold text-[#0f2a4a] mb-1">Day 1: Arrival in Colombo & Oceanfront Stroll</p>
                   <p className="text-neutral-700 leading-relaxed mb-2 text-[11px]">
@@ -1601,9 +1630,9 @@ export default function SrilankaItineraryPage() {
               </div>
 
               <div className="space-y-4">
-                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 mb-2">
+                <div className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 mb-2">
                   3. DAILY PRINTABLE FIELD BLUEPRINT (DAYS 2 - 6)
-                </h2>
+                </div>
 
                 {[
                   {
@@ -1667,9 +1696,9 @@ export default function SrilankaItineraryPage() {
               </div>
 
               <div className="space-y-6">
-                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3">
+                <div className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3">
                   3. DAILY PRINTABLE FIELD BLUEPRINT (DAY 7)
-                </h2>
+                </div>
                 <div className="border border-neutral-300 rounded-xl p-4 bg-neutral-50/50 text-xs">
                   <p className="font-bold text-[#0f2a4a] mb-1">Day 7: Souvenir Shopping Hub & Flight Return</p>
                   <p className="text-neutral-700 leading-relaxed mb-2 text-[11px]">
@@ -1681,9 +1710,9 @@ export default function SrilankaItineraryPage() {
                   </div>
                 </div>
 
-                <h2 className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 pt-2">
+                <div className="text-[#0f2a4a] text-base font-bold uppercase tracking-wider border-l-4 border-amber-500 pl-3 pt-2">
                   4. PRE-DEPARTURE SMART CHECKLIST
-                </h2>
+                </div>
 
                 <div className="grid grid-cols-3 gap-4">
                   <div className="border border-neutral-300 rounded-xl p-4 bg-neutral-50">
@@ -2046,7 +2075,7 @@ export default function SrilankaItineraryPage() {
             <div className="space-y-2">
               <h4 className="font-serif font-bold text-base text-luxury-gold">How to Customize this Route for June:</h4>
               <p className="text-xs text-white/80 font-light leading-relaxed max-w-xl">
-                If traveling in June, we customize your base hotels to swap South Coast sandy nights for East Coast shores (Trincomalee / Nilaveli beach or Arugam Bay surf point) where the weather is bone-dry and seas are completely calm. We can also lock in premium colonial monsoon retreat packages at heritage villas.
+                If traveling in June, we customize your base hotels to swap South Coast sandy nights for East Coast shores (Trincomalee / Nilaveli beach or Arugam Bay surf point) where the weather is bone-dry and seas are completely calm. Read our ultimate manual <Link to="/where-to-go-in-sri-lanka-in-june" className="text-luxury-gold hover:underline font-bold">Where To Go In Sri Lanka In June Guide</Link> to avoid any bad weather entirely, or chat with our experts to lock in premium colonial monsoon retreat packages.
               </p>
             </div>
             <a
