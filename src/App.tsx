@@ -19,8 +19,19 @@ import {
 } from "lucide-react";
 import React, { useState, useEffect, lazy, Suspense, useCallback } from "react";
 import { useNavigate, useParams, Link, Routes, Route, useLocation } from "react-router-dom";
+import { usePageMetadata } from "./hooks/usePageMetadata";
 import { trackEvent } from "./lib/analytics";
 import { activities } from "./data/activities";
+
+const HomeMetadata = () => {
+  usePageMetadata({
+    title: "Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours",
+    description: "An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka.",
+    canonicalUrl: "https://plan-srilanka.com/",
+    ogUrl: "https://plan-srilanka.com/"
+  });
+  return null;
+};
 
 const ExperienceDetail = lazy(() => import("./components/ExperienceDetail"));
 const SrilankaCostPage = lazy(() => import("./components/SrilankaCostPage"));
@@ -359,24 +370,8 @@ export default function App() {
             transition={{ duration: 0.5 }}
           >
             <>
-              <title>Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours</title>
-              <meta name="description" content="An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka." />
-              <link rel="canonical" href="https://plan-srilanka.com/" />
+              <HomeMetadata />
               
-              {/* Open Graph / Facebook */}
-              <meta property="og:type" content="website" />
-              <meta property="og:site_name" content="Plan Sri Lanka" />
-              <meta property="og:title" content="Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours" />
-              <meta property="og:description" content="An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka." />
-              <meta property="og:url" content="https://plan-srilanka.com/" />
-              <meta property="og:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
-              
-              {/* Twitter Cards */}
-              <meta name="twitter:card" content="summary_large_image" />
-              <meta name="twitter:title" content="Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours" />
-              <meta name="twitter:description" content="An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka." />
-              <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200" />
-
               {/* WEBSITE SCHEMA FOR RICH SNIPPETS */}
               <script type="application/ld+json">
                 {JSON.stringify({

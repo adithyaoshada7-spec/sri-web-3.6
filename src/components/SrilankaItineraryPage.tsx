@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { usePageMetadata } from "../hooks/usePageMetadata";
 import { 
   ArrowRight, 
   MapPin, 
@@ -32,6 +33,13 @@ import { trackEvent } from "../lib/analytics";
 import SrilankaRouteOptimizer from "./SrilankaRouteOptimizer";
 
 export default function SrilankaItineraryPage() {
+  usePageMetadata({
+    title: "Sri Lanka 7-Day Itinerary (2026): Costs, Route & June Travel Guide",
+    description: "The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF.",
+    canonicalUrl: "https://plan-srilanka.com/sri-lanka-7-day-itinerary",
+    ogUrl: "https://plan-srilanka.com/sri-lanka-7-day-itinerary"
+  });
+
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   
   // Interactive Route Selection State
@@ -550,26 +558,6 @@ export default function SrilankaItineraryPage() {
   return (
     <div className="bg-luxury-cream min-h-screen text-luxury-black font-sans leading-relaxed pt-24 md:pt-32">
       <>
-        <title>Sri Lanka 7-Day Itinerary (2026): Costs, Route & June Travel Guide</title>
-        <meta name="description" content="The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF." />
-        <meta name="keywords" content="Sri Lanka 7 day itinerary, Sri Lanka itinerary 7 days, sri lanka itinerary in june, Sri Lanka route optimization, Sri Lanka travel guide, Sri Lanka itineraries, Plan Sri Lanka, Sri Lanka tour package, Sri Lanka driving loops, Indian travelers in Sri Lanka" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://plan-srilanka.com/sri-lanka-7-day-itinerary" />
-        
-        {/* Open Graph Tags */}
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://plan-srilanka.com/sri-lanka-7-day-itinerary" />
-        <meta property="og:title" content="Sri Lanka 7-Day Itinerary (2026): Costs, Route & June Travel Guide" />
-        <meta property="og:description" content="The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF." />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
-        <meta property="og:site_name" content="Plan Sri Lanka" />
-        
-        {/* Twitter Cards */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sri Lanka 7-Day Itinerary (2026): Costs, Route & June Travel Guide" />
-        <meta name="twitter:description" content="The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF." />
-        <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200" />
-        
         {/* ARTICLE SCHEMA */}
         <script type="application/ld+json">
           {JSON.stringify({

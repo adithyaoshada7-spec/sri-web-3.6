@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import { usePageMetadata } from "../hooks/usePageMetadata";
 import { 
   ArrowRight, 
   Check, 
@@ -65,6 +66,13 @@ export default function SrilankaBestTimePage() {
     
     return parts.length > 0 ? <>{parts}</> : text;
   };
+
+  usePageMetadata({
+    title: "Best Time To Visit Sri Lanka (2026) | Weather, Festivals & Travel Experiences",
+    description: "Unveil the best time to visit Sri Lanka. Break down monsoon windows (Yala vs Maha), sunny beach timelines on the East and South coasts, cultural events, and monthly weather guides.",
+    canonicalUrl: "https://plan-srilanka.com/best-time-to-visit-sri-lanka",
+    ogUrl: "https://plan-srilanka.com/best-time-to-visit-sri-lanka"
+  });
 
   const [selectedExperience, setSelectedExperience] = useState<TargetExperience>("beaches");
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -262,24 +270,6 @@ Please draw up my custom experience plan!`;
   return (
     <div className="bg-[#fcfbf7] text-[#1a2d24] min-h-screen pt-24 md:pt-32 pb-16 font-sans">
       <>
-        <title>Best Time To Visit Sri Lanka (2026) | Weather, Festivals & Travel Experiences</title>
-        <meta name="description" content="Discover the best time to visit Sri Lanka based on weather, festivals, beaches, wildlife, train journeys, and cultural experiences. Find the perfect month for your trip." />
-        <link rel="canonical" href="https://plan-srilanka.com/best-time-to-visit-sri-lanka" />
-        
-        {/* Open Graph / Facebook / WhatsApp */}
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://plan-srilanka.com/best-time-to-visit-sri-lanka" />
-        <meta property="og:title" content="Best Time To Visit Sri Lanka (2026) | Weather, Festivals & Travel Experiences" />
-        <meta property="og:description" content="Discover the best time to visit Sri Lanka based on weather, festivals, beaches, wildlife, train journeys, and cultural experiences. Find the perfect month for your trip." />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
-        <meta property="og:site_name" content="Plan Sri Lanka" />
-
-        {/* Twitter Cards */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Best Time To Visit Sri Lanka (2026) | Weather, Festivals & Travel Experiences" />
-        <meta name="twitter:description" content="Discover the best time to visit Sri Lanka based on weather, festivals, beaches, wildlife, train journeys, and cultural experiences. Find the perfect month for your trip." />
-        <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
-
         {/* JSON-LD Schema Implementations */}
         {/* 1. Article Schema */}
         <script type="application/ld+json">

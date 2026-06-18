@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import { usePageMetadata } from "../hooks/usePageMetadata";
 import { 
   ArrowRight, 
   Check, 
@@ -29,6 +30,13 @@ import {
 import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaTripPlannerPillarPage() {
+  usePageMetadata({
+    title: "Sri Lanka Trip Planner: Build Your Perfect Sri Lanka Itinerary (2026)",
+    description: "Use our master Sri Lanka travel planner guide to curate the perfect Ceylon tour. Explore step-by-step itineraries, seasonal monsoon maps, budget advice, templates, and essential E-E-A-T travel planning tips.",
+    canonicalUrl: "https://plan-srilanka.com/how-to-plan-a-trip-to-sri-lanka",
+    ogUrl: "https://plan-srilanka.com/how-to-plan-a-trip-to-sri-lanka"
+  });
+
   const navigate = useNavigate();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -132,26 +140,6 @@ export default function SrilankaTripPlannerPillarPage() {
   return (
     <div className="min-h-screen bg-[#FCFBF7] text-luxury-black font-sans antialiased selection:bg-luxury-gold/30">
       <>
-        <title>Sri Lanka Trip Planner: Build Your Perfect Sri Lanka Itinerary (2026)</title>
-        <meta name="description" content="Use our master Sri Lanka travel planner guide to curate the perfect Ceylon tour. Explore step-by-step itineraries, seasonal monsoon maps, budget advice, templates, and essential E-E-A-T travel planning tips." />
-        <link rel="canonical" href="https://plan-srilanka.com/how-to-plan-a-trip-to-sri-lanka" />
-        
-        {/* Open Graph Meta */}
-        <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="Plan Sri Lanka" />
-        <meta property="og:title" content="Sri Lanka Trip Planner: Build Your Perfect Sri Lanka Itinerary (2026)" />
-        <meta property="og:description" content="Use our master Sri Lanka travel planner guide to curate the perfect Ceylon tour. Explore step-by-step itineraries, seasonal monsoon maps, budget advice, templates, and essential E-E-A-T travel planning tips." />
-        <meta property="og:url" content="https://plan-srilanka.com/how-to-plan-a-trip-to-sri-lanka" />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
-        <meta property="article:published_time" content="2026-01-20T08:00:00Z" />
-        <meta property="article:modified_time" content="2026-06-12T18:09:18-07:00" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sri Lanka Trip Planner: Build Your Perfect Sri Lanka Itinerary" />
-        <meta name="twitter:description" content="An exhaustive, expert-curated guidebook targeting high-performance planning, monsoonal safety, and absolute comfort on Sri Lankan roads." />
-        <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200" />
-
         {/* ARTICLE SCHEMA */}
         <script type="application/ld+json">
           {JSON.stringify({

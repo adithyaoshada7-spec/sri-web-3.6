@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import { usePageMetadata } from "../hooks/usePageMetadata";
 import { 
   ArrowRight, 
   Check, 
@@ -249,6 +250,13 @@ const familyItineraryDays: ItineraryDay[] = [
 ];
 
 export default function SrilankaFamilyPage() {
+  usePageMetadata({
+    title: "Sri Lanka Family Itinerary (2026) | The Stress-Free Route For Kids",
+    description: "An expert, pre-vetted 7 to 10 day Sri Lanka family dynamic itinerary. Avoid long toddler driving fatigue, discover stroller-friendly pathways, whale watching secrets & baby-safe beaches.",
+    canonicalUrl: "https://plan-srilanka.com/sri-lanka-family-itinerary",
+    ogUrl: "https://plan-srilanka.com/sri-lanka-family-itinerary"
+  });
+
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [selectedBeach, setSelectedBeach] = useState<"weligama" | "mirissa" | "hiriketiya">("weligama");
   const [selectedRoute, setSelectedRoute] = useState<"optimized" | "backtrack">("optimized");
@@ -411,25 +419,6 @@ Please draw up our relaxed family experience blueprint!`;
   return (
     <div className="bg-[#fcfbf7] text-[#1a2d24] min-h-screen pt-24 md:pt-32 pb-16 font-sans">
       <>
-        <title>Sri Lanka Family Itinerary (2026) | The Stress-Free Route For Kids</title>
-        <meta name="description" content="Discover the ultimate stress-free 12-day Sri Lanka family itinerary with kids. Solve transportation fatigue, find kid-approved beaches, child-safety tips & avoid common mistakes." />
-        <link rel="canonical" href="https://plan-srilanka.com/sri-lanka-family-itinerary" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://plan-srilanka.com/sri-lanka-family-itinerary" />
-        <meta property="og:title" content="Sri Lanka Family Itinerary (2026) | The Stress-Free Route For Kids" />
-        <meta property="og:description" content="Discover the ultimate stress-free 12-day Sri Lanka family itinerary with kids. Solve transportation fatigue, find kid-approved beaches, child-safety tips & avoid common mistakes." />
-        <meta property="og:image" content="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200" />
-        <meta property="og:site_name" content="Plan Sri Lanka" />
-        <meta property="og:locale" content="en_US" />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sri Lanka Family Itinerary (2026) | The Stress-Free Route For Kids" />
-        <meta name="twitter:description" content="Discover the ultimate stress-free 12-day Sri Lanka family itinerary with kids. Solve transportation fatigue, find kid-approved beaches, child-safety tips & avoid common mistakes." />
-        <meta name="twitter:image" content="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200" />
-
         {/* JSON-LD Schemas */}
         <script type="application/ld+json">
           {JSON.stringify({

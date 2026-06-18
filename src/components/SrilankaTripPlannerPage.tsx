@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import { usePageMetadata } from "../hooks/usePageMetadata";
 import { 
   ArrowRight, 
   Check, 
@@ -172,6 +173,13 @@ const locationDetails: Record<string, {
 };
 
 export default function SrilankaTripPlannerPage() {
+  usePageMetadata({
+    title: "Sri Lanka Trip Planner & Interactive Route Creator (2026)",
+    description: "Design your custom Sri Lanka tour itinerary live. Select places, pace, budget tier, companion profiles, and download a customized day-by-day plan with direct distance maps.",
+    canonicalUrl: "https://plan-srilanka.com/sri-lanka-trip-planner",
+    ogUrl: "https://plan-srilanka.com/sri-lanka-trip-planner"
+  });
+
   // --- STATE SYSTEM ---
   const [planningDays, setPlanningDays] = useState<number>(7);
   const [planningBudget, setPlanningBudget] = useState<number>(700);
@@ -481,26 +489,6 @@ export default function SrilankaTripPlannerPage() {
   return (
     <div className="bg-[#FAF9F5] text-[#1e3a2f] min-h-screen font-sans antialiased overflow-x-hidden pt-2">
       <>
-        <title>Sri Lanka Trip Planner & Interactive Route Creator (2026)</title>
-        <meta name="description" content="Design your custom Sri Lanka itinerary with our real-time interactive route planner. Map daily destinations, preview climatic monsoon alerts, allocate budgets, and generate a downloadable day-by-day travel plan." />
-        <meta name="keywords" content="sri lanka trip planner, custom route creator, interactive travel map, sri lanka itinerary generator, monsoon climate advisor, hotel budget planner, travel sri lanka" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://plan-srilanka.com/sri-lanka-trip-planner" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Plan Sri Lanka" />
-        <meta property="og:title" content="Sri Lanka Trip Planner & Interactive Route Creator (2026)" />
-        <meta property="og:description" content="Design your custom Sri Lanka itinerary with our real-time interactive route planner. Map daily destinations, preview climatic monsoon alerts, allocate budgets, and generate a downloadable day-by-day travel plan." />
-        <meta property="og:url" content="https://plan-srilanka.com/sri-lanka-trip-planner" />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
-        
-        {/* Twitter Cards */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sri Lanka Trip Planner & Interactive Route Creator (2026)" />
-        <meta name="twitter:description" content="Design your custom Sri Lanka itinerary with our real-time interactive route planner. Map daily destinations, preview climatic monsoon alerts, allocate budgets, and generate a downloadable day-by-day travel plan." />
-        <meta name="twitter:image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630" />
-
         {/* Breadcrumb Schema */}
         <script type="application/ld+json">
           {JSON.stringify({

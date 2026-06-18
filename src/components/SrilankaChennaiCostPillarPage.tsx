@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import { usePageMetadata } from "../hooks/usePageMetadata";
 import { 
   ArrowRight, 
   MapPin, 
@@ -28,6 +29,13 @@ import {
 import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaChennaiCostPillarPage() {
+  usePageMetadata({
+    title: "How Much Will It Take to Visit Sri Lanka From Chennai in 2026? | Complete Budget Guide",
+    description: "Discover the complete Chennai to Sri Lanka travel cost guide for 2026. Realistic estimates on flights, visas, accommodation, Jaffna routes, and daily expenses for couples and families.",
+    canonicalUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
+    ogUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+  });
+
   const navigate = useNavigate();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [selectedBudgetTab, setSelectedBudgetTab] = useState<"budget" | "couple" | "mid" | "luxury">("couple");
@@ -55,10 +63,6 @@ export default function SrilankaChennaiCostPillarPage() {
     <div className="bg-[#fcfbf7] min-h-screen text-luxury-black font-sans selection:bg-luxury-gold selection:text-white">
       {/* Dynamic SEO Meta Data & Schema Markup injection via React Helmet */}
       <>
-        <title>How Much Will It Take to Visit Sri Lanka From Chennai in 2026? | Complete Budget Guide</title>
-        <meta name="description" content="Discover the complete Chennai to Sri Lanka travel cost guide for 2026. Realistic estimates on flights, visas, accommodation, Jaffna routes, and daily expenses for couples and families." />
-        <link rel="canonical" href="https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai" />
-        
         {/* Real Dynamic Schema Formats to solidify EEAT signals */}
         <script type="application/ld+json">
           {JSON.stringify({

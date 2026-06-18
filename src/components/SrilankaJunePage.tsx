@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import { usePageMetadata } from "../hooks/usePageMetadata";
 import { 
   ArrowRight, 
   Check, 
@@ -27,6 +28,13 @@ import {
 import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaJunePage() {
+  usePageMetadata({
+    title: "Where To Go In Sri Lanka In June (2026 Guide) | Beat The Monsoon",
+    description: "An expert, high-standard guide on travel to Sri Lanka in June. Learn which coasts are sunny (East Coast, Trincomalee, Pasikudah), what areas to avoid, monsoon updates, and how to plan safely.",
+    canonicalUrl: "https://plan-srilanka.com/sri-lanka-in-june",
+    ogUrl: "https://plan-srilanka.com/sri-lanka-in-june"
+  });
+
   const navigate = useNavigate();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -154,25 +162,6 @@ export default function SrilankaJunePage() {
   return (
     <div className="bg-[#fcfbf7] text-[#1a2d24] min-h-screen pt-24 md:pt-32 pb-16 font-sans">
       <>
-        <title>Where To Go In Sri Lanka In June (2026 Guide) | Beat The Monsoon</title>
-        <meta name="description" content="Stop booking the wrong side of Sri Lanka in June! Learn why you must choose the East Coast (Trincomalee, Nilaveli, Passikudah) vs the South, best weather routes & safety." />
-        <link rel="canonical" href="https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june" />
-        <meta property="og:title" content="Where To Go In Sri Lanka In June (2026 Guide) | Avoid Cheap Weather Mistakes" />
-        <meta property="og:description" content="Planning a June trip? This is the ultimate intelligence guide to selecting the dry East Coast instead of the rainy South Coast. Get maps, beach comparisons, and custom routes." />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630" />
-        <meta property="og:site_name" content="Plan Sri Lanka" />
-        <meta property="og:locale" content="en_US" />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Where To Go In Sri Lanka In June (2026 Guide)" />
-        <meta name="twitter:description" content="Planning a June trip? Choose the dry East Coast instead of the rainy South Coast. Get maps, comparisons, and custom routes." />
-        <meta name="twitter:image" content="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630" />
-
         {/* JSON-LD Schemas */}
         <script type="application/ld+json">
           {JSON.stringify({
