@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowRight, 
@@ -154,7 +153,7 @@ export default function SrilankaJunePage() {
 
   return (
     <div className="bg-[#fcfbf7] text-[#1a2d24] min-h-screen pt-24 md:pt-32 pb-16 font-sans">
-      <Helmet>
+      <>
         <title>Where To Go In Sri Lanka In June (2026 Guide) | Beat The Monsoon</title>
         <meta name="description" content="Stop booking the wrong side of Sri Lanka in June! Learn why you must choose the East Coast (Trincomalee, Nilaveli, Passikudah) vs the South, best weather routes & safety." />
         <link rel="canonical" href="https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june" />
@@ -254,7 +253,7 @@ export default function SrilankaJunePage() {
             }))
           })}
         </script>
-      </Helmet>
+      </>
 
       {/* SECTION 1: HERO SECTION */}
       <section className="relative py-20 md:py-32 overflow-hidden bg-[#1e3a2f] text-white">

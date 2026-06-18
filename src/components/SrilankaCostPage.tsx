@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowRight, 
@@ -238,7 +237,7 @@ Departure: ${leadForm.departure}`;
 
   return (
     <div className="bg-luxury-cream min-h-screen text-luxury-black font-sans leading-relaxed selection:bg-luxury-gold/30 pt-24 md:pt-32">
-      <Helmet>
+      <>
         <title>Sri Lanka Trip Cost From India (2026 Guide) | Budget Calculator & Cost Breakdown</title>
         <meta name="description" content="Discover the complete Sri Lanka trip cost from India. Compare budget, mid-range and luxury travel costs, flights, hotels, visa fees and use our free trip budget calculator." />
         <link rel="canonical" href="https://plan-srilanka.com/sri-lanka-trip-cost-from-india" />
@@ -341,7 +340,7 @@ Departure: ${leadForm.departure}`;
             }))
           })}
         </script>
-      </Helmet>
+      </>
 
       {/* SEO HEADER / BREADCRUMBS & BACKGROUND INTRO */}
       <div className="max-w-7xl mx-auto px-6 mb-12">

@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { activities } from "../data/activities";
 
 // Helper function for tracking events
@@ -78,7 +77,7 @@ const ExperienceDetail = () => {
       animate={{ opacity: 1 }}
       className="bg-luxury-cream min-h-screen relative"
     >
-      <Helmet>
+      <>
         <title>
           {selectedActivity.slug === 'italian-vibe-tour' 
             ? "Sri Lanka Tour Packages from India | Vibe Tour Sri Lanka" 
@@ -219,7 +218,7 @@ const ExperienceDetail = () => {
             })}
           </script>
         )}
-      </Helmet>
+      </>
 
       {/* CINEMATIC HERO (First 15-20%) */}
       <section className="relative h-[95vh] min-h-[700px] overflow-hidden">

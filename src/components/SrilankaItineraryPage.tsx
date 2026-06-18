@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { 
@@ -550,7 +549,7 @@ export default function SrilankaItineraryPage() {
 
   return (
     <div className="bg-luxury-cream min-h-screen text-luxury-black font-sans leading-relaxed pt-24 md:pt-32">
-      <Helmet>
+      <>
         <title>Sri Lanka 7-Day Itinerary (2026): Costs, Route & June Travel Guide</title>
         <meta name="description" content="The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF." />
         <meta name="keywords" content="Sri Lanka 7 day itinerary, Sri Lanka itinerary 7 days, sri lanka itinerary in june, Sri Lanka route optimization, Sri Lanka travel guide, Sri Lanka itineraries, Plan Sri Lanka, Sri Lanka tour package, Sri Lanka driving loops, Indian travelers in Sri Lanka" />
@@ -695,7 +694,7 @@ export default function SrilankaItineraryPage() {
             }))
           })}
         </script>
-      </Helmet>
+      </>
 
       {/* SECTION 1: HERO SECTION */}
       <section id="hero-section" className="relative bg-luxury-green text-white py-20 md:py-32 overflow-hidden px-6">

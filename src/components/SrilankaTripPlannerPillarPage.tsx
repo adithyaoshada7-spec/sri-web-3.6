@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowRight, 
@@ -132,7 +131,7 @@ export default function SrilankaTripPlannerPillarPage() {
 
   return (
     <div className="min-h-screen bg-[#FCFBF7] text-luxury-black font-sans antialiased selection:bg-luxury-gold/30">
-      <Helmet>
+      <>
         <title>Sri Lanka Trip Planner: Build Your Perfect Sri Lanka Itinerary (2026)</title>
         <meta name="description" content="Use our master Sri Lanka travel planner guide to curate the perfect Ceylon tour. Explore step-by-step itineraries, seasonal monsoon maps, budget advice, templates, and essential E-E-A-T travel planning tips." />
         <link rel="canonical" href="https://plan-srilanka.com/how-to-plan-a-trip-to-sri-lanka" />
@@ -199,7 +198,7 @@ export default function SrilankaTripPlannerPillarPage() {
             }))
           })}
         </script>
-      </Helmet>
+      </>
 
       {/* LUXURY ANNOUNCEMENT HERO SHIELD */}
       <header className="relative w-full pt-32 pb-20 md:py-40 bg-gradient-to-b from-[#152e25] to-[#1a3a2e] text-white overflow-hidden">

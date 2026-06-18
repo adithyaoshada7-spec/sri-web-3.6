@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowRight, 
@@ -262,7 +261,7 @@ Please draw up my custom experience plan!`;
 
   return (
     <div className="bg-[#fcfbf7] text-[#1a2d24] min-h-screen pt-24 md:pt-32 pb-16 font-sans">
-      <Helmet>
+      <>
         <title>Best Time To Visit Sri Lanka (2026) | Weather, Festivals & Travel Experiences</title>
         <meta name="description" content="Discover the best time to visit Sri Lanka based on weather, festivals, beaches, wildlife, train journeys, and cultural experiences. Find the perfect month for your trip." />
         <link rel="canonical" href="https://plan-srilanka.com/best-time-to-visit-sri-lanka" />
@@ -350,7 +349,7 @@ Please draw up my custom experience plan!`;
             ]
           })}
         </script>
-      </Helmet>
+      </>
 
       {/* SECTION 1: HERO SECTION - ATTENTION Phase */}
       <section id="best-time-hero" className="relative py-16 md:py-28 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">

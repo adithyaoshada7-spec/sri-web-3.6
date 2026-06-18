@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowRight, 
@@ -411,7 +410,7 @@ Please draw up our relaxed family experience blueprint!`;
 
   return (
     <div className="bg-[#fcfbf7] text-[#1a2d24] min-h-screen pt-24 md:pt-32 pb-16 font-sans">
-      <Helmet>
+      <>
         <title>Sri Lanka Family Itinerary (2026) | The Stress-Free Route For Kids</title>
         <meta name="description" content="Discover the ultimate stress-free 12-day Sri Lanka family itinerary with kids. Solve transportation fatigue, find kid-approved beaches, child-safety tips & avoid common mistakes." />
         <link rel="canonical" href="https://plan-srilanka.com/sri-lanka-family-itinerary" />
@@ -541,7 +540,7 @@ Please draw up our relaxed family experience blueprint!`;
             }
           })}
         </script>
-      </Helmet>
+      </>
 
       {/* SECTION 1: HERO SECTION */}
       <section className="relative py-16 md:py-28 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">

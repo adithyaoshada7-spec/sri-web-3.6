@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowRight, 
@@ -481,7 +480,7 @@ export default function SrilankaTripPlannerPage() {
 
   return (
     <div className="bg-[#FAF9F5] text-[#1e3a2f] min-h-screen font-sans antialiased overflow-x-hidden pt-2">
-      <Helmet>
+      <>
         <title>Sri Lanka Trip Planner & Interactive Route Creator (2026)</title>
         <meta name="description" content="Design your custom Sri Lanka itinerary with our real-time interactive route planner. Map daily destinations, preview climatic monsoon alerts, allocate budgets, and generate a downloadable day-by-day travel plan." />
         <meta name="keywords" content="sri lanka trip planner, custom route creator, interactive travel map, sri lanka itinerary generator, monsoon climate advisor, hotel budget planner, travel sri lanka" />
@@ -568,7 +567,7 @@ export default function SrilankaTripPlannerPage() {
             ]
           })}
         </script>
-      </Helmet>
+      </>
 
       {/* STICKY TOP STATUS / STEPPER HEADER */}
       <header className="sticky top-0 z-40 bg-[#FAF9F5]/90 backdrop-blur-md border-b border-[#1e3a2f]/10 shadow-sm">

@@ -19,7 +19,6 @@ import {
 } from "lucide-react";
 import React, { useState, useEffect, lazy, Suspense, useCallback } from "react";
 import { useNavigate, useParams, Link, Routes, Route, useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { trackEvent } from "./lib/analytics";
 import { activities } from "./data/activities";
 
@@ -359,7 +358,7 @@ export default function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Helmet>
+            <>
               <title>Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours</title>
               <meta name="description" content="An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka." />
               <link rel="canonical" href="https://plan-srilanka.com/" />
@@ -480,7 +479,7 @@ export default function App() {
                   ]
                 })}
               </script>
-            </Helmet>
+            </>
             <Hero />
             <About />
             <Destinations />

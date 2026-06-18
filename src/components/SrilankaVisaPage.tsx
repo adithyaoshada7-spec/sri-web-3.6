@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowRight, 
@@ -212,7 +211,7 @@ WhatsApp: ${leadForm.whatsapp}`;
 
   return (
     <div className="bg-[#fcfbf7] text-[#1a2d24] min-h-screen pt-24 md:pt-32 pb-16 font-sans">
-      <Helmet>
+      <>
         <title>Sri Lanka Visa For Indians (2026 ETA Guide) | Apply Online & Entry Requirements</title>
         <meta name="description" content="Unravel the Sri Lanka Visa for Indians. Discover how to get your Sri Lanka Tourist ETA online, latest requirements, application steps, and how to stay stress-free at the airport." />
         <link rel="canonical" href="https://plan-srilanka.com/sri-lanka-visa-for-indians" />
@@ -291,7 +290,7 @@ WhatsApp: ${leadForm.whatsapp}`;
             "dateModified": "2026-06-04"
           })}
         </script>
-      </Helmet>
+      </>
 
       {/* SECTION 1: HERO SECTION - ATTENTION Phase */}
       <section id="hero-section" className="relative py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">

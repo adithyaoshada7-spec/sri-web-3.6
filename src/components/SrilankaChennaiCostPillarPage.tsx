@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowRight, 
@@ -55,7 +54,7 @@ export default function SrilankaChennaiCostPillarPage() {
   return (
     <div className="bg-[#fcfbf7] min-h-screen text-luxury-black font-sans selection:bg-luxury-gold selection:text-white">
       {/* Dynamic SEO Meta Data & Schema Markup injection via React Helmet */}
-      <Helmet>
+      <>
         <title>How Much Will It Take to Visit Sri Lanka From Chennai in 2026? | Complete Budget Guide</title>
         <meta name="description" content="Discover the complete Chennai to Sri Lanka travel cost guide for 2026. Realistic estimates on flights, visas, accommodation, Jaffna routes, and daily expenses for couples and families." />
         <link rel="canonical" href="https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai" />
@@ -140,7 +139,7 @@ export default function SrilankaChennaiCostPillarPage() {
             ]
           })}
         </script>
-      </Helmet>
+      </>
 
       {/* Styled Top Banner */}
       <div className="bg-luxury-green relative overflow-hidden py-16 md:py-24 text-white">
