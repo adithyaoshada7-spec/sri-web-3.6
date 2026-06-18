@@ -131,33 +131,33 @@ async function startServer() {
 
       const metaTags = `
     <!-- Primary Meta Tags -->
-    <title>${title}</title>
-    <meta name="title" content="${title}" />
-    <meta name="description" content="${description}" />
-    <link rel="canonical" href="${absoluteUrl}" />
+    <title data-rh="true">${title}</title>
+    <meta data-rh="true" name="title" content="${title}" />
+    <meta data-rh="true" name="description" content="${description}" />
+    <link data-rh="true" rel="canonical" href="${absoluteUrl}" />
 
     <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="${ogType}" />
-    <meta property="og:url" content="${absoluteUrl}" />
-    <meta property="og:title" content="${title}" />
-    <meta property="og:description" content="${description}" />
-    <meta property="og:image" content="${image}" />
-    <meta property="og:image:secure_url" content="${image}" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="${title}" />
-    <meta property="og:site_name" content="Plan Sri Lanka" />
-    <meta property="og:locale" content="en_GB" />
+    <meta data-rh="true" property="og:type" content="${ogType}" />
+    <meta data-rh="true" property="og:url" content="${absoluteUrl}" />
+    <meta data-rh="true" property="og:title" content="${title}" />
+    <meta data-rh="true" property="og:description" content="${description}" />
+    <meta data-rh="true" property="og:image" content="${image}" />
+    <meta data-rh="true" property="og:image:secure_url" content="${image}" />
+    <meta data-rh="true" property="og:image:type" content="image/jpeg" />
+    <meta data-rh="true" property="og:image:width" content="1200" />
+    <meta data-rh="true" property="og:image:height" content="630" />
+    <meta data-rh="true" property="og:image:alt" content="${title}" />
+    <meta data-rh="true" property="og:site_name" content="Plan Sri Lanka" />
+    <meta data-rh="true" property="og:locale" content="en_GB" />
 
     <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="${absoluteUrl}" />
-    <meta name="twitter:title" content="${title}" />
-    <meta name="twitter:description" content="${description}" />
-    <meta name="twitter:image" content="${image}" />
-    <meta name="twitter:site" content="@PlanSriLanka" />
-    <meta name="twitter:creator" content="@PlanSriLanka" />`;
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:url" content="${absoluteUrl}" />
+    <meta data-rh="true" name="twitter:title" content="${title}" />
+    <meta data-rh="true" name="twitter:description" content="${description}" />
+    <meta data-rh="true" name="twitter:image" content="${image}" />
+    <meta data-rh="true" name="twitter:site" content="@PlanSriLanka" />
+    <meta data-rh="true" name="twitter:creator" content="@PlanSriLanka" />`;
 
       // Robust whole-block replacement of original SEO tags in index.html (wrapped in <seo-meta>...</seo-meta>)
       const seoBlockRegex = /<seo-meta>[\s\S]*?<\/seo-meta>/i;
