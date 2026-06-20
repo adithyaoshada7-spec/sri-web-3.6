@@ -1,12 +1,13 @@
 {
   "version": 2,
+  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/sitemap.xml",
       "destination": "/sitemap.xml"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!assets|sitemap.xml|robots.txt|sri-lanka-trip-cost-from-india|sri-lanka-7-day-itinerary|sri-lanka-visa-for-indians|best-time-to-visit-sri-lanka|sri-lanka-family-itinerary|where-to-go-in-sri-lanka-in-june|sri-lanka-trip-planner|how-to-plan-a-trip-to-sri-lanka|how-much-will-it-take-to-visit-sri-lanka-from-chennai|experience).*)$",
       "destination": "/index.html"
     }
   ]

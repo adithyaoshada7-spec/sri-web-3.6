@@ -500,231 +500,102 @@ Departure: ${leadForm.departure}`;
         </div>
       </section>
 
-      {/* CORE INTERACTIVE BUDGER PLANNER CALCULATOR TOOL (SECTION 3) */}
-      <section className="bg-luxury-green py-20 px-6 text-white overflow-hidden relative" id="budget-planner">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-white/[0.01] rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-luxury-gold/5 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
+      {/* 7 DAY TRIP COST BREAKDOWN */}
+      <section className="max-w-7xl mx-auto px-6 mb-20">
+        <div className="bg-white rounded-[40px] p-8 md:p-12 border border-luxury-black/5 shadow-luxury">
+          <div className="max-w-3xl mx-auto space-y-8">
+            <div className="text-center space-y-3">
+              <span className="text-luxury-gold uppercase tracking-[0.25em] text-xs font-mono font-bold">The Golden Ratio</span>
+              <h2 className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tight">
+                Typical 7-Day Trip Cost Breakdown
+              </h2>
+              <p className="text-sm text-luxury-black/60 font-light">
+                For a popular mid-range comfort trip (₹48,000 - ₹75,000 per person), here is exactly where your holiday budget is allocated. Planning the ratio of fixed costs (flights/visa) versus flexible costs (hotels/dining) protects your wallet.
+              </p>
+            </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 lg:items-center">
-            
-            {/* Left side column: The Interactive Inputs Form */}
-            <div className="lg:col-span-5 space-y-8">
-              <div className="space-y-4">
-                <span className="text-luxury-gold uppercase tracking-[0.3em] text-xs font-mono block">Personalized Applet</span>
-                <h2 className="text-4xl md:text-6xl font-serif tracking-tight leading-none text-white">
-                  Interactive Sri Lanka Budget Calculator
-                </h2>
-                <p className="text-white/60 text-sm font-light leading-relaxed">
-                  Toggle departures, traveler counts, duration, and tailored styles. Watch our local Sri Lankan cost matrix compute direct package expectations in real-time.
+            <div className="space-y-6 pt-4">
+              {/* Flight slice */}
+              <div className="space-y-2">
+                <div className="flex justify-between text-xs font-sans">
+                  <span className="font-bold text-luxury-green flex items-center gap-2"><Plane className="w-4 h-4 text-luxury-gold" /> 1. Return Flights from India (Delhi/Mumbai/Bangalore)</span>
+                  <span className="font-mono text-luxury-black/60 font-bold">~ 30% - 35% of Total Budget</span>
+                </div>
+                <div className="w-full bg-luxury-cream h-3 rounded-full overflow-hidden">
+                  <div className="bg-luxury-gold h-full rounded-full" style={{ width: "35%" }} />
+                </div>
+                <p className="text-xs text-luxury-black/50 pl-6 leading-relaxed">
+                  Roughly ₹14,000 to ₹22,000 round-trip per seat. Securing tickets 60 days early avoids peak airline spikes.
                 </p>
               </div>
 
-              <div className="bg-white/5 rounded-[32px] p-8 border border-white/10 space-y-6">
-                
-                {/* 1. Departure City Select */}
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-white/50 block font-mono">Departure Indian Hub</label>
-                  <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
-                    {["Delhi", "Mumbai", "Bangalore", "Chennai", "Hyderabad"].map((city) => (
-                      <button
-                        key={city}
-                        onClick={() => setCalcInputs({...calcInputs, departureCity: city})}
-                        className={`py-2 px-1 rounded-xl text-xs font-mono transition-all border ${
-                          calcInputs.departureCity === city 
-                            ? "bg-luxury-gold border-luxury-gold text-luxury-green font-bold" 
-                            : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10"
-                        }`}
-                      >
-                        {city}
-                      </button>
-                    ))}
-                  </div>
+              {/* Visa slice */}
+              <div className="space-y-2">
+                <div className="flex justify-between text-xs font-sans">
+                  <span className="font-bold text-luxury-green flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-luxury-gold" /> 2. Official Tourist Visa (ETA) & Data</span>
+                  <span className="font-mono text-luxury-black/60 font-bold">~ 3% - 5% of Total Budget</span>
                 </div>
-
-                {/* 2. Travelers Slider/Buttons */}
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center text-xs uppercase tracking-widest text-white/50 font-mono">
-                    <span>Traveler Count</span>
-                    <span className="text-luxury-gold font-bold">{calcInputs.travelers} Persons</span>
-                  </div>
-                  <div className="flex gap-2">
-                    {[1, 2, 3, 4, 6].map((num) => (
-                      <button
-                        key={num}
-                        onClick={() => setCalcInputs({...calcInputs, travelers: num})}
-                        className={`flex-grow py-3 rounded-xl text-xs font-serif transition-all ${
-                          calcInputs.travelers === num 
-                            ? "bg-white text-luxury-green font-bold" 
-                            : "bg-white/5 border border-white/10 text-white/80 hover:bg-white/10"
-                        }`}
-                      >
-                        {num === 6 ? "5+ (Group)" : `${num} ${num === 1 ? 'Solo' : 'Travelers'}`}
-                      </button>
-                    ))}
-                  </div>
+                <div className="w-full bg-luxury-cream h-3 rounded-full overflow-hidden">
+                  <div className="bg-[#124235] h-full rounded-full animate-pulse" style={{ width: "5%" }} />
                 </div>
+                <p className="text-xs text-luxury-black/50 pl-6 leading-relaxed">
+                  Visa ETA is free during current waiver campaigns (or runs around $20 standard). Dialog or Mobitel eSIM counter packages cost ~₹700 for 50GB.
+                </p>
+              </div>
 
-                {/* 3. Duration Days Slider */}
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center text-xs uppercase tracking-widest text-white/50 font-mono">
-                    <span>Trip Length</span>
-                    <span className="text-luxury-gold font-bold">{calcInputs.days} Days</span>
-                  </div>
-                  <input 
-                    type="range"
-                    min="3"
-                    max="14"
-                    value={calcInputs.days}
-                    onChange={(e) => setCalcInputs({...calcInputs, days: parseInt(e.target.value)})}
-                    className="w-full accent-luxury-gold h-1 bg-white/10 rounded-lg cursor-pointer"
-                  />
-                  <div className="flex justify-between text-[10px] text-white/40 font-mono">
-                    <span>3 Days (Short)</span>
-                    <span>7 Days (Classic)</span>
-                    <span>14 Days (Leisure)</span>
-                  </div>
+              {/* Hotel slice */}
+              <div className="space-y-2">
+                <div className="flex justify-between text-xs font-sans">
+                  <span className="font-bold text-luxury-green flex items-center gap-2"><Building className="w-4 h-4 text-luxury-gold" /> 3. Boutique Garden Villas & Tea Homestays</span>
+                  <span className="font-mono text-luxury-black/60 font-bold">~ 25% - 30% of Total Budget</span>
                 </div>
-
-                {/* 4. Travel style choice */}
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-white/50 block font-mono">Curated Experience Style</label>
-                  <div className="grid grid-cols-3 gap-3">
-                    {[
-                      { id: "budget", name: "Budget", desc: "Local Homestays" },
-                      { id: "midrange", name: "Bespoke Mid-Range", desc: "Boutique Comfort" },
-                      { id: "luxury", name: "Elite Luxury", desc: "Premium Stays" }
-                    ].map((style) => (
-                      <button
-                        key={style.id}
-                        onClick={() => setCalcInputs({...calcInputs, travelStyle: style.id as any})}
-                        className={`p-3 rounded-2xl text-left transition-all border flex flex-col justify-between ${
-                          calcInputs.travelStyle === style.id 
-                            ? "bg-luxury-gold border-luxury-gold text-luxury-green" 
-                            : "bg-white/5 border-white/10 text-white hover:bg-white/10"
-                        }`}
-                      >
-                        <span className="font-serif text-sm font-bold block">{style.name}</span>
-                        <span className="text-[9px] opacity-65 block mt-1">{style.desc}</span>
-                      </button>
-                    ))}
-                  </div>
+                <div className="w-full bg-luxury-cream h-3 rounded-full overflow-hidden">
+                  <div className="bg-emerald-800 h-full rounded-full" style={{ width: "28%" }} />
                 </div>
+                <p className="text-xs text-luxury-black/50 pl-6 leading-relaxed">
+                  Boutique comfort properties or heritage tea plantations cost about ₹5,000 to ₹12,000 per room night including pristine pools and local breakfast spreads.
+                </p>
+              </div>
 
+              {/* Food slice */}
+              <div className="space-y-2">
+                <div className="flex justify-between text-xs font-sans">
+                  <span className="font-bold text-luxury-green flex items-center gap-2"><Utensils className="w-4 h-4 text-luxury-gold" /> 4. Daily Dining & Coastal Seafood Feasts</span>
+                  <span className="font-mono text-luxury-black/60 font-bold">~ 12% - 15% of Total Budget</span>
+                </div>
+                <div className="w-full bg-luxury-cream h-3 rounded-full overflow-hidden">
+                  <div className="bg-teal-700 h-full rounded-full" style={{ width: "15%" }} />
+                </div>
+                <p className="text-xs text-luxury-black/50 pl-6 leading-relaxed">
+                  Sri Lankan food costs are friendly for Indian palates. Expect to spend ₹1,500 to ₹3,000 daily per couple on lush curries, street snacks, and lagoon view lunches.
+                </p>
+              </div>
+
+              {/* Transport slice */}
+              <div className="space-y-2">
+                <div className="flex justify-between text-xs font-sans">
+                  <span className="font-bold text-luxury-green flex items-center gap-2"><Car className="w-4 h-4 text-luxury-gold" /> 5. Continuous Private Chauffeur AC SUV Commute</span>
+                  <span className="font-mono text-luxury-black/60 font-bold">~ 15% - 20% of Total Budget</span>
+                </div>
+                <div className="w-full bg-luxury-cream h-3 rounded-full overflow-hidden">
+                  <div className="bg-yellow-600 h-full rounded-full" style={{ width: "17%" }} />
+                </div>
+                <p className="text-xs text-luxury-black/50 pl-6 leading-relaxed">
+                  Roughly ₹4,000 to ₹6,500 daily including premium fuel, tolls, insurance, hotel/driver lodging, and airport transfers. This delivers complete stress-free driving.
+                </p>
               </div>
             </div>
 
-            {/* Right side column: Outputted live breakdown visual */}
-            <div className="lg:col-span-7">
-              <div className="bg-white text-luxury-green rounded-[40px] p-8 md:p-12 shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[550px]">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-luxury-gold/10 rounded-full blur-2xl pointer-events-none" />
-                
-                <div className="space-y-8">
-                  <div className="flex justify-between items-start border-b border-luxury-black/5 pb-6">
-                    <div>
-                      <span className="text-[10px] uppercase tracking-widest text-luxury-black/40 font-bold block mb-1">Live Estimated Total Budget</span>
-                      <p className="text-4xl md:text-6xl font-serif text-luxury-green tracking-tighter">
-                        ₹{budget.total.toLocaleString("en-IN")}
-                      </p>
-                      <p className="text-xs text-luxury-black/40 mt-1 font-mono">
-                        *Roughly equals LKR {(budget.total * 3.75).toLocaleString("en-IN", {maximumFractionDigits:0})} (Sri Lankan Rupee exchange)
-                      </p>
-                    </div>
-                    <div className="text-right bg-luxury-cream px-4 py-2 border border-luxury-black/5 rounded-2xl">
-                      <p className="text-[9px] uppercase tracking-widest text-luxury-black/30 font-bold">Per Person Average</p>
-                      <p className="font-serif text-lg text-luxury-gold font-bold">
-                        ₹{Math.round(budget.total / calcInputs.travelers).toLocaleString("en-IN")}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Progressive visual bar breakdown */}
-                  <div className="space-y-4">
-                    <p className="text-xs uppercase tracking-widest text-luxury-black/50 font-bold">Cost Categories Split</p>
-                    
-                    {/* Flights bar line */}
-                    <div className="space-y-1">
-                      <div className="flex justify-between font-mono text-xs">
-                        <span className="flex items-center gap-2"><Plane className="w-3.5 h-3.5 text-luxury-gold" /> Airfare ({calcInputs.departureCity} - Colombo)</span>
-                        <span className="font-bold">₹{budget.flights.toLocaleString("en-IN")}</span>
-                      </div>
-                      <div className="w-full bg-luxury-cream h-2.5 rounded-full overflow-hidden">
-                        <div className="bg-luxury-gold h-full rounded-full transition-all duration-500" style={{width: `${(budget.flights/budget.total)*100}%`}} />
-                      </div>
-                    </div>
-
-                    {/* Stays bar line */}
-                    <div className="space-y-1">
-                      <div className="flex justify-between font-mono text-xs">
-                        <span className="flex items-center gap-2"><Building className="w-3.5 h-3.5 text-luxury-gold" /> Boutique Hotels & Rooms</span>
-                        <span className="font-bold font-semibold text-luxury-black">₹{budget.hotels.toLocaleString("en-IN")}</span>
-                      </div>
-                      <div className="w-full bg-luxury-cream h-2.5 rounded-full overflow-hidden">
-                        <div className="bg-luxury-green h-full rounded-full transition-all duration-500" style={{width: `${(budget.hotels/budget.total)*100}%`}} />
-                      </div>
-                    </div>
-
-                    {/* Dining bar line */}
-                    <div className="space-y-1">
-                      <div className="flex justify-between font-mono text-xs">
-                        <span className="flex items-center gap-2"><Utensils className="w-3.5 h-3.5 text-luxury-gold" /> Dining & Coastal Food</span>
-                        <span className="font-bold">₹{budget.food.toLocaleString("en-IN")}</span>
-                      </div>
-                      <div className="w-full bg-luxury-cream h-2.5 rounded-full overflow-hidden">
-                        <div className="bg-emerald-800 h-full rounded-full transition-all duration-500" style={{width: `${(budget.food/budget.total)*100}%`}} />
-                      </div>
-                    </div>
-
-                    {/* Commute bar line */}
-                    <div className="space-y-1">
-                      <div className="flex justify-between font-mono text-xs">
-                        <span className="flex items-center gap-2"><Car className="w-3.5 h-3.5 text-luxury-gold" /> Ground Transport Chauffeur SUV</span>
-                        <span className="font-bold">₹{budget.transport.toLocaleString("en-IN")}</span>
-                      </div>
-                      <div className="w-full bg-luxury-cream h-2.5 rounded-full overflow-hidden">
-                        <div className="bg-teal-700 h-full rounded-full transition-all duration-500" style={{width: `${(budget.transport/budget.total)*100}%`}} />
-                      </div>
-                    </div>
-
-                    {/* Ticket bar line */}
-                    <div className="space-y-1">
-                      <div className="flex justify-between font-mono text-xs">
-                        <span className="flex items-center gap-2"><Ticket className="w-3.5 h-3.5 text-luxury-gold" /> Sightseeing / Activity Cards</span>
-                        <span className="font-bold">₹{budget.attractions.toLocaleString("en-IN")}</span>
-                      </div>
-                      <div className="w-full bg-luxury-cream h-2.5 rounded-full overflow-hidden">
-                        <div className="bg-yellow-600 h-full rounded-full transition-all duration-500" style={{width: `${(budget.attractions/budget.total)*100}%`}} />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-luxury-cream p-4 rounded-2xl border border-luxury-black/5 text-xs text-luxury-black/60 italic flex gap-3">
-                    <Info className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" />
-                    <span>
-                      Rates are live-mode and computed for 2026 travel season. All mid-range and luxury routes include our signature dedicated air-conditioned vehicles, premium tolls, and private bilingual certified drivers.
-                    </span>
-                  </div>
-                </div>
-
-                {/* Interactive CTA bottom layout */}
-                {/* CTA #2: After budget calculator */}
-                <div className="mt-8 pt-6 border-t border-luxury-black/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                  <div>
-                    <h4 className="text-xs uppercase tracking-widest text-luxury-black/40 font-bold">Claim My Trip Plan?</h4>
-                    <p className="font-serif italic text-lg text-luxury-green font-semibold">Start Customizing Free of Charge</p>
-                  </div>
-                  <button 
-                    onClick={() => handleWhatsAppRedirect("calculator_outcome")}
-                    className="px-8 py-4 bg-luxury-green hover:bg-luxury-gold text-white rounded-full font-serif text-xs font-semibold uppercase tracking-[0.15em] transition-all flex items-center gap-2 group cursor-pointer"
-                  >
-                    <span>Receive This Budget Book</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-
+            <div className="mt-8 bg-luxury-cream p-6 rounded-3xl border border-luxury-gold/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="space-y-1">
+                <p className="font-serif font-bold text-base text-luxury-green">Calculated Overall Ballpark Cost</p>
+                <p className="text-xs text-luxury-black/50">For a classic 7-Day luxury loop including private chauffeur guides.</p>
+              </div>
+              <div className="text-right">
+                <span className="text-2xl md:text-3xl font-serif text-luxury-gold font-bold">₹48,000 - ₹75,000</span>
+                <span className="text-xs text-luxury-black/40 block">Per traveler (Double occupancy)</span>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -733,23 +604,23 @@ Departure: ${leadForm.departure}`;
       <section className="max-w-4xl mx-auto px-6 py-20 divide-y divide-luxury-black/15 space-y-20">
         
         {/* DETAILED CATEGORY BREAKDOWNS */}
-        <article className="space-y-12">
-          <div className="space-y-4">
-            <span className="text-luxury-gold uppercase tracking-[0.2em] text-xs font-bold block">Topical Cost Breakdown</span>
-            <h2 className="text-3xl md:text-5xl font-serif text-luxury-green leading-snug tracking-tight">
-              Detailed Breakdown: Airfare, Accommodation, Transport, Food & Activities
-            </h2>
+        <article className="space-y-12 pb-16">
+          <div className="space-y-3">
+            <span className="text-luxury-gold uppercase tracking-[0.2em] text-[10px] sm:text-xs font-bold block">Pragmatic Category Slices</span>
+            <span className="text-3xl md:text-5xl font-serif text-luxury-green leading-snug tracking-tight block font-bold">
+              Sri Lanka Trip Cost Breakdown by Category
+            </span>
             <p className="text-luxury-black/70 font-light text-base leading-relaxed">
-              When calculating your total <strong className="font-semibold text-luxury-green">Sri Lanka travel expenses</strong>, it is vital to segment costs into distinct categories. This allows you to scale up on experiences that matter to you (such as elite beachfront resorts or customized safaris) while cutting back on simpler components. Let's look at exact Indian Rupee (INR) cost mappings based on live 2026 travel data:
+              Let's analyze every individual trip cost element in detail, converting local prices directly to Indian Rupees (INR) so you can plan with maximum security.
             </p>
           </div>
 
-          <div className="space-y-10 pt-6">
-            
+          <div className="space-y-16 pt-8">
+
             {/* 1. FLIGHTS */}
             <div className="space-y-4">
               <h3 className="text-xl md:text-2xl font-serif text-luxury-green flex items-center gap-2 border-b border-luxury-gold/20 pb-2">
-                <Plane className="w-5 h-5 text-luxury-gold" /> Flights from India: Routes & Average Airfares
+                <Plane className="w-5 h-5 text-luxury-gold" /> Flight Cost From India: Average Airline Rates & Cities
               </h3>
               <p className="text-sm text-luxury-black/70 leading-relaxed font-light">
                 Direct flights represent your core initial outflow. Tickets standard-route into Bandaranaike International Airport (CMB) in Colombo. Flying from southern cities (Chennai, Bangalore) is highly cost-effective, while flights from northern or western hubs (Delhi, Mumbai) are generally higher:
@@ -783,7 +654,29 @@ Departure: ${leadForm.departure}`;
               </p>
             </div>
 
-            {/* 2. ACCOMMODATION */}
+            {/* 2. VISA COST */}
+            <div className="space-y-4">
+              <h3 className="text-xl md:text-2xl font-serif text-luxury-green flex items-center gap-2 border-b border-luxury-gold/20 pb-2">
+                <ShieldCheck className="w-5 h-5 text-luxury-gold" /> Sri Lanka Tourist Visa (ETA) Cost for Indians
+              </h3>
+              <p className="text-sm text-luxury-black/70 leading-relaxed font-light">
+                Applying for entry clearance is remarkably straightforward. Indian citizens require an Electronic Travel Authorization (ETA) to clear immigration at Colombo. Under recent special safety incentive campaigns, <strong>Sri Lanka has waived tourist visa (ETA) fees for Indian residents</strong>, making the entry clearance free (₹0)!
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="bg-white p-5 rounded-2xl border border-luxury-black/5 space-y-2">
+                  <p className="font-bold text-xs uppercase tracking-wider text-luxury-gold font-mono">Current Waiver Scheme</p>
+                  <p className="text-lg font-serif font-bold text-luxury-green">₹0 (Free Tourist Visa)</p>
+                  <p className="text-xs text-luxury-black/50 font-light font-sans">Under the direct bilateral Tourism Booster programs, double-check if your dates fall inside active free ETA windows before filing travel records.</p>
+                </div>
+                <div className="bg-white p-5 rounded-2xl border border-luxury-black/5 space-y-2">
+                  <p className="font-bold text-xs uppercase tracking-wider text-luxury-gold font-mono">Standard ETA Charges</p>
+                  <p className="text-lg font-serif font-bold text-luxury-black/60">Approx $20 USD (₹1,660)</p>
+                  <p className="text-xs text-luxury-black/50 font-light font-sans">If the standard fee applies, you can securely pay online with an Indian international credit card before arrival.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 3. HOTELS */}
             <div className="space-y-4">
               <h3 className="text-xl md:text-2xl font-serif text-luxury-green flex items-center gap-2 border-b border-luxury-gold/20 pb-2">
                 <Building className="w-5 h-5 text-luxury-gold" /> Accommodation Pricing: From Homestays to Luxury Boutiques
@@ -811,10 +704,25 @@ Departure: ${leadForm.departure}`;
               </div>
             </div>
 
-            {/* 3. TRANSPORT */}
+            {/* 4. FOOD */}
             <div className="space-y-4">
               <h3 className="text-xl md:text-2xl font-serif text-luxury-green flex items-center gap-2 border-b border-luxury-gold/20 pb-2">
-                <Car className="w-5 h-5 text-luxury-gold" /> Local Transportation Options: Chauffeur-Driven SUV vs. Public Rail
+                <Utensils className="w-5 h-5 text-luxury-gold" /> Daily Food & dining Costs
+              </h3>
+              <p className="text-sm text-luxury-black/70 leading-relaxed font-light">
+                Sri Lankan cuisine is incredibly vibrant, rich in spices, coconut, and freshly caught seafood. Food is extremely budget-friendly for Indian travelers:
+              </p>
+              <ul className="space-y-2 text-xs md:text-sm text-luxury-black/70 list-disc pl-5 font-light">
+                <li><strong>Local Rice & Curry Buffets:</strong> Running under ₹200 - ₹350 per meal. Includes red heirloom rice, dhal curry, sambol, and up to 5 seasonal veggie curries.</li>
+                <li><strong>Mid-range Mountain/Beach Cafes:</strong> ₹1,200 - ₹2,200 per meal. Covers fresh avocado toasts, wood-fired pizzas, delicious Ceylon teas, or fresh fruit shakes.</li>
+                <li><strong>High-end Seafood & Colonial Dining (Galle Fort):</strong> ₹3,500 - ₹6,000 per couple. Includes premium lagoon-crab platters, jumbo prawns, mocktails, and decadent curd desserts.</li>
+              </ul>
+            </div>
+
+            {/* 5. TRANSPORT */}
+            <div className="space-y-4">
+              <h3 className="text-xl md:text-2xl font-serif text-luxury-green flex items-center gap-2 border-b border-luxury-gold/20 pb-2">
+                <Car className="w-5 h-5 text-luxury-gold" /> Local Transportation Options: Chauffeur-Driven SUV vs. Train & TukTuk
               </h3>
               <p className="text-sm text-luxury-black/70 leading-relaxed font-light">
                 Getting around Sri Lanka efficiently is critical because driving distances look short on maps but can stretch to 4-5 hours due to winding mountain terrains. While public trains (like the scenic Ella Blue Train) are very cheap, booking a private chauffeur is the gold standard for stress-free exploration:
@@ -832,72 +740,247 @@ Departure: ${leadForm.departure}`;
                     <p className="leading-relaxed font-light">Third-class unreserved trains cost almost nothing can get crowded. Scenic first-class observation seats on the Kandy to Ella train must be reserved up to 30 days in advance and cost around ₹1,800.</p>
                   </div>
                 </div>
-                <div className="bg-white p-4 rounded-xl border border-luxury-gold/10 text-xs text-luxury-black/60 italic flex gap-3">
-                  <Info className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" />
-                  <span>
-                    Need to figure out realistic driving times between Sigiriya, Kandy, and Ella? Our interactive <Link to="/sri-lanka-trip-planner" className="text-luxury-gold underline hover:text-luxury-green font-bold">Sri Lanka Trip Planner</Link> generates custom map routing with actual, traffic-calibrated driving hours instantly!
-                  </span>
-                </div>
               </div>
             </div>
 
-            {/* 4. FOOD */}
-            <div className="space-y-4">
-              <h3 className="text-xl md:text-2xl font-serif text-luxury-green flex items-center gap-2 border-b border-luxury-gold/20 pb-2">
-                <Utensils className="w-5 h-5 text-luxury-gold" /> Daily Food & dining Costs
-              </h3>
-              <p className="text-sm text-luxury-black/70 leading-relaxed font-light">
-                Sri Lankan cuisine is incredibly vibrant, rich in spices, coconut, and freshly caught seafood. Food is extremely budget-friendly for Indian travelers:
-              </p>
-              <ul className="space-y-2 text-xs md:text-sm text-luxury-black/70 list-disc pl-5 font-light">
-                <li><strong>Local Rice & Curry Buffets:</strong> Running under ₹200 - ₹350 per meal. Includes red heirloom rice, dhal curry, sambol, and up to 5 seasonal veggie curries.</li>
-                <li><strong>Mid-range Mountain/Beach Cafes:</strong> ₹1,200 - ₹2,200 per meal. Covers fresh avocado toasts, wood-fired pizzas, delicious Ceylon teas, or fresh fruit shakes.</li>
-                <li><strong>High-end Seafood & Colonial Dining (Galle Fort):</strong> ₹3,500 - ₹6,000 per couple. Includes premium lagoon-crab platters, jumbo prawns, mocktails, and decadent curd desserts.</li>
-              </ul>
+          </div>
+        </article>
+
+        {/* SUGGESTED 7 DAY ITINERARY */}
+        <article className="pt-20 space-y-8">
+          <div className="space-y-3">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-luxury-gold bg-luxury-gold/15 px-3 py-1 rounded-full w-max block font-bold">
+              Accredited Route
+            </span>
+            <h2 className="text-2xl md:text-4xl font-serif text-luxury-green tracking-tight font-bold">
+              Suggested 7-Day Sri Lanka Cost Loop & Itinerary
+            </h2>
+            <p className="text-sm text-luxury-black/60 font-light leading-relaxed max-w-2xl">
+              Maximize your holiday spend! We recommend this highly efficient, monsoonal routing loop designed specifically to contain driving overheads and provide premium comfort offsets:
+            </p>
+          </div>
+
+          <div className="relative border-l border-luxury-gold/30 ml-4 pl-8 space-y-12 py-4 font-sans text-xs md:text-sm">
+            {/* Day 1 */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-white border-2 border-luxury-gold flex items-center justify-center font-serif text-[10px] font-bold text-luxury-green">1</div>
+              <div className="space-y-1.5">
+                <p className="font-serif font-bold text-base text-luxury-green">Day 1: Colombo Arrival & Golden Sunset</p>
+                <p className="text-luxury-black/70 leading-relaxed font-light">Land at Colombo Bandaranaike Airport. Meet your private chauffeur guide, transfer to a sea-facing hotel, and watch the waves sweep Galle Face Green while dining on hot Colombo hoppers.</p>
+                <p className="font-mono text-xs text-luxury-gold font-bold">Estimated Daily Spend: ₹2,500 (Boutique Stay & street meals)</p>
+              </div>
             </div>
 
-            {/* 5. ATTRACTIONS */}
-            <div className="space-y-4">
-              <h3 className="text-xl md:text-2xl font-serif text-luxury-green flex items-center gap-2 border-b border-luxury-gold/20 pb-2">
-                <Ticket className="w-5 h-5 text-luxury-gold" /> Attractions & Sightseeing Monument Entries
-              </h3>
-              <p className="text-sm text-luxury-black/70 leading-relaxed font-light">
-                UNESCO preserved ruins and pristine wildlife reserves carry official ticketing in USD, which constitutes the second largest fixed expense on your itinerary. Check out average ticketing fees below:
-              </p>
-              <div className="grid sm:grid-cols-3 gap-4">
-                <div className="bg-white p-4 rounded-xl border border-luxury-black/5">
-                  <p className="font-bold text-xs text-luxury-green">Sigiriya Lion Rock Citadel</p>
-                  <p className="font-mono text-xs text-luxury-gold font-bold mt-1">₹2,500 ($30 USD)</p>
+            {/* Day 2 */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-white border-2 border-luxury-gold flex items-center justify-center font-serif text-[10px] font-bold text-luxury-green">2</div>
+              <div className="space-y-1.5">
+                <p className="font-serif font-bold text-base text-luxury-green">Day 2: Ancient Sigiriya Fortress Citadel</p>
+                <p className="text-luxury-black/70 leading-relaxed font-light">Drive north into the Cultural Triangle. Climb the iconic Sigiriya Lion Rock ancient citadel fortress (₹2,500 ticket), then enjoy a rustic ayurvedic clay-pot rice lunch buffet.</p>
+                <p className="font-mono text-xs text-luxury-gold font-bold">Estimated Daily Spend: ₹6,500 (Hotel, entry pass, chauffeur mileage)</p>
+              </div>
+            </div>
+
+            {/* Day 3 */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-white border-2 border-luxury-gold flex items-center justify-center font-serif text-[10px] font-bold text-luxury-green">3</div>
+              <div className="space-y-1.5">
+                <p className="font-serif font-bold text-base text-luxury-green">Day 3: Sacred Kandy Lakes & Tooth Relic</p>
+                <p className="text-luxury-black/70 leading-relaxed font-light">Journey south to Kandy Hill Station. Stroll around the mirror-like Kandy Lake, tour the beautifully constructed Temple of the Sacred Tooth Relic (₹550 entry), and listen to colonial live-bands.</p>
+                <p className="font-mono text-xs text-luxury-gold font-bold">Estimated Daily Spend: ₹5,000 (Central boutique hotel & tickets)</p>
+              </div>
+            </div>
+
+            {/* Day 4 & 5 */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-white border-2 border-luxury-gold flex items-center justify-center font-serif text-[10px] font-bold text-luxury-green">4</div>
+              <div className="space-y-1.5">
+                <p className="font-serif font-bold text-base text-luxury-green">Days 4 & 5: Tea Estates, Blue Train, & Ella Highlands</p>
+                <p className="text-luxury-black/70 leading-relaxed font-light">Drive through misty Nuwara Eliya tea carpet estates. Board the iconic Scenic Blue Train to high-altitude Ella (₹1,500 reservation ticket). Take photos at Nine Arch Bridge and hike active Ravana Ella fall trails.</p>
+                <p className="font-mono text-xs text-luxury-gold font-bold">Estimated Daily Spend: ₹9,800 (Heritage estate rooms, dining, train ride)</p>
+              </div>
+            </div>
+
+            {/* Day 6 */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-white border-2 border-luxury-gold flex items-center justify-center font-serif text-[10px] font-bold text-luxury-green">6</div>
+              <div className="space-y-1.5">
+                <p className="font-serif font-bold text-base text-luxury-green">Day 6: Deep-South Mirissa Gold Beaches</p>
+                <p className="text-luxury-black/70 leading-relaxed font-light">Descend hill stations to the southern sandy coast. Relax on palm-fringed Mirissa shorelines. Climb Coconut Tree Hill for sunset, and catch a fresh ocean-facing lagoon crab seaside seafood dinner.</p>
+                <p className="font-mono text-xs text-luxury-gold font-bold">Estimated Daily Spend: ₹7,000 (Seaside resort & lagoon seafood dinner)</p>
+              </div>
+            </div>
+
+            {/* Day 7 */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-white border-2 border-luxury-gold flex items-center justify-center font-serif text-[10px] font-bold text-luxury-green">7</div>
+              <div className="space-y-1.5">
+                <p className="font-serif font-bold text-base text-luxury-green">Day 7: Galle Colonial Dutch Fort & Airport Depart</p>
+                <p className="text-luxury-black/70 leading-relaxed font-light">Explore historic white-walled Galle Fort, snap photos under Galle Lighthouse, select premium Ceylon tea souvenir gifts, and take the southern highway directly to Colombo airport for departure.</p>
+                <p className="font-mono text-xs text-luxury-gold font-bold">Estimated Daily Spend: ₹4,000 (Airport drop & souvenir gifts)</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        {/* DYNAMIC RELOCATED INTERACTIVE CALCULATOR ENGINE */}
+        <article className="pt-20 space-y-8" id="budget-calculator">
+          <div className="space-y-3">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-luxury-green px-3 py-1 rounded-full w-max block font-bold">
+              Interactive Live Applet
+            </span>
+            <h2 className="text-2xl md:text-4xl font-serif text-luxury-green tracking-tight font-bold">
+              Personalized Sri Lanka Cost Calculator
+            </h2>
+            <p className="text-sm text-luxury-black/60 font-light leading-relaxed max-w-2xl">
+              Now it's your turn to configure. Play around with your hub cities, travel days, group sizes, and luxury styles. Watch our local Ceylon cost algorithms recalculate your actual estimated expenses:
+            </p>
+          </div>
+
+          <div className="bg-luxury-green text-white rounded-[40px] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            <div className="grid lg:grid-cols-12 gap-12 lg:items-center relative z-10">
+              
+              {/* Left Side Inputs Form */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest text-white/50 block font-mono font-bold">1. Departure Indian Hub</label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {["Delhi", "Mumbai", "Bangalore", "Chennai", "Hyderabad"].map((city) => (
+                      <button
+                        key={city}
+                        onClick={() => setCalcInputs({...calcInputs, departureCity: city})}
+                        className={`py-2 px-1 rounded-xl text-xs font-mono transition-all border ${
+                          calcInputs.departureCity === city 
+                            ? "bg-luxury-gold border-luxury-gold text-luxury-green font-bold" 
+                            : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10"
+                        }`}
+                      >
+                        {city}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <div className="bg-white p-4 rounded-xl border border-luxury-black/5">
-                  <p className="font-bold text-xs text-luxury-green">Yala National Park Safari (4x4 Jeep)</p>
-                  <p className="font-mono text-xs text-luxury-gold font-bold mt-1">₹7,500 - ₹11,000 / group</p>
+
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center text-[10px] uppercase tracking-widest text-white/50 font-mono font-bold">
+                    <span>2. Traveler Count</span>
+                    <span className="text-luxury-gold font-bold">{calcInputs.travelers} Persons</span>
+                  </div>
+                  <div className="flex gap-2">
+                    {[1, 2, 3, 4, 6].map((num) => (
+                      <button
+                        key={num}
+                        onClick={() => setCalcInputs({...calcInputs, travelers: num})}
+                        className={`flex-grow py-2.5 rounded-xl text-xs font-serif transition-all ${
+                          calcInputs.travelers === num 
+                            ? "bg-white text-luxury-green font-bold" 
+                            : "bg-white/5 border border-white/10 text-white/80 hover:bg-white/10"
+                        }`}
+                      >
+                        {num === 6 ? "5+" : `${num}`}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <div className="bg-white p-4 rounded-xl border border-luxury-black/5">
-                  <p className="font-bold text-xs text-luxury-green">Temple of the Sacred Tooth Relic</p>
-                  <p className="font-mono text-xs text-luxury-gold font-bold mt-1">₹550 (LKR 2,000)</p>
+
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center text-[10px] uppercase tracking-widest text-white/50 font-mono font-bold">
+                    <span>3. Trip Length ({calcInputs.days} Days)</span>
+                  </div>
+                  <input 
+                    type="range"
+                    min="3"
+                    max="14"
+                    value={calcInputs.days}
+                    onChange={(e) => setCalcInputs({...calcInputs, days: parseInt(e.target.value)})}
+                    className="w-full accent-luxury-gold h-1 bg-white/10 rounded-lg cursor-pointer"
+                  />
+                  <div className="flex justify-between text-[9px] text-white/40 font-mono">
+                    <span>3 Days</span>
+                    <span>7 Days</span>
+                    <span>14 Days</span>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest text-white/50 block font-mono font-bold">4. Experience Style</label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      { id: "budget", name: "Budget" },
+                      { id: "midrange", name: "Mid-Range" },
+                      { id: "luxury", name: "Luxury" }
+                    ].map((style) => (
+                      <button
+                        key={style.id}
+                        onClick={() => setCalcInputs({...calcInputs, travelStyle: style.id as any})}
+                        className={`p-2 rounded-xl text-center transition-all border flex flex-col justify-center items-center ${
+                          calcInputs.travelStyle === style.id 
+                            ? "bg-luxury-gold border-luxury-gold text-luxury-green font-bold" 
+                            : "bg-white/5 border-white/10 text-white hover:bg-white/10"
+                        }`}
+                      >
+                        <span className="font-serif text-xs block">{style.name}</span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <p className="text-xs text-luxury-black/50 italic leading-relaxed">
-                *Pro-Tip: Map these monuments across a realistic loop. See our step-by-step <Link to="/sri-lanka-7-day-itinerary" className="text-luxury-gold underline hover:text-luxury-green font-bold">Sri Lanka 7-Day Itinerary</Link> to structure your daily sightseeing entries with travel flow maps.
-              </p>
-            </div>
 
-            {/* 6. MISCELLANEOUS */}
-            <div className="space-y-4">
-              <h3 className="text-xl md:text-2xl font-serif text-luxury-green flex items-center gap-2 border-b border-luxury-gold/20 pb-2">
-                <ShieldCheck className="w-5 h-5 text-luxury-gold" /> Miscellaneous Expenses: Visas, eSIMs, & SIM Tariffs
-              </h3>
-              <p className="text-sm text-luxury-black/70 leading-relaxed font-light">
-                Minor incidentals like keeping high speed 5G data connectivity and official visa registrations are quite straightforward:
-              </p>
-              <ul className="space-y-2 text-xs md:text-sm text-luxury-black/70 list-disc pl-5 font-light">
-                <li><strong>ETA Visa Fee:</strong> Under periodic campaigns, e-visa ETA fees for Indian passport holders are waived (₹0) or run around $20 (₹1,660).</li>
-                <li><strong>5G Local eSIM:</strong> Dialog or Mobitel eSIM counters at Colombo Airport arrival counter charge just ₹700 (Approx LKR 2,500) for a 50GB high-speed data package.</li>
-                <li><strong>Customary Tipping:</strong> Tipping is deeply customary in Sri Lankan hospitality. Budget around ₹500 - ₹800 per day for your private chauffeur, and LKR 200 - 500 for hotel bellboys.</li>
-              </ul>
-            </div>
+              {/* Right Side Outputs Visuals */}
+              <div className="lg:col-span-7 bg-white text-luxury-green rounded-3xl p-6 md:p-8 space-y-6">
+                <div>
+                  <span className="text-[9px] uppercase tracking-widest text-luxury-black/40 font-bold block">Live Estimated Overall Cost</span>
+                  <p className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tighter">
+                    ₹{budget.total.toLocaleString("en-IN")}
+                  </p>
+                  <p className="text-[10px] text-luxury-black/40 font-mono mt-1">
+                    *Approx LKR {(budget.total * 3.75).toLocaleString("en-IN", {maximumFractionDigits:0})} (Ceylon exchange scale)
+                  </p>
+                </div>
 
+                <div className="space-y-3 font-sans text-xs border-y border-luxury-black/5 py-4">
+                  <div className="flex justify-between">
+                    <span className="text-luxury-black/60 flex items-center gap-1.5"><Plane className="w-3.5 h-3.5" /> Return Airfares</span>
+                    <span className="font-bold text-luxury-green">₹{budget.flights.toLocaleString("en-IN")}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-luxury-black/60 flex items-center gap-1.5"><Building className="w-3.5 h-3.5" /> Boutique Hotels</span>
+                    <span className="font-bold text-luxury-green">₹{budget.hotels.toLocaleString("en-IN")}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-luxury-black/60 flex items-center gap-1.5"><Utensils className="w-3.5 h-3.5" /> Dining Budgets</span>
+                    <span className="font-bold text-luxury-green">₹{budget.food.toLocaleString("en-IN")}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-luxury-black/60 flex items-center gap-1.5"><Car className="w-3.5 h-3.5" /> Private Chauffeur AC SUV</span>
+                    <span className="font-bold text-luxury-green">₹{budget.transport.toLocaleString("en-IN")}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-luxury-black/60 flex items-center gap-1.5"><Ticket className="w-3.5 h-3.5" /> Safaris & Landmarks</span>
+                    <span className="font-bold text-luxury-green">₹{budget.attractions.toLocaleString("en-IN")}</span>
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-center bg-luxury-cream p-3 rounded-xl border border-luxury-gold/20">
+                  <div className="space-y-0.5">
+                    <p className="font-bold text-xs text-luxury-green font-serif">Average Cost Per Traveler</p>
+                    <p className="text-[10px] text-luxury-black/40">Includes all toll roads and private drives.</p>
+                  </div>
+                  <span className="font-serif text-lg text-luxury-gold font-bold">₹{Math.round(budget.total / calcInputs.travelers).toLocaleString("en-IN")}</span>
+                </div>
+
+                <div className="flex justify-end pt-2">
+                  <button 
+                    onClick={() => handleWhatsAppRedirect("calculator_outcome")}
+                    className="w-full sm:w-auto px-6 py-3.5 bg-luxury-green hover:bg-luxury-gold text-white rounded-full font-serif text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 group cursor-pointer"
+                  >
+                    <span>Keep This Selection</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </div>
+
+            </div>
           </div>
         </article>
 
