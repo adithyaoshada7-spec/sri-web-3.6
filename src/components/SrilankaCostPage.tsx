@@ -692,6 +692,38 @@ Departure: ${leadForm.departure}`;
         </div>
       </section>
 
+      {/* SECTION - SRI LANKA VISA COST FOR INDIANS */}
+      <section className="max-w-7xl mx-auto px-6 mb-20" id="visa-cost">
+        <div className="bg-[#FAF8F5] rounded-[40px] p-8 md:p-12 border border-luxury-gold/15 shadow-sm">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <div className="text-center space-y-2">
+              <span className="text-luxury-gold uppercase tracking-[0.25em] text-xs font-mono font-bold">Official Document Guidelines</span>
+              <h2 className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tight font-bold">
+                Sri Lanka Visa Cost for Indians
+              </h2>
+              <p className="text-xs text-luxury-black/50 uppercase tracking-widest">Crucial entry requirement updates for 2026</p>
+            </div>
+            <div className="text-sm text-luxury-black/75 font-light leading-relaxed space-y-4 pt-4">
+              <p className="text-center">
+                The standard **Sri Lanka Visa Cost for Indians** is usually **$20 USD (approx. ₹1,660)** for a 30-day double-entry Electronic Travel Authorization (ETA). However, Sri Lanka periodically offers completely free visa waiver schemes for Indian tourists, reducing the visa fee to **₹0**.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4 pt-2">
+                <div className="bg-white p-5 rounded-2xl border border-luxury-black/5">
+                  <span className="text-xs uppercase font-mono tracking-wider text-luxury-gold block mb-1">Standard ETA Visa Fee</span>
+                  <p className="text-lg font-serif font-bold text-luxury-green">$20 USD (~₹1,660)</p>
+                  <p className="text-xs text-luxury-black/50 mt-1">Processed online within 24 hours.</p>
+                </div>
+                <div className="bg-white p-5 rounded-2xl border border-luxury-black/5">
+                  <span className="text-xs uppercase font-mono tracking-wider text-luxury-gold block mb-1">Fee Waiver Seasons</span>
+                  <p className="text-lg font-serif font-bold text-luxury-green">₹0 (Zero Fee)</p>
+                  <p className="text-xs text-luxury-black/50 mt-1">When bilateral visa-free campaigns run regularly.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 5 - SUGGESTED 7 DAY ITINERARY */}
       <section className="max-w-7xl mx-auto px-6 mb-20" id="itinerary">
         <div className="text-center mb-12 space-y-2">
@@ -699,7 +731,7 @@ Departure: ${leadForm.departure}`;
           <h2 className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tight font-bold">
             Suggested 7 Day Sri Lanka Itinerary
           </h2>
-          <p className="text-xs text-luxury-black/50 uppercase tracking-widest">Optimized for monsoons, travel time, and budget efficiency</p>
+          <p className="text-xs text-luxury-black/50 uppercase tracking-widest">Optimized for monsoons, travel time, and budget efficiency (Best Itinerary for Sri Lanka for 7 Days)</p>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 items-start">

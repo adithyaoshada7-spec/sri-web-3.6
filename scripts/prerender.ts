@@ -80,31 +80,149 @@ function generatePrerenderPages(): PrerenderPage[] {
         <h1>Sri Lanka Trip Cost From India (2026 Guide)</h1>
         <p><strong>Discover the complete Sri Lanka trip cost from India. Compare budget, mid-range and luxury travel costs, flights, hotels, visa fees and use our free trip budget calculator.</strong></p>
       </header>
+      
       <section>
-        <h2>Typical Budgets from India</h2>
-        <p>Depending on your comfort style, daily land costs are structured into basic tiers:</p>
+        <h2>How Much Does a Sri Lanka Trip Cost From India? (Quick Answer)</h2>
+        <p>On average, a <strong>7-day comforting Sri Lanka trip from India</strong> costs about <strong>₹45,000 to ₹65,000 per traveler</strong>. Standard costs are divided by traveler dynamics:</p>
+        <ul>
+          <li><strong>Budget Traveler:</strong> ₹25,000 – ₹40,000</li>
+          <li><strong>Couple:</strong> ₹80,000 – ₹120,000</li>
+          <li><strong>Family:</strong> ₹150,000 – ₹250,000</li>
+          <li><strong>Luxury:</strong> ₹150,000+</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Sri Lanka Trip Cost in Indian Rupees</h2>
+        <p>Depending on your comfort styles, standard land expenses are split into specific Indian Rupees (INR) divisions:</p>
         <table>
           <thead>
             <tr>
-              <th>Travel Comfort Tier</th>
-              <th>Estimated Budget / Day</th>
+              <th>Travel Style Category</th>
+              <th>Solo Traveler</th>
+              <th>Couple Total</th>
+              <th>Family of 4</th>
+              <th>Luxury Comfort</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Backpacker/Budget Comfort</strong></td>
-              <td>₹2,000 - ₹3,500 ($25 - $40)</td>
+              <td><strong>Round Flights (Direct)</strong></td>
+              <td>₹11,000 - ₹18,000</td>
+              <td>₹22,000 - ₹36,000</td>
+              <td>₹44,000 - ₹72,000</td>
+              <td>₹75,000+</td>
             </tr>
             <tr>
-              <td><strong>Mid-Range Comfort Stays</strong></td>
-              <td>₹4,000 - ₹8,000 ($50 - $100)</td>
+              <td><strong>Boutique Hotels (Daily)</strong></td>
+              <td>₹1,500 - ₹3,000</td>
+              <td>₹5,000 - ₹10,000</td>
+              <td>₹11,000 - ₹18,000</td>
+              <td>₹25,000 - ₹80,000+</td>
             </tr>
             <tr>
-              <td><strong>Elite Signature Luxury</strong></td>
-              <td>₹12,000+ ($150+)</td>
+              <td><strong>Daily Meals & Dining</strong></td>
+              <td>₹800 - ₹1,200</td>
+              <td>₹2,000 - ₹4,000</td>
+              <td>₹4,000 - ₹8,000</td>
+              <td>₹10,000 - ₹20,000+</td>
+            </tr>
+            <tr>
+              <td><strong>Private AC Chauffeur Sedan</strong></td>
+              <td>Local transport (₹500)</td>
+              <td>Chauffeur (₹4,500)</td>
+              <td>Spacious Van (₹6,000)</td>
+              <td>Premium SUV (₹14,000)</td>
+            </tr>
+            <tr>
+              <td><strong>Landmarks & Admissions</strong></td>
+              <td>₹3,000</td>
+              <td>₹12,000</td>
+              <td>₹24,000</td>
+              <td>₹50,000+</td>
             </tr>
           </tbody>
         </table>
+      </section>
+
+      <section>
+        <h2>India to Sri Lanka Trip Cost by Departure City</h2>
+        <p>Your departure city plays an essential role in your total India to Sri Lanka trip cost structure:</p>
+        
+        <h3>Chennai to Sri Lanka Cost</h3>
+        <p>Chennai offers the most affordable flights to Sri Lanka, starting at ₹9,000 - ₹12,000 for direct round trips. Average comfort 7-day budget starts near ₹30,000 including local heritage stays.</p>
+        
+        <h3>Mumbai to Sri Lanka Cost</h3>
+        <p>Flights from Mumbai represent standard western corridor rates ranging from ₹18,000 - ₹24,000 for non-stop flights. Comfortable 7-day budget begins around ₹45,000.</p>
+        
+        <h3>Delhi to Sri Lanka Cost</h3>
+        <p>Flights from Delhi represent the northern sector with round trips at ₹19,000 - ₹28,000. Under comfortable parameters, expect a total budget of ₹48,000 per person.</p>
+        
+        <h3>Bangalore to Sri Lanka Cost</h3>
+        <p>Direct routes from Bangalore typically range from ₹11,000 to ₹14,000 round trip. Comfortable 7-day budget sits at ₹32,000 per seat.</p>
+        
+        <h3>Hyderabad to Sri Lanka Cost</h3>
+        <p>Round trips from Hyderabad cost about ₹14,000 - ₹19,000. Comfortable budget parameters start at ₹36,000 per traveler.</p>
+      </section>
+
+      <section>
+        <h2>What Makes Up Your Sri Lanka Travel Budget?</h2>
+        <p>Your overall vacation budget is shaped by these specific ratios and segments:</p>
+        <ul>
+          <li><strong>Flights:</strong> Standard round trips from India (30% - 35% of total budget)</li>
+          <li><strong>Visa:</strong> Electronic Travel Authorization ETA (2% - 4% of total budget; waived to ₹0 dynamically during promotions)</li>
+          <li><strong>Hotels:</strong> Dynamic boutiques & heritage villas with pool (25% - 30% of total budget)</li>
+          <li><strong>Food & Culinary:</strong> Local street food eats and beachside seafood dining (12% - 15% of total budget)</li>
+          <li><strong>Transport & Chauffeurs:</strong> Dedicated private AC vehicle with an English-fluent driver guide (15% - 20% of total budget)</li>
+          <li><strong>Activities:</strong> Sigiriya, Yala Safaris, Mirissa Whales, trains (8% - 12% of total budget)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Sri Lanka Visa Cost for Indians</h2>
+        <p>The standard <strong>Sri Lanka Visa Cost for Indians</strong> is usually <strong>$20 USD (approx. ₹1,660)</strong> for a 30-day double-entry Electronic Travel Authorization (ETA). However, Sri Lanka periodically offers completely free visa waiver schemes for Indian tourists, reducing the visa fee to <strong>₹0</strong>.</p>
+        <ul>
+          <li><strong>Standard Online ETA Visa Fee:</strong> $20 USD (~₹1,660) with 24-hour processing</li>
+          <li><strong>Bilateral Fee Waiver Promotions:</strong> ₹0 (Zero Fee) during promotional tourism campaigns</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Suggested 7 Day Sri Lanka Itinerary</h2>
+        <p>Follow our highly optimized 7-day route map for Indian tourists (Best Itinerary for Sri Lanka for 7 Days):</p>
+        <ul>
+          <li><strong>Day 1 Colombo Arrival:</strong> Transfer straight to a comfortable sea view beach resort and trial traditional clay hoppers.</li>
+          <li><strong>Day 2 Sigiriya Cultural Citadel:</strong> Climb the ancient UNESCO Sigiriya Lion Rock Fortress.</li>
+          <li><strong>Day 3 Kandy Hill Sanctuary:</strong> Pay respects at Kandy Temple of the Tooth Relic.</li>
+          <li><strong>Day 4 Nuwara Eliya Highlands:</strong> Tea estate plantation tour & mist-shrouded green waterfalls.</li>
+          <li><strong>Day 5 Ella Scenic Train:</strong> Board the world-famous Kandy-Ella scenic train passing Nine Arch Bridge.</li>
+          <li><strong>Day 6 Yala wild Safari or Mirissa sunset beaches:</strong> Gold sand beaches, Coconut Tree Hill or wildlife leopard tracking.</li>
+          <li><strong>Day 7 Galle Colonial White Fort & Departure:</strong> Beautiful white-washed 17th-century Galle Dutch Fort lighthouse and evening flight return.</li>
+        </ul>
+        <p><a href="/sri-lanka-7-day-itinerary">Read Full Sri Lanka 7 Day Itinerary</a></p>
+      </section>
+
+      <section>
+        <h2>Sri Lanka Trip Cost for Different Travelers</h2>
+        <p>Different traveler demographics require distinct budget styles:</p>
+        <h3>Solo Travelers</h3>
+        <p>Expect a total expense of ₹25,000 - ₹40,000 by taking local trains and spending on boutique local guesthouses.</p>
+        <h3>Couples Travel</h3>
+        <p>An amazing comfort honeymoon loop runs around ₹80,000 - ₹120,000 per couple, using romantic private villas and dedicated AC chauffeured guides.</p>
+        <h3>Families Group</h3>
+        <p>Spacious multi-bedroom resorts and comfortable van transport total around ₹150,000 - ₹250,000 for 4 people.</p>
+      </section>
+
+      <section>
+        <h2>Best Time to Visit Sri Lanka for Indian Travelers</h2>
+        <p>Plan smart to maximize sunshine and avoid rainy seasons. The Southwest coast (Galle, Hikkaduwa, Mirissa) shines from December to April. The East Coast (Trincomalee, Arugam Bay) remains beautiful from May to September. Opting for shoulder periods like September-October or April can save you up to 30% on heritage hotels and private guides.</p>
+      </section>
+
+      <section>
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>Is Sri Lanka expensive for Indian tourists?</strong><br/>No, Sri Lanka is highly affordable and budget-friendly for Indian travelers compared to other international beach destinations. Land costs, local transport, hotels, and delicious dining are extremely reasonable in Indian Rupees.</p>
+        <p><strong>How much is Sri Lanka visa fee in Indian Rupees?</strong><br/>The standard ETA fee is $20 USD (approx. ₹1,660). If you travel during active bilateral visa-free campaigns, the fee is completely waived to ₹0.</p>
+        <p><strong>Is Bangalore or Chennai cheaper to fly to Sri Lanka?</strong><br/>Chennai offers the most economical flight connections to Colombo, often starting around ₹9,000 - ₹12,000 round-trip.</p>
       </section>
     `,
     "/sri-lanka-7-day-itinerary": `
@@ -142,6 +260,125 @@ function generatePrerenderPages(): PrerenderPage[] {
       </section>
     `;
 
+    const schemas = [
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": art.title,
+        "description": art.description,
+        "image": art.image,
+        "author": {
+          "@type": "Person",
+          "name": "Adithya Oshada",
+          "jobTitle": "Local Travel Planner"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Plan Sri Lanka",
+          "logo": {
+            "@type": "ImageObject",
+            "url": `${domain}/logo.png`
+          }
+        },
+        "datePublished": "2026-02-10T08:00:00Z",
+        "dateModified": "2026-06-19T10:00:00Z"
+      }, null, 2)
+    ];
+
+    if (art.path === "/sri-lanka-trip-cost-from-india") {
+      schemas.push(
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": `${domain}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Sri Lanka Trip Cost From India",
+              "item": `${domain}/sri-lanka-trip-cost-from-india`
+            }
+          ]
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Sri Lanka Trip Cost Estimator & Luxury Calculator (2026)",
+          "description": "Real-time cost planning engine for Indian travelers. Computes flights, hotels, private tour guides, safari pricing, and localized chauffeur rates in Indian Rupees.",
+          "brand": {
+            "@type": "Brand",
+            "name": "Plan Sri Lanka"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "INR",
+            "lowPrice": "25000",
+            "highPrice": "150000",
+            "offerCount": "100"
+          }
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much does a Sri Lanka trip cost from India?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "An average 7-day Sri Lanka comfort trip from India costs about ₹45,000 to ₹65,000 per traveler. Budget backpackers can complete the journey for ₹25,000 to ₹40,000 using public trains and guesthouses, while couples seeking premium boutique hotels range from ₹80,000 to ₹1,20,000 total. Custom luxury stays start at ₹1,50,000+ per traveler."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Sri Lanka cheaper than Thailand?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Sri Lanka is generally more wallet-friendly than Thailand for Indian tourists. Flight routes from southern Indian cities to Colombo are shorter and cheaper than flights to Bangkok. Additionally, hiring a private English-speaking chauffeur-driven AC car in Sri Lanka is almost half the price of equivalent private transports in Thailand or Bali."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do Indians need a visa for Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Indian passport holders need a valid ETA (Electronic Travel Authorization) visa standard for a 30-day stay. Sri Lanka regularly waives visa fees dynamically for Indian citizens as part of bilateral tourism booster campaigns (making it ₹0). When standard fees apply, it costs approximately $20 USD (₹1,660)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I visit Sri Lanka under ₹50,000?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely! A single traveler or budget couple can easily explore Sri Lanka under ₹50,000 per person. By starting from southern flight terminals like Chennai or Bangalore, choosing high-rated local guest villas (₹2,000/night), using localized train tracks, and eating standard Ceylon rice and curries, you can comfortably spend 7 action-packed days."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which Indian city has the cheapest flights?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Chennai (MAA) offers the cheapest direct flight tickets to Sri Lanka, with round-trips regularly starting as low as ₹9,000 - ₹12,000. Bangalore (BLR) runs closely behind with options from ₹11,000 - ₹14,000. Flights from northern or western hubs like Delhi or Mumbai are slightly premium, running upwards of ₹18,050."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does a 7 day Sri Lanka trip cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A 7-day comfortable tour costs about ₹48,000 to ₹75,000 per person including round-trip flights, cozy boutique accommodations, a continuously available private vehicle with an English concierge driver, entry passes (Sigiriya, Temple of Tooth), and dining."
+              }
+            }
+          ]
+        }, null, 2)
+      );
+    }
+
     pages.push({
       path: art.path,
       title: art.title,
@@ -150,30 +387,7 @@ function generatePrerenderPages(): PrerenderPage[] {
       ogType: art.ogType,
       canonicalUrl: `${domain}${art.path}`,
       bodyHtml: bodyHtml,
-      schemas: [
-        JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": art.title,
-          "description": art.description,
-          "image": art.image,
-          "author": {
-            "@type": "Person",
-            "name": "Adithya Oshada",
-            "jobTitle": "Local Travel Planner"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Plan Sri Lanka",
-            "logo": {
-              "@type": "ImageObject",
-              "url": `${domain}/logo.png`
-            }
-          },
-          "datePublished": "2026-02-10T08:00:00Z",
-          "dateModified": "2026-06-19T10:00:00Z"
-        }, null, 2)
-      ]
+      schemas: schemas
     });
   });
 
