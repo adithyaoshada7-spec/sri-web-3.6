@@ -216,7 +216,11 @@ Departure: ${leadForm.departure}`;
     },
     {
       q: "Which Indian city has the cheapest flights?",
-      a: "Chennai (MAA) offers the cheapest direct flight tickets to Sri Lanka, with round-trips regularly starting as low as ₹9,000 - ₹12,000. Bangalore (BLR) runs closely behind with options from ₹11,000 - ₹14,000. Flights from northern or western hubs like Delhi or Mumbai are slightly premium, running upwards of ₹18,000."
+      a: (
+        <>
+          Chennai (MAA) offers the cheapest direct flight tickets to Sri Lanka, with round-trips regularly starting as low as ₹9,000 - ₹12,000. For of-the-moment flight guides and package comparisons, read our dedicated <Link to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai" className="text-luxury-gold hover:underline font-bold">Chennai to Sri Lanka trip cost guide</Link>. Bangalore (BLR) runs closely behind with options from ₹11,000 - ₹14,000. Flights from northern or western hubs like Delhi or Mumbai are slightly premium, running upwards of ₹18,000.
+        </>
+      )
     },
     {
       q: "How much does a 7 day Sri Lanka trip cost?",
@@ -490,19 +494,27 @@ Departure: ${leadForm.departure}`;
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Chennai */}
-          <div className="bg-white rounded-3xl p-8 border border-luxury-black/5 shadow-sm space-y-4 hover:border-luxury-gold/30 transition-all">
-            <h3 className="text-xl md:text-2xl font-serif text-luxury-green font-bold flex justify-between items-center border-b border-luxury-black/5 pb-3">
-              <span>Chennai to Sri Lanka Cost</span>
-              <span className="text-xs bg-luxury-green/10 text-luxury-green uppercase tracking-widest px-2.5 py-1 rounded-full font-mono font-bold">Cheapest Route</span>
-            </h3>
-            <div className="space-y-2 text-sm text-luxury-black/70">
-              <p className="flex justify-between font-mono"><span className="font-light">Direct Flights (RT):</span> <strong className="text-luxury-green">₹9,000 – ₹12,000</strong></p>
-              <p className="flex justify-between font-mono"><span className="font-light">Avg Accommodation Segment:</span> <strong>₹2,000 – ₹6,000/night</strong></p>
-              <p className="flex justify-between font-mono"><span className="font-light">Total comfortable 7-day budget:</span> <strong>₹30,000+ per seat</strong></p>
+          <div className="bg-white rounded-3xl p-8 border border-luxury-black/5 shadow-sm space-y-4 hover:border-luxury-gold/30 transition-all flex flex-col justify-between">
+            <div className="space-y-4">
+              <h3 className="text-xl md:text-2xl font-serif text-luxury-green font-bold flex justify-between items-center border-b border-luxury-black/5 pb-3">
+                <span>Chennai to Sri Lanka Cost</span>
+                <span className="text-xs bg-luxury-green/10 text-luxury-green uppercase tracking-widest px-2.5 py-1 rounded-full font-mono font-bold">Cheapest Route</span>
+              </h3>
+              <div className="space-y-2 text-sm text-luxury-black/70">
+                <p className="flex justify-between font-mono"><span className="font-light">Direct Flights (RT):</span> <strong className="text-luxury-green">₹9,000 – ₹12,000</strong></p>
+                <p className="flex justify-between font-mono"><span className="font-light">Avg Accommodation Segment:</span> <strong>₹2,000 – ₹6,000/night</strong></p>
+                <p className="flex justify-between font-mono"><span className="font-light">Total comfortable 7-day budget:</span> <strong>₹30,000+ per seat</strong></p>
+              </div>
+              <p className="text-xs text-luxury-black/50 leading-relaxed italic font-light">
+                *Pro-Tip: Direct flights out of Chennai (MAA) take barely 1 hour and frequently offer promotional fares via IndiGo or Air India.
+              </p>
             </div>
-            <p className="text-xs text-luxury-black/50 leading-relaxed italic font-light">
-              *Pro-Tip: Direct flies from Chennai (MAA) take barely 1 hour and frequently offer promotional fares via IndiGo or Air India.
-            </p>
+            <Link 
+              to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+              className="mt-6 w-full text-center block bg-luxury-green text-white hover:bg-luxury-gold hover:text-white text-xs font-bold py-3 px-4 rounded-xl transition-all"
+            >
+              Analyze Chennai Flight Schedules & Budgets →
+            </Link>
           </div>
 
           {/* Mumbai */}
