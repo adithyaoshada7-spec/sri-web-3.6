@@ -210,6 +210,28 @@ export default function SrilankaChennaiCostPillarPage() {
           </div>
         </section>
 
+        {/* Dynamic Mid-Page High-Conversion CTA for Chennai travelers */}
+        <div className="bg-gradient-to-r from-luxury-green to-[#132c21] text-white p-6 sm:p-8 rounded-3xl mb-12 shadow-md border border-[#d4af37]/20 relative overflow-hidden">
+          <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-y-4">
+            <Compass className="w-40 h-40 text-luxury-gold" />
+          </div>
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left space-y-2">
+              <span className="px-2.5 py-0.5 bg-luxury-gold/20 border border-luxury-gold/30 text-luxury-gold text-[10px] font-mono uppercase tracking-wider rounded-full font-bold">Chennai Direct Concierge</span>
+              <h4 className="text-lg sm:text-xl font-serif font-bold text-[#fcfbf7]">Planning from Chennai?</h4>
+              <p className="text-xs text-luxury-cream/80 max-w-sm font-light">
+                Get a free personalized Sri Lanka travel plan tailored to Chennai flight timings, custom budgets, and your unique style.
+              </p>
+            </div>
+            <button
+              onClick={() => handleCtaClick("mid_page_chennai_quick_cta")}
+              className="bg-luxury-gold text-white hover:bg-white hover:text-luxury-green text-xs font-bold py-3 px-6 rounded-xl transition-all flex items-center gap-1.5 shrink-0 shadow-lg group w-full md:w-auto justify-center"
+            >
+              🚀 Get Your Free Plan <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+
         {/* Quick Links Header Grid */}
         <section className="mb-12">
           <div className="bg-luxury-green/5 border border-luxury-green/10 p-5 rounded-2xl">
@@ -221,7 +243,11 @@ export default function SrilankaChennaiCostPillarPage() {
               <a href="#7day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">4. 7-Day Costs</a>
               <a href="#family" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">5. Family Budgets</a>
               <a href="#honeymoon" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">6. Honeymoon Costs</a>
-              <a href="#reduce" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">7. Saving Tips</a>
+              <a href="#itinerary-chennai" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">7. Chennai 7-Day Itinerary</a>
+              <a href="#best-time" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">8. Best Time to Visit</a>
+              <a href="#flight-schedule" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">9. Flight Schedule</a>
+              <a href="#reduce" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">10. Cost Saving Tips</a>
+              <a href="#faq" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">11. Interactive FAQs</a>
             </div>
           </div>
         </section>
@@ -508,6 +534,131 @@ export default function SrilankaChennaiCostPillarPage() {
           </div>
         </section>
 
+        {/* H2: Best 7-Day Sri Lanka Itinerary From Chennai */}
+        <section id="itinerary-chennai" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
+            <Compass className="w-6 h-6 text-[#d4af37]" />
+            Best 7-Day Sri Lanka Itinerary From Chennai
+          </h2>
+          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
+            Looking for a perfectly balanced route optimized for flights originating from Chennai? Since flights out of Anna International Airport (MAA) are short, they arrive early or mid-day, leaving your very first afternoon completely open for exploration.
+          </p>
+          <div className="space-y-4">
+            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold/50 transition-colors">
+              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 1: Arrival & Coastal Breeze</span>
+              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
+                Depart Chennai in the morning. Touch down at CMB by noon, retrieve currency, and settle in your cozy boutique beach hotel in Negombo or Bentota (approx. ₹3,500). Spend a relaxing afternoon overlooking the Indian Ocean.
+              </p>
+            </div>
+            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold/50 transition-colors">
+              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 2: The Mighty Sigiriya Rock Fortress</span>
+              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
+                Take a private AC sedan ride to the Cultural Triangle. Climb the legendary <strong>Sigiriya Lion Rock Fortress</strong> in the cool morning hours, followed by an authentic wood-fired organic village lunch.
+              </p>
+            </div>
+            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold/50 transition-colors">
+              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 3: Sacred Kandy & High-Altitude Tea Estates</span>
+              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
+                Settle in the royal castle capital of Kandy. Savor beautiful flower offerings inside the <strong>Temple of the Tooth Relic</strong> and stroll through aromatic spice forests.
+              </p>
+            </div>
+            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold/50 transition-colors">
+              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 4: Epic Highland Train Carriage to Ella</span>
+              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
+                Board the legendary blue train departing Kandy, snaking past cascading waterfalls and vast terraced tea gardens to the mist-shrouded village of Ella.
+              </p>
+            </div>
+            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold/50 transition-colors">
+              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 5: Iconic Hikes & Southern Waves</span>
+              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
+                Snap photos at the <strong>Nine Arch Bridge</strong> and hike Little Adam’s Peak. Drive down the mountain foothills for a beautiful sunset at Mirissa Beach or Weligama.
+              </p>
+            </div>
+            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold/50 transition-colors">
+              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 6: Whale Watching & UNESCO Galle Fort</span>
+              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
+                Stroll the historic cobblestone streets of <strong>UNESCO Galle Fort</strong>. Find beautiful gelato stores, chic boutiques, and colonial architectures.
+              </p>
+            </div>
+            <div className="p-5 bg-white rounded-2xl border border-[#d4af37]/25 shadow-sm bg-[#fdfaf2]">
+              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 7: Souvenirs & Flight back to Chennai</span>
+              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
+                Drive up to Colombo for some quick hand-loomed shopping, enjoy Colombo's famous crab specialties, and hop onto your short flight returning to Chennai.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* H2: Best Time to Visit Sri Lanka From Chennai */}
+        <section id="best-time" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
+            <Clock className="w-6 h-6 text-[#d4af37]" />
+            Best Time to Visit Sri Lanka From Chennai
+          </h2>
+          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
+            The climate of Sri Lanka is characterized by a "dual monsoon" cycle, meaning different sides of the island experience perfect weather at different periods of the year. This weather profile is ideal for travelers escaping the intense Chennai summer or looking for cool winter breaks:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm">
+              <strong className="text-sm font-serif text-luxury-green block mb-2">🌴 Winter Peak (December to April)</strong>
+              <p className="text-xs text-luxury-black/75 leading-relaxed font-light">
+                This is the best season to explore the South and West Coast beaches (Galle, Bentota, Hikkaduwa, Mirissa) and central hill country (Nuwara Eliya, Ella). Safe from rain, sunny, and perfect for sunset beach dining.
+              </p>
+            </div>
+            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm">
+              <strong className="text-sm font-serif text-luxury-green block mb-2">☀️ Summer Escapes (May to September)</strong>
+              <p className="text-xs text-luxury-black/75 leading-relaxed font-light">
+                If you are planning to travel during Chennai's school vacations, head to Sri Lanka's beautiful Northern and Eastern beaches (Nilaveli, Trincomalee, Passikudah) or explore historical ancient cities which remain wonderfully dry.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* H2: Chennai to Colombo Flight Schedule Guide */}
+        <section id="flight-schedule" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
+            <Plane className="w-6 h-6 text-[#d4af37]" />
+            Chennai to Colombo Flight Schedule Guide
+          </h2>
+          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
+            Thanks to the high volume of business and leisure travel between Tamil Nadu and Sri Lanka, there are multiple daily direct flights connecting Chennai (MAA) to Colombo (CMB):
+          </p>
+          <div className="overflow-hidden border border-luxury-green/10 rounded-2xl mb-6 bg-white">
+            <table className="w-full text-xs sm:text-sm text-left border-collapse">
+              <thead>
+                <tr className="bg-luxury-green/5 text-luxury-green font-mono text-[10px] uppercase border-b border-luxury-green/10">
+                  <th className="p-4">Airline</th>
+                  <th className="p-4">Flight Details</th>
+                  <th className="p-4 text-right">Luggage Rules</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-luxury-cream">
+                <tr className="hover:bg-luxury-cream/10">
+                  <td className="p-4 font-bold text-luxury-green">IndiGo Airlines</td>
+                  <td className="p-4 leading-relaxed font-light text-luxury-black/80">
+                    Multiple daily direct flights. Great for mid-morning and late evening departures.
+                  </td>
+                  <td className="p-4 text-right font-mono font-bold text-luxury-gold">15 Kg Check-in</td>
+                </tr>
+                <tr className="hover:bg-luxury-cream/10">
+                  <td className="p-4 font-bold text-luxury-green">SriLankan Airlines</td>
+                  <td className="p-4 leading-relaxed font-light text-luxury-black/80">
+                    Premium full-service airline. Daily departures. Hot inflight dining with delicious South-Asian flavors.
+                  </td>
+                  <td className="p-4 text-right font-mono font-bold text-luxury-gold">30 Kg Checked</td>
+                </tr>
+                <tr className="hover:bg-luxury-cream/10">
+                  <td className="p-4 font-bold text-luxury-green">Alliance Air / Others</td>
+                  <td className="p-4 leading-relaxed font-light text-luxury-black/80">
+                    Direct flights connecting Chennai to Jaffna (JAF) Airport—highly recommended for travelers seeking a deep cultural tour of northern Sri Lanka.
+                  </td>
+                  <td className="p-4 text-right font-mono font-bold text-luxury-gold">15 Kg Check-in</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         {/* H2: How To Reduce Your Sri Lanka Travel Cost */}
         <section id="reduce" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
@@ -546,6 +697,73 @@ export default function SrilankaChennaiCostPillarPage() {
                 Instead of expensive five-star hotel options, check out local homestay guest houses. Savor delicious organic home-style breakfasts, secure local routes advice, and spend less than ₹2,000 per night.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Interactive FAQ Accordion Area */}
+        <section id="faq" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-2 flex items-center gap-2">
+            <HelpCircle className="w-6 h-6 text-[#d4af37]" />
+            Frequently Asked Questions
+          </h2>
+          <p className="text-sm font-light text-luxury-black/75 mb-8">
+            Clear, authoritative answers to help you structure your logistics and expenses perfectly from Chennai.
+          </p>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: "Is Sri Lanka cheaper than Maldives for Chennai travelers?",
+                a: "Yes, Sri Lanka is significantly cheaper than the Maldives. While a basic 4-night stay in a Maldives overwater resort starts at ₹1,50,000+ per couple (with mandatory premium ferry/seaplane transfers costing ₹30,000+), you can complete a magnificent 7-day tour across Sri Lanka's beaches, heritage forts, and tea plantations for under ₹75,000 total per couple, including round-trip flights from Chennai."
+              },
+              {
+                q: "How much money should I carry from Chennai to Sri Lanka?",
+                a: "We recommend holding approximately ₹15,000 to ₹25,000 in physical Indian Cash (preferably clean ₹500 notes) per person to convert directly at Bandaranaike Airport (CMB) for street food, tuk-tuks, and small tips. For hotels, high-end dinners, and tickets, you can safely use standard international credit cards or zero-markup travel cards."
+              },
+              {
+                q: "Is 5 days enough for Sri Lanka?",
+                a: "Yes, 5 days is highly sufficient for a targeted 'coastal and cultural escape' from Chennai. In 5 days, you can fly into Colombo, explore the historic streets of UNESCO Galle Fort, relax on the golden beaches of Bentota/Hikkaduwa, and enjoy scenic ocean sunset views before returning. If you wish to climb Sigiriya and head deep into the central cold tea country (Ella and Nuwara Eliya), we advise dedicating a full 7-day itinerary."
+              },
+              {
+                q: "What is the cheapest month to visit Sri Lanka from Chennai?",
+                a: "The cheapest months to secure low-priced flights and off-season hotel yields from Chennai are September and October. During these shoulder-season transitional months, hotel tariffs drop up to 40% and round-trip flight tickets can be regularly booked for under ₹11,000."
+              },
+              {
+                q: "Do Indian citizens need physical visa stamps for Sri Lanka?",
+                a: "No physical stamps or embassy visits are necessary. You can apply for a Tourist Electronic Travel Authorization (ETA) online in under 24 hours. Under dynamic tourism booster schemes, the standard $20 USD visa fee is regularly waived to ₹0 for Indian passport holders."
+              }
+            ].map((item, index) => {
+              const isOpen = activeFaq === index;
+              return (
+                <div 
+                  key={index} 
+                  className="bg-white border border-luxury-green/10 rounded-2xl overflow-hidden transition-all duration-300"
+                >
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 font-serif font-bold text-sm sm:text-base text-[#1e3a2f] hover:text-luxury-gold transition-colors"
+                  >
+                    <span>{item.q}</span>
+                    <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-luxury-gold" : "text-luxury-green"}`} />
+                  </button>
+                  
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                      >
+                        <div className="px-5 sm:px-6 pb-6 border-t border-luxury-green/5 pt-4 text-xs sm:text-sm text-luxury-black/75 font-light leading-relaxed bg-[#fdfaf2]/40">
+                          {item.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
           </div>
         </section>
 
