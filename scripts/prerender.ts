@@ -293,6 +293,15 @@ function generatePrerenderPages(): PrerenderPage[] {
       </section>
 
       <section>
+        <h2>Chennai to Sri Lanka Distance</h2>
+        <p>When planning a trip, understanding the geographical proximity makes the journey feel even closer. The actual physical distance between Chennai and Sri Lanka is incredibly short, making it quicker to reach than many domestic Indian destinations.</p>
+        <ul>
+          <li><strong>Chennai &rarr; Colombo (Air Route):</strong> &asymp; 650 km</li>
+          <li><strong>Flight Duration:</strong> &asymp; 1 hour 20 minutes</li>
+        </ul>
+      </section>
+
+      <section>
         <h2>Chennai to Sri Lanka Flight Cost</h2>
         <p>The <strong>chennai to colombo flight cost</strong> represents the most economical international aviation routes from India. Non-stop flights take just about 80 minutes to land at Colombo. Regular airlines include IndiGo and SriLankan Airlines, and the <strong>cheapest flights from chennai to sri lanka</strong> can be secured online around 60 days ahead for as low as <strong>₹10,500 to ₹12,500</strong>. Last-minute searches or peak holiday solstices can elevate the <strong>chennai to colombo airfare</strong> to ₹22,000+.</p>
         <p>You can also consider our growing overland route via Alliance Air running direct from Chennai (MAA) to Jaffna (JAF) Airport, followed by a scenic speed-train connection down to Colombo.</p>
@@ -334,7 +343,8 @@ function generatePrerenderPages(): PrerenderPage[] {
 
       <section>
         <h2>Best Time to Visit Sri Lanka From Chennai</h2>
-        <p>Sri Lanka's tropical climate is moderated by a dual-monsoon blueprint, ensuring warm beach conditions all-year-round:</p>
+        <p>The climate of Sri Lanka is characterized by a "dual monsoon" cycle, meaning different sides of the island experience perfect weather at different periods of the year. This weather profile is ideal for travelers escaping the intense Chennai summer or looking for cool winter breaks.</p>
+        <p>Chennai travelers have a unique planning advantage: since the flight duration is just about 1 hour 20 minutes, any weekend, national holiday, or major festival such as Pongal, Diwali, or summer school vacations can be seamlessly transformed into a tropical escape. By matching your travel dates with the right side of the island (the West/South coast from December to April, or the East coast from May to September), you can guarantee a perfect, sun-kissed vacation without worrying about heavy rains.</p>
         <ul>
           <li><strong>Winter Season (December to April):</strong> Ideal for Galle, Hikkaduwa, Weligama beach surf and cold central hill country peaks.</li>
           <li><strong>Summer Season (May to September):</strong> Ideal for Chennai's school vacations—enjoy dry, sunny conditions along Trincomalee, Nilaveli, and historical ancient ruins.</li>
