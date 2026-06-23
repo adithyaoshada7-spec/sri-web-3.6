@@ -238,16 +238,17 @@ export default function SrilankaChennaiCostPillarPage() {
             <span className="text-[10px] font-mono text-luxury-green/60 uppercase tracking-widest font-bold block mb-3">Quick Navigation Navigation</span>
             <div className="flex flex-wrap gap-2.5 text-xs">
               <a href="#glance" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">1. At a Glance</a>
-              <a href="#flights" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">2. Chennai Flight Costs</a>
-              <a href="#5day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">3. 5-Day Costs</a>
-              <a href="#7day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">4. 7-Day Costs</a>
-              <a href="#family" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">5. Family Budgets</a>
-              <a href="#honeymoon" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">6. Honeymoon Costs</a>
-              <a href="#itinerary-chennai" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">7. Chennai 7-Day Itinerary</a>
-              <a href="#best-time" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">8. Best Time to Visit</a>
-              <a href="#flight-schedule" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">9. Flight Schedule</a>
-              <a href="#reduce" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">10. Cost Saving Tips</a>
-              <a href="#faq" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">11. Interactive FAQs</a>
+              <a href="#distance" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">2. Chennai to Sri Lanka Distance</a>
+              <a href="#flights" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">3. Chennai Flight Costs</a>
+              <a href="#5day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">4. 5-Day Costs</a>
+              <a href="#7day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">5. 7-Day Costs</a>
+              <a href="#family" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">6. Family Budgets</a>
+              <a href="#honeymoon" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">7. Honeymoon Costs</a>
+              <a href="#itinerary-chennai" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">8. Chennai 7-Day Itinerary</a>
+              <a href="#best-time" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">9. Best Time to Visit</a>
+              <a href="#flight-schedule" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">10. Flight Schedule</a>
+              <a href="#reduce" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">11. Cost Saving Tips</a>
+              <a href="#faq" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">12. Interactive FAQs</a>
             </div>
           </div>
         </section>
@@ -324,6 +325,37 @@ export default function SrilankaChennaiCostPillarPage() {
               <h4 className="font-serif font-bold text-sm text-luxury-green">Activities</h4>
               <p className="text-xs text-luxury-gold font-mono font-bold mt-1">₹4,000 - ₹8,000</p>
               <span className="text-[10px] text-luxury-black/50 block mt-1 leading-snug">Sigiriya Climb, Yala wildlife & Ella hikes.</span>
+            </div>
+          </div>
+        </section>
+
+        {/* H2: Chennai to Sri Lanka Distance */}
+        <section id="distance" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
+            <Navigation className="w-6 h-6 text-[#d4af37]" />
+            Chennai to Sri Lanka Distance
+          </h2>
+          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
+            When planning a trip, understanding the geographical proximity makes the journey feel even closer. The actual physical distance between Chennai and Sri Lanka is incredibly short, making it quicker to reach than many domestic Indian destinations.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-all flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                <MapPin className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="font-serif font-bold text-sm text-luxury-green">Chennai → Colombo (Air Route)</h4>
+                <p className="text-base font-mono font-bold text-luxury-gold mt-1">≈ 650 km</p>
+              </div>
+            </div>
+            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-all flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-green-600 shrink-0">
+                <Plane className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="font-serif font-bold text-sm text-luxury-green">Flight Duration</h4>
+                <p className="text-base font-mono font-bold text-luxury-gold mt-1">≈ 1 hour 20 minutes</p>
+              </div>
             </div>
           </div>
         </section>
@@ -596,7 +628,10 @@ export default function SrilankaChennaiCostPillarPage() {
             Best Time to Visit Sri Lanka From Chennai
           </h2>
           <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            The climate of Sri Lanka is characterized by a "dual monsoon" cycle, meaning different sides of the island experience perfect weather at different periods of the year. This weather profile is ideal for travelers escaping the intense Chennai summer or looking for cool winter breaks:
+            The climate of Sri Lanka is characterized by a "dual monsoon" cycle, meaning different sides of the island experience perfect weather at different periods of the year. This weather profile is ideal for travelers escaping the intense Chennai summer or looking for cool winter breaks.
+          </p>
+          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
+            Chennai travelers have a unique planning advantage: since the flight duration is just about 1 hour 20 minutes, any weekend, national holiday, or major festival such as Pongal, Diwali, or summer school vacations can be seamlessly transformed into a tropical escape. By matching your travel dates with the right side of the island (the West/South coast from December to April, or the East coast from May to September), you can guarantee a perfect, sun-kissed vacation without worrying about heavy rains.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm">

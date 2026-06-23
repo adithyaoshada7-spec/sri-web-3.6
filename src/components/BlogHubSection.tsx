@@ -101,83 +101,140 @@ export const BlogHubSection: React.FC = () => {
           </div>
           <div className="shrink-0">
             <span className="hidden md:inline-flex items-center gap-2 text-xs font-mono text-[#3a4d44]/60 uppercase tracking-widest bg-[#1e3a2f]/5 px-4 py-2 rounded-full">
-              <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" /> 5 Master Blueprints Available
+              <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" /> 9 Master Blueprints & Tools
             </span>
           </div>
         </div>
 
-        {/* Bento / Beautiful Grid of 5 Articles */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {seoArticles.map((article: Seometa, idx: number) => {
-            const meta = getArticleMeta(article.path);
-            const isFeatured = idx === 4; // Highlight the 12-Day family itinerary nicely if it's the last one
+        {/* DISTINCT INTERACTIVE TOOLS BANNER SECTION */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-2">
+            <span className="px-3 py-1 rounded-full bg-[#1e3a2f] text-[#d4af37] text-[10px] font-mono tracking-widest uppercase font-bold">
+              ⚡ Interactive Planners
+            </span>
+            <span className="text-xs font-mono opacity-50">Real-time route calculation & master blueprints</span>
+          </div>
 
-            return (
-              <Link
-                key={article.path}
-                to={article.path}
-                onClick={() => trackEvent("blog_hub_card_click", "engagement", article.path)}
-                className={`group flex flex-col justify-between bg-white rounded-[28px] border border-[#1e3a2f]/5 hover:border-[#d4af37] hover:shadow-2xl transition-all duration-500 overflow-hidden ${
-                  isFeatured ? "md:col-span-2 lg:col-span-1" : ""
-                }`}
-              >
-                <div>
-                  {/* Image Header with Badge and Zoom */}
-                  <div className="relative h-56 md:h-64 overflow-hidden bg-neutral-100">
-                    <img
-                      src={article.image}
-                      alt={article.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms]"
-                      referrerPolicy="no-referrer"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
-                    
-                    {/* Floating pill tags */}
-                    <div className="absolute top-4 left-4 flex gap-2">
-                      <span className="px-3 py-1 text-[9px] uppercase tracking-wider font-bold bg-[#1e3a2f] text-white rounded-full">
-                        {meta.tag}
-                      </span>
-                      <span className="px-3 py-1 text-[9px] uppercase tracking-wider font-bold bg-[#d4af37] text-white rounded-full">
-                        {meta.badge}
-                      </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {seoArticles
+              .filter(art => art.path === "/how-to-plan-a-trip-to-sri-lanka" || art.path === "/sri-lanka-trip-planner")
+              .map(tool => (
+                <Link
+                  key={tool.path}
+                  to={tool.path}
+                  onClick={() => trackEvent("blog_hub_tool_click", "engagement", tool.path)}
+                  className="group relative flex flex-col justify-between p-6 md:p-8 rounded-[28px] bg-[#1a382b] border-2 border-[#d4af37]/40 hover:border-[#d4af37] text-white shadow-xl hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-[#d4af37]">
+                      <span>{tool.path === "/sri-lanka-trip-planner" ? "Live Decision Engine" : "Master Handbook"}</span>
+                      <span className="bg-[#d4af37] text-black px-2 py-0.5 rounded font-bold">Tool</span>
                     </div>
-                  </div>
-
-                  {/* Body Text */}
-                  <div className="p-6 md:p-8 space-y-4">
-                    <div className="flex justify-between items-center text-[10px] font-mono text-neutral-400">
-                      <span className="flex items-center gap-1">
-                        {meta.icon}
-                        {meta.category}
-                      </span>
-                      <span>{meta.readTime}</span>
-                    </div>
-
-                    <h3 className="font-serif font-bold text-lg md:text-xl text-[#1e3a2f] group-hover:text-[#d4af37] transition-colors leading-snug">
-                      {article.title.replace(/\s\|\s.*$/, "")} {/* Keep the title beautiful and clean */}
+                    <h3 className="text-xl md:text-2xl font-serif font-bold group-hover:text-[#d4af37] transition-colors">
+                      {tool.title.replace(/\s\|\s.*$/, "")}
                     </h3>
-
-                    <p className="text-xs text-[#3a4d44]/80 font-light leading-relaxed line-clamp-3">
-                      {article.description}
+                    <p className="text-xs text-white/80 font-light leading-relaxed">
+                      {tool.description}
                     </p>
                   </div>
-                </div>
-
-                {/* Footer Action */}
-                <div className="px-6 md:px-8 pb-8 pt-2">
-                  <div className="flex items-center justify-between pt-4 border-t border-[#1e3a2f]/5 group-hover:border-[#d4af37]/30 transition-colors">
-                    <span className="text-[10px] font-mono uppercase tracking-widest font-semibold text-[#1e3a2f]/60 group-hover:text-[#d4af37] transition-colors">
-                      Unlock Blueprint
-                    </span>
-                    <div className="w-8 h-8 rounded-full border border-neutral-200 group-hover:border-[#d4af37] group-hover:bg-[#1e3a2f] group-hover:text-white flex items-center justify-center transition-all duration-300">
-                      <ArrowRight className="w-3.5 h-3.5 text-[#1e3a2f] group-hover:text-[#d4af37] group-hover:translate-x-0.5 transition-transform" />
-                    </div>
+                  <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/10 text-xs font-mono uppercase text-[#d4af37] font-bold">
+                    <span>{tool.path === "/sri-lanka-trip-planner" ? "Launch Coordinator →" : "Read Pillar Map →"}</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
-                </div>
-              </Link>
-            );
-          })}
+                </Link>
+              ))}
+          </div>
+        </div>
+
+        {/* REGULAR TRAVEL ARTICLES COLLECTION */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between border-b border-[#1e3a2f]/10 pb-4">
+            <h3 className="font-serif font-bold text-2xl text-[#1e3a2f]">
+              Field-Tested Guides & Financial Dossiers
+            </h3>
+            <Link to="/blog" className="text-xs font-mono uppercase tracking-widest font-bold text-[#d4af37] hover:underline flex items-center gap-1">
+              View All Categorized Guides Hub →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {seoArticles
+              .filter(art => art.path !== "/how-to-plan-a-trip-to-sri-lanka" && art.path !== "/sri-lanka-trip-planner")
+              .slice(0, 6)
+              .map((article: Seometa, idx: number) => {
+                const meta = getArticleMeta(article.path);
+
+                return (
+                  <Link
+                    key={article.path}
+                    to={article.path}
+                    onClick={() => trackEvent("blog_hub_card_click", "engagement", article.path)}
+                    className="group flex flex-col justify-between bg-white rounded-[28px] border border-[#1e3a2f]/5 hover:border-[#d4af37] hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                  >
+                    <div>
+                      <div className="relative h-56 overflow-hidden bg-neutral-100">
+                        <img
+                          src={article.image}
+                          alt={article.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms]"
+                          referrerPolicy="no-referrer"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
+                        
+                        <div className="absolute top-4 left-4 flex gap-2">
+                          <span className="px-3 py-1 text-[9px] uppercase tracking-wider font-bold bg-[#1e3a2f] text-white rounded-full">
+                            {meta.tag}
+                          </span>
+                          <span className="px-3 py-1 text-[9px] uppercase tracking-wider font-bold bg-[#d4af37] text-white rounded-full">
+                            {meta.badge}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="p-6 md:p-8 space-y-4">
+                        <div className="flex justify-between items-center text-[10px] font-mono text-neutral-400">
+                          <span className="flex items-center gap-1">
+                            {meta.icon}
+                            {meta.category}
+                          </span>
+                          <span>{meta.readTime}</span>
+                        </div>
+
+                        <h3 className="font-serif font-bold text-lg text-[#1e3a2f] group-hover:text-[#d4af37] transition-colors leading-snug">
+                          {article.title.replace(/\s\|\s.*$/, "")}
+                        </h3>
+
+                        <p className="text-xs text-[#3a4d44]/80 font-light leading-relaxed line-clamp-3">
+                          {article.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="px-6 md:px-8 pb-8 pt-2">
+                      <div className="flex items-center justify-between pt-4 border-t border-[#1e3a2f]/5 group-hover:border-[#d4af37]/30 transition-colors">
+                        <span className="text-[10px] font-mono uppercase tracking-widest font-semibold text-[#1e3a2f]/60 group-hover:text-[#d4af37] transition-colors">
+                          Unlock Blueprint
+                        </span>
+                        <div className="w-8 h-8 rounded-full border border-neutral-200 group-hover:border-[#d4af37] group-hover:bg-[#1e3a2f] group-hover:text-white flex items-center justify-center transition-all duration-300">
+                          <ArrowRight className="w-3.5 h-3.5 text-[#1e3a2f] group-hover:text-[#d4af37] group-hover:translate-x-0.5 transition-transform" />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+          </div>
+
+          <div className="flex justify-center pt-8">
+            <Link
+              to="/blog"
+              onClick={() => trackEvent("blog_hub_view_all_cta", "engagement", "homepage")}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#1e3a2f] text-white hover:bg-[#d4af37] hover:text-black transition-all font-bold tracking-widest uppercase text-xs shadow-xl"
+            >
+              📚 Explore Complete Categorized Blog Library →
+            </Link>
+          </div>
         </div>
 
         {/* Quick Help Callout for Mobile Connections */}

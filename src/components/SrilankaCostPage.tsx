@@ -216,6 +216,7 @@ Departure: ${leadForm.departure}`;
     },
     {
       q: "Which Indian city has the cheapest flights?",
+      plainText: "Chennai (MAA) offers the cheapest direct flight tickets to Sri Lanka, with round-trips regularly starting as low as ₹9,000 - ₹12,000. For of-the-moment flight guides and package comparisons, read our dedicated Chennai to Sri Lanka trip cost guide. Bangalore (BLR) runs closely behind with options from ₹11,000 - ₹14,000. Flights from northern or western hubs like Delhi or Mumbai are slightly premium, running upwards of ₹18,000.",
       a: (
         <>
           Chennai (MAA) offers the cheapest direct flight tickets to Sri Lanka, with round-trips regularly starting as low as ₹9,000 - ₹12,000. For of-the-moment flight guides and package comparisons, read our dedicated <Link to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai" className="text-luxury-gold hover:underline font-bold">Chennai to Sri Lanka trip cost guide</Link>. Bangalore (BLR) runs closely behind with options from ₹11,000 - ₹14,000. Flights from northern or western hubs like Delhi or Mumbai are slightly premium, running upwards of ₹18,000.
@@ -310,7 +311,7 @@ Departure: ${leadForm.departure}`;
               "name": faq.q,
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": faq.a
+                "text": (faq as any).plainText || (typeof faq.a === 'string' ? faq.a : "")
               }
             }))
           })}

@@ -48,6 +48,7 @@ const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
 const FaqAccordion = lazy(() => import("./components/FaqAccordion"));
 const BlogHubSection = lazy(() => import("./components/BlogHubSection"));
+const BlogIndexPage = lazy(() => import("./components/BlogIndexPage"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -317,6 +318,7 @@ export default function App() {
             <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">The Collection</Link>
             <Link to="/sri-lanka-trip-cost-from-india" className="hover:text-luxury-gold transition-colors">Trip Costs</Link>
             <Link to="/how-to-plan-a-trip-to-sri-lanka" className="hover:text-luxury-gold transition-colors">Trip Planner</Link>
+            <Link to="/blog" className="hover:text-luxury-gold transition-colors block">Library (Blog)</Link>
             <Link to="/sri-lanka-visa-for-indians" className="hover:text-luxury-gold transition-colors text-luxury-gold font-bold">Visa Guide</Link>
             <a href="#concierge" className="hover:text-luxury-gold transition-colors">Concierge Desk</a>
             <a 
@@ -593,6 +595,36 @@ export default function App() {
             <ExperienceDetail />
           </Suspense>
         } />
+
+        <Route path="/blog" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <BlogIndexPage />
+          </Suspense>
+        } />
+
+        <Route path="/guides" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <BlogIndexPage />
+          </Suspense>
+        } />
+
+        <Route path="/travel-blog" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <BlogIndexPage />
+          </Suspense>
+        } />
       </Routes>
 
       {/* Footer */}
@@ -659,16 +691,53 @@ export default function App() {
             </div>
           </div>
 
-          {/* Blogs / Curated Travel Guides list */}
+          {/* INTERACTIVE PLANNING TOOLS DEDICATED SECTION */}
           <div className="space-y-4">
             <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#d4af37] font-bold block">
-              Expert Travel Blueprints (Blogs)
+              🛠️ Interactive Trip Planners (Tools)
             </span>
             <div className="space-y-3">
               {[
-                { title: "Sri Lanka Trip Planner (Guides)", path: "/how-to-plan-a-trip-to-sri-lanka", badge: "Master Pillar", desc: "Build your perfect Sri Lanka itinerary step-by-step." },
-                { title: "Bespoke Trip & Route Planner", path: "/sri-lanka-trip-planner", badge: "Decision Tool", desc: "Select the perfect climate cluster & save driving hours." },
-                { title: "Where to Go in June (2026)", path: "/where-to-go-in-sri-lanka-in-june", badge: "June Weather", desc: "Which coast to choose to beat the monsoons." },
+                { title: "Master Trip Planner Guide (Tool)", path: "/how-to-plan-a-trip-to-sri-lanka", badge: "Interactive Pillar", desc: "Build your perfect Sri Lanka itinerary step-by-step." },
+                { title: "Bespoke Route & Cost Engine", path: "/sri-lanka-trip-planner", badge: "Live Tool", desc: "Select climate clusters & calculate driving hours." }
+              ].map((tool, idx) => (
+                <Link
+                  key={idx}
+                  to={tool.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-4 rounded-2xl bg-[#1a382b] border-2 border-[#d4af37]/40 hover:border-[#d4af37] transition-all flex justify-between items-center group"
+                >
+                  <div className="space-y-1">
+                    <span className="text-[8px] uppercase font-mono font-bold bg-[#d4af37] text-black px-2 py-0.5 rounded">
+                      {tool.badge}
+                    </span>
+                    <p className="font-serif font-bold text-sm text-white group-hover:text-[#d4af37] leading-tight">
+                      {tool.title}
+                    </p>
+                    <p className="text-[10px] text-white/70 font-light">
+                      {tool.desc}
+                    </p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform shrink-0 ml-3" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Blogs / Curated Travel Guides list */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#d4af37] font-bold block">
+                📚 Travel Guides & Articles (Blog)
+              </span>
+              <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="text-[10px] text-[#d4af37] underline font-bold">
+                View All Hub →
+              </Link>
+            </div>
+            <div className="space-y-3">
+              {[
+                { title: "Chennai to Sri Lanka Package Cost", path: "/how-much-will-it-take-to-visit-sri-lanka-from-chennai", badge: "Chennai Gateway", desc: "Short flight schedules & budget hacks." },
+                { title: "Where to Go in June (2026)", path: "/where-to-go-in-sri-lanka-in-june", badge: "June Weather", desc: "Which coast to choose to beat monsoons." },
                 { title: "12-Day Family Itinerary with Kids", path: "/sri-lanka-family-itinerary", badge: "Kids Fun • 2026", desc: "Custom low-fatigue routes & baby safety." },
                 { title: "7-Day Sri Lanka Classic Itinerary", path: "/sri-lanka-7-day-itinerary", badge: "Most Popular", desc: "Ready-to-use perfect first trip loop." },
                 { title: "Best Time to Visit Sri Lanka Guide", path: "/best-time-to-visit-sri-lanka", badge: "Weather Guide", desc: "Dual monsoon & seasonal months." },
@@ -698,6 +767,13 @@ export default function App() {
                 </Link>
               ))}
             </div>
+            <Link
+              to="/blog"
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full mt-4 p-3 bg-[#d4af37] text-black text-center font-bold text-xs uppercase tracking-wider rounded-xl block shadow-lg"
+            >
+              📖 Open Full Travel Blog Hub Page →
+            </Link>
           </div>
         </div>
 
