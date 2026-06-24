@@ -338,7 +338,7 @@ export default function SrilankaChennaiCostPillarPage() {
           <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
             When planning a trip, understanding the geographical proximity makes the journey feel even closer. The actual physical distance between Chennai and Sri Lanka is incredibly short, making it quicker to reach than many domestic Indian destinations.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-all flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
                 <MapPin className="w-6 h-6" />
@@ -357,6 +357,25 @@ export default function SrilankaChennaiCostPillarPage() {
                 <p className="text-base font-mono font-bold text-luxury-gold mt-1">≈ 1 hour 20 minutes</p>
               </div>
             </div>
+          </div>
+
+          <div className="overflow-x-auto rounded-xl border border-luxury-green/10 bg-white p-2">
+            <table className="w-full text-left text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2]">
+                  <th className="p-4 font-serif font-bold text-luxury-green">Route</th>
+                  <th className="p-4 font-serif font-bold text-luxury-green">Distance</th>
+                  <th className="p-4 font-serif font-bold text-luxury-green">Flight Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-luxury-green/5 hover:bg-[#fdfaf2]/40 transition-colors">
+                  <td className="p-4 font-medium text-[#333333]">Chennai to Colombo</td>
+                  <td className="p-4 font-mono text-luxury-gold font-bold">650 km</td>
+                  <td className="p-4 font-medium text-[#333333]">1h 20m</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 

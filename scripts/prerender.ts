@@ -295,10 +295,22 @@ function generatePrerenderPages(): PrerenderPage[] {
       <section>
         <h2>Chennai to Sri Lanka Distance</h2>
         <p>When planning a trip, understanding the geographical proximity makes the journey feel even closer. The actual physical distance between Chennai and Sri Lanka is incredibly short, making it quicker to reach than many domestic Indian destinations.</p>
-        <ul>
-          <li><strong>Chennai &rarr; Colombo (Air Route):</strong> &asymp; 650 km</li>
-          <li><strong>Flight Duration:</strong> &asymp; 1 hour 20 minutes</li>
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Route</th>
+              <th>Distance</th>
+              <th>Flight Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Chennai to Colombo</td>
+              <td>650 km</td>
+              <td>1h 20m</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section>
