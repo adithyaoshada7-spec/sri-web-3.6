@@ -227,8 +227,8 @@ function generatePrerenderPages(): PrerenderPage[] {
     `,
     "/sri-lanka-7-day-itinerary": `
       <header>
-        <h1>Sri Lanka 7-Day Itinerary (2026): Costs, Route & June Travel Guide</h1>
-        <p><strong>Proven Linear Itinerary optimized for Indian and high-net-worth travellers visiting Sri Lanka for the first time. Experience golden beaches, majestic mountains, history, and a private wildlife safari inside 7 action-packed days.</strong></p>
+        <h1>Sri Lanka 7-Day Itinerary: The Perfect Route for First-Time Visitors</h1>
+        <p><strong>Planning your first trip to Sri Lanka? Follow this optimized 7-day itinerary with daily routes, travel times, estimated costs, interactive maps, and a free customizable trip planner.</strong></p>
       </header>
       <section>
         <h2>The Perfect 7-Day Day-by-Day Route</h2>
