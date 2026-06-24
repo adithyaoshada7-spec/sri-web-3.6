@@ -33,8 +33,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaItineraryPage() {
   usePageMetadata({
-    title: "Sri Lanka 7-Day Itinerary (2026): Costs, Route & June Travel Guide",
-    description: "The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF.",
+    title: "Sri Lanka 7-Day Itinerary: The Perfect Route for First-Time Visitors",
+    description: "Planning your first trip to Sri Lanka? Follow this optimized 7-day itinerary with daily routes, travel times, estimated costs, interactive maps, and a free customizable trip planner.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-7-day-itinerary",
     ogUrl: "https://plan-srilanka.com/sri-lanka-7-day-itinerary"
   });
@@ -339,29 +339,32 @@ Please send my customized PDF itinerary and guide. Thank you!`;
           SEO SCHEMAS & METADATA
           ========================================================================= */}
       <>
-        {/* Article Schema */}
+        {/* WebPage Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Sri Lanka 7-Day Itinerary (2026): Costs, Route & June Travel Guide",
-            "image": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
-            "author": {
-              "@type": "Person",
-              "name": "Adithya Oshada",
-              "jobTitle": "Local Travel Planner"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Plan Sri Lanka",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://plan-srilanka.com/logo.png"
-              }
-            },
-            "datePublished": "2026-02-10T08:00:00Z",
-            "dateModified": "2026-06-24T17:00:00Z",
-            "description": "The ultimate optimized 7-day Sri Lanka itinerary: Negombo, Sigiriya, Kandy, Ella train, Yala leopard safari, Galle Fort, and Colombo. Get daily cost guides, June monsoon updates, and free PDF."
+            "@type": "WebPage",
+            "@id": "https://plan-srilanka.com/sri-lanka-7-day-itinerary#webpage",
+            "url": "https://plan-srilanka.com/sri-lanka-7-day-itinerary",
+            "name": "Sri Lanka 7-Day Itinerary: The Perfect Route for First-Time Visitors",
+            "description": "Planning your first trip to Sri Lanka? Follow this optimized 7-day itinerary with daily routes, travel times, estimated costs, interactive maps, and a free customizable trip planner.",
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://plan-srilanka.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "7-Day Itinerary",
+                  "item": "https://plan-srilanka.com/sri-lanka-7-day-itinerary"
+                }
+              ]
+            }
           })}
         </script>
 
@@ -387,25 +390,19 @@ Please send my customized PDF itinerary and guide. Thank you!`;
           })}
         </script>
 
-        {/* HowTo Step Schema */}
+        {/* ItemList Schema (Day 1–7 itinerary) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "HowTo",
-            "name": "7-Day Sri Lanka Route Itinerary Strategy",
-            "description": "The ultimate day-by-day travel guide and optimized loop to experience Sri Lanka in exactly 7 days.",
-            "image": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
-            "totalTime": "P7D",
-            "estimatedCost": {
-              "@type": "MonetaryAmount",
-              "currency": "INR",
-              "value": "62000"
-            },
-            "step": mapWaypoints.map(wp => ({
-              "@type": "HowToStep",
+            "@type": "ItemList",
+            "name": "Sri Lanka 7-Day Itinerary Days",
+            "description": "Day-by-day stops and activities for a perfect 7-day Sri Lanka trip.",
+            "numberOfItems": 7,
+            "itemListElement": mapWaypoints.map(wp => ({
+              "@type": "ListItem",
+              "position": wp.day,
               "name": `Day ${wp.day}: ${wp.city}`,
-              "text": wp.highlight,
-              "url": `https://plan-srilanka.com/sri-lanka-7-day-itinerary#day-${wp.day}`
+              "description": `${wp.highlight}. ${wp.tip}`
             }))
           })}
         </script>
