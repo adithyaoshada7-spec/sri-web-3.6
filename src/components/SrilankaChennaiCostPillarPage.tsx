@@ -30,8 +30,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaChennaiCostPillarPage() {
   usePageMetadata({
-    title: "How Much Will It Take to Visit Sri Lanka From Chennai? (2026 Cost Guide)",
-    description: "Calculate your Sri Lanka trip cost from Chennai including flights, hotels, visa, food and transport. See family, honeymoon and budget estimates.",
+    title: "How Much Will It Cost to Visit Sri Lanka From Chennai? | Budget Guide",
+    description: "Find the real cost of visiting Sri Lanka from Chennai. Compare 5-day, 7-day, family and honeymoon budgets, flight prices, hotels and transport costs.",
     canonicalUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
     ogUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
   });
@@ -66,8 +66,8 @@ export default function SrilankaChennaiCostPillarPage() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "How Much Will It Take to Visit Sri Lanka From Chennai? (2026 Cost Guide)",
-            "description": "Your ultimate master budget publication tracking flights, visas, hotels, dining, local transits, and itineraries from Chennai to Sri Lanka.",
+            "headline": "How Much Will It Cost to Visit Sri Lanka From Chennai? | Budget Guide",
+            "description": "Find the real cost of visiting Sri Lanka from Chennai. Compare 5-day, 7-day, family and honeymoon budgets, flight prices, hotels and transport costs.",
             "image": [
               "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630"
             ],
@@ -135,16 +135,16 @@ export default function SrilankaChennaiCostPillarPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#f3e5ab] px-3.5 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wider backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-luxury-gold" />
-            Ultimate 2026 Budget Blueprint
+            Simple 2026 Budget Guide
           </div>
           
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#fcfbf7] font-bold leading-tight tracking-tight max-w-4xl mx-auto">
-            How Much Will It Take to Visit Sri Lanka From Chennai? <br/>
-            <span className="text-luxury-gold font-normal italic">(2026 Cost Guide)</span>
+            How Much Will It Cost to Visit Sri Lanka From Chennai? <br/>
+            <span className="text-luxury-gold font-normal italic">(Budget Guide)</span>
           </h1>
           
           <p className="mt-6 text-base sm:text-lg text-luxury-cream/80 max-w-2xl mx-auto font-light leading-relaxed">
-            Planning a short escape from the Chennai heat? Sri Lanka is just an 80-minute flight away. This authoritative guide lays out physical costs, flight paths, visa configurations, hotel tiers, and exact calculations for Indian travelers.
+            Planning a short escape from the Chennai heat? Sri Lanka is just an 80-minute flight away. This guide shows you the real costs of flights, visa rules, hotels, and daily budgets.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4 justify-center items-center text-xs text-luxury-cream/70 font-mono">
@@ -237,7 +237,7 @@ export default function SrilankaChennaiCostPillarPage() {
           <div className="bg-luxury-green/5 border border-luxury-green/10 p-5 rounded-2xl">
             <span className="text-[10px] font-mono text-luxury-green/60 uppercase tracking-widest font-bold block mb-3">Quick Navigation Navigation</span>
             <div className="flex flex-wrap gap-2.5 text-xs">
-              <a href="#glance" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">1. At a Glance</a>
+              <a href="#glance" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">1. Cost Breakdown</a>
               <a href="#distance" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">2. Chennai to Sri Lanka Distance</a>
               <a href="#flights" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">3. Chennai Flight Costs</a>
               <a href="#5day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">4. 5-Day Costs</a>
@@ -309,14 +309,14 @@ export default function SrilankaChennaiCostPillarPage() {
           </div>
         </div>
 
-        {/* H2: Sri Lanka Trip Cost From Chennai at a Glance */}
+        {/* H2: Sri Lanka Trip Cost From Chennai Breakdown */}
         <section id="glance" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
             <CheckCircle2 className="w-6 h-6 text-[#d4af37]" />
-            Sri Lanka Trip Cost From Chennai at a Glance
+            Sri Lanka Trip Cost From Chennai Breakdown
           </h2>
           <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-8">
-            How does the pocket math split? When you embark on a <strong>sri lanka travel cost from chennai</strong> audit, expenses partition into five elemental blocks, allowing you to fine-tune your outlays individually.
+            How do you plan your expenses? When estimating your <strong>sri lanka travel cost from chennai</strong>, budgets can be split into five main categories so you can plan easily.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
@@ -326,7 +326,7 @@ export default function SrilankaChennaiCostPillarPage() {
               </div>
               <h4 className="font-serif font-bold text-sm text-luxury-green">Flights</h4>
               <p className="text-xs text-luxury-gold font-mono font-bold mt-1">₹10,000 - ₹18,000</p>
-              <span className="text-[10px] text-luxury-black/50 block mt-1 leading-snug">MAA - CMB round trip per occupant.</span>
+              <span className="text-[10px] text-luxury-black/50 block mt-1 leading-snug">Return ticket if booked early.</span>
             </div>
 
             <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-all text-center">

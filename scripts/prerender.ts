@@ -245,13 +245,13 @@ function generatePrerenderPages(): PrerenderPage[] {
     `,
     "/how-much-will-it-take-to-visit-sri-lanka-from-chennai": `
       <header>
-        <h1>How Much Will It Take to Visit Sri Lanka From Chennai? (2026 Cost Guide)</h1>
-        <p><strong>Your ultimate master budget guide tracking actual flight pricing, lodging, food, local transits, and itineraries from Chennai to Sri Lanka. Connect to our interactive trip planner and get a tailored day-by-day map instantly.</strong></p>
+        <h1>How Much Will It Cost to Visit Sri Lanka From Chennai? | Budget Guide</h1>
+        <p><strong>Find the real cost of visiting Sri Lanka from Chennai. Compare 5-day, 7-day, family and honeymoon budgets, flight prices, hotels and transport costs.</strong></p>
       </header>
 
       <section>
         <h2>Quick Answer (Featured Snippet Guide)</h2>
-        <p>Planning travel from Chennai (MAA) to Sri Lanka (CMB)? A <strong>5-day budget trip starts from ₹25,000 to ₹40,000 per person</strong>. Couples seeking a comfortable <strong>mid-range boutique experience spend ₹45,000 to ₹75,000</strong>, and bespoke <strong>luxury journeys cost ₹90,000+ per traveler</strong>.</p>
+        <p>Planning travel from Chennai (MAA) to Sri Lanka (CMB)? A <strong>5-day budget trip starts from ₹25,000 to ₹40,000 per person</strong>. Couples seeking a comfortable <strong>mid-range boutique experience spend ₹45,000 to ₹75,000</strong>, and premium <strong>luxury trips cost ₹90,000+ per traveler</strong>.</p>
         
         <table>
           <thead>
@@ -281,8 +281,8 @@ function generatePrerenderPages(): PrerenderPage[] {
       </section>
 
       <section>
-        <h2>Sri Lanka Trip Cost From Chennai at a Glance</h2>
-        <p>Your overall <strong>sri lanka travel cost from chennai</strong> splits cleanly into five main expenditure vectors:</p>
+        <h2>Sri Lanka Trip Cost From Chennai Breakdown</h2>
+        <p>Your overall <strong>sri lanka travel cost from chennai</strong> splits cleanly into five main areas:</p>
         <ul>
           <li><strong>Flights:</strong> ₹10,000 - ₹18,000 for standard direct round trips.</li>
           <li><strong>Hotels:</strong> ₹3,500 - ₹12,000+ per night depending on boutique settings.</li>
@@ -315,7 +315,7 @@ function generatePrerenderPages(): PrerenderPage[] {
 
       <section>
         <h2>Chennai to Sri Lanka Flight Cost</h2>
-        <p>The <strong>chennai to colombo flight cost</strong> represents the most economical international aviation routes from India. Non-stop flights take just about 80 minutes to land at Colombo. Regular airlines include IndiGo and SriLankan Airlines, and the <strong>cheapest flights from chennai to sri lanka</strong> can be secured online around 60 days ahead for as low as <strong>₹10,500 to ₹12,500</strong>. Last-minute searches or peak holiday solstices can elevate the <strong>chennai to colombo airfare</strong> to ₹22,000+.</p>
+        <p>The <strong>chennai to colombo flight cost</strong> represents the most economical international aviation routes from India. Non-stop flights take just about 80 minutes to land at Colombo. Regular airlines include IndiGo and SriLankan Airlines, and the <strong>cheapest flights from chennai to sri lanka</strong> can be secured online around 60 days ahead for as low as <strong>₹10,500 to ₹12,500</strong>. Last-minute searches or peak holiday seasons can elevate the <strong>chennai to colombo airfare</strong> to ₹22,000+.</p>
         <p>You can also consider our growing overland route via Alliance Air running direct from Chennai (MAA) to Jaffna (JAF) Airport, followed by a scenic speed-train connection down to Colombo.</p>
       </section>
 
@@ -335,7 +335,7 @@ function generatePrerenderPages(): PrerenderPage[] {
       </section>
 
       <section>
-        <h2>Sri Lanka Honeymoon Cost From Chennai</h2>
+        <h2>Sri Lanka Honeymoon Package Cost From Chennai</h2>
         <p>A romantic <strong>sri lanka honeymoon package from chennai</strong> delivers extreme value. For about <strong>₹95,000 to ₹1,40,000 per couple</strong>, you can secure private oceanfront plunge pool villas, candlelit beach dinners, couples' spa therapies, and beautiful tea-estate plantation lodging.</p>
       </section>
 
