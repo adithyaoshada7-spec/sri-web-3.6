@@ -30,8 +30,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaChennaiCostPillarPage() {
   usePageMetadata({
-    title: "How Much Will It Take to Visit Sri Lanka From Chennai? (2026 Cost Breakdown)",
-    description: "The complete 2026 cost guide for traveling from Chennai to Sri Lanka. Flights, visas, hotels, transit, and daily cost breakdowns for families & honeymoons.",
+    title: "How Much Will It Take to Visit Sri Lanka From Chennai? (2026 Cost Guide)",
+    description: "Calculate your Sri Lanka trip cost from Chennai including flights, hotels, visa, food and transport. See family, honeymoon and budget estimates.",
     canonicalUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
     ogUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
   });
@@ -66,7 +66,7 @@ export default function SrilankaChennaiCostPillarPage() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "How Much Will It Take to Visit Sri Lanka From Chennai? (2026 Cost Breakdown)",
+            "headline": "How Much Will It Take to Visit Sri Lanka From Chennai? (2026 Cost Guide)",
             "description": "Your ultimate master budget publication tracking flights, visas, hotels, dining, local transits, and itineraries from Chennai to Sri Lanka.",
             "image": [
               "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630"
@@ -140,7 +140,7 @@ export default function SrilankaChennaiCostPillarPage() {
           
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#fcfbf7] font-bold leading-tight tracking-tight max-w-4xl mx-auto">
             How Much Will It Take to Visit Sri Lanka From Chennai? <br/>
-            <span className="text-luxury-gold font-normal italic">(2026 Cost Breakdown)</span>
+            <span className="text-luxury-gold font-normal italic">(2026 Cost Guide)</span>
           </h1>
           
           <p className="mt-6 text-base sm:text-lg text-luxury-cream/80 max-w-2xl mx-auto font-light leading-relaxed">
@@ -253,20 +253,58 @@ export default function SrilankaChennaiCostPillarPage() {
           </div>
         </section>
 
-        {/* Dynamic Inner Link Box to keep visitors circulating through other pages */}
-        <div className="bg-luxury-cream border-l-4 border-[#d4af37] p-5 rounded-r-2xl mb-12 text-xs text-luxury-green">
-          <p className="font-bold uppercase tracking-wide text-[10px] text-luxury-gold mb-2 flex items-center gap-1.5">
-            <Info className="w-3.5 h-3.5" /> Core Internal Travel Blueprints:
+        {/* Dynamic Inner Link Box: Sequential Planning Pipeline */}
+        <div className="bg-white border-2 border-luxury-gold/20 p-6 sm:p-8 rounded-3xl mb-12 shadow-sm">
+          <p className="font-bold uppercase tracking-widest text-[11px] text-luxury-gold mb-4 flex items-center gap-1.5 font-mono">
+            <Info className="w-4 h-4" /> Sri Lanka Planning Pipeline (Step-by-Step):
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 font-semibold text-luxury-green">
-            <Link to="/sri-lanka-trip-cost-from-india" className="block p-3.5 bg-white rounded-xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-colors hover:text-luxury-gold">
-              👉 Sri Lanka Trip Cost From India
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-stretch relative">
+            <Link to="/how-to-plan-a-trip-to-sri-lanka" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
+              <div>
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 1</span>
+                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Sri Lanka Trip Planner</h4>
+                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Our master step-by-step master planner guide.</p>
+              </div>
+              <div className="mt-4 flex items-center justify-end text-luxury-gold">
+                <span className="text-[10px] font-bold mr-1">Read Guide</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
             </Link>
-            <Link to="/sri-lanka-7-day-itinerary" className="block p-3.5 bg-white rounded-xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-colors hover:text-luxury-gold">
-              👉 Sri Lanka 7-Day Itinerary Guide
+
+            <Link to="/sri-lanka-7-day-itinerary" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
+              <div>
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 2</span>
+                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Sri Lanka 7 Day Itinerary</h4>
+                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Our most popular first-timer classic route.</p>
+              </div>
+              <div className="mt-4 flex items-center justify-end text-luxury-gold">
+                <span className="text-[10px] font-bold mr-1">View Itinerary</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
             </Link>
-            <Link to="/sri-lanka-visa-for-indians" className="block p-3.5 bg-white rounded-xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-colors hover:text-luxury-gold">
-              👉 Sri Lanka Visa ETA Guide
+
+            <Link to="/sri-lanka-visa-for-indians" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
+              <div>
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 3</span>
+                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Visa Guide</h4>
+                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Complete online ETA registration & waivers.</p>
+              </div>
+              <div className="mt-4 flex items-center justify-end text-luxury-gold">
+                <span className="text-[10px] font-bold mr-1">Check Rules</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link to="/best-time-to-visit-sri-lanka" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
+              <div>
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 4</span>
+                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Best Time to Visit</h4>
+                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Dual monsoon mapping & ideal seasonal months.</p>
+              </div>
+              <div className="mt-4 flex items-center justify-end text-luxury-gold">
+                <span className="text-[10px] font-bold mr-1">See Weather</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
             </Link>
           </div>
         </div>
@@ -377,6 +415,59 @@ export default function SrilankaChennaiCostPillarPage() {
               </tbody>
             </table>
           </div>
+        </section>
+
+        {/* H2: Chennai to Sri Lanka Tour Package Cost */}
+        <section id="package-cost" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
+            <Layers className="w-6 h-6 text-[#d4af37]" />
+            Chennai to Sri Lanka Tour Package Cost
+          </h2>
+          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
+            Compare all-inclusive standard packages departing from Chennai. These projections cover direct airfares, standard accommodations, breakfast plans, basic tourist entry cards, and daily private car commutes.
+          </p>
+
+          <div className="overflow-x-auto rounded-2xl border border-luxury-green/10 bg-white shadow-sm p-2">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2] text-[10px] sm:text-xs uppercase font-mono text-luxury-green">
+                  <th className="p-4">Duration</th>
+                  <th className="p-4">Budget Package (Solo)</th>
+                  <th className="p-4">Mid-Range Package (Per Person)</th>
+                  <th className="p-4">Luxury Package (Per Person)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-luxury-cream">
+                <tr className="hover:bg-luxury-cream/10 transition-colors">
+                  <td className="p-4 font-serif font-bold text-luxury-green">3 Days (Weekend Escape)</td>
+                  <td className="p-4 font-mono text-luxury-gold font-bold">₹18,000 - ₹24,000</td>
+                  <td className="p-4 font-mono text-[#8B6E30] font-bold">₹28,000 - ₹38,000</td>
+                  <td className="p-4 font-mono text-[#4A3B18] font-bold">₹55,000 - ₹75,000</td>
+                </tr>
+                <tr className="hover:bg-luxury-cream/10 transition-colors">
+                  <td className="p-4 font-serif font-bold text-luxury-green">5 Days (Coastal Beach Tour)</td>
+                  <td className="p-4 font-mono text-luxury-gold font-bold">₹25,000 - ₹34,000</td>
+                  <td className="p-4 font-mono text-[#8B6E30] font-bold">₹45,000 - ₹62,000</td>
+                  <td className="p-4 font-mono text-[#4A3B18] font-bold">₹90,000 - ₹1,20,000</td>
+                </tr>
+                <tr className="hover:bg-luxury-cream/10 transition-colors">
+                  <td className="p-4 font-serif font-bold text-luxury-green">7 Days (Classic Highlands Loop)</td>
+                  <td className="p-4 font-mono text-luxury-gold font-bold">₹33,000 - ₹45,000</td>
+                  <td className="p-4 font-mono text-[#8B6E30] font-bold">₹58,000 - ₹78,000</td>
+                  <td className="p-4 font-mono text-[#4A3B18] font-bold">₹1,20,000 - ₹1,65,000</td>
+                </tr>
+                <tr className="hover:bg-luxury-cream/10 transition-colors">
+                  <td className="p-4 font-serif font-bold text-luxury-green">10 Days (Comprehensive Tour)</td>
+                  <td className="p-4 font-mono text-luxury-gold font-bold">₹45,000 - ₹58,000</td>
+                  <td className="p-4 font-mono text-[#8B6E30] font-bold">₹78,000 - ₹1,10,000</td>
+                  <td className="p-4 font-mono text-[#4A3B18] font-bold">₹1,75,000 - ₹2,40,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-[11px] text-luxury-black/50 mt-3 italic font-light text-center">
+            *Note: Package estimates are comprehensive of average seasonal flight fares from Chennai (MAA) and are updated for the 2026 travel season.
+          </p>
         </section>
 
         {/* H2: Chennai to Sri Lanka Flight Cost */}
@@ -543,17 +634,54 @@ export default function SrilankaChennaiCostPillarPage() {
               </div>
             </div>
           </div>
+
+          {/* Detailed Budget Breakdown Sub-Section */}
+          <div className="mt-8 space-y-4">
+            <h3 className="font-serif font-bold text-lg text-luxury-green border-b border-luxury-cream pb-2">📦 Budget Breakdown for Families</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Flights</span>
+                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹40,000 - ₹55,000</p>
+                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Direct round-trip flights from Chennai (MAA) to Colombo (CMB) for a family of 4 on budget carriers like IndiGo or Alliance Air.</p>
+              </div>
+              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Hotels</span>
+                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹48,000 - ₹90,000</p>
+                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">6 nights in adjoining family rooms or beachside villa rentals with swimming pools (averaging ₹8,000 - ₹15,000 per night).</p>
+              </div>
+              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Food</span>
+                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹12,000 - ₹24,000</p>
+                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Kid-safe local hoppers, mild coconut white curries, organic fruits, and standard family cafe dinners.</p>
+              </div>
+              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Transport</span>
+                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹30,000 - ₹42,000</p>
+                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Spacious private AC van (Toyota HiAce/KDH) with dedicated driver-guide covering all local travel and luggage.</p>
+              </div>
+              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Visa</span>
+                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹0 - ₹5,000</p>
+                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Online ETA is free (₹0) under dynamic booster schemes or standard ₹1,650/adult depending on the promotional season.</p>
+              </div>
+              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Activities</span>
+                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹15,000 - ₹25,000</p>
+                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Entrance fees to Sigiriya Lion Rock Fortress, botanical garden walks, Yala national park safaris, and train tickets.</p>
+              </div>
+            </div>
+          </div>
           
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light">
+          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mt-6">
             With standard direct flights from Chennai making flight fatigue extremely minimal, Sri Lanka serves as the ultimate international family introductory getaway.
           </p>
         </section>
 
-        {/* H2: Sri Lanka Honeymoon Cost From Chennai */}
+        {/* H2: Sri Lanka Honeymoon Package Cost From Chennai */}
         <section id="honeymoon" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
             <Heart className="w-6 h-6 text-[#d4af37]" />
-            Sri Lanka Honeymoon Cost From Chennai
+            Sri Lanka Honeymoon Package Cost From Chennai
           </h2>
           <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
             Honeymoons are high-intent romantic getaways. Many newly married couples search for a personalized <strong>sri lanka honeymoon package from chennai</strong>. The commercial value is unmatched: for the price of standard hillside resorts in Kerala or Ooty, you can secure private oceanfront plunge pool villas in Tangalle or colonial tea country properties.
@@ -580,6 +708,43 @@ export default function SrilankaChennaiCostPillarPage() {
                 <p className="text-xs text-luxury-black/70 mt-1 leading-relaxed">
                   Arrange intimate private dining on golden sand beaches, sunset cocktails, or luxury local safari jeep drives, costing ₹4,500 - ₹9,000 total.
                 </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Detailed Budget Breakdown Sub-Section */}
+          <div className="mt-8 space-y-4">
+            <h3 className="font-serif font-bold text-lg text-luxury-green border-b border-luxury-cream pb-2">📦 Budget Breakdown for Honeymoons</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Flights</span>
+                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹24,000 - ₹32,000</p>
+                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Round-trip flights from Chennai (MAA) to Colombo (CMB) for 2 adults on premier carriers (e.g., SriLankan Airlines) with full luggage allowance.</p>
+              </div>
+              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Hotels</span>
+                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹60,000 - ₹1,50,000</p>
+                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">6 nights in premium honeymoon suites, cozy cliff villas, and private plunge pool beach properties (averaging ₹10,000 - ₹25,000 per night).</p>
+              </div>
+              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Food</span>
+                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹18,000 - ₹36,000</p>
+                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Fine dining, beachside candlelit seafood dinners, fresh ocean cocktails, and colonial high tea.</p>
+              </div>
+              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Transport</span>
+                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹24,000 - ₹33,000</p>
+                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Private comfortable sedan with a professional English-speaking chauffeur-guide for highly personalized touring.</p>
+              </div>
+              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Visa</span>
+                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹0 - ₹3,300</p>
+                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Tourist online ETA registration for 2 travelers (regularly waived to ₹0, standard is ₹1,650/person).</p>
+              </div>
+              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Activities</span>
+                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹12,000 - ₹22,000</p>
+                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Romantic whale watching, couples' spa massage, private Yala leopard safari drives, and scenic highlands train tickets.</p>
               </div>
             </div>
           </div>

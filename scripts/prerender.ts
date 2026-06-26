@@ -245,7 +245,7 @@ function generatePrerenderPages(): PrerenderPage[] {
     `,
     "/how-much-will-it-take-to-visit-sri-lanka-from-chennai": `
       <header>
-        <h1>How Much Will It Take to Visit Sri Lanka From Chennai? (2026 Cost Breakdown)</h1>
+        <h1>How Much Will It Take to Visit Sri Lanka From Chennai? (2026 Cost Guide)</h1>
         <p><strong>Your ultimate master budget guide tracking actual flight pricing, lodging, food, local transits, and itineraries from Chennai to Sri Lanka. Connect to our interactive trip planner and get a tailored day-by-day map instantly.</strong></p>
       </header>
 
