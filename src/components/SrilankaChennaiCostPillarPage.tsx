@@ -30,7 +30,7 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaChennaiCostPillarPage() {
   usePageMetadata({
-    title: "How Much Will It Cost to Visit Sri Lanka From Chennai? | Budget Guide",
+    title: "Sri Lanka Trip Cost From Chennai (2026) | Flights, Hotels & Budget Guide",
     description: "Find the real cost of visiting Sri Lanka from Chennai. Compare 5-day, 7-day, family and honeymoon budgets, flight prices, hotels and transport costs.",
     canonicalUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
     ogUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
@@ -66,7 +66,7 @@ export default function SrilankaChennaiCostPillarPage() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "How Much Will It Cost to Visit Sri Lanka From Chennai? | Budget Guide",
+            "headline": "Sri Lanka Trip Cost From Chennai (2026) | Flights, Hotels & Budget Guide",
             "description": "Find the real cost of visiting Sri Lanka from Chennai. Compare 5-day, 7-day, family and honeymoon budgets, flight prices, hotels and transport costs.",
             "image": [
               "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630"
@@ -932,16 +932,32 @@ export default function SrilankaChennaiCostPillarPage() {
           <div className="space-y-4">
             {[
               {
+                q: "Is a passport required to visit Sri Lanka from India?",
+                a: "Yes, a physical passport is absolutely required. Your passport must have at least 6 months of validity from your date of arrival in Sri Lanka. You cannot travel to Sri Lanka using an Aadhaar card, PAN card, or Voter ID, as it is an international flight destination."
+              },
+              {
+                q: "Can I use Indian Rupees (INR) in Sri Lanka?",
+                a: "No, you cannot spend Indian Rupees directly in Sri Lankan shops, restaurants, or taxis. You must convert your INR cash into Sri Lankan Rupees (LKR) at Bandaranaike Airport (CMB) on arrival, or use international debit/credit cards at local ATMs to withdraw LKR."
+              },
+              {
+                q: "How many days are enough to visit Sri Lanka?",
+                a: "For most Chennai travelers, 5 to 7 days is the perfect sweet spot. A 5-day trip is ideal for a coastal getaway (Colombo, Bentota, Galle Fort). A 7-day trip is perfect if you want to include the famous Ella-Kandy scenic train ride, tea country, and a wildlife safari. If you want to explore the northern historic cities like Sigiriya and Anuradhapura, plan for 10 days."
+              },
+              {
+                q: "Is Sri Lanka safe for Indian tourists and families?",
+                a: "Yes, Sri Lanka is incredibly safe and welcoming for Indian travelers, including families, couples, and solo female backpackers. The local people are warm and hospitable. Just follow basic travel safety habits: use trusted metered ride-hailing apps like PickMe or Uber instead of random roadside tuk-tuks, and keep an eye on your belongings in busy markets."
+              },
+              {
+                q: "Do Indians need travel insurance to enter Sri Lanka?",
+                a: "No, travel insurance is not legally mandatory to pass through immigration in Sri Lanka. However, we highly recommend getting a basic budget travel insurance plan before leaving Chennai. It costs very little and covers unexpected flight cancellations, lost baggage, and any medical emergencies."
+              },
+              {
                 q: "Is Sri Lanka cheaper than Maldives for Chennai travelers?",
                 a: "Yes, Sri Lanka is significantly cheaper than the Maldives. While a basic 4-night stay in a Maldives overwater resort starts at ₹1,50,000+ per couple (with mandatory premium ferry/seaplane transfers costing ₹30,000+), you can complete a magnificent 7-day tour across Sri Lanka's beaches, heritage forts, and tea plantations for under ₹75,000 total per couple, including round-trip flights from Chennai."
               },
               {
                 q: "How much money should I carry from Chennai to Sri Lanka?",
                 a: "We recommend holding approximately ₹15,000 to ₹25,000 in physical Indian Cash (preferably clean ₹500 notes) per person to convert directly at Bandaranaike Airport (CMB) for street food, tuk-tuks, and small tips. For hotels, high-end dinners, and tickets, you can safely use standard international credit cards or zero-markup travel cards."
-              },
-              {
-                q: "Is 5 days enough for Sri Lanka?",
-                a: "Yes, 5 days is highly sufficient for a targeted 'coastal and cultural escape' from Chennai. In 5 days, you can fly into Colombo, explore the historic streets of UNESCO Galle Fort, relax on the golden beaches of Bentota/Hikkaduwa, and enjoy scenic ocean sunset views before returning. If you wish to climb Sigiriya and head deep into the central cold tea country (Ella and Nuwara Eliya), we advise dedicating a full 7-day itinerary."
               },
               {
                 q: "What is the cheapest month to visit Sri Lanka from Chennai?",
