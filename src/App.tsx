@@ -43,6 +43,7 @@ const SrilankaJunePage = lazy(() => import("./components/SrilankaJunePage"));
 const SrilankaTripPlannerPage = lazy(() => import("./components/SrilankaTripPlannerPage"));
 const SrilankaTripPlannerPillarPage = lazy(() => import("./components/SrilankaTripPlannerPillarPage"));
 const SrilankaChennaiCostPillarPage = lazy(() => import("./components/SrilankaChennaiCostPillarPage"));
+const SrilankaBangaloreCostPillarPage = lazy(() => import("./components/SrilankaBangaloreCostPillarPage"));
 const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -585,6 +586,16 @@ export default function App() {
             <SrilankaChennaiCostPillarPage />
           </Suspense>
         } />
+
+        <Route path="/sri-lanka-trip-cost-from-bangalore" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaBangaloreCostPillarPage />
+          </Suspense>
+        } />
         
         <Route path="/experience/:slug" element={
           <Suspense fallback={
@@ -736,6 +747,7 @@ export default function App() {
             </div>
             <div className="space-y-3">
               {[
+                { title: "Bangalore to Sri Lanka Trip Cost", path: "/sri-lanka-trip-cost-from-bangalore", badge: "Bangalore Gateway", desc: "Direct BLR flight deals & budgets." },
                 { title: "Chennai to Sri Lanka Package Cost", path: "/how-much-will-it-take-to-visit-sri-lanka-from-chennai", badge: "Chennai Gateway", desc: "Short flight schedules & budget hacks." },
                 { title: "Where to Go in June (2026)", path: "/where-to-go-in-sri-lanka-in-june", badge: "June Weather", desc: "Which coast to choose to beat monsoons." },
                 { title: "12-Day Family Itinerary with Kids", path: "/sri-lanka-family-itinerary", badge: "Kids Fun • 2026", desc: "Custom low-fatigue routes & baby safety." },

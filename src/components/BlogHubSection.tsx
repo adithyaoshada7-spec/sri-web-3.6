@@ -71,6 +71,14 @@ const getArticleMeta = (path: string) => {
         readTime: "15 Min Read",
         badge: "Pillar Cost Guide"
       };
+    case "/sri-lanka-trip-cost-from-bangalore":
+      return {
+        category: "Bangalore Gateway",
+        tag: "Flights & Budgets",
+        icon: <DollarSign className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "12 Min Read",
+        badge: "Pillar Cost Guide"
+      };
     default:
       return {
         category: "Travel Guide",

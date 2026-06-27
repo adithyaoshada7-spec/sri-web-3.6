@@ -76,6 +76,15 @@ const articleCategories = [
         tag: "Budget & Costs"
       },
       {
+        path: "/sri-lanka-trip-cost-from-bangalore",
+        title: "Sri Lanka Trip Cost From Bangalore (2026 Guide)",
+        desc: "Settle your total holiday budget. Compare direct flight costs from Kempegowda (BLR), hotel stay tiers, visa fee waivers, and local transport options.",
+        image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "12 Min Read",
+        badge: "Bangalore Gateway",
+        tag: "Specialized Intel"
+      },
+      {
         path: "/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
         title: "How Much Will It Take to Visit Sri Lanka From Chennai?",
         desc: "Specialized gateway dossier for Tamil Nadu travelers. Deep-dive into short 80-minute flight schedules out of MAA airport, Chennai weekend escapes, and overland routes.",
