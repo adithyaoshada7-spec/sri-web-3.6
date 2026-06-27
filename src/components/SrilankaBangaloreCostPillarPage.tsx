@@ -95,6 +95,47 @@ export default function SrilankaBangaloreCostPillarPage() {
             }
           })}
         </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://plan-srilanka.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Trip Costs",
+                "item": "https://plan-srilanka.com/sri-lanka-trip-cost-from-india"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Bangalore",
+                "item": "https://plan-srilanka.com/sri-lanka-trip-cost-from-bangalore"
+              }
+            ]
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TouristDestination",
+            "name": "Sri Lanka",
+            "description": "Calculated travel costs, pristine beaches, ancient cultural heritage, raw wildlife, and stunning tea estate highlands from Bangalore (BLR) gateway.",
+            "about": {
+              "@type": "Place",
+              "name": "Sri Lanka"
+            },
+            "touristType": "Sightseeing, Beaches, Wildlife, Culture, Wellness"
+          })}
+        </script>
         
         <script type="application/ld+json">
           {JSON.stringify({
@@ -114,7 +155,7 @@ export default function SrilankaBangaloreCostPillarPage() {
                 "name": "How much is a Bangalore to Colombo flight?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "A direct round-trip flight from Bangalore (BLR) to Colombo (CMB) typically costs between ₹11,000 and ₹18,000. Peak season prices can go higher, while off-season promotions drop to ₹10,000."
+                  "text": "A direct round-trip flight from Bangalore (BLR) to Colombo (CMB) typically ranges between ₹11,000 and ₹18,000 depending on advance booking."
                 }
               },
               {
@@ -122,7 +163,47 @@ export default function SrilankaBangaloreCostPillarPage() {
                 "name": "Do Indians need a visa for Sri Lanka?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes, Indian citizens require a Tourist Electronic Travel Authorization (ETA) to enter Sri Lanka. Under current promotional guidelines, visa fee waivers are often applicable, making the processing fee free or highly reduced (around $20 standard)."
+                  "text": "Yes, Indian passport holders require a Tourist Electronic Travel Authorization (ETA). Standard ETA fees are $20 USD (~₹1,650), but frequently waived to ₹0 during active tourism promotion campaigns in 2026."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is Sri Lanka cheaper than Maldives?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, significantly. While Maldives is built around costly private island overwater resorts, Sri Lanka offers affordable heritage stays, local transport options, public transit trains, and reasonable dining, making it 60% cheaper."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is 5 days enough for Sri Lanka?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, 5 days is perfect for a targeted itinerary covering Colombo, Negombo, and Galle Dutch Fort, or a Cultural Triangle highlight trip (Sigiriya and Kandy)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What's the cheapest month to travel to Sri Lanka?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "June, September, and October are historically the cheapest months for flights and hotel stays due to the shoulder season. This is when boutique resorts offer heavy discounts of up to 40%."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is Sri Lanka good for solo travelers?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely. Sri Lanka has an extremely friendly, safe local culture, a well-established hostel network, widely spoken English, and cheap PickMe/TukTuk transport options, making it ideal and highly safe for solo travelers."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I travel to Sri Lanka without a tour package?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, easily! DIY travel in Sri Lanka is very simple. Chauffeurs can be booked directly online, hotels can be selected via standard booking engines, and trains can be pre-booked in advance, allowing you to bypass agencies completely."
                 }
               }
             ]
