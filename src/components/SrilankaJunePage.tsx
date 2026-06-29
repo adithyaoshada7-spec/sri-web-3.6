@@ -31,8 +31,8 @@ export default function SrilankaJunePage() {
   usePageMetadata({
     title: "Where To Go In Sri Lanka In June (2026 Guide) | Beat The Monsoon",
     description: "An expert, high-standard guide on travel to Sri Lanka in June. Learn which coasts are sunny (East Coast, Trincomalee, Pasikudah), what areas to avoid, monsoon updates, and how to plan safely.",
-    canonicalUrl: "https://plan-srilanka.com/sri-lanka-in-june",
-    ogUrl: "https://plan-srilanka.com/sri-lanka-in-june"
+    canonicalUrl: "https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june",
+    ogUrl: "https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june"
   });
 
   const navigate = useNavigate();
