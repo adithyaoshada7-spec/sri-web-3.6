@@ -118,6 +118,15 @@ const articleCategories = [
         readTime: "12 Min Read",
         badge: "Family Gold Standard",
         tag: "Kids Route"
+      },
+      {
+        path: "/sri-lanka-itinerary-august-couples",
+        title: "Sri Lanka Itinerary in August for Couples (2026 Guide)",
+        desc: "Plan the ultimate romantic August getaway. Balance lush tea country peaks, scenic train rides, and secret sunny East Coast beaches while avoiding monsoon-swept South Coast shores.",
+        image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "10 Min Read",
+        badge: "Romantic Getaway",
+        tag: "August Couples"
       }
     ]
   },

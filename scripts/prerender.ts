@@ -526,6 +526,114 @@ function generatePrerenderPages(): PrerenderPage[] {
         </ul>
         <p>For more detailed planning guides, read our master <a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost from India guide</a>, learn about easy online applications via our <a href="/sri-lanka-visa-for-indians">Sri Lanka Visa for Indians</a>, or check our <a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka</a> guide.</p>
       </section>
+    `,
+    "/sri-lanka-itinerary-august-couples": `
+      <header>
+        <h1>Sri Lanka Itinerary in August for Couples (2026): Best Route, Weather & Romantic Places</h1>
+        <p><strong>Plan the perfect romantic getaway to Sri Lanka in August. Explore a highly optimized 7-day couples itinerary, realistic budgets in Indian Rupees (INR), microclimate weather guides, and unforgettable romantic highlights.</strong></p>
+      </header>
+
+      <section>
+        <h2>Quick Answer: Is August Good for Couples?</h2>
+        <p><strong>Yes, August is one of the best months for couples visiting Sri Lanka—but only if you choose the right route.</strong></p>
+        <p>During August, Sri Lanka experiences two different monsoon patterns. While parts of the southwest coast can receive rain, the east coast enjoys sunny beaches and calm seas. A well-planned itinerary lets you enjoy beaches, mountains, wildlife, and romantic experiences without spending hours in traffic.</p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Travel Style</th>
+              <th>🎒 Budget Couples</th>
+              <th>🌴 Comfort Couples</th>
+              <th>👑 Luxury Honeymoons</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Estimated Budget (2 Pax)</strong></td>
+              <td>₹55,000–₹75,000</td>
+              <td>₹80,000–₹1,20,000</td>
+              <td>₹1,50,000+</td>
+            </tr>
+            <tr>
+              <td><strong>Included Items</strong></td>
+              <td>Guesthouses, public transits, local dining</td>
+              <td>Boutique hotels, private AC car, safaris</td>
+              <td>Private pool villas, SUVs, butler services</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Is August a Good Time to Visit Sri Lanka?</h2>
+        <p>Short answer: <strong>Yes, absolutely.</strong></p>
+        <p>While some travelers mistakenly fear monsoons in August, Sri Lanka's unique topography creates beautiful dry pockets on the island. The towering central massif acts as a shield, keeping the East Coast and North-Central regions dry, sunny, and hot.</p>
+        <p>Best regions to visit in August:</p>
+        <ul>
+          <li><strong>Trincomalee & Nilaveli Beach:</strong> Perfectly sunny, dry, flat seas ideal for swimming and snorkeling.</li>
+          <li><strong>Pasikuda:</strong> Beautiful calm shallow lagoons and high-end pool resorts.</li>
+          <li><strong>Sigiriya & Cultural Triangle:</strong> Warm and dry, great for heritage exploration.</li>
+          <li><strong>Kandy & Ella:</strong> Mist-shrouded green hills, dynamic misty weather, and waterfalls.</li>
+        </ul>
+        <p><em>Pro-Tip: Avoid building an itinerary focused entirely on the southwest beaches (like Bentota or Hikkaduwa) in August if your priority is sunshine and calm ocean swimming.</em></p>
+      </section>
+
+      <section>
+        <h2>Ideal 7-Day August Itinerary for Couples</h2>
+        <p>This daily loop is engineered to maximize weather comfort, scenic train transits, and romance:</p>
+        <ul>
+          <li><strong>Day 1: Arrive in Negombo:</strong> Touch down at BIA airport, transfer 20 minutes to a beachside resort in Negombo, and enjoy sunset seafood dining.</li>
+          <li><strong>Day 2: Sigiriya & Pidurangala Sunset:</strong> Drive into the dry Cultural Triangle. Climb Sigiriya Rock, then head to Pidurangala peak for a romantic sunset view of the valleys.</li>
+          <li><strong>Day 3: Royal Kandy Highlands:</strong> Walk through Kandy Lake, tour the historic Temple of the Tooth Relic, and stay in a cozy mountain villa.</li>
+          <li><strong>Day 4: Scenic Blue Train to Ella:</strong> Take the classic mountainside blue train from Kandy past cascading waterfalls and tea valleys. Check into Ella with stunning gap views.</li>
+          <li><strong>Day 5: Ella Peaks & Tea Valleys:</strong> Hike Little Adam's Peak at dawn, photograph Nine Arch Bridge, and enjoy a premium Ceylon tea tour.</li>
+          <li><strong>Day 6: Yala Safari:</strong> Descend to the dry southern plains for a private 4x4 jeep safari in Yala National Park to spot leopards and elephants.</li>
+          <li><strong>Day 7: Galle Fort & Colombo Departure:</strong> Walk around the historic Galle Dutch Fort's cobbled lanes, buy souvenirs, and take the express highway to BIA airport for your night flight.</li>
+        </ul>
+        <p>For more detailed routes, explore our <a href="/sri-lanka-7-day-itinerary">Sri Lanka 7 Day Itinerary page</a>.</p>
+      </section>
+
+      <section>
+        <h2>Romantic Experiences for Couples in August</h2>
+        <p>Make your trip extra special with these curated moments:</p>
+        <ul>
+          <li><strong>Sunrise at Pidurangala Rock:</strong> Sit close together as the gold morning sun reveals the forest kingdom.</li>
+          <li><strong>Scenic train ride to Ella:</strong> Hang out of the open carriage doors together to capture iconic photos.</li>
+          <li><strong>Boutique hotel overlooking tea plantations:</strong> Sleep in colonial luxury with private outdoor plunge pools.</li>
+          <li><strong>Private Yala safari:</strong> Book a private open-top 4x4 jeep to explore wild tracks in absolute privacy.</li>
+          <li><strong>Beach dinner on the east coast:</strong> Enjoy a private table lit by torches on Trincomalee beach.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>August Weather & Packing Tips</h2>
+        <ul>
+          <li>Pack light rain protection (like a small compact umbrella or windbreaker) for highland mist or passing showers in the wet zone.</li>
+          <li>Visit cultural ruins early in the morning to beat the dry mid-day heat.</li>
+          <li>Choose the east coast (Nilaveli or Pasikudah) for the absolute best, most consistent beach sun.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Plan Your Own August Trip</h2>
+        <p>Every couple travels differently. Instead of copying a fixed itinerary, use our interactive <a href="/sri-lanka-trip-planner">Free Sri Lanka Trip Planner tool</a> to generate a personalized August itinerary based on your travel dates, budget, and travel style.</p>
+        <p>Related Handbooks:</p>
+        <ul>
+          <li>Learn more about monthly weather maps at <a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka</a>.</li>
+          <li>Plan complete flight and taxi prices at <a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost From India</a>.</li>
+          <li>Prepare easy entry paperwork using our <a href="/sri-lanka-visa-for-indians">Sri Lanka Visa for Indians</a> guide.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <ul>
+          <li><strong>Is August a good time to visit Sri Lanka for couples?</strong> Yes, August is spectacular for couples. The East Coast beaches and Cultural Triangle offer excellent dry weather, and high-end hotels offer massive off-season discount rates.</li>
+          <li><strong>Do Indians need a visa for Sri Lanka in August?</strong> Yes, Indian passport holders require a Tourist Electronic Travel Authorization (ETA). Visa waivers are frequently active in 2026, making online application free or highly reduced to $20 USD.</li>
+          <li><strong>How much does a Sri Lanka couple's trip cost?</strong> A standard 7-day comfortable trip ranges between ₹80,000 and ₹1,20,000 per couple, excluding flights from India.</li>
+          <li><strong>Is 7 days enough for Sri Lanka?</strong> Yes, 7 days is perfectly enough to experience a beautiful loop covering Negombo, Sigiriya, Kandy, Ella, Yala, and Galle Fort without excessive rush.</li>
+        </ul>
+      </section>
     `
   };
 
@@ -764,6 +872,106 @@ function generatePrerenderPages(): PrerenderPage[] {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Yes, easily! DIY travel in Sri Lanka is very simple. Chauffeurs can be booked directly online, hotels can be selected via standard booking engines, and trains can be pre-booked in advance, allowing you to bypass agencies completely."
+              }
+            }
+          ]
+        }, null, 2)
+      );
+    } else if (art.path === "/sri-lanka-itinerary-august-couples") {
+      schemas.push(
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": `${domain}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Travel Guides",
+              "item": `${domain}#guides-hub`
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "August Couples Itinerary",
+              "item": `${domain}/sri-lanka-itinerary-august-couples`
+            }
+          ]
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "TouristDestination",
+          "name": "Sri Lanka",
+          "description": "Premium romantic island getaway in August featuring lush green valleys, scenic blue trains, wildlife safaris, and pristine dry-season East Coast beaches.",
+          "about": {
+            "@type": "Place",
+            "name": "Sri Lanka"
+          },
+          "touristType": "Romantic Getaways, Honeymoons, Couples, Wildlife, Beaches"
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is August a good time to visit Sri Lanka for couples?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, August is a fantastic month for couples visiting Sri Lanka, provided you choose the correct route. Due to dual monsoon microclimates, the South and West coasts receive intermittent rains, but the East Coast (Trincomalee, Pasikudah) and Cultural Triangle (Sigiriya, Kandy, Minneriya) enjoy dry, sunny, and beautiful weather perfect for beach lounging and heritage tours."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do Indians need a visa for Sri Lanka in August?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Indian citizens require a Tourist Electronic Travel Authorization (ETA) to enter Sri Lanka. Under active tourism promotional guidelines, online processing is highly streamlined and frequently waived to ₹0 (free processing) or is extremely affordable (standard ETA is around $20)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much is a flight to Sri Lanka from India in August?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Round-trip flights from major Indian hubs like Bangalore (BLR), Chennai (MAA), or Mumbai (BOM) to Colombo (CMB) in August range from ₹11,000 to ₹18,000. Fares are usually cheaper if booked 30–45 days in advance."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is a 7-day itinerary enough for Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! A 7-day itinerary is perfectly sufficient to experience a premium highlights loop. Our recommended couples route covers Negombo, the majestic rock fortress in Sigiriya, royal Kandy, the mist-veiled tea valley of Ella, a thrilling wildlife safari in Yala, and a quick beach sunset in Galle before flying out."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the best month to visit Sri Lanka for a honeymoon?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "While December to April represents the dry peak season for the South Coast beaches, August is an exceptional alternative choice for couples. It offers smaller crowds, lush rain-washed mountain valleys in Ella, sunny beach weather on the East Coast, and significantly lower rates (up to 40% off) at high-end luxury boutique hotels."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which coast has the best weather in Sri Lanka during August?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The East Coast (Trincomalee, Nilaveli, and Pasikudah Bay) experiences sunny blue skies, calm flat seas, and zero monsoon rain in August, making it the premier beach destination for couples during this month."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does a Sri Lanka couple's trip cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A comfortable 7-day mid-range couples trip from India typically costs between ₹80,000 and ₹1,20,000 total for two people (excluding flights). Budget options start around ₹55,000, while premium high-end luxury stays at colonial tea bungalows and private pool villas range from ₹1,50,000 upwards."
               }
             }
           ]

@@ -98,5 +98,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/sri-lanka-itinerary-august-couples",
+    title: "Sri Lanka Itinerary in August for Couples (2026): Route & Weather",
+    description: "Discover the complete Sri Lanka itinerary in August for couples. Settle budgets, direct flight routes, visa fee waivers, hotel recommendations, and sunny east coast beach choices.",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];
