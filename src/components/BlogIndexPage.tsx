@@ -92,6 +92,15 @@ const articleCategories = [
         readTime: "12 Min Read",
         badge: "Chennai Gateway",
         tag: "Specialized Intel"
+      },
+      {
+        path: "/sri-lanka-trip-cost-from-mumbai",
+        title: "Sri Lanka Trip Cost From Mumbai (2026 Guide)",
+        desc: "Plan your ultimate holiday from Mumbai. Compare direct flight costs from CSMIA (BOM), hotel stay tiers, visa fee waivers, and luxury beach resorts.",
+        image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "10 Min Read",
+        badge: "Mumbai Gateway",
+        tag: "Specialized Intel"
       }
     ]
   },

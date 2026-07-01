@@ -79,6 +79,14 @@ const getArticleMeta = (path: string) => {
         readTime: "12 Min Read",
         badge: "Pillar Cost Guide"
       };
+    case "/sri-lanka-trip-cost-from-mumbai":
+      return {
+        category: "Mumbai Gateway",
+        tag: "Flights & Budgets",
+        icon: <DollarSign className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "10 Min Read",
+        badge: "Pillar Cost Guide"
+      };
     case "/sri-lanka-itinerary-august-couples":
       return {
         category: "Romantic Guide",

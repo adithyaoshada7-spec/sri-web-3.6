@@ -527,6 +527,111 @@ function generatePrerenderPages(): PrerenderPage[] {
         <p>For more detailed planning guides, read our master <a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost from India guide</a>, learn about easy online applications via our <a href="/sri-lanka-visa-for-indians">Sri Lanka Visa for Indians</a>, or check our <a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka</a> guide.</p>
       </section>
     `,
+    "/sri-lanka-trip-cost-from-mumbai": `
+      <header>
+        <h1>Sri Lanka Trip Cost From Mumbai (2026): Flights, Hotels & Budget Guide</h1>
+        <p><strong>Planning a holiday from Mumbai to Sri Lanka? Here is your complete 2026 budget roadmap. Compare CSMIA (BOM) to Colombo (CMB) direct flight costs, mid-range and luxury hotel budgets, visa rules, and hidden expenses.</strong></p>
+      </header>
+
+      <section>
+        <h2>Quick Answer: Average Cost From Mumbai</h2>
+        <p><strong>A 7-day Sri Lanka trip from Mumbai typically costs between ₹45,000 and ₹95,000 per person, depending on flights, accommodation and travel style.</strong></p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Expense Category</th>
+              <th>🎒 Budget Tier</th>
+              <th>🌴 Comfort Tier</th>
+              <th>👑 Luxury Tier</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Flights (Round-Trip)</strong></td>
+              <td>₹14,000–₹16,000</td>
+              <td>₹15,500–₹18,000</td>
+              <td>₹22,000–₹35,000+</td>
+            </tr>
+            <tr>
+              <td><strong>Hotels (6 Nights)</strong></td>
+              <td>₹7,000</td>
+              <td>₹18,000</td>
+              <td>₹48,000</td>
+            </tr>
+            <tr>
+              <td><strong>Food (6 Days)</strong></td>
+              <td>₹5,000</td>
+              <td>₹12,000</td>
+              <td>₹25,000</td>
+            </tr>
+            <tr>
+              <td><strong>Transport (Private Car)</strong></td>
+              <td>₹6,000</td>
+              <td>₹16,000</td>
+              <td>₹32,000</td>
+            </tr>
+            <tr>
+              <td><strong>Activities & Safaris</strong></td>
+              <td>₹5,000</td>
+              <td>₹12,500</td>
+              <td>₹28,000</td>
+            </tr>
+            <tr style="font-weight: bold; background-color: #fcfbf7;">
+              <td><strong>Grand Total (Per Pax)</strong></td>
+              <td><strong>₹37,000–₹45,000</strong></td>
+              <td><strong>₹65,000–₹82,000</strong></td>
+              <td><strong>₹1,55,000–₹2,50,000+</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Mumbai to Colombo Flight Options</h2>
+        <p>SriLankan Airlines operates daily direct flights from Chhatrapati Shivaji Maharaj International Airport (BOM) to Colombo (CMB), making the flight duration extremely short at just <strong>2 hours and 45 minutes</strong>.</p>
+        <p>Alternatively, IndiGo, Air India, and Vistara offer highly competitive connecting flights through Bangalore or Chennai, with total transit times averaging 4 to 6 hours.</p>
+      </section>
+
+      <section>
+        <h2>Itineraries & Cost by Duration</h2>
+        <ul>
+          <li><strong>5-Day Weekend Getaway (₹75,000–₹1,15,000 per couple):</strong> Best for quick stress-busting escapes from Mumbai. Focuses strictly on beach hotels, Colombo cafes, and Galle Fort walks.</li>
+          <li><strong>7-Day Classic Island Loop (₹1,10,000–₹1,65,000 per couple):</strong> The highly recommended classic loop covering Sigiriya rock, Temple of Tooth, scenic highland train ride to Ella, a wildlife safari, and Galle.</li>
+          <li><strong>7-Day Honeymoon & Luxury Escape (₹1,95,000–₹3,10,000 per couple):</strong> Features stay in colonial tea estates, premium private pool villas, wellness couple's spas, and premium SUV transfers.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Hidden Costs to Plan For</h2>
+        <ul>
+          <li><strong>Visa ETA:</strong> Online application costs $20 USD (~₹1,650) but is frequently waived to ₹0 under active tourism promotion campaigns in 2026.</li>
+          <li><strong>SIM Card:</strong> High-speed Dialog or Mobitel SIM cards in the airport arrivals lobby cost roughly ₹830 for 30GB to 50GB.</li>
+          <li><strong>Tipping:</strong> Standard tipping guides are ₹300-₹500 per day for hotel bellboys/waiters, and ₹800-₹1,200 per day for safe local private drivers.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Practical Tips for Mumbai Travelers</h2>
+        <ol>
+          <li><strong>Bring mosquito repellent:</strong> Especially crucial for wildlife safaris in national parks and rural highland properties.</li>
+          <li><strong>Wear respectful clothing:</strong> When visiting cultural temples in Kandy, Anuradhapura, or Polonnaruwa, keep shoulders and knees covered.</li>
+          <li><strong>Wear easy slip-on shoes:</strong> Since footwear must be removed inside historical temple bounds, slip-ons make entry and exit smooth.</li>
+          <li><strong>Explore Colombo for 1 day:</strong> Colombo features world-class colonial dining, high-end boutiques, and clean ocean-facing walks worth checking out.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Calculate Your Custom Budget</h2>
+        <p>Use our interactive and completely free <a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner tool</a> to generate your custom travel itinerary and receive realistic cost estimates instantly.</p>
+        <p>Related Travel Handbooks:</p>
+        <ul>
+          <li>Learn more about the best months to visit at <a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka Guide</a>.</li>
+          <li>Examine 7-day loop blueprints at <a href="/sri-lanka-7-day-itinerary">Sri Lanka 7-Day Classic Itinerary</a>.</li>
+          <li>See tourist visa ETA rules at <a href="/sri-lanka-visa-for-indians">Sri Lanka Visa ETA for Indians</a>.</li>
+        </ul>
+      </section>
+    `,
     "/sri-lanka-itinerary-august-couples": `
       <header>
         <h1>Sri Lanka Itinerary in August for Couples (2026): Best Route, Weather & Romantic Places</h1>
@@ -872,6 +977,82 @@ function generatePrerenderPages(): PrerenderPage[] {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Yes, easily! DIY travel in Sri Lanka is very simple. Chauffeurs can be booked directly online, hotels can be selected via standard booking engines, and trains can be pre-booked in advance, allowing you to bypass agencies completely."
+              }
+            }
+          ]
+        }, null, 2)
+      );
+    } else if (art.path === "/sri-lanka-trip-cost-from-mumbai") {
+      schemas.push(
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": `${domain}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Travel Guides",
+              "item": `${domain}#guides-hub`
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Mumbai to Sri Lanka Trip Cost",
+              "item": `${domain}/sri-lanka-trip-cost-from-mumbai`
+            }
+          ]
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "TouristDestination",
+          "name": "Sri Lanka",
+          "description": "Premium island getaway featuring tropical beaches, raw wildlife safaris, and colonial highlands, easily reached via direct flight connections out of Mumbai CSMIA (BOM).",
+          "about": {
+            "@type": "Place",
+            "name": "Sri Lanka"
+          },
+          "touristType": "Sightseeing, Beaches, Wildlife, Culture, Honeymoon"
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much does a Sri Lanka trip cost from Mumbai?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A standard 7-day comfortable trip from Mumbai typically ranges between ₹45,000 and ₹95,000 per person depending on flights, accommodation, driver rental rates, and activities."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are there direct flights from Mumbai to Colombo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, SriLankan Airlines operates daily direct flights from CSMIA (BOM) to Colombo (CMB), taking roughly 2 hours and 45 minutes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do Indians need a visa for Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Indian citizens require a Tourist Electronic Travel Authorization (ETA) to enter Sri Lanka. Under active tourism promotional guidelines, online processing is highly streamlined and frequently waived to ₹0 (free processing) or is extremely affordable."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many days are recommended for Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A 7-day trip is the gold standard for first-time visitors, as it allows you to cover a beautiful highlight loop including Negombo beach, Sigiriya ancient rock, Kandy, Ella scenic tea peaks, a wild safari in Yala, and the Galle Dutch Fort."
               }
             }
           ]

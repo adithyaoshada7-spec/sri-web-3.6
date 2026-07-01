@@ -44,6 +44,7 @@ const SrilankaTripPlannerPage = lazy(() => import("./components/SrilankaTripPlan
 const SrilankaTripPlannerPillarPage = lazy(() => import("./components/SrilankaTripPlannerPillarPage"));
 const SrilankaChennaiCostPillarPage = lazy(() => import("./components/SrilankaChennaiCostPillarPage"));
 const SrilankaBangaloreCostPillarPage = lazy(() => import("./components/SrilankaBangaloreCostPillarPage"));
+const SrilankaMumbaiCostPillarPage = lazy(() => import("./components/SrilankaMumbaiCostPillarPage"));
 const SrilankaAugustCouplesPage = lazy(() => import("./components/SrilankaAugustCouplesPage"));
 const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
@@ -598,6 +599,16 @@ export default function App() {
           </Suspense>
         } />
 
+        <Route path="/sri-lanka-trip-cost-from-mumbai" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaMumbaiCostPillarPage />
+          </Suspense>
+        } />
+
         <Route path="/sri-lanka-itinerary-august-couples" element={
           <Suspense fallback={
             <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
@@ -758,6 +769,7 @@ export default function App() {
             </div>
             <div className="space-y-3">
               {[
+                { title: "Mumbai to Sri Lanka Trip Cost", path: "/sri-lanka-trip-cost-from-mumbai", badge: "Mumbai Gateway", desc: "CSMIA flight deals, stays & realistic budgets." },
                 { title: "August Couples Itinerary (2026)", path: "/sri-lanka-itinerary-august-couples", badge: "Romantic Getaway", desc: "Sunny East Coast beaches & boutique hills." },
                 { title: "Bangalore to Sri Lanka Trip Cost", path: "/sri-lanka-trip-cost-from-bangalore", badge: "Bangalore Gateway", desc: "Direct BLR flight deals & budgets." },
                 { title: "Chennai to Sri Lanka Package Cost", path: "/how-much-will-it-take-to-visit-sri-lanka-from-chennai", badge: "Chennai Gateway", desc: "Short flight schedules & budget hacks." },
