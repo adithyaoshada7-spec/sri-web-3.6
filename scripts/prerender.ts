@@ -632,6 +632,100 @@ function generatePrerenderPages(): PrerenderPage[] {
         </ul>
       </section>
     `,
+    "/sri-lanka-trip-cost-from-hyderabad": `
+      <header>
+        <h1>Sri Lanka Trip Cost From Hyderabad (2026) | Flights, Budget & 7-Day Cost</h1>
+        <p><strong>Planning a Sri Lanka trip from Hyderabad? Discover flight prices, 5-day and 7-day trip costs, hotel budgets, visa fees, family and honeymoon expenses, plus a free Sri Lanka Trip Planner.</strong></p>
+      </header>
+
+      <section>
+        <h2>Quick Answer: Hyderabad to Sri Lanka Average Costs</h2>
+        <p><strong>A 7-day Sri Lanka trip from Hyderabad typically costs ₹38,000–₹75,000 per person, depending on your travel style, flight prices, accommodation, and activities.</strong></p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Expense Category</th>
+              <th>🎒 Budget Tier</th>
+              <th>🌴 Comfort Tier</th>
+              <th>👑 Luxury Tier</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Boutique Lodging (6 Nights)</strong></td>
+              <td>₹6,500</td>
+              <td>₹16,500</td>
+              <td>₹42,000</td>
+            </tr>
+            <tr>
+              <td><strong>Transport & Driver</strong></td>
+              <td>₹5,000</td>
+              <td>₹15,000</td>
+              <td>₹28,000</td>
+            </tr>
+            <tr>
+              <td><strong>Daily Dining & Meals</strong></td>
+              <td>₹4,500</td>
+              <td>₹11,000</td>
+              <td>₹22,000</td>
+            </tr>
+            <tr>
+              <td><strong>Tours & Entry Fees</strong></td>
+              <td>₹4,500</td>
+              <td>₹11,500</td>
+              <td>₹25,000</td>
+            </tr>
+            <tr style="font-weight: bold; background-color: #fdfaf2;">
+              <td><strong>Total Local Cost (Per Pax)</strong></td>
+              <td><strong>₹20,500–₹24,000</strong></td>
+              <td><strong>₹54,000–₹62,000</strong></td>
+              <td><strong>₹1,17,000–₹1,80,000+</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Hyderabad to Colombo Flight Guide</h2>
+        <p>Rajiv Gandhi International Airport (HYD) in Shamshabad offers smooth connectivity to Colombo (CMB). Major airlines like IndiGo, Air India, and Vistara run frequent daily flights with quick, single layovers in Chennai or Bangalore, with total travel times averaging 4 to 5.5 hours. Round-trip airfares typically average between ₹14,500 and ₹18,500 per traveler when booked 4 to 6 weeks in advance.</p>
+      </section>
+
+      <section>
+        <h2>5-Day vs 7-Day Holiday Budgets</h2>
+        <ul>
+          <li><strong>5-Day Quick Escape:</strong> Perfect for a short tech-break from Hyderabad, costing roughly ₹28,000 to ₹48,000 per person. Focuses on beach relaxing in Bentota or Galle.</li>
+          <li><strong>7-Day Classic Loop:</strong> The gold-standard loop covering Sigiriya rock, Temple of the Tooth in Kandy, scenic highland train ride to Ella, a wildlife safari, and Galle, costing ₹38,000 to ₹62,000 per person.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Sri Lanka Family & Honeymoon Packages</h2>
+        <p><strong>Family Trips (4 Members):</strong> Expect an average total budget of ₹1,80,000 to ₹2,60,000, including comfortable hotels, flight deals, meals, and private spacious minivans.</p>
+        <p><strong>Honeymoons & Romantic Trips:</strong> A premium 7-day couples honeymoon typically costs ₹1,60,000 to ₹2,80,000 per couple, featuring private pool villas, couples Ayurvedic spa therapies, and romantic candlelit dinners on southern beaches.</p>
+      </section>
+
+      <section>
+        <h2>Visa Cost & ETA Regulations</h2>
+        <p>Indian citizens require a Tourist Electronic Travel Authorization (ETA). Standard online processing costs $20 USD (~₹1,650), but under active 2026 bilateral tourism initiatives, online fees are frequently discounted or waived entirely to ₹0 (Free Visa on Arrival). Check official portals before flying!</p>
+      </section>
+
+      <section>
+        <h2>Best Time to Visit Sri Lanka</h2>
+        <p>September to November and February to May offer the cheapest flight rates. For sunny skies, head to the South & West coasts from December to April, and the East coast from May to October.</p>
+      </section>
+
+      <section>
+        <h2>Calculate Your Custom Budget</h2>
+        <p>Use our interactive and completely free <a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner tool</a> to generate your custom travel itinerary and receive realistic cost estimates instantly.</p>
+        <p>Related Travel Handbooks:</p>
+        <ul>
+          <li>Learn more about the best months to visit at <a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka Guide</a>.</li>
+          <li>Examine 7-day loop blueprints at <a href="/sri-lanka-7-day-itinerary">Sri Lanka 7-Day Classic Itinerary</a>.</li>
+          <li>See tourist visa ETA rules at <a href="/sri-lanka-visa-for-indians">Sri Lanka Visa ETA for Indians</a>.</li>
+        </ul>
+      </section>
+    `,
     "/sri-lanka-itinerary-august-couples": `
       <header>
         <h1>Sri Lanka Itinerary in August for Couples (2026): Best Route, Weather & Romantic Places</h1>
@@ -1053,6 +1147,82 @@ function generatePrerenderPages(): PrerenderPage[] {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "A 7-day trip is the gold standard for first-time visitors, as it allows you to cover a beautiful highlight loop including Negombo beach, Sigiriya ancient rock, Kandy, Ella scenic tea peaks, a wild safari in Yala, and the Galle Dutch Fort."
+              }
+            }
+          ]
+        }, null, 2)
+      );
+    } else if (art.path === "/sri-lanka-trip-cost-from-hyderabad") {
+      schemas.push(
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": `${domain}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Travel Guides",
+              "item": `${domain}#guides-hub`
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Hyderabad to Sri Lanka Trip Cost",
+              "item": `${domain}/sri-lanka-trip-cost-from-hyderabad`
+            }
+          ]
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "TouristDestination",
+          "name": "Sri Lanka",
+          "description": "Premium island getaway featuring tropical beaches, raw wildlife safaris, and colonial highlands, easily reached via flight connections out of Hyderabad Rajiv Gandhi Airport (HYD).",
+          "about": {
+            "@type": "Place",
+            "name": "Sri Lanka"
+          },
+          "touristType": "Sightseeing, Beaches, Wildlife, Culture, Honeymoon"
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much does a Sri Lanka trip cost from Hyderabad?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A standard 7-day comfortable trip from Hyderabad typically ranges between ₹38,000 and ₹75,000 per person depending on flights, accommodation, driver rental rates, and activities."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are there direct flights from Hyderabad to Colombo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "IndiGo and other carriers operate flights with simple layovers in Chennai or Bangalore. SriLankan Airlines operates direct options on selected seasons."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do Indian citizens need a visa for Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Indian citizens require a Tourist Electronic Travel Authorization (ETA). It can be applied for online easily, and is often waived under active promotion schemes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is 5 days enough for Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A 5-day trip is excellent for a quick escape (beaches, Galle Fort, shopping). For a comprehensive tour (hills, safari, ancient sites), we recommend 7 days."
               }
             }
           ]

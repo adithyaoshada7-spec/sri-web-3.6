@@ -101,6 +101,15 @@ const articleCategories = [
         readTime: "10 Min Read",
         badge: "Mumbai Gateway",
         tag: "Specialized Intel"
+      },
+      {
+        path: "/sri-lanka-trip-cost-from-hyderabad",
+        title: "Sri Lanka Trip Cost From Hyderabad (2026 Guide)",
+        desc: "Plan your ultimate holiday from Hyderabad. Compare flight rates from Rajiv Gandhi Airport (HYD), 5-day and 7-day trip costs, honeymoon escapes, and family budgets.",
+        image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "8 Min Read",
+        badge: "Hyderabad Gateway",
+        tag: "Specialized Intel"
       }
     ]
   },

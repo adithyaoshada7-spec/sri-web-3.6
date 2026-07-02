@@ -109,6 +109,15 @@ export const seoArticles: Seometa[] = [
     priority: "0.9"
   },
   {
+    path: "/sri-lanka-trip-cost-from-hyderabad",
+    title: "Sri Lanka Trip Cost From Hyderabad (2026) | Flights, Budget & 7-Day Cost",
+    description: "Planning a Sri Lanka trip from Hyderabad? Discover flight prices, 5-day and 7-day trip costs, hotel budgets, visa fees, family and honeymoon expenses, plus a free Sri Lanka Trip Planner.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
+  },
+  {
     path: "/sri-lanka-itinerary-august-couples",
     title: "Sri Lanka Itinerary in August for Couples (2026): Route & Weather",
     description: "Discover the complete Sri Lanka itinerary in August for couples. Settle budgets, direct flight routes, visa fee waivers, hotel recommendations, and sunny east coast beach choices.",
