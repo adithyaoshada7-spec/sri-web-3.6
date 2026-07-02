@@ -716,14 +716,36 @@ function generatePrerenderPages(): PrerenderPage[] {
       </section>
 
       <section>
-        <h2>Calculate Your Custom Budget</h2>
+        <h2>Calculate Your Custom Budget & Compare Indian Cities</h2>
         <p>Use our interactive and completely free <a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner tool</a> to generate your custom travel itinerary and receive realistic cost estimates instantly.</p>
-        <p>Related Travel Handbooks:</p>
+        <p>Related Travel Handbooks & Cost Guides:</p>
         <ul>
+          <li>Compare our comprehensive national guide: <a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost From India</a></li>
+          <li>For travelers from South India, check the <a href="/how-much-will-it-take-to-visit-sri-lanka-from-chennai">Sri Lanka Trip Cost From Chennai</a></li>
+          <li>For IT hub techies, read the <a href="/sri-lanka-trip-cost-from-bangalore">Sri Lanka Trip Cost From Bangalore</a></li>
+          <li>Use the dynamic <a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner</a> to design your itinerary</li>
           <li>Learn more about the best months to visit at <a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka Guide</a>.</li>
           <li>Examine 7-day loop blueprints at <a href="/sri-lanka-7-day-itinerary">Sri Lanka 7-Day Classic Itinerary</a>.</li>
           <li>See tourist visa ETA rules at <a href="/sri-lanka-visa-for-indians">Sri Lanka Visa ETA for Indians</a>.</li>
         </ul>
+      </section>
+
+      <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <h3>Is Sri Lanka cheaper than Bali?</h3>
+        <p>Yes, Sri Lanka is generally on par with or slightly cheaper than Bali, especially regarding private transport (hiring a car with a driver) and boutique heritage stays. Local food, scenic train journeys, and guesthouse stays in Sri Lanka are incredibly inexpensive.</p>
+
+        <h3>How much cash should I carry?</h3>
+        <p>We recommend carrying roughly ₹15,000 to ₹20,000 in cash (exchanged into US Dollars or Sri Lankan Rupees at Colombo airport) for small local expenses, tipping, tuk-tuks, street food, and minor entry tickets.</p>
+
+        <h3>Which month is cheapest to visit Sri Lanka from Hyderabad?</h3>
+        <p>The cheapest months are during the shoulder/monsoon transition seasons, specifically September to November and May to June, when flights and luxury boutique hotels offer deep discounts.</p>
+
+        <h3>Can I use UPI or Indian debit/credit cards in Sri Lanka?</h3>
+        <p>Yes, UPI is increasingly accepted at selected merchants and major tourism hubs in Sri Lanka. Standard Indian Visa and Mastercard debit/credit cards are widely accepted at supermarkets, major hotels, and premium restaurants.</p>
+
+        <h3>Do I need travel insurance for my Sri Lanka trip?</h3>
+        <p>While travel insurance is no longer a strict mandatory entry requirement, we highly recommend purchasing a basic travel insurance policy. It usually costs less than ₹1,000 for a week-long trip and covers unforeseen flight delays, baggage losses, and emergency medical expenses.</p>
       </section>
     `,
     "/sri-lanka-itinerary-august-couples": `
@@ -1203,6 +1225,14 @@ function generatePrerenderPages(): PrerenderPage[] {
             },
             {
               "@type": "Question",
+              "name": "Is Sri Lanka cheaper than Bali?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Sri Lanka is generally on par with or slightly cheaper than Bali, especially regarding private transport (hiring a car with a driver) and boutique heritage stays."
+              }
+            },
+            {
+              "@type": "Question",
               "name": "Are there direct flights from Hyderabad to Colombo?",
               "acceptedAnswer": {
                 "@type": "Answer",
@@ -1223,6 +1253,38 @@ function generatePrerenderPages(): PrerenderPage[] {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "A 5-day trip is excellent for a quick escape (beaches, Galle Fort, shopping). For a comprehensive tour (hills, safari, ancient sites), we recommend 7 days."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much cash should I carry?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We recommend carrying roughly ₹15,000 to ₹20,000 in cash per person for small local expenses, tipping, tuk-tuks, street food, and minor entry tickets."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which month is cheapest?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The cheapest months are during shoulder/monsoon transition seasons like September to November and May to June, when flights are lower and hotels offer deep discounts."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use UPI or Indian cards?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, UPI is accepted at selected merchants. Standard Indian Visa/Mastercard debit and credit cards are widely accepted at hotels and supermarkets (ensure international usage is activated)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need travel insurance?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "While not strictly mandatory, we highly recommend basic travel insurance to cover flight delays, baggage loss, or medical emergencies during your trip."
               }
             }
           ]

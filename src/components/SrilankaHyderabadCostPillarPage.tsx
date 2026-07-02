@@ -87,6 +87,10 @@ export default function SrilankaHyderabadCostPillarPage() {
       a: "Yes, significantly! While the Maldives operates primarily on expensive private resort islands requiring high-cost speedboats/seaplanes and imported dining, Sri Lanka offers a rich, diverse land-based travel experience. In Sri Lanka, you can book magnificent boutique hotels for ₹5,000–₹9,000 per night, travel using a private AC car, eat incredible local cuisine for pennies, and explore massive ancient cities, hills, and beaches. A Maldives trip usually costs double or triple a comparable Sri Lankan holiday."
     },
     {
+      q: "Is Sri Lanka cheaper than Bali?",
+      a: "Yes, Sri Lanka is generally on par with or slightly cheaper than Bali, especially regarding private transport (hiring a car with a driver) and boutique heritage stays. While Bali has seen a significant surge in tourist pricing and heavy traffic congestion, Sri Lanka offers uncrowded beaches, highly affordable national park safaris, and excellent value for money. Local food, train journeys, and guesthouse stays in Sri Lanka are incredibly inexpensive."
+    },
+    {
       q: "Do Hyderabad residents need a visa for Sri Lanka?",
       a: "Yes, all Indian passport holders require a Tourist Electronic Travel Authorization (ETA). The standard visa fee is $20 USD (~₹1,650), but Sri Lanka frequently introduces zero-fee (₹0) visa processing campaigns for Indian tourists. You can easily complete the registration online via the official ETA portal and receive your authorization within 12–24 hours."
     },
@@ -101,6 +105,18 @@ export default function SrilankaHyderabadCostPillarPage() {
     {
       q: "How much cash should I carry for my trip?",
       a: "We recommend carrying roughly ₹15,000 to ₹20,000 in cash (exchanged into US Dollars or Sri Lankan Rupees at Colombo airport) for small local expenses, tipping, tuk-tuks, street food, and minor entry tickets. Major hotels, restaurants, and supermarkets readily accept standard Indian Credit/Debit cards (ensure international usage is activated on your card app)."
+    },
+    {
+      q: "Which month is cheapest to visit Sri Lanka from Hyderabad?",
+      a: "The cheapest months are during the shoulder/monsoon transition seasons, specifically September to November (before the winter peak starts) and May to June. During these months, flight tickets drop to their lowest rates, and luxury resorts offer heavy discounts of up to 40% to 50% off standard winter prices."
+    },
+    {
+      q: "Can I use UPI or Indian debit/credit cards in Sri Lanka?",
+      a: "Yes! Under bilateral agreements, UPI payments are increasingly accepted at selected merchants and major tourism hubs in Sri Lanka. Furthermore, standard Indian Visa and Mastercard debit/credit cards are widely accepted at supermarkets, major hotels, and premium restaurants. Be sure to enable 'International Usage' in your banking app before departing Hyderabad to avoid transaction declines."
+    },
+    {
+      q: "Do I need travel insurance for my Sri Lanka trip?",
+      a: "While travel insurance is no longer a strict mandatory entry requirement by the Sri Lankan government, we highly recommend purchasing a basic travel insurance policy. It usually costs less than ₹1,000 for a week-long trip and covers unforeseen flight delays, baggage losses, and any emergency medical expenses."
     }
   ];
 
@@ -367,6 +383,59 @@ export default function SrilankaHyderabadCostPillarPage() {
           <p className="text-sm sm:text-base text-luxury-black/75 mb-6 font-light leading-relaxed">
             For standard Hyderabad travelers, expenses scale primarily based on your choice of accommodation, whether you hire a private dedicated driver, and what excursions (such as whale watching, luxury national park safaris, or hot air balloons) you add. Rest assured, Sri Lanka delivers an incredibly high standard of hospitality for every rupee spent, making it an ideal choice for both rapid weekend getaways and immersive multi-week family adventures.
           </p>
+
+          {/* Core Internal Links Navigation Box */}
+          <div className="bg-white border border-luxury-gold/20 rounded-2xl p-6 mb-8 shadow-sm">
+            <h3 className="text-sm font-bold font-mono text-luxury-green uppercase tracking-wide mb-4 flex items-center gap-2">
+              <Compass className="w-4 h-4 text-luxury-gold" />
+              Essential India-to-Sri Lanka Travel Resources:
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Link 
+                to="/sri-lanka-trip-planner"
+                className="flex items-center justify-between p-3.5 rounded-xl bg-[#fcfbf7] hover:bg-luxury-cream/15 border border-luxury-gold/10 transition-colors group"
+              >
+                <div className="text-left">
+                  <span className="text-xs font-bold text-luxury-green block">Sri Lanka Trip Planner</span>
+                  <span className="text-[10px] text-luxury-black/40 block">Free custom budget calculator</span>
+                </div>
+                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link 
+                to="/sri-lanka-trip-cost-from-india"
+                className="flex items-center justify-between p-3.5 rounded-xl bg-[#fcfbf7] hover:bg-luxury-cream/15 border border-luxury-gold/10 transition-colors group"
+              >
+                <div className="text-left">
+                  <span className="text-xs font-bold text-luxury-green block">Sri Lanka Trip Cost From India</span>
+                  <span className="text-[10px] text-luxury-black/40 block">Comprehensive national pricing data</span>
+                </div>
+                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link 
+                to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+                className="flex items-center justify-between p-3.5 rounded-xl bg-[#fcfbf7] hover:bg-luxury-cream/15 border border-luxury-gold/10 transition-colors group"
+              >
+                <div className="text-left">
+                  <span className="text-xs font-bold text-luxury-green block">Sri Lanka Trip Cost From Chennai</span>
+                  <span className="text-[10px] text-luxury-black/40 block">Southern flights, local guides & tips</span>
+                </div>
+                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link 
+                to="/sri-lanka-trip-cost-from-bangalore"
+                className="flex items-center justify-between p-3.5 rounded-xl bg-[#fcfbf7] hover:bg-luxury-cream/15 border border-luxury-gold/10 transition-colors group"
+              >
+                <div className="text-left">
+                  <span className="text-xs font-bold text-luxury-green block">Sri Lanka Trip Cost From Bangalore</span>
+                  <span className="text-[10px] text-luxury-black/40 block">IT-hub guide, direct routes & budgets</span>
+                </div>
+                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
         </section>
 
         {/* H2: Unique Hyderabad to Colombo Flight Guide */}
