@@ -519,67 +519,99 @@ Departure: ${leadForm.departure}`;
           </div>
 
           {/* Mumbai */}
-          <div className="bg-white rounded-3xl p-8 border border-luxury-black/5 shadow-sm space-y-4 hover:border-luxury-gold/30 transition-all">
-            <h3 className="text-xl md:text-2xl font-serif text-luxury-green font-bold flex justify-between items-center border-b border-luxury-black/5 pb-3">
-              <span>Mumbai to Sri Lanka Cost</span>
-              <span className="text-xs bg-luxury-gold/10 text-luxury-gold uppercase tracking-widest px-2.5 py-1 rounded-full font-mono font-bold">Western Hub</span>
-            </h3>
-            <div className="space-y-2 text-sm text-luxury-black/70">
-              <p className="flex justify-between font-mono"><span className="font-light">Direct Flights (RT):</span> <strong className="text-luxury-green">₹18,000 – ₹24,000</strong></p>
-              <p className="flex justify-between font-mono"><span className="font-light">Avg Accommodation Segment:</span> <strong>₹4,000 – ₹9,000/night</strong></p>
-              <p className="flex justify-between font-mono"><span className="font-light">Total comfortable 7-day budget:</span> <strong>₹45,000+ per seat</strong></p>
+          <div className="bg-white rounded-3xl p-8 border border-luxury-black/5 shadow-sm space-y-4 hover:border-luxury-gold/30 transition-all flex flex-col justify-between">
+            <div className="space-y-4">
+              <h3 className="text-xl md:text-2xl font-serif text-luxury-green font-bold flex justify-between items-center border-b border-luxury-black/5 pb-3">
+                <span>Mumbai to Sri Lanka Cost</span>
+                <span className="text-xs bg-luxury-gold/10 text-luxury-gold uppercase tracking-widest px-2.5 py-1 rounded-full font-mono font-bold">Western Hub</span>
+              </h3>
+              <div className="space-y-2 text-sm text-luxury-black/70">
+                <p className="flex justify-between font-mono"><span className="font-light">Direct Flights (RT):</span> <strong className="text-luxury-green">₹18,000 – ₹24,000</strong></p>
+                <p className="flex justify-between font-mono"><span className="font-light">Avg Accommodation Segment:</span> <strong>₹4,000 – ₹9,000/night</strong></p>
+                <p className="flex justify-between font-mono"><span className="font-light">Total comfortable 7-day budget:</span> <strong>₹45,000+ per seat</strong></p>
+              </div>
+              <p className="text-xs text-luxury-black/50 leading-relaxed italic font-light">
+                *Pro-Tip: Direct routes on SriLankan Airlines are faster, avoiding time delays via overnight southern connectors.
+              </p>
             </div>
-            <p className="text-xs text-luxury-black/50 leading-relaxed italic font-light">
-              *Pro-Tip: Direct routes on SriLankan Airlines are faster, avoiding time delays via overnight southern connectors.
-            </p>
+            <Link 
+              to="/sri-lanka-trip-cost-from-mumbai"
+              className="mt-6 w-full text-center block bg-luxury-green text-white hover:bg-luxury-gold hover:text-white text-xs font-bold py-3 px-4 rounded-xl transition-all"
+            >
+              Analyze Mumbai Flight Schedules & Budgets →
+            </Link>
           </div>
 
           {/* Delhi */}
-          <div className="bg-white rounded-3xl p-8 border border-luxury-black/5 shadow-sm space-y-4 hover:border-luxury-gold/30 transition-all">
-            <h3 className="text-xl md:text-2xl font-serif text-luxury-green font-bold flex justify-between items-center border-b border-luxury-black/5 pb-3">
-              <span>Delhi to Sri Lanka Cost</span>
-              <span className="text-xs bg-luxury-gold/10 text-luxury-gold uppercase tracking-widest px-2.5 py-1 rounded-full font-mono font-bold">Northern Hub</span>
-            </h3>
-            <div className="space-y-2 text-sm text-luxury-black/70">
-              <p className="flex justify-between font-mono"><span className="font-light">Direct Flights (RT):</span> <strong className="text-luxury-green">₹19,000 – ₹28,000</strong></p>
-              <p className="flex justify-between font-mono"><span className="font-light">Avg Accommodation Segment:</span> <strong>₹5,000 – ₹10,000/night</strong></p>
-              <p className="flex justify-between font-mono"><span className="font-light">Total comfortable 7-day budget:</span> <strong>₹48,000+ per seat</strong></p>
+          <div className="bg-white rounded-3xl p-8 border border-luxury-black/5 shadow-sm space-y-4 hover:border-luxury-gold/30 transition-all flex flex-col justify-between">
+            <div className="space-y-4">
+              <h3 className="text-xl md:text-2xl font-serif text-luxury-green font-bold flex justify-between items-center border-b border-luxury-black/5 pb-3">
+                <span>Delhi to Sri Lanka Cost</span>
+                <span className="text-xs bg-luxury-gold/10 text-luxury-gold uppercase tracking-widest px-2.5 py-1 rounded-full font-mono font-bold">Northern Hub</span>
+              </h3>
+              <div className="space-y-2 text-sm text-luxury-black/70">
+                <p className="flex justify-between font-mono"><span className="font-light">Direct Flights (RT):</span> <strong className="text-luxury-green">₹19,000 – ₹28,000</strong></p>
+                <p className="flex justify-between font-mono"><span className="font-light">Avg Accommodation Segment:</span> <strong>₹5,000 – ₹10,000/night</strong></p>
+                <p className="flex justify-between font-mono"><span className="font-light">Total comfortable 7-day budget:</span> <strong>₹48,000+ per seat</strong></p>
+              </div>
+              <p className="text-xs text-luxury-black/50 leading-relaxed italic font-light">
+                *Pro-Tip: Direct roundtrip ticket ranges are premium, booking at least 60 days before festive seasons locks lower price caps.
+              </p>
             </div>
-            <p className="text-xs text-luxury-black/50 leading-relaxed italic font-light">
-              *Pro-Tip: Direct roundtrip ticket ranges are premium, booking at least 60 days before festive seasons locks lower price caps.
-            </p>
+            <a 
+              href="#personalized-planner"
+              className="mt-6 w-full text-center block bg-luxury-green text-white hover:bg-luxury-gold hover:text-white text-xs font-bold py-3 px-4 rounded-xl transition-all"
+            >
+              Calculate Custom Delhi Trip Costs →
+            </a>
           </div>
 
           {/* Bangalore */}
-          <div className="bg-white rounded-3xl p-8 border border-luxury-black/5 shadow-sm space-y-4 hover:border-luxury-gold/30 transition-all">
-            <h3 className="text-xl md:text-2xl font-serif text-luxury-green font-bold flex justify-between items-center border-b border-luxury-black/5 pb-3">
-              <span>Bangalore to Sri Lanka Cost</span>
-              <span className="text-xs bg-luxury-green/10 text-luxury-green uppercase tracking-widest px-2.5 py-1 rounded-full font-mono font-bold">High Value</span>
-            </h3>
-            <div className="space-y-2 text-sm text-luxury-black/70">
-              <p className="flex justify-between font-mono"><span className="font-light">Direct Flights (RT):</span> <strong className="text-luxury-green">₹11,000 – ₹14,000</strong></p>
-              <p className="flex justify-between font-mono"><span className="font-light">Avg Accommodation Segment:</span> <strong>₹2,500 – ₹7,000/night</strong></p>
-              <p className="flex justify-between font-mono"><span className="font-light">Total comfortable 7-day budget:</span> <strong>₹32,000+ per seat</strong></p>
+          <div className="bg-white rounded-3xl p-8 border border-luxury-black/5 shadow-sm space-y-4 hover:border-luxury-gold/30 transition-all flex flex-col justify-between">
+            <div className="space-y-4">
+              <h3 className="text-xl md:text-2xl font-serif text-luxury-green font-bold flex justify-between items-center border-b border-luxury-black/5 pb-3">
+                <span>Bangalore to Sri Lanka Cost</span>
+                <span className="text-xs bg-luxury-green/10 text-luxury-green uppercase tracking-widest px-2.5 py-1 rounded-full font-mono font-bold">High Value</span>
+              </h3>
+              <div className="space-y-2 text-sm text-luxury-black/70">
+                <p className="flex justify-between font-mono"><span className="font-light">Direct Flights (RT):</span> <strong className="text-luxury-green">₹11,000 – ₹14,000</strong></p>
+                <p className="flex justify-between font-mono"><span className="font-light">Avg Accommodation Segment:</span> <strong>₹2,500 – ₹7,000/night</strong></p>
+                <p className="flex justify-between font-mono"><span className="font-light">Total comfortable 7-day budget:</span> <strong>₹32,000+ per seat</strong></p>
+              </div>
+              <p className="text-xs text-luxury-black/50 leading-relaxed italic font-light">
+                *Pro-Tip: Ideal route. Take advantage of weekly high-frequency Indigo or SriLankan Airlines choices.
+              </p>
             </div>
-            <p className="text-xs text-luxury-black/50 leading-relaxed italic font-light">
-              *Pro-Tip: Ideal route. Take advantage of weekly high-frequency Indigo or SriLankan Airlines choices.
-            </p>
+            <Link 
+              to="/sri-lanka-trip-cost-from-bangalore"
+              className="mt-6 w-full text-center block bg-luxury-green text-white hover:bg-luxury-gold hover:text-white text-xs font-bold py-3 px-4 rounded-xl transition-all"
+            >
+              Analyze Bangalore Flight Schedules & Budgets →
+            </Link>
           </div>
 
           {/* Hyderabad */}
-          <div className="bg-white rounded-3xl p-8 border border-luxury-black/5 shadow-sm space-y-4 hover:border-luxury-gold/30 transition-all">
-            <h3 className="text-xl md:text-2xl font-serif text-luxury-green font-bold flex justify-between items-center border-b border-luxury-black/5 pb-3">
-              <span>Hyderabad to Sri Lanka Cost</span>
-              <span className="text-xs bg-luxury-gold/10 text-luxury-gold uppercase tracking-widest px-2.5 py-1 rounded-full font-mono font-bold">Deccan Hub</span>
-            </h3>
-            <div className="space-y-2 text-sm text-luxury-black/70">
-              <p className="flex justify-between font-mono"><span className="font-light">Direct Flights (RT):</span> <strong className="text-luxury-green">₹14,000 – ₹19,000</strong></p>
-              <p className="flex justify-between font-mono"><span className="font-light">Avg Accommodation Segment:</span> <strong>₹3,000 – ₹8,000/night</strong></p>
-              <p className="flex justify-between font-mono"><span className="font-light">Total comfortable 7-day budget:</span> <strong>₹36,000+ per seat</strong></p>
+          <div className="bg-white rounded-3xl p-8 border border-luxury-black/5 shadow-sm space-y-4 hover:border-luxury-gold/30 transition-all flex flex-col justify-between">
+            <div className="space-y-4">
+              <h3 className="text-xl md:text-2xl font-serif text-luxury-green font-bold flex justify-between items-center border-b border-luxury-black/5 pb-3">
+                <span>Hyderabad to Sri Lanka Cost</span>
+                <span className="text-xs bg-luxury-gold/10 text-luxury-gold uppercase tracking-widest px-2.5 py-1 rounded-full font-mono font-bold">Deccan Hub</span>
+              </h3>
+              <div className="space-y-2 text-sm text-luxury-black/70">
+                <p className="flex justify-between font-mono"><span className="font-light">Direct Flights (RT):</span> <strong className="text-luxury-green">₹14,000 – ₹19,000</strong></p>
+                <p className="flex justify-between font-mono"><span className="font-light">Avg Accommodation Segment:</span> <strong>₹3,000 – ₹8,000/night</strong></p>
+                <p className="flex justify-between font-mono"><span className="font-light">Total comfortable 7-day budget:</span> <strong>₹36,000+ per seat</strong></p>
+              </div>
+              <p className="text-xs text-luxury-black/50 leading-relaxed italic font-light">
+                *Pro-Tip: Checking mid-week departures can reduce flight rates significantly across Hyderabad CMB corridors.
+              </p>
             </div>
-            <p className="text-xs text-luxury-black/50 leading-relaxed italic font-light">
-              *Pro-Tip: Checking mid-week departures can reduce flight rates significantly across Hyderabad CMB corridors.
-            </p>
+            <Link 
+              to="/sri-lanka-trip-cost-from-hyderabad"
+              className="mt-6 w-full text-center block bg-luxury-green text-white hover:bg-luxury-gold hover:text-white text-xs font-bold py-3 px-4 rounded-xl transition-all"
+            >
+              Analyze Hyderabad Flight Schedules & Budgets →
+            </Link>
           </div>
         </div>
       </section>
