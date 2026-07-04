@@ -18,6 +18,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { usePageMetadata } from "../hooks/usePageMetadata";
 import { activities } from "../data/activities";
+import { EXPERIENCES } from "./SrilankaExperiencesPage";
 
 // Helper function for tracking events
 const trackEvent = (action: string, category: string, label: string) => {
@@ -32,7 +33,33 @@ const trackEvent = (action: string, category: string, label: string) => {
 const ExperienceDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const selectedActivity = activities.find(a => a.slug === slug);
+  
+  const foundActivity = activities.find(a => a.slug === slug);
+  const foundExperience = EXPERIENCES.find(e => e.slug === slug);
+  
+  const selectedActivity = foundActivity || (foundExperience ? {
+    id: foundExperience.id,
+    slug: foundExperience.slug,
+    title: foundExperience.title,
+    location: foundExperience.locationName,
+    description: foundExperience.shortSummary,
+    longDescription: foundExperience.description,
+    image: foundExperience.image,
+    iconName: "Compass",
+    features: foundExperience.highlights,
+    stats: {
+      "Estimated Cost": foundExperience.estimatedCost,
+      "Duration": foundExperience.duration,
+      "Region": foundExperience.region,
+      "Difficulty": foundExperience.difficulty,
+    },
+    testimonial: {
+      quote: foundExperience.comparison.animals || "An absolutely unforgettable experience curated beautifully.",
+      author: "Plan Sri Lanka",
+      title: "Bespoke Luxury Curator"
+    }
+  } : undefined);
+
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   usePageMetadata({

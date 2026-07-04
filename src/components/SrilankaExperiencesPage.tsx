@@ -157,7 +157,7 @@ const CATEGORIES: Category[] = [
   }
 ];
 
-const EXPERIENCES: Experience[] = [
+export const EXPERIENCES: Experience[] = [
   {
     id: "yala-safari-morning",
     title: "Yala Safari - Morning",
