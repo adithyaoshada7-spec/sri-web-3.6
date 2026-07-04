@@ -125,5 +125,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/things-to-do-in-sri-lanka",
+    title: "15 Best Things To Do In Sri Lanka (2026) | Elite Curated Experiences",
+    description: "Discover the ultimate curated list of things to do in Sri Lanka. From luxury morning wild safaris in Yala to misty tea country scenic trains and UNESCO Galle Fort walking tours.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "website",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];

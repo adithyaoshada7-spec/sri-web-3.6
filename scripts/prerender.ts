@@ -855,6 +855,61 @@ function generatePrerenderPages(): PrerenderPage[] {
           <li><strong>Is 7 days enough for Sri Lanka?</strong> Yes, 7 days is perfectly enough to experience a beautiful loop covering Negombo, Sigiriya, Kandy, Ella, Yala, and Galle Fort without excessive rush.</li>
         </ul>
       </section>
+    `,
+    "/things-to-do-in-sri-lanka": `
+      <header>
+        <h1>15 Best Things to Do in Sri Lanka (2026 Ultimate Guide)</h1>
+        <p><strong>Planning your bucket list for Sri Lanka? Here are the 15 ultimate, curated luxury experiences and things to do—from morning safaris in Yala to the scenic blue train and ancient mountain citadels.</strong></p>
+      </header>
+
+      <section>
+        <h2>1. Climb Sigiriya Lion Rock Fortress</h2>
+        <p>Ascend the 200-meter-high volcanic rock fortress built by King Kassapa in the 5th century. Admire the beautiful frescoes, the monumental lion's paws gate, and breathtaking 360-degree views of the jungle canopy.</p>
+      </section>
+
+      <section>
+        <h2>2. Embark on a Morning Wildlife Safari in Yala National Park</h2>
+        <p>Witness wild leopards, lumbering Asian elephants, and sloth bears in their natural habitat. Morning safaris are the prime window for predator photography and rich dry-zone bird sightings.</p>
+      </section>
+
+      <section>
+        <h2>3. Ride the Scenic Highland Blue Train</h2>
+        <p>Consistently voted one of the most beautiful train journeys in the world, winding through misty mountain peaks, tea plantations, and cascading waterfalls from Kandy to Ella.</p>
+      </section>
+
+      <section>
+        <h2>4. Wander the Historic Galle Dutch Fort</h2>
+        <p>A UNESCO World Heritage site, Galle Fort merges European architecture with Sri Lankan seaside beauty. Stroll past colonial villas, cobblestone streets, and ocean ramparts at golden hour.</p>
+      </section>
+
+      <section>
+        <h2>5. Experience High Tea at a Historic Tea Estate</h2>
+        <p>Walk with local tea pluckers in the misty hills of Nuwara Eliya, harvest organic Ceylon tea buds, and enjoy a traditional English high tea inside a beautiful heritage colonial bungalow.</p>
+      </section>
+
+      <section>
+        <h2>6. Join a Guided Heritage Walk in the Cultural Triangle</h2>
+        <p>Discover the golden cave temples of Dambulla, the sacred ruins of Anuradhapura, and the medieval capital of Polonnaruwa with private, English-fluent curators.</p>
+      </section>
+
+      <section>
+        <h2>7. Hike Ella Rock and Little Adam's Peak</h2>
+        <p>Trek through pine forests and mountain cloud forests for dramatic vistas of the southern plains. The walk along the spectacular 91m colonial stone Nine Arch Bridge is an unforgettable highlight.</p>
+      </section>
+
+      <section>
+        <h2>8. Go Whale Watching in Mirissa</h2>
+        <p>Set sail on the warm southern Indian Ocean highway to witness majestic Blue Whales—the largest creatures on Earth—along with playful super-pods of dolphins.</p>
+      </section>
+
+      <section>
+        <h2>Frequently Asked Questions</h2>
+        <ul>
+          <li><strong>What are the absolute must-do activities in Sri Lanka for first-timers?</strong> Climbing Sigiriya Lion Rock, riding the scenic train to Ella, a wildlife safari in Yala, and exploring Galle Dutch Fort are the absolute top four.</li>
+          <li><strong>Is Sri Lanka safe for family travel?</strong> Yes, Sri Lanka is incredibly welcoming, peaceful, and safe for families and children, offering high-standard private transport and comfortable luxury villas.</li>
+          <li><strong>How many days are recommended to see the major highlights?</strong> A 7 to 10 day itinerary is perfect to experience a beautiful combination of cultural ruins, mountain country, wildlife safaris, and golden sandy beaches.</li>
+        </ul>
+      </section>
     `
   };
 
