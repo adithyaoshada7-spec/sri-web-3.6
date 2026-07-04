@@ -1408,7 +1408,21 @@ function generatePrerenderPages(): PrerenderPage[] {
   const legacyExperiences = [
     { slug: "cultural-triangle", title: "Cultural Triangle Luxury Experience", description: "Immerse in the heritage of Sri Lanka's ancient cities." },
     { slug: "tea-country", title: "Luxury Tea Country & Misty Highlands", description: "Discover the breathtaking tea plantations and colonial heritage of Nuwara Eliya." },
-    { slug: "wildlife-safari", title: "Elite Wildlife Safari Experience", description: "Encounter legendary wildlife in Sri Lanka's premium national parks." }
+    { slug: "wildlife-safari", title: "Elite Wildlife Safari Experience", description: "Encounter legendary wildlife in Sri Lanka's premium national parks." },
+    { slug: "yala-safari-morning", title: "Yala Safari - Morning", description: "The morning safari is the prime window to witness Yala National Park's famous leopards, elephants, and sloth bears as they wake and hunt at dawn." },
+    { slug: "yala-leopard-safari", title: "Yala Leopard Safari", description: "Yala National Park holds the highest density of leopards in the world, making it the premier destination for big cat photography." },
+    { slug: "kumana-bird-safari", title: "Kumana Bird Safari", description: "A tranquil sanctuary for bird lovers and those seeking leopards away from the crowds." },
+    { slug: "udawalawe-elephant-safari", title: "Udawalawe Elephant Safari", description: "Udawalawe National Park is famous for its massive reservoir backdrop and dry-zone grasslands with wild elephants guaranteed." },
+    { slug: "scenic-train-ride", title: "Scenic Highlands Train Ride", description: "Consistently voted one of the most beautiful train journeys in the world, winding through misty tea country peaks." },
+    { slug: "surfing-arugam-bay", title: "Surfing at Arugam Bay", description: "Arugam Bay is a world-class surfing crescent on the dry east coast of Sri Lanka." },
+    { slug: "whale-watching-mirissa", title: "Whale Watching in Mirissa", description: "Set sail to witness Blue Whales, the largest creatures on Earth, in their ocean highway." },
+    { slug: "pigeon-island-snorkeling", title: "Pigeon Island Coral Snorkeling", description: "Swim with blacktip reef sharks and green sea turtles in a protected marine sanctuary." },
+    { slug: "sigiriya-rock-fortress", title: "Sigiriya Lion Rock Citadel", description: "Ascend a sheer 200m volcanic monolith housing a royal fortress, frescoes, and gardens." },
+    { slug: "pidurangala-sunrise-trek", title: "Pidurangala Sunrise Hike", description: "Scale the neighboring monastery peak for the ultimate sunrise view of Sigiriya Rock." },
+    { slug: "ella-rock-hiking", title: "Ella Rock & Little Adam's Peak Trek", description: "Hike through mountain cloud forests for dramatic panoramic vistas of the southern plains." },
+    { slug: "nine-arch-bridge-walk", title: "Nine Arch Bridge Walkway", description: "Walk the tracks of the spectacular 91m colonial stone viaduct framed by green jungle." },
+    { slug: "tea-plantation-high-tea", title: "High Country Tea Estate Tour", description: "Harvest organic tea buds with local pluckers and enjoy high tea in colonial bungalows." },
+    { slug: "galle-fort-heritage-walk", title: "Galle Fort UNESCO Walkway", description: "Wander cobblestone streets, Dutch colonial villas, and ocean battlements at sunset." }
   ];
 
   // Merge act and legacy experiences to form a complete list of Slugs

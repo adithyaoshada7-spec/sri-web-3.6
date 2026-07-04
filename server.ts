@@ -37,7 +37,21 @@ async function startServer() {
     const legacyExperiences = [
       "cultural-triangle",
       "tea-country",
-      "wildlife-safari"
+      "wildlife-safari",
+      "yala-safari-morning",
+      "yala-leopard-safari",
+      "kumana-bird-safari",
+      "udawalawe-elephant-safari",
+      "scenic-train-ride",
+      "surfing-arugam-bay",
+      "whale-watching-mirissa",
+      "pigeon-island-snorkeling",
+      "sigiriya-rock-fortress",
+      "pidurangala-sunrise-trek",
+      "ella-rock-hiking",
+      "nine-arch-bridge-walk",
+      "tea-plantation-high-tea",
+      "galle-fort-heritage-walk"
     ];
     
     const dynamicExperiences = activities.map(act => act.slug);
