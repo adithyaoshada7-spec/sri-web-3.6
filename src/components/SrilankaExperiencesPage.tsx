@@ -18,6 +18,7 @@ import {
   ArrowRight, 
   Eye, 
   Plus, 
+  MessageCircle, 
   Heart, 
   Info, 
   Camera, 
@@ -1175,6 +1176,23 @@ export default function SrilankaExperiencesPage() {
                       <p className="text-xs text-luxury-black/60 font-light leading-relaxed line-clamp-3">
                         {exp.shortSummary}
                       </p>
+                      {exp.id === "paddy-lake-trail" && (
+                        <div className="mt-3" onClick={(e) => e.stopPropagation()}>
+                          <a 
+                            href="https://wa.me/94777906156" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-100 hover:bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-xl text-[10px] font-bold transition-all shadow-sm"
+                          >
+                            <span className="relative flex h-2 w-2">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            <MessageCircle className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600/10" />
+                            <span>Contact: +94 77 790 6156</span>
+                          </a>
+                        </div>
+                      )}
                     </div>
 
                     {/* Stats grid widget */}
@@ -1586,6 +1604,28 @@ export default function SrilankaExperiencesPage() {
                       ))}
                     </ul>
                   </div>
+
+                  {/* WhatsApp contact section inside detail modal if Paddy & Lake Trail */}
+                  {activeDetailExperience.id === "paddy-lake-trail" && (
+                    <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-2xl space-y-2">
+                      <div className="flex items-center gap-2 text-emerald-800 font-bold text-xs uppercase tracking-wider">
+                        <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600/10" />
+                        <span>Direct Booking & Inquiry</span>
+                      </div>
+                      <p className="text-[11px] text-emerald-950 font-light leading-relaxed">
+                        Have questions about the cycle route, bike sizes, or custom timings? Connect with the tour guides directly on WhatsApp.
+                      </p>
+                      <a 
+                        href="https://wa.me/94777906156"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold uppercase tracking-widest transition-all shadow-md"
+                      >
+                        <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
+                        <span>Message +94 77 790 6156</span>
+                      </a>
+                    </div>
+                  )}
 
                   {/* Action buttons inside drawer */}
                   <div className="flex flex-col sm:flex-row gap-3 pt-4">

@@ -436,15 +436,21 @@ const ExperienceDetail = () => {
                   </div>
                 )}
                 <h3 className="text-3xl font-serif text-luxury-green mb-6">
-                  {selectedActivity.slug === 'italian-vibe-tour' ? "Reserve Your Vibe." : "Skip the Form."}
+                  {selectedActivity.slug === 'italian-vibe-tour' 
+                    ? "Reserve Your Vibe." 
+                    : selectedActivity.slug === 'paddy-lake-trail'
+                      ? "Book the Paddy & Lake Trail."
+                      : "Skip the Form."}
                 </h3>
                 <p className="text-luxury-black/60 mb-10 font-sans">
                   {selectedActivity.slug === 'italian-vibe-tour' 
                     ? "Our concierge is waiting to curate your private coastal escape. No forms, just a direct conversation."
-                    : "We value your time. Connect directly with our concierge via WhatsApp for instant availability and personalized planning."}
+                    : selectedActivity.slug === 'paddy-lake-trail'
+                      ? "Have questions about the cycle route, bike sizes, or custom timings? Connect with the tour guides directly on WhatsApp at +94 77 790 6156."
+                      : "We value your time. Connect directly with our concierge via WhatsApp for instant availability and personalized planning."}
                 </p>
                 <a 
-                  href="https://wa.me/94722968210"
+                  href={selectedActivity.slug === 'paddy-lake-trail' ? "https://wa.me/94777906156" : "https://wa.me/94722968210"}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => {
@@ -455,7 +461,7 @@ const ExperienceDetail = () => {
                   }}
                   className="w-full py-6 bg-luxury-green text-white rounded-2xl font-serif text-xl hover:bg-luxury-black transition-all shadow-2xl flex items-center justify-center gap-4 group"
                 >
-                  <MessageCircle className="w-6 h-6" /> Talk to Us Now <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                  <MessageCircle className="w-6 h-6" /> {selectedActivity.slug === 'paddy-lake-trail' ? "Message +94 77 790 6156" : "Talk to Us Now"} <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                 </a>
              </div>
           </div>
