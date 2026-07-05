@@ -43,7 +43,8 @@ function generateSitemap() {
     "ella-rock-hiking",
     "nine-arch-bridge-walk",
     "tea-plantation-high-tea",
-    "galle-fort-heritage-walk"
+    "galle-fort-heritage-walk",
+    "paddy-lake-trail"
   ];
   
   const dynamicExperiences = activities.map(act => act.slug);

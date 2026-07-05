@@ -731,6 +731,47 @@ export const EXPERIENCES: Experience[] = [
       familyFriendly: "Superb (10/10) - paved flat pathways are stroller-friendly.",
       photography: "Phenomenal (10/10) - colonial terracotta roofs, white stone, sunset sea walls."
     }
+  },
+  {
+    id: "paddy-lake-trail",
+    title: "The Paddy & Lake Trail",
+    slug: "paddy-lake-trail",
+    image: "/src/assets/images/paddy_lake_cycling_1783216432719.jpg",
+    shortSummary: "A premium guided cycling tour through the emerald paddy fields and peaceful villages surrounding Koggala Lake.",
+    description: "Experience the soul of southern Sri Lanka with a guided 26km cycling tour. Winding past lush rice fields, local temples, cinnamon gardens, and Koggala Lake, this gentle ride offers a deep dive into rural village life. Led by professional cycling guides, it features high-quality mountain bikes and helmet gear, a fresh king coconut refreshment stop, and seamless support.",
+    categories: ["Hiking & Trekking", "Cultural Experiences", "Photography Spots"],
+    travelStyles: ["Culture", "Adventure", "Couple", "Family"],
+    budgetTier: "Low",
+    bestMonths: ["January", "February", "March", "April", "May", "October", "November", "December"],
+    duration: "Half Day",
+    region: "South",
+    difficulty: "Easy",
+    estimatedCost: "$35",
+    crowdLevel: "Low",
+    popularityScore: 4.9,
+    locationName: "Galle & Koggala",
+    coords: { x: 35, y: 86 },
+    highlights: [
+      "Cycle 26km of pristine backcountry trails, paddy paths, and quiet lake-side roads",
+      "Stop at a traditional family-run cinnamon garden to learn ancient harvesting secrets",
+      "Bespoke high-quality mountain bikes, professional helmets, and safety gear included",
+      "Quench your thirst with fresh king coconuts harvested straight from local palms"
+    ],
+    whatsIncluded: [
+      "Premium well-maintained mountain bike & professional helmet safety gear",
+      "English-speaking certified cycling guide & support crew",
+      "Fresh local king coconuts and chilled bottled spring water",
+      "Traditional home-hosted herbal tea & snack pit stop"
+    ],
+    comparison: {
+      animals: "Spot peacocks, monitor lizards, purple-faced langur monkeys, and rich lake birdlife.",
+      crowds: "Extremely peaceful; cycle away from vehicle exhaust on quiet village and farm tracks.",
+      price: "$35 Fixed Price - High-value, premium guided eco-tour.",
+      travelTime: "2.5 hours active cycling and touring, easily accessible from Galle Fort (15-min drive).",
+      bestSeason: "December to April for dry weather, though beautiful year-round.",
+      familyFriendly: "Excellent (9/10) - flat trails suitable for adults and children with basic riding skills.",
+      photography: "Gorgeous (9/10) - vibrant green rice crop geometries, rural temples, and shimmering lake reflections."
+    }
   }
 ];
 
@@ -1084,6 +1125,7 @@ export default function SrilankaExperiencesPage() {
                       alt={exp.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
+                      referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     
@@ -1320,6 +1362,7 @@ export default function SrilankaExperiencesPage() {
                           src={exp.image} 
                           alt={exp.title}
                           className="w-14 h-14 rounded-xl object-cover"
+                          referrerPolicy="no-referrer"
                         />
                         <div className="space-y-1">
                           <h4 className="text-xs font-serif font-black text-luxury-green line-clamp-1">{exp.title}</h4>
@@ -1484,6 +1527,7 @@ export default function SrilankaExperiencesPage() {
                     src={activeDetailExperience.image} 
                     alt={activeDetailExperience.title}
                     className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   
