@@ -737,7 +737,7 @@ export const EXPERIENCES: Experience[] = [
     id: "paddy-lake-trail",
     title: "The Paddy & Lake Trail",
     slug: "paddy-lake-trail",
-    image: "/src/assets/images/paddy_lake_cycling_1783216432719.jpg",
+    image: "https://idlebikes.com/wp-content/uploads/2025/04/Paddy-Lake.jpg",
     shortSummary: "A premium guided cycling tour through the emerald paddy fields and peaceful villages surrounding Koggala Lake.",
     description: "Experience the soul of southern Sri Lanka with a guided 26km cycling tour. Winding past lush rice fields, local temples, cinnamon gardens, and Koggala Lake, this gentle ride offers a deep dive into rural village life. Led by professional cycling guides, it features high-quality mountain bikes and helmet gear, a fresh king coconut refreshment stop, and seamless support.",
     categories: ["Hiking & Trekking", "Cultural Experiences", "Photography Spots"],
