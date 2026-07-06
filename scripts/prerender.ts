@@ -1478,7 +1478,8 @@ function generatePrerenderPages(): PrerenderPage[] {
     { slug: "nine-arch-bridge-walk", title: "Nine Arch Bridge Walkway", description: "Walk the tracks of the spectacular 91m colonial stone viaduct framed by green jungle." },
     { slug: "tea-plantation-high-tea", title: "High Country Tea Estate Tour", description: "Harvest organic tea buds with local pluckers and enjoy high tea in colonial bungalows." },
     { slug: "galle-fort-heritage-walk", title: "Galle Fort UNESCO Walkway", description: "Wander cobblestone streets, Dutch colonial villas, and ocean battlements at sunset." },
-    { slug: "paddy-lake-trail", title: "The Paddy & Lake Trail", description: "A beautifully curated cycling tour around Koggala Lake, paddy fields, and local villages." }
+    { slug: "paddy-lake-trail", title: "The Paddy & Lake Trail", description: "A beautifully curated cycling tour around Koggala Lake, paddy fields, and local villages." },
+    { slug: "kitulgala-white-water-rafting", title: "White Water Rafting in Kitulgala", description: "An exhilarating rafting adventure down the Kelani River with Class II and Class III rapids." }
   ];
 
   // Merge act and legacy experiences to form a complete list of Slugs

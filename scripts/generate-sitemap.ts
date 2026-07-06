@@ -44,7 +44,8 @@ function generateSitemap() {
     "nine-arch-bridge-walk",
     "tea-plantation-high-tea",
     "galle-fort-heritage-walk",
-    "paddy-lake-trail"
+    "paddy-lake-trail",
+    "kitulgala-white-water-rafting"
   ];
   
   const dynamicExperiences = activities.map(act => act.slug);

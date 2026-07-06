@@ -79,6 +79,7 @@ export interface Experience {
     familyFriendly: string;
     photography: string;
   };
+  provider?: string;
 }
 
 // --- DATA DEFINITIONS ---
@@ -772,7 +773,50 @@ export const EXPERIENCES: Experience[] = [
       bestSeason: "December to April for dry weather, though beautiful year-round.",
       familyFriendly: "Excellent (9/10) - flat trails suitable for adults and children with basic riding skills.",
       photography: "Gorgeous (9/10) - vibrant green rice crop geometries, rural temples, and shimmering lake reflections."
-    }
+    },
+    provider: "Idle Bikes"
+  },
+  {
+    id: "kitulgala-white-water-rafting",
+    title: "White Water Rafting in Kitulgala",
+    slug: "kitulgala-white-water-rafting",
+    image: "https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&q=80&w=800",
+    shortSummary: "An exhilarating rafting adventure down the Kelani River, featuring 5 major rapids and 4 minor rapids through tropical rainforest.",
+    description: "Dive into an epic aquatic adventure in Kitulgala, Sri Lanka's premier destination for eco-adventure sports. Navigating the majestic Kelani River, you will tackle Class II and III rapids, including iconic runs like 'Head Chopper', 'Virgin's Breast', and 'Butter Knife'. Guided by highly experienced international raft masters from Go Kitulgala and fully equipped with certified rescue gear, this tour delivers pure adrenaline in a safe and pristine jungle river environment.",
+    categories: ["Hiking & Trekking", "Photography Spots"],
+    travelStyles: ["Adventure", "Couple", "Family"],
+    budgetTier: "Low",
+    bestMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    duration: "Half Day",
+    region: "Hill Country",
+    difficulty: "Moderate",
+    estimatedCost: "$30",
+    crowdLevel: "Low",
+    popularityScore: 4.8,
+    locationName: "Kitulgala",
+    coords: { x: 38, y: 55 },
+    highlights: [
+      "Navigate 5 major rapids and 4 minor rapids on the scenic Kelani River",
+      "Action-packed 5km river run surrounded by pristine rainforest walls",
+      "Modern, state-of-the-art raft gear, high-buoyancy life jackets, and rescue helmets",
+      "Experience the famous 'Head Chopper' and 'Virgin's Breast' Class III rapids"
+    ],
+    whatsIncluded: [
+      "Premium, certified life jackets, helmets, and composite paddles",
+      "Professional, internationally certified river rafting instructor & safety briefing",
+      "Access to modern changing rooms, shower facilities, and lockers",
+      "Complimentary hot Ceylon tea after the river adventure"
+    ],
+    comparison: {
+      animals: "Spot river monitors, kingfishers, and rare endemic butterflies along the lush banks.",
+      crowds: "Moderately active on weekends; peaceful and highly private during weekdays.",
+      price: "$30 Per Person - Incredible value for a fully guided professional water sports package.",
+      travelTime: "2 hours from Colombo or Kandy, located conveniently along the Avissawella-Hatton road.",
+      bestSeason: "December to April for optimal water levels, though available year-round.",
+      familyFriendly: "Great (8/10) - safe for children over 8 years with adult supervision.",
+      photography: "Sensational (9/10) - action photos of water splashes framed by tropical jungle cliffs."
+    },
+    provider: "Go Kitulgala"
   }
 ];
 
@@ -1173,13 +1217,18 @@ export default function SrilankaExperiencesPage() {
                       <h3 className="text-xl font-serif text-luxury-green font-bold tracking-tight group-hover:text-luxury-gold transition-colors line-clamp-1">
                         {exp.title}
                       </h3>
+                      {exp.provider && (
+                        <p className="text-[10px] font-mono text-emerald-700 uppercase tracking-wider font-bold">
+                          Operator: {exp.provider}
+                        </p>
+                      )}
                       <p className="text-xs text-luxury-black/60 font-light leading-relaxed line-clamp-3">
                         {exp.shortSummary}
                       </p>
-                      {exp.id === "paddy-lake-trail" && (
+                      {(exp.id === "paddy-lake-trail" || exp.id === "kitulgala-white-water-rafting") && (
                         <div className="mt-3" onClick={(e) => e.stopPropagation()}>
                           <a 
-                            href="https://wa.me/94777906156" 
+                            href={exp.id === "paddy-lake-trail" ? "https://wa.me/94777906156" : "https://wa.me/94777163543"} 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-100 hover:bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-xl text-[10px] font-bold transition-all shadow-sm"
@@ -1189,7 +1238,7 @@ export default function SrilankaExperiencesPage() {
                               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                             </span>
                             <MessageCircle className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600/10" />
-                            <span>Contact: +94 77 790 6156</span>
+                            <span>Contact {exp.provider}: {exp.id === "paddy-lake-trail" ? "+94 77 790 6156" : "+94 77 716 3543"}</span>
                           </a>
                         </div>
                       )}
@@ -1550,9 +1599,16 @@ export default function SrilankaExperiencesPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   
                   <div className="absolute bottom-6 left-6 right-6 space-y-3 text-white">
-                    <span className="text-[9px] font-mono uppercase bg-luxury-gold tracking-widest px-2.5 py-0.5 rounded-md block w-fit">
-                      {activeDetailExperience.region} Region
-                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-[9px] font-mono uppercase bg-luxury-gold tracking-widest px-2.5 py-0.5 rounded-md block w-fit">
+                        {activeDetailExperience.region} Region
+                      </span>
+                      {activeDetailExperience.provider && (
+                        <span className="text-[9px] font-mono uppercase bg-emerald-600 text-white tracking-widest px-2.5 py-0.5 rounded-md block w-fit font-bold">
+                          Operator: {activeDetailExperience.provider}
+                        </span>
+                      )}
+                    </div>
                     <h3 className="text-2xl md:text-3xl font-serif leading-none font-bold">
                       {activeDetailExperience.title}
                     </h3>
@@ -1606,23 +1662,25 @@ export default function SrilankaExperiencesPage() {
                   </div>
 
                   {/* WhatsApp contact section inside detail modal if Paddy & Lake Trail */}
-                  {activeDetailExperience.id === "paddy-lake-trail" && (
+                  {(activeDetailExperience.id === "paddy-lake-trail" || activeDetailExperience.id === "kitulgala-white-water-rafting") && (
                     <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-2xl space-y-2">
                       <div className="flex items-center gap-2 text-emerald-800 font-bold text-xs uppercase tracking-wider">
                         <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600/10" />
                         <span>Direct Booking & Inquiry</span>
                       </div>
                       <p className="text-[11px] text-emerald-950 font-light leading-relaxed">
-                        Have questions about the cycle route, bike sizes, or custom timings? Connect with the tour guides directly on WhatsApp.
+                        {activeDetailExperience.id === "paddy-lake-trail" 
+                          ? "Have questions about the cycle route, bike sizes, or custom timings? Connect with the tour guides directly on WhatsApp."
+                          : "Have questions about the river rapids, gear requirements, or custom timings? Connect with the raft masters directly on WhatsApp."}
                       </p>
                       <a 
-                        href="https://wa.me/94777906156"
+                        href={activeDetailExperience.id === "paddy-lake-trail" ? "https://wa.me/94777906156" : "https://wa.me/94777163543"}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold uppercase tracking-widest transition-all shadow-md"
                       >
                         <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
-                        <span>Message +94 77 790 6156</span>
+                        <span>Message {activeDetailExperience.id === "paddy-lake-trail" ? "+94 77 790 6156" : "+94 77 716 3543"}</span>
                       </a>
                     </div>
                   )}
