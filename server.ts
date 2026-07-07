@@ -51,7 +51,10 @@ async function startServer() {
       "ella-rock-hiking",
       "nine-arch-bridge-walk",
       "tea-plantation-high-tea",
-      "galle-fort-heritage-walk"
+      "galle-fort-heritage-walk",
+      "paddy-lake-trail",
+      "kitulgala-white-water-rafting",
+      "kitesurf-lessons-kalpitiya"
     ];
     
     const dynamicExperiences = activities.map(act => act.slug);
@@ -160,7 +163,8 @@ async function startServer() {
             { slug: "tea-plantation-high-tea", title: "High Country Tea Estate Tour", description: "Harvest organic tea buds with local pluckers and enjoy high tea in colonial bungalows." },
             { slug: "galle-fort-heritage-walk", title: "Galle Fort UNESCO Walkway", description: "Wander cobblestone streets, Dutch colonial villas, and ocean battlements at sunset." },
             { slug: "paddy-lake-trail", title: "The Paddy & Lake Trail", description: "A beautifully curated cycling tour around Koggala Lake, paddy fields, and local villages." },
-            { slug: "kitulgala-white-water-rafting", title: "White Water Rafting in Kitulgala", description: "An exhilarating rafting adventure down the Kelani River with Class II and Class III rapids." }
+            { slug: "kitulgala-white-water-rafting", title: "White Water Rafting in Kitulgala", description: "An exhilarating rafting adventure down the Kelani River with Class II and Class III rapids." },
+            { slug: "kitesurf-lessons-kalpitiya", title: "Kitesurf Lessons in Kalpitiya | Plan Sri Lanka", description: "Master the wind at Kalpitiya Lagoon with certified IKO instructors from Margarita Kite School. We guide you, you do the magic!" }
           ];
           const matchedLegacy = legacyDetails.find(l => l.slug === slug);
           if (matchedLegacy) {

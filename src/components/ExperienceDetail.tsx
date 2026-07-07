@@ -241,6 +241,11 @@ const ExperienceDetail = () => {
                   Official Operator: Go Kitulgala
                 </div>
               )}
+              {selectedActivity.slug === 'kitesurf-lessons-kalpitiya' && (
+                <div className="mb-4 px-4 py-1.5 bg-emerald-600/30 border border-emerald-500/30 rounded-full text-emerald-400 font-mono text-xs uppercase tracking-widest font-bold">
+                  Official Operator: Margarita Kite School
+                </div>
+              )}
               <h1 className="text-5xl md:text-[11rem] font-serif text-white mb-8 leading-[0.9] md:leading-[0.85] tracking-tighter">
                 {selectedActivity.title.includes("Vibe") ? (
                    <>
@@ -452,7 +457,9 @@ const ExperienceDetail = () => {
                       ? "Book the Paddy & Lake Trail."
                       : selectedActivity.slug === 'kitulgala-white-water-rafting'
                         ? "Book White Water Rafting."
-                        : "Skip the Form."}
+                        : selectedActivity.slug === 'kitesurf-lessons-kalpitiya'
+                          ? "Book Kitesurf Lessons."
+                          : "Skip the Form."}
                 </h3>
                 <p className="text-luxury-black/60 mb-10 font-sans">
                   {selectedActivity.slug === 'italian-vibe-tour' 
@@ -461,14 +468,18 @@ const ExperienceDetail = () => {
                       ? "Have questions about the cycle route, bike sizes, or custom timings? Connect with the tour guides directly on WhatsApp at +94 77 790 6156."
                       : selectedActivity.slug === 'kitulgala-white-water-rafting'
                         ? "Have questions about the river rapids, gear requirements, or custom timings? Connect with the raft masters directly on WhatsApp at +94 77 716 3543."
-                        : "We value your time. Connect directly with our concierge via WhatsApp for instant availability and personalized planning."}
+                        : selectedActivity.slug === 'kitesurf-lessons-kalpitiya'
+                          ? "Have questions about kitesurfing lessons, wind conditions, or course bookings? Connect with the kite masters directly on WhatsApp at +94 77 368 6235."
+                          : "We value your time. Connect directly with our concierge via WhatsApp for instant availability and personalized planning."}
                 </p>
                 <a 
                   href={selectedActivity.slug === 'paddy-lake-trail' 
                     ? "https://wa.me/94777906156" 
                     : selectedActivity.slug === 'kitulgala-white-water-rafting'
                       ? "https://wa.me/94777163543"
-                      : "https://wa.me/94722968210"}
+                      : selectedActivity.slug === 'kitesurf-lessons-kalpitiya'
+                        ? "https://wa.me/94773686235"
+                        : "https://wa.me/94722968210"}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => {
@@ -479,7 +490,7 @@ const ExperienceDetail = () => {
                   }}
                   className="w-full py-6 bg-luxury-green text-white rounded-2xl font-serif text-xl hover:bg-luxury-black transition-all shadow-2xl flex items-center justify-center gap-4 group"
                 >
-                  <MessageCircle className="w-6 h-6" /> {selectedActivity.slug === 'paddy-lake-trail' ? "Message +94 77 790 6156" : selectedActivity.slug === 'kitulgala-white-water-rafting' ? "Message +94 77 716 3543" : "Talk to Us Now"} <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                  <MessageCircle className="w-6 h-6" /> {selectedActivity.slug === 'paddy-lake-trail' ? "Message +94 77 790 6156" : selectedActivity.slug === 'kitulgala-white-water-rafting' ? "Message +94 77 716 3543" : selectedActivity.slug === 'kitesurf-lessons-kalpitiya' ? "Message +94 77 368 6235" : "Talk to Us Now"} <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                 </a>
              </div>
           </div>

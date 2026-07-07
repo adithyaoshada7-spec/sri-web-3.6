@@ -45,7 +45,8 @@ function generateSitemap() {
     "tea-plantation-high-tea",
     "galle-fort-heritage-walk",
     "paddy-lake-trail",
-    "kitulgala-white-water-rafting"
+    "kitulgala-white-water-rafting",
+    "kitesurf-lessons-kalpitiya"
   ];
   
   const dynamicExperiences = activities.map(act => act.slug);

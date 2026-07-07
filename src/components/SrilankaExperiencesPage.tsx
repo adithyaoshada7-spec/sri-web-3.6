@@ -817,6 +817,48 @@ export const EXPERIENCES: Experience[] = [
       photography: "Sensational (9/10) - action photos of water splashes framed by tropical jungle cliffs."
     },
     provider: "Go Kitulgala"
+  },
+  {
+    id: "kitesurf-lessons-kalpitiya",
+    title: "Kitesurf Lessons in Kalpitiya",
+    slug: "kitesurf-lessons-kalpitiya",
+    image: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=800",
+    shortSummary: "Master the wind at Kalpitiya Lagoon with certified IKO instructors from Margarita Kite School. We guide you, you do the magic!",
+    description: "Kalpitiya is Sri Lanka's premier kitesurfing destination, boasting world-class wind conditions and flat shallow lagoons perfect for all levels. Experience personal, safe, and professional kitesurfing lessons with Margarita Kite School, an official IKO-certified center. Learn wind theory, safety systems, power zone kite flying, and board riding under the guidance of passionate local and international instructors. Using state-of-the-art Cabrinha and Core kites and specialized radio helmets, you'll fast-track your progression in a fun, safe, and highly encouraging environment.",
+    categories: ["Surfing", "Photography Spots"],
+    travelStyles: ["Adventure", "Couple", "Family"],
+    budgetTier: "Medium",
+    bestMonths: ["May", "June", "July", "August", "September", "December", "January", "February", "March"],
+    duration: "Half Day",
+    region: "North",
+    difficulty: "Moderate",
+    estimatedCost: "$65 - $420",
+    crowdLevel: "Low",
+    popularityScore: 4.9,
+    locationName: "Kalpitiya Lagoon",
+    coords: { x: 22, y: 35 },
+    highlights: [
+      "Learn from professional, IKO-certified multi-lingual kite instructors",
+      "Train in the safe, shallow, and flat waters of Kalpitiya Lagoon",
+      "Utilize premium, state-of-the-art Cabrinha and Core kite gear",
+      "Two-way radio communication helmets for instant feedback while in the water"
+    ],
+    whatsIncluded: [
+      "Full rental of premium kite, board, harness, and safety leash",
+      "IKO Member Card certifying your level globally after the course",
+      "Personalized instruction with specialized radio helmet guidance",
+      "Boat rescue service and beach assistants on active standby"
+    ],
+    comparison: {
+      animals: "Spot pods of dolphins on nearby boat tours and migratory seabirds over the sandspits.",
+      crowds: "Wide, open lagoons with ample space; lessons are highly personalized and well-spaced.",
+      price: "$65/hr or $420 for a 9-hour full course - Premium private or semi-private expert training.",
+      travelTime: "3.5 hours drive north from Bandaranaike International Airport (Colombo).",
+      bestSeason: "May to October (strong average 20-25 knots) and December to March (afternoon thermal wind).",
+      familyFriendly: "Great (8/10) - children from 10+ years can learn safely with light-wind trainer kites.",
+      photography: "Epic (10/10) - dynamic shots of kites against brilliant blue lagoons and golden sand dunes."
+    },
+    provider: "Margarita Kite School"
   }
 ];
 
@@ -1225,10 +1267,10 @@ export default function SrilankaExperiencesPage() {
                       <p className="text-xs text-luxury-black/60 font-light leading-relaxed line-clamp-3">
                         {exp.shortSummary}
                       </p>
-                      {(exp.id === "paddy-lake-trail" || exp.id === "kitulgala-white-water-rafting") && (
+                      {(exp.id === "paddy-lake-trail" || exp.id === "kitulgala-white-water-rafting" || exp.id === "kitesurf-lessons-kalpitiya") && (
                         <div className="mt-3" onClick={(e) => e.stopPropagation()}>
                           <a 
-                            href={exp.id === "paddy-lake-trail" ? "https://wa.me/94777906156" : "https://wa.me/94777163543"} 
+                            href={exp.id === "paddy-lake-trail" ? "https://wa.me/94777906156" : exp.id === "kitulgala-white-water-rafting" ? "https://wa.me/94777163543" : "https://wa.me/94773686235"} 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-100 hover:bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-xl text-[10px] font-bold transition-all shadow-sm"
@@ -1238,7 +1280,7 @@ export default function SrilankaExperiencesPage() {
                               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                             </span>
                             <MessageCircle className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600/10" />
-                            <span>Contact {exp.provider}: {exp.id === "paddy-lake-trail" ? "+94 77 790 6156" : "+94 77 716 3543"}</span>
+                            <span>Contact {exp.provider}: {exp.id === "paddy-lake-trail" ? "+94 77 790 6156" : exp.id === "kitulgala-white-water-rafting" ? "+94 77 716 3543" : "+94 77 368 6235"}</span>
                           </a>
                         </div>
                       )}
@@ -1662,7 +1704,7 @@ export default function SrilankaExperiencesPage() {
                   </div>
 
                   {/* WhatsApp contact section inside detail modal if Paddy & Lake Trail */}
-                  {(activeDetailExperience.id === "paddy-lake-trail" || activeDetailExperience.id === "kitulgala-white-water-rafting") && (
+                  {(activeDetailExperience.id === "paddy-lake-trail" || activeDetailExperience.id === "kitulgala-white-water-rafting" || activeDetailExperience.id === "kitesurf-lessons-kalpitiya") && (
                     <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-2xl space-y-2">
                       <div className="flex items-center gap-2 text-emerald-800 font-bold text-xs uppercase tracking-wider">
                         <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600/10" />
@@ -1671,16 +1713,18 @@ export default function SrilankaExperiencesPage() {
                       <p className="text-[11px] text-emerald-950 font-light leading-relaxed">
                         {activeDetailExperience.id === "paddy-lake-trail" 
                           ? "Have questions about the cycle route, bike sizes, or custom timings? Connect with the tour guides directly on WhatsApp."
-                          : "Have questions about the river rapids, gear requirements, or custom timings? Connect with the raft masters directly on WhatsApp."}
+                          : activeDetailExperience.id === "kitulgala-white-water-rafting"
+                            ? "Have questions about the river rapids, gear requirements, or custom timings? Connect with the raft masters directly on WhatsApp."
+                            : "Have questions about kitesurfing lessons, wind conditions, or course bookings? Connect with the kite masters directly on WhatsApp."}
                       </p>
                       <a 
-                        href={activeDetailExperience.id === "paddy-lake-trail" ? "https://wa.me/94777906156" : "https://wa.me/94777163543"}
+                        href={activeDetailExperience.id === "paddy-lake-trail" ? "https://wa.me/94777906156" : activeDetailExperience.id === "kitulgala-white-water-rafting" ? "https://wa.me/94777163543" : "https://wa.me/94773686235"}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold uppercase tracking-widest transition-all shadow-md"
                       >
                         <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
-                        <span>Message {activeDetailExperience.id === "paddy-lake-trail" ? "+94 77 790 6156" : "+94 77 716 3543"}</span>
+                        <span>Message {activeDetailExperience.id === "paddy-lake-trail" ? "+94 77 790 6156" : activeDetailExperience.id === "kitulgala-white-water-rafting" ? "+94 77 716 3543" : "+94 77 368 6235"}</span>
                       </a>
                     </div>
                   )}
