@@ -822,7 +822,7 @@ export const EXPERIENCES: Experience[] = [
     id: "kitesurf-lessons-kalpitiya",
     title: "Kitesurf Lessons in Kalpitiya",
     slug: "kitesurf-lessons-kalpitiya",
-    image: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=800",
+    image: "https://tse1.explicit.bing.net/th/id/OIP.wVpFFYsu6pTsZSRaSJh8YwHaE7?rs=1&pid=ImgDetMain&o=7&rm=3",
     shortSummary: "Master the wind at Kalpitiya Lagoon with certified IKO instructors from Margarita Kite School. We guide you, you do the magic!",
     description: "Kalpitiya is Sri Lanka's premier kitesurfing destination, boasting world-class wind conditions and flat shallow lagoons perfect for all levels. Experience personal, safe, and professional kitesurfing lessons with Margarita Kite School, an official IKO-certified center. Learn wind theory, safety systems, power zone kite flying, and board riding under the guidance of passionate local and international instructors. Using state-of-the-art Cabrinha and Core kites and specialized radio helmets, you'll fast-track your progression in a fun, safe, and highly encouraging environment.",
     categories: ["Surfing", "Photography Spots"],
