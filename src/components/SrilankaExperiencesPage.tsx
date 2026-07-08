@@ -411,8 +411,8 @@ export const EXPERIENCES: Experience[] = [
     title: "Whale Watching in Mirissa",
     slug: "whale-watching-mirissa",
     image: "https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&q=80&w=800",
-    shortSummary: "Set sail to witness Blue Whales, the largest creatures on Earth, in their ocean highway.",
-    description: "The deep continental shelf off Mirissa is one of the world's finest pathways for marine giants. Here, you'll witness majestic Blue Whales, Fin Whales, Sperm Whales, and mega-pods of Spinner Dolphins jumping. Plan Sri Lanka only partners with certified, ocean-responsible conservation cruisers.",
+    shortSummary: "Set sail with Geeth's Whale Watching Mirissa, the premier direct operator to witness majestic Blue Whales on their ocean highway.",
+    description: "The deep continental shelf off Mirissa is one of the world's finest pathways for marine giants. Experience this once-in-a-lifetime journey with the premier official team of www.whale-watching-mirissa.com (operated by Geeth). You will witness majestic Blue Whales, Fin Whales, Sperm Whales, and mega-pods of Spinner Dolphins jumping, while on an eco-friendly double-decker cruiser respecting safe and ethical viewing distances.",
     categories: ["Whale Watching", "Beaches", "Photography Spots"],
     travelStyles: ["Wildlife", "Family", "Luxury", "Couple"],
     budgetTier: "Medium",
@@ -445,7 +445,8 @@ export const EXPERIENCES: Experience[] = [
       bestSeason: "November to April (Sea is calmest and whale highway is highly active).",
       familyFriendly: "Good, though toddlers might get sea sick on choppy days.",
       photography: "Challenging but rewarding (8/10) - telephoto lens required."
-    }
+    },
+    provider: "Whale Watching Mirissa"
   },
   {
     id: "pigeon-island-snorkeling",
@@ -1704,7 +1705,7 @@ export default function SrilankaExperiencesPage() {
                   </div>
 
                   {/* WhatsApp contact section inside detail modal if Paddy & Lake Trail */}
-                  {(activeDetailExperience.id === "paddy-lake-trail" || activeDetailExperience.id === "kitulgala-white-water-rafting" || activeDetailExperience.id === "kitesurf-lessons-kalpitiya") && (
+                  {(activeDetailExperience.id === "paddy-lake-trail" || activeDetailExperience.id === "kitulgala-white-water-rafting" || activeDetailExperience.id === "kitesurf-lessons-kalpitiya" || activeDetailExperience.id === "whale-watching-mirissa") && (
                     <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-2xl space-y-2">
                       <div className="flex items-center gap-2 text-emerald-800 font-bold text-xs uppercase tracking-wider">
                         <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600/10" />
@@ -1715,16 +1716,18 @@ export default function SrilankaExperiencesPage() {
                           ? "Have questions about the cycle route, bike sizes, or custom timings? Connect with the tour guides directly on WhatsApp."
                           : activeDetailExperience.id === "kitulgala-white-water-rafting"
                             ? "Have questions about the river rapids, gear requirements, or custom timings? Connect with the raft masters directly on WhatsApp."
-                            : "Have questions about kitesurfing lessons, wind conditions, or course bookings? Connect with the kite masters directly on WhatsApp."}
+                            : activeDetailExperience.id === "kitesurf-lessons-kalpitiya"
+                              ? "Have questions about kitesurfing lessons, wind conditions, or course bookings? Connect with the kite masters directly on WhatsApp."
+                              : "Have questions about boat departure times, sea-sickness prevention, or direct bookings? Connect with Geeth directly on WhatsApp."}
                       </p>
                       <a 
-                        href={activeDetailExperience.id === "paddy-lake-trail" ? "https://wa.me/94777906156" : activeDetailExperience.id === "kitulgala-white-water-rafting" ? "https://wa.me/94777163543" : "https://wa.me/94773686235"}
+                        href={activeDetailExperience.id === "paddy-lake-trail" ? "https://wa.me/94777906156" : activeDetailExperience.id === "kitulgala-white-water-rafting" ? "https://wa.me/94777163543" : activeDetailExperience.id === "kitesurf-lessons-kalpitiya" ? "https://wa.me/94773686235" : "https://wa.me/94718324015"}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold uppercase tracking-widest transition-all shadow-md"
                       >
                         <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
-                        <span>Message {activeDetailExperience.id === "paddy-lake-trail" ? "+94 77 790 6156" : activeDetailExperience.id === "kitulgala-white-water-rafting" ? "+94 77 716 3543" : "+94 77 368 6235"}</span>
+                        <span>Message {activeDetailExperience.id === "paddy-lake-trail" ? "+94 77 790 6156" : activeDetailExperience.id === "kitulgala-white-water-rafting" ? "+94 77 716 3543" : activeDetailExperience.id === "kitesurf-lessons-kalpitiya" ? "+94 77 368 6235" : "+94 71 832 4015"}</span>
                       </a>
                     </div>
                   )}
