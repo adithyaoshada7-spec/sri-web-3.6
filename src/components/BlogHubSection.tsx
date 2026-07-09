@@ -103,10 +103,10 @@ const getArticleMeta = (path: string) => {
         readTime: "10 Min Read",
         badge: "Couples Blueprint"
       };
-    case "/american-sri-lanka-itinerary":
+    case "/sri-lanka-travel-guide-for-americans":
       return {
         category: "US Special Route",
-        tag: "7-Day US Route",
+        tag: "US Guide",
         icon: <Globe className="w-3.5 h-3.5 text-[#d4af37]" />,
         readTime: "9 Min Read",
         badge: "US Passport Offer"

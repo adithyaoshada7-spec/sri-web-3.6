@@ -47,7 +47,7 @@ const SrilankaBangaloreCostPillarPage = lazy(() => import("./components/Srilanka
 const SrilankaMumbaiCostPillarPage = lazy(() => import("./components/SrilankaMumbaiCostPillarPage"));
 const SrilankaHyderabadCostPillarPage = lazy(() => import("./components/SrilankaHyderabadCostPillarPage"));
 const SrilankaAugustCouplesPage = lazy(() => import("./components/SrilankaAugustCouplesPage"));
-const SrilankaAmericanItineraryPage = lazy(() => import("./components/SrilankaAmericanItineraryPage"));
+const SrilankaAmericanGuidePage = lazy(() => import("./components/SrilankaAmericanGuidePage"));
 const FeatureSection = lazy(() => import("./components/FeatureSection"));
 const CallToAction = lazy(() => import("./components/CallToAction"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -633,13 +633,13 @@ export default function App() {
           </Suspense>
         } />
 
-        <Route path="/american-sri-lanka-itinerary" element={
+        <Route path="/sri-lanka-travel-guide-for-americans" element={
           <Suspense fallback={
             <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
               <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
             </div>
           }>
-            <SrilankaAmericanItineraryPage />
+            <SrilankaAmericanGuidePage />
           </Suspense>
         } />
         
@@ -804,7 +804,7 @@ export default function App() {
             </div>
             <div className="space-y-3">
               {[
-                { title: "7-Day US Traveler Itinerary", path: "/american-sri-lanka-itinerary", badge: "US Travelers", desc: "Monsoon navigation, visas & dollar purchase value." },
+                { title: "US Travel Guide for Americans", path: "/sri-lanka-travel-guide-for-americans", badge: "US Travelers", desc: "Monsoon navigation, visas & dollar purchase value." },
                 { title: "Hyderabad to Sri Lanka Trip Cost", path: "/sri-lanka-trip-cost-from-hyderabad", badge: "Hyderabad Gateway", desc: "RGIA flight deals, stays & realistic budgets." },
                 { title: "Mumbai to Sri Lanka Trip Cost", path: "/sri-lanka-trip-cost-from-mumbai", badge: "Mumbai Gateway", desc: "CSMIA flight deals, stays & realistic budgets." },
                 { title: "August Couples Itinerary (2026)", path: "/sri-lanka-itinerary-august-couples", badge: "Romantic Getaway", desc: "Sunny East Coast beaches & boutique hills." },

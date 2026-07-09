@@ -120,9 +120,9 @@ const articleCategories = [
     icon: <Globe className="w-5 h-5 text-luxury-gold" />,
     articles: [
       {
-        path: "/american-sri-lanka-itinerary",
-        title: "7-Day Sri Lanka Itinerary for American Travelers (2026)",
-        desc: "The definitive 7-day Sri Lanka itinerary optimized for US passport holders. Learn how to maximize your dollar purchasing power, explore ancient ruins, take scenic train rides, and navigate monsoon seasonality easily.",
+        path: "/sri-lanka-travel-guide-for-americans",
+        title: "Sri Lanka Travel Guide for Americans (2026)",
+        desc: "The definitive guide for US travelers: free 30-day visa details, flight routings, monsoonal splits, 7 and 10-day loop itineraries, costs, and safety guidelines.",
         image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
         readTime: "9 Min Read",
         badge: "US Travelers Special",

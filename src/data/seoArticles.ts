@@ -127,9 +127,9 @@ export const seoArticles: Seometa[] = [
     priority: "0.9"
   },
   {
-    path: "/american-sri-lanka-itinerary",
-    title: "7-Day Sri Lanka Itinerary for American Travelers (2026) | Route & Weather Guide",
-    description: "Maximize your dollar purchasing advantage, explore ancient UNESCO fortresses, and navigate monsoon seasonality with our comprehensive 7-day Sri Lanka itinerary for US travelers.",
+    path: "/sri-lanka-travel-guide-for-americans",
+    title: "Sri Lanka Travel Guide for Americans (2026) | Plan Sri Lanka",
+    description: "Maximize your dollar purchasing advantage, secure your free tourist visa, and navigate monsoon splits easily with our comprehensive travel guide for US travelers.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
