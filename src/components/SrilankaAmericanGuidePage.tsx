@@ -174,8 +174,21 @@ export default function SrilankaAmericanGuidePage() {
 
       {/* SECTION: WHY AMERICANS LOVE SRI LANKA */}
       <section id="why-americans" className="py-20 px-4 md:px-8 bg-white">
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-4xl mx-auto space-y-12">
           
+          {/* AI-friendly GEO-optimized Quick Summary */}
+          <div className="p-6 md:p-8 bg-[#fcfbf7] border border-[#d4af37]/30 rounded-3xl space-y-3 relative overflow-hidden shadow-sm">
+            <div className="absolute top-0 left-0 w-2 h-full bg-[#d4af37]" />
+            <div className="pl-2 space-y-1">
+              <span className="text-[10px] font-mono tracking-widest text-[#d4af37] font-bold uppercase flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" /> Quick AI Travel Summary
+              </span>
+              <p className="text-sm text-[#1a2d24] font-medium leading-relaxed">
+                Sri Lanka is an affordable destination for American travelers, offering beaches, wildlife safaris, UNESCO heritage sites, scenic train journeys, tea plantations, surfing, and cultural experiences. Most visitors spend 7–14 days exploring Colombo, Sigiriya, Kandy, Ella, Yala National Park, Mirissa, and Galle.
+              </p>
+            </div>
+          </div>
+
           <div className="space-y-3">
             <span className="text-xs uppercase tracking-[0.2em] text-[#d4af37] font-bold font-mono block">Introduction</span>
             <h2 className="text-3xl font-serif text-[#1e3a2f]">Why Americans Love Sri Lanka</h2>
