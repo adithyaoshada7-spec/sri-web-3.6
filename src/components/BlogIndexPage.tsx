@@ -120,6 +120,15 @@ const articleCategories = [
     icon: <Globe className="w-5 h-5 text-luxury-gold" />,
     articles: [
       {
+        path: "/american-sri-lanka-itinerary",
+        title: "7-Day Sri Lanka Itinerary for American Travelers (2026)",
+        desc: "The definitive 7-day Sri Lanka itinerary optimized for US passport holders. Learn how to maximize your dollar purchasing power, explore ancient ruins, take scenic train rides, and navigate monsoon seasonality easily.",
+        image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "9 Min Read",
+        badge: "US Travelers Special",
+        tag: "7-Day US Route"
+      },
+      {
         path: "/sri-lanka-7-day-itinerary",
         title: "Sri Lanka 7-Day Classic Itinerary (Optimized Loop)",
         desc: "The gold-standard first timer loop: Negombo coastal sunsets, Sigiriya Lion Rock climbing, Kandy sacred temples, Ella blue train carriages, Yala safaris, and Galle Fort.",

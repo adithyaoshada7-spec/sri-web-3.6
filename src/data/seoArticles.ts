@@ -127,6 +127,15 @@ export const seoArticles: Seometa[] = [
     priority: "0.9"
   },
   {
+    path: "/american-sri-lanka-itinerary",
+    title: "7-Day Sri Lanka Itinerary for American Travelers (2026) | Route & Weather Guide",
+    description: "Maximize your dollar purchasing advantage, explore ancient UNESCO fortresses, and navigate monsoon seasonality with our comprehensive 7-day Sri Lanka itinerary for US travelers.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
+  },
+  {
     path: "/things-to-do-in-sri-lanka",
     title: "15 Best Things To Do In Sri Lanka (2026) | Elite Curated Experiences",
     description: "Discover the ultimate curated list of things to do in Sri Lanka. From luxury morning wild safaris in Yala to misty tea country scenic trains and UNESCO Galle Fort walking tours.",

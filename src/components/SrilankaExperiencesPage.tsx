@@ -887,6 +887,8 @@ const FAQ_ITEMS = [
   }
 ];
 
+
+
 // --- SUB-COMPONENTS ---
 function FaqItemComponent({ faq }: { faq: typeof FAQ_ITEMS[0]; key?: React.Key }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -1164,7 +1166,7 @@ export default function SrilankaExperiencesPage() {
         <div className="max-w-7xl mx-auto px-6 space-y-12">
           
           <div className="text-center space-y-3">
-            <span className="text-luxury-gold font-serif italic text-lg block">The Collection</span>
+            <span className="text-luxury-gold font-serif italic text-sm block">Curated Collection</span>
             <h2 className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tight">
               Curated Sri Lanka Experiences
             </h2>
