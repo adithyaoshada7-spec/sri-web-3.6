@@ -200,10 +200,10 @@ export default function SrilankaAmericanGuidePage() {
               For decades, American globetrotters seeking exotic South Asian experiences flocked almost exclusively to India, Thailand, or Bali. However, <strong>Sri Lanka</strong> has emerged as the ultimate alternative for travelers who crave deep cultural history, dynamic wildlife, and pristine beaches without the heavy crowds. 
             </p>
             <p>
-              Sri Lanka is incredibly compact. It has a geographic footprint roughly comparable to <strong>West Virginia</strong>, yet within its borders lies an array of distinct ecosystems that would span entire regions in the United States. You can easily hike through misty, cold pine-forest highlands in the morning and lounge on a sun-drenched, palm-fringed tropical beach by late afternoon.
+              Sri Lanka is incredibly compact. It has a geographic footprint roughly comparable to <strong>West Virginia</strong>, yet within its borders lies an array of distinct ecosystems that would span entire regions in the United States. You can easily hike through the misty, cool pine forests of the <strong>Central Highlands</strong> in the morning and lounge on a sun-drenched, palm-fringed tropical beach by late afternoon.
             </p>
             <p>
-              Furthermore, the <strong>purchasing power advantage</strong> of the US Dollar (USD) is immense in Sri Lanka. Exceptional colonial tea plantations, private oceanfront luxury bungalows, five-star boutique hotels, and dedicated English-speaking private chauffeurs are all highly accessible for a fraction of what they would cost in Europe, Hawaii, or the Caribbean.
+              Furthermore, the <strong>purchasing power advantage</strong> of the US Dollar (USD) is immense in Sri Lanka. Exceptional colonial tea plantations in the beautiful <strong>Tea Country</strong>, private oceanfront luxury bungalows, five-star boutique hotels, and dedicated English-speaking private chauffeurs are all highly accessible for a fraction of what they would cost in Europe, Hawaii, or the Caribbean.
             </p>
           </div>
 
@@ -226,7 +226,7 @@ export default function SrilankaAmericanGuidePage() {
                 <strong>Yes, but there is incredible news for 2026.</strong> American passport holders require an entry authorization, but under the updated Sri Lankan Visa scheme, the government has introduced a <strong>free 30-day Electronic Travel Authorization (ETA)</strong> for citizens of multiple countries, including the United States.
               </p>
               <p>
-                This means you can easily apply online prior to your flight departure without paying any visa processing fees. The authorization is linked directly to your passport number, enabling a seamless transition through the immigration gates at Bandaranaike International Airport in Colombo.
+                This means you can easily apply online prior to your flight departure without paying any visa processing fees. The authorization is linked directly to your passport number, enabling a seamless transition through the immigration gates at <strong>Bandaranaike International Airport (BIA)</strong> in Colombo.
               </p>
               <div className="pt-2">
                 <Link 
@@ -271,7 +271,7 @@ export default function SrilankaAmericanGuidePage() {
           </div>
 
           <p className="text-sm md:text-base text-[#1a2d24]/80 leading-relaxed font-light">
-            While there are no direct, non-stop commercial flights connecting the United States directly to Sri Lanka's Bandaranaike International Airport (CMB), getting there is remarkably straightforward via award-winning single-stop layovers:
+            While there are no direct, non-stop commercial flights connecting the United States directly to Sri Lanka's primary gateway, <strong>Bandaranaike International Airport (BIA)</strong>, getting there is remarkably straightforward via award-winning single-stop layovers:
           </p>
 
           <div className="grid sm:grid-cols-3 gap-6 pt-2">
@@ -394,27 +394,27 @@ export default function SrilankaAmericanGuidePage() {
               <div className="grid sm:grid-cols-2 gap-4 text-xs font-light text-[#a3bfae]">
                 <div>
                   <span className="font-bold text-white block">Day 1: Negombo Beach</span>
-                  Land in Colombo, 20-min airport transfer to Negombo beach resort.
+                  Land in Colombo at <strong>Bandaranaike International Airport (BIA)</strong>, 20-min airport transfer to Negombo beach resort.
                 </div>
                 <div>
-                  <span className="font-bold text-white block">Day 2: Sigiriya Lion Rock</span>
-                  Explore King Kassapa's ancient 5th-century volcanic citadel ruins.
+                  <span className="font-bold text-white block">Day 2: Sigiriya Lion Rock & Cultural Triangle</span>
+                  Enter the famous <strong>Cultural Triangle</strong>. Explore King Kassapa's ancient 5th-century volcanic citadel, one of Sri Lanka's prized <strong>UNESCO World Heritage sites</strong>.
                 </div>
                 <div>
                   <span className="font-bold text-white block">Day 3: Sacred City of Kandy</span>
-                  Dambulla Cave Temple en route, followed by Kandy's Temple of the Tooth.
+                  Visit the Dambulla Cave Temple (another magnificent UNESCO site) en route, followed by Kandy's Temple of the Tooth.
                 </div>
                 <div>
-                  <span className="font-bold text-white block">Day 4: Ella Train Journey</span>
-                  Ride the world's most scenic blue train through emerald highland tea valleys.
+                  <span className="font-bold text-white block">Day 4: Scenic Ella Train Ride</span>
+                  Ride the world's most scenic blue train through emerald highland tea valleys of the gorgeous <strong>Tea Country</strong>.
                 </div>
                 <div>
-                  <span className="font-bold text-white block">Day 5: Big Game Safari</span>
-                  Jeep safari in Udawalawe or Yala National Park tracking wild elephants.
+                  <span className="font-bold text-white block">Day 5: Wilderness Game Safari</span>
+                  Jeep safari in Udawalawe or Yala National Park tracking wild herds of Asian elephants.
                 </div>
                 <div>
-                  <span className="font-bold text-white block">Day 6: Galle Dutch Fort</span>
-                  Stroll the seaside ramparts, boutique hotels, and colonial alleys of Galle.
+                  <span className="font-bold text-white block">Day 6 & 7: Galle Dutch Fort & Southern Expressway</span>
+                  Stroll the seaside ramparts, boutique hotels, and colonial alleys of Galle Fort (UNESCO site), then return swiftly to BIA via the modern <strong>Southern Expressway</strong>.
                 </div>
               </div>
             </div>
@@ -444,20 +444,20 @@ export default function SrilankaAmericanGuidePage() {
               <h4 className="font-serif font-bold text-sm text-[#1e3a2f] uppercase tracking-wider">The Extended Route:</h4>
               <div className="grid sm:grid-cols-2 gap-4 text-xs font-light text-[#1a2d24]/80">
                 <div>
-                  <span className="font-bold text-[#1e3a2f] block">Days 1 - 3: Cultural Triangle Hub</span>
-                  Base yourself in Sigiriya. Explore Sigiriya Lion Rock, climb Pidurangala Rock, bike the ancient royal ruins of Polonnaruwa, and safari in Minneriya.
+                  <span className="font-bold text-[#1e3a2f] block">Days 1 - 3: The Cultural Triangle & UNESCO Fortresses</span>
+                  Base yourself in Sigiriya at the heart of the <strong>Cultural Triangle</strong>. Explore the Sigiriya Lion Rock citadel and Polonnaruwa, both prestigious <strong>UNESCO World Heritage sites</strong>.
                 </div>
                 <div>
-                  <span className="font-bold text-[#1e3a2f] block">Days 4 - 5: Highland Peaks (Ella)</span>
-                  Ride the scenic highland train, hike Ella Rock, photograph the iconic Nine Arch Bridge, and tour a traditional Ceylon tea estate.
+                  <span className="font-bold text-[#1e3a2f] block">Days 4 - 5: Highland Peaks & Tea Country (Ella)</span>
+                  Ride the scenic railway into the misty <strong>Tea Country</strong>, hike Ella Rock, photograph the iconic Nine Arch Bridge, and tour a traditional Ceylon tea estate.
                 </div>
                 <div>
-                  <span className="font-bold text-[#1e3a2f] block">Days 6 - 7: Deep Wilderness Safari</span>
+                  <span className="font-bold text-[#1e3a2f] block">Days 6 - 7: Deep Wilderness Safari (Yala)</span>
                   Spend two nights glamping in Yala National Park for maximum leopard tracking chances and pristine coastal dune walks.
                 </div>
                 <div>
-                  <span className="font-bold text-[#1e3a2f] block">Days 8 - 10: Golden Southern Coast</span>
-                  Savor the slow lifestyle of Mirissa or Galle. Learn to surf, visit stilt fishermen, dine on fresh sea crab, and walk Galle's colonial streets.
+                  <span className="font-bold text-[#1e3a2f] block">Days 8 - 10: Golden Southern Coast & Southern Expressway</span>
+                  Savor the slow lifestyle of Mirissa or Galle. Walk Galle's colonial streets (UNESCO site), learn to surf, and return seamlessly to Colombo via the high-speed <strong>Southern Expressway</strong>.
                 </div>
               </div>
             </div>
