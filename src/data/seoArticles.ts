@@ -143,5 +143,14 @@ export const seoArticles: Seometa[] = [
     ogType: "website",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/best-things-to-do-sri-lanka-first-time-visitors",
+    title: "Best Things to Do in Sri Lanka for First-Time Visitors (2026 Master Guide)",
+    description: "The ultimate field-tested first timer's guide. Discover what experiences are worth paying for, what to avoid, interactive activity matchers, local datasets, and before-you-fly checklists.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];

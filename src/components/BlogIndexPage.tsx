@@ -120,6 +120,15 @@ const articleCategories = [
     icon: <Globe className="w-5 h-5 text-luxury-gold" />,
     articles: [
       {
+        path: "/best-things-to-do-sri-lanka-first-time-visitors",
+        title: "Best Things to Do in Sri Lanka for First-Time Visitors (2026 Guide)",
+        desc: "The ultimate field-tested first timer's guide. Discover what experiences are worth paying for, what to avoid, interactive activity matchers, local datasets, and before-you-fly checklists.",
+        image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "14 Min Read",
+        badge: "First-Timer Special",
+        tag: "Ultimate Guide"
+      },
+      {
         path: "/sri-lanka-travel-guide-for-americans",
         title: "Sri Lanka Travel Guide for Americans (2026)",
         desc: "The definitive guide for US travelers: free 30-day visa details, flight routings, monsoonal splits, 7 and 10-day loop itineraries, costs, and safety guidelines.",
