@@ -37,6 +37,7 @@ import {
   Scale
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
+import MarketplaceTrustDashboard from "./MarketplaceTrustDashboard";
 
 // --- INTERFACES ---
 export interface Category {
@@ -1158,6 +1159,11 @@ export default function SrilankaExperiencesPage() {
           </div>
         </div>
       </section>
+      
+      {/* --------------------------------------------------
+          MARKETPLACE TRUST STATISTICS SECTION
+         -------------------------------------------------- */}
+      <MarketplaceTrustDashboard />
 
       {/* --------------------------------------------------
           CURATED EXPERIENCES PORTAL
