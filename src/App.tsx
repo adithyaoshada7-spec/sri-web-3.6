@@ -56,6 +56,7 @@ const BlogHubSection = lazy(() => import("./components/BlogHubSection"));
 const BlogIndexPage = lazy(() => import("./components/BlogIndexPage"));
 const SrilankaExperiencesPage = lazy(() => import("./components/SrilankaExperiencesPage"));
 const SrilankaFirstTimeThingsToDoPage = lazy(() => import("./components/SrilankaFirstTimeThingsToDoPage"));
+const SrilankaAboutFounderPage = lazy(() => import("./components/SrilankaAboutFounderPage"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -321,6 +322,7 @@ export default function App() {
         
         <div className="flex items-center gap-6 md:gap-12">
           <div className="hidden md:flex gap-12 items-center text-[10px] uppercase tracking-[0.4em] font-bold font-sans">
+            <Link to="/about-founder" className="hover:text-luxury-gold text-luxury-gold transition-colors font-bold">About Founder</Link>
             <Link to="/#about" className="hover:text-luxury-gold transition-colors">The Lifestyle</Link>
             <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">The Collection</Link>
             <Link to="/things-to-do-in-sri-lanka" className="hover:text-luxury-gold transition-colors text-luxury-gold font-bold">Things to Do</Link>
@@ -703,6 +705,16 @@ export default function App() {
             <SrilankaFirstTimeThingsToDoPage />
           </Suspense>
         } />
+
+        <Route path="/about-founder" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaAboutFounderPage />
+          </Suspense>
+        } />
       </Routes>
 
       {/* Footer */}
@@ -767,6 +779,18 @@ export default function App() {
                 <span className="text-[10px] opacity-60">Past visual tours</span>
               </a>
             </div>
+            
+            <Link 
+              to="/about-founder" 
+              onClick={() => setIsMenuOpen(false)}
+              className="mt-3 p-4 rounded-2xl bg-[#d4af37]/10 border border-[#d4af37]/30 hover:border-[#d4af37] transition-all flex items-center justify-between group"
+            >
+              <div className="flex flex-col gap-1">
+                <span className="font-serif font-bold text-base text-[#d4af37]">👤 Meet the Founder</span>
+                <span className="text-[10px] opacity-60 text-white">Oshada Adithya's Story & Methodology</span>
+              </div>
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
 
           {/* INTERACTIVE PLANNING TOOLS DEDICATED SECTION */}
