@@ -1549,6 +1549,50 @@ function generatePrerenderPages(): PrerenderPage[] {
     });
   });
 
+  // 4. About Founder Page
+  pages.push({
+    path: "/about-founder",
+    title: "About the Founder | Oshada Adithya - Plan Sri Lanka",
+    description: "Meet Oshada Adithya, founder of Plan Sri Lanka. Explore our transparent, data-driven methodology for calculating travel costs, weather patterns, and custom Sri Lanka itineraries for Indian travelers.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200",
+    ogType: "profile",
+    canonicalUrl: `${domain}/about-founder`,
+    bodyHtml: `
+      <header>
+        <h1>About the Founder | Oshada Adithya - Plan Sri Lanka</h1>
+        <p><strong>Meet Oshada Adithya, founder of Plan Sri Lanka. Explore our transparent, data-driven methodology for calculating travel costs, weather patterns, and custom Sri Lanka itineraries.</strong></p>
+      </header>
+      <section>
+        <h2>My Story & Mission</h2>
+        <p>Plan Sri Lanka was founded by Oshada Adithya to solve a persistent issue in the travel industry: inaccurate, outdated listicles and high-commission tour packages that prioritize sales over actual traveler experience. We optimize ground logistics, microclimate mappings, and realistic pricing models for Indian families, couples, and adventurers.</p>
+        <h2>Our Core Values</h2>
+        <ul>
+          <li><strong>Obsessive Accuracy:</strong> Ground-truthing transit and cost variables continuously.</li>
+          <li><strong>Absolute Transparency:</strong> No secret affiliate fees or markups.</li>
+          <li><strong>Local Knowledge:</strong> Native expertise applied to every single route.</li>
+          <li><strong>Traveler-First:</strong> Customized templates matching your physical pacing.</li>
+        </ul>
+      </section>
+    `,
+    schemas: [
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Oshada Adithya - Plan Sri Lanka",
+        "description": "Information about Oshada Adithya and the editorial methodology behind Plan Sri Lanka.",
+        "url": `${domain}/about-founder`,
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Oshada Adithya",
+          "jobTitle": "Founder & Director",
+          "url": "https://www.linkedin.com/in/oshada-adithya-a93bba341/?skipRedirect=true",
+          "knowsLanguage": ["English", "Sinhala"],
+          "nationality": "Sri Lankan"
+        }
+      }, null, 2)
+    ]
+  });
+
   return pages;
 }
 
