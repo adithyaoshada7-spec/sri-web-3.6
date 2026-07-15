@@ -44,6 +44,8 @@ interface ComparisonDetail {
 }
 
 export default function SrilankaAboutFounderPage() {
+  const founderOshada = "https://lh3.googleusercontent.com/d/1Xl8LZcxDOX__ZP5DtUPbbA_ov3Wsv3T5";
+
   // Page Metadata for Google / AI Search
   usePageMetadata({
     title: "About the Founder | Oshada Adithya - Plan Sri Lanka",
@@ -257,7 +259,7 @@ export default function SrilankaAboutFounderPage() {
             <div className="md:col-span-4 md:sticky md:top-32 space-y-6">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-luxury-cream">
                 <img 
-                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400&h=500" 
+                  src={founderOshada} 
                   alt="Oshada Adithya" 
                   className="w-full object-cover aspect-[4/5] grayscale hover:grayscale-0 transition-all duration-700"
                   referrerPolicy="no-referrer"
