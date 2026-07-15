@@ -260,9 +260,11 @@ export default function SrilankaAboutFounderPage() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-luxury-cream">
                 <img 
                   src={founderOshada} 
-                  alt="Oshada Adithya" 
+                  alt="Oshada Adithya, Founder of Plan Sri Lanka" 
                   className="w-full object-cover aspect-[4/5] grayscale hover:grayscale-0 transition-all duration-700"
                   referrerPolicy="no-referrer"
+                  width="400"
+                  height="500"
                 />
                 <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white text-center">
                   <p className="font-serif font-bold text-lg">Oshada Adithya</p>
