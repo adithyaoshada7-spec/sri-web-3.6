@@ -152,5 +152,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/sri-lanka-train-trip-planner",
+    title: "Sri Lanka Train Trip Planner & Interactive Route Map (2026)",
+    description: "Plan your Sri Lanka rail adventure with our interactive train trip planner. Predict weather, station crowding, ticketing availability risks, and find the best class options.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "website",
+    changefreq: "weekly",
+    priority: "1.0"
   }
 ];

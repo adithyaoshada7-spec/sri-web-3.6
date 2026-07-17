@@ -1593,6 +1593,56 @@ function generatePrerenderPages(): PrerenderPage[] {
     ]
   });
 
+  // 5. Train Trip Planner Page
+  pages.push({
+    path: "/sri-lanka-train-trip-planner",
+    title: "Sri Lanka Train Trip Planner & Interactive Route Map (2026)",
+    description: "Plan your Sri Lanka rail adventure with our interactive train trip planner. Predict weather, station crowding, ticketing availability risks, and find the best class options.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200",
+    ogType: "website",
+    canonicalUrl: `${domain}/sri-lanka-train-trip-planner`,
+    bodyHtml: `
+      <header>
+        <h1>Sri Lanka Train Trip Planner & Interactive Route Map (2026)</h1>
+        <p><strong>Optimize your Sri Lanka train travel experience. Predict weather conditions, crowd density, ticket reservation availability, and select the perfect train class for your high-country journey.</strong></p>
+      </header>
+      <section>
+        <h2>The AI Train Experience Decision Engine</h2>
+        <p>Our interactive platform is designed to answer one crucial question for Sri Lankan rail travelers: <em>"Which train experience is best for me?"</em> Before you book, explore our detailed route simulation tools covering the famous Kandy-to-Ella railway line, coastal rail links, and northern routes.</p>
+        
+        <h3>Key Experience Predictor Features:</h3>
+        <ul>
+          <li><strong>Overall Experience Score:</strong> Real-time comfort indexes combining weather, crowds, and train class selections.</li>
+          <li><strong>Weather Predictor:</strong> Dynamic microclimate and monsoon split updates for highland peaks and coastal segments.</li>
+          <li><strong>Crowd Predictor:</strong> Predictive analytics on station and carriage congestion levels based on local holiday schedules and peak seasons.</li>
+          <li><strong>Best Class Recommendation:</strong> Side-by-side comparison of 1st Class Observation Saloons, 2nd Class reserved/unreserved, and 3rd Class local travel.</li>
+          <li><strong>Risk & Delay Predictor:</strong> Real-time assessment of ticketing depletion speeds, landslide safety margins, and typical weather delays.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interactive Scenic Route Map Landmarks</h2>
+        <p>Explore landmarks and major stations along the tracks including:</p>
+        <ul>
+          <li><strong>Misty Tea Estates:</strong> Ride through rolling green plantation hills in Hatton and Nuwara Eliya.</li>
+          <li><strong>Spectacular Waterfalls:</strong> View cascading waterfalls directly from your cabin windows.</li>
+          <li><strong>Nine Arch Bridge (Ella):</strong> Walk the stone viaduct in the dense jungle.</li>
+          <li><strong>Station Stops:</strong> Get arrival schedules, distance, localized weather, and nearby hotel/restaurant options for Kandy, Nanu Oya, Hatton, Bandarawela, and Ella.</li>
+        </ul>
+      </section>
+    `,
+    schemas: [
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Sri Lanka Train Trip Planner",
+        "description": "An interactive, AI-driven train route mapping and comfort prediction application for Sri Lankan rail journeys.",
+        "url": `${domain}/sri-lanka-train-trip-planner`,
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "All"
+      }, null, 2)
+    ]
+  });
+
   return pages;
 }
 
