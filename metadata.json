@@ -1,6 +1,6 @@
 {
   "name": "Italian Vibe Tour In Sri Lanka",
-  "description": "An exclusive travel concierge for high-net-worth individuals seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka, inspired by the Italian lifestyle.",
+  "description": "An exclusive travel concierge for high-net-worth individuals seeking extraordinary, tailored journeys across Sri Lanka. Features the Interactive Train Route Map & Experience Predictor.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

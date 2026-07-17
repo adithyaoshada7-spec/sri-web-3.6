@@ -41,6 +41,7 @@ const SrilankaBestTimePage = lazy(() => import("./components/SrilankaBestTimePag
 const SrilankaFamilyPage = lazy(() => import("./components/SrilankaFamilyPage"));
 const SrilankaJunePage = lazy(() => import("./components/SrilankaJunePage"));
 const SrilankaTripPlannerPage = lazy(() => import("./components/SrilankaTripPlannerPage"));
+const SrilankaTrainTripPlannerPage = lazy(() => import("./components/SrilankaTrainTripPlannerPage"));
 const SrilankaTripPlannerPillarPage = lazy(() => import("./components/SrilankaTripPlannerPillarPage"));
 const SrilankaChennaiCostPillarPage = lazy(() => import("./components/SrilankaChennaiCostPillarPage"));
 const SrilankaBangaloreCostPillarPage = lazy(() => import("./components/SrilankaBangaloreCostPillarPage"));
@@ -326,6 +327,7 @@ export default function App() {
             <Link to="/#about" className="hover:text-luxury-gold transition-colors">The Lifestyle</Link>
             <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">The Collection</Link>
             <Link to="/things-to-do-in-sri-lanka" className="hover:text-luxury-gold transition-colors text-luxury-gold font-bold">Things to Do</Link>
+            <Link to="/sri-lanka-train-trip-planner" className="hover:text-luxury-gold transition-colors text-[#d4af37] font-bold">🚂 Train Map</Link>
             <Link to="/sri-lanka-trip-cost-from-india" className="hover:text-luxury-gold transition-colors">Trip Costs</Link>
             <Link to="/how-to-plan-a-trip-to-sri-lanka" className="hover:text-luxury-gold transition-colors">Trip Planner</Link>
             <Link to="/blog" className="hover:text-luxury-gold transition-colors block">Library (Blog)</Link>
@@ -576,6 +578,16 @@ export default function App() {
           </Suspense>
         } />
 
+        <Route path="/sri-lanka-train-trip-planner" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaTrainTripPlannerPage />
+          </Suspense>
+        } />
+
         <Route path="/how-to-plan-a-trip-to-sri-lanka" element={
           <Suspense fallback={
             <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
@@ -800,6 +812,7 @@ export default function App() {
             </span>
             <div className="space-y-3">
               {[
+                { title: "Interactive Train Route Map & Predictor", path: "/sri-lanka-train-trip-planner", badge: "World-Class Live", desc: "Predict routes, monsoons, weather, elevation profiles & best cabin classes." },
                 { title: "Things to Do & Experiences (Platform)", path: "/things-to-do-in-sri-lanka", badge: "Interactive", desc: "Discover wildlife safaris, beaches, hikes & compare." },
                 { title: "Master Trip Planner Guide (Tool)", path: "/how-to-plan-a-trip-to-sri-lanka", badge: "Interactive Pillar", desc: "Build your perfect Sri Lanka itinerary step-by-step." },
                 { title: "Bespoke Route & Cost Engine", path: "/sri-lanka-trip-planner", badge: "Live Tool", desc: "Select climate clusters & calculate driving hours." }
