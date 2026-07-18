@@ -5,6 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { activities } from "./src/data/activities";
 import { seoArticles } from "./src/data/seoArticles";
+import { trainFallbackHtml } from "./src/data/trainFallbackHtml";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -224,6 +225,15 @@ async function startServer() {
           template = template.replace(regex, "");
         });
         template = template.replace(/<\/head>/i, `${metaTags}\n  </head>`);
+      }
+
+      // Dynamic fallback HTML injection for crawlers / LLMs
+      const fallbackRegex = /<article class="crawler-seo-wrapper">[\s\S]*?<\/article>/i;
+      if (fallbackRegex.test(template)) {
+        if (cleanPath === "/how-to-plan-a-train-trip-in-sri-lanka") {
+          template = template.replace(fallbackRegex, trainFallbackHtml.trim());
+          console.log(`[SEO-Server] Injected 1500+ words Train Trip Guide semantic fallback HTML.`);
+        }
       }
 
       res.status(200).set({ "Content-Type": "text/html" }).end(template);
