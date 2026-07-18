@@ -161,5 +161,14 @@ export const seoArticles: Seometa[] = [
     ogType: "website",
     changefreq: "weekly",
     priority: "1.0"
+  },
+  {
+    path: "/how-to-plan-a-train-trip-in-sri-lanka",
+    title: "How to Plan a Train Trip in Sri Lanka: The Ultimate 2026 Guide",
+    description: "Master Sri Lanka train travel. Learn how to book tickets, select classes, map Kandy to Ella, and use our free interactive train planning tool. (2026)",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];

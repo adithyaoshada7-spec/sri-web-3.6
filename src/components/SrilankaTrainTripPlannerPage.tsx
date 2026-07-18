@@ -46,7 +46,8 @@ import {
   Sliders,
   HelpCircle,
   EyeOff,
-  Percent
+  Percent,
+  BookOpen
 } from "lucide-react";
 import { 
   ResponsiveContainer, 
@@ -623,10 +624,11 @@ export default function SrilankaTrainTripPlannerPage() {
               </button>
               
               <Link
-                to="/things-to-do-in-sri-lanka"
+                to="/how-to-plan-a-train-trip-in-sri-lanka"
                 className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors backdrop-blur-sm border border-white/10 flex items-center gap-2"
               >
-                <span>Experiences Deck</span>
+                <BookOpen className="w-4 h-4 text-[#d4af37]" />
+                <span>Read Planning Handbook</span>
               </Link>
             </div>
           </div>

@@ -42,6 +42,7 @@ const SrilankaFamilyPage = lazy(() => import("./components/SrilankaFamilyPage"))
 const SrilankaJunePage = lazy(() => import("./components/SrilankaJunePage"));
 const SrilankaTripPlannerPage = lazy(() => import("./components/SrilankaTripPlannerPage"));
 const SrilankaTrainTripPlannerPage = lazy(() => import("./components/SrilankaTrainTripPlannerPage"));
+const SrilankaTrainTripGuidePage = lazy(() => import("./components/SrilankaTrainTripGuidePage"));
 const SrilankaTripPlannerPillarPage = lazy(() => import("./components/SrilankaTripPlannerPillarPage"));
 const SrilankaChennaiCostPillarPage = lazy(() => import("./components/SrilankaChennaiCostPillarPage"));
 const SrilankaBangaloreCostPillarPage = lazy(() => import("./components/SrilankaBangaloreCostPillarPage"));
@@ -194,7 +195,7 @@ export default function App() {
           variants={staggerContainer}
           className="grid grid-cols-1 gap-12"
         >
-          {activities.filter(a => a.slug === 'italian-vibe-tour').map((item) => (
+          {activities.map((item) => (
             <motion.div 
               key={item.id}
               variants={fadeUp}
@@ -588,6 +589,16 @@ export default function App() {
           </Suspense>
         } />
 
+        <Route path="/how-to-plan-a-train-trip-in-sri-lanka" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaTrainTripGuidePage />
+          </Suspense>
+        } />
+
         <Route path="/how-to-plan-a-trip-to-sri-lanka" element={
           <Suspense fallback={
             <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
@@ -852,6 +863,7 @@ export default function App() {
             </div>
             <div className="space-y-3">
               {[
+                { title: "Plan a Sri Lanka Train Trip (2026)", path: "/how-to-plan-a-train-trip-in-sri-lanka", badge: "Rail Master Guide", desc: "Settle ticket bookings, cabin classes, and routes." },
                 { title: "US Travel Guide for Americans", path: "/sri-lanka-travel-guide-for-americans", badge: "US Travelers", desc: "Monsoon navigation, visas & dollar purchase value." },
                 { title: "Hyderabad to Sri Lanka Trip Cost", path: "/sri-lanka-trip-cost-from-hyderabad", badge: "Hyderabad Gateway", desc: "RGIA flight deals, stays & realistic budgets." },
                 { title: "Mumbai to Sri Lanka Trip Cost", path: "/sri-lanka-trip-cost-from-mumbai", badge: "Mumbai Gateway", desc: "CSMIA flight deals, stays & realistic budgets." },

@@ -163,6 +163,15 @@ const articleCategories = [
         readTime: "10 Min Read",
         badge: "Romantic Getaway",
         tag: "August Couples"
+      },
+      {
+        path: "/how-to-plan-a-train-trip-in-sri-lanka",
+        title: "How to Plan a Train Trip in Sri Lanka: The Ultimate 2026 Guide",
+        desc: "The definitive handbook for planning your Sri Lanka train journey. Learn how to secure reserved tickets, select classes, map Kandy to Ella landmarks, and naturally sync with our AI Planner.",
+        image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "15 Min Read",
+        badge: "Comprehensive Guide",
+        tag: "Train Trip Guide"
       }
     ]
   },
