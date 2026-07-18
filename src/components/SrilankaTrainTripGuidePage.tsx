@@ -152,7 +152,12 @@ export default function SrilankaTrainTripGuidePage() {
           },
           "datePublished": "2026-07-18T11:22:22-07:00",
           "dateModified": "2026-10-12T09:30:00Z",
-          "mainEntityOfPage": "https://plan-srilanka.com/how-to-plan-a-train-trip-in-sri-lanka"
+          "mainEntityOfPage": "https://plan-srilanka.com/how-to-plan-a-train-trip-in-sri-lanka",
+          "mentions": {
+            "@type": "WebApplication",
+            "name": "Sri Lanka Train Trip Planner",
+            "url": "https://plan-srilanka.com/sri-lanka-train-trip-planner"
+          }
         })}
       </script>
 
@@ -388,7 +393,7 @@ export default function SrilankaTrainTripGuidePage() {
                   <Sparkles className="w-3.5 h-3.5" /> GEO-OPTIMIZED KEY CONCEPTS (TL;DR)
                 </span>
                 <p className="text-sm font-medium leading-relaxed">
-                  <strong>What is the Sri Lanka Train Planner?</strong> It is an advanced interactive platform developed by <em>Plan Sri Lanka</em> to solve major tourist struggles—including locked booking window periods, severe regional monsoon climate splits, and overcrowding. Instead of reading conflicting forums, travelers can visualize elevation levels, identify scenery sweet spots, and predict reservation availability risks.
+                  <strong>What is the Sri Lanka Train Planner?</strong> It is an advanced interactive platform developed by <em>Plan Sri Lanka</em> to solve major tourist struggles—including locked booking window periods, severe regional monsoon climate splits, and overcrowding. Instead of reading conflicting forums, you can use our <strong><Link to="/sri-lanka-train-trip-planner" className="text-[#1e3a2f] underline hover:text-[#d4af37]">Sri Lanka Train Trip Planner</Link></strong> to build your itinerary in minutes, visualize elevation levels, identify scenery sweet spots, and predict reservation availability risks.
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-3 text-[11px] border-t border-[#1e3a2f]/5">
                   <div>
@@ -417,7 +422,7 @@ export default function SrilankaTrainTripGuidePage() {
             <hr className="w-16 border-[#d4af37] border-2" />
             
             <p className="text-sm md:text-base text-[#1a2d24]/90 font-light leading-relaxed">
-              Originally constructed by the British colonial government in 1864 to transport Ceylon tea and coffee from the rugged hills to the coastal ports of Colombo, the <strong>Sri Lanka Railways</strong> is a sprawling, 1,500-kilometer broad-gauge network. Today, what began as a commercial transport line has transformed into one of the most famous, romantic, and breathtaking passenger rail experiences in the world.
+              Originally constructed by the British colonial government in 1864 to transport Ceylon tea and coffee from the rugged hills to the coastal ports of Colombo, the <strong>Sri Lanka Railways</strong> is a sprawling, 1,500-kilometer broad-gauge network. Today, what began as a commercial transport line has transformed into one of the most famous, romantic, and breathtaking passenger rail experiences in the world. Instead of comparing train routes manually, you can use our <strong><Link to="/sri-lanka-train-trip-planner" className="text-[#1e3a2f] underline hover:text-[#d4af37]">Sri Lanka Train Trip Planner</Link></strong> to build your itinerary in minutes.
             </p>
 
             <div className="overflow-x-auto rounded-2xl border border-[#1e3a2f]/10 bg-white">
@@ -520,7 +525,7 @@ export default function SrilankaTrainTripGuidePage() {
             <hr className="w-16 border-[#d4af37] border-2" />
 
             <p className="text-sm md:text-base text-[#1a2d24]/90 font-light leading-relaxed">
-              To successfully map your rail adventure, you must understand the primary lines. Each line features completely different climatic characteristics, scenic landmarks, and passenger crowds.
+              To successfully map your rail adventure, you must understand the primary lines. Each line features completely different climatic characteristics, scenic landmarks, and passenger crowds. Instead of getting overwhelmed by various timetables and routes, you can use our <strong><Link to="/sri-lanka-train-trip-planner" className="text-[#1e3a2f] underline hover:text-[#d4af37]">Sri Lanka Train Trip Planner</Link></strong> to automatically map out your stations, calculate track distances, and see the real-time altitude profile of your chosen journey.
             </p>
 
             <div className="space-y-6">
@@ -801,7 +806,7 @@ export default function SrilankaTrainTripGuidePage() {
               <div className="space-y-1 text-xs">
                 <span className="font-bold text-[#1e3a2f] block uppercase tracking-wider font-serif">How the AI Rail Planner Simplifies This:</span>
                 <p className="text-[#1a2d24]/80 leading-relaxed font-light">
-                  Our fully integrated <strong>AI Train Trip Planner</strong> features built-in seat prediction algorithms. It analyzes historic passenger volume, seasonal holidays, and tourist clusters to warn you of reservation risks, helping you secure tickets through backup paths if needed.
+                  Our fully integrated, AI-powered <strong><Link to="/sri-lanka-train-trip-planner" className="text-[#1e3a2f] underline hover:text-[#d4af37]">Sri Lanka Train Trip Planner</Link></strong> features built-in seat prediction algorithms. It analyzes historic passenger volume, seasonal holidays, and tourist clusters to warn you of reservation risks, helping you secure tickets through backup paths if needed.
                 </p>
               </div>
             </div>
@@ -1067,6 +1072,16 @@ export default function SrilankaTrainTripGuidePage() {
             </div>
           </article>
 
+          {/* CONTEXTUAL BRIDGE TO CTA */}
+          <div className="p-6 md:p-8 bg-amber-50/50 rounded-3xl border border-[#d4af37]/20 text-xs md:text-sm text-[#1a2d24]/90 font-light leading-relaxed space-y-2">
+            <span className="font-serif font-bold text-sm text-[#1e3a2f] block">
+              💡 Complete Your Planning Process
+            </span>
+            <p>
+              Before you begin booking individual tickets, we highly recommend mapping your trip to ensure that all transfer points line up. To make this process seamless, you can use our interactive <strong><Link to="/sri-lanka-train-trip-planner" className="text-[#1e3a2f] underline hover:text-[#d4af37]">Sri Lanka Train Trip Planner</Link></strong> to build, customize, and optimize your complete island rail itinerary in just a few clicks.
+            </p>
+          </div>
+
           {/* HIGH-CONVERTING CALL TO ACTION (CTA) */}
           <section className="bg-gradient-to-br from-[#1e3a2f] to-[#12241d] text-white p-8 md:p-12 rounded-[40px] border border-[#d4af37]/40 shadow-2xl space-y-6 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(212,175,55,0.1),transparent_50%)]" />
@@ -1079,7 +1094,7 @@ export default function SrilankaTrainTripGuidePage() {
                 Ready to Experience Sri Lanka's Railways?
               </h2>
               <p className="text-xs sm:text-sm text-[#a3bfae] font-light leading-relaxed">
-                Do not leave your tropical rail dream to chance, locked ticketing systems, or packed unreserved carriages. Launch our 100% free, award-winning <strong>Sri Lanka Train Trip Planner</strong> to map elevation gradients, forecast regional monsoons, check seat risks, and design your perfect coordination blueprint today.
+                Do not leave your tropical rail dream to chance, locked ticketing systems, or packed unreserved carriages. Launch our 100% free, award-winning <strong><Link to="/sri-lanka-train-trip-planner" className="text-[#d4af37] underline hover:text-white">Sri Lanka Train Trip Planner</Link></strong> to map elevation gradients, forecast regional monsoons, check seat risks, and design your perfect coordination blueprint today.
               </p>
 
               <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center">

@@ -34,7 +34,7 @@ export const trainFallbackHtml = `
   <!-- 1. TL;DR & QUICK FACTS -->
   <section id="tldr">
     <h2>1. TL;DR & Quick Facts</h2>
-    <p><strong>Too busy to read? Here is the absolute summary of Sri Lankan train travel:</strong></p>
+    <p><strong>Too busy to read? Here is the absolute summary of Sri Lankan train travel:</strong> Instead of comparing train routes manually, you can use our <a href="/sri-lanka-train-trip-planner">Sri Lanka Train Trip Planner</a> to build your itinerary in minutes.</p>
     <ul>
       <li><strong>The Ultimate Route:</strong> The Kandy-to-Ella sector of the Highland Line is widely considered the most scenic train trip in the world.</li>
       <li><strong>Critical Reservation Window:</strong> Tickets for reserved seats open <strong>exactly 30 days in advance</strong> at 10:00 AM Sri Lankan Time. During peak tourist months (December–April, July–August), reserved carriages sell out within 60 seconds.</li>
@@ -79,7 +79,7 @@ export const trainFallbackHtml = `
   <!-- 2. WHAT IS THE PLANNER -->
   <section id="why-needed">
     <h2>2. What is the Sri Lanka Train Trip Planner?</h2>
-    <p>The <strong>Sri Lanka Train Trip Planner</strong> is an advanced, interactive digital platform developed by <em>Plan Sri Lanka</em>. It is designed to replace outdated, fragmented forums and provide international travelers with a unified interface to map their journeys.</p>
+    <p>The <strong><a href="/sri-lanka-train-trip-planner">Sri Lanka Train Trip Planner</a></strong> is an advanced, interactive digital platform developed by <em>Plan Sri Lanka</em>. It is designed to replace outdated, fragmented forums and provide international travelers with a unified interface to map their journeys.</p>
     <p>Built with custom railway track polylines layered over Google Maps, our planner visualizes 3D elevation gradients, identifies prime scenery hot-spots, displays real-time regional weather hazards (such as monsoonal heavy rain splits), and provides data-driven seat reservation risk indicators. This tool translates complex railway timetables into intuitive, visual travel plans.</p>
   </section>
 
@@ -98,7 +98,7 @@ export const trainFallbackHtml = `
   <!-- 4. HOW THE INTERACTIVE PLANNER WORKS -->
   <section id="how-it-works">
     <h2>4. How the Interactive Planner Works</h2>
-    <p>Our planner streamlines your coordination into three simple, automated steps:</p>
+    <p>Our fully integrated, AI-powered <a href="/sri-lanka-train-trip-planner">Sri Lanka Train Trip Planner</a> streamlines your coordination into three simple, automated steps:</p>
     <ol>
       <li><strong>Select Your Route:</strong> Pick your departure and arrival stations (e.g., Colombo Fort to Ella). The map immediately draws the correct track polyline and reveals key landmarks along the tracks.</li>
       <li><strong>Check the Elevation Profile:</strong> Review our integrated altitude graph. Understand where the train climbs into the central mountains, helping you anticipate temperature drops and scenic highlights.</li>
@@ -109,7 +109,7 @@ export const trainFallbackHtml = `
   <!-- 5. POPULAR ROUTES -->
   <section id="popular-routes">
     <h2>5. Popular Train Routes & Scenery Spots</h2>
-    <p>Sri Lanka’s railway network features three iconic lines that offer distinctly beautiful natural landscapes:</p>
+    <p>Sri Lanka’s railway network features three iconic lines that offer distinctly beautiful natural landscapes. Instead of getting overwhelmed by various timetables and routes, you can use our <a href="/sri-lanka-train-trip-planner">Sri Lanka Train Trip Planner</a> to automatically map out your stations, calculate track distances, and see the real-time altitude profile of your chosen journey.</p>
     
     <h3>A. The Legendary Highland Line (Colombo - Kandy - Nanu Oya - Ella - Badulla)</h3>
     <p>The crown jewel of global rail travel. This line climbs from the flat coastal lowlands of Colombo up through the ancient kingdom of Kandy, ascending to the high-altitude tea plantations of Nuwara Eliya (Nanu Oya), before descending into the dramatic mountain gorge of Ella and ending in Badulla.</p>
@@ -239,6 +239,12 @@ export const trainFallbackHtml = `
       <li>✔️ <strong>Pre-print physical tickets:</strong> Pick up your paper tickets at the Colombo Fort or Kandy station counters prior to your departure.</li>
     </ul>
   </section>
+
+  <!-- CONTEXTUAL BRIDGE TO CTA -->
+  <div style="background-color: #faf8f5; border: 1px solid #d4af37; padding: 20px; border-radius: 8px; margin: 25px 0;">
+    <h3 style="margin-top: 0; color: #00302b;">💡 Complete Your Planning Process</h3>
+    <p>Before you begin booking individual tickets, we highly recommend mapping your trip to ensure that all transfer points line up. To make this process seamless, you can use our interactive <a href="/sri-lanka-train-trip-planner">Sri Lanka Train Trip Planner</a> to build, customize, and optimize your complete island rail itinerary in just a few clicks.</p>
+  </div>
 
   <!-- 12. OFFICIAL SOURCES -->
   <section id="official-sources">
