@@ -203,10 +203,19 @@ const articleCategories = [
   },
   {
     id: "entry",
-    title: "Visa, Immigration & Airport Protocols",
-    subtitle: "Stress-free entry clearance for Indian passports",
+    title: "Visa, Flights & Airport Protocols",
+    subtitle: "Stress-free entry clearance and premium flight optimization",
     icon: <ShieldCheck className="w-5 h-5 text-luxury-gold" />,
     articles: [
+      {
+        path: "/guide-to-flying-to-sri-lanka",
+        title: "The Complete Guide to Flights to Sri Lanka (2026)",
+        desc: "Our master planning directory for air routing. Settle your airline choice, secure cheap flight deals, optimize transit layovers, and navigate Colombo customs flawlessly.",
+        image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "12 Min Read",
+        badge: "Air Travel Master",
+        tag: "Flights Guide"
+      },
       {
         path: "/sri-lanka-visa-for-indians",
         title: "Sri Lanka Visa For Indians (2026 ETA Clearance Guide)",

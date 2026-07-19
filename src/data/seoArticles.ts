@@ -179,5 +179,14 @@ export const seoArticles: Seometa[] = [
     ogType: "website",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/guide-to-flying-to-sri-lanka",
+    title: "Flights to Sri Lanka: Complete 2026 Air Travel Guide",
+    description: "Discover everything about flights to Sri Lanka: direct routes, top airlines, best booking times, baggage allowances, and smooth colombo airport arrivals.",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];

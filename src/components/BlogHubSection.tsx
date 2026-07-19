@@ -111,6 +111,14 @@ const getArticleMeta = (path: string) => {
         readTime: "9 Min Read",
         badge: "US Passport Offer"
       };
+    case "/guide-to-flying-to-sri-lanka":
+      return {
+        category: "Essential Entry",
+        tag: "Flights Guide",
+        icon: <ShieldCheck className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "12 Min Read",
+        badge: "Air Travel Master"
+      };
     default:
       return {
         category: "Travel Guide",
