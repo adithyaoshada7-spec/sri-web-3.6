@@ -351,7 +351,7 @@ export default function SrilankaFlightsGuidePage() {
               <strong>Singapore Airlines:</strong> Providing premium East Asian connectivity, Singapore Airlines links Colombo directly to its world-class hub at Changi Airport. This route is exceptionally popular for travelers originating from Australia, New Zealand, East Asia, and the West Coast of the United States. Singapore Airlines is legendary for its flawless service standards, consistency, and comfortable wide-body aircraft.
             </p>
             <p>
-              <strong>Air India & IndiGo:</strong> For regional travelers coming from India, these two carriers form the backbone of the short-haul aviation corridor. Air India offers a full-service experience with generous baggage limits, connecting major metros like Mumbai and Delhi directly to Colombo. IndiGo operates as a highly reliable, low-cost budget carrier with frequent flights out of Chennai, Bangalore, and Hyderabad, representing the ultimate option for budget-conscious explorers or weekend escapists.
+              <strong>Air India & IndiGo:</strong> For regional travelers coming from India, these two carriers form the backbone of the short-haul aviation corridor. Air India offers a full-service experience with generous baggage limits, connecting major metros like Mumbai and Delhi directly to Colombo. IndiGo operates as a highly reliable, low-cost budget carrier with frequent flights out of Chennai, Bangalore, and Hyderabad, representing the ultimate option for budget-conscious explorers or weekend escapists. If you are preparing your complete regional travel budget, discover our thorough breakdown of flights and land costs in the <Link to="/sri-lanka-trip-cost-from-india" className="text-[#d4af37] underline font-semibold hover:text-[#1e3a2f] transition-colors">Sri Lanka Trip Cost from India</Link> guide.
             </p>
             <p>
               <strong>Etihad Airways & FlyDubai:</strong> Etihad connects Colombo through Abu Dhabi, offering highly competitive premium and economy fares for European and North American routes. FlyDubai operates as a premium budget carrier, facilitating flights into Colombo from various regional airports across the Gulf region and Eastern Europe, often offering excellent value codeshare options with Emirates.
@@ -604,6 +604,9 @@ export default function SrilankaFlightsGuidePage() {
                   <li><strong>Ride-Hailing Mobile Apps:</strong> Download PickMe (the leading local ride-hailing application) or Uber. These apps are highly reliable, offer transparent metered pricing, and operate dedicated pickup zones just outside the terminal gates.</li>
                   <li><strong>Bespoke Private Chauffeur Pickups:</strong> If you are planning a customized route, having a private air-conditioned vehicle with a professional English-speaking chauffeur-guide waiting for you in the arrivals hall is the ultimate, stress-free option.</li>
                 </ul>
+                <div className="mt-3 text-sm italic text-neutral-600">
+                  Tip: To cross-reference flight arrivals, departure schedules, or transfer times seamlessly, make use of our digital <Link to="/flights" className="text-[#d4af37] underline font-semibold hover:text-[#1e3a2f] transition-colors">Sri Lanka Flight Planner</Link>.
+                </div>
               </li>
             </ol>
           </div>
@@ -687,6 +690,33 @@ export default function SrilankaFlightsGuidePage() {
                 )}
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* AUTHOR BIO CARD */}
+        <section className="p-8 bg-white border border-neutral-200 rounded-3xl shadow-sm flex flex-col md:flex-row gap-6 items-center">
+          <img 
+            src="/src/assets/images/founder_oshada_adithya_1784092267835.jpg" 
+            alt="Oshada Adithya - Chief Destination Strategist" 
+            className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-2 border-[#d4af37] shadow-md shrink-0"
+            referrerPolicy="no-referrer"
+          />
+          <div className="space-y-3 text-center md:text-left">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#d4af37] font-bold block">
+              Article Curator & Destination Expert
+            </span>
+            <h3 className="text-xl font-serif font-bold text-[#1e3a2f]">
+              Oshada Adithya
+            </h3>
+            <p className="text-sm text-neutral-600 font-light leading-relaxed max-w-xl">
+              Oshada is the chief destination strategist and founder of Vibe Tours. Having orchestrated premium, high-end travel experiences across the island for over a decade, his advice helps global travelers navigate airport logistics and discover authentic hidden details of Sri Lanka.
+            </p>
+            <Link 
+              to="/about-founder" 
+              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#d4af37] hover:text-[#1e3a2f] transition-all"
+            >
+              Learn more about our founder <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </section>
 
