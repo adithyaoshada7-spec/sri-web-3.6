@@ -1643,6 +1643,54 @@ function generatePrerenderPages(): PrerenderPage[] {
     ]
   });
 
+  // 6. Premium Flights Dashboard & Analytics Page
+  pages.push({
+    path: "/flights",
+    title: "Sri Lanka Flight Schedules & Live Inbound Status Tracker (CMB) | Plan Sri Lanka",
+    description: "Explore the official 30-day scheduled flight directory and live inbound tracker for Colombo Bandaranaike International Airport (CMB). Analyze airline schedules, status, and delays.",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200",
+    ogType: "website",
+    canonicalUrl: `${domain}/flights`,
+    bodyHtml: `
+      <header>
+        <h1>Sri Lanka Flight Schedules & Live Inbound Status Tracker (CMB)</h1>
+        <p><strong>Analyze live inbound flight schedules, airline statistics, status metrics, and estimated delays for Bandaranaike International Airport (CMB) in Colombo, Sri Lanka.</strong></p>
+      </header>
+      <section>
+        <h2>Real-Time & Scheduled Flight Directory</h2>
+        <p>Our Premium Flights Dashboard aggregates up-to-the-minute flight schedules and historical delay logs to help high-net-worth travelers, families, and tour coordinators optimize their arrival transfers.</p>
+        
+        <h3>Key Flights Dashboard Features:</h3>
+        <ul>
+          <li><strong>Live Inbound Tracker:</strong> Real-time and scheduled arrivals to Colombo (CMB) with flight status, gate details, and baggage claim belts.</li>
+          <li><strong>Interactive Search & Filters:</strong> Look up flights dynamically by flight number, airline, or originating/destination airport code (e.g., LHR, DXB, SIN, BOM).</li>
+          <li><strong>30-Day Historical Data Fallback:</strong> Settle routes confidently using our robust deterministic fallbacks that estimate delay parameters even during high API rate limits.</li>
+          <li><strong>Clean, High-Contrast Interface:</strong> View visual statistics, flight delays, airline distribution cards, and real-time statuses in our custom-designed responsive panel.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Supported Luxury & Commercial Airlines:</h2>
+        <ul>
+          <li><strong>SriLankan Airlines:</strong> Premium direct flights from London Heathrow, Maldives, Singapore, Mumbai, Delhi, and Bangalore.</li>
+          <li><strong>Emirates, Qatar Airways, Etihad Airways:</strong> World-class transit routes connecting Middle Eastern hubs directly to Colombo.</li>
+          <li><strong>Singapore Airlines & Malaysia Airlines:</strong> Top-tier connections from Southeast Asia and Far East gateways.</li>
+          <li><strong>Indigo, Air India:</strong> Comfortable daily regional shuttle links to and from Indian metros.</li>
+        </ul>
+      </section>
+    `,
+    schemas: [
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Sri Lanka Premium Flights Dashboard & Analytics",
+        "description": "An interactive flight scheduling and delay analytics application for Colombo Bandaranaike International Airport (CMB).",
+        "url": `${domain}/flights`,
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "All"
+      }, null, 2)
+    ]
+  });
+
   return pages;
 }
 

@@ -170,5 +170,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/flights",
+    title: "Sri Lanka Flight Schedules & Live Inbound Status Tracker (CMB) | Plan Sri Lanka",
+    description: "Explore the official 30-day scheduled flight directory and live inbound tracker for Colombo Bandaranaike International Airport (CMB). Analyze airline schedules, status, and delays.",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "website",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];
