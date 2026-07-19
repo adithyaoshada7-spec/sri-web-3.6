@@ -59,6 +59,7 @@ const BlogIndexPage = lazy(() => import("./components/BlogIndexPage"));
 const SrilankaExperiencesPage = lazy(() => import("./components/SrilankaExperiencesPage"));
 const SrilankaFirstTimeThingsToDoPage = lazy(() => import("./components/SrilankaFirstTimeThingsToDoPage"));
 const SrilankaAboutFounderPage = lazy(() => import("./components/SrilankaAboutFounderPage"));
+const SrilankaFlightsPage = lazy(() => import("./components/SrilankaFlightsPage"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -329,6 +330,7 @@ export default function App() {
             <Link to="/#destinations" className="hover:text-luxury-gold transition-colors">The Collection</Link>
             <Link to="/things-to-do-in-sri-lanka" className="hover:text-luxury-gold transition-colors text-luxury-gold font-bold">Things to Do</Link>
             <Link to="/sri-lanka-train-trip-planner" className="hover:text-luxury-gold transition-colors text-[#d4af37] font-bold">🚂 Train Map</Link>
+            <Link to="/flights" className="hover:text-luxury-gold transition-colors text-[#d4af37] font-bold">✈️ Flights</Link>
             <Link to="/sri-lanka-trip-cost-from-india" className="hover:text-luxury-gold transition-colors">Trip Costs</Link>
             <Link to="/how-to-plan-a-trip-to-sri-lanka" className="hover:text-luxury-gold transition-colors">Trip Planner</Link>
             <Link to="/blog" className="hover:text-luxury-gold transition-colors block">Library (Blog)</Link>
@@ -738,6 +740,16 @@ export default function App() {
             <SrilankaAboutFounderPage />
           </Suspense>
         } />
+
+        <Route path="/flights" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaFlightsPage />
+          </Suspense>
+        } />
       </Routes>
 
       {/* Footer */}
@@ -826,7 +838,8 @@ export default function App() {
                 { title: "Interactive Train Route Map & Predictor", path: "/sri-lanka-train-trip-planner", badge: "World-Class Live", desc: "Predict routes, monsoons, weather, elevation profiles & best cabin classes." },
                 { title: "Things to Do & Experiences (Platform)", path: "/things-to-do-in-sri-lanka", badge: "Interactive", desc: "Discover wildlife safaris, beaches, hikes & compare." },
                 { title: "Master Trip Planner Guide (Tool)", path: "/how-to-plan-a-trip-to-sri-lanka", badge: "Interactive Pillar", desc: "Build your perfect Sri Lanka itinerary step-by-step." },
-                { title: "Bespoke Route & Cost Engine", path: "/sri-lanka-trip-planner", badge: "Live Tool", desc: "Select climate clusters & calculate driving hours." }
+                { title: "Bespoke Route & Cost Engine", path: "/sri-lanka-trip-planner", badge: "Live Tool", desc: "Select climate clusters & calculate driving hours." },
+                { title: "Premium Flights Dashboard & Analytics", path: "/flights", badge: "New & Live", desc: "Analyze price trends, airline schedules, and live inbound flight status trackers." }
               ].map((tool, idx) => (
                 <Link
                   key={idx}

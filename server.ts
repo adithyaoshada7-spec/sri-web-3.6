@@ -88,6 +88,327 @@ async function startServer() {
     res.send(xmlParts.join("\n"));
   });
 
+  // Aviationstack Real-Time & Scheduled Flight Proxy Route
+  app.get("/api/flights-realtime", async (req, res) => {
+    const { flight, dep, arr, date, type, search } = req.query;
+    const apiKey = "fb3d7aaf276866ea51d7039686cb1c3c";
+    
+    // Default values
+    const selectedDate = (date as string) || "2026-07-18";
+    const flowType = (type as string) || "arrivals";
+    
+    // Construct aviationstack API URL
+    let url = `http://api.aviationstack.com/v1/flights?access_key=${apiKey}`;
+    url += `&flight_date=${encodeURIComponent(selectedDate)}`;
+    
+    // Apply filters to Aviationstack URL
+    if (flight) {
+      url += `&flight_iata=${encodeURIComponent(flight as string)}`;
+    } else if (search && /^[a-zA-Z]{2,3}\s*\d+/i.test((search as string).trim())) {
+      const cleanFlight = (search as string).trim().replace(/\s+/g, "");
+      url += `&flight_iata=${encodeURIComponent(cleanFlight)}`;
+    } else {
+      if (flowType === "departures") {
+        url += `&dep_iata=CMB`;
+        if (arr) {
+          url += `&arr_iata=${encodeURIComponent(arr as string)}`;
+        } else if (search && (search as string).length === 3) {
+          url += `&arr_iata=${encodeURIComponent((search as string).toUpperCase())}`;
+        }
+      } else {
+        url += `&arr_iata=CMB`;
+        if (dep) {
+          url += `&dep_iata=${encodeURIComponent(dep as string)}`;
+        } else if (search && (search as string).length === 3) {
+          url += `&dep_iata=${encodeURIComponent((search as string).toUpperCase())}`;
+        }
+      }
+    }
+    
+    url += `&limit=100`;
+
+    try {
+      console.log(`[Aviationstack Proxy] Fetching ${flowType} schedule for ${selectedDate} from: ${url.replace(apiKey, "HIDDEN_KEY")}`);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6000); // 6 seconds timeout
+
+      const response = await fetch(url, { signal: controller.signal });
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`Aviationstack status code: ${response.status}`);
+      }
+
+      const rawJson = await response.json();
+      
+      if (rawJson.error) {
+        console.error("[Aviationstack Proxy API Error]", rawJson.error);
+        throw new Error(rawJson.error.message || "Aviationstack API returned error status");
+      }
+
+      if (rawJson && Array.isArray(rawJson.data)) {
+        return res.json({
+          source: "aviationstack-live",
+          data: rawJson.data
+        });
+      }
+
+      throw new Error("Invalid response format from Aviationstack");
+    } catch (err: any) {
+      console.warn(`[Aviationstack Proxy] Using premium monthly schedule generator for ${selectedDate} (${flowType}) due to: ${err.message}`);
+      
+      // Dynamic monthly schedule generation that matches the Aviationstack API schema
+      const getIsoStringForTime = (timeStr: string) => {
+        return `${selectedDate}T${timeStr}:00+00:00`;
+      };
+
+      const arrivalsTemplate = [
+        {
+          airline: { name: "SriLankan Airlines", iata: "UL", icao: "ALK" },
+          flight: { number: "192", iata: "UL192", icao: "ALK192" },
+          departure: { airport: "Indira Gandhi International", iata: "DEL", scheduled: getIsoStringForTime("18:45") },
+          arrival: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("22:20"), gate: "14", baggage: "Belt 4" },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "Emirates", iata: "EK", icao: "UAE" },
+          flight: { number: "650", iata: "EK650", icao: "UAE650" },
+          departure: { airport: "Dubai International", iata: "DXB", scheduled: getIsoStringForTime("02:50") },
+          arrival: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("08:30"), gate: "06", baggage: "Belt 2" },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "Qatar Airways", iata: "QR", icao: "QTR" },
+          flight: { number: "664", iata: "QR664", icao: "QTR664" },
+          departure: { airport: "Hamad International", iata: "DOH", scheduled: getIsoStringForTime("08:10") },
+          arrival: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("15:45"), gate: "08", baggage: "Belt 3" },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "Singapore Airlines", iata: "SQ", icao: "SIA" },
+          flight: { number: "468", iata: "SQ468", icao: "SIA468" },
+          departure: { airport: "Changi Airport", iata: "SIN", scheduled: getIsoStringForTime("16:50") },
+          arrival: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("23:30"), gate: "04", baggage: "Belt 1" },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "Air India", iata: "AI", icao: "AIC" },
+          flight: { number: "273", iata: "AI273", icao: "AIC273" },
+          departure: { airport: "Indira Gandhi International", iata: "DEL", scheduled: getIsoStringForTime("00:25") },
+          arrival: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("04:00"), gate: "11", baggage: "Belt 5" },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "SriLankan Airlines", iata: "UL", icao: "ALK" },
+          flight: { number: "102", iata: "UL102", icao: "ALK102" },
+          departure: { airport: "Velana International", iata: "MLE", scheduled: getIsoStringForTime("09:15") },
+          arrival: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("11:15"), gate: "02", baggage: "Belt 1" },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "Etihad Airways", iata: "EY", icao: "ETD" },
+          flight: { number: "264", iata: "EY264", icao: "ETD264" },
+          departure: { airport: "Abu Dhabi International", iata: "AUH", scheduled: getIsoStringForTime("07:45") },
+          arrival: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("13:50"), gate: "12", baggage: "Belt 3" },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "SriLankan Airlines", iata: "UL", icao: "ALK" },
+          flight: { number: "504", iata: "UL504", icao: "ALK504" },
+          departure: { airport: "Heathrow", iata: "LHR", scheduled: getIsoStringForTime("21:30") },
+          arrival: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("12:00"), gate: "09", baggage: "Belt 2" },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "flydubai", iata: "FZ", icao: "FDB" },
+          flight: { number: "579", iata: "FZ579", icao: "FDB579" },
+          departure: { airport: "Dubai International", iata: "DXB", scheduled: getIsoStringForTime("19:40") },
+          arrival: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("01:20"), gate: "05", baggage: "Belt 4" },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "SriLankan Airlines", iata: "UL", icao: "ALK" },
+          flight: { number: "142", iata: "UL142", icao: "ALK142" },
+          departure: { airport: "Chhatrapati Shivaji Maharaj", iata: "BOM", scheduled: getIsoStringForTime("03:10") },
+          arrival: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("05:55"), gate: "08", baggage: "Belt 3" },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "Malaysia Airlines", iata: "MH", icao: "MAS" },
+          flight: { number: "179", iata: "MH179", icao: "MAS179" },
+          departure: { airport: "Kuala Lumpur International", iata: "KUL", scheduled: getIsoStringForTime("14:50") },
+          arrival: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("18:10"), gate: "10", baggage: "Belt 1" },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "SriLankan Airlines", iata: "UL", icao: "ALK" },
+          flight: { number: "302", iata: "UL302", icao: "ALK302" },
+          departure: { airport: "Changi Airport", iata: "SIN", scheduled: getIsoStringForTime("15:30") },
+          arrival: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("20:05"), gate: "07", baggage: "Belt 2" },
+          flight_status: "scheduled"
+        }
+      ];
+
+      const departuresTemplate = [
+        {
+          airline: { name: "SriLankan Airlines", iata: "UL", icao: "ALK" },
+          flight: { number: "191", iata: "UL191", icao: "ALK191" },
+          departure: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("17:10"), gate: "04" },
+          arrival: { airport: "Indira Gandhi International", iata: "DEL", scheduled: getIsoStringForTime("20:45") },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "Emirates", iata: "EK", icao: "UAE" },
+          flight: { number: "651", iata: "EK651", icao: "UAE651" },
+          departure: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("09:55"), gate: "06" },
+          arrival: { airport: "Dubai International", iata: "DXB", scheduled: getIsoStringForTime("13:10") },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "Qatar Airways", iata: "QR", icao: "QTR" },
+          flight: { number: "665", iata: "QR665", icao: "QTR665" },
+          departure: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("17:15"), gate: "08" },
+          arrival: { airport: "Hamad International", iata: "DOH", scheduled: getIsoStringForTime("20:20") },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "Singapore Airlines", iata: "SQ", icao: "SIA" },
+          flight: { number: "469", iata: "SQ469", icao: "SIA469" },
+          departure: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("00:50"), gate: "11" },
+          arrival: { airport: "Changi Airport", iata: "SIN", scheduled: getIsoStringForTime("07:20") },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "Air India", iata: "AI", icao: "AIC" },
+          flight: { number: "274", iata: "AI274", icao: "AIC274" },
+          departure: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("05:15"), gate: "05" },
+          arrival: { airport: "Indira Gandhi International", iata: "DEL", scheduled: getIsoStringForTime("08:45") },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "SriLankan Airlines", iata: "UL", icao: "ALK" },
+          flight: { number: "101", iata: "UL101", icao: "ALK101" },
+          departure: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("08:20"), gate: "03" },
+          arrival: { airport: "Velana International", iata: "MLE", scheduled: getIsoStringForTime("09:20") },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "Etihad Airways", iata: "EY", icao: "ETD" },
+          flight: { number: "265", iata: "EY265", icao: "ETD265" },
+          departure: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("15:20"), gate: "12" },
+          arrival: { airport: "Abu Dhabi International", iata: "AUH", scheduled: getIsoStringForTime("18:50") },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "SriLankan Airlines", iata: "UL", icao: "ALK" },
+          flight: { number: "503", iata: "UL503", icao: "ALK503" },
+          departure: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("13:40"), gate: "09" },
+          arrival: { airport: "Heathrow", iata: "LHR", scheduled: getIsoStringForTime("20:30") },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "flydubai", iata: "FZ", icao: "FDB" },
+          flight: { number: "580", iata: "FZ580", icao: "FDB580" },
+          departure: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("02:40"), gate: "02" },
+          arrival: { airport: "Dubai International", iata: "DXB", scheduled: getIsoStringForTime("06:05") },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "SriLankan Airlines", iata: "UL", icao: "ALK" },
+          flight: { number: "141", iata: "UL141", icao: "ALK141" },
+          departure: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("23:45"), gate: "07" },
+          arrival: { airport: "Chhatrapati Shivaji Maharaj", iata: "BOM", scheduled: getIsoStringForTime("02:40") },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "Malaysia Airlines", iata: "MH", icao: "MAS" },
+          flight: { number: "178", iata: "MH178", icao: "MAS178" },
+          departure: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("09:10"), gate: "10" },
+          arrival: { airport: "Kuala Lumpur International", iata: "KUL", scheduled: getIsoStringForTime("15:35") },
+          flight_status: "scheduled"
+        },
+        {
+          airline: { name: "SriLankan Airlines", iata: "UL", icao: "ALK" },
+          flight: { number: "301", iata: "UL301", icao: "ALK301" },
+          departure: { airport: "Bandaranaike International", iata: "CMB", scheduled: getIsoStringForTime("07:25"), gate: "01" },
+          arrival: { airport: "Changi Airport", iata: "SIN", scheduled: getIsoStringForTime("13:55") },
+          flight_status: "scheduled"
+        }
+      ];
+
+      const rawFallback: any[] = flowType === "departures" ? departuresTemplate : arrivalsTemplate;
+      let filteredFallback: any[] = rawFallback;
+
+      // Add actual/estimated delay values deterministically depending on the date string
+      const dateNum = parseInt(selectedDate.replace(/-/g, "")) || 20260718;
+      filteredFallback = rawFallback.map((item: any, idx) => {
+        const isDelayed = (dateNum + idx) % 7 === 0;
+        const delay = isDelayed ? ((dateNum + idx) % 4) * 15 + 10 : null;
+        
+        let schedTimeStr = flowType === "departures" ? item.departure.scheduled : item.arrival.scheduled;
+        let estTimeStr = schedTimeStr;
+        
+        if (delay) {
+          try {
+            const d = new Date(schedTimeStr);
+            d.setMinutes(d.getMinutes() + delay);
+            estTimeStr = d.toISOString();
+          } catch {}
+        }
+
+        const isFuture = new Date(schedTimeStr) > new Date();
+        const status = isFuture 
+          ? "scheduled" 
+          : (idx % 3 === 0 ? "landed" : (idx % 3 === 1 ? "active" : "scheduled"));
+
+        return {
+          flight_date: selectedDate,
+          flight_status: status,
+          departure: {
+            ...item.departure,
+            delay: flowType === "departures" ? delay : null,
+            estimated: flowType === "departures" ? estTimeStr : item.departure.scheduled,
+            actual: null
+          },
+          arrival: {
+            ...item.arrival,
+            delay: flowType === "arrivals" ? delay : null,
+            estimated: flowType === "arrivals" ? estTimeStr : item.arrival.scheduled,
+            actual: null
+          },
+          airline: item.airline,
+          flight: item.flight
+        };
+      });
+
+      // Filter by search terms if present
+      const querySearch = (search as string || flight as string || dep as string || arr as string);
+      if (querySearch) {
+        const lowerSearch = querySearch.toLowerCase().trim();
+        filteredFallback = filteredFallback.filter(item => {
+          const fNum = item.flight.iata.toLowerCase();
+          const air = item.airline.name.toLowerCase();
+          const depI = item.departure.iata.toLowerCase();
+          const arrI = item.arrival.iata.toLowerCase();
+          const depAir = item.departure.airport.toLowerCase();
+          const arrAir = item.arrival.airport.toLowerCase();
+
+          return fNum.includes(lowerSearch) || 
+                 air.includes(lowerSearch) || 
+                 depI.includes(lowerSearch) || 
+                 arrI.includes(lowerSearch) || 
+                 depAir.includes(lowerSearch) || 
+                 arrAir.includes(lowerSearch);
+        });
+      }
+
+      return res.json({
+        source: "fallback-simulated-schedule",
+        data: filteredFallback
+      });
+    }
+  });
+
   let vite: any;
   if (process.env.NODE_ENV !== "production") {
     vite = await createViteServer({
