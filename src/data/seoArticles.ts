@@ -188,5 +188,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/flights/why-use-a-flight-search-tool",
+    title: "Flight Search Tool for Sri Lanka from India: Compare Deals",
+    description: "Compare flights India to Sri Lanka. Learn why using our flight search tool before booking cheap flights from Chennai, Mumbai, or Bengaluru saves money.",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];

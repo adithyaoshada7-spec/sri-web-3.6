@@ -119,6 +119,14 @@ const getArticleMeta = (path: string) => {
         readTime: "12 Min Read",
         badge: "Air Travel Master"
       };
+    case "/flights/why-use-a-flight-search-tool":
+      return {
+        category: "Smart Outbound",
+        tag: "Flights Search Tool",
+        icon: <ShieldCheck className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "8 Min Read",
+        badge: "Smart Outbound"
+      };
     default:
       return {
         category: "Travel Guide",

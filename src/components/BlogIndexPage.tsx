@@ -208,6 +208,15 @@ const articleCategories = [
     icon: <ShieldCheck className="w-5 h-5 text-luxury-gold" />,
     articles: [
       {
+        path: "/flights/why-use-a-flight-search-tool",
+        title: "Why Use a Flight Search Tool Before Booking Your Flight to Sri Lanka from India?",
+        desc: "Uncover the dynamic price fluctuations between IndiGo, SriLankan Airlines, and Air India. Optimize travel times, select direct routings, and map your flight budget in INR.",
+        image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "8 Min Read",
+        badge: "Smart Outbound",
+        tag: "Flights Search Tool"
+      },
+      {
         path: "/guide-to-flying-to-sri-lanka",
         title: "The Complete Guide to Flights to Sri Lanka (2026)",
         desc: "Our master planning directory for air routing. Settle your airline choice, secure cheap flight deals, optimize transit layovers, and navigate Colombo customs flawlessly.",
