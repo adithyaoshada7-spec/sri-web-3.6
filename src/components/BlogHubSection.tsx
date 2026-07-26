@@ -23,6 +23,14 @@ const getArticleMeta = (path: string) => {
         readTime: "8 Min Read",
         badge: "Highly Popular"
       };
+    case "/10-day-sri-lanka-itinerary":
+      return {
+        category: "Ultimate Master Route",
+        tag: "10-Day Complete",
+        icon: <Globe className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "10 Min Read",
+        badge: "Consultant Preferred"
+      };
     case "/sri-lanka-visa-for-indians":
       return {
         category: "Essential Entry",

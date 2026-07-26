@@ -243,6 +243,27 @@ function generatePrerenderPages(): PrerenderPage[] {
         </ul>
       </section>
     `,
+    "/10-day-sri-lanka-itinerary": `
+      <header>
+        <h1>10-Day Sri Lanka Itinerary: Refined Route, Travel Times & Daily Budget (2026)</h1>
+        <p><strong>An expert-designed 10-day Sri Lanka itinerary covering Sigiriya, Kandy, Nuwara Eliya, Ella, Yala safari, Mirissa & Galle with realistic drive times, budgets, and practical tips.</strong></p>
+      </header>
+      <section>
+        <h2>The Refined 10-Day Sri Lanka Day-by-Day Master Route</h2>
+        <ul>
+          <li><strong>Day 1: Colombo → Sigiriya (165 km | 3.5-4h drive)</strong> - Airport transfer, jungle resort check-in, sunset climb of Pidurangala Rock.</li>
+          <li><strong>Day 2: Sigiriya → Kandy (90 km | 2.5-3h drive)</strong> - Early climb of UNESCO Sigiriya Lion Rock Fortress, Dambulla Cave Temple, Matale Spice Gardens, evening Tooth Temple Pujah ceremony.</li>
+          <li><strong>Day 3: Kandy → Nuwara Eliya (75 km | 2.5-3h drive)</strong> - Royal Botanical Gardens Peradeniya, Ramboda Falls, Ceylon tea estate & factory tour, High Tea at Grand Hotel Nuwara Eliya.</li>
+          <li><strong>Day 4: Nuwara Eliya → Ella (55 km | 2.5h Scenic Blue Train)</strong> - Board world-famous blue hill country train, Ella town cafes, sunset walk to Nine Arch Bridge.</li>
+          <li><strong>Day 5: Ella Full Day (0 km local)</strong> - Sunrise hike up Little Adam's Peak, Ravana Falls dip, afternoon at Ravana Pool Club in the clouds.</li>
+          <li><strong>Day 6: Ella → Yala (95 km | 2.5h drive)</strong> - Descend mountain passes, check into jungle lodge, 2:30 PM private 4x4 leopard safari in Yala National Park.</li>
+          <li><strong>Day 7: Yala → Mirissa (120 km | 2h drive)</strong> - Drive along southern coast, Hiriketiya Bay lunch break, Coconut Tree Hill golden hour, beachside seafood barbecue.</li>
+          <li><strong>Day 8: Mirissa Full Day (0 km local)</strong> - Early morning Blue Whale & Dolphin watching ocean safari, Secret Beach cove dip, Parrot Rock sunset walk.</li>
+          <li><strong>Day 9: Mirissa → Galle Fort (35 km | 45m drive)</strong> - Stilt fishermen at Koggala, UNESCO Galle Dutch Fort cobblestone walk, boutique shopping & Flag Rock sunset.</li>
+          <li><strong>Day 10: Galle Fort → Colombo (125 km | 2h drive via Expressway)</strong> - Southern Expressway to Colombo, farewell lunch at Ministry of Crab, souvenir shopping at Barefoot & Dilmah, CMB airport transfer.</li>
+        </ul>
+      </section>
+    `,
     "/how-much-will-it-take-to-visit-sri-lanka-from-chennai": `
       <header>
         <h1>Sri Lanka Trip Cost From Chennai (2026) | Flights, Hotels & Budget Guide</h1>

@@ -28,6 +28,15 @@ export const seoArticles: Seometa[] = [
     priority: "0.9"
   },
   {
+    path: "/10-day-sri-lanka-itinerary",
+    title: "10-Day Sri Lanka Itinerary: Refined Route, Travel Times & Daily Budget (2026)",
+    description: "An expert-designed 10-day Sri Lanka itinerary covering Sigiriya, Kandy, Nuwara Eliya, Ella, Yala safari, Mirissa & Galle with realistic drive times, budgets, and practical tips.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.95"
+  },
+  {
     path: "/sri-lanka-visa-for-indians",
     title: "Sri Lanka Visa For Indians (2026 ETA Guide) | Apply Online & Entry Requirements",
     description: "Unravel the Sri Lanka Visa for Indians. Discover how to get your Sri Lanka Tourist ETA online, latest requirements, application steps, and how to stay stress-free at the airport.",

@@ -36,6 +36,7 @@ const HomeMetadata = () => {
 const ExperienceDetail = lazy(() => import("./components/ExperienceDetail"));
 const SrilankaCostPage = lazy(() => import("./components/SrilankaCostPage"));
 const SrilankaItineraryPage = lazy(() => import("./components/SrilankaItineraryPage"));
+const SrilankaTenDayItineraryPage = lazy(() => import("./components/SrilankaTenDayItineraryPage"));
 const SrilankaVisaPage = lazy(() => import("./components/SrilankaVisaPage"));
 const SrilankaBestTimePage = lazy(() => import("./components/SrilankaBestTimePage"));
 const SrilankaFamilyPage = lazy(() => import("./components/SrilankaFamilyPage"));
@@ -530,6 +531,26 @@ export default function App() {
             </div>
           }>
             <SrilankaItineraryPage />
+          </Suspense>
+        } />
+
+        <Route path="/10-day-sri-lanka-itinerary" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaTenDayItineraryPage />
+          </Suspense>
+        } />
+
+        <Route path="/sri-lanka-10-day-itinerary" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaTenDayItineraryPage />
           </Suspense>
         } />
 
