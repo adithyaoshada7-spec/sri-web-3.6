@@ -82,6 +82,15 @@ export const seoArticles: Seometa[] = [
     priority: "1.0"
   },
   {
+    path: "/how-to-use-trip-planner",
+    title: "How to Use the Sri Lanka Trip Planner | Step-by-Step Guide",
+    description: "Learn how to use the Sri Lanka Trip Planner to build a custom itinerary, calculate budgets, choose travel months, and map destinations in minutes.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
+  },
+  {
     path: "/how-to-plan-a-trip-to-sri-lanka",
     title: "Sri Lanka Trip Planner: Build Your Perfect Sri Lanka Itinerary (2026)",
     description: "Build your perfect Sri Lanka itinerary with our master guide. Discover step-by-step travel planning advice, seasonal monsoonal safe zones, budget calculators, sample itineraries, and common mistakes.",
