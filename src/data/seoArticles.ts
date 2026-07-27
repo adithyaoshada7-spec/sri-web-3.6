@@ -74,8 +74,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/sri-lanka-trip-planner",
-    title: "Sri Lanka Trip Planner & Interactive Route Creator (2026)",
-    description: "Design your custom Sri Lanka itinerary with our real-time interactive route planner. Map daily destinations, preview climatic monsoon alerts, allocate budgets, and generate a downloadable day-by-day travel plan.",
+    title: "Free Sri Lanka Trip Planner (2026): See How",
+    description: "Avoid tourist traps & monsoon rain! Use our free Sri Lanka trip planner to build a custom Sri Lanka itinerary with live maps & budget. Plan Your Trip Free →",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "website",
     changefreq: "weekly",

@@ -174,8 +174,8 @@ const locationDetails: Record<string, {
 
 export default function SrilankaTripPlannerPage() {
   usePageMetadata({
-    title: "Sri Lanka Trip Planner & Interactive Route Creator (2026)",
-    description: "Design your custom Sri Lanka tour itinerary live. Select places, pace, budget tier, companion profiles, and download a customized day-by-day plan with direct distance maps.",
+    title: "Free Sri Lanka Trip Planner (2026): See How",
+    description: "Avoid tourist traps & monsoon rain! Use our free Sri Lanka trip planner to build a custom Sri Lanka itinerary with live maps & budget. Plan Your Trip Free →",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-trip-planner",
     ogUrl: "https://plan-srilanka.com/sri-lanka-trip-planner"
   });
