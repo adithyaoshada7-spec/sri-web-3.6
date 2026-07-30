@@ -219,6 +219,19 @@ Please send me the optimized free 24-page PDF and confirm private chauffeur pack
         </div>
       </section>
 
+      {/* Contextual month-specific planning links */}
+      <section className="py-6 px-6 bg-[#f5f2e8]/50 border-b border-[#1A2F23]/5">
+        <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-3 text-xs">
+          <span className="text-[#1A2F23]/60 font-mono uppercase tracking-wider text-[10px]">Traveling in a specific month?</span>
+          <Link to="/where-to-go-in-sri-lanka-in-june" className="px-3 py-1.5 bg-white border border-[#1A2F23]/10 rounded-full text-[#1A2F23] hover:border-[#C5A059] hover:text-[#C5A059] transition-all font-medium">
+            Sri Lanka in June →
+          </Link>
+          <Link to="/sri-lanka-itinerary-august-couples" className="px-3 py-1.5 bg-white border border-[#1A2F23]/10 rounded-full text-[#1A2F23] hover:border-[#C5A059] hover:text-[#C5A059] transition-all font-medium">
+            Sri Lanka in August →
+          </Link>
+        </div>
+      </section>
+
       {/* 2. RELEVANCE & DIAGNOSTIC ALIGNMENT */}
       <section className="py-16 bg-[#1A2F23] text-white px-6">
         <div className="max-w-4xl mx-auto space-y-10">
