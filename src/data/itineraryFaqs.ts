@@ -279,6 +279,16 @@ export const itineraryFaqs: FaqItem[] = [
     q: "Is Nuwara Eliya misty year-round?",
     a: "Nuwara Eliya is prone to mist and light drizzle. October and November are the wettest months, while February and March are the clearest."
   },
+  {
+    category: "weather",
+    q: "What's the best month to do this 7-day route?",
+    a: "December to March is the driest window for both the hill country (Kandy, Ella) and south coast (Galle) legs of this route, so all seven days line up with good weather. See our full best-time-to-visit breakdown for a month-by-month guide."
+  },
+  {
+    category: "weather",
+    q: "Is this itinerary suitable for a June or August trip?",
+    a: "The route still works in June and August, but you'll want to swap Galle for an East Coast stop (Trincomalee or Passikudah), since the southwest monsoon hits Galle/Mirissa in those months while the east stays dry. See our dedicated Sri Lanka in June guide, or our August couples itinerary for a ready-made East Coast variant."
+  },
 
   // 54-62: Packing & Safety
   {

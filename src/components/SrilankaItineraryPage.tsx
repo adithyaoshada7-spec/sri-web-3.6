@@ -12,8 +12,8 @@ import ItineraryPlanningSuite from "./ItineraryPlanningSuite";
 
 export default function SrilankaItineraryPage() {
   usePageMetadata({
-    title: "Sri Lanka 7-Day Itinerary: The Perfect Route for First-Time Visitors",
-    description: "Planning your first trip to Sri Lanka? Follow this optimized 7-day itinerary with daily routes, travel times, estimated costs, interactive maps, and a free customizable trip planner.",
+    title: "Sri Lanka 7 Day Itinerary 2026: Route, Costs & Map (Free PDF)",
+    description: "A tested 7-day Sri Lanka itinerary with daily routes, travel times, hotel picks, and real costs in USD. Download the free PDF and customize it for your dates.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-7-day-itinerary",
     ogUrl: "https://plan-srilanka.com/sri-lanka-7-day-itinerary"
   });
@@ -141,6 +141,22 @@ Please send me the optimized free 24-page PDF and confirm private chauffeur pack
             }))
           })}
         </script>
+
+        {/* FAQPage Schema (from the 70-question FAQ vault) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": itineraryFaqs.map((faq) => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
+              }
+            }))
+          })}
+        </script>
       </>
 
       {/* 1. HERO BANNER HEADER & ATTENTION DECK */}
@@ -158,6 +174,10 @@ Please send me the optimized free 24-page PDF and confirm private chauffeur pack
           
           <p className="text-base md:text-xl text-[#0F1412]/75 font-light max-w-2xl mx-auto leading-relaxed">
             Maps are deceptive. Mountain roads restrict speed to 35 km/h. This optimized itinerary ensures first-time visitors see Sri Lanka&apos;s most magnificent peaks and heritage loops with the absolute least vehicle fatigue.
+          </p>
+
+          <p className="text-sm text-[#0F1412]/70 font-light max-w-2xl mx-auto leading-relaxed text-left sm:text-center">
+            Seven days is enough to cover Sri Lanka&apos;s three signature landscapes — ancient ruins, misty tea hills, and the south coast — without feeling rushed. This route runs Negombo → Sigiriya → Kandy → Ella → Yala → Galle → Colombo, roughly 640km with manageable 2-4 hour drives between stops. Below you&apos;ll find the day-by-day plan, hotel picks by budget, and a full cost breakdown (this route typically runs <strong className="text-[#1A2F23] font-semibold">$450-900 per person</strong> for 7 days depending on hotel class — see our <Link to="/sri-lanka-trip-cost-from-india" className="text-[#C5A059] underline hover:text-[#1A2F23]">full cost breakdown from India</Link> or <Link to="/sri-lanka-trip-cost-from-bangalore" className="text-[#C5A059] underline hover:text-[#1A2F23]">from Bangalore</Link>). Check <Link to="/best-time-to-visit-sri-lanka" className="text-[#C5A059] underline hover:text-[#1A2F23]">the best time to visit</Link> before locking in your dates, or skip straight to our <Link to="/sri-lanka-trip-planner" className="text-[#C5A059] underline hover:text-[#1A2F23]">free trip planner</Link> to customize this route for your own travel window.
           </p>
 
           {/* Quick Answer Summary table (At-A-Glance optimal route loop) */}
@@ -341,6 +361,54 @@ Please send me the optimized free 24-page PDF and confirm private chauffeur pack
         </div>
       </section>
 
+      {/* 4B. QUICK OVERVIEW TABLE */}
+      <section className="py-16 px-6 bg-white border-t border-b border-[#0F1412]/10">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="text-center space-y-3">
+            <span className="text-xs uppercase tracking-[0.25em] text-[#C5A059] font-bold block">At-A-Glance</span>
+            <h2 className="text-3xl md:text-5xl font-serif text-[#1A2F23] tracking-tight">
+              Quick Overview: 7-Day Route
+            </h2>
+            <p className="text-[#0F1412]/70 font-light text-sm md:text-base max-w-xl mx-auto">
+              The full loop at a glance — location, highlight, drive time, and average daily spend per person.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto bg-[#FAF8F5] rounded-2xl border border-[#0F1412]/5 shadow-lg">
+            <table className="w-full text-xs sm:text-sm text-left">
+              <thead className="bg-[#1A2F23] text-white font-mono uppercase tracking-wider text-[10px]">
+                <tr>
+                  <th className="p-4">Day</th>
+                  <th className="p-4">Location</th>
+                  <th className="p-4">Highlight</th>
+                  <th className="p-4">Drive Time</th>
+                  <th className="p-4">Avg. Cost/Day</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#0F1412]/5">
+                {[
+                  { day: 1, location: "Negombo", highlight: "Beach + lagoon, airport recovery", cost: "$40-70" },
+                  { day: 2, location: "Sigiriya", highlight: "Pidurangala sunset, Cultural Triangle", cost: "$50-90" },
+                  { day: 3, location: "Sigiriya → Kandy", highlight: "Lion Rock climb, Temple of the Tooth", cost: "$50-90" },
+                  { day: 4, location: "Kandy → Ella", highlight: "Blue Train, tea country", cost: "$50-80" },
+                  { day: 5, location: "Ella → Yala", highlight: "Nine Arch Bridge, leopard safari", cost: "$70-120" },
+                  { day: 6, location: "Yala → Galle", highlight: "Stilt fishermen, Galle Fort ramparts", cost: "$50-90" },
+                  { day: 7, location: "Galle → Colombo", highlight: "Ministry of Crab, departure", cost: "$40-70" }
+                ].map((row) => (
+                  <tr key={row.day} className="hover:bg-white transition-colors">
+                    <td className="p-4 font-mono font-bold text-[#C5A059]">Day {row.day}</td>
+                    <td className="p-4 font-bold text-[#1A2F23]">{row.location}</td>
+                    <td className="p-4 text-[#0F1412]/80 font-light">{row.highlight}</td>
+                    <td className="p-4 text-[#0F1412]/80 font-light">{itinerarySchedules[row.day - 1]?.drivingTime}</td>
+                    <td className="p-4 font-mono font-bold text-emerald-700">{row.cost}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* 5. DENSE DAY-BY-DAY ITINERARY LEDGER */}
       <section className="py-20 px-6 bg-white" id="daily-itinerary-ledger">
         <div className="max-w-4xl mx-auto space-y-12">
@@ -520,6 +588,55 @@ Please send me the optimized free 24-page PDF and confirm private chauffeur pack
             </table>
           </div>
 
+        </div>
+      </section>
+
+      {/* 6B. SAMPLE BUDGET BREAKDOWN TABLE */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="text-center space-y-3">
+            <span className="text-xs uppercase tracking-[0.25em] text-[#C5A059] font-bold block">Real Numbers</span>
+            <h2 className="text-3xl md:text-5xl font-serif text-[#1A2F23] tracking-tight">
+              Sample 7-Day Budget Breakdown
+            </h2>
+            <p className="text-[#0F1412]/70 font-light text-sm md:text-base max-w-xl mx-auto">
+              Per person, for the full 7-day route above. For a fuller breakdown by departure city, see our{" "}
+              <Link to="/sri-lanka-trip-cost-from-india" className="text-[#C5A059] underline hover:text-[#1A2F23]">cost guide from India</Link>{" "}
+              or{" "}
+              <Link to="/sri-lanka-trip-cost-from-bangalore" className="text-[#C5A059] underline hover:text-[#1A2F23]">from Bangalore</Link>.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto bg-[#FAF8F5] rounded-2xl border border-[#0F1412]/5 shadow-lg">
+            <table className="w-full text-xs sm:text-sm text-left">
+              <thead className="bg-[#1A2F23] text-white font-mono uppercase tracking-wider text-[10px]">
+                <tr>
+                  <th className="p-4">Category</th>
+                  <th className="p-4">Budget</th>
+                  <th className="p-4">Mid-Range</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#0F1412]/5">
+                {[
+                  { cat: "Accommodation (7 nights)", budget: "$150-210", mid: "$350-560" },
+                  { cat: "Private driver/car (7 days)", budget: "$210-280", mid: "$210-280" },
+                  { cat: "Meals", budget: "$70-105", mid: "$140-210" },
+                  { cat: "Entrance fees (Sigiriya, Yala, temples)", budget: "$90-110", mid: "$90-110" }
+                ].map((row) => (
+                  <tr key={row.cat} className="hover:bg-white transition-colors">
+                    <td className="p-4 font-bold text-[#1A2F23]">{row.cat}</td>
+                    <td className="p-4 font-mono text-[#0F1412]/80">{row.budget}</td>
+                    <td className="p-4 font-mono text-[#0F1412]/80">{row.mid}</td>
+                  </tr>
+                ))}
+                <tr className="bg-[#1A2F23]/5 font-bold">
+                  <td className="p-4 text-[#1A2F23]">Total per person</td>
+                  <td className="p-4 font-mono text-emerald-700">$450-650</td>
+                  <td className="p-4 font-mono text-emerald-700">$700-900</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -738,6 +855,24 @@ Please send me the optimized free 24-page PDF and confirm private chauffeur pack
           </button>
         </div>
       </div>
+
+      {/* Trip Planner CTA banner */}
+      <section className="py-14 px-6 bg-[#1A2F23]">
+        <div className="max-w-3xl mx-auto text-center space-y-4">
+          <h3 className="font-serif text-2xl md:text-3xl font-bold text-white">
+            Want This Route Customized to Your Exact Dates?
+          </h3>
+          <p className="text-sm text-white/70 font-light max-w-xl mx-auto">
+            This 7-day loop is a proven starting point — but pacing, hotel tier, and add-on stops all depend on when you travel. Try our free trip planner to adjust it to your own dates and travel style.
+          </p>
+          <Link
+            to="/sri-lanka-trip-planner"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#C5A059] text-white hover:bg-white hover:text-[#1A2F23] font-bold uppercase tracking-[0.12em] text-xs transition-all rounded-full shadow-xl"
+          >
+            Open the Free Trip Planner <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
 
       {/* Lead capture form final block */}
       <section className="py-24 px-6 bg-white pb-36" id="concierge-form-submit">
