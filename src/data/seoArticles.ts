@@ -215,5 +215,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/private-driver-south-sri-lanka",
+    title: "Why You Should Consider a Private Driver for Your South Sri Lanka Road Trip",
+    description: "Planning a 10-day South Sri Lanka road trip through Mirissa, Galle, Udawalawe & Ella? Timing tips for sunsets, turtles, safaris and the Demodara train — plus why a private driver beats self-driving.",
+    image: "https://images.unsplash.com/photo-1580889240912-c8f0f2c6d5f3?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.8"
   }
 ];
