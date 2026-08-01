@@ -172,6 +172,15 @@ const articleCategories = [
         readTime: "15 Min Read",
         badge: "Comprehensive Guide",
         tag: "Train Trip Guide"
+      },
+      {
+        path: "/private-driver-south-sri-lanka",
+        title: "Why You Should Consider a Private Driver for Your South Sri Lanka Road Trip",
+        desc: "A 10-day south coast route through Mirissa, Galle, Hiriketiya, Udawalawe, Ella and Bentota — with timing tips for sunsets, turtles, and safaris, plus why a private driver beats self-driving.",
+        image: "https://images.unsplash.com/photo-1580889240912-c8f0f2c6d5f3?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "6 Min Read",
+        badge: "South Coast Special",
+        tag: "Private Driver Guide"
       }
     ]
   },
