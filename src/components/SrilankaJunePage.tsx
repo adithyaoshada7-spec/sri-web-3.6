@@ -32,7 +32,8 @@ export default function SrilankaJunePage() {
     title: "Sri Lanka in June (2026): Best Places, Weather & 7-Day Itinerary",
     description: "Sri Lanka in June: where to go, full weather table by region (temp & rainfall), and a dated 7-day itinerary (Sigiriya, Kandy, Ella, Trincomalee). Avoid the southwest monsoon mistake.",
     canonicalUrl: "https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june",
-    ogUrl: "https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june"
+    ogUrl: "https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june",
+    ogImage: "https://images.unsplash.com/photo-1590123047227-8b04c25b0f76?auto=format&fit=crop&q=80&w=1200&h=630"
   });
 
   const navigate = useNavigate();
@@ -170,7 +171,7 @@ export default function SrilankaJunePage() {
             "headline": "Sri Lanka in June (2026): Best Places, Weather & 7-Day Itinerary",
             "description": "Planning a trip to Sri Lanka in June? Full weather table by region, the best places to visit, and a dated 7-day itinerary (Sigiriya, Kandy, Ella, Trincomalee) that avoids the southwest monsoon mistake.",
             "image": [
-              "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630"
+              "https://images.unsplash.com/photo-1590123047227-8b04c25b0f76?auto=format&fit=crop&q=80&w=1200&h=630"
             ],
             "author": {
               "@type": "Person",
@@ -262,8 +263,15 @@ export default function SrilankaJunePage() {
 
       {/* SECTION 1: HERO SECTION */}
       <section className="relative py-20 md:py-32 overflow-hidden bg-[#1e3a2f] text-white">
+        <img
+          src="https://images.unsplash.com/photo-1590123047227-8b04c25b0f76?auto=format&fit=crop&q=80&w=2000"
+          alt="Calm turquoise water at Nilaveli beach on Sri Lanka's East Coast in June"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          loading="eager"
+        />
         {/* Subtle decorative background gradient */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a2f]/70 via-[#1e3a2f]/80 to-[#1e3a2f]" />
         
         <div className="max-w-5xl mx-auto px-4 md:px-8 relative space-y-6 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#d4af37] text-xs font-mono uppercase tracking-[0.2em] mx-auto">
@@ -459,7 +467,7 @@ export default function SrilankaJunePage() {
             </table>
           </div>
           <p className="text-[11px] text-neutral-400 font-mono text-center">
-            *Figures are seasonal averages for June, based on Sri Lanka Department of Meteorology climate norms. Actual daily conditions vary.
+            *Figures are seasonal averages for June, based on <a href="https://www.meteo.gov.lk/" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#d4af37]">Sri Lanka Department of Meteorology</a> climate norms. Actual daily conditions vary.
           </p>
         </div>
       </section>
@@ -608,19 +616,22 @@ export default function SrilankaJunePage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
             {[
-              { rank: "01", name: "Trincomalee & Nilaveli", tag: "Beach & Whale Watching", desc: "Dry, sunny, calm seas. Peak month for blue whale sightings offshore." },
-              { rank: "02", name: "Sigiriya", tag: "Cultural Triangle", desc: "Dry-zone heat, clear skies. Best climbed at 7 AM before the midday sun." },
-              { rank: "03", name: "Passikudah Bay", tag: "Family Beach", desc: "Shallow, wave-free bay — the safest ocean swimming spot on the island in June." },
-              { rank: "04", name: "Minneriya National Park", tag: "Elephant Safari", desc: "The dry-season elephant gathering around the reservoir is at its best in June." },
-              { rank: "05", name: "Ella", tag: "Highlands & Train", desc: "Misty mornings, occasional rain, but stunning hiking and the iconic blue train ride." }
+              { rank: "01", name: "Trincomalee & Nilaveli", tag: "Beach & Whale Watching", desc: "Dry, sunny, calm seas. Peak month for blue whale sightings offshore.", img: "https://images.unsplash.com/photo-1590123047227-8b04c25b0f76?auto=format&fit=crop&q=80&w=600&h=450", alt: "Nilaveli beach near Trincomalee with calm turquoise water in June" },
+              { rank: "02", name: "Sigiriya", tag: "Cultural Triangle", desc: "Dry-zone heat, clear skies. Best climbed at 7 AM before the midday sun.", img: "https://images.unsplash.com/photo-1553264701-d1e2f9d9f9a3?auto=format&fit=crop&q=80&w=600&h=450", alt: "Sigiriya Lion Rock Fortress under clear dry-season skies" },
+              { rank: "03", name: "Passikudah Bay", tag: "Family Beach", desc: "Shallow, wave-free bay — the safest ocean swimming spot on the island in June.", img: "https://images.unsplash.com/photo-1586183189334-1bff8e13a2d5?auto=format&fit=crop&q=80&w=600&h=450", alt: "Shallow calm water at Passikudah Bay, safe for children in June" },
+              { rank: "04", name: "Minneriya National Park", tag: "Elephant Safari", desc: "The dry-season elephant gathering around the reservoir is at its best in June.", img: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?auto=format&fit=crop&q=80&w=600&h=450", alt: "Wild elephants gathering at Minneriya National Park reservoir" },
+              { rank: "05", name: "Ella", tag: "Highlands & Train", desc: "Misty mornings, occasional rain, but stunning hiking and the iconic blue train ride.", img: "https://images.unsplash.com/photo-1580889240912-c8f0f2c6d5f3?auto=format&fit=crop&q=80&w=600&h=450", alt: "Misty tea plantations and hiking trails near Ella in the Sri Lanka highlands" }
             ].map((place) => (
-              <div key={place.rank} className="bg-[#fcfbf7] border border-[#1e3a2f]/5 hover:border-[#d4af37] transition-all rounded-[24px] p-5 space-y-3">
-                <div className="w-9 h-9 rounded-full bg-[#1e3a2f] text-[#d4af37] flex items-center justify-center font-mono font-bold text-xs">
-                  {place.rank}
+              <div key={place.rank} className="bg-[#fcfbf7] border border-[#1e3a2f]/5 hover:border-[#d4af37] transition-all rounded-[24px] overflow-hidden">
+                <img src={place.img} alt={place.alt} loading="lazy" className="w-full h-32 object-cover" />
+                <div className="p-5 space-y-3">
+                  <div className="w-9 h-9 rounded-full bg-[#1e3a2f] text-[#d4af37] flex items-center justify-center font-mono font-bold text-xs">
+                    {place.rank}
+                  </div>
+                  <h3 className="font-serif font-bold text-base text-[#1e3a2f]">{place.name}</h3>
+                  <span className="inline-block px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[9px] font-mono uppercase font-bold">{place.tag}</span>
+                  <p className="text-xs text-[#3a4d44] leading-relaxed font-light">{place.desc}</p>
                 </div>
-                <h3 className="font-serif font-bold text-base text-[#1e3a2f]">{place.name}</h3>
-                <span className="inline-block px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[9px] font-mono uppercase font-bold">{place.tag}</span>
-                <p className="text-xs text-[#3a4d44] leading-relaxed font-light">{place.desc}</p>
               </div>
             ))}
           </div>
