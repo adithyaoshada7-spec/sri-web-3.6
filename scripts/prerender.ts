@@ -78,16 +78,18 @@ function generatePrerenderPages(): PrerenderPage[] {
     "/sri-lanka-trip-cost-from-india": `
       <header>
         <h1>Sri Lanka Trip Cost From India (2026 Guide)</h1>
-        <p><strong>Discover the complete Sri Lanka trip cost from India. Compare budget, mid-range and luxury travel costs, flights, hotels, visa fees and use our free trip budget calculator.</strong></p>
+        <p><strong>Sri Lanka trip cost from India 2026: flights, free visa ETA, hotels & daily budgets from ₹25,000. Compare solo, backpacker, couple, family & luxury costs with a free calculator.</strong></p>
+        <p>Written by Adithya Oshada, Lead Ceylon Travel Stylist. Reviewed by Anura Jayasekera, SLTDA National Guide Lecturer (No: S-1294). Updated August 2026.</p>
       </header>
-      
+
       <section>
         <h2>How Much Does a Sri Lanka Trip Cost From India? (Quick Answer)</h2>
         <p>On average, a <strong>7-day comforting Sri Lanka trip from India</strong> costs about <strong>₹45,000 to ₹65,000 per traveler</strong>. Standard costs are divided by traveler dynamics:</p>
         <ul>
-          <li><strong>Budget Traveler:</strong> ₹25,000 – ₹40,000</li>
+          <li><strong>Backpacker:</strong> ₹18,000 – ₹28,000</li>
+          <li><strong>Budget / Solo Traveler:</strong> ₹25,000 – ₹40,000</li>
           <li><strong>Couple:</strong> ₹80,000 – ₹120,000</li>
-          <li><strong>Family:</strong> ₹150,000 – ₹250,000</li>
+          <li><strong>Family of 4:</strong> ₹150,000 – ₹250,000</li>
           <li><strong>Luxury:</strong> ₹150,000+</li>
         </ul>
       </section>
@@ -175,7 +177,45 @@ function generatePrerenderPages(): PrerenderPage[] {
           <li><strong>Food & Culinary:</strong> Local street food eats and beachside seafood dining (12% - 15% of total budget)</li>
           <li><strong>Transport & Chauffeurs:</strong> Dedicated private AC vehicle with an English-fluent driver guide (15% - 20% of total budget)</li>
           <li><strong>Activities:</strong> Sigiriya, Yala Safaris, Mirissa Whales, trains (8% - 12% of total budget)</li>
+          <li><strong>SIM Card & Data eSIM:</strong> Dialog or Mobitel tourist SIM, 20-50GB (1% - 2% of total budget, roughly ₹700-900)</li>
+          <li><strong>Travel Insurance:</strong> Recommended, not mandatory (1% - 2% of total budget, roughly ₹1,000/week)</li>
         </ul>
+      </section>
+
+      <section>
+        <h2>Sri Lanka Trip Cost: 5 Days vs 7 Days vs 10 Days</h2>
+        <p>Per traveler, including return economy flights from India:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Trip Length</th>
+              <th>Budget Tier</th>
+              <th>Mid-Range Tier</th>
+              <th>Luxury Tier</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Sri Lanka 5 Day Trip Cost</strong></td>
+              <td>₹22,000 – ₹32,000</td>
+              <td>₹38,000 – ₹52,000</td>
+              <td>₹95,000+</td>
+            </tr>
+            <tr>
+              <td><strong>Sri Lanka 7 Day Trip Cost</strong></td>
+              <td>₹25,000 – ₹40,000</td>
+              <td>₹45,000 – ₹65,000</td>
+              <td>₹1,50,000+</td>
+            </tr>
+            <tr>
+              <td><strong>Sri Lanka 10 Day Trip Cost</strong></td>
+              <td>₹34,000 – ₹52,000</td>
+              <td>₹62,000 – ₹88,000</td>
+              <td>₹2,10,000+</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><a href="/sri-lanka-10-day-itinerary">See the 10 Day Sri Lanka Itinerary</a></p>
       </section>
 
       <section>
@@ -205,17 +245,36 @@ function generatePrerenderPages(): PrerenderPage[] {
       <section>
         <h2>Sri Lanka Trip Cost for Different Travelers</h2>
         <p>Different traveler demographics require distinct budget styles:</p>
+        <h3>Backpackers</h3>
+        <p>Shoestring travelers can cover the classic loop for ₹18,000 - ₹28,000 using hostel dorms, 2nd/3rd class trains, local buses, and street-side rice and curry meals.</p>
         <h3>Solo Travelers</h3>
         <p>Expect a total expense of ₹25,000 - ₹40,000 by taking local trains and spending on boutique local guesthouses.</p>
         <h3>Couples Travel</h3>
-        <p>An amazing comfort honeymoon loop runs around ₹80,000 - ₹120,000 per couple, using romantic private villas and dedicated AC chauffeured guides.</p>
+        <p>An amazing comfort honeymoon loop runs around ₹80,000 - ₹120,000 per couple, using romantic private villas and dedicated AC chauffeured guides. See our <a href="/sri-lanka-itinerary-august-couples">Sri Lanka honeymoon and couples itinerary</a>.</p>
         <h3>Families Group</h3>
-        <p>Spacious multi-bedroom resorts and comfortable van transport total around ₹150,000 - ₹250,000 for 4 people.</p>
+        <p>Spacious multi-bedroom resorts and comfortable van transport total around ₹150,000 - ₹250,000 for 4 people. See our <a href="/sri-lanka-family-itinerary">Sri Lanka family itinerary</a>.</p>
+        <h3>Luxury Escape</h3>
+        <p>Discerning travelers seeking 5-star clifftop suites, private safaris, and fully bespoke concierge-planned journeys should budget ₹150,000+ per traveler.</p>
       </section>
 
       <section>
         <h2>Best Time to Visit Sri Lanka for Indian Travelers</h2>
-        <p>Plan smart to maximize sunshine and avoid rainy seasons. The Southwest coast (Galle, Hikkaduwa, Mirissa) shines from December to April. The East Coast (Trincomalee, Arugam Bay) remains beautiful from May to September. Opting for shoulder periods like September-October or April can save you up to 30% on heritage hotels and private guides.</p>
+        <p>Plan smart to maximize sunshine and avoid rainy seasons. The Southwest coast (Galle, Hikkaduwa, Mirissa) shines from December to April. The East Coast (Trincomalee, Arugam Bay) remains beautiful from May to September. Opting for shoulder periods like September-October or April can save you up to 30% on heritage hotels and private guides. Read the full <a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka guide</a>.</p>
+      </section>
+
+      <section>
+        <h2>Hidden Costs to Budget For</h2>
+        <ul>
+          <li><strong>Foreigner-priced entry tickets:</strong> Sigiriya and national park fees are often 2-3x the local rate.</li>
+          <li><strong>Dynamic currency conversion (DCC):</strong> Always choose to pay card terminals in LKR, not INR, to avoid a 3-5% markup.</li>
+          <li><strong>Driver tips & meals:</strong> Budget ₹500-800/day in tips plus a meal allowance on multi-day private chauffeur tours.</li>
+          <li><strong>Resort markups:</strong> Bottled water and sunscreen can cost 3-4x city prices at beach resorts.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>How We Calculate These Cost Estimates</h2>
+        <p>Every figure on this page is built from live 2026 flight fares across the five busiest Indian gateways (Delhi, Mumbai, Bangalore, Chennai, Hyderabad), published hotel and boutique-villa rate cards, and the actual daily rates our Colombo-based driver-guide network charges. Content is written by Adithya Oshada, our lead Ceylon travel stylist, and fact-checked by Anura Jayasekera, an SLTDA-licensed national guide lecturer.</p>
       </section>
 
       <section>
@@ -223,6 +282,14 @@ function generatePrerenderPages(): PrerenderPage[] {
         <p><strong>Is Sri Lanka expensive for Indian tourists?</strong><br/>No, Sri Lanka is highly affordable and budget-friendly for Indian travelers compared to other international beach destinations. Land costs, local transport, hotels, and delicious dining are extremely reasonable in Indian Rupees.</p>
         <p><strong>How much is Sri Lanka visa fee in Indian Rupees?</strong><br/>The standard ETA fee is $20 USD (approx. ₹1,660). If you travel during active bilateral visa-free campaigns, the fee is completely waived to ₹0.</p>
         <p><strong>Is Bangalore or Chennai cheaper to fly to Sri Lanka?</strong><br/>Chennai offers the most economical flight connections to Colombo, often starting around ₹9,000 - ₹12,000 round-trip.</p>
+        <p><strong>What is the Sri Lanka trip cost for a couple from India?</strong><br/>A comfortable 7-day mid-range couple's trip typically costs ₹80,000 to ₹1,20,000 total, excluding flights. Budget couples can manage it for ₹55,000 - ₹75,000, while a premium honeymoon starts around ₹1,50,000.</p>
+        <p><strong>What is the Sri Lanka trip cost for a family of 4 from India?</strong><br/>A family of four should budget ₹150,000 to ₹250,000 for a comfortable 7-day trip, covering family villas, a private AC van, and safari entries.</p>
+        <p><strong>How much does a Sri Lanka backpacking trip cost?</strong><br/>Backpackers can tour Sri Lanka for ₹18,000 - ₹28,000 for 7 days, excluding flights, using hostels, public trains and buses, and local rice-and-curry meals.</p>
+        <p><strong>What is a realistic daily budget for Sri Lanka?</strong><br/>Excluding flights and visa: ₹2,500 - ₹4,000/day (budget), ₹6,000 - ₹9,000/day (mid-range), ₹15,000 - ₹25,000+/day (luxury).</p>
+        <p><strong>How much does a local SIM card cost in Sri Lanka?</strong><br/>A Dialog or Mobitel tourist SIM with 20-50GB of data costs roughly ₹700 - ₹900 for 30 days, available at the airport or as an eSIM.</p>
+        <p><strong>Do I need travel insurance for a Sri Lanka trip?</strong><br/>Not mandatory, but strongly recommended. A one-week policy costs under ₹1,000 and covers flight delays, lost baggage, and emergency medical expenses.</p>
+        <p><strong>Is Sri Lanka cheaper than Bali, Goa or the Maldives?</strong><br/>Yes. Sri Lanka is roughly 50-60% cheaper than the Maldives, on par with or slightly cheaper than Bali, and comparable to a mid-range Goa trip while offering far more variety.</p>
+        <p><strong>What are the hidden costs of a Sri Lanka trip?</strong><br/>Foreigner-priced entry tickets, dynamic currency conversion fees on cards, camera/drone permits, and resort markups on water and sunscreen. Budget an extra 8-10% to cover these.</p>
       </section>
     `,
     "/sri-lanka-7-day-itinerary": `
@@ -1006,8 +1073,8 @@ function generatePrerenderPages(): PrerenderPage[] {
           "offers": {
             "@type": "AggregateOffer",
             "priceCurrency": "INR",
-            "lowPrice": "25000",
-            "highPrice": "150000",
+            "lowPrice": "18000",
+            "highPrice": "250000",
             "offerCount": "100"
           }
         }, null, 2),
@@ -1061,6 +1128,78 @@ function generatePrerenderPages(): PrerenderPage[] {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "A 7-day comfortable tour costs about ₹48,000 to ₹75,000 per person including round-trip flights, cozy boutique accommodations, a continuously available private vehicle with an English concierge driver, entry passes (Sigiriya, Temple of Tooth), and dining."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the Sri Lanka trip cost for a couple from India?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A comfortable 7-day mid-range couple's trip from India typically costs ₹80,000 to ₹1,20,000 total for two people, excluding return flights. Budget couples can manage the same loop for ₹55,000 - ₹75,000, while a premium honeymoon with private pool villas starts around ₹1,50,000."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the Sri Lanka trip cost for a family of 4 from India?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A family of four should budget ₹150,000 to ₹250,000 for a comfortable 7-day trip, covering connected family villas or resort suites, a spacious private AC van with a driver-guide, kid-friendly dining, and national park safari entries."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does a Sri Lanka backpacking trip cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Backpackers can comfortably tour Sri Lanka for ₹18,000 - ₹28,000 for 7 days, excluding flights. This covers hostel dorms or basic guest houses, 2nd/3rd class scenic train tickets, local bus rides, and rice-and-curry meals under ₹250 a plate."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a realistic daily budget for Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Excluding flights and visa, budget travelers should plan for ₹2,500 - ₹4,000 per day, mid-range travelers ₹6,000 - ₹9,000 per day, and luxury travelers ₹15,000 - ₹25,000+ per day."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does a local SIM card or eSIM cost in Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A tourist SIM card from Dialog or Mobitel at Bandaranaike International Airport costs roughly ₹700 - ₹900 for 20-50GB of high-speed 4G/5G data valid for 30 days. Both carriers also offer digital eSIMs you can activate before landing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need travel insurance for a Sri Lanka trip?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It is not a mandatory entry requirement, but we strongly recommend it. A one-week policy typically costs under ₹1,000 and covers flight delays, lost baggage, and emergency medical expenses."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Sri Lanka cheaper than Bali, Goa or the Maldives?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Sri Lanka is roughly 50-60% cheaper than the Maldives, on par with or slightly cheaper than Bali once you factor in private transport, and comparable to a mid-range Goa trip while offering far more variety."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the hidden costs of a Sri Lanka trip?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Watch for foreigner-priced entry tickets, camera or drone fees, informal parking or guide tips, dynamic currency conversion charges on card payments, and inflated bottled-water prices at resorts. Budgeting an extra 8-10% covers these comfortably."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is 7 days enough for Sri Lanka, or should I plan more?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "7 days is enough for the classic first-timer loop (Colombo, Sigiriya, Kandy, Ella, and either Yala or Galle). If you want both a wildlife safari and unhurried beach time, extend to 10 days. A tight 5-day trip can still cover the Cultural Triangle or a south-coast beach escape."
               }
             }
           ]
