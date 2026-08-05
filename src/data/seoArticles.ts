@@ -11,8 +11,8 @@ export interface Seometa {
 export const seoArticles: Seometa[] = [
   {
     path: "/sri-lanka-trip-cost-from-india",
-    title: "Sri Lanka Trip Cost From India (2026 Guide) | Budget Calculator & Cost Breakdown",
-    description: "Discover the complete Sri Lanka trip cost from India. Compare budget, mid-range and luxury travel costs, flights, hotels, visa fees and use our free trip budget calculator.",
+    title: "Sri Lanka Trip Cost From India (2026): ₹25K–₹2.5L Guide",
+    description: "Sri Lanka trip cost from India 2026: flights, free visa ETA, hotels & daily budgets from ₹25,000. Compare solo, backpacker, couple, family & luxury costs with a free calculator.",
     image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1",
     ogType: "article",
     changefreq: "weekly",
