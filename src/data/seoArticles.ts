@@ -19,6 +19,15 @@ export const seoArticles: Seometa[] = [
     priority: "0.9"
   },
   {
+    path: "/sri-lanka-7-day-itinerary-from-chennai",
+    title: "Sri Lanka 7 Day Itinerary from Chennai (2026 Guide)",
+    description: "Planning a Sri Lanka trip from Chennai? Get a detailed 7-day itinerary with flights, visa, budget, hotels, food & top places to visit. Plan smarter today.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
+  },
+  {
     path: "/sri-lanka-7-day-itinerary",
     title: "Sri Lanka 7-Day Itinerary: The Perfect Route for First-Time Visitors",
     description: "Planning your first trip to Sri Lanka? Follow this optimized 7-day itinerary with daily routes, travel times, estimated costs, interactive maps, and a free customizable trip planner.",

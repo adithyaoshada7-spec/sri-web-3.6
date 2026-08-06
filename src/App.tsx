@@ -65,6 +65,7 @@ const SrilankaFlightsGuidePage = lazy(() => import("./components/SrilankaFlights
 const SrilankaFlightSearchToolBlogPage = lazy(() => import("./components/SrilankaFlightSearchToolBlogPage"));
 const SrilankaHowToUsePlannerPage = lazy(() => import("./components/SrilankaHowToUsePlannerPage"));
 const SrilankaPrivateDriverSouthPage = lazy(() => import("./components/SrilankaPrivateDriverSouthPage"));
+const SrilankaChennaiItineraryPage = lazy(() => import("./components/SrilankaChennaiItineraryPage"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -656,6 +657,16 @@ export default function App() {
           </Suspense>
         } />
 
+        <Route path="/sri-lanka-7-day-itinerary-from-chennai" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaChennaiItineraryPage />
+          </Suspense>
+        } />
+
         <Route path="/sri-lanka-trip-cost-from-bangalore" element={
           <Suspense fallback={
             <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
@@ -968,6 +979,7 @@ export default function App() {
                 { title: "August Couples Itinerary (2026)", path: "/sri-lanka-itinerary-august-couples", badge: "Romantic Getaway", desc: "Sunny East Coast beaches & boutique hills." },
                 { title: "Bangalore to Sri Lanka Trip Cost", path: "/sri-lanka-trip-cost-from-bangalore", badge: "Bangalore Gateway", desc: "Direct BLR flight deals & budgets." },
                 { title: "Chennai to Sri Lanka Package Cost", path: "/how-much-will-it-take-to-visit-sri-lanka-from-chennai", badge: "Chennai Gateway", desc: "Short flight schedules & budget hacks." },
+                { title: "7-Day Itinerary from Chennai (2026)", path: "/sri-lanka-7-day-itinerary-from-chennai", badge: "Chennai Route", desc: "Day-by-day MAA-to-Colombo trip plan." },
                 { title: "Where to Go in June (2026)", path: "/where-to-go-in-sri-lanka-in-june", badge: "June Weather", desc: "Which coast to choose to beat monsoons." },
                 { title: "12-Day Family Itinerary with Kids", path: "/sri-lanka-family-itinerary", badge: "Kids Fun • 2026", desc: "Custom low-fatigue routes & baby safety." },
                 { title: "7-Day Sri Lanka Classic Itinerary", path: "/sri-lanka-7-day-itinerary", badge: "Most Popular", desc: "Ready-to-use perfect first trip loop." },
