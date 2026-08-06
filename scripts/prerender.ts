@@ -292,6 +292,113 @@ function generatePrerenderPages(): PrerenderPage[] {
         <p><strong>What are the hidden costs of a Sri Lanka trip?</strong><br/>Foreigner-priced entry tickets, dynamic currency conversion fees on cards, camera/drone permits, and resort markups on water and sunscreen. Budget an extra 8-10% to cover these.</p>
       </section>
     `,
+    "/sri-lanka-7-day-itinerary-from-chennai": `
+      <header>
+        <h1>Sri Lanka 7 Day Itinerary from Chennai (2026 Complete Guide)</h1>
+        <p><strong>Planning a Sri Lanka trip from Chennai? Get a detailed 7-day itinerary with flights, visa, budget, hotels, food and top places to visit, from Colombo and Sigiriya to Kandy, Nuwara Eliya, Ella and the south coast.</strong></p>
+        <p>Written by Adithya Oshada, Lead Ceylon Travel Stylist. Reviewed by Anura Jayasekera, SLTDA National Guide Lecturer (No: S-1294). Updated August 2026.</p>
+      </header>
+
+      <section>
+        <h2>Quick Trip Summary</h2>
+        <table>
+          <thead>
+            <tr><th>Detail</th><th>Information</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Duration</td><td>7 days / 6 nights</td></tr>
+            <tr><td>Budget (mid-range)</td><td>₹45,000 – ₹70,000 per person, including return flights</td></tr>
+            <tr><td>Visa</td><td>Electronic Travel Authorization (ETA) — apply online in advance</td></tr>
+            <tr><td>Currency</td><td>Sri Lankan Rupee (LKR)</td></tr>
+            <tr><td>Best Months</td><td>December–March, with April and September–October as shoulder options</td></tr>
+            <tr><td>Flight Time from Chennai (MAA)</td><td>Approx. 1 hour 15–25 minutes, direct</td></tr>
+            <tr><td>Ideal Travelers</td><td>Couples, families, friend groups, first-time international travelers</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Why Sri Lanka Is Perfect for Chennai Travelers</h2>
+        <p>Chennai to Colombo is roughly 650 km — shorter than a Chennai–Hyderabad flight, with no time-zone adjustment needed. Sri Lankan food shares the same building blocks as Tamil and coastal Andhra cooking: rice, coconut milk, curry leaves, and fresh seafood. IndiGo and SriLankan Airlines run multiple daily direct flights, and a comfortable mid-range week here, flights included, often costs less than a domestic Goa trip in peak season.</p>
+      </section>
+
+      <section>
+        <h2>Flights from Chennai to Sri Lanka</h2>
+        <p>Direct flights from Chennai International Airport (MAA) to Bandaranaike International Airport (CMB) take approximately 1 hour 15 to 25 minutes. IndiGo and SriLankan Airlines operate the route directly; Alliance Air runs a direct Chennai–Jaffna route for northern Sri Lanka. Round-trip economy fares typically range from ₹9,000 to ₹18,000 per person, rising to ₹22,000+ at the last minute in peak weeks. Book 35–50 days ahead, and prefer Tuesday/Wednesday departures for the lowest fares. These are indicative ranges only — always check live fares before booking.</p>
+      </section>
+
+      <section>
+        <h2>Visa Requirements for Indian Travelers</h2>
+        <p>Indian passport holders need an Electronic Travel Authorization (ETA), applied for online before departure. Approval typically arrives within 24 hours; apply 3–4 days before departure to leave room for delays. Passports should have at least 6 months' validity remaining. The standard ETA fee is around $20 USD (~₹1,660), though Sri Lanka periodically waives this fee entirely for Indian travelers under bilateral tourism promotions. Always check the official Sri Lanka ETA portal for current rules before applying.</p>
+      </section>
+
+      <section>
+        <h2>Best Time to Visit Sri Lanka</h2>
+        <p>December through March offers the most reliable weather for this hill-country and south-coast route. April, September, and October are solid shoulder-season alternatives with fewer crowds. June to August brings wetter conditions to the west/south coast (Mirissa/Bentota) but the Cultural Triangle and hill country stay pleasant. See our guide on <a href="/where-to-go-in-sri-lanka-in-june">where to go in Sri Lanka in June</a> for that specific month.</p>
+      </section>
+
+      <section>
+        <h2>Main Itinerary: 7 Days from Colombo to the South Coast</h2>
+        <ul>
+          <li><strong>Day 1 — Colombo:</strong> Land at Bandaranaike Airport, collect a SIM card, and ease in with a sunset walk at Galle Face Green. Budget: ₹4,000–₹7,000.</li>
+          <li><strong>Day 2 — Sigiriya:</strong> Drive 170 km (3.5–4 hrs) and climb the legendary Sigiriya Rock Fortress. Budget: ₹6,000–₹9,000.</li>
+          <li><strong>Day 3 — Kandy:</strong> Drive 90 km (2.5–3 hrs), visit the Temple of the Sacred Tooth Relic, and catch a Kandyan cultural dance show. Budget: ₹5,500–₹8,500.</li>
+          <li><strong>Day 4 — Nuwara Eliya:</strong> Drive into the hills (75–80 km, ~3 hrs) for a tea plantation tour and Ceylon high tea. Budget: ₹5,000–₹8,000.</li>
+          <li><strong>Day 5 — Ella:</strong> Board the scenic train from Nanu Oya to Ella, walk the Nine Arch Bridge, and hike Little Adam's Peak. Budget: ₹4,500–₹7,500.</li>
+          <li><strong>Day 6 — Mirissa or Bentota:</strong> Mirissa (150 km, 4–4.5 hrs from Ella) for whale watching and beach energy, or Bentota (195 km, 5–5.5 hrs) for a calmer stay and a much shorter drive to the airport the next day. Budget: ₹6,000–₹10,000.</li>
+          <li><strong>Day 7 — Colombo:</strong> Drive back, shop at Barefoot and Spa Ceylon, and depart from Bandaranaike Airport. Budget: ₹5,000–₹8,000.</li>
+        </ul>
+        <p>Want a slightly different structure, or room to add Yala and Galle? See our <a href="/sri-lanka-7-day-itinerary">classic Sri Lanka 7 day itinerary</a>.</p>
+      </section>
+
+      <section>
+        <h2>Total Trip Budget: 7 Days from Chennai</h2>
+        <p>Per person, double occupancy, including return Chennai–Colombo flights:</p>
+        <table>
+          <thead>
+            <tr><th>Category</th><th>Budget</th><th>Mid-Range</th><th>Luxury</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Return Flights</td><td>₹9,000–₹12,000</td><td>₹10,000–₹15,000</td><td>₹15,000–₹22,000</td></tr>
+            <tr><td>Accommodation (6 nights)</td><td>₹9,000–₹15,000</td><td>₹30,000–₹48,000</td><td>₹75,000–₹1,50,000+</td></tr>
+            <tr><td>Food (6 days)</td><td>₹4,500–₹6,000</td><td>₹9,000–₹14,000</td><td>₹18,000–₹28,000</td></tr>
+            <tr><td>Local Transport</td><td>₹3,500</td><td>₹18,000–₹24,000</td><td>₹35,000+</td></tr>
+            <tr><td>Activities & Entry Tickets</td><td>₹4,000–₹5,500</td><td>₹8,000–₹12,000</td><td>₹18,000–₹25,000</td></tr>
+            <tr><td><strong>Estimated Total (Per Person)</strong></td><td><strong>₹31,500–₹44,660</strong></td><td><strong>₹77,000–₹1,16,660</strong></td><td><strong>₹1,64,000–₹2,64,660+</strong></td></tr>
+          </tbody>
+        </table>
+        <p>For a more granular Chennai-specific breakdown, see our <a href="/how-much-will-it-take-to-visit-sri-lanka-from-chennai">Sri Lanka trip cost from Chennai</a> guide.</p>
+      </section>
+
+      <section>
+        <h2>Hotel Recommendations by Budget</h2>
+        <p><strong>Budget (₹1,500–₹2,800/night):</strong> guesthouses and family-run homestays in Sigiriya's outskirts, Ella's hillside cluster, and Mirissa's back streets. <strong>Mid-Range (₹5,000–₹9,000/night):</strong> boutique hotels and small resorts with pools across Sigiriya, Kandy, Nuwara Eliya, Bentota and Mirissa. <strong>Luxury (₹15,000–₹40,000+/night):</strong> private-pool villas and colonial tea-estate bungalows, especially around Nuwara Eliya, Mirissa and Bentota.</p>
+      </section>
+
+      <section>
+        <h2>Food Guide</h2>
+        <p>Rice and curry, kottu roti, hoppers, lamprais, and fresh seafood are the highlights, alongside Ceylon tea grown in Nuwara Eliya. A local rice-and-curry meal runs ₹150–300; a seafood dinner ₹1,200–2,500 per person. Vegetarians are well catered for with dhal curry, jackfruit curry (polos), and pumpkin curry as standard menu items.</p>
+      </section>
+
+      <section>
+        <h2>Transportation Guide</h2>
+        <p>A private driver is the best option for this route — it covers five distinct regions in six travel days, several with winding mountain roads. Private AC car with driver: ₹4,500–6,500/day. Build in the scenic train specifically for the Nuwara Eliya-to-Ella leg (Day 5). Taxi apps (PickMe, Uber) work well for short city hops in Colombo and Kandy. Self-driving isn't recommended for first-time visitors.</p>
+      </section>
+
+      <section>
+        <h2>Safety Tips</h2>
+        <p>Carry a mix of cash and cards; ATMs are scarcer in rural stretches. A tourist SIM (Dialog or Mobitel) with 20–50GB costs roughly ₹700–900. The general emergency number is 119 (police), with 1990 for ambulance in many areas. Sri Lanka is considered one of the safer South Asian countries for tourists, including solo women and families.</p>
+      </section>
+
+      <section>
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>Is 7 days enough for Sri Lanka from Chennai?</strong><br/>Yes. Seven days comfortably covers Colombo, Sigiriya, Kandy, Nuwara Eliya, Ella, and a south-coast beach stop without feeling rushed.</p>
+        <p><strong>How much does a 7-day Sri Lanka trip from Chennai cost?</strong><br/>Mid-range costs ₹45,000–₹70,000 per person including flights; budget travelers can do it for ₹31,500–₹44,660.</p>
+        <p><strong>Do Indians need a visa for Sri Lanka?</strong><br/>Yes, an Electronic Travel Authorization (ETA) applied for online before departure, with approval usually taking under 24 hours.</p>
+        <p><strong>Which month is best to visit Sri Lanka from Chennai?</strong><br/>December to March offers the most reliable weather across this route.</p>
+        <p><strong>Is the Kandy to Ella train worth it?</strong><br/>Yes — one of the most scenic rail journeys in the world. Book a reserved seat about 30 days ahead.</p>
+      </section>
+    `,
     "/sri-lanka-7-day-itinerary": `
       <header>
         <h1>Sri Lanka 7-Day Itinerary: The Perfect Route for First-Time Visitors</h1>
@@ -1200,6 +1307,72 @@ function generatePrerenderPages(): PrerenderPage[] {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "7 days is enough for the classic first-timer loop (Colombo, Sigiriya, Kandy, Ella, and either Yala or Galle). If you want both a wildlife safari and unhurried beach time, extend to 10 days. A tight 5-day trip can still cover the Cultural Triangle or a south-coast beach escape."
+              }
+            }
+          ]
+        }, null, 2)
+      );
+    } else if (art.path === "/sri-lanka-7-day-itinerary-from-chennai") {
+      schemas.push(
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": `${domain}` },
+            { "@type": "ListItem", "position": 2, "name": "7 Day Itinerary", "item": `${domain}/sri-lanka-7-day-itinerary` },
+            { "@type": "ListItem", "position": 3, "name": "From Chennai", "item": `${domain}/sri-lanka-7-day-itinerary-from-chennai` }
+          ]
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is 7 days enough for Sri Lanka from Chennai?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Seven days comfortably covers this loop — Colombo, Sigiriya, Kandy, Nuwara Eliya, Ella, and a south-coast beach stop — without feeling rushed. Add Yala or Galle by extending to 9-10 days."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does a 7-day Sri Lanka trip from Chennai cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Mid-range: ₹45,000-₹70,000 per person, including return flights, accommodation, private transport, food, and activities. Budget: ₹31,500-₹44,660. Luxury: ₹1,64,000+."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do Indians need a visa for Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, an Electronic Travel Authorization (ETA) applied for online before departure. Approval usually takes under 24 hours; the fee is sometimes waived under bilateral tourism promotions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which month is best to visit Sri Lanka from Chennai?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "December to March offers the most reliable weather across this route. April, September, and October are solid shoulder-season alternatives with fewer crowds."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the Kandy to Ella train worth it?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, almost universally — one of the most scenic rail journeys in the world. Book a reserved seat 30 days ahead for a window view instead of standing in a crowded unreserved carriage."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What's the difference between Mirissa and Bentota for Day 6?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Mirissa has a livelier beach scene and seasonal whale watching but a longer drive from Ella. Bentota is calmer and family-friendly, with a much shorter final drive to Colombo airport."
               }
             }
           ]

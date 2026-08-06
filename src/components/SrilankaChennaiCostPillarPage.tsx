@@ -367,11 +367,11 @@ export default function SrilankaChennaiCostPillarPage() {
               </div>
             </Link>
 
-            <Link to="/sri-lanka-7-day-itinerary" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
+            <Link to="/sri-lanka-7-day-itinerary-from-chennai" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
               <div>
                 <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 2</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Sri Lanka 7 Day Itinerary</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Our most popular first-timer classic route.</p>
+                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">7 Day Itinerary from Chennai</h4>
+                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Day-by-day route built specifically for MAA flyers.</p>
               </div>
               <div className="mt-4 flex items-center justify-end text-luxury-gold">
                 <span className="text-[10px] font-bold mr-1">View Itinerary</span>
