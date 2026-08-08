@@ -384,9 +384,9 @@ export default function SrilankaChennaiItineraryPage() {
         </div>
       </div>
 
-      {/* HERO REEL — looping highlight video, first thing a visitor sees after the headline */}
+      {/* HERO REEL — looping highlight video (vertical/Reels-format footage), first thing a visitor sees after the headline */}
       <div className="max-w-7xl mx-auto px-6 mb-16">
-        <div className="relative rounded-[40px] overflow-hidden shadow-2xl aspect-[16/9] md:aspect-[21/9] bg-luxury-green">
+        <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[360px] rounded-[40px] overflow-hidden shadow-2xl aspect-[9/16] max-h-[70vh] bg-luxury-green">
           <video
             className="absolute inset-0 w-full h-full object-cover"
             src="/reels/chennai-itinerary-hero.mp4"
@@ -398,8 +398,8 @@ export default function SrilankaChennaiItineraryPage() {
             preload="metadata"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/10 pointer-events-none" />
-          <div className="absolute bottom-5 left-5 right-5 flex flex-wrap items-center justify-between gap-3">
-            <span className="text-white text-xs font-mono uppercase tracking-widest bg-black/40 backdrop-blur px-3 py-1.5 rounded-full">
+          <div className="absolute bottom-5 left-5 right-5">
+            <span className="text-white text-xs font-mono uppercase tracking-widest bg-black/40 backdrop-blur px-3 py-1.5 rounded-full inline-block">
               Sigiriya · Kandy · Ella Train · Beach — one week, on reel
             </span>
           </div>
@@ -437,8 +437,8 @@ export default function SrilankaChennaiItineraryPage() {
               ))}
             </div>
 
-            <div className="grid sm:grid-cols-[1fr_auto] gap-6 items-center pt-2">
-              <div className="relative rounded-3xl overflow-hidden aspect-video border border-white/10">
+            <div className="grid sm:grid-cols-[auto_1fr] gap-6 items-center pt-2">
+              <div className="relative mx-auto sm:mx-0 w-full max-w-[220px] rounded-3xl overflow-hidden aspect-[9/16] border border-white/10">
                 <video
                   className="absolute inset-0 w-full h-full object-cover"
                   src="/reels/chennai-itinerary-highlights.mp4"
