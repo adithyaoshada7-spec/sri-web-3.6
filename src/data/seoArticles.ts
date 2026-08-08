@@ -120,7 +120,7 @@ export const seoArticles: Seometa[] = [
   {
     path: "/sri-lanka-trip-cost-from-bangalore",
     title: "Sri Lanka Trip Cost From Bangalore (2026 Guide) | Stays, Flights & Budgets",
-    description: "Discover the complete Sri Lanka trip cost from Bangalore. Compare budgets, direct BLR-CMB flights, visa requirements, local transport, food, and use our free planning blueprints.",
+    description: "Planning a Sri Lanka trip from Bangalore? See flight, hotel, food, transport & activity costs for a 7-day trip, with budget options for couples and families.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",

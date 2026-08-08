@@ -117,7 +117,7 @@ const faqItems = [
 export default function SrilankaBangaloreCostPillarPage() {
   usePageMetadata({
     title: "Sri Lanka Trip Cost From Bangalore (2026): ₹27K–95K Guide",
-    description: "Sri Lanka trip cost from Bangalore (2026): flights, free visa ETA, hotels & daily budgets from ₹27,000. Compare solo, couple & family costs plus tips.",
+    description: "Planning a Sri Lanka trip from Bangalore? See flight, hotel, food, transport & activity costs for a 7-day trip, with budget options for couples and families.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-trip-cost-from-bangalore",
     ogUrl: "https://plan-srilanka.com/sri-lanka-trip-cost-from-bangalore"
   });
@@ -153,7 +153,7 @@ export default function SrilankaBangaloreCostPillarPage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Sri Lanka Trip Cost From Bangalore (2026 Guide): Flights, Visa, Hotels & Budgets",
-            "description": "Sri Lanka trip cost from Bangalore (2026): flights, free visa ETA, hotels & daily budgets from ₹27,000. Compare solo, couple & family costs plus tips.",
+            "description": "Planning a Sri Lanka trip from Bangalore? See flight, hotel, food, transport & activity costs for a 7-day trip, with budget options for couples and families.",
             "image": [
               "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630"
             ],
