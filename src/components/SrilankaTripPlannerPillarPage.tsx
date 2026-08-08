@@ -32,7 +32,7 @@ import { trackEvent } from "../lib/analytics";
 export default function SrilankaTripPlannerPillarPage() {
   usePageMetadata({
     title: "Sri Lanka Trip Planner | Free Itinerary & Route Planner",
-    description: "Use our master Sri Lanka travel planner guide to curate the perfect Ceylon tour. Explore step-by-step itineraries, seasonal monsoon maps, budget advice, templates, and essential E-E-A-T travel planning tips.",
+    description: "Build your perfect Sri Lanka itinerary with our master guide: step-by-step planning advice, monsoon-safe zones, budget calculators, and sample routes.",
     canonicalUrl: "https://plan-srilanka.com/how-to-plan-a-trip-to-sri-lanka",
     ogUrl: "https://plan-srilanka.com/how-to-plan-a-trip-to-sri-lanka"
   });

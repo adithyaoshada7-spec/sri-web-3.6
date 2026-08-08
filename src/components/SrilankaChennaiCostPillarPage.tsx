@@ -37,8 +37,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaChennaiCostPillarPage() {
   usePageMetadata({
-    title: "How Much Will It Take to Visit Sri Lanka From Chennai? (2026 Cost Guide)",
-    description: "How much will it take to visit Sri Lanka from Chennai? ₹18,000-₹2,40,000 total depending on trip length & style. Full flight, visa, hotel, food, SIM & transport breakdown + calculator.",
+    title: "Sri Lanka Trip Cost From Chennai (2026): Flights & Budget",
+    description: "Planning a Sri Lanka trip from Chennai? See flight, hotel, food, and transport costs, plus our Jaffna overland route guide.",
     canonicalUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
     ogUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
   });

@@ -68,8 +68,8 @@ export default function SrilankaBestTimePage() {
   };
 
   usePageMetadata({
-    title: "Best Time To Visit Sri Lanka (2026) | Weather, Festivals & Travel Experiences",
-    description: "Unveil the best time to visit Sri Lanka. Break down monsoon windows (Yala vs Maha), sunny beach timelines on the East and South coasts, cultural events, and monthly weather guides.",
+    title: "Best Time to Visit Sri Lanka (2026): Weather Guide",
+    description: "Find the best time to visit Sri Lanka based on weather, festivals, beaches, wildlife, and train journeys — the perfect month for your trip.",
     canonicalUrl: "https://plan-srilanka.com/best-time-to-visit-sri-lanka",
     ogUrl: "https://plan-srilanka.com/best-time-to-visit-sri-lanka"
   });

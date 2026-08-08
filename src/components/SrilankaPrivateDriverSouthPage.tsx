@@ -22,8 +22,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaPrivateDriverSouthPage() {
   usePageMetadata({
-    title: "Why You Should Consider a Private Driver for Your South Sri Lanka Road Trip",
-    description: "Planning a 10-day South Sri Lanka road trip through Mirissa, Galle, Udawalawe & Ella? Timing tips for sunsets, turtles, safaris and the Demodara train — plus why a private driver beats self-driving.",
+    title: "Private Driver for Your South Sri Lanka Road Trip (2026)",
+    description: "Planning a South Sri Lanka road trip via Mirissa, Galle, Udawalawe & Ella? Timing tips for sunsets, turtles, safaris, and why a driver beats self-driving.",
     canonicalUrl: "https://plan-srilanka.com/private-driver-south-sri-lanka",
     ogUrl: "https://plan-srilanka.com/private-driver-south-sri-lanka",
     ogImage: "https://images.unsplash.com/photo-1580889240912-c8f0f2c6d5f3?auto=format&fit=crop&q=80&w=1200&h=630"

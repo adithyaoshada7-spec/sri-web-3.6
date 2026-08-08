@@ -29,8 +29,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaJunePage() {
   usePageMetadata({
-    title: "Sri Lanka in June (2026): Best Places, Weather & 7-Day Itinerary",
-    description: "Sri Lanka in June: where to go, full weather table by region (temp & rainfall), and a dated 7-day itinerary (Sigiriya, Kandy, Ella, Trincomalee). Avoid the southwest monsoon mistake.",
+    title: "Where to Go in Sri Lanka in June (2026): Avoid Bad Weather",
+    description: "Find the best time to visit Sri Lanka based on weather, festivals, beaches, wildlife, and train journeys — the perfect month for your trip.",
     canonicalUrl: "https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june",
     ogUrl: "https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june",
     ogImage: "https://images.unsplash.com/photo-1590123047227-8b04c25b0f76?auto=format&fit=crop&q=80&w=1200&h=630"

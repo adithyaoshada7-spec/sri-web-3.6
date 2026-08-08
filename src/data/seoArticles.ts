@@ -10,9 +10,27 @@ export interface Seometa {
 
 export const seoArticles: Seometa[] = [
   {
+    path: "/about-founder",
+    title: "About the Founder | Oshada Adithya - Plan Sri Lanka",
+    description: "Meet Oshada Adithya, founder of Plan Sri Lanka, and our transparent, data-driven approach to trip costing and custom itineraries for Indian travelers.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "profile",
+    changefreq: "monthly",
+    priority: "0.9"
+  },
+  {
+    path: "/blog",
+    title: "Sri Lanka Travel Blog & Guides (2026) | Plan Sri Lanka",
+    description: "Browse our Sri Lanka travel guides: budget breakdowns, 7 to 10-day itineraries, visa steps, monsoon timing, and free trip-planning tools.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "website",
+    changefreq: "weekly",
+    priority: "0.9"
+  },
+  {
     path: "/sri-lanka-trip-cost-from-india",
     title: "Sri Lanka Trip Cost From India (2026): ₹25K–₹2.5L Guide",
-    description: "Sri Lanka trip cost from India 2026: flights, free visa ETA, hotels & daily budgets from ₹25,000. Compare solo, backpacker, couple, family & luxury costs with a free calculator.",
+    description: "Sri Lanka trip cost from India (2026): flights, visa, hotels & daily budgets from ₹25,000. Compare solo, couple, family & luxury costs with a free calculator.",
     image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1",
     ogType: "article",
     changefreq: "weekly",
@@ -29,17 +47,17 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/sri-lanka-7-day-itinerary",
-    title: "Sri Lanka 7-Day Itinerary: The Perfect Route for First-Time Visitors",
-    description: "Planning your first trip to Sri Lanka? Follow this optimized 7-day itinerary with daily routes, travel times, estimated costs, interactive maps, and a free customizable trip planner.",
+    title: "Sri Lanka 7-Day Itinerary: Route for First-Timers (2026)",
+    description: "Planning your first Sri Lanka trip? Follow this optimized 7-day itinerary with daily routes, travel times, costs, and a free customizable trip planner.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
   },
   {
-    path: "/10-day-sri-lanka-itinerary",
-    title: "10-Day Sri Lanka Itinerary: Refined Route, Travel Times & Daily Budget (2026)",
-    description: "An expert-designed 10-day Sri Lanka itinerary covering Sigiriya, Kandy, Nuwara Eliya, Ella, Yala safari, Mirissa & Galle with realistic drive times, budgets, and practical tips.",
+    path: "/sri-lanka-10-day-itinerary",
+    title: "Sri Lanka 10-Day Itinerary: Route & Budget (2026)",
+    description: "An expert 10-day Sri Lanka itinerary covering Sigiriya, Kandy, Ella, Yala safari, Mirissa & Galle with realistic drive times, budgets, and tips.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
@@ -47,8 +65,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/sri-lanka-visa-for-indians",
-    title: "Sri Lanka Visa For Indians (2026 ETA Guide) | Apply Online & Entry Requirements",
-    description: "Unravel the Sri Lanka Visa for Indians. Discover how to get your Sri Lanka Tourist ETA online, latest requirements, application steps, and how to stay stress-free at the airport.",
+    title: "Sri Lanka Visa For Indians (2026): ETA Guide & Apply Online",
+    description: "Sri Lanka visa for Indians: how to get your Tourist ETA online, latest requirements, application steps, and stress-free airport entry tips.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
@@ -56,8 +74,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/best-time-to-visit-sri-lanka",
-    title: "Best Time To Visit Sri Lanka (2026) | Weather, Festivals & Travel Experiences",
-    description: "Discover the best time to visit Sri Lanka based on weather, festivals, beaches, wildlife, train journeys, and cultural experiences. Find the perfect month for your trip.",
+    title: "Best Time to Visit Sri Lanka (2026): Weather Guide",
+    description: "Find the best time to visit Sri Lanka based on weather, festivals, beaches, wildlife, and train journeys — the perfect month for your trip.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
@@ -65,8 +83,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/sri-lanka-family-itinerary",
-    title: "Sri Lanka Family Itinerary (2026) | The Stress-Free Route For Kids",
-    description: "Discover the ultimate stress-free 12-day Sri Lanka family itinerary with kids. Solve transportation fatigue, find kid-approved beaches, child-safety tips & avoid common mistakes.",
+    title: "Sri Lanka Family Itinerary (2026): Stress-Free Kids Route",
+    description: "A stress-free 12-day Sri Lanka family itinerary with kids: beat transport fatigue, find kid-approved beaches, and avoid common mistakes.",
     image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200",
     ogType: "article",
     changefreq: "weekly",
@@ -74,7 +92,7 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/where-to-go-in-sri-lanka-in-june",
-    title: "Where To Go In Sri Lanka In June (2026 Guide) | Avoid Bad Weather",
+    title: "Where to Go in Sri Lanka in June (2026): Avoid Bad Weather",
     description: "Avoid the biggest mistake travelers make in June! Discover which parts of Sri Lanka offer the best weather, beaches, ocean swimming, and seasonal experiences.",
     image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
@@ -101,8 +119,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/how-to-plan-a-trip-to-sri-lanka",
-    title: "Sri Lanka Trip Planner: Build Your Perfect Sri Lanka Itinerary (2026)",
-    description: "Build your perfect Sri Lanka itinerary with our master guide. Discover step-by-step travel planning advice, seasonal monsoonal safe zones, budget calculators, sample itineraries, and common mistakes.",
+    title: "Sri Lanka Trip Planner: Build Your Perfect Itinerary (2026)",
+    description: "Build your perfect Sri Lanka itinerary with our master guide: step-by-step planning advice, monsoon-safe zones, budget calculators, and sample routes.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
@@ -110,8 +128,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
-    title: "How Much Will It Take to Visit Sri Lanka From Chennai in 2026?",
-    description: "Your comprehensive master cost guide for visiting Sri Lanka from Chennai. Includes actual flight pricing, lodging, food, local transport budgets, and our growing Jaffna overland route guide.",
+    title: "Sri Lanka Trip Cost From Chennai (2026): Flights & Budget",
+    description: "Planning a Sri Lanka trip from Chennai? See flight, hotel, food, and transport costs, plus our Jaffna overland route guide.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
@@ -119,7 +137,7 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/sri-lanka-trip-cost-from-bangalore",
-    title: "Sri Lanka Trip Cost From Bangalore (2026 Guide) | Stays, Flights & Budgets",
+    title: "Sri Lanka Trip Cost From Bangalore (2026): Flights & Budgets",
     description: "Planning a Sri Lanka trip from Bangalore? See flight, hotel, food, transport & activity costs for a 7-day trip, with budget options for couples and families.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
@@ -128,8 +146,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/sri-lanka-trip-cost-from-mumbai",
-    title: "Sri Lanka Trip Cost From Mumbai (2026): Flights, Hotels & Budget Guide",
-    description: "Settle budgets, direct flight routes from Chhatrapati Shivaji Airport (BOM) to Colombo (CMB), hotel recommendations, visa fee waivers, and secret beaches. Plan your perfect escape!",
+    title: "Sri Lanka Trip Cost From Mumbai (2026): Flights & Budgets",
+    description: "Planning a Sri Lanka trip from Mumbai? See direct BOM-CMB flight costs, hotel budgets, visa fees, and beach picks for your trip.",
     image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
@@ -137,8 +155,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/sri-lanka-trip-cost-from-hyderabad",
-    title: "Sri Lanka Trip Cost From Hyderabad (2026) | Flights, Budget & 7-Day Cost",
-    description: "Planning a Sri Lanka trip from Hyderabad? Discover flight prices, 5-day and 7-day trip costs, hotel budgets, visa fees, family and honeymoon expenses, plus a free Sri Lanka Trip Planner.",
+    title: "Sri Lanka Trip Cost From Hyderabad (2026): Flights & Budget",
+    description: "Planning a Sri Lanka trip from Hyderabad? See flight prices, 5 & 7-day trip costs, hotel budgets, and family or honeymoon expenses.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
@@ -146,8 +164,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/sri-lanka-itinerary-august-couples",
-    title: "Sri Lanka Itinerary in August for Couples (2026): Route & Weather",
-    description: "Discover the complete Sri Lanka itinerary in August for couples. Settle budgets, direct flight routes, visa fee waivers, hotel recommendations, and sunny east coast beach choices.",
+    title: "Sri Lanka Itinerary in August for Couples (2026)",
+    description: "A complete August Sri Lanka itinerary for couples: budgets, flight routes, visa fees, hotels, and sunny east coast beach picks.",
     image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
@@ -156,7 +174,7 @@ export const seoArticles: Seometa[] = [
   {
     path: "/sri-lanka-travel-guide-for-americans",
     title: "Sri Lanka Travel Guide for Americans (2026) | Plan Sri Lanka",
-    description: "Maximize your dollar purchasing advantage, secure your free tourist visa, and navigate monsoon splits easily with our comprehensive travel guide for US travelers.",
+    description: "Maximize your dollar's value, secure your free tourist visa, and navigate monsoon splits with our travel guide for US visitors.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
@@ -164,8 +182,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/things-to-do-in-sri-lanka",
-    title: "15 Best Things To Do In Sri Lanka (2026) | Elite Curated Experiences",
-    description: "Discover the ultimate curated list of things to do in Sri Lanka. From luxury morning wild safaris in Yala to misty tea country scenic trains and UNESCO Galle Fort walking tours.",
+    title: "15 Best Things to Do in Sri Lanka (2026 Guide)",
+    description: "The ultimate curated list of things to do in Sri Lanka: Yala safaris, misty tea country trains, and UNESCO Galle Fort walking tours.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "website",
     changefreq: "weekly",
@@ -173,8 +191,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/best-things-to-do-sri-lanka-first-time-visitors",
-    title: "Best Things to Do in Sri Lanka for First-Time Visitors (2026 Master Guide)",
-    description: "The ultimate field-tested first timer's guide. Discover what experiences are worth paying for, what to avoid, interactive activity matchers, local datasets, and before-you-fly checklists.",
+    title: "Best Things to Do in Sri Lanka for First-Timers (2026)",
+    description: "A field-tested first-timer's guide: what's worth paying for, what to avoid, an activity matcher, and a before-you-fly checklist.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
@@ -183,7 +201,7 @@ export const seoArticles: Seometa[] = [
   {
     path: "/sri-lanka-train-trip-planner",
     title: "Sri Lanka Train Trip Planner & Interactive Route Map (2026)",
-    description: "Plan your Sri Lanka rail adventure with our interactive train trip planner. Predict weather, station crowding, ticketing availability risks, and find the best class options.",
+    description: "Plan your Sri Lanka rail adventure with our interactive train planner: weather, station crowding, ticket availability, and class options.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "website",
     changefreq: "weekly",
@@ -191,7 +209,7 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/how-to-plan-a-train-trip-in-sri-lanka",
-    title: "How to Plan a Train Trip in Sri Lanka: The Ultimate 2026 Guide",
+    title: "How to Plan a Train Trip in Sri Lanka (2026 Guide)",
     description: "Master Sri Lanka train travel. Learn how to book tickets, select classes, map Kandy to Ella, and use our free interactive train planning tool. (2026)",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
@@ -200,8 +218,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/flights",
-    title: "Sri Lanka Flight Schedules & Live Inbound Status Tracker (CMB) | Plan Sri Lanka",
-    description: "Explore the official 30-day scheduled flight directory and live inbound tracker for Colombo Bandaranaike International Airport (CMB). Analyze airline schedules, status, and delays.",
+    title: "Sri Lanka Flight Schedules & Live Status Tracker (CMB)",
+    description: "Explore the 30-day flight directory and live inbound tracker for Colombo Airport (CMB): airline schedules, status, and delays.",
     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "website",
     changefreq: "weekly",
@@ -227,8 +245,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/private-driver-south-sri-lanka",
-    title: "Why You Should Consider a Private Driver for Your South Sri Lanka Road Trip",
-    description: "Planning a 10-day South Sri Lanka road trip through Mirissa, Galle, Udawalawe & Ella? Timing tips for sunsets, turtles, safaris and the Demodara train — plus why a private driver beats self-driving.",
+    title: "Private Driver for Your South Sri Lanka Road Trip (2026)",
+    description: "Planning a South Sri Lanka road trip via Mirissa, Galle, Udawalawe & Ella? Timing tips for sunsets, turtles, safaris, and why a driver beats self-driving.",
     image: "https://images.unsplash.com/photo-1580889240912-c8f0f2c6d5f3?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",

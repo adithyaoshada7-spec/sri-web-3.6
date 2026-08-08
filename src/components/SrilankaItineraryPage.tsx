@@ -12,8 +12,8 @@ import ItineraryPlanningSuite from "./ItineraryPlanningSuite";
 
 export default function SrilankaItineraryPage() {
   usePageMetadata({
-    title: "Sri Lanka 7 Day Itinerary 2026: Route, Costs & Map (Free PDF)",
-    description: "A tested 7-day Sri Lanka itinerary with daily routes, travel times, hotel picks, and real costs in USD. Download the free PDF and customize it for your dates.",
+    title: "Sri Lanka 7-Day Itinerary: Route for First-Timers (2026)",
+    description: "Planning your first Sri Lanka trip? Follow this optimized 7-day itinerary with daily routes, travel times, costs, and a free customizable trip planner.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-7-day-itinerary",
     ogUrl: "https://plan-srilanka.com/sri-lanka-7-day-itinerary"
   });

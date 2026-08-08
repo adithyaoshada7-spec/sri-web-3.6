@@ -537,16 +537,6 @@ export default function App() {
           </Suspense>
         } />
 
-        <Route path="/10-day-sri-lanka-itinerary" element={
-          <Suspense fallback={
-            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
-              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          }>
-            <SrilankaTenDayItineraryPage />
-          </Suspense>
-        } />
-
         <Route path="/sri-lanka-10-day-itinerary" element={
           <Suspense fallback={
             <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
@@ -737,26 +727,6 @@ export default function App() {
           </Suspense>
         } />
 
-        <Route path="/guides" element={
-          <Suspense fallback={
-            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
-              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          }>
-            <BlogIndexPage />
-          </Suspense>
-        } />
-
-        <Route path="/travel-blog" element={
-          <Suspense fallback={
-            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
-              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          }>
-            <BlogIndexPage />
-          </Suspense>
-        } />
-
         <Route path="/things-to-do-in-sri-lanka" element={
           <Suspense fallback={
             <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
@@ -827,25 +797,6 @@ export default function App() {
           </Suspense>
         } />
 
-        <Route path="/visa" element={
-          <Suspense fallback={
-            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
-              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          }>
-            <SrilankaVisaPage />
-          </Suspense>
-        } />
-
-        <Route path="/things-to-do" element={
-          <Suspense fallback={
-            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
-              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          }>
-            <SrilankaExperiencesPage />
-          </Suspense>
-        } />
       </Routes>
 
       {/* Footer */}

@@ -35,8 +35,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaAugustCouplesPage() {
   usePageMetadata({
-    title: "Sri Lanka Itinerary in August for Couples (2026 Guide) | Best Romantic Route",
-    description: "Plan the ultimate romantic Sri Lanka getaway in August. Discover the best 7-day couple itinerary, weather tips, flight costs, and secret sunny east coast beaches.",
+    title: "Sri Lanka Itinerary in August for Couples (2026)",
+    description: "A complete August Sri Lanka itinerary for couples: budgets, flight routes, visa fees, hotels, and sunny east coast beach picks.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-itinerary-august-couples",
     ogUrl: "https://plan-srilanka.com/sri-lanka-itinerary-august-couples"
   });
@@ -132,7 +132,7 @@ export default function SrilankaAugustCouplesPage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Sri Lanka Itinerary in August for Couples (2026 Guide) | Best Route, Weather & Romantic Places",
-            "description": "Plan the ultimate romantic Sri Lanka getaway in August. Discover the best 7-day couple itinerary, weather tips, flight costs, and secret sunny east coast beaches.",
+            "description": "A complete August Sri Lanka itinerary for couples: budgets, flight routes, visa fees, hotels, and sunny east coast beach picks.",
             "image": [
               "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630"
             ],

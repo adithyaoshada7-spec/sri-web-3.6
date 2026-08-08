@@ -33,8 +33,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaMumbaiCostPillarPage() {
   usePageMetadata({
-    title: "Sri Lanka Trip Cost From Mumbai (2026 Guide) | Flights & Budgets",
-    description: "Calculate your complete Sri Lanka trip cost from Mumbai. Discover direct flights from Chhatrapati Shivaji Airport, average budgets, hotel prices, and romantic honeymoon getaways.",
+    title: "Sri Lanka Trip Cost From Mumbai (2026): Flights & Budgets",
+    description: "Planning a Sri Lanka trip from Mumbai? See direct BOM-CMB flight costs, hotel budgets, visa fees, and beach picks for your trip.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-trip-cost-from-mumbai",
     ogUrl: "https://plan-srilanka.com/sri-lanka-trip-cost-from-mumbai"
   });
