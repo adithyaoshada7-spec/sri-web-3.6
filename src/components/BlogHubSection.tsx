@@ -23,7 +23,7 @@ const getArticleMeta = (path: string) => {
         readTime: "8 Min Read",
         badge: "Highly Popular"
       };
-    case "/10-day-sri-lanka-itinerary":
+    case "/sri-lanka-10-day-itinerary":
       return {
         category: "Ultimate Master Route",
         tag: "10-Day Complete",
@@ -223,7 +223,7 @@ export const BlogHubSection: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {seoArticles
-              .filter(art => art.path !== "/how-to-plan-a-trip-to-sri-lanka" && art.path !== "/sri-lanka-trip-planner")
+              .filter(art => art.path !== "/how-to-plan-a-trip-to-sri-lanka" && art.path !== "/sri-lanka-trip-planner" && art.path !== "/blog" && art.path !== "/about-founder")
               .slice(0, 6)
               .map((article: Seometa, idx: number) => {
                 const meta = getArticleMeta(article.path);

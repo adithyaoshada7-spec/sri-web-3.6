@@ -13,8 +13,7 @@ function generateSitemap() {
   const today = new Date().toISOString().split('T')[0];
   
   const routes = [
-    { loc: `${baseUrl}/`, lastmod: "2026-06-02", changefreq: "monthly", priority: "1.0" },
-    { loc: `${baseUrl}/about-founder`, lastmod: today, changefreq: "monthly", priority: "0.9" }
+    { loc: `${baseUrl}/`, lastmod: "2026-06-02", changefreq: "monthly", priority: "1.0" }
   ];
 
   // Automatically inject all scalable SEO article routes

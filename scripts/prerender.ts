@@ -75,6 +75,32 @@ function generatePrerenderPages(): PrerenderPage[] {
 
   // 2. SEO Articles (from the shared list)
   const defaultArticleBodies: Record<string, string> = {
+    "/blog": `
+      <header>
+        <h1>Sri Lanka Travel Blog & Guides</h1>
+        <p><strong>Browse our Sri Lanka travel guides: budget breakdowns, 7 to 10-day itineraries, visa steps, monsoon timing, and free trip-planning tools.</strong></p>
+      </header>
+
+      <section>
+        <h2>Interactive Trip Planning Tools</h2>
+        <p>Start with our <a href="/how-to-plan-a-trip-to-sri-lanka">step-by-step trip planning blueprint</a> or jump straight into the <a href="/sri-lanka-trip-planner">free interactive route & cost generator</a> to build a custom itinerary.</p>
+      </section>
+
+      <section>
+        <h2>Financial Planning & Cost Guides</h2>
+        <p>Realistic budgets in Indian Rupees for travelers from <a href="/sri-lanka-trip-cost-from-india">India</a>, <a href="/sri-lanka-trip-cost-from-bangalore">Bangalore</a>, <a href="/how-much-will-it-take-to-visit-sri-lanka-from-chennai">Chennai</a>, <a href="/sri-lanka-trip-cost-from-mumbai">Mumbai</a>, and <a href="/sri-lanka-trip-cost-from-hyderabad">Hyderabad</a>.</p>
+      </section>
+
+      <section>
+        <h2>Curated Itineraries & Route Maps</h2>
+        <p>Engineered low-fatigue routes including the <a href="/sri-lanka-7-day-itinerary">7-day classic itinerary</a>, the <a href="/sri-lanka-10-day-itinerary">10-day master route</a>, a <a href="/sri-lanka-family-itinerary">12-day family itinerary</a>, and an <a href="/sri-lanka-itinerary-august-couples">August couples route</a>, plus dedicated guides on <a href="/how-to-plan-a-train-trip-in-sri-lanka">train travel</a> and hiring a <a href="/private-driver-south-sri-lanka">private driver for the south coast</a>.</p>
+      </section>
+
+      <section>
+        <h2>Seasonality, Visa & Flights</h2>
+        <p>Time your trip with the <a href="/best-time-to-visit-sri-lanka">best time to visit</a> guide, then handle entry logistics with the <a href="/sri-lanka-visa-for-indians">visa for Indians</a> guide and the <a href="/guide-to-flying-to-sri-lanka">complete flights guide</a>.</p>
+      </section>
+    `,
     "/sri-lanka-trip-cost-from-india": `
       <header>
         <h1>Sri Lanka Trip Cost From India (2026 Guide)</h1>
@@ -417,7 +443,7 @@ function generatePrerenderPages(): PrerenderPage[] {
         </ul>
       </section>
     `,
-    "/10-day-sri-lanka-itinerary": `
+    "/sri-lanka-10-day-itinerary": `
       <header>
         <h1>10-Day Sri Lanka Itinerary: Refined Route, Travel Times & Daily Budget (2026)</h1>
         <p><strong>An expert-designed 10-day Sri Lanka itinerary covering Sigiriya, Kandy, Nuwara Eliya, Ella, Yala safari, Mirissa & Galle with realistic drive times, budgets, and practical tips.</strong></p>
@@ -1886,14 +1912,14 @@ function generatePrerenderPages(): PrerenderPage[] {
   pages.push({
     path: "/about-founder",
     title: "About the Founder | Oshada Adithya - Plan Sri Lanka",
-    description: "Meet Oshada Adithya, founder of Plan Sri Lanka. Explore our transparent, data-driven methodology for calculating travel costs, weather patterns, and custom Sri Lanka itineraries for Indian travelers.",
+    description: "Meet Oshada Adithya, founder of Plan Sri Lanka, and our transparent, data-driven approach to trip costing and custom itineraries for Indian travelers.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200",
     ogType: "profile",
     canonicalUrl: `${domain}/about-founder`,
     bodyHtml: `
       <header>
         <h1>About the Founder | Oshada Adithya - Plan Sri Lanka</h1>
-        <p><strong>Meet Oshada Adithya, founder of Plan Sri Lanka. Explore our transparent, data-driven methodology for calculating travel costs, weather patterns, and custom Sri Lanka itineraries.</strong></p>
+        <p><strong>Meet Oshada Adithya, founder of Plan Sri Lanka, and our transparent, data-driven approach to trip costing and custom itineraries.</strong></p>
       </header>
       <section>
         <h2>My Story & Mission</h2>
@@ -1930,7 +1956,7 @@ function generatePrerenderPages(): PrerenderPage[] {
   pages.push({
     path: "/sri-lanka-train-trip-planner",
     title: "Sri Lanka Train Trip Planner & Interactive Route Map (2026)",
-    description: "Plan your Sri Lanka rail adventure with our interactive train trip planner. Predict weather, station crowding, ticketing availability risks, and find the best class options.",
+    description: "Plan your Sri Lanka rail adventure with our interactive train planner: weather, station crowding, ticket availability, and class options.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200",
     ogType: "website",
     canonicalUrl: `${domain}/sri-lanka-train-trip-planner`,
@@ -1979,14 +2005,14 @@ function generatePrerenderPages(): PrerenderPage[] {
   // 6. Premium Flights Dashboard & Analytics Page
   pages.push({
     path: "/flights",
-    title: "Sri Lanka Flight Schedules & Live Inbound Status Tracker (CMB) | Plan Sri Lanka",
-    description: "Explore the official 30-day scheduled flight directory and live inbound tracker for Colombo Bandaranaike International Airport (CMB). Analyze airline schedules, status, and delays.",
+    title: "Sri Lanka Flight Schedules & Live Status Tracker (CMB)",
+    description: "Explore the 30-day flight directory and live inbound tracker for Colombo Airport (CMB): airline schedules, status, and delays.",
     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200",
     ogType: "website",
     canonicalUrl: `${domain}/flights`,
     bodyHtml: `
       <header>
-        <h1>Sri Lanka Flight Schedules & Live Inbound Status Tracker (CMB)</h1>
+        <h1>Sri Lanka Flight Schedules & Live Status Tracker (CMB)</h1>
         <p><strong>Analyze live inbound flight schedules, airline statistics, status metrics, and estimated delays for Bandaranaike International Airport (CMB) in Colombo, Sri Lanka.</strong></p>
       </header>
       <section>

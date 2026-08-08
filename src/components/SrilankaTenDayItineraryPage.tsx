@@ -668,10 +668,10 @@ export const tenDayItineraryData: DayPlan[] = [
 
 export default function SrilankaTenDayItineraryPage() {
   usePageMetadata({
-    title: "10-Day Sri Lanka Itinerary: Refined Route, Travel Times & Daily Budget (2026)",
-    description: "An expert-designed 10-day Sri Lanka itinerary covering Sigiriya, Kandy, Nuwara Eliya, Ella, Yala safari, Mirissa & Galle with realistic drive times, budgets, and practical tips.",
-    canonicalUrl: "https://plan-srilanka.com/10-day-sri-lanka-itinerary",
-    ogUrl: "https://plan-srilanka.com/10-day-sri-lanka-itinerary"
+    title: "Sri Lanka 10-Day Itinerary: Route & Budget (2026)",
+    description: "An expert 10-day Sri Lanka itinerary covering Sigiriya, Kandy, Ella, Yala safari, Mirissa & Galle with realistic drive times, budgets, and tips.",
+    canonicalUrl: "https://plan-srilanka.com/sri-lanka-10-day-itinerary",
+    ogUrl: "https://plan-srilanka.com/sri-lanka-10-day-itinerary"
   });
 
   const [activeDay, setActiveDay] = useState<number>(1);

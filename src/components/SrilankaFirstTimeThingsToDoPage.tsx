@@ -34,8 +34,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaFirstTimeThingsToDoPage() {
   usePageMetadata({
-    title: "Best Things to Do in Sri Lanka for First-Time Visitors (2026 Master Guide)",
-    description: "The ultimate field-tested first timer's guide. Discover what experiences are worth paying for, what to avoid, interactive activity matchers, local datasets, and before-you-fly checklists.",
+    title: "Best Things to Do in Sri Lanka for First-Timers (2026)",
+    description: "A field-tested first-timer's guide: what's worth paying for, what to avoid, an activity matcher, and a before-you-fly checklist.",
     canonicalUrl: "https://plan-srilanka.com/best-things-to-do-sri-lanka-first-time-visitors",
     ogUrl: "https://plan-srilanka.com/best-things-to-do-sri-lanka-first-time-visitors"
   });
