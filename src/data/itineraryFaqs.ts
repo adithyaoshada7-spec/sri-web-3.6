@@ -5,6 +5,17 @@ export interface FaqItem {
 }
 
 export const itineraryFaqs: FaqItem[] = [
+  // Pre-Trip Essentials: Visa & Flights
+  {
+    category: "logistics",
+    q: "Do I need a visa for this 7-day Sri Lanka itinerary?",
+    a: "Yes. Almost all nationalities, including Indian passport holders, need an Electronic Travel Authorization (ETA) before arrival. Apply online in advance directly through the official channel — it's usually approved within minutes to a few hours. Avoid third-party reseller sites that charge inflated markup fees. See our full Sri Lanka Visa Guide for the exact application steps and current cost."
+  },
+  {
+    category: "logistics",
+    q: "How long is the flight to Sri Lanka, and which airport does this itinerary start from?",
+    a: "This route begins on Day 1 at Bandaranaike International Airport (CMB), just outside Colombo. Flights from South India (Chennai, Bengaluru) are often under 2 hours, from Delhi or Mumbai around 3.5-4 hours, and from the UK/Europe roughly 10-11 hours nonstop. See our Sri Lanka Flights Guide for exact routes, airlines, and fares from your city."
+  },
   // 1-15: Logistics & Transport
   {
     category: "logistics",

@@ -252,6 +252,19 @@ Please send me the optimized free 24-page PDF and confirm private chauffeur pack
         </div>
       </section>
 
+      {/* Pre-trip essentials: visa & flights quick links */}
+      <section className="py-6 px-6 bg-white border-b border-[#1A2F23]/5">
+        <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-3 text-xs">
+          <span className="text-[#1A2F23]/60 font-mono uppercase tracking-wider text-[10px]">Before you book:</span>
+          <Link to="/sri-lanka-visa-for-indians" className="px-3 py-1.5 bg-[#f5f2e8]/50 border border-[#1A2F23]/10 rounded-full text-[#1A2F23] hover:border-[#C5A059] hover:text-[#C5A059] transition-all font-medium">
+            🛂 Do I Need a Visa? →
+          </Link>
+          <Link to="/guide-to-flying-to-sri-lanka" className="px-3 py-1.5 bg-[#f5f2e8]/50 border border-[#1A2F23]/10 rounded-full text-[#1A2F23] hover:border-[#C5A059] hover:text-[#C5A059] transition-all font-medium">
+            ✈️ Flight Duration & Routes →
+          </Link>
+        </div>
+      </section>
+
       {/* 2. RELEVANCE & DIAGNOSTIC ALIGNMENT */}
       <section className="py-16 bg-[#1A2F23] text-white px-6">
         <div className="max-w-4xl mx-auto space-y-10">
@@ -690,12 +703,12 @@ Please send me the optimized free 24-page PDF and confirm private chauffeur pack
         <div className="max-w-4xl mx-auto space-y-12">
           
           <div className="text-center space-y-3">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#C5A059] font-bold block">70 Expert FAQs</span>
+            <span className="text-xs uppercase tracking-[0.25em] text-[#C5A059] font-bold block">{itineraryFaqs.length} Expert FAQs</span>
             <h2 className="text-3xl md:text-5xl font-serif text-[#1A2F23] tracking-tight">
               The Planning Answers Vault
             </h2>
             <p className="text-[#0F1412]/70 font-light text-sm md:text-base max-w-xl mx-auto">
-              Our comprehensive database of 70 answers verified by local guides. Use the search bar or category filters to find answers immediately.
+              Our comprehensive database of {itineraryFaqs.length} answers verified by local guides. Use the search bar or category filters to find answers immediately.
             </p>
           </div>
 
@@ -714,7 +727,7 @@ Please send me the optimized free 24-page PDF and confirm private chauffeur pack
 
             <div className="flex flex-wrap gap-1.5 justify-center">
               {[
-                { id: "all", label: "🌍 Show All (70)" },
+                { id: "all", label: `🌍 Show All (${itineraryFaqs.length})` },
                 { id: "logistics", label: "🚗 Logistics & Transport" },
                 { id: "health", label: "🏥 Health & Food" },
                 { id: "money", label: "💵 Cash & Tipping" },
