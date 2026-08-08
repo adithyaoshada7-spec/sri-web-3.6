@@ -46,12 +46,16 @@ interface DayPlan {
   hotel: string;
   budget: string;
   tip: string;
+  image: string;
+  imageAlt: string;
 }
 
 const days: DayPlan[] = [
   {
     day: 1,
     title: "Colombo",
+    image: "/colombo-galle-face-green-sunset-sri-lanka.jpg",
+    imageAlt: "Sunset over Galle Face Green promenade in Colombo, Sri Lanka",
     driveInfo: "Airport to city: ~45–60 min",
     morning: "Land at Bandaranaike International Airport, clear immigration, collect your SIM card or activate your eSIM, and meet your driver.",
     afternoon: "Ease in with a walk along Galle Face Green, Colombo's breezy seafront promenade. If you have energy, swing by Gangaramaya Temple.",
@@ -64,6 +68,8 @@ const days: DayPlan[] = [
   {
     day: 2,
     title: "Sigiriya",
+    image: "/sigiriya-rock-fortress-sri-lanka.jpg",
+    imageAlt: "Sigiriya Lion Rock Fortress rising above the jungle, Sri Lanka",
     driveInfo: "Colombo to Sigiriya: 170 km, 3.5–4 hrs",
     morning: "Set off early (by 7 AM if possible). Traffic out of Colombo is the main variable, so an early start pays off.",
     afternoon: "Climb the legendary Sigiriya Rock Fortress — a 5th-century royal citadel with ancient frescoes, mirror walls, and the famous stone lion's paw entrance.",
@@ -76,6 +82,8 @@ const days: DayPlan[] = [
   {
     day: 3,
     title: "Kandy",
+    image: "/kandy-temple-tooth-relic-lake-sri-lanka.jpg",
+    imageAlt: "Temple of the Sacred Tooth Relic beside Kandy Lake, Sri Lanka",
     driveInfo: "Sigiriya to Kandy: 90 km, 2.5–3 hrs",
     morning: "Drive to Kandy, Sri Lanka's cultural and religious heart, stopping at Dambulla Cave Temple en route if time allows.",
     afternoon: "Visit the Temple of the Sacred Tooth Relic (dress modestly), then walk around Kandy Lake right beside it.",
@@ -88,6 +96,8 @@ const days: DayPlan[] = [
   {
     day: 4,
     title: "Nuwara Eliya",
+    image: "/nuwara-eliya-tea-plantation-sri-lanka.jpg",
+    imageAlt: "Rolling green tea plantation in the hills of Nuwara Eliya, Sri Lanka",
     driveInfo: "Kandy to Nuwara Eliya: 75–80 km, ~3 hrs",
     morning: "Head into the hills — winding mountain roads make this a solid 3-hour drive, so leave after breakfast.",
     afternoon: "Tour a working tea plantation and factory, ending with a tasting. Expect a temperature drop of up to 10–12°C.",
@@ -100,6 +110,8 @@ const days: DayPlan[] = [
   {
     day: 5,
     title: "Ella",
+    image: "/nine-arch-bridge-ella-sri-lanka.jpg",
+    imageAlt: "Nine Arch Bridge surrounded by lush greenery near Ella, Sri Lanka",
     driveInfo: "Nanu Oya to Ella by train: 3–4 hrs",
     morning: "Board the scenic train from Nanu Oya to Ella — one of the most celebrated rail journeys in the world. Reserve seats at least 30 days ahead.",
     afternoon: "Walk out to the Nine Arch Bridge, or tackle Little Adam's Peak for sweeping valley views.",
@@ -112,6 +124,8 @@ const days: DayPlan[] = [
   {
     day: 6,
     title: "Mirissa or Bentota",
+    image: "/mirissa-bentota-beach-sunset-sri-lanka.jpg",
+    imageAlt: "Golden sunset over the beach at Mirissa, south coast of Sri Lanka",
     driveInfo: "Ella to Mirissa: ~150 km, 4–4.5 hrs · Ella to Bentota: ~195 km, 5–5.5 hrs",
     morning: "Depart Ella early — this is the longest driving day of the trip either way.",
     afternoon: "Mirissa: check in, then head to the beach (whale watching runs Nov–Apr). Bentota: settle into a calmer, resort-style beach with river safaris nearby.",
@@ -124,6 +138,8 @@ const days: DayPlan[] = [
   {
     day: 7,
     title: "Colombo — Shopping & Departure",
+    image: "/colombo-shopping-departure-sri-lanka.jpg",
+    imageAlt: "Colombo city street with shopping boutiques near the airport route, Sri Lanka",
     driveInfo: "Bentota to Colombo: ~1.5 hrs · Mirissa to Colombo: ~2.5–3 hrs",
     morning: "Depart your coastal base early and head back toward Colombo via the Southern Expressway.",
     afternoon: "Shop at Barefoot (textiles), Spa Ceylon (Ayurvedic gifts), and Dilmah tea boutiques for souvenirs that don't feel like tourist-trap junk.",
@@ -368,6 +384,28 @@ export default function SrilankaChennaiItineraryPage() {
         </div>
       </div>
 
+      {/* HERO REEL — looping highlight video, first thing a visitor sees after the headline */}
+      <div className="max-w-7xl mx-auto px-6 mb-16">
+        <div className="relative rounded-[40px] overflow-hidden shadow-2xl aspect-[16/9] md:aspect-[21/9] bg-luxury-green">
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src="/reels/chennai-itinerary-hero.mp4"
+            poster="/chennai-itinerary-hero-poster.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/10 pointer-events-none" />
+          <div className="absolute bottom-5 left-5 right-5 flex flex-wrap items-center justify-between gap-3">
+            <span className="text-white text-xs font-mono uppercase tracking-widest bg-black/40 backdrop-blur px-3 py-1.5 rounded-full">
+              Sigiriya · Kandy · Ella Train · Beach — one week, on reel
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* QUICK TRIP SUMMARY */}
       <section className="max-w-7xl mx-auto px-6 mb-20 scroll-mt-24" id="quick-summary">
         <div className="bg-[#1A2F23] text-white rounded-[40px] p-8 md:p-12 relative overflow-hidden shadow-2xl">
@@ -399,14 +437,27 @@ export default function SrilankaChennaiItineraryPage() {
               ))}
             </div>
 
-            <div className="pt-4 flex flex-col sm:flex-row items-center gap-6">
-              <button
-                onClick={() => handleWhatsAppRedirect("quick_summary")}
-                className="w-full sm:w-auto px-8 py-4 bg-luxury-gold text-luxury-black font-bold uppercase tracking-widest text-xs rounded-full hover:bg-white hover:text-luxury-green transition-all shadow-lg flex items-center justify-center gap-3"
-              >
-                Get This Route Customized <ArrowRight className="w-4 h-4" />
-              </button>
-              <p className="text-xs text-white/40 italic">Free personalized planning • Verified Colombo Concierge</p>
+            <div className="grid sm:grid-cols-[1fr_auto] gap-6 items-center pt-2">
+              <div className="relative rounded-3xl overflow-hidden aspect-video border border-white/10">
+                <video
+                  className="absolute inset-0 w-full h-full object-cover"
+                  src="/reels/chennai-itinerary-highlights.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                />
+              </div>
+              <div className="flex flex-col items-center sm:items-end gap-3">
+                <button
+                  onClick={() => handleWhatsAppRedirect("quick_summary")}
+                  className="w-full sm:w-auto px-8 py-4 bg-luxury-gold text-luxury-black font-bold uppercase tracking-widest text-xs rounded-full hover:bg-white hover:text-luxury-green transition-all shadow-lg flex items-center justify-center gap-3 whitespace-nowrap"
+                >
+                  Get This Route Customized <ArrowRight className="w-4 h-4" />
+                </button>
+                <p className="text-xs text-white/40 italic text-center sm:text-right">Free personalized planning • Verified Colombo Concierge</p>
+              </div>
             </div>
           </div>
         </div>
@@ -424,19 +475,22 @@ export default function SrilankaChennaiItineraryPage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            { icon: <Plane className="w-5 h-5" />, title: "Unfairly Close", desc: "Chennai to Colombo is roughly 650 km — shorter than a Chennai–Hyderabad flight, with no time-zone adjustment needed." },
-            { icon: <Utensils className="w-5 h-5" />, title: "Familiar Food", desc: "Rice, coconut milk, curry leaves, and fresh seafood — the same building blocks as Tamil and coastal Andhra cooking." },
-            { icon: <Compass className="w-5 h-5" />, title: "Direct Flights Daily", desc: "IndiGo and SriLankan Airlines run multiple daily direct flights — no layovers, no overnight waits." },
-            { icon: <Heart className="w-5 h-5" />, title: "Genuinely Welcoming", desc: "English is widely spoken, UPI and cards are increasingly accepted, and the ETA visa process is refreshingly simple." },
-            { icon: <Wallet className="w-5 h-5" />, title: "Budget-Friendly", desc: "A comfortable mid-range week here, flights included, often costs less than a domestic Goa trip in peak season." },
-            { icon: <Sparkles className="w-5 h-5" />, title: "Landscape Variety", desc: "Ancient fortresses, misty tea mountains, a world-famous train ride, and beaches — all in a single compact week." }
+            { icon: <Plane className="w-5 h-5" />, title: "Unfairly Close", desc: "Chennai to Colombo is roughly 650 km — shorter than a Chennai–Hyderabad flight, with no time-zone adjustment needed.", img: "/why-unfairly-close-flight-sri-lanka.jpg", alt: "View from an airplane window approaching Sri Lanka's coastline" },
+            { icon: <Utensils className="w-5 h-5" />, title: "Familiar Food", desc: "Rice, coconut milk, curry leaves, and fresh seafood — the same building blocks as Tamil and coastal Andhra cooking.", img: "/why-familiar-food-sri-lanka.jpg", alt: "Sri Lankan rice and curry spread on a banana leaf" },
+            { icon: <Compass className="w-5 h-5" />, title: "Direct Flights Daily", desc: "IndiGo and SriLankan Airlines run multiple daily direct flights — no layovers, no overnight waits.", img: "/why-direct-flights-sri-lanka.jpg", alt: "SriLankan Airlines aircraft on the tarmac at Bandaranaike International Airport" },
+            { icon: <Heart className="w-5 h-5" />, title: "Genuinely Welcoming", desc: "English is widely spoken, UPI and cards are increasingly accepted, and the ETA visa process is refreshingly simple.", img: "/why-welcoming-culture-sri-lanka.jpg", alt: "Friendly local host welcoming travelers in Sri Lanka" },
+            { icon: <Wallet className="w-5 h-5" />, title: "Budget-Friendly", desc: "A comfortable mid-range week here, flights included, often costs less than a domestic Goa trip in peak season.", img: "/why-budget-friendly-sri-lanka.jpg", alt: "Boutique poolside hotel room in Sri Lanka" },
+            { icon: <Sparkles className="w-5 h-5" />, title: "Landscape Variety", desc: "Ancient fortresses, misty tea mountains, a world-famous train ride, and beaches — all in a single compact week.", img: "/why-landscape-variety-sri-lanka.jpg", alt: "Collage-style view of Sri Lankan hills, train tracks, and coastline" }
           ].map((item) => (
-            <div key={item.title} className="bg-white p-6 rounded-3xl border border-luxury-black/5 hover:border-luxury-gold/30 transition-all space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold">
-                {item.icon}
+            <div key={item.title} className="bg-white rounded-3xl border border-luxury-black/5 hover:border-luxury-gold/30 transition-all overflow-hidden">
+              <img src={item.img} alt={item.alt} loading="lazy" className="w-full h-36 object-cover" />
+              <div className="p-6 space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold">
+                  {item.icon}
+                </div>
+                <h3 className="font-serif font-bold text-luxury-green">{item.title}</h3>
+                <p className="text-xs text-luxury-black/60 font-light leading-relaxed">{item.desc}</p>
               </div>
-              <h3 className="font-serif font-bold text-luxury-green">{item.title}</h3>
-              <p className="text-xs text-luxury-black/60 font-light leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -635,6 +689,15 @@ export default function SrilankaChennaiItineraryPage() {
               </div>
             </div>
 
+            <div className="rounded-3xl overflow-hidden aspect-[16/9]">
+              <img
+                src={activeDayPlan.image}
+                alt={activeDayPlan.imageAlt}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
             <div className="grid md:grid-cols-3 gap-6">
               <div className="md:col-span-2 space-y-5">
                 <div className="space-y-1.5">
@@ -750,35 +813,44 @@ export default function SrilankaChennaiItineraryPage() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-3xl border border-luxury-black/5 space-y-3 hover:border-luxury-gold/30 transition-all">
-            <div className="w-12 h-12 rounded-xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold">
-              <Backpack className="w-6 h-6" />
+          <div className="bg-white rounded-3xl border border-luxury-black/5 hover:border-luxury-gold/30 transition-all overflow-hidden">
+            <img src="/hotel-budget-guesthouse-sri-lanka.jpg" alt="Cozy family-run guesthouse room in Sri Lanka" loading="lazy" className="w-full h-40 object-cover" />
+            <div className="p-8 space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold">
+                <Backpack className="w-6 h-6" />
+              </div>
+              <h3 className="font-serif text-xl text-luxury-green font-bold">Budget</h3>
+              <p className="font-mono text-sm text-luxury-gold font-bold">₹1,500 – ₹2,800/night</p>
+              <p className="text-xs text-luxury-black/60 leading-relaxed font-light">
+                Guesthouses and family-run homestays are the backbone here — clean rooms, home-cooked breakfast, hosts who double as guides. Sigiriya's outskirts, Ella's hillside cluster, and Mirissa's back streets offer the best value.
+              </p>
             </div>
-            <h3 className="font-serif text-xl text-luxury-green font-bold">Budget</h3>
-            <p className="font-mono text-sm text-luxury-gold font-bold">₹1,500 – ₹2,800/night</p>
-            <p className="text-xs text-luxury-black/60 leading-relaxed font-light">
-              Guesthouses and family-run homestays are the backbone here — clean rooms, home-cooked breakfast, hosts who double as guides. Sigiriya's outskirts, Ella's hillside cluster, and Mirissa's back streets offer the best value.
-            </p>
           </div>
-          <div className="bg-[#FAF8F5] p-8 rounded-3xl border border-luxury-gold/30 space-y-3 hover:border-luxury-gold transition-all">
-            <div className="w-12 h-12 rounded-xl bg-luxury-gold/20 flex items-center justify-center text-luxury-gold">
-              <Building className="w-6 h-6" />
+          <div className="bg-[#FAF8F5] rounded-3xl border border-luxury-gold/30 hover:border-luxury-gold transition-all overflow-hidden">
+            <img src="/hotel-midrange-boutique-pool-sri-lanka.jpg" alt="Boutique hotel pool in Sri Lanka" loading="lazy" className="w-full h-40 object-cover" />
+            <div className="p-8 space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-luxury-gold/20 flex items-center justify-center text-luxury-gold">
+                <Building className="w-6 h-6" />
+              </div>
+              <h3 className="font-serif text-xl text-luxury-green font-bold">Mid-Range</h3>
+              <p className="font-mono text-sm text-luxury-gold font-bold">₹5,000 – ₹9,000/night</p>
+              <p className="text-xs text-luxury-black/60 leading-relaxed font-light">
+                The sweet spot for most Chennai travelers — boutique hotels and small resorts with pools, at a fraction of similar quality in Goa or the Maldives. Strong picks in Sigiriya, Habarana, Kandy, Nuwara Eliya, Bentota and Mirissa.
+              </p>
             </div>
-            <h3 className="font-serif text-xl text-luxury-green font-bold">Mid-Range</h3>
-            <p className="font-mono text-sm text-luxury-gold font-bold">₹5,000 – ₹9,000/night</p>
-            <p className="text-xs text-luxury-black/60 leading-relaxed font-light">
-              The sweet spot for most Chennai travelers — boutique hotels and small resorts with pools, at a fraction of similar quality in Goa or the Maldives. Strong picks in Sigiriya, Habarana, Kandy, Nuwara Eliya, Bentota and Mirissa.
-            </p>
           </div>
-          <div className="bg-luxury-green text-white p-8 rounded-3xl border border-luxury-gold/30 space-y-3 hover:border-luxury-gold transition-all">
-            <div className="w-12 h-12 rounded-xl bg-luxury-gold/20 flex items-center justify-center text-luxury-gold">
-              <Sparkles className="w-6 h-6" />
+          <div className="bg-luxury-green text-white rounded-3xl border border-luxury-gold/30 hover:border-luxury-gold transition-all overflow-hidden">
+            <img src="/hotel-luxury-villa-sri-lanka.jpg" alt="Private-pool luxury villa in Sri Lanka" loading="lazy" className="w-full h-40 object-cover" />
+            <div className="p-8 space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-luxury-gold/20 flex items-center justify-center text-luxury-gold">
+                <Sparkles className="w-6 h-6" />
+              </div>
+              <h3 className="font-serif text-xl text-white font-bold">Luxury</h3>
+              <p className="font-mono text-sm text-luxury-gold font-bold">₹15,000 – ₹40,000+/night</p>
+              <p className="text-xs text-white/70 leading-relaxed font-light">
+                Private-pool villas, colonial tea-estate bungalows, and beachfront resorts with full spa programs. Nuwara Eliya's planter bungalows and the clifftop resorts around Mirissa and Bentota shine brightest.
+              </p>
             </div>
-            <h3 className="font-serif text-xl text-white font-bold">Luxury</h3>
-            <p className="font-mono text-sm text-luxury-gold font-bold">₹15,000 – ₹40,000+/night</p>
-            <p className="text-xs text-white/70 leading-relaxed font-light">
-              Private-pool villas, colonial tea-estate bungalows, and beachfront resorts with full spa programs. Nuwara Eliya's planter bungalows and the clifftop resorts around Mirissa and Bentota shine brightest.
-            </p>
           </div>
         </div>
       </section>
@@ -924,6 +996,40 @@ export default function SrilankaChennaiItineraryPage() {
         </div>
       </section>
 
+      {/* SEE IT BEFORE YOU BOOK — reels strip, social proof right before the closing CTA */}
+      <section className="max-w-7xl mx-auto px-6 mb-20">
+        <div className="text-center mb-12 space-y-2">
+          <span className="text-luxury-gold font-serif italic text-lg uppercase tracking-wider block">Social Proof</span>
+          <h2 className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tight font-bold">
+            See It Before You Book
+          </h2>
+          <p className="text-xs text-luxury-black/50 uppercase tracking-widest">Real reels from this exact route</p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          {[
+            { src: "/reels/sigiriya-climb-reel.mp4", label: "The Sigiriya Climb" },
+            { src: "/reels/kandy-ella-train-reel.mp4", label: "Kandy → Ella Train" },
+            { src: "/reels/beach-finish-reel.mp4", label: "Mirissa Beach Finish" }
+          ].map((reel) => (
+            <div key={reel.src} className="relative rounded-3xl overflow-hidden aspect-[9/16] bg-luxury-green shadow-luxury">
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                src={reel.src}
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                onMouseEnter={(e) => e.currentTarget.play()}
+                onMouseLeave={(e) => e.currentTarget.pause()}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+              <span className="absolute bottom-3 left-3 right-3 text-white text-xs font-mono font-bold">{reel.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* FAQ (shared accordion component) */}
       <FaqAccordion
         items={faqs}
@@ -933,8 +1039,18 @@ export default function SrilankaChennaiItineraryPage() {
       />
 
       {/* FINAL VERDICT + CTA */}
-      <section className="bg-luxury-green text-white py-20 px-6 relative">
-        <div className="max-w-4xl mx-auto text-center space-y-10">
+      <section className="bg-luxury-green text-white py-20 px-6 relative overflow-hidden">
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-25"
+          src="/reels/chennai-itinerary-hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+        <div className="absolute inset-0 bg-luxury-green/70" />
+        <div className="max-w-4xl mx-auto text-center space-y-10 relative z-10">
           <div className="space-y-4">
             <span className="text-luxury-gold font-serif italic text-lg uppercase tracking-wider block">Final Verdict</span>
             <h2 className="text-3xl md:text-5xl font-serif text-white tracking-tight leading-tight">
