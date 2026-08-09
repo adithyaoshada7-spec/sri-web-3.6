@@ -20,7 +20,6 @@ import {
   Plane
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
-import Footer from "./Footer";
 
 interface ArticleMeta {
   path: string;
@@ -432,8 +431,6 @@ export default function BlogIndexPage() {
         </div>
 
       </div>
-
-      <Footer />
     </div>
   );
 }
