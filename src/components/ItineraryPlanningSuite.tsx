@@ -282,7 +282,7 @@ Please confirm private driver availability and send the free PDF download.`;
             className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeTab === t.id 
                 ? "bg-[#C5A059] text-white shadow-sm" 
-                : "text-white/60 hover:text-white hover:bg-white/5"
+                : "text-white/82 hover:text-white hover:bg-white/5"
             }`}
           >
             {t.label}
@@ -309,7 +309,7 @@ Please confirm private driver availability and send the free PDF download.`;
                   <div className="space-y-1.5">
                     <span className="text-[10px] uppercase font-mono font-bold text-[#C5A059]">Cost Estimator</span>
                     <h4 className="font-serif text-xl sm:text-2xl text-[#1A2F23] font-bold">Trip Cost & Currency Calculator</h4>
-                    <p className="text-xs text-[#0F1412]/60 font-light leading-relaxed">
+                    <p className="text-xs text-[#0F1412]/78 font-normal leading-relaxed">
                       Factor in flight origins, hotel class tiers, and traveler sizes to calculate complete land packages instantly.
                     </p>
                   </div>
@@ -372,7 +372,7 @@ Please confirm private driver availability and send the free PDF download.`;
                     <p className="text-4xl font-serif text-[#1A2F23] font-bold">
                       {costData.currency}{costData.total.toLocaleString("en-IN")}
                     </p>
-                    <p className="text-[10px] font-mono tracking-widest uppercase text-[#0F1412]/50">
+                    <p className="text-[10px] font-mono tracking-widest uppercase text-[#0F1412]/70">
                       Total land cost for {passengers} {passengers === 1 ? "Traveler" : "Travelers"}
                     </p>
                   </div>
@@ -381,7 +381,7 @@ Please confirm private driver availability and send the free PDF download.`;
                     Approx: {costData.currency}{costData.perPerson.toLocaleString("en-IN")} Per Person
                   </p>
 
-                  <div className="text-[10px] text-[#0F1412]/50 text-left space-y-1">
+                  <div className="text-[10px] text-[#0F1412]/70 text-left space-y-1">
                     <p>✓ All fuel, driver allowances & tolls covered.</p>
                     <p>✓ Handpicked properties + breakfast pre-selected.</p>
                     <p>✓ Sri Lanka Railway booking support included.</p>
@@ -396,14 +396,14 @@ Please confirm private driver availability and send the free PDF download.`;
                 <div className="space-y-1.5">
                   <span className="text-[10px] uppercase font-mono font-bold text-[#C5A059]">Pacing & Transit Analyzer</span>
                   <h4 className="font-serif text-xl sm:text-2xl text-[#1A2F23] font-bold">Driving Fatigue & Stop Simulator</h4>
-                  <p className="text-xs text-[#0F1412]/60 font-light leading-relaxed">
+                  <p className="text-xs text-[#0F1412]/78 font-normal leading-relaxed">
                     Maps in Sri Lanka are deceptive. Winding peaks restrict driving speeds to 35 km/h. Click and select towns to simulate cumulative vehicle hours and physical stress levels.
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-12 gap-5 items-center">
                   <div className="md:col-span-7 space-y-2.5">
-                    <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#0F1412]/40 block">Select Planned Destination Stops:</span>
+                    <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#0F1412]/65 block">Select Planned Destination Stops:</span>
                     <div className="flex flex-wrap gap-2">
                       {[
                         { id: "negombo", label: "Negombo (0.3h)" },
@@ -439,7 +439,7 @@ Please confirm private driver availability and send the free PDF download.`;
 
                   <div className="md:col-span-5 bg-[#FAF8F5] p-5 rounded-2xl border border-[#0F1412]/5 space-y-3.5">
                     <div className="text-center">
-                      <span className="text-[9px] font-mono tracking-widest text-[#0F1412]/40 block font-bold uppercase">Estimated Vehicle Hours</span>
+                      <span className="text-[9px] font-mono tracking-widest text-[#0F1412]/65 block font-bold uppercase">Estimated Vehicle Hours</span>
                       <p className="text-4xl font-serif text-[#1A2F23] font-bold mt-1">
                         {fatigueMetrics.hours} Hours
                       </p>
@@ -453,7 +453,7 @@ Please confirm private driver availability and send the free PDF download.`;
                     </div>
 
                     {parseFloat(fatigueMetrics.hours) > 12 && (
-                      <div className="p-3 bg-red-100/50 rounded-xl border border-red-200 text-red-950 text-[10px] font-light leading-relaxed flex gap-2">
+                      <div className="p-3 bg-red-100/50 rounded-xl border border-red-200 text-red-950 text-xs font-normal leading-relaxed flex gap-2">
                         <AlertTriangle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
                         <span>Warning: Your route contains extensive road travel. Consider booking 2-night bases or removing 1 stop to avoid extreme fatigue.</span>
                       </div>
@@ -469,7 +469,7 @@ Please confirm private driver availability and send the free PDF download.`;
                 <div className="space-y-1.5">
                   <span className="text-[10px] uppercase font-mono font-bold text-[#C5A059]">Monsoonal Defense</span>
                   <h4 className="font-serif text-xl sm:text-2xl text-[#1A2F23] font-bold">Month-by-Month Monsoon Shift Decider</h4>
-                  <p className="text-xs text-[#0F1412]/60 font-light leading-relaxed">
+                  <p className="text-xs text-[#0F1412]/78 font-normal leading-relaxed">
                     Sri Lanka has two monsoons. When one coast is rainy, the other is hot and sunny. Pick your month to see which side of the island is safe and clear right now.
                   </p>
                 </div>
@@ -503,7 +503,7 @@ Please confirm private driver availability and send the free PDF download.`;
                       <span className="text-[9px] font-mono font-bold tracking-widest uppercase">Monsoon Rating Analysis</span>
                       <span className="text-xs font-bold font-mono">{monsoonAnalysis.status}</span>
                     </div>
-                    <p className="text-xs leading-relaxed font-light">
+                    <p className="text-xs leading-relaxed font-normal">
                       {monsoonAnalysis.advice}
                     </p>
                   </div>
@@ -517,7 +517,7 @@ Please confirm private driver availability and send the free PDF download.`;
                 <div className="space-y-1.5">
                   <span className="text-[10px] uppercase font-mono font-bold text-[#C5A059]">Smart Logistics Curation</span>
                   <h4 className="font-serif text-xl sm:text-2xl text-[#1A2F23] font-bold">Interactive Route Packing Generator</h4>
-                  <p className="text-xs text-[#0F1412]/60 font-light leading-relaxed">
+                  <p className="text-xs text-[#0F1412]/78 font-normal leading-relaxed">
                     Your route transitions from hot coastal shores to chilling 10°C highlands. Check off essential items below to track your packing readiness index.
                   </p>
                 </div>
@@ -547,7 +547,7 @@ Please confirm private driver availability and send the free PDF download.`;
                           }`}>
                             {checked && <Check className="w-3 h-3 text-white" />}
                           </div>
-                          <span className="leading-snug text-[11px] font-light">{item.label}</span>
+                          <span className="leading-snug text-xs font-normal">{item.label}</span>
                         </div>
                       );
                     })}
@@ -562,14 +562,14 @@ Please confirm private driver availability and send the free PDF download.`;
                 <div className="space-y-1.5">
                   <span className="text-[10px] uppercase font-mono font-bold text-[#C5A059]">Backtracking Shield</span>
                   <h4 className="font-serif text-xl sm:text-2xl text-[#1A2F23] font-bold">Route Feasibility & Order Optimizer</h4>
-                  <p className="text-xs text-[#0F1412]/60 font-light leading-relaxed">
+                  <p className="text-xs text-[#0F1412]/78 font-normal leading-relaxed">
                     Backtracking is the #1 mistake that ruins short trips. Arrange your desired stop sequence and receive real-time feasibility alerts instantly.
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6 items-center">
                   <div className="space-y-3">
-                    <span className="text-[10px] font-mono tracking-widest uppercase font-bold text-[#0F1412]/40 block">Your Stops Sequence:</span>
+                    <span className="text-[10px] font-mono tracking-widest uppercase font-bold text-[#0F1412]/65 block">Your Stops Sequence:</span>
                     <div className="space-y-1.5">
                       {routeOrder.map((stop, idx) => (
                         <div key={idx} className="flex items-center justify-between p-2.5 bg-[#FAF8F5] border border-[#0F1412]/5 rounded-xl text-xs">
@@ -610,18 +610,18 @@ Please confirm private driver availability and send the free PDF download.`;
                   </div>
 
                   <div className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#0F1412]/5 text-center space-y-4">
-                    <span className="text-[9px] font-mono tracking-widest text-[#0F1412]/40 block font-bold uppercase">Feasibility Rating Score</span>
+                    <span className="text-[9px] font-mono tracking-widest text-[#0F1412]/65 block font-bold uppercase">Feasibility Rating Score</span>
                     
                     <div className="space-y-1">
                       <p className={`text-5xl font-serif font-bold ${feasibility.score > 80 ? "text-emerald-600" : "text-amber-600"}`}>
                         {feasibility.score}/100
                       </p>
-                      <p className="text-[10px] font-mono tracking-widest text-[#0F1412]/50 uppercase">
+                      <p className="text-[10px] font-mono tracking-widest text-[#0F1412]/70 uppercase">
                         Route sequence evaluation
                       </p>
                     </div>
 
-                    <p className="text-xs leading-relaxed font-light border-t border-[#0F1412]/5 pt-3 text-[#0F1412]/80">
+                    <p className="text-xs leading-relaxed font-normal border-t border-[#0F1412]/5 pt-3 text-[#0F1412]/90">
                       {feasibility.label}
                     </p>
                   </div>
@@ -640,14 +640,14 @@ Please confirm private driver availability and send the free PDF download.`;
                       <Clock className="w-4 h-4 text-[#C5A059]" /> 30-Day Railway Countdown
                     </h5>
                     <div className="space-y-2">
-                      <p className="text-[11px] text-[#0F1412]/60 leading-normal">
+                      <p className="text-xs text-[#0F1412]/85 leading-normal">
                         Input your target travel day. Instantly calculate the exact hour the government railway ticket booking system unlocks.
                       </p>
                       <input 
                         type="date" 
                         value={departureDate}
                         onChange={(e) => setDepartureDate(e.target.value)}
-                        className="w-full bg-white border border-[#0F1412]/10 rounded-lg p-2 text-xs text-[#0F1412]/80 outline-none font-mono cursor-pointer"
+                        className="w-full bg-white border border-[#0F1412]/10 rounded-lg p-2 text-xs text-[#0F1412]/90 outline-none font-mono cursor-pointer"
                       />
                       <p className="text-xs font-mono font-bold text-[#1A2F23]">
                         🎫 Tickets Release Date: <span className="text-[#C5A059]">{getCountdownDate()}</span>
@@ -690,7 +690,7 @@ Please confirm private driver availability and send the free PDF download.`;
                       <CheckCircle2 className="w-4 h-4 text-[#C5A059]" /> Entrance Ticket Sifter
                     </h5>
                     <div className="space-y-2 text-xs">
-                      <p className="text-[10px] text-[#0F1412]/60">Sum exact fees instantly in USD & LKR equivalents.</p>
+                      <p className="text-xs text-[#0F1412]/85">Sum exact fees instantly in USD & LKR equivalents.</p>
                       <div className="grid grid-cols-2 gap-1.5">
                         {Object.keys(sightsPricing).map(sightKey => {
                           const sight = sightsPricing[sightKey];
@@ -703,7 +703,7 @@ Please confirm private driver availability and send the free PDF download.`;
                                   prev.includes(sightKey) ? prev.filter(x => x !== sightKey) : [...prev, sightKey]
                                 );
                               }}
-                              className={`p-2 rounded border text-[10px] font-light text-left truncate transition-all cursor-pointer ${
+                              className={`p-2 rounded border text-[10px] font-normal text-left truncate transition-all cursor-pointer ${
                                 active ? "bg-teal-50 border-teal-100 text-teal-950 font-bold" : "bg-white border-[#0F1412]/5"
                               }`}
                             >
@@ -723,7 +723,7 @@ Please confirm private driver availability and send the free PDF download.`;
                       <Play className="w-4 h-4 text-[#C5A059]" /> Interactive Sinhala Audio Phrasebook
                     </h5>
                     <div className="space-y-2 text-xs">
-                      <p className="text-[10px] text-[#0F1412]/60">Select common Sinhala words to play local phonetic guides.</p>
+                      <p className="text-xs text-[#0F1412]/85">Select common Sinhala words to play local phonetic guides.</p>
                       <div className="grid grid-cols-3 gap-1.5">
                         {[
                           { word: "Ayubowan", gloss: "Greetings / Hello" },
@@ -740,7 +740,7 @@ Please confirm private driver availability and send the free PDF download.`;
                               }`}
                             >
                               <p className="font-bold">{ph.word}</p>
-                              <p className="text-[8px] opacity-60 font-light truncate">{ph.gloss}</p>
+                              <p className="text-[10px] opacity-90 font-normal truncate">{ph.gloss}</p>
                             </button>
                           );
                         })}
@@ -758,7 +758,7 @@ Please confirm private driver availability and send the free PDF download.`;
 
         {/* PERSISTENT FOOTER CTA TO SYNC STATE */}
         <div className="mt-6 pt-5 border-t border-[#0F1412]/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[11px] text-[#0F1412]/50 font-light text-center sm:text-left">
+          <p className="text-xs text-[#0F1412]/85 font-normal text-center sm:text-left">
             🔒 These dynamic plans can be forwarded directly to your on-the-ground concierge coordinator.
           </p>
           <button

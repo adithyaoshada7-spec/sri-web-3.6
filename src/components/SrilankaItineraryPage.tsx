@@ -325,7 +325,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <span className="italic text-[#C5A059] font-normal">The Perfect Route for First-Time Visitors</span>
           </h1>
 
-          <p className="text-base md:text-xl text-[#0F1412]/75 font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-xl text-[#0F1412]/90 font-normal max-w-2xl mx-auto leading-relaxed">
             Ancient ruins, misty tea hills, a leopard safari and the south coast — in one realistic loop.
             Below: the day-by-day plan, honest trade-offs, real costs, and a free planner to make it yours.
           </p>
@@ -345,7 +345,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             ))}
           </div>
 
-          <p className="text-sm text-[#0F1412]/70 font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm text-[#0F1412]/85 font-normal max-w-2xl mx-auto leading-relaxed">
             This route typically runs <strong className="text-[#1A2F23] font-semibold">$450-900 per person</strong> for 7 days depending on hotel class —
             see the full <Link to="/sri-lanka-trip-cost-from-india" onClick={() => trackEvent("internal_itinerary_click", "engagement", "hero_cost")} className="text-[#C5A059] underline hover:text-[#1A2F23]">cost breakdown</Link>.
             Check <Link to="/best-time-to-visit-sri-lanka" onClick={() => trackEvent("internal_itinerary_click", "engagement", "hero_best_time")} className="text-[#C5A059] underline hover:text-[#1A2F23]">the best time to visit</Link> before booking dates,
@@ -412,7 +412,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             ].map(item => (
               <div key={item.q} className="p-4 rounded-xl bg-[#FAF8F5] border border-[#0F1412]/5">
                 <p className="font-serif font-bold text-[#1A2F23] mb-1">{item.q}</p>
-                <p className="text-[#0F1412]/75 font-light leading-relaxed">{item.a}</p>
+                <p className="text-[#0F1412]/90 font-normal leading-relaxed">{item.a}</p>
               </div>
             ))}
             <div className="p-4 rounded-xl bg-[#1A2F23] text-white flex flex-col justify-center items-start gap-2">
@@ -437,7 +437,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <h2 className="text-3xl md:text-5xl font-serif text-[#1A2F23] tracking-tight">
               7-Day Sri Lanka Route at a Glance
             </h2>
-            <p className="text-[#0F1412]/70 font-light text-sm md:text-base max-w-xl mx-auto">
+            <p className="text-[#0F1412]/85 font-normal text-sm md:text-base max-w-xl mx-auto">
               Destination, main experience, approximate travel requirement, and overnight base for each day. Tap a day to jump to the full plan below.
             </p>
           </div>
@@ -466,16 +466,16 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                   >
                     <td className="p-4 font-mono font-bold text-[#C5A059]">Day {day.day}</td>
                     <td className="p-4 font-bold text-[#1A2F23]">{destinationLabel[day.day]}</td>
-                    <td className="p-4 text-[#0F1412]/80 font-light">{dayHighlights[day.day]}</td>
-                    <td className="p-4 text-[#0F1412]/80 font-light whitespace-nowrap">{day.day === 4 ? "Train, ~3.5-4h" : day.drivingTime}</td>
-                    <td className="p-4 text-[#0F1412]/80 font-light">{day.hotels.split(",")[0].replace(/\s*\(.*\)/, "")}</td>
+                    <td className="p-4 text-[#0F1412]/90 font-normal">{dayHighlights[day.day]}</td>
+                    <td className="p-4 text-[#0F1412]/90 font-normal whitespace-nowrap">{day.day === 4 ? "Train, ~3.5-4h" : day.drivingTime}</td>
+                    <td className="p-4 text-[#0F1412]/90 font-normal">{day.hotels.split(",")[0].replace(/\s*\(.*\)/, "")}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <div className="text-center text-xs text-[#0F1412]/50 font-light">
+          <div className="text-center text-xs text-[#0F1412]/70 font-normal">
             Travel times are approximate and vary with traffic, weather and stops en route.
           </div>
         </div>
@@ -489,7 +489,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <h2 className="text-3xl md:text-5xl font-serif text-[#1A2F23] tracking-tight">
               Is This 7-Day Itinerary Right for You?
             </h2>
-            <p className="text-[#0F1412]/70 font-light text-sm md:text-base max-w-xl mx-auto">
+            <p className="text-[#0F1412]/85 font-normal text-sm md:text-base max-w-xl mx-auto">
               This route is relatively fast-paced by design. You have permission to remove destinations rather than rush through all seven.
             </p>
           </div>
@@ -513,7 +513,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                         row.verdict === "Too fast as written" ? "text-red-600" : "text-amber-600"
                       }>{row.verdict}</span>
                     </td>
-                    <td className="p-4 text-[#0F1412]/80 font-light">{row.note}</td>
+                    <td className="p-4 text-[#0F1412]/90 font-normal">{row.note}</td>
                   </tr>
                 ))}
               </tbody>
@@ -544,7 +544,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <span className="text-xs font-mono font-bold text-[#C5A059] uppercase tracking-wider bg-[#C5A059]/10 px-2.5 py-1 rounded-full inline-block">
               Route maintained by Plan Sri Lanka
             </span>
-            <p className="text-xs text-[#0F1412]/70 font-light leading-relaxed max-w-xl">
+            <p className="text-xs text-[#0F1412]/85 font-normal leading-relaxed max-w-xl">
               This route and its drive times are reviewed against feedback from our SLTDA-registered driver network and travelers who've actually run it.
               We'll tell you plainly when a day is rushed rather than oversell it — see <Link to="/about-founder" className="text-[#C5A059] underline hover:text-[#1A2F23]">how we plan trips</Link>.
             </p>
@@ -561,7 +561,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <h2 className="text-3xl md:text-5xl font-serif text-[#1A2F23] tracking-tight">
               Your Day-by-Day 7-Day Schedule
             </h2>
-            <p className="text-[#0F1412]/70 font-light text-sm md:text-base max-w-xl mx-auto">
+            <p className="text-[#0F1412]/85 font-normal text-sm md:text-base max-w-xl mx-auto">
               Morning, afternoon and evening for each stop, plus realistic travel time, where to stay, what it costs, who it suits, and one thing to watch out for.
             </p>
           </div>
@@ -577,7 +577,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                 className={`flex-grow py-2.5 px-4 rounded-xl text-xs font-mono font-bold whitespace-nowrap cursor-pointer transition-all ${
                   activeDayTab === day.day
                     ? "bg-[#C5A059] text-white shadow"
-                    : "text-[#0F1412]/50 hover:text-[#0F1412] hover:bg-gray-200/50"
+                    : "text-[#0F1412]/70 hover:text-[#0F1412] hover:bg-gray-200/50"
                 }`}
               >
                 Day {day.day}
@@ -618,50 +618,50 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                         <h4 className="font-serif font-bold text-sm text-[#1A2F23] flex items-center gap-1.5">
                           <Compass className="w-4 h-4 text-[#C5A059]" /> Morning
                         </h4>
-                        <p className="text-xs text-[#0F1412]/85 font-light leading-relaxed">{day.morning}</p>
+                        <p className="text-xs text-[#0F1412]/85 font-normal leading-relaxed">{day.morning}</p>
                       </div>
 
                       <div className="space-y-1.5">
                         <h4 className="font-serif font-bold text-sm text-[#1A2F23] flex items-center gap-1.5">
                           <Car className="w-4 h-4 text-[#C5A059]" /> Afternoon
                         </h4>
-                        <p className="text-xs text-[#0F1412]/85 font-light leading-relaxed">{day.afternoon}</p>
+                        <p className="text-xs text-[#0F1412]/85 font-normal leading-relaxed">{day.afternoon}</p>
                       </div>
 
                       <div className="space-y-1.5">
                         <h4 className="font-serif font-bold text-sm text-[#1A2F23] flex items-center gap-1.5">
                           <Utensils className="w-4 h-4 text-[#C5A059]" /> Evening
                         </h4>
-                        <p className="text-xs text-[#0F1412]/85 font-light leading-relaxed">{day.evening}</p>
+                        <p className="text-xs text-[#0F1412]/85 font-normal leading-relaxed">{day.evening}</p>
                       </div>
 
                       <div className="p-3.5 rounded-xl bg-[#1A2F23]/5 border border-[#1A2F23]/10 flex gap-2.5">
                         <Users className="w-4 h-4 text-[#1A2F23] shrink-0 mt-0.5" />
                         <div>
                           <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#1A2F23]/60 block">Best for:</span>
-                          <p className="text-xs text-[#1A2F23]/90 font-light leading-relaxed">{day.bestFor}</p>
+                          <p className="text-xs text-[#1A2F23]/90 font-normal leading-relaxed">{day.bestFor}</p>
                         </div>
                       </div>
                     </div>
 
                     <div className="bg-white rounded-2xl p-5 border border-[#0F1412]/5 space-y-4 text-xs">
                       <div className="space-y-1">
-                        <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-gray-400 block">Where to Stay:</span>
+                        <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-gray-500 block">Where to Stay:</span>
                         <p className="text-[#1A2F23] font-serif font-bold leading-tight">{day.hotels}</p>
                       </div>
 
                       <div className="space-y-1">
-                        <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-gray-400 block">Food Spotlights:</span>
-                        <p className="text-[#0F1412]/80 font-light leading-tight">{day.foodSuggestions}</p>
+                        <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-gray-500 block">Food Spotlights:</span>
+                        <p className="text-[#0F1412]/90 font-normal leading-tight">{day.foodSuggestions}</p>
                       </div>
 
                       <div className="space-y-1">
-                        <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-gray-400 block">Photo Spots:</span>
-                        <p className="text-[#0F1412]/80 font-light leading-tight">{day.photoSpots}</p>
+                        <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-gray-500 block">Photo Spots:</span>
+                        <p className="text-[#0F1412]/90 font-normal leading-tight">{day.photoSpots}</p>
                       </div>
 
                       <div className="space-y-1">
-                        <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-gray-400 block">Estimated Daily Cost:</span>
+                        <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-gray-500 block">Estimated Daily Cost:</span>
                         <p className="text-emerald-700 font-mono font-bold leading-tight">{day.costs}</p>
                       </div>
                     </div>
@@ -673,7 +673,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                       <Info className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                       <div className="space-y-1">
                         <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-amber-800 block">Local Insider Advice:</span>
-                        <p className="text-xs text-[#0F1412]/80 font-light leading-relaxed">{day.localTips}</p>
+                        <p className="text-xs text-[#0F1412]/90 font-normal leading-relaxed">{day.localTips}</p>
                       </div>
                     </div>
 
@@ -681,7 +681,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                       <AlertTriangle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
                       <div className="space-y-1">
                         <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-red-800 block">Don't Make This Mistake:</span>
-                        <p className="text-xs text-red-950/80 font-light leading-relaxed">{day.commonMistakes}</p>
+                        <p className="text-xs text-red-950/95 font-normal leading-relaxed">{day.commonMistakes}</p>
                       </div>
                     </div>
                   </div>
@@ -693,7 +693,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
 
           {/* Retention CTA after itinerary */}
           <div className="text-center pt-2">
-            <p className="text-sm text-[#0F1412]/60 font-light mb-3">Want to change the route?</p>
+            <p className="text-sm text-[#0F1412]/78 font-normal mb-3">Want to change the route?</p>
             <Link
               to="/sri-lanka-trip-planner"
               onClick={() => handlePlannerClick("after_day_by_day")}
@@ -715,7 +715,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <h2 className="text-3xl md:text-5xl font-serif text-white tracking-tight">
               What Kind of Sri Lanka Trip Do You Want?
             </h2>
-            <p className="text-white/70 font-light text-sm md:text-base max-w-xl mx-auto">
+            <p className="text-white/88 font-normal text-sm md:text-base max-w-xl mx-auto">
               Tap what matters most to you — we'll point you to the route change that fits.
             </p>
           </div>
@@ -728,7 +728,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                 className={`px-4 py-2.5 rounded-full border text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                   selectedStyle === style.id
                     ? "bg-[#C5A059] text-white border-[#C5A059]"
-                    : "bg-white/5 text-white/85 border-white/15 hover:border-[#C5A059]/60 hover:bg-white/10"
+                    : "bg-white/5 text-white/92 border-white/15 hover:border-[#C5A059]/60 hover:bg-white/10"
                 }`}
               >
                 <span>{style.emoji}</span> {style.label}
@@ -755,11 +755,11 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                     <span className="text-xl">{alt.emoji}</span>
                     <h4 className="font-serif font-bold text-white">{alt.title}</h4>
                   </div>
-                  <div className="space-y-2 text-[11px] leading-relaxed">
-                    <p><span className="text-[#C5A059] font-bold uppercase font-mono text-[9px] block mb-0.5">What to change</span><span className="text-white/85 font-light">{alt.change}</span></p>
-                    <p><span className="text-[#C5A059] font-bold uppercase font-mono text-[9px] block mb-0.5">Who it's for</span><span className="text-white/85 font-light">{alt.who}</span></p>
-                    <p><span className="text-emerald-400 font-bold uppercase font-mono text-[9px] block mb-0.5">What you gain</span><span className="text-white/85 font-light">{alt.gain}</span></p>
-                    <p><span className="text-red-400 font-bold uppercase font-mono text-[9px] block mb-0.5">What you give up</span><span className="text-white/85 font-light">{alt.giveUp}</span></p>
+                  <div className="space-y-2 text-xs leading-relaxed">
+                    <p><span className="text-[#C5A059] font-bold uppercase font-mono text-[9px] block mb-0.5">What to change</span><span className="text-white/92 font-normal">{alt.change}</span></p>
+                    <p><span className="text-[#C5A059] font-bold uppercase font-mono text-[9px] block mb-0.5">Who it's for</span><span className="text-white/92 font-normal">{alt.who}</span></p>
+                    <p><span className="text-emerald-400 font-bold uppercase font-mono text-[9px] block mb-0.5">What you gain</span><span className="text-white/92 font-normal">{alt.gain}</span></p>
+                    <p><span className="text-red-400 font-bold uppercase font-mono text-[9px] block mb-0.5">What you give up</span><span className="text-white/92 font-normal">{alt.giveUp}</span></p>
                   </div>
                 </div>
               ))}
@@ -767,7 +767,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
           </div>
 
           <div className="text-center pt-2">
-            <p className="text-sm text-white/60 font-light mb-3">Not sure which route fits you?</p>
+            <p className="text-sm text-white/82 font-normal mb-3">Not sure which route fits you?</p>
             <Link
               to="/sri-lanka-trip-planner"
               onClick={() => handlePlannerClick("after_alternatives")}
@@ -775,7 +775,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             >
               Build Your Personalized Itinerary <ArrowRight className="w-4 h-4" />
             </Link>
-            <p className="text-[11px] text-white/40 font-light mt-4 max-w-md mx-auto">
+            <p className="text-xs text-white/70 font-normal mt-4 max-w-md mx-auto">
               Traveling as a family? See our <Link to="/sri-lanka-family-itinerary" onClick={() => trackEvent("internal_itinerary_click", "engagement", "family_link")} className="text-[#C5A059] underline hover:text-white">12-day family itinerary</Link>.
               Planning a romantic trip? See our <Link to="/sri-lanka-itinerary-august-couples" onClick={() => trackEvent("internal_itinerary_click", "engagement", "couples_link")} className="text-[#C5A059] underline hover:text-white">August couples itinerary</Link>.
             </p>
@@ -793,7 +793,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <h2 className="text-3xl md:text-5xl font-serif text-[#1A2F23] tracking-tight">
               Calculate Your Own Numbers
             </h2>
-            <p className="text-[#0F1412]/70 font-light text-sm md:text-base max-w-xl mx-auto">
+            <p className="text-[#0F1412]/85 font-normal text-sm md:text-base max-w-xl mx-auto">
               Cost calculator, driving-fatigue simulator, monsoon planner, packing checklist, route reorder tool and a few quick utilities — all in one place.
             </p>
           </div>
@@ -811,7 +811,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <h2 className="text-3xl md:text-5xl font-serif text-[#1A2F23] tracking-tight">
               How Much Does a 7-Day Sri Lanka Trip Cost?
             </h2>
-            <p className="text-[#0F1412]/70 font-light text-sm md:text-base max-w-xl mx-auto">
+            <p className="text-[#0F1412]/85 font-normal text-sm md:text-base max-w-xl mx-auto">
               Per person, for the full 7-day route above. Prices vary by season, accommodation and transport choices — treat these as planning ranges, not quotes.
             </p>
           </div>
@@ -837,9 +837,9 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                 ].map((row) => (
                   <tr key={row.cat} className="hover:bg-white transition-colors">
                     <td className="p-4 font-bold text-[#1A2F23]">{row.cat}</td>
-                    <td className="p-4 font-mono text-[#0F1412]/80">{row.budget}</td>
-                    <td className="p-4 font-mono text-[#0F1412]/80">{row.mid}</td>
-                    <td className="p-4 font-mono text-[#0F1412]/80">{row.lux}</td>
+                    <td className="p-4 font-mono text-[#0F1412]/90">{row.budget}</td>
+                    <td className="p-4 font-mono text-[#0F1412]/90">{row.mid}</td>
+                    <td className="p-4 font-mono text-[#0F1412]/90">{row.lux}</td>
                   </tr>
                 ))}
                 <tr className="bg-[#1A2F23]/5 font-bold">
@@ -855,21 +855,21 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#0F1412]/5 space-y-2">
               <h4 className="font-serif font-bold text-sm text-[#1A2F23] flex items-center gap-1.5"><Users className="w-4 h-4 text-[#C5A059]" /> Solo vs. Couple</h4>
-              <p className="text-xs text-[#0F1412]/75 font-light leading-relaxed">
+              <p className="text-xs text-[#0F1412]/90 font-normal leading-relaxed">
                 The private driver/car cost (~$210-280 for 7 days) is fixed per vehicle, not per person. Traveling as a couple splits that cost two ways, which
                 usually lowers your per-person total more than it would for a solo traveler carrying the full fare alone.
               </p>
             </div>
             <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#0F1412]/5 space-y-2">
               <h4 className="font-serif font-bold text-sm text-[#1A2F23] flex items-center gap-1.5"><Calendar className="w-4 h-4 text-[#C5A059]" /> What moves the price</h4>
-              <p className="text-xs text-[#0F1412]/75 font-light leading-relaxed">
+              <p className="text-xs text-[#0F1412]/90 font-normal leading-relaxed">
                 Hotel tier is the single biggest lever, followed by whether you hire a private driver or mix in trains/public transport. Peak season (Dec-Mar) also runs higher than shoulder months.
               </p>
             </div>
           </div>
 
           <div className="text-center pt-2">
-            <p className="text-sm text-[#0F1412]/60 font-light mb-3">Want your own budget?</p>
+            <p className="text-sm text-[#0F1412]/78 font-normal mb-3">Want your own budget?</p>
             <Link
               to="/sri-lanka-trip-cost-from-india"
               onClick={() => { trackEvent("cost_calculator_click", "conversion", "cost_section_cta"); }}
@@ -890,7 +890,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <h2 className="text-3xl md:text-5xl font-serif text-[#1A2F23] tracking-tight">
               How to Travel Around Sri Lanka in 7 Days
             </h2>
-            <p className="text-[#0F1412]/70 font-light text-sm md:text-base max-w-xl mx-auto">
+            <p className="text-[#0F1412]/85 font-normal text-sm md:text-base max-w-xl mx-auto">
               Mountain roads are winding and slower than Google Maps suggests. Your transport choice is mostly a trade-off between speed, cost, convenience and experience.
             </p>
           </div>
@@ -905,7 +905,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             ].map(item => (
               <div key={item.title} className="p-4 rounded-xl bg-white border border-[#0F1412]/5">
                 <p className="font-serif font-bold text-[#1A2F23] mb-1">{item.title}</p>
-                <p className="text-[#0F1412]/75 font-light leading-relaxed">{item.note}</p>
+                <p className="text-[#0F1412]/90 font-normal leading-relaxed">{item.note}</p>
               </div>
             ))}
           </div>
@@ -930,9 +930,9 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                 ].map((row, idx) => (
                   <tr key={idx} className="hover:bg-[#FAF8F5]/60 transition-colors">
                     <td className="p-4 font-bold text-[#1A2F23]">{row.mode}</td>
-                    <td className="p-4 text-[#0F1412]/80 font-light">{row.comfort}</td>
+                    <td className="p-4 text-[#0F1412]/90 font-normal">{row.comfort}</td>
                     <td className="p-4 font-mono font-bold text-gray-600">{row.speed}</td>
-                    <td className="p-4 text-[#0F1412]/80 font-light">{row.safety}</td>
+                    <td className="p-4 text-[#0F1412]/90 font-normal">{row.safety}</td>
                     <td className="p-4 text-[#C5A059] font-bold">{row.cost}</td>
                   </tr>
                 ))}
@@ -950,7 +950,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <h2 className="text-3xl md:text-5xl font-serif text-[#1A2F23] tracking-tight">
               Where Should You Stay Each Night?
             </h2>
-            <p className="text-[#0F1412]/70 font-light text-sm md:text-base max-w-xl mx-auto">
+            <p className="text-[#0F1412]/85 font-normal text-sm md:text-base max-w-xl mx-auto">
               Location matters more than the specific hotel. Here's the convenient area for each stop and a type of pick at each budget level.
             </p>
           </div>
@@ -961,11 +961,11 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                 <div className="sm:col-span-1">
                   <span className="text-[9px] font-mono uppercase tracking-widest text-[#C5A059] font-bold block">Night {day.day}</span>
                   <h4 className="font-serif font-bold text-[#1A2F23]">{destinationLabel[day.day]}</h4>
-                  <p className="text-[11px] text-[#0F1412]/60 font-light leading-relaxed mt-1 flex gap-1.5">
+                  <p className="text-xs text-[#0F1412]/85 font-normal leading-relaxed mt-1 flex gap-1.5">
                     <Bed className="w-3.5 h-3.5 text-[#C5A059] shrink-0 mt-0.5" /> {stayNotes[day.day]}
                   </p>
                 </div>
-                <div className="sm:col-span-2 text-xs text-[#0F1412]/80 font-light leading-relaxed">
+                <div className="sm:col-span-2 text-xs text-[#0F1412]/90 font-normal leading-relaxed">
                   {day.hotels}
                 </div>
               </div>
@@ -997,7 +997,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             ].map(item => (
               <div key={item.q} className="p-4 rounded-xl bg-white border border-[#0F1412]/5">
                 <p className="font-serif font-bold text-[#1A2F23] text-sm mb-1">{item.q}</p>
-                <p className="text-xs text-[#0F1412]/75 font-light leading-relaxed">{item.a}</p>
+                <p className="text-xs text-[#0F1412]/90 font-normal leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
@@ -1013,7 +1013,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <h2 className="text-3xl md:text-5xl font-serif text-[#1A2F23] tracking-tight font-bold">
               Emergency Safety & Well-Being
             </h2>
-            <p className="text-[#0F1412]/70 font-light text-sm md:text-base max-w-xl mx-auto">
+            <p className="text-[#0F1412]/85 font-normal text-sm md:text-base max-w-xl mx-auto">
               How to bypass common scams, handle health basics, and ensure family comfort on the ground.
             </p>
           </div>
@@ -1023,7 +1023,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#0F1412]/5 space-y-3">
               <ShieldAlert className="w-6 h-6 text-[#C5A059]" />
               <h4 className="font-serif font-bold text-sm text-[#1A2F23]">Common Tourist Scams</h4>
-              <p className="text-xs text-[#0F1412]/75 font-light leading-relaxed">
+              <p className="text-xs text-[#0F1412]/90 font-normal leading-relaxed">
                 Bypass the <strong>Milk Powder scam</strong> in Colombo and unsolicited "gem valuer" offers near Galle. Ignore strangers claiming a site is "closed today"; verify with your driver first.
               </p>
             </div>
@@ -1031,7 +1031,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#0F1412]/5 space-y-3">
               <Users className="w-6 h-6 text-[#C5A059]" />
               <h4 className="font-serif font-bold text-sm text-[#1A2F23]">Solo Female Travel Care</h4>
-              <p className="text-xs text-[#0F1412]/75 font-light leading-relaxed">
+              <p className="text-xs text-[#0F1412]/90 font-normal leading-relaxed">
                 Sri Lanka is generally welcoming. Dress modestly away from beaches, book reserved 2nd-class rail wagons, and avoid dark unlit lanes at night.
               </p>
             </div>
@@ -1039,7 +1039,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#0F1412]/5 space-y-3">
               <Clock className="w-6 h-6 text-[#C5A059]" />
               <h4 className="font-serif font-bold text-sm text-[#1A2F23]">Emergency Contacts</h4>
-              <p className="text-xs text-[#0F1412]/75 font-light leading-relaxed">
+              <p className="text-xs text-[#0F1412]/90 font-normal leading-relaxed">
                 Dial <strong>1912</strong> for the Tourist Police, <strong>119</strong> for general police, and <strong>110</strong> for ambulance dispatch. Keep your driver's phone number handy.
               </p>
             </div>
@@ -1058,14 +1058,14 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             <h2 className="text-3xl md:text-5xl font-serif text-[#1A2F23] tracking-tight">
               More Planning Questions, Answered
             </h2>
-            <p className="text-[#0F1412]/70 font-light text-sm md:text-base max-w-xl mx-auto">
+            <p className="text-[#0F1412]/85 font-normal text-sm md:text-base max-w-xl mx-auto">
               Search or filter our full FAQ library, covering logistics, health, money, connectivity, weather, safety and culture.
             </p>
           </div>
 
           <div className="space-y-4">
             <div className="relative">
-              <Search className="w-5 h-5 absolute left-4 top-3.5 text-gray-400" />
+              <Search className="w-5 h-5 absolute left-4 top-3.5 text-gray-500" />
               <input
                 type="text"
                 placeholder="Search FAQs... e.g. leeches, tipping, train tickets..."
@@ -1092,7 +1092,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                   className={`py-1.5 px-3.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
                     selectedFaqCategory === cat.id
                       ? "bg-[#C5A059] text-white shadow-sm"
-                      : "bg-white text-[#0F1412]/60 hover:text-[#0F1412] border border-[#0F1412]/5"
+                      : "bg-white text-[#0F1412]/78 hover:text-[#0F1412] border border-[#0F1412]/5"
                   }`}
                 >
                   {cat.label}
@@ -1130,7 +1130,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                           exit={{ height: 0, opacity: 0 }}
                           className="border-t border-[#0F1412]/5 overflow-hidden bg-[#FAF8F5]/30"
                         >
-                          <p className="p-5 text-xs sm:text-sm text-[#0F1412]/80 font-light leading-relaxed">
+                          <p className="p-5 text-xs sm:text-sm text-[#0F1412]/90 font-normal leading-relaxed">
                             {faq.a}
                           </p>
                         </motion.div>
@@ -1140,13 +1140,13 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                 );
               })
             ) : (
-              <div className="text-center py-12 text-gray-400 text-xs">
+              <div className="text-center py-12 text-gray-500 text-xs">
                 No matching questions found. Try a different search term like &quot;train&quot; or &quot;cash&quot;.
               </div>
             )}
 
             {filteredFaqs.length > 15 && (
-              <p className="text-center text-xs text-gray-400 pt-4 font-mono">
+              <p className="text-center text-xs text-gray-500 pt-4 font-mono">
                 Showing top 15 matching questions. Filter categories or refine your search to see more.
               </p>
             )}
@@ -1172,7 +1172,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
             >
               <button
                 onClick={() => setShowExitIntent(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-[#1A2F23] text-lg font-bold cursor-pointer"
+                className="absolute top-4 right-4 text-gray-500 hover:text-[#1A2F23] text-lg font-bold cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1184,7 +1184,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
               <div className="space-y-2">
                 <span className="text-[10px] uppercase font-mono tracking-widest text-[#C5A059] font-bold">Don&apos;t Lose Cellular Signal in the Hills</span>
                 <h3 className="font-serif text-2xl font-bold text-[#1A2F23]">Get the Offline Survival PDF Guide</h3>
-                <p className="text-xs text-[#0F1412]/70 font-light leading-relaxed">
+                <p className="text-xs text-[#0F1412]/85 font-normal leading-relaxed">
                   A free 24-page offline-ready guide with regional checklists, emergency contacts, and packing notes — useful even when your signal drops in the hills.
                 </p>
               </div>
@@ -1236,7 +1236,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
           <h3 className="font-serif text-2xl md:text-3xl font-bold text-white">
             Ready to Build Your Sri Lanka Trip?
           </h3>
-          <p className="text-sm text-white/70 font-light max-w-xl mx-auto">
+          <p className="text-sm text-white/88 font-normal max-w-xl mx-auto">
             This 7-day loop is a proven starting point — but pacing, hotel tier and add-on stops all depend on when you travel. Use the free trip planner to adjust it to your own dates and travel style.
           </p>
           <Link
@@ -1266,7 +1266,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                   Get Your Personalized <br />
                   <span className="italic font-normal text-[#C5A059] font-serif">Sri Lanka Itinerary Details</span>
                 </h2>
-                <p className="text-xs sm:text-sm text-[#0F1412]/70 font-light max-w-lg mx-auto">
+                <p className="text-xs sm:text-sm text-[#0F1412]/85 font-normal max-w-lg mx-auto">
                   Share your travel month below and a local coordinator will follow up on WhatsApp with route options and pricing.
                 </p>
               </div>
@@ -1274,7 +1274,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
               {!formSubmitted ? (
                 <form onSubmit={handleLeadSubmit} className="space-y-5 text-left max-w-md mx-auto">
                   <div className="space-y-1">
-                    <label className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#0F1412]/50">Your Full Name:</label>
+                    <label className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#0F1412]/70">Your Full Name:</label>
                     <input
                       type="text"
                       required
@@ -1286,7 +1286,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#0F1412]/50">WhatsApp Phone Number:</label>
+                    <label className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#0F1412]/70">WhatsApp Phone Number:</label>
                     <input
                       type="tel"
                       required
@@ -1298,7 +1298,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#0F1412]/50">Expected Travel Month:</label>
+                    <label className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#0F1412]/70">Expected Travel Month:</label>
                     <input
                       type="text"
                       placeholder="e.g., December 2026"
@@ -1324,7 +1324,7 @@ Please send me the free offline PDF guide and confirm private chauffeur packages
                 <div className="bg-[#1A2F23]/5 p-6 rounded-3xl border border-[#1A2F23]/10 max-w-md mx-auto space-y-4">
                   <div className="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center font-bold text-xl mx-auto">✓</div>
                   <h4 className="font-serif font-bold text-xl text-[#1A2F23]">Details Submitted!</h4>
-                  <p className="text-xs text-[#0F1412]/75 leading-relaxed font-light">
+                  <p className="text-xs text-[#0F1412]/90 leading-relaxed font-normal">
                     A local coordinator will follow up on WhatsApp with your offline PDF guide and route options.
                   </p>
                   <button
