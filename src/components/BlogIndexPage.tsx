@@ -33,6 +33,23 @@ interface ArticleMeta {
 
 const articleCategories = [
   {
+    id: "inspiration",
+    title: "Why Sri Lanka & Travel Inspiration",
+    subtitle: "The bigger picture: why Indian travellers keep choosing this island",
+    icon: <Sparkles className="w-5 h-5 text-luxury-gold" />,
+    articles: [
+      {
+        path: "/blog/why-sri-lanka-is-popular-with-indian-travellers",
+        title: "Why Sri Lanka Wins the Hearts of Indian Travellers (2026)",
+        desc: "Beaches, hill country, wildlife, ancient heritage and Ayurveda inside one compact island — the case for Sri Lanka's 'experience density', plus how to build your own route.",
+        image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "11 Min Read",
+        badge: "Editor's Pick",
+        tag: "Travel Inspiration"
+      }
+    ]
+  },
+  {
     id: "tools",
     title: "Interactive Trip Planning Tools",
     subtitle: "Real-time route calculators & step-by-step master blueprints",

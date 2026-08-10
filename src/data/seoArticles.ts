@@ -244,6 +244,15 @@ export const seoArticles: Seometa[] = [
     priority: "0.9"
   },
   {
+    path: "/blog/why-sri-lanka-is-popular-with-indian-travellers",
+    title: "Why Sri Lanka Wins the Hearts of Indian Travellers (2026)",
+    description: "Sri Lanka packs beaches, hill country, wildlife safaris, ancient heritage and Ayurveda into one compact trip. See why Indian travellers keep returning.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
+  },
+  {
     path: "/private-driver-south-sri-lanka",
     title: "Private Driver for Your South Sri Lanka Road Trip (2026)",
     description: "Planning a South Sri Lanka road trip via Mirissa, Galle, Udawalawe & Ella? Timing tips for sunsets, turtles, safaris, and why a driver beats self-driving.",

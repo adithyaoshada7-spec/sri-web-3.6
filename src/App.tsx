@@ -45,6 +45,7 @@ const SrilankaFlightSearchToolBlogPage = lazy(() => import("./components/Srilank
 const SrilankaHowToUsePlannerPage = lazy(() => import("./components/SrilankaHowToUsePlannerPage"));
 const SrilankaPrivateDriverSouthPage = lazy(() => import("./components/SrilankaPrivateDriverSouthPage"));
 const SrilankaChennaiItineraryPage = lazy(() => import("./components/SrilankaChennaiItineraryPage"));
+const SrilankaWhyIndianTravellersPage = lazy(() => import("./components/SrilankaWhyIndianTravellersPage"));
 
 export default function App() {
   const navigate = useNavigate();
@@ -494,6 +495,16 @@ export default function App() {
             </div>
           }>
             <SrilankaFlightSearchToolBlogPage />
+          </Suspense>
+        } />
+
+        <Route path="/blog/why-sri-lanka-is-popular-with-indian-travellers" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaWhyIndianTravellersPage />
           </Suspense>
         } />
 
