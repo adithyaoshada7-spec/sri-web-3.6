@@ -127,6 +127,14 @@ const getArticleMeta = (path: string) => {
         readTime: "12 Min Read",
         badge: "Air Travel Master"
       };
+    case "/blog/why-sri-lanka-is-popular-with-indian-travellers":
+      return {
+        category: "Travel Inspiration",
+        tag: "Why Sri Lanka",
+        icon: <Globe className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "11 Min Read",
+        badge: "Editor's Pick"
+      };
     case "/flights/why-use-a-flight-search-tool":
       return {
         category: "Smart Outbound",

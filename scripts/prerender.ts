@@ -82,6 +82,11 @@ function generatePrerenderPages(): PrerenderPage[] {
       </header>
 
       <section>
+        <h2>Why Sri Lanka & Travel Inspiration</h2>
+        <p>Start with <a href="/blog/why-sri-lanka-is-popular-with-indian-travellers">why Sri Lanka wins the hearts of Indian travellers</a> to understand the island's biggest advantage before diving into route planning.</p>
+      </section>
+
+      <section>
         <h2>Interactive Trip Planning Tools</h2>
         <p>Start with our <a href="/how-to-plan-a-trip-to-sri-lanka">step-by-step trip planning blueprint</a> or jump straight into the <a href="/sri-lanka-trip-planner">free interactive route & cost generator</a> to build a custom itinerary.</p>
       </section>
@@ -1131,6 +1136,86 @@ function generatePrerenderPages(): PrerenderPage[] {
           <li><strong>How many days are recommended to see the major highlights?</strong> A 7 to 10 day itinerary is perfect to experience a beautiful combination of cultural ruins, mountain country, wildlife safaris, and golden sandy beaches.</li>
         </ul>
       </section>
+    `,
+    "/blog/why-sri-lanka-is-popular-with-indian-travellers": `
+      <header>
+        <h1>Why Sri Lanka Continues to Win the Hearts of Indian Travellers</h1>
+        <p><strong>Sri Lanka packs beaches, hill country, wildlife safaris, ancient heritage and Ayurveda into one compact trip. Here's why Indian travellers keep returning.</strong></p>
+      </header>
+
+      <section>
+        <h2>Why Indian Travellers Choose Sri Lanka</h2>
+        <ul>
+          <li>A short international trip that doesn't require a long stretch of leave</li>
+          <li>Cultural and historical familiarity, including sites linked to the Ramayana</li>
+          <li>Beaches, hill country, wildlife and heritage inside one compact island</li>
+          <li>Short travel times between very different types of landscapes</li>
+          <li>A well-established, mostly English-speaking tourism infrastructure</li>
+          <li>Ayurveda and wellness stays for travellers who want to slow down</li>
+          <li>Itineraries that flex easily for families, couples, groups or solo trips</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Culture, History &amp; Ramayana Connections</h2>
+        <p>India and Sri Lanka share centuries of trade, migration and religious exchange. Buddhism arrived from India over two thousand years ago and remains central to island life, visible in the ancient stupas and the Temple of the Sacred Tooth Relic in Kandy. Sri Lanka is also home to sites traditionally associated with the Ramayana, sometimes grouped as the "Ramayana Trail" around Nuwara Eliya and elsewhere — associations rooted in local tradition rather than settled historical fact.</p>
+      </section>
+
+      <section>
+        <h2>Beautiful Beaches Just a Few Hours Away</h2>
+        <p>The southern and eastern coastlines range from lively surf towns to quiet, near-empty bays, making it easy to match the beach to the trip — lively for groups, calm for honeymooners, unhurried for families.</p>
+      </section>
+
+      <section>
+        <h2>Escape to the Cool Hill Country</h2>
+        <p>Kandy, Nuwara Eliya and Ella offer a cooler climate, rolling tea plantations, and the scenic Kandy–Ella train journey, often the most memorable leg of the whole trip. See our <a href="/how-to-plan-a-train-trip-in-sri-lanka">train trip guide</a>.</p>
+      </section>
+
+      <section>
+        <h2>Wildlife Adventures in the Wild</h2>
+        <p>Yala, Udawalawe, Kumana and Bundala offer open-jeep safaris for leopards, elephants and birdlife. Sightings are never guaranteed, but the parks are known for healthy wildlife populations, and several sit close enough to the south coast to combine with a beach stay.</p>
+      </section>
+
+      <section>
+        <h2>Ancient Cities, Temples &amp; UNESCO Heritage</h2>
+        <p>Sigiriya, Anuradhapura, Polonnaruwa, Kandy and Galle Fort form a cluster of UNESCO World Heritage Sites within a relatively small radius, giving the island a depth of history many first-time visitors don't expect.</p>
+      </section>
+
+      <section>
+        <h2>Wellness, Ayurveda &amp; Time to Slow Down</h2>
+        <p>Ayurveda is a traditional wellness system offered at dedicated retreats and hotel spas across the island, best approached as relaxation and tradition rather than medical treatment.</p>
+      </section>
+
+      <section>
+        <h2>The Biggest Advantage: So Much in One Journey</h2>
+        <p>Experience density is what sets Sri Lanka apart: an ancient cultural site, hill country and tea plantations, a wildlife safari, a tropical beach, and local food and entertainment can all fit into a single, compact loop.</p>
+      </section>
+
+      <section>
+        <h2>Why This Matters for Indian Travel Agencies</h2>
+        <p>Agencies can package the same island around traveller intent rather than one generic itinerary — Family (Culture + Wildlife + Beaches), Honeymoon (Hill Country + Scenic Train + Beach), Friends (Adventure + Beaches + Entertainment), and Wellness (Ayurveda + Nature + Yoga).</p>
+      </section>
+
+      <section>
+        <h2>Frequently Asked Questions</h2>
+        <ul>
+          <li><strong>Why do so many Indian travellers choose Sri Lanka?</strong> A short international trip combined with cultural familiarity and a wide range of experiences inside one compact island.</li>
+          <li><strong>Is Sri Lanka good for a honeymoon?</strong> Yes — tea-country stays, the hill country train, and quieter beach stretches combine easily into a romantic route.</li>
+          <li><strong>Can you see wildlife and beaches on the same trip?</strong> Yes, several national parks sit close to the south coast, so a safari and a beach stay can fit into the same loop.</li>
+        </ul>
+      </section>
+
+      <footer>
+        <p><strong>Continue Planning:</strong></p>
+        <ul>
+          <li><a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner</a></li>
+          <li><a href="/sri-lanka-7-day-itinerary">Sri Lanka 7-Day Itinerary</a></li>
+          <li><a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost From India</a></li>
+          <li><a href="/sri-lanka-family-itinerary">Sri Lanka Family Itinerary</a></li>
+          <li><a href="/sri-lanka-itinerary-august-couples">Sri Lanka Honeymoon &amp; Couples Itinerary</a></li>
+          <li><a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka</a></li>
+        </ul>
+      </footer>
     `
   };
 
@@ -1799,6 +1884,103 @@ function generatePrerenderPages(): PrerenderPage[] {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "A comfortable 7-day mid-range couples trip from India typically costs between ₹80,000 and ₹1,20,000 total for two people (excluding flights). Budget options start around ₹55,000, while premium high-end luxury stays at colonial tea bungalows and private pool villas range from ₹1,50,000 upwards."
+              }
+            }
+          ]
+        }, null, 2)
+      );
+    } else if (art.path === "/blog/why-sri-lanka-is-popular-with-indian-travellers") {
+      schemas.push(
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": `${domain}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Travel Guides",
+              "item": `${domain}/blog`
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Why Sri Lanka Wins Indian Travellers' Hearts",
+              "item": `${domain}/blog/why-sri-lanka-is-popular-with-indian-travellers`
+            }
+          ]
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why do so many Indian travellers choose Sri Lanka for a holiday?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It combines a short international trip with a wide range of experiences — beaches, hill country, wildlife, ancient heritage and wellness — inside one relatively compact island. Cultural familiarity and long-standing historical and religious connections also make the island feel less unfamiliar than many other international destinations."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many days do you need to cover beaches, hill country and wildlife in Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This depends entirely on your pace and which regions you want to combine. Many Indian travellers build their first Sri Lanka trip around a 7 to 10 day route, which is generally enough to move between the cultural triangle, the hill country and the south coast without feeling rushed."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Sri Lanka a good honeymoon destination for Indian couples?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — the combination of tea-country stays, the scenic hill country train, and quieter beach stretches makes it easy to build a honeymoon itinerary that mixes romance, scenery and relaxation without long travel days in between."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the Ramayana-linked places in Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sri Lanka is home to a number of sites traditionally associated with the Ramayana, often referred to together as the Ramayana Trail — including locations linked to Sita in the hill country around Nuwara Eliya, and several temples and landmarks across the island. These associations are part of local tradition and pilgrimage circuits rather than formally documented historical fact."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can you really see wildlife and beaches on the same Sri Lanka trip?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, and this is one of the island's biggest advantages. Several national parks sit close enough to the south coast that a safari and a beach stay can both fit into the same loop. Sightings during a safari are never guaranteed, but the parks are known for healthy leopard, elephant and bird populations."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Sri Lanka suitable for a family holiday from India?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Families often build a route that balances an ancient site or two, a wildlife safari, and a few unhurried days at the beach, so the trip doesn't feel like non-stop sightseeing for children or grandparents."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Ayurveda, and do most Sri Lanka itineraries include it?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ayurveda is a traditional wellness system practised in Sri Lanka, offered at dedicated retreats and as spa treatments within many hotels. It isn't part of every itinerary by default, but travellers who want to slow down can build in a wellness stay or a single Ayurvedic treatment day. This should be treated as relaxation and tradition, not medical care."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is Sri Lanka different from planning a longer multi-region trip elsewhere?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Because the island is relatively compact, an itinerary can move between very different landscapes — coast, hills, ancient cities, national parks — without the long transfer days a similar range of experiences might need in a larger country. It's this experience density that shapes most itineraries here."
               }
             }
           ]
