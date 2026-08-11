@@ -71,6 +71,14 @@ const getArticleMeta = (path: string) => {
         readTime: "15 Min Read",
         badge: "Pillar Guide"
       };
+    case "/sri-lanka-5-day-itinerary-from-chennai":
+      return {
+        category: "Chennai Gateway",
+        tag: "5-Day Express",
+        icon: <Globe className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "7 Min Read",
+        badge: "75-Min Flight"
+      };
     case "/how-much-will-it-take-to-visit-sri-lanka-from-chennai":
       return {
         category: "Chennai Gateway",

@@ -46,6 +46,7 @@ const SrilankaTrainTripPlannerPage = lazy(() => import("./components/SrilankaTra
 const SrilankaTrainTripGuidePage = lazy(() => import("./components/SrilankaTrainTripGuidePage"));
 const SrilankaTripPlannerPillarPage = lazy(() => import("./components/SrilankaTripPlannerPillarPage"));
 const SrilankaChennaiCostPillarPage = lazy(() => import("./components/SrilankaChennaiCostPillarPage"));
+const SrilankaFiveDayChennaiItineraryPage = lazy(() => import("./components/SrilankaFiveDayChennaiItineraryPage"));
 const SrilankaBangaloreCostPillarPage = lazy(() => import("./components/SrilankaBangaloreCostPillarPage"));
 const SrilankaMumbaiCostPillarPage = lazy(() => import("./components/SrilankaMumbaiCostPillarPage"));
 const SrilankaHyderabadCostPillarPage = lazy(() => import("./components/SrilankaHyderabadCostPillarPage"));
@@ -642,6 +643,16 @@ export default function App() {
             </div>
           }>
             <SrilankaTripPlannerPillarPage />
+          </Suspense>
+        } />
+
+        <Route path="/sri-lanka-5-day-itinerary-from-chennai" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaFiveDayChennaiItineraryPage />
           </Suspense>
         } />
 

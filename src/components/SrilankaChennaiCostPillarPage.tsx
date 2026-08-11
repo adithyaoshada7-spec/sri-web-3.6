@@ -177,6 +177,20 @@ export default function SrilankaChennaiCostPillarPage() {
             <p className="text-sm sm:text-base text-luxury-black/85 leading-relaxed mb-6 font-light">
               How much will it take to visit Sri Lanka from Chennai? The baseline answer is incredibly encouraging: a <strong>5-day budget backpacking trip from Chennai costs approximately ₹25,000 to ₹40,000 per person</strong>. Couples seeking comfortable <strong>mid-range boutique stays spend about ₹45,000 to ₹75,000</strong>, while highly customizable, high-end <strong>luxury journeys cost ₹90,000+ per traveler</strong>.
             </p>
+
+            <div className="bg-luxury-cream/80 border border-luxury-gold/40 rounded-2xl p-5 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <span className="text-[10px] font-mono font-bold text-luxury-gold uppercase tracking-wider block">Looking for a Day-by-Day Route?</span>
+                <h4 className="font-serif font-bold text-luxury-green text-base">Check our 5-Day Sri Lanka Itinerary From Chennai</h4>
+                <p className="text-xs text-luxury-black/70">75-min direct flights, 2 route choices (Galle Coast or Kandy Hills), and flight schedules.</p>
+              </div>
+              <Link
+                to="/sri-lanka-5-day-itinerary-from-chennai"
+                className="px-5 py-2.5 bg-luxury-green text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-luxury-gold hover:text-black transition-all whitespace-nowrap"
+              >
+                View 5-Day Itinerary →
+              </Link>
+            </div>
             
             {/* The Google Featured Snippet Optimized Table */}
             <div className="overflow-hidden border border-luxury-green/10 rounded-2xl">
