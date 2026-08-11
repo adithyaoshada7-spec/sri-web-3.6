@@ -3,6 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { activities } from "../src/data/activities";
 import { seoArticles } from "../src/data/seoArticles";
+import { trainFallbackHtml } from "../src/data/trainFallbackHtml";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distPath = path.resolve(__dirname, "../dist");
@@ -1214,6 +1215,572 @@ function generatePrerenderPages(): PrerenderPage[] {
           <li><a href="/sri-lanka-family-itinerary">Sri Lanka Family Itinerary</a></li>
           <li><a href="/sri-lanka-itinerary-august-couples">Sri Lanka Honeymoon &amp; Couples Itinerary</a></li>
           <li><a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka</a></li>
+        </ul>
+      </footer>
+    `,
+    "/how-to-plan-a-train-trip-in-sri-lanka": trainFallbackHtml.trim(),
+    "/best-time-to-visit-sri-lanka": `
+      <header>
+        <h1>Best Time To Visit Sri Lanka (2026)</h1>
+        <p><strong>Sri Lanka has two monsoons running on opposite coasts at the same time, so there is always a dry, sunny half of the island — the trick is knowing which half, and when.</strong></p>
+      </header>
+
+      <section>
+        <h2>The Sri Lankan Rainfall &amp; Monsoon Map</h2>
+        <p>Forget complex barometric charts. Sri Lanka's geography means there are safe valleys and sunny bays at any moment if you understand the cycle.</p>
+        <ul>
+          <li><strong>Southwest Monsoon (May to September) — East Coast Pristine Season:</strong> Wind and rain saturate the southwestern beaches (Galle, Hambantota, Colombo). But the entire East Coast (Trincomalee, Passikudah, Arugam Bay) stays beautifully dry, sunny, and calm.</li>
+          <li><strong>Northeast Monsoon (October to January) — South &amp; West Coastal Premium:</strong> Rain affects the north and east. Meanwhile the southern coast beaches of Hikkaduwa, Weligama, and Tangalle shift into bone-dry paradise.</li>
+          <li><strong>The Shoulder Windows (February to April, July to August) — Perfect All-Around Balance:</strong> These weeks have minimal rain across almost the entire island, ideal for a single route covering both Sigiriya and the southern beaches.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Month-By-Month Experience Calendar</h2>
+        <table>
+          <thead>
+            <tr><th>Month</th><th>Weather</th><th>Crowds</th><th>Costs</th><th>Best For</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>January</td><td>Sunny &amp; dry in west &amp; south; cool in hill country</td><td>Peak Season</td><td>Premium rates</td><td>Whale watching &amp; beach escapes</td></tr>
+            <tr><td>February</td><td>Extremely dry and warm across coastal areas</td><td>High Season</td><td>Upper mid-range</td><td>Sigiriya strolls &amp; surfing</td></tr>
+            <tr><td>March</td><td>Transitioning month, warm seaside breeze, low rain</td><td>Moderately Busy</td><td>Favorable</td><td>Yala safaris &amp; Galle Fort</td></tr>
+            <tr><td>April</td><td>Sunny, high humidity; brief evening thunderstorms</td><td>Festive Peak</td><td>Slight holiday surge</td><td>Avurudu local festivals</td></tr>
+            <tr><td>May</td><td>Southwest monsoon begins; wet in Colombo &amp; south</td><td>Quiet / Low</td><td>Excellent value</td><td>Vesak festival of lights</td></tr>
+            <tr><td>June</td><td>Monsoon active in south; sunny and warm in East</td><td>Quiet Season</td><td>Very affordable</td><td>Arugam Bay surfing</td></tr>
+            <tr><td>July</td><td>Dry summer break; best weather on east coast</td><td>Moderate Summer</td><td>Mid-range</td><td>Elephant gathering &amp; East beaches</td></tr>
+            <tr><td>August</td><td>Warm and dry, great weather overall</td><td>Peak Summer</td><td>Holiday rates</td><td>Kandy Esala Perahera parade</td></tr>
+            <tr><td>September</td><td>Monsoon transitions; moderate showers late month</td><td>Shoulder Season</td><td>Favorable</td><td>Minneriya safari &amp; trekking</td></tr>
+            <tr><td>October</td><td>Primary monsoon transition; humid with rainfall</td><td>Quiet Season</td><td>Unbeatable discounts</td><td>Indoor luxury spa &amp; culinary</td></tr>
+            <tr><td>November</td><td>Transitioning skies; clearing up by mid-month</td><td>Rising Demand</td><td>Standard rates</td><td>Waterfall trails &amp; Kandy</td></tr>
+            <tr><td>December</td><td>Perfect blue skies resume in west and south</td><td>Super Peak</td><td>Premium rates</td><td>Mirissa whale safaris &amp; beaches</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>10 Mistakes Indian Travelers Make When Picking Dates</h2>
+        <ol>
+          <li>Assuming Sri Lanka gets rained out overall during monsoon months — since monsoons are regional, when one coast gets rain, the other is sunny.</li>
+          <li>Ignoring national festival closures — during Avurudu in mid-April, local transport is heavily booked as families reunite.</li>
+          <li>Booking Nuwara Eliya hotels without cold-climate prep — while the coast stays around 30°C year-round, Nuwara Eliya can drop below 12°C in January.</li>
+          <li>Assuming whale watching runs year-round — Mirissa boats only sail safely from December to April.</li>
+          <li>Booking peak-season hotels too late — the best boutique resorts in August and December sell out fast.</li>
+          <li>Trying to swim the South Coast during the southern monsoon (June) — currents are rough in Galle; Trincomalee stays calm instead.</li>
+          <li>Not checking passport validity before booking — under 6 months' validity can block entry at immigration.</li>
+          <li>Not carrying physical cash for rural temple visits — local stalls and tuk-tuks rely on cash.</li>
+          <li>Underestimating mountain transit times — winding hill-country roads are slower than they look on a map.</li>
+          <li>Underestimating peak-week price surges — Christmas and New Year carry heavy resort surcharges.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>What is the absolute best month to visit Sri Lanka for an Indian traveler?</strong><br/>January and February are the gold standard for all-around weather — clear skies, great beaches, and a cool hill country. July and August are excellent dry alternatives for the Cultural Triangle and East Coast.</p>
+        <p><strong>How does the weather vary by region?</strong><br/>The Southwest Monsoon brings rain to Colombo, Galle, and the hill country from May to September. The Northeast Monsoon targets the North and East (Trincomalee, Jaffna) from October to January — one side of the island is always in its dry season.</p>
+        <p><strong>When is the cheapest time to book?</strong><br/>May, September, and October offer the best value, with boutique villas and resorts cutting rates up to 40% and flights from Mumbai, Chennai, and Bangalore at their lowest.</p>
+        <p><strong>When is the elephant gathering in Minneriya?</strong><br/>The dry-season gathering peaks from July to September, when hundreds of wild elephants congregate around the receding reservoir.</p>
+        <p><strong>Is April a good time to visit?</strong><br/>Yes — mid-April coincides with Avurudu (Sinhala &amp; Tamil New Year), with authentic food and street festivals, though transport should be booked in advance as locals travel to reunite with family.</p>
+        <p><strong>What is the best time for the Kandy–Ella scenic train?</strong><br/>January to April offers the clearest skies, driest tracks, and deepest green hill-country views.</p>
+        <p><strong>Which month is best for surfing?</strong><br/>Weligama and Mirissa (South) from November to April; Arugam Bay (East) from May to September.</p>
+        <p><strong>Can Indians travel during the monsoon season at all?</strong><br/>Yes — because the monsoons are regional, a rainy southwest coast still leaves a sunny east coast route available.</p>
+      </section>
+
+      <footer>
+        <p><strong>Plan Around the Season:</strong></p>
+        <ul>
+          <li><a href="/sri-lanka-7-day-itinerary">Sri Lanka 7-Day Itinerary</a></li>
+          <li><a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost From India</a></li>
+          <li><a href="/sri-lanka-visa-for-indians">Sri Lanka Visa For Indians</a></li>
+          <li><a href="/where-to-go-in-sri-lanka-in-june">Where to Go in Sri Lanka in June</a></li>
+          <li><a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner</a></li>
+        </ul>
+      </footer>
+    `,
+    "/sri-lanka-family-itinerary": `
+      <header>
+        <h1>Sri Lanka Family Itinerary (2026): The Stress-Free Route For Families With Kids</h1>
+        <p><strong>A 12-day, kid-paced Sri Lanka route that avoids the biggest mistake families make: planning the island like a solo backpacker trip.</strong></p>
+      </header>
+
+      <section>
+        <h2>How Many Nights Should You Stay?</h2>
+        <p>Night allocations should follow your child's age group, not a generic loop. Our recommended 12-day base map:</p>
+        <ul>
+          <li><strong>Negombo Gateway — 1 Night:</strong> Recover from the flight and unwind near the airport.</li>
+          <li><strong>Sigiriya Heritage — 2 Nights:</strong> Boulders, ancient forts, and open-air safaris.</li>
+          <li><strong>Kandy Cultural Hub — 2 Nights:</strong> Royal gardens and the Temple of the Tooth.</li>
+          <li><strong>Ella Mountains — 2 Nights:</strong> Cool mountain air, Nine Arch Bridge, gentle hikes.</li>
+          <li><strong>South Coast Beach — 4-5 Nights:</strong> Sandcastles, calm-water beaches, and downtime.</li>
+        </ul>
+        <p>For babies and toddlers (0-2), keep the Sigiriya stop to easy morning strolls around the garden base and skip the mid-day climb. For young kids (3-11), do the Sigiriya steps early morning and save the elephant safari for the afternoon jeep ride. For teenagers, add ziplines near Ella and the full 1,200-step Sigiriya summit climb.</p>
+      </section>
+
+      <section>
+        <h2>10 Common Family Travel Mistakes To Avoid</h2>
+        <ol>
+          <li>Trying to visit too many attractions in 7 days — causes packing fatigue; keep the route focused.</li>
+          <li>Packing a giant folding stroller — steps and garden tracks are uneven; use a baby carrier instead.</li>
+          <li>Booking single-night hotel stays sequentially — aim for a minimum 2-night rule per stop.</li>
+          <li>Neglecting region-specific monsoons — a rainy south coast usually means a dry, sunny east coast.</li>
+          <li>Booking public third-class trains with heavy luggage — hire an AC private driver instead.</li>
+          <li>Climbing Pidurangala thinking it's Sigiriya — Pidurangala has steep, unfenced drop-offs; keep young kids on Sigiriya's safer steel stairs.</li>
+          <li>Booking safaris during the hot midday hour — animals hide in shade; book 6:00 AM or 4:00 PM instead.</li>
+          <li>Skipping a basic pediatric first-aid kit — rehydration salts and child paracetamol are hard to find in rural highland villages.</li>
+          <li>Letting kids feed wild temple macaques — they can bite or scratch when food is visible.</li>
+          <li>Forgetting e-Visa entry requirements — Indian travellers need an ETA before boarding; see our <a href="/sri-lanka-visa-for-indians">Sri Lanka Visa For Indians</a> guide.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>Is Sri Lanka stroller-friendly?</strong><br/>No. Ancient monuments, forest hikes, and city pavements are uneven or stepped. A high-quality baby carrier works far better than a stroller, which is only useful inside hotels or on the Galle Fort promenade.</p>
+        <p><strong>Can babies climb Sigiriya Rock Fortress?</strong><br/>Yes, using a secure backpack or front carrier — never a stroller. Avoid the midday sun (11 AM–3 PM); start at 7 AM when gates open for cooler, quieter conditions.</p>
+        <p><strong>How much driving is too much with children?</strong><br/>Road speeds average 40-50 km/h on winding mountain routes. Limit single-day drives to under 3.5 hours and use minimum 2-night stops to reduce time in the vehicle.</p>
+        <p><strong>Should I hire a private driver or use trains/buses?</strong><br/>A private AC vehicle with an English-speaking driver is the gold standard for families. The train is a wonderful scenic 2-hour experience in the hills, but public transport is often overcrowded and stressful with luggage.</p>
+      </section>
+
+      <footer>
+        <p><strong>Plan the Rest of Your Family Trip:</strong></p>
+        <ul>
+          <li><a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner</a></li>
+          <li><a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka</a></li>
+          <li><a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost From India</a></li>
+          <li><a href="/sri-lanka-visa-for-indians">Sri Lanka Visa For Indians</a></li>
+          <li><a href="/sri-lanka-10-day-itinerary">Sri Lanka 10-Day Itinerary</a></li>
+        </ul>
+      </footer>
+    `,
+    "/where-to-go-in-sri-lanka-in-june": `
+      <header>
+        <h1>Sri Lanka in June: Where to Go, Weather &amp; 7-Day Itinerary</h1>
+        <p><strong>June sits inside the Southwest Monsoon, so most travelers pick the wrong coast — here's the region that stays sunny and dry the whole month.</strong></p>
+      </header>
+
+      <section>
+        <h2>Most Travelers Pick the Wrong Coast in June</h2>
+        <p>June is peak Southwest Monsoon season for Sri Lanka's south and west coasts (Galle, Mirissa, Bentota) — expect afternoon cloudbursts and rough seas there. The East Coast (Trincomalee, Nilaveli, Passikudah) sits in a dry micro-climate shield during this exact window, staying sunny, calm, and swim-safe.</p>
+      </section>
+
+      <section>
+        <h2>East Coast vs South Coast (June Edition)</h2>
+        <table>
+          <thead>
+            <tr><th>Factor</th><th>East Coast (June Winner)</th><th>South Coast (Monsoon Wet)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Daily Weather</td><td>Sunny &amp; dry (29–33°C)</td><td>Humid with afternoon cloudbursts (27–30°C)</td></tr>
+            <tr><td>Beach Conditions</td><td>Pristine dry white sand, calm shores</td><td>Wet, storm-tossed sand, high tides</td></tr>
+            <tr><td>Ocean Swimming</td><td>Safe, flat bay surface</td><td>Dangerous — red-flag warnings common</td></tr>
+            <tr><td>Snorkeling &amp; Diving</td><td>Excellent at Pigeon Island</td><td>Poor visibility, silted reefs</td></tr>
+            <tr><td>Driving Time from Colombo Airport</td><td>5.5–6 hrs (or domestic transfer)</td><td>2.5–3 hrs via Southern Expressway</td></tr>
+            <tr><td>Family &amp; Kids Comfort</td><td>9.8 / 10</td><td>5 / 10</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Best Places to Visit in Sri Lanka in June</h2>
+        <ul>
+          <li><strong>Nilaveli Beach:</strong> A serene, miles-long stretch of fine white sand north of Trincomalee, with clear, shallow, warm water and quiet shores.</li>
+          <li><strong>Trincomalee / Uppuveli:</strong> Lively and atmospheric, with well-rated beach resorts and boat captains offering dolphin cruises on demand.</li>
+          <li><strong>Passikudah Bay:</strong> A quiet, crescent-shaped shallow bay where you can walk 150+ metres into calm water — ideal for toddlers.</li>
+          <li><strong>Cultural Triangle (Sigiriya, Dambulla, Anuradhapura):</strong> The dry-zone interior stays hot, dry, and clear all through June regardless of coastal weather.</li>
+          <li><strong>Hill Country (Ella, Nuwara Eliya):</strong> Cool, green, and misty in June, with the tea plantations at their lushest.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Sample 7-Day June Route</h2>
+        <p>Anchor the route in the dry zones — Cultural Triangle and East Coast — with the hill country as a cool-climate detour, and skip the wet south/west coast entirely for this specific month.</p>
+        <ul>
+          <li><strong>Days 1-2:</strong> Colombo arrival → Sigiriya / Cultural Triangle (dry, sunny).</li>
+          <li><strong>Day 3:</strong> Kandy — Temple of the Tooth and botanical gardens.</li>
+          <li><strong>Day 4:</strong> Nuwara Eliya / Ella — cool hill country, tea estates, Nine Arch Bridge.</li>
+          <li><strong>Days 5-7:</strong> Trincomalee or Nilaveli — dry, calm East Coast beach time and Pigeon Island snorkeling.</li>
+        </ul>
+      </section>
+
+      <footer>
+        <p><strong>Plan Around the Season:</strong></p>
+        <ul>
+          <li><a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka</a></li>
+          <li><a href="/sri-lanka-7-day-itinerary">Sri Lanka 7-Day Itinerary</a></li>
+          <li><a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner</a></li>
+          <li><a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost From India</a></li>
+        </ul>
+      </footer>
+    `,
+    "/how-to-use-trip-planner": `
+      <header>
+        <h1>How to Use the Sri Lanka Trip Planner</h1>
+        <p><strong>Official step-by-step documentation for the free Sri Lanka Trip Planner: configure your travel inputs, generate a day-by-day itinerary, and estimate your budget in under a minute.</strong></p>
+      </header>
+
+      <section>
+        <h2>What Is the Sri Lanka Trip Planner</h2>
+        <p>The Sri Lanka Trip Planner is an interactive travel tool that builds custom, route-optimized itineraries across Sri Lanka. Using your total trip length, travel budget, party size, and arrival month, it generates a personalized schedule with daily destination recommendations, budget allocations, an interactive route map, and curated accommodation choices — built for budget-conscious explorers, couples, families, and solo travellers alike.</p>
+      </section>
+
+      <section>
+        <h2>How to Use the Planner: Step-by-Step</h2>
+        <ol>
+          <li><strong>Step 1 — Enter Your Travel Duration:</strong> Select the total number of days you plan to spend in Sri Lanka (typically 3-21 days). The algorithm uses this to calculate realistic driving distances and optimal daily stops.</li>
+          <li><strong>Step 2 — Set Your Total Travel Budget:</strong> Choose a budget level (Budget, Mid-Range, or Luxury). This adjusts estimates for private transport, hotel categories, dining, and activity entrance fees.</li>
+          <li><strong>Step 3 — Choose Your Travel Companions:</strong> Indicate Solo, Couple, Friends, or Family. The planner uses this to optimize activity pacing, vehicle sizing, and room arrangements.</li>
+          <li><strong>Step 4 — Select Your Travel Month:</strong> Because Sri Lanka has a dual-monsoon climate, the tool factors in seasonal weather windows to prioritize destinations with favorable conditions for that month.</li>
+          <li><strong>Step 5 — Get Your Personalized Itinerary:</strong> Generate your complete plan — a day-by-day schedule, destination overviews, an interactive route map, a category budget breakdown, and recommended accommodation price ranges.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>How accurate is the budget estimate?</strong><br/>Estimates are based on real-time averages for transport, accommodation, meals, and entrance fees across Sri Lanka. Actual spending varies by personal style and season, but the figures are a realistic benchmark.</p>
+        <p><strong>Can I customize the itinerary after it's generated?</strong><br/>Yes — adjust your inputs (days, companions, month) to instantly regenerate alternative routes and stays.</p>
+        <p><strong>Does the planner include flights?</strong><br/>No, it covers ground travel within Sri Lanka only. Use our <a href="/flights">flight schedules and tracker</a> for inbound flights to Colombo.</p>
+        <p><strong>Is the planner free to use?</strong><br/>Yes — 100% free, with no registration, subscriptions, or hidden fees.</p>
+        <p><strong>How far in advance should I plan my trip?</strong><br/>We recommend 2-4 months ahead, especially for peak season (December-April), when boutique hotels and reserved train tickets sell out fast.</p>
+        <p><strong>Does the tool account for Sri Lanka's monsoons?</strong><br/>Yes — your travel month steers recommendations toward sunny coasts and dry zones for that period.</p>
+        <p><strong>Is the itinerary suitable for families with children?</strong><br/>Yes — selecting "Family" optimizes the route for gentler pacing and family-friendly accommodation.</p>
+      </section>
+
+      <footer>
+        <p><strong>Ready to Build Your Route?</strong></p>
+        <ul>
+          <li><a href="/sri-lanka-trip-planner">Launch the Sri Lanka Trip Planner</a></li>
+          <li><a href="/how-to-plan-a-trip-to-sri-lanka">How to Plan a Trip to Sri Lanka: Complete Guide</a></li>
+          <li><a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost From India</a></li>
+          <li><a href="/sri-lanka-visa-for-indians">Sri Lanka Visa For Indians</a></li>
+        </ul>
+      </footer>
+    `,
+    "/how-to-plan-a-trip-to-sri-lanka": `
+      <header>
+        <h1>How to Plan a Trip to Sri Lanka: The Complete Step-by-Step Guide</h1>
+        <p><strong>Avoid costly route traps and seasonal weather loops with a master coordination framework covering travel style, timing, trip length, and destinations — then build your exact route with the free trip planner tool.</strong></p>
+      </header>
+
+      <section>
+        <h2>Step 1: Decide Your Travel Style</h2>
+        <p>Your budget tier dictates the comfort of your transport and lodging. Sri Lanka offers three distinct tiers:</p>
+        <table>
+          <thead>
+            <tr><th>Travel Tier</th><th>Typical Stays</th><th>Local Transport</th><th>Daily Budget (Per Person)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Budget Backpacker</td><td>Local homestays, surf hostels, guest rooms</td><td>3rd class trains, public buses, tuk-tuks</td><td>₹2,500 – ₹4,000</td></tr>
+            <tr><td>Mid-Range Explorer</td><td>4-star design properties, heritage villas</td><td>Pre-booked AC trains, private day taxis</td><td>₹6,000 – ₹12,000</td></tr>
+            <tr><td>Ultra-Luxury</td><td>5-star boutique estates</td><td>Private AC SUV chauffeur, domestic air transfers</td><td>₹22,000 – ₹60,000+</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Step 2: Choose the Right Time to Visit</h2>
+        <p>Monsoon evasion is the most important planning decision. Sri Lanka runs on two opposing weather systems:</p>
+        <ul>
+          <li><strong>December to April (South &amp; West Coast Peak):</strong> Best for Colombo, Galle, Ella tea country, Nuwara Eliya, and ocean baths in Mirissa, Hikkaduwa and Bentota.</li>
+          <li><strong>May to September (East Coast Calm Peak):</strong> Head to Trincomalee for snorkeling, Arugam Bay for surfing, and Passikudah for calm, kid-safe swimming while the south coast is wet.</li>
+        </ul>
+        <p>See our full <a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka</a> guide and the <a href="/where-to-go-in-sri-lanka-in-june">Sri Lanka in June</a> report for month-specific detail.</p>
+      </section>
+
+      <section>
+        <h2>Step 3: Determine Trip Length</h2>
+        <ul>
+          <li><strong>5 Days:</strong> Highly compressed — only the core loop (Colombo–Sigiriya–Kandy, or Colombo–Galle–Mirissa). Best for quick breaks from South India.</li>
+          <li><strong>7 Days (Best First Trip):</strong> Cultural Triangle, tea highlands, and southern history. See our <a href="/sri-lanka-7-day-itinerary">7-Day Sri Lanka Itinerary</a>.</li>
+          <li><strong>12 Days (Family Certified):</strong> The pacing loop that avoids tiring kids or grandparents. See our <a href="/sri-lanka-family-itinerary">12-Day Sri Lanka Family Itinerary</a>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Common Sri Lanka Trip Planning Mistakes to Avoid</h2>
+        <ul>
+          <li><strong>Climbing Sigiriya Rock in the mid-afternoon:</strong> The stairs heat up fiercely under the dry sun. Always climb at 7:00 AM when it's cool and quiet.</li>
+          <li><strong>Forgetting warm layers for Nuwara Eliya and Ella:</strong> Hill-country altitudes regularly drop below 12°C at night, even though the coast is warm and humid.</li>
+          <li><strong>Forgetting to carry your Indian passport to SAARC ticket booths:</strong> Ancient monuments charge steep foreigner rates, but SAARC citizens (including India) get roughly 50% off — carry your physical passport.</li>
+          <li><strong>Trusting Google Maps driving times blindly:</strong> Estimates assume empty highways; mountain curves, slow tuk-tuks, and detours regularly add 1-2 extra hours.</li>
+        </ul>
+      </section>
+
+      <footer>
+        <p><strong>Build Your Exact Route:</strong></p>
+        <ul>
+          <li><a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner (free tool)</a></li>
+          <li><a href="/how-to-use-trip-planner">How to Use the Trip Planner</a></li>
+          <li><a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost From India</a></li>
+          <li><a href="/sri-lanka-visa-for-indians">Sri Lanka Visa For Indians</a></li>
+        </ul>
+      </footer>
+    `,
+    "/sri-lanka-travel-guide-for-americans": `
+      <header>
+        <h1>Sri Lanka Travel Guide for Americans (2026)</h1>
+        <p><strong>Visa rules, the best flight routings from the US, budgeting in dollars, and safety notes for American travelers heading to Sri Lanka.</strong></p>
+      </header>
+
+      <section>
+        <h2>Do US Citizens Need a Visa?</h2>
+        <p>Yes, but under the updated Sri Lankan visa scheme the government offers a free 30-day Electronic Travel Authorization (ETA) for citizens of several countries, including the United States. Apply online before departure with no visa processing fee.</p>
+        <p><strong>Key requirements at immigration:</strong></p>
+        <ul>
+          <li>A US passport valid for at least 6 months beyond your arrival date.</li>
+          <li>A printed copy of your approved free 30-day Tourist ETA confirmation.</li>
+          <li>Proof of an outbound return flight, home or to a third country.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>How to Fly from the USA to Colombo</h2>
+        <p>There are no non-stop flights from the US to Bandaranaike International Airport (BIA), but single-stop layovers are straightforward:</p>
+        <ul>
+          <li><strong>Middle East Airlines:</strong> Qatar Airways (via Doha) or Emirates (via Dubai) — strong business-class options and smooth connections.</li>
+          <li><strong>European Gateways:</strong> SriLankan Airlines flies non-stop from London Heathrow and Paris; British Airways runs seasonal routes.</li>
+          <li><strong>Asian Connections:</strong> Singapore Airlines (via Changi) or Cathay Pacific (via Hong Kong) work well from the US West Coast.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Costs &amp; Budgeting for American Travelers</h2>
+        <p>The dollar goes a long way in Sri Lanka. Local curries cost $3-$5; the main costs are private transport and major park entrance fees (Sigiriya is $36; Yala requires a jeep hire).</p>
+        <ul>
+          <li><strong>Private AC chauffeur:</strong> $85-$130/day, including fuel, tolls, and an English-speaking driver-guide.</li>
+          <li><strong>5-star boutique hotels &amp; villas:</strong> $150-$350/night, including tea-country infinity pools and ocean-facing suites.</li>
+        </ul>
+        <p>For a full breakdown, see our <a href="/sri-lanka-trip-cost-from-india">detailed budgeting &amp; cost calculator</a>.</p>
+      </section>
+
+      <section>
+        <h2>Is Sri Lanka Safe for US Travelers?</h2>
+        <p>Yes — Sri Lankan culture is deeply rooted in hospitality, and violent crime against tourists is extremely rare. Standard travel precautions apply, as anywhere.</p>
+      </section>
+
+      <footer>
+        <p><strong>Plan Your Trip:</strong></p>
+        <ul>
+          <li><a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner</a></li>
+          <li><a href="/sri-lanka-7-day-itinerary">Sri Lanka 7-Day Itinerary</a></li>
+          <li><a href="/sri-lanka-10-day-itinerary">Sri Lanka 10-Day Itinerary</a></li>
+          <li><a href="/best-time-to-visit-sri-lanka">Best Time to Visit Sri Lanka</a></li>
+        </ul>
+      </footer>
+    `,
+    "/best-things-to-do-sri-lanka-first-time-visitors": `
+      <header>
+        <h1>Best Things to Do in Sri Lanka For First-Time Visitors</h1>
+        <p><strong>What's actually worth booking, what to skip, and the practical logistics questions every first-timer asks — settled directly, no diplomatic hedging.</strong></p>
+      </header>
+
+      <section>
+        <h2>The Big First-Timer Travel Dilemmas</h2>
+        <ul>
+          <li><strong>Sigiriya Lion Rock vs. Pidurangala Rock:</strong> Sigiriya is a UNESCO World Heritage site with ancient ruins and royal gardens for $36. Pidurangala sits directly opposite, costs only $3, and offers the best panoramic sunrise view of Lion Rock itself.</li>
+          <li><strong>Yala vs. Udawalawe vs. Minneriya:</strong> Yala has the world's highest density of leopards but is crowded and closes annually in September/October. Udawalawe guarantees wild elephant sightings. Minneriya hosts the "Elephant Gathering" from July to October.</li>
+          <li><strong>Ella Blue Train vs. Private Driver:</strong> The Kandy–Ella train is one of the most scenic rail journeys in the world, but the full run takes nearly 7 hours on wooden seats — punishing for seniors or young children, who may do better with a private driver on the same route.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>What is the official currency and how are payments handled?</strong><br/>The Sri Lankan Rupee (LKR). Luxury hotels and fine dining in Colombo take international cards, but most daily transactions — tuk-tuks, fruit stalls, surf rentals, park fees — need cash. Arrive with clean USD bills and exchange at the airport.</p>
+        <p><strong>What's the recommended transport for first-timers?</strong><br/>A private air-conditioned vehicle with a licensed, English-speaking driver-guide. Self-driving is discouraged for first-timers due to winding mountain passes, aggressive local traffic, and left-side driving.</p>
+        <p><strong>What are the passport and visa requirements?</strong><br/>Passports need at least 6 months' validity from arrival. Apply for a digital Tourist ETA online before boarding — a typo in your passport number can result in boarding rejection.</p>
+        <p><strong>Do I need any vaccinations before travelling?</strong><br/>No mandatory vaccinations for most international visitors, unless arriving from a Yellow Fever-endemic region, in which case a certificate is required at the airport.</p>
+        <p><strong>Which power adapters are used in Sri Lanka?</strong><br/>Mainly Type G (UK-style) and Type D (India-style) sockets. A universal travel adapter is strongly recommended.</p>
+      </section>
+
+      <footer>
+        <p><strong>Plan Your First Trip:</strong></p>
+        <ul>
+          <li><a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner</a></li>
+          <li><a href="/sri-lanka-7-day-itinerary">Sri Lanka 7-Day Itinerary</a></li>
+          <li><a href="/things-to-do-in-sri-lanka">Things to Do in Sri Lanka</a></li>
+          <li><a href="/sri-lanka-visa-for-indians">Sri Lanka Visa For Indians</a></li>
+        </ul>
+      </footer>
+    `,
+    "/guide-to-flying-to-sri-lanka": `
+      <header>
+        <h1>The Complete Guide to Flights to Sri Lanka (2026)</h1>
+        <p><strong>Which airport to fly into, the airlines that actually serve Colombo, and when to book for the best fares.</strong></p>
+      </header>
+
+      <section>
+        <h2>Airports in Sri Lanka: Mapping Your Entry Gateways</h2>
+        <p>Sri Lanka operates three international airports serving distinct purposes:</p>
+        <table>
+          <thead>
+            <tr><th>Airport</th><th>Location</th><th>Primary Purpose</th><th>Key Airlines</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Bandaranaike International (CMB)</td><td>Katunayake / Colombo</td><td>Main global &amp; regional arrivals — ~95% of international flights</td><td>SriLankan, Emirates, Qatar, Singapore Airlines, Air India</td></tr>
+            <tr><td>Mattala Rajapaksa (HRI)</td><td>Hambantota / South Coast</td><td>Seasonal charter flights, low traffic</td><td>Charter carriers</td></tr>
+            <tr><td>Jaffna International (JAF)</td><td>Palaly / Northern Province</td><td>Regional cross-border traffic from India</td><td>IndiGo, Alliance Air</td></tr>
+          </tbody>
+        </table>
+        <p>Bandaranaike International (CMB) is connected to Colombo via the Colombo–Katunayake Expressway — about 35 minutes to the capital, or roughly 2 hours direct to Galle. Choose CMB for any international flight from Europe, North America, the Middle East, Australia, or India.</p>
+      </section>
+
+      <section>
+        <h2>Which Airlines Fly to Sri Lanka?</h2>
+        <ul>
+          <li><strong>SriLankan Airlines:</strong> The national flag carrier and Oneworld member, with the most extensive direct route network into Colombo — London Heathrow, Frankfurt, Melbourne, Singapore, and major Indian hubs.</li>
+          <li><strong>Emirates &amp; Qatar Airways:</strong> Frequent daily schedules connecting Colombo to North America, Europe, Africa, and South America via Dubai and Doha.</li>
+          <li><strong>Singapore Airlines:</strong> Premium East Asian connectivity via Changi, popular for travelers from Australia, New Zealand, and the US West Coast.</li>
+          <li><strong>Air India &amp; IndiGo:</strong> The backbone of the India–Sri Lanka corridor. Air India runs full-service flights from Mumbai and Delhi; IndiGo is the budget option from Chennai, Bangalore, and Hyderabad. See our <a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost from India</a> guide for a full regional budget breakdown.</li>
+          <li><strong>Etihad Airways &amp; flydubai:</strong> Etihad connects via Abu Dhabi; flydubai offers budget options from across the Gulf region.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Best Time to Book Flights to Sri Lanka</h2>
+        <ul>
+          <li><strong>Peak Season (December–April):</strong> Highest demand on the southwest coast and hill country. Book 4-6 months ahead to secure competitive fares, especially around Christmas, New Year, and Easter.</li>
+          <li><strong>Shoulder Season (May–August):</strong> The southwest sees monsoon rain while the East Coast is at its dry-season peak. Airfares dip; 2-3 months' notice is usually enough.</li>
+          <li><strong>Low Season (September–November):</strong> The wettest inter-monsoon period island-wide, with aggressive promotional fares. Booking 4-6 weeks ahead can yield the cheapest rates of the year.</li>
+        </ul>
+      </section>
+
+      <footer>
+        <p><strong>Plan the Rest of Your Trip:</strong></p>
+        <ul>
+          <li><a href="/flights">Live Flight Schedules &amp; Tracker</a></li>
+          <li><a href="/flights/why-use-a-flight-search-tool">Flight Search Tool for Sri Lanka</a></li>
+          <li><a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost From India</a></li>
+          <li><a href="/sri-lanka-visa-for-indians">Sri Lanka Visa For Indians</a></li>
+        </ul>
+      </footer>
+    `,
+    "/flights/why-use-a-flight-search-tool": `
+      <header>
+        <h1>Why Use a Flight Search Tool Before Booking Your Flight to Sri Lanka from India?</h1>
+        <p><strong>Compare flights India to Sri Lanka in one search instead of checking airline websites one by one — real-time INR pricing, transit duration, and layovers side by side.</strong></p>
+      </header>
+
+      <section>
+        <h2>Save Time by Comparing Flights from Indian Cities in One Search</h2>
+        <p>Sri Lanka's proximity to India makes it one of the most popular international destinations for Indian tourists, but weekly frequencies, routes, and seasonal pricing differ greatly by departure city. Our <a href="/flights">flight search tool</a> aggregates these variables instantly instead of requiring separate searches per airline.</p>
+        <ul>
+          <li><strong>Real-time pricing in INR:</strong> Compare live base fares across full-service and budget airlines, converted to Indian Rupees.</li>
+          <li><strong>Total transit durations:</strong> From roughly 1h 15m from Chennai (MAA) or Bengaluru (BLR) to about 3.5 hours from Delhi (DEL).</li>
+          <li><strong>Layover stopovers:</strong> Filter out exhausting multi-stop connections in favor of direct non-stop routes.</li>
+          <li><strong>Airline comparisons:</strong> Weigh premium carriers (SriLankan Airlines, Air India) against budget operators (IndiGo).</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Find the Best Flight for Your Budget (in INR)</h2>
+        <p>Flight prices are volatile and can shift by thousands of rupees within hours. What looks like a bargain budget fare on paper can carry expensive add-on costs for checked baggage, seat selection, and meals — always compare the full, all-in cost, not just the headline fare.</p>
+      </section>
+
+      <footer>
+        <p><strong>Compare Flights &amp; Plan Your Trip:</strong></p>
+        <ul>
+          <li><a href="/flights">Live Flight Schedules &amp; Tracker</a></li>
+          <li><a href="/guide-to-flying-to-sri-lanka">Complete Guide to Flights to Sri Lanka</a></li>
+          <li><a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost From India</a></li>
+          <li><a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner</a></li>
+        </ul>
+      </footer>
+    `,
+    "/private-driver-south-sri-lanka": `
+      <header>
+        <h1>Why You Should Consider a Private Driver for Your South Sri Lanka Road Trip</h1>
+        <p><strong>Timing tips for Galle sunsets, turtle snorkeling, and Udawalawe safaris — and why a private driver beats self-driving on this route.</strong></p>
+      </header>
+
+      <section>
+        <h2>Best Time to Visit Galle Fort for Sunset</h2>
+        <p>Arrive around 4:30-5:30pm — the worst of the heat has passed, and you can find a spot on the sea wall as the light turns gold and the lighthouse catches the last sun. The stone glows, crowds thin out, and the cafés along the ramparts start lighting up. Give yourself at least two hours to explore before the sky puts on its show.</p>
+      </section>
+
+      <section>
+        <h2>Best Time to Snorkel with Turtles</h2>
+        <p>Along this coast — Hikkaduwa, Polhena near Mirissa, or the quieter turtle points near Weligama — mornings are everything. Go before 9am while the sea is still glassy: calmer water means better visibility, and turtles are more relaxed feeding on sea grass before boat traffic and swimmers arrive.</p>
+      </section>
+
+      <section>
+        <h2>Udawalawe Safari Timing for the Best Wildlife Sightings</h2>
+        <p>Start right at gate opening, around 6am. Elephants, buffalo, and birdlife are far more active in the cool early morning, often gathering near the reservoir before retreating into shade as temperatures climb. Book your jeep the evening before, and pack a light jacket — open-top jeeps get chilly before sunrise.</p>
+      </section>
+
+      <section>
+        <h2>Ella to Demodara: A Short but Unforgettable Train Ride</h2>
+        <p>The stretch between Ella and Demodara takes 45 minutes to an hour and is consistently rated one of the most scenic train journeys in the world — winding through tea plantations, past waterfalls, and directly over the famous Nine Arches Bridge.</p>
+      </section>
+
+      <section>
+        <h2>Private SUV &amp; Van Transfers: A Stress-Free Alternative to Self-Driving</h2>
+        <p>This route covers several distinct stops in a short window, with winding coastal and hill roads. A private AC vehicle with an English-speaking driver lets you skip the logistics of self-driving — parking, route-finding, and unfamiliar traffic patterns — while still hitting sunset, snorkel, safari, and train timing exactly right.</p>
+      </section>
+
+      <footer>
+        <p><strong>Plan Your South Coast Route:</strong></p>
+        <ul>
+          <li><a href="/sri-lanka-car-rental">Sri Lanka Car Rental</a></li>
+          <li><a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner</a></li>
+          <li><a href="/sri-lanka-7-day-itinerary">Sri Lanka 7-Day Itinerary</a></li>
+          <li><a href="/things-to-do-in-sri-lanka">Things to Do in Sri Lanka</a></li>
+        </ul>
+      </footer>
+    `,
+    "/sri-lanka-car-rental": `
+      <header>
+        <h1>Car Rental in Sri Lanka – Explore Sri Lanka Your Way</h1>
+        <p><strong>Self-drive car rental prices in Sri Lanka, from an economy Suzuki Alto to a premium Audi A1 — plus who self-driving suits and what to check before booking.</strong></p>
+      </header>
+
+      <section>
+        <h2>Sri Lanka Car Rental Prices</h2>
+        <table>
+          <thead>
+            <tr><th>Vehicle</th><th>Category</th><th>100 km</th><th>200 km</th><th>300 km</th><th>Deposit</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Suzuki Alto</td><td>Economy Hatchback</td><td>LKR 5,000</td><td>LKR 6,000</td><td>LKR 7,500</td><td>LKR 30,000</td></tr>
+            <tr><td>Suzuki Wagon R</td><td>Compact Hatchback</td><td>LKR 7,000</td><td>LKR 8,500</td><td>LKR 10,000</td><td>LKR 40,000</td></tr>
+            <tr><td>Honda Freed</td><td>Family MPV</td><td>LKR 10,000</td><td>LKR 12,000</td><td>LKR 14,500</td><td>LKR 45,000</td></tr>
+            <tr><td>Honda GP5</td><td>Compact Sedan</td><td>LKR 10,000</td><td>LKR 12,000</td><td>LKR 14,500</td><td>LKR 45,000</td></tr>
+            <tr><td>Honda Vezel</td><td>Crossover SUV</td><td>LKR 11,000</td><td>LKR 12,500</td><td>LKR 15,000</td><td>LKR 50,000</td></tr>
+            <tr><td>Audi A1</td><td>Premium Hatchback</td><td>LKR 12,000</td><td>LKR 14,500</td><td>LKR 16,500</td><td>LKR 50,000</td></tr>
+          </tbody>
+        </table>
+        <p><em>Prices shown are subject to change and vehicle availability is subject to confirmation.</em></p>
+      </section>
+
+      <section>
+        <h2>Popular Sri Lanka Road Trips by Rental Car</h2>
+        <ul>
+          <li><strong>Colombo → Kandy → Nuwara Eliya → Ella:</strong> A classic hill-country route through cultural landmarks, tea estates, and mountain scenery.</li>
+          <li><strong>Colombo → Sigiriya → Kandy:</strong> A Cultural Triangle loop covering ancient rock fortresses and temple cities, with freedom to stop at viewpoints.</li>
+          <li><strong>Colombo → Galle → Mirissa:</strong> A relaxed south coast run linking a UNESCO fort city with popular beach towns.</li>
+          <li><strong>Colombo → Ella → Yala:</strong> Combines hill-country scenery with a national park safari.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Who Is Self-Drive Car Rental Suitable For?</h2>
+        <ul>
+          <li><strong>Couples:</strong> Travel comfortably and set your own itinerary.</li>
+          <li><strong>Families:</strong> More flexibility with luggage, children, and stops.</li>
+          <li><strong>Solo travellers:</strong> Explore beyond the standard tourist route.</li>
+          <li><strong>Business travellers:</strong> Move between destinations without depending on fixed schedules.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>About This Service</h2>
+        <p>This car rental service is operated by Vacay Lanka, a local rental provider — Plan Sri Lanka features this service to help you plan your trip, but vehicles, availability, and rental terms are managed directly by Vacay Lanka. Driving licence requirements, international driving permits, insurance coverage, age requirements, and fuel policy are not listed on this page; confirm these directly with Vacay Lanka before booking.</p>
+      </section>
+
+      <footer>
+        <p><strong>Prefer a Driver Instead?</strong></p>
+        <ul>
+          <li><a href="/private-driver-south-sri-lanka">Private Driver for the South Coast</a></li>
+          <li><a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner</a></li>
+          <li><a href="/sri-lanka-7-day-itinerary">Sri Lanka 7-Day Itinerary</a></li>
+          <li><a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost From India</a></li>
         </ul>
       </footer>
     `

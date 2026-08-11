@@ -58,7 +58,7 @@ const articleCategories = [
     articles: [
       {
         path: "/how-to-plan-a-trip-to-sri-lanka",
-        title: "Master Trip Planner Pillar (Step-by-Step Blueprint)",
+        title: "How to Plan a Trip to Sri Lanka (Step-by-Step Guide)",
         desc: "Our comprehensive 15-minute coordination handbook. Learn how to map climate zones, allocate daily budgets, and sequence driving hours without transit exhaustion.",
         image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
         readTime: "Master Pillar",

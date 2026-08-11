@@ -66,7 +66,7 @@ const getArticleMeta = (path: string) => {
     case "/how-to-plan-a-trip-to-sri-lanka":
       return {
         category: "Master Coordination",
-        tag: "Trip Planner",
+        tag: "Planning Guide",
         icon: <BookOpen className="w-3.5 h-3.5 text-[#d4af37]" />,
         readTime: "15 Min Read",
         badge: "Pillar Guide"

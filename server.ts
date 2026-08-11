@@ -552,7 +552,7 @@ async function startServer() {
       const fallbackRegex = /<article class="crawler-seo-wrapper">[\s\S]*?<\/article>/i;
       if (fallbackRegex.test(template)) {
         if (cleanPath === "/how-to-plan-a-train-trip-in-sri-lanka") {
-          template = template.replace(fallbackRegex, trainFallbackHtml.trim());
+          template = template.replace(fallbackRegex, `<article class="crawler-seo-wrapper">${trainFallbackHtml.trim()}\n</article>`);
           console.log(`[SEO-Server] Injected 1500+ words Train Trip Guide semantic fallback HTML.`);
         }
       }

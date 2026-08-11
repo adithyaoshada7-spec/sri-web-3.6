@@ -31,8 +31,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaTripPlannerPillarPage() {
   usePageMetadata({
-    title: "Sri Lanka Trip Planner | Free Itinerary & Route Planner",
-    description: "Build your perfect Sri Lanka itinerary with our master guide: step-by-step planning advice, monsoon-safe zones, budget calculators, and sample routes.",
+    title: "How to Plan a Trip to Sri Lanka: Complete Step-by-Step Guide (2026)",
+    description: "A complete step-by-step guide to planning a Sri Lanka trip: monsoon-safe routes, budgeting advice, sample itineraries, and the mistakes to avoid — then build your exact route with our free trip planner tool.",
     canonicalUrl: "https://plan-srilanka.com/how-to-plan-a-trip-to-sri-lanka",
     ogUrl: "https://plan-srilanka.com/how-to-plan-a-trip-to-sri-lanka"
   });
@@ -199,22 +199,22 @@ export default function SrilankaTripPlannerPillarPage() {
           </div>
 
           <h1 className="font-serif text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] max-w-4xl text-white">
-            Sri Lanka Trip Planner: Build Your <span className="italic text-luxury-gold block mt-2">Perfect Sri Lanka Itinerary</span>
+            How to Plan a Trip to Sri Lanka: <span className="italic text-luxury-gold block mt-2">The Complete Step-by-Step Guide</span>
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-white/80 font-light max-w-2xl leading-relaxed">
-            Avoid costly route traps and seasonal weather loops. Our master coordination framework maps the exact topography, driving curves, and monsoonal safe havens for ultimate Indian family comfort.
+            Avoid costly route traps and seasonal weather loops. Our master coordination framework maps the exact topography, driving curves, and monsoonal safe havens for ultimate Indian family comfort. Ready to map your own route? Use the free <Link to="/sri-lanka-trip-planner" className="underline text-luxury-gold hover:text-white">Sri Lanka trip planner tool</Link> once you've read the guide.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full justify-center max-w-md">
-            <Link 
+            <Link
               to="/sri-lanka-trip-planner"
               className="px-8 py-4 bg-luxury-gold hover:bg-white hover:text-[#1e3a2f] text-white rounded-full font-bold text-xs uppercase tracking-[0.2em] transition-all shadow-lg text-center flex items-center justify-center gap-2 group cursor-pointer"
             >
               <span>Launch Route Creator</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <a 
+            <a
               href="#step-by-step"
               className="px-8 py-4 border border-white/20 hover:border-luxury-gold text-white hover:text-luxury-gold rounded-full font-bold text-xs uppercase tracking-[0.2em] transition-all text-center flex items-center justify-center"
             >
