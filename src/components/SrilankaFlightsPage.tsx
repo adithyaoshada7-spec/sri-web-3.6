@@ -303,8 +303,8 @@ function generateClientSimulatedSchedules(selectedDate: string, flowType: "arriv
 
 export default function SrilankaFlightsPage() {
   usePageMetadata({
-    title: "Sri Lanka Flight Schedules & Live Status Tracker (CMB)",
-    description: "Explore the 30-day flight directory and live inbound tracker for Colombo Airport (CMB): airline schedules, status, and delays.",
+    title: "Plan Sri Lanka Flights Dashboard | Search & Compare Premium Vibe Airfares",
+    description: "Compare direct flights to Colombo from major hubs like Delhi, Mumbai, Bangalore, and London. Use our custom price trend analytics, direct layover checker, and Oshada's VIP flight concierge.",
     canonicalUrl: "https://plan-srilanka.com/flights",
     ogUrl: "https://plan-srilanka.com/flights"
   });

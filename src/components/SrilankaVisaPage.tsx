@@ -27,8 +27,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaVisaPage() {
   usePageMetadata({
-    title: "Sri Lanka Visa For Indians (2026): ETA Guide & Apply Online",
-    description: "Sri Lanka visa for Indians: how to get your Tourist ETA online, latest requirements, application steps, and stress-free airport entry tips.",
+    title: "Sri Lanka Visa For Indians (2026 ETA Guide) | Apply Online & Entry Requirements",
+    description: "Unravel the Sri Lanka Visa for Indians. Discover how to get your Sri Lanka Tourist ETA online, latest requirements, application steps, and how to stay stress-free at the airport.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-visa-for-indians",
     ogUrl: "https://plan-srilanka.com/sri-lanka-visa-for-indians"
   });

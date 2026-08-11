@@ -1,116 +1,49 @@
-import type { ReactNode } from "react";
-import { Instagram, Facebook } from "lucide-react";
+import { Instagram, Facebook, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const exploreLinks = [
-  { label: "Cultural Triangle", href: "/#journeys" },
-  { label: "Tea Country", href: "/#journeys" },
-  { label: "Wildlife Safari", href: "/#journeys" },
-  { label: "Coastal Vibe Tour", href: "/#journeys" }
-];
-
-const planLinks = [
-  { label: "Sri Lanka Trip Planner", to: "/sri-lanka-trip-planner" },
-  { label: "Sri Lanka 7-Day Itinerary", to: "/sri-lanka-7-day-itinerary" },
-  { label: "Sri Lanka 10-Day Itinerary", to: "/sri-lanka-10-day-itinerary" },
-  { label: "Visa & ETA Guide", to: "/sri-lanka-visa-for-indians" }
-];
-
-const costLinks = [
-  { label: "Trip Cost From India", to: "/sri-lanka-trip-cost-from-india" },
-  { label: "Trip Cost From Bangalore", to: "/sri-lanka-trip-cost-from-bangalore" },
-  { label: "Trip Cost From Chennai", to: "/how-much-will-it-take-to-visit-sri-lanka-from-chennai" },
-  { label: "Trip Cost From Mumbai", to: "/sri-lanka-trip-cost-from-mumbai" },
-  { label: "Trip Cost From Hyderabad", to: "/sri-lanka-trip-cost-from-hyderabad" }
-];
-
-const resourceLinks = [
-  { label: "Meet the Founder", to: "/about-founder" },
-  { label: "Travel Guides & Blog", to: "/blog" },
-  { label: "Things to Do in Sri Lanka", to: "/things-to-do-in-sri-lanka" },
-  { label: "Sri Lanka Car Rental", to: "/sri-lanka-car-rental" }
-];
-
-const FooterLinkColumn = ({
-  title,
-  children
-}: {
-  title: string;
-  children: ReactNode;
-}) => (
-  <div>
-    <h5 className="text-white uppercase tracking-[0.2em] text-[10px] font-bold mb-4">{title}</h5>
-    <div className="flex flex-col gap-2.5 text-[13px]">{children}</div>
-  </div>
-);
-
 export const Footer = () => (
-  <footer className="bg-luxury-black text-white/50 pt-14 md:pt-22 px-6 md:px-14 pb-10">
-    <div className="max-w-[1200px] mx-auto">
-      <div className="mb-12">
-        <Link to="/" className="inline-block font-serif font-semibold text-lg tracking-[0.14em] text-white mb-4">
-          PLAN SRI LANKA
-        </Link>
-        <p className="max-w-md text-[13px] leading-relaxed m-0">
-          A private travel concierge for the island, built for families and couples travelling from Australia and India.
-        </p>
+  <footer className="bg-luxury-black text-white/40 py-16 md:py-20 px-6 border-t border-white/5">
+    <div className="max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 md:mb-20 text-sm">
+        <div className="col-span-1 md:col-span-2">
+          <Link to="/" className="inline-block text-xl font-serif tracking-[0.2em] font-bold text-white mb-6 md:mb-8 hover:text-luxury-gold transition-colors">VIBE TOUR</Link>
+          <p className="max-w-xs leading-relaxed text-xs md:text-sm">
+            The ultimate travel concierge for the Indian Ocean. Dedicated to preservation, luxury, and the art of travel.
+          </p>
+        </div>
+        <div>
+          <h5 className="text-white uppercase tracking-widest text-[10px] md:text-[11px] font-bold mb-4 md:mb-6">Contact</h5>
+          <p className="mb-2 text-xs md:text-sm">Mayfair, London W1K</p>
+          <p className="mb-2 text-xs md:text-sm">Colombo 07, Sri Lanka</p>
+          <p className="text-xs md:text-sm">concierge@plansrilanka.com</p>
+        </div>
+        <div>
+          <h5 className="text-white uppercase tracking-widest text-[10px] md:text-[11px] font-bold mb-4 md:mb-6">Resources</h5>
+          <ul className="space-y-2.5 text-xs md:text-sm">
+            <li><Link to="/about-founder" className="hover:text-[#d4af37] transition-colors text-luxury-gold font-bold">👤 Meet the Founder (Oshada Adithya)</Link></li>
+            <li><Link to="/blog" className="hover:text-[#d4af37] transition-colors font-bold text-white">📚 Knowledge Hub (All Guides)</Link></li>
+            <li><Link to="/sri-lanka-trip-cost-from-india" className="hover:text-white transition-colors">Trip Cost Guide (India)</Link></li>
+            <li><Link to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai" className="hover:text-[#d4af37] transition-colors">Chennai to Sri Lanka Cost</Link></li>
+            <li><Link to="/sri-lanka-7-day-itinerary" className="hover:text-white transition-colors">7-Day Itinerary</Link></li>
+            <li><Link to="/sri-lanka-visa-for-indians" className="hover:text-white transition-colors">Visa Guide for Indians</Link></li>
+            <li><Link to="/best-time-to-visit-sri-lanka" className="hover:text-white transition-colors text-luxury-gold font-bold">Best Time to Visit Sri Lanka</Link></li>
+            <li><Link to="/sri-lanka-family-itinerary" className="hover:text-white transition-colors text-luxury-gold font-bold">Family Itinerary with Kids</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h5 className="text-white uppercase tracking-widest text-[10px] md:text-[11px] font-bold mb-4 md:mb-6">Social</h5>
+          <div className="flex gap-6 md:gap-4">
+            <Instagram className="w-5 h-5 cursor-pointer hover:text-white transition-colors" />
+            <Facebook className="w-5 h-5 cursor-pointer hover:text-white transition-colors" />
+            <Twitter className="w-5 h-5 cursor-pointer hover:text-white transition-colors" />
+          </div>
+        </div>
       </div>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10 mb-14">
-        <FooterLinkColumn title="Contact">
-          <p className="text-[13px] mb-0">Colombo 07, Sri Lanka</p>
-          <p className="text-[13px] mb-0">+94 72 296 8210</p>
-          <p className="text-[13px] m-0">concierge@plansrilanka.com</p>
-        </FooterLinkColumn>
-
-        <FooterLinkColumn title="Plan Your Trip">
-          {planLinks.map((l) => (
-            <Link key={l.label} to={l.to} className="hover:text-luxury-gold transition-colors">
-              {l.label}
-            </Link>
-          ))}
-        </FooterLinkColumn>
-
-        <FooterLinkColumn title="Trip Cost By City">
-          {costLinks.map((l) => (
-            <Link key={l.label} to={l.to} className="hover:text-luxury-gold transition-colors">
-              {l.label}
-            </Link>
-          ))}
-        </FooterLinkColumn>
-
-        <FooterLinkColumn title="Explore">
-          {exploreLinks.map((l) => (
-            <a key={l.label} href={l.href} className="hover:text-luxury-gold transition-colors">
-              {l.label}
-            </a>
-          ))}
-        </FooterLinkColumn>
-
-        <FooterLinkColumn title="Resources">
-          {resourceLinks.map((l) => (
-            <Link key={l.label} to={l.to} className="hover:text-luxury-gold transition-colors">
-              {l.label}
-            </Link>
-          ))}
-        </FooterLinkColumn>
-      </div>
-
-      <div className="flex items-center gap-3 pb-10">
-        <h5 className="sr-only">Social</h5>
-        <a href="#" aria-label="Instagram" className="w-8.5 h-8.5 border border-white/20 rounded-full flex items-center justify-center hover:border-luxury-gold hover:text-luxury-gold transition-colors">
-          <Instagram className="w-4 h-4" />
-        </a>
-        <a href="#" aria-label="Facebook" className="w-8.5 h-8.5 border border-white/20 rounded-full flex items-center justify-center hover:border-luxury-gold hover:text-luxury-gold transition-colors">
-          <Facebook className="w-4 h-4" />
-        </a>
-      </div>
-
-      <div className="border-t border-white/10 pt-7 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.1em]">
-        <span>© 2026 Plan Sri Lanka. All Rights Reserved.</span>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+      <div className="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-8 md:pt-10 text-[9px] md:text-[10px] uppercase tracking-widest text-center md:text-left gap-4">
+        <p>© 2026 Plan Sri Lanka. All Rights Reserved.</p>
+        <div className="flex gap-6 md:gap-8 bg-transparent">
+          <a href="#" className="hover:text-white">Privacy Policy</a>
+          <a href="#" className="hover:text-white">Terms of Service</a>
         </div>
       </div>
     </div>

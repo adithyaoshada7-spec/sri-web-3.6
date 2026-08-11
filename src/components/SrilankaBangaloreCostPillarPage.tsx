@@ -2,123 +2,39 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { usePageMetadata } from "../hooks/usePageMetadata";
-import {
-  ArrowRight,
-  MapPin,
-  Check,
-  HelpCircle,
-  Plane,
-  Award,
-  Clock,
-  Compass,
-  CheckCircle2,
-  AlertTriangle,
-  MessageCircle,
-  ChevronDown,
+import { 
+  ArrowRight, 
+  MapPin, 
+  Check, 
+  HelpCircle, 
+  Plane, 
+  Award, 
+  Clock, 
+  Compass, 
+  CheckCircle2, 
+  AlertTriangle, 
+  ChevronDown, 
   Info,
   Layers,
+  Coffee,
   Smartphone,
   Navigation,
+  Map,
   Sparkles,
   TrendingUp,
-  TrendingDown,
+  Heart,
   Users,
   UtensilsCrossed,
   ShieldAlert,
   Moon,
-  Train,
-  DollarSign,
-  Shield,
-  Wallet,
-  CreditCard,
-  Ticket,
-  Camera,
-  PiggyBank,
-  Landmark,
-  Bus,
-  Heart
+  Volume2
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
-const faqItems = [
-  {
-    q: "How much does a Sri Lanka trip cost from Bangalore?",
-    a: "A standard 5-day trip from Bangalore costs ₹27,000–₹42,000 per person on a budget itinerary, ₹48,000–₹78,000 for a comfortable mid-range trip, and ₹95,000+ for a luxury experience. This includes return BLR–CMB flights, stays, meals, private transport, and entry tickets. A 7-day trip typically adds another ₹10,000–₹35,000 depending on your travel style."
-  },
-  {
-    q: "How much is a Bangalore to Colombo flight?",
-    a: "A direct round-trip flight from Kempegowda International Airport (BLR) to Colombo (CMB) typically costs ₹11,000–₹18,000 on IndiGo or SriLankan Airlines, and can rise to ₹22,000–₹24,000 during peak December–April dates. Booking 45–60 days in advance usually secures the lowest fares."
-  },
-  {
-    q: "Do Indians need a visa for Sri Lanka, and is it free?",
-    a: "Yes, all Indian travellers need a Tourist Electronic Travel Authorization (ETA), but since 25 May 2026 Sri Lanka has waived the ETA fee for India and 39 other countries under its tourism promotion programme, making entry effectively free. You still must apply online at the official ETA portal before you fly — only the fee is waived, not the application itself."
-  },
-  {
-    q: "Is Sri Lanka cheaper than the Maldives?",
-    a: "Yes, significantly. The Maldives is built around costly overwater private-island resorts, while Sri Lanka offers affordable heritage stays, PickMe tuk-tuks, public trains, and inexpensive local dining — making a comparable trip roughly 50–60% cheaper than the Maldives."
-  },
-  {
-    q: "Is Sri Lanka cheaper than Bali or Goa?",
-    a: "Sri Lanka is generally on par with Bali and only slightly pricier than a budget Goa trip, but it delivers far more variety — ancient cities, hill-country trains, national park safaris, and uncrowded beaches — within a similar or lower per-day budget than Bali's increasingly tourist-priced south coast."
-  },
-  {
-    q: "Is 5 days enough for Sri Lanka?",
-    a: "Five days is perfect for a focused loop — either the south coast (Colombo, Negombo, Galle Fort) or the Cultural Triangle (Sigiriya and Kandy). If you also want the Kandy–Ella scenic train and a wildlife safari, we recommend extending to 7–9 days."
-  },
-  {
-    q: "What's the cheapest month to travel to Sri Lanka from Bangalore?",
-    a: "June, September, and October are historically the cheapest months for both flights and hotels, since they fall in the shoulder season between peak tourist waves. Boutique resorts often discount rates by up to 40% during these windows."
-  },
-  {
-    q: "Is Sri Lanka a good weekend trip from Bangalore?",
-    a: "Yes. Because the direct BLR–CMB flight takes only about 1 hour 25 minutes, a Friday-night-out, Monday-night-return long weekend easily covers Colombo, Negombo, and Galle Fort, or a short Sigiriya–Kandy cultural loop, without feeling rushed."
-  },
-  {
-    q: "Is Sri Lanka good for solo travelers?",
-    a: "Absolutely. Sri Lanka has a friendly, safe local culture, an established hostel and guesthouse network, widely spoken English, and cheap PickMe/tuk-tuk transport, making it one of the easiest solo-travel destinations in South Asia."
-  },
-  {
-    q: "Can I travel to Sri Lanka without a tour package?",
-    a: "Yes, easily. DIY travel in Sri Lanka is very simple — private chauffeurs, hotels, and train tickets can all be booked online in advance, letting you skip rigid agency packages entirely while still having a seamless trip."
-  },
-  {
-    q: "How much does a Sri Lanka safari cost?",
-    a: "A shared jeep safari (entry fee + vehicle, split among 4–6 people) typically costs ₹1,200–₹3,000 per person for a half-day visit to Udawalawe or Yala National Park. August–October is peak season for 'The Gathering' at Minneriya and Kaudulla, when hundreds of wild elephants congregate around the reservoir."
-  },
-  {
-    q: "How much is the Kandy to Ella train ticket?",
-    a: "Second-class reserved seats cost roughly ₹115–₹170 (LKR 400–600), while the glass-roofed 1st-class Observation Saloon costs around ₹430–₹570 (LKR 1,500–2,000) but must be booked about 30 days in advance online, as it sells out quickly."
-  },
-  {
-    q: "Can I use UPI or Indian debit/credit cards in Sri Lanka?",
-    a: "UPI is accepted at a growing number of merchants and major tourist hubs under bilateral payment agreements, and standard Visa/Mastercard debit or credit cards work at hotels, restaurants, and supermarkets. Keep some Sri Lankan Rupees in cash for tuk-tuks, small cafes, and rural vendors."
-  },
-  {
-    q: "How much cash should I carry from Bangalore?",
-    a: "We recommend carrying the equivalent of ₹8,000–₹15,000 in cash (exchanged into Sri Lankan Rupees or US Dollars) for tuk-tuks, tipping, street food, and small entry fees. Larger expenses like hotels and private drivers can usually be paid by card or bank transfer in advance."
-  },
-  {
-    q: "What is the daily travel budget for Sri Lanka?",
-    a: "Excluding flights and visa, budget travellers can expect to spend ₹3,000–₹4,500 a day, mid-range travellers ₹6,000–₹8,500 a day, and luxury travellers ₹14,000–₹22,000+ a day on stays, food, local transport, and entry tickets."
-  },
-  {
-    q: "How much does a 7-day Sri Lanka trip cost from Bangalore?",
-    a: "A 7-day trip typically costs ₹38,000–₹55,000 per person on a budget itinerary, ₹68,000–₹1,10,000 for mid-range comfort, and ₹1,35,000+ for a luxury experience, including flights, a full Cultural Triangle and hill-country loop, and one national park safari."
-  },
-  {
-    q: "Do I need travel insurance for Sri Lanka?",
-    a: "It isn't a strict entry requirement, but we strongly recommend it. A week-long policy usually costs under ₹1,000 and covers flight delays, lost baggage, and emergency medical costs — cheap insurance against an expensive problem."
-  },
-  {
-    q: "What are the hidden costs of a Sri Lanka trip?",
-    a: "Watch out for foreigner-priced entry tickets (often 2–3x the local rate), camera or drone fees at national parks, informal 'parking'/guide tips, dynamic currency conversion fees on card payments, and inflated bottled-water or sunscreen prices at resorts. Budgeting an extra 10% covers these comfortably."
-  }
-];
-
 export default function SrilankaBangaloreCostPillarPage() {
   usePageMetadata({
-    title: "Sri Lanka Trip Cost From Bangalore (2026): ₹27K–95K Guide",
-    description: "Planning a Sri Lanka trip from Bangalore? See flight, hotel, food, transport & activity costs for a 7-day trip, with budget options for couples and families.",
+    title: "Sri Lanka Trip Cost From Bangalore (2026 Guide) | Stays, Flights & Budgets",
+    description: "Calculate your total budget, compare BLR-CMB flight costs, understand visa requirements, and plan the perfect Sri Lanka itinerary from Bangalore with our 2026 guide.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-trip-cost-from-bangalore",
     ogUrl: "https://plan-srilanka.com/sri-lanka-trip-cost-from-bangalore"
   });
@@ -142,7 +58,7 @@ export default function SrilankaBangaloreCostPillarPage() {
 
   const handleWhatsAppClick = () => {
     trackEvent("whatsapp_click", "conversion", "bangalore_pillar");
-    window.open("https://wa.me/94722968210?text=Hi%20Plan%20Sri%20Lanka!%20I'm%20planning%20a%20trip%20from%20Bangalore%20and%20would%20love%20a%20free%20custom%20cost%20estimate%20and%20itinerary.", "_blank");
+    window.open("https://wa.me/94722968210?text=Hi%20Plan%20Sri%20Lanka!%20I'm%20planning%20a%20trip%20from%20Bangalore%20and%20would%2520love%2520a%2520free%2520custom%2520cost%2520estimate%2520and%2520itinerary.", "_blank");
   };
 
   return (
@@ -153,23 +69,17 @@ export default function SrilankaBangaloreCostPillarPage() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Sri Lanka Trip Cost From Bangalore (2026 Guide): Flights, Visa, Hotels & Budgets",
-            "description": "Planning a Sri Lanka trip from Bangalore? See flight, hotel, food, transport & activity costs for a 7-day trip, with budget options for couples and families.",
+            "headline": "Sri Lanka Trip Cost From Bangalore (2026 Guide) | Stays, Flights & Budgets",
+            "description": "Calculate your total budget, compare BLR-CMB flight costs, understand visa requirements, and plan the perfect Sri Lanka itinerary from Bangalore with our 2026 guide.",
             "image": [
               "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630"
             ],
             "datePublished": "2026-06-27T08:00:00+05:30",
-            "dateModified": "2026-08-04T09:00:00+05:30",
+            "dateModified": "2026-06-27T10:00:00+05:30",
             "author": {
               "@type": "Person",
               "name": "Adithya Oshada",
-              "jobTitle": "Lead Ceylon Travel Stylist",
-              "url": "https://plan-srilanka.com/about-founder"
-            },
-            "reviewedBy": {
-              "@type": "Person",
-              "name": "Anura Jayasekera",
-              "jobTitle": "SLTDA National Guide Lecturer (No: S-1294)"
+              "jobTitle": "Lead Ceylon Travel Stylist"
             },
             "publisher": {
               "@type": "Organization",
@@ -226,19 +136,77 @@ export default function SrilankaBangaloreCostPillarPage() {
             "touristType": "Sightseeing, Beaches, Wildlife, Culture, Wellness"
           })}
         </script>
-
+        
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": faqItems.map((item) => ({
-              "@type": "Question",
-              "name": item.q,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.a
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How much does a Sri Lanka trip cost from Bangalore?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A standard 5-day budget trip starts around ₹27,000 - ₹42,000 per person. Comfortable mid-range tours run from ₹48,000 - ₹78,000, while premium high-comfort luxury experiences begin around ₹95,000+ per traveler from Bangalore."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much is a Bangalore to Colombo flight?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A direct round-trip flight from Bangalore (BLR) to Colombo (CMB) typically ranges between ₹11,000 and ₹18,000 depending on advance booking."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do Indians need a visa for Sri Lanka?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, Indian passport holders require a Tourist Electronic Travel Authorization (ETA). Standard ETA fees are $20 USD (~₹1,650), but frequently waived to ₹0 during active tourism promotion campaigns in 2026."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is Sri Lanka cheaper than Maldives?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, significantly. While Maldives is built around costly private island overwater resorts, Sri Lanka offers affordable heritage stays, local transport options, public transit trains, and reasonable dining, making it 60% cheaper."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is 5 days enough for Sri Lanka?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, 5 days is perfect for a targeted itinerary covering Colombo, Negombo, and Galle Dutch Fort, or a Cultural Triangle highlight trip (Sigiriya and Kandy)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What's the cheapest month to travel to Sri Lanka?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "June, September, and October are historically the cheapest months for flights and hotel stays due to the shoulder season. This is when boutique resorts offer heavy discounts of up to 40%."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is Sri Lanka good for solo travelers?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely. Sri Lanka has an extremely friendly, safe local culture, a well-established hostel network, widely spoken English, and cheap PickMe/TukTuk transport options, making it ideal and highly safe for solo travelers."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I travel to Sri Lanka without a tour package?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, easily! DIY travel in Sri Lanka is very simple. Chauffeurs can be booked directly online, hotels can be selected via standard booking engines, and trains can be pre-booked in advance, allowing you to bypass agencies completely."
+                }
               }
-            }))
+            ]
           })}
         </script>
       </>
@@ -247,26 +215,26 @@ export default function SrilankaBangaloreCostPillarPage() {
       <div className="bg-luxury-green relative overflow-hidden py-16 md:py-24 text-white">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630')] bg-cover bg-center brightness-[0.22] opacity-80" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-luxury-green/90" />
-
+        
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#f3e5ab] px-3.5 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wider backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-luxury-gold" />
-            2026 Bangalore Edition · Free Visa ETA
+            2026 Bangalore Edition
           </div>
-
+          
           <h1 id="hero-title" className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#fcfbf7] font-bold leading-tight tracking-tight max-w-4xl mx-auto">
             Sri Lanka Trip Cost From Bangalore <br/>
             <span className="text-luxury-gold font-normal italic">(2026 Master Guide)</span>
           </h1>
-
+          
           <p className="mt-6 text-base sm:text-lg text-luxury-cream/80 max-w-3xl mx-auto font-light leading-relaxed">
-            Calculate your total budget, compare flight costs, understand the new free visa rules, and plan the perfect Sri Lanka itinerary from Bangalore. Just a quick 90-minute hop from Kempegowda Airport!
+            Calculate your total budget, compare flight costs, understand visa requirements, and plan the perfect Sri Lanka itinerary from Bangalore. Just a quick 90-minute hop from Kempegowda Airport!
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4 justify-center items-center text-xs text-luxury-cream/70 font-mono">
             <span className="flex items-center gap-1.5 py-1.5 px-3.5 bg-white/5 rounded-full border border-white/10">
               <Clock className="w-3.5 h-3.5 text-[#d4af37]" />
-              15 Min Complete Guide
+              12 Min Deep Read
             </span>
             <span className="flex items-center gap-1.5 py-1.5 px-3.5 bg-white/5 rounded-full border border-white/10">
               <Award className="w-3.5 h-3.5 text-[#d4af37]" />
@@ -274,35 +242,8 @@ export default function SrilankaBangaloreCostPillarPage() {
             </span>
             <span className="flex items-center gap-1.5 py-1.5 px-3.5 bg-white/5 rounded-full border border-white/10">
               <TrendingUp className="w-3.5 h-3.5 text-[#d4af37]" />
-              Updated August 2026
+              Updated June 2026
             </span>
-          </div>
-
-          {/* E-E-A-T Author / Reviewer Bar */}
-          <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap justify-center items-center gap-6 text-xs text-luxury-cream/70 font-light">
-            <div className="flex items-center gap-2.5">
-              <img
-                src="/src/assets/images/founder_oshada_adithya_1784092267835.jpg"
-                alt="Adithya Oshada, Lead Ceylon Travel Stylist and founder of Plan Sri Lanka"
-                width="36"
-                height="36"
-                className="w-9 h-9 rounded-full border border-luxury-gold/40 object-cover"
-                referrerPolicy="no-referrer"
-                loading="lazy"
-              />
-              <div className="text-left">
-                <span className="block text-white text-xs font-medium">Adithya Oshada</span>
-                <span className="text-[10px] font-mono text-luxury-gold block">Lead Ceylon Travel Stylist</span>
-              </div>
-            </div>
-            <div className="h-6 w-[1px] bg-white/10 hidden sm:block"></div>
-            <div className="text-left">
-              <span className="text-white text-xs font-medium flex items-center gap-1">
-                <Shield className="w-3.5 h-3.5 text-luxury-gold" />
-                Reviewed by Anura Jayasekera
-              </span>
-              <span className="text-[10px] text-luxury-cream/60 block">SLTDA National Guide Lecturer (No: S-1294)</span>
-            </div>
           </div>
 
           <div className="mt-10">
@@ -317,18 +258,9 @@ export default function SrilankaBangaloreCostPillarPage() {
         </div>
       </div>
 
-      {/* Visible Breadcrumb (mirrors BreadcrumbList schema) */}
-      <nav aria-label="Breadcrumb" className="max-w-4xl mx-auto px-4 sm:px-6 pt-5 text-[11px] font-mono text-luxury-black/45 flex items-center gap-1.5">
-        <Link to="/" className="hover:text-luxury-gold transition-colors">Home</Link>
-        <span>/</span>
-        <Link to="/sri-lanka-trip-cost-from-india" className="hover:text-luxury-gold transition-colors">Trip Costs</Link>
-        <span>/</span>
-        <span className="text-luxury-green font-bold">Bangalore</span>
-      </nav>
-
       {/* Main Container */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-8">
-
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-12">
+        
         {/* Quick Answer Featured Snippet Box */}
         <section id="snippet-box" className="bg-white border-2 border-luxury-gold/30 rounded-3xl p-6 sm:p-8 shadow-md mb-12 scroll-mt-24">
           <div className="bg-[#fdfaf2] -m-6 sm:-m-8 p-5 sm:p-6 rounded-t-[22px] border-b border-luxury-gold/20 flex items-center justify-between">
@@ -338,10 +270,10 @@ export default function SrilankaBangaloreCostPillarPage() {
             </div>
             <span className="text-xs font-mono text-luxury-black/40 hidden sm:inline">Kempegowda Int'l (BLR) → Colombo (CMB)</span>
           </div>
-
+          
           <div className="mt-8">
             <p className="text-sm sm:text-base text-luxury-black/85 leading-relaxed mb-6 font-light">
-              Looking to estimate your <strong>Sri Lanka trip cost from Bangalore</strong>? Based on direct flights from Kempegowda Airport, the new fee-free visa ETA, and current local pricing, a <strong>5-day budget backpacking trip starts around ₹27,000 – ₹42,000 per person</strong>. A comfortable <strong>mid-range tour averages ₹48,000 – ₹78,000</strong>, while a premium <strong>luxury getaway runs ₹95,000+ per traveler</strong>.
+              Looking to estimate your <strong>Sri Lanka trip cost from Bangalore</strong>? Based on direct flights from Kempegowda Airport, standard visa ETA clearances, and local fuel estimates, a **5-day budget backpacking trip starts around ₹27,000 - ₹42,000 per person**. A comfortable **mid-range tour averages ₹48,000 - ₹78,000**, while a premium **luxury getaway runs ₹95,000+ per traveler**.
             </p>
 
             {/* Quick Answer Budget Matrices */}
@@ -400,9 +332,9 @@ export default function SrilankaBangaloreCostPillarPage() {
                 </div>
               </div>
             </div>
-
+            
             <p className="text-[11px] text-luxury-black/40 italic font-light text-center">
-              *Estimates are calculated per-trip/per-person inclusive of direct BLR-CMB return flights, average seasonal hotels, local meals, and inter-city commutes. See our <a href="#pricing-methodology" className="underline hover:text-luxury-gold">pricing methodology</a> below.
+              *Estimates are calculated per-trip/per-person inclusive of direct BLR-CMB return flights, average seasonal hotels, local meals, and inter-city commutes.
             </p>
           </div>
         </section>
@@ -410,23 +342,15 @@ export default function SrilankaBangaloreCostPillarPage() {
         {/* Dynamic Navigation Shortcuts */}
         <section className="mb-12">
           <div className="bg-luxury-green/5 border border-luxury-green/10 p-5 rounded-2xl">
-            <span className="text-[10px] font-mono text-luxury-green/60 uppercase tracking-widest font-bold block mb-3">Jump to a Section</span>
+            <span className="text-[10px] font-mono text-luxury-green/60 uppercase tracking-widest font-bold block mb-3">Quick Navigation Navigation</span>
             <div className="flex flex-wrap gap-2.5 text-xs">
-              <a href="#flight-costs" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">Flights & Airlines</a>
-              <a href="#visa-cost" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">Visa Cost (Free ETA)</a>
-              <a href="#total-breakdown" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">Full Cost Breakdown</a>
-              <a href="#daily-budget" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">Daily Budget</a>
-              <a href="#itinerary-5day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">5-Day Itinerary</a>
-              <a href="#itinerary-7day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">7-Day Itinerary</a>
-              <a href="#trip-cost-by-traveler" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">Solo / Couple / Family / Luxury</a>
-              <a href="#transport-train-costs" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">Transport & Trains</a>
-              <a href="#food-hotel-costs" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">Food & Hotel Prices</a>
-              <a href="#attractions-safari" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">Tickets & Safari Cost</a>
-              <a href="#currency-exchange" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">Currency Exchange</a>
-              <a href="#hidden-costs-tips" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">Hidden Costs & Tips</a>
-              <a href="#first-timers" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">First-Timer Advice</a>
-              <a href="#diy-vs-package" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">DIY vs Tour Package</a>
-              <a href="#faq-section" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">FAQs</a>
+              <a href="#flight-costs" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">1. Flight Cost Comparison</a>
+              <a href="#total-breakdown" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">2. Cost Breakdown (Flights to SIM)</a>
+              <a href="#itinerary-5day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">3. 5-Day Sample Itinerary</a>
+              <a href="#first-timers" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">4. Reddit Insights & Practical Advice</a>
+              <a href="#worth-it" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">5. What Makes Sri Lanka Worth It</a>
+              <a href="#diy-vs-package" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">6. DIY vs Tour Package</a>
+              <a href="#faq-section" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">7. Frequently Asked Questions</a>
             </div>
           </div>
         </section>
@@ -436,7 +360,7 @@ export default function SrilankaBangaloreCostPillarPage() {
           <p className="font-bold uppercase tracking-widest text-[11px] text-luxury-gold mb-4 flex items-center gap-1.5 font-mono">
             <Info className="w-4 h-4" /> Sri Lanka Planning Pipeline:
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-stretch">
             <Link to="/sri-lanka-trip-planner" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
               <div>
                 <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Interactive</span>
@@ -449,6 +373,18 @@ export default function SrilankaBangaloreCostPillarPage() {
               </div>
             </Link>
 
+            <Link to="/sri-lanka-trip-cost-from-india" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
+              <div>
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Finance</span>
+                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">India Cost Guide</h4>
+                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Master Indian budget breakdown in INR.</p>
+              </div>
+              <div className="mt-4 flex items-center justify-end text-luxury-gold">
+                <span className="text-[10px] font-bold mr-1">Read Post</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
             <Link to="/sri-lanka-visa-for-indians" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
               <div>
                 <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Immigration</span>
@@ -457,54 +393,6 @@ export default function SrilankaBangaloreCostPillarPage() {
               </div>
               <div className="mt-4 flex items-center justify-end text-luxury-gold">
                 <span className="text-[10px] font-bold mr-1">Check Rules</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link to="/sri-lanka-7-day-itinerary" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
-              <div>
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Itinerary</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">7-Day Route</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Full day-by-day highlight loop.</p>
-              </div>
-              <div className="mt-4 flex items-center justify-end text-luxury-gold">
-                <span className="text-[10px] font-bold mr-1">Read Post</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link to="/sri-lanka-train-trip-planner" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
-              <div>
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Rail</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Train Planner</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Book the Kandy–Ella scenic route.</p>
-              </div>
-              <div className="mt-4 flex items-center justify-end text-luxury-gold">
-                <span className="text-[10px] font-bold mr-1">Open Tool</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link to="/sri-lanka-family-itinerary" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
-              <div>
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Family</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Family Itinerary</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Kid-friendly routes and pacing.</p>
-              </div>
-              <div className="mt-4 flex items-center justify-end text-luxury-gold">
-                <span className="text-[10px] font-bold mr-1">Read Post</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link to="/sri-lanka-car-rental" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
-              <div>
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Self-Drive</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Car Rental</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Compare vehicles and daily rental prices.</p>
-              </div>
-              <div className="mt-4 flex items-center justify-end text-luxury-gold">
-                <span className="text-[10px] font-bold mr-1">See Prices</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
@@ -530,7 +418,7 @@ export default function SrilankaBangaloreCostPillarPage() {
             Bangalore → Sri Lanka Flight Cost
           </h2>
           <p className="text-luxury-black/80 leading-relaxed text-sm sm:text-base font-light mb-6">
-            The flight ticket constitutes the most volatile portion of your travel cost, but flying out of <strong>Kempegowda International Airport (BLR)</strong> offers unparalleled benefits. Not only is Colombo (CMB) extremely close, but Bangalore also has regular, daily direct flight choices — making it one of the best-connected Indian gateways to the island.
+            The flight ticket constitutes the most volatile portion of your travel cost, but flying out of Kempegowda International Airport (BLR) offers unparalleled benefits. Not only is Colombo (CMB) extremely close, but Bangalore also has regular, daily direct flight choices.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -571,63 +459,17 @@ export default function SrilankaBangaloreCostPillarPage() {
             </div>
           </div>
 
-          {/* H3: Airlines from Bangalore */}
-          <h3 className="text-lg sm:text-xl font-serif font-bold text-luxury-green mb-4">Airlines Flying From Bangalore to Sri Lanka</h3>
-          <div className="overflow-x-auto rounded-2xl border border-luxury-green/10 bg-white shadow-sm mb-8">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2] text-[10px] sm:text-xs uppercase font-mono text-luxury-green">
-                  <th className="p-4">Airline</th>
-                  <th className="p-4">Route Type</th>
-                  <th className="p-4">Typical Frequency</th>
-                  <th className="p-4">Notes</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-luxury-cream text-luxury-black">
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">IndiGo</td>
-                  <td className="p-4 font-light">Direct (BLR–CMB)</td>
-                  <td className="p-4 font-light">Most frequent daily service</td>
-                  <td className="p-4 font-light text-luxury-black/70">Usually the most budget-friendly direct option.</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">SriLankan Airlines</td>
-                  <td className="p-4 font-light">Direct (BLR–CMB)</td>
-                  <td className="p-4 font-light">Multiple weekly / daily flights</td>
-                  <td className="p-4 font-light text-luxury-black/70">National carrier with fuller in-flight service and baggage allowance.</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Air India</td>
-                  <td className="p-4 font-light">Connecting via Chennai/Delhi</td>
-                  <td className="p-4 font-light">Daily, via layover</td>
-                  <td className="p-4 font-light text-luxury-black/70">Useful when direct fares spike around holidays.</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">IndiGo (via Chennai)</td>
-                  <td className="p-4 font-light">Connecting via MAA</td>
-                  <td className="p-4 font-light">Multiple daily options</td>
-                  <td className="p-4 font-light text-luxury-black/70">Cheapest fallback when direct BLR flights sell out.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          {/* H3: Cheapest months */}
-          <h3 className="text-lg sm:text-xl font-serif font-bold text-luxury-green mb-4">Cheapest Months to Fly & Weekend Trip Feasibility</h3>
           <div className="bg-white p-6 rounded-2xl border border-luxury-green/10 shadow-sm space-y-4 mb-8">
+            <h3 className="font-serif font-bold text-base text-luxury-green">Best Times to Book & Save</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-light">
               <div className="p-4 rounded-xl bg-luxury-cream/10 border border-luxury-cream">
-                <strong className="text-luxury-green flex items-center gap-1.5 mb-1"><TrendingDown className="w-3.5 h-3.5 text-luxury-gold" /> Cheapest Months:</strong>
-                September, June, and October are historically the most wallet-friendly months to book flights. Fares frequently drop down to ₹10,000-₹12,000 round trip.
+                <strong className="text-luxury-green block mb-1">📉 Cheapest Months:</strong>
+                September, June, and October are historically the most wallet-friendly months to book flights. Fares frequently drop down to ₹10,000.
               </div>
               <div className="p-4 rounded-xl bg-luxury-cream/10 border border-luxury-cream">
-                <strong className="text-luxury-green flex items-center gap-1.5 mb-1"><TrendingUp className="w-3.5 h-3.5 text-luxury-gold" /> Peak Season Surges:</strong>
-                December through April sees high tourist arrivals. Booking less than 30 days before travel — or over Diwali, Christmas, and New Year — can push prices up to ₹24,000.
+                <strong className="text-luxury-green block mb-1">📈 Peak Season Surges:</strong>
+                December through April experiences high tourist arrival rates. Booking less than 30 days before travel can cause prices to surge up to ₹24,000.
               </div>
-            </div>
-            <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-100 text-xs text-emerald-900">
-              <strong className="flex items-center gap-1.5 mb-1"><Clock className="w-3.5 h-3.5 text-emerald-700" /> Yes, it works as a weekend trip:</strong>
-              With a flight time of only 1 hr 25 mins, Bangalore techies routinely fly out Friday evening and return Monday night for a compact Colombo–Negombo–Galle loop, or a short Sigiriya–Kandy cultural sprint. Public holiday long weekends (Independence Day, Ganesh Chaturthi, Ayudha Puja) get booked out fastest — reserve flights 3-4 weeks ahead for these dates.
             </div>
           </div>
 
@@ -636,82 +478,6 @@ export default function SrilankaBangaloreCostPillarPage() {
             <div>
               <strong>✈️ Chauffeur Booking tip:</strong> Direct flights on IndiGo generally leave BLR in the early morning or mid-afternoon, allowing you to land at Bandaranaike Airport (CMB) by noon. This leaves ample daylight hours to hire a private taxi and drive directly to Sigiriya or Galle Fort without losing a day.
             </div>
-          </div>
-
-          {/* Real traveler photos: Sigiriya, reached via this same BLR-CMB route */}
-          <div className="mt-8">
-            <span className="text-[10px] uppercase font-mono font-bold text-luxury-gold tracking-widest block mb-3">Real Travelers On This Route</span>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="rounded-2xl overflow-hidden border border-luxury-green/10 shadow-sm bg-white">
-                <img
-                  src="/images/trust/sigiriya-travelers/sigiriya-summit-view-group-traveler.jpg"
-                  alt="Family and local guide at the Sigiriya viewpoint after flying Bangalore to Colombo"
-                  loading="lazy"
-                  className="w-full h-56 object-cover"
-                />
-                <p className="text-[11px] text-luxury-black/60 font-light p-3">Family trip, guided viewpoint hike near Sigiriya Rock</p>
-              </div>
-              <div className="rounded-2xl overflow-hidden border border-luxury-green/10 shadow-sm bg-white">
-                <img
-                  src="/images/trust/sigiriya-travelers/sigiriya-sunrise-visit-traveler.jpg"
-                  alt="Travelers watching sunrise near Sigiriya after a direct Bangalore to Colombo flight"
-                  loading="lazy"
-                  className="w-full h-56 object-cover"
-                />
-                <p className="text-[11px] text-luxury-black/60 font-light p-3">Sunrise at the Sigiriya viewpoint, Cultural Triangle</p>
-              </div>
-              <div className="rounded-2xl overflow-hidden border border-luxury-green/10 shadow-sm bg-white">
-                <img
-                  src="/images/trust/sigiriya-travelers/sigiriya-rock-summit-traveler-1.jpg"
-                  alt="Travelers and guide at Sigiriya viewpoint at sunset, reachable same-day from Bangalore"
-                  loading="lazy"
-                  className="w-full h-56 object-cover"
-                />
-                <p className="text-[11px] text-luxury-black/60 font-light p-3">Same-day Sigiriya arrival, sunset with the local guide</p>
-              </div>
-            </div>
-            <a
-              href="https://wa.me/94710652424?text=Hi%20Dissanayaka%20Priyantha!%20I%20found%20you%20on%20Plan%20Sri%20Lanka%20and%20would%20like%20to%20ask%20about%20a%20Sigiriya%20guided%20visit."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#1ebd5a] text-white font-bold text-xs sm:text-sm rounded-full shadow-md transition-all hover:scale-105"
-            >
-              <MessageCircle className="w-4 h-4" />
-              Ask Dissanayaka Priyantha (Local Guide) on WhatsApp
-            </a>
-          </div>
-        </section>
-
-        {/* Section: Visa Cost */}
-        <section id="visa-cost" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Shield className="w-6 h-6 text-[#d4af37]" />
-            Sri Lanka Visa Cost From Bangalore (Free in 2026)
-          </h2>
-          <p className="text-luxury-black/80 leading-relaxed text-sm sm:text-base font-light mb-6">
-            All Indian travelers need a <strong>Tourist Electronic Travel Authorization (ETA)</strong> before flying. The good news: since <strong>25 May 2026</strong>, Sri Lanka has waived the ETA fee entirely for India and 39 other eligible countries as part of its tourism promotion drive — you now only pay ₹0 for the visa itself.
-          </p>
-          <div className="p-5 bg-[#edf1ed]/40 border border-luxury-green/10 rounded-2xl space-y-3 mb-4">
-            <p className="text-xs sm:text-sm text-luxury-black/80 font-light leading-relaxed">
-              <strong>✅ Fee:</strong> ₹0 (waived for Indian passport holders under the 2026 free-ETA programme, down from the earlier $20-$50 standard charge).
-            </p>
-            <p className="text-xs sm:text-sm text-luxury-black/80 font-light leading-relaxed">
-              <strong>📝 Application:</strong> Still mandatory — you must apply online via the official ETA portal before departure. Only the fee is waived, not the paperwork.
-            </p>
-            <p className="text-xs sm:text-sm text-luxury-black/80 font-light leading-relaxed">
-              <strong>⏳ Validity:</strong> Double-entry, valid for 30 days from your first arrival. If you leave and re-enter Sri Lanka once (e.g. a side trip to the Maldives), your second visit must still fall inside that same 30-day window.
-            </p>
-            <p className="text-xs sm:text-sm text-luxury-black/80 font-light leading-relaxed">
-              <strong>⚠️ Good to know:</strong> Promotional fee waivers can end or change with little notice — always confirm the current fee on the official portal a few days before you fly, and beware of third-party "visa agent" sites charging service fees for what is a free government process.
-            </p>
-          </div>
-          <div className="mt-4">
-            <Link
-              to="/sri-lanka-visa-for-indians"
-              className="text-xs font-mono font-bold text-luxury-gold hover:text-luxury-green transition-colors inline-flex items-center gap-1.5 underline"
-            >
-              Read Full Visa & Document Requirements <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
           </div>
         </section>
 
@@ -768,9 +534,9 @@ export default function SrilankaBangaloreCostPillarPage() {
                 </tr>
                 <tr className="hover:bg-luxury-cream/10 transition-colors">
                   <td className="p-4 font-semibold text-luxury-green">📄 Visa (Tourist ETA)</td>
-                  <td className="p-4 font-mono text-luxury-gold font-bold">₹0 (Free since May 2026)</td>
-                  <td className="p-4 font-mono text-[#8B6E30] font-bold">₹0 (Free since May 2026)</td>
-                  <td className="p-4 font-mono text-[#4A3B18] font-bold">₹0 (Free since May 2026)</td>
+                  <td className="p-4 font-mono text-luxury-gold font-bold">₹0 (Promo Promo)</td>
+                  <td className="p-4 font-mono text-[#8B6E30] font-bold">₹1,650 ($20 standard)</td>
+                  <td className="p-4 font-mono text-[#4A3B18] font-bold">₹1,650</td>
                 </tr>
                 <tr className="hover:bg-luxury-cream/10 transition-colors">
                   <td className="p-4 font-semibold text-luxury-green">📱 SIM Card & Data</td>
@@ -795,45 +561,11 @@ export default function SrilankaBangaloreCostPillarPage() {
           </div>
         </section>
 
-        {/* Section: Daily Travel Budget */}
-        <section id="daily-budget" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Wallet className="w-6 h-6 text-[#d4af37]" />
-            Daily Travel Budget in Sri Lanka
-          </h2>
-          <p className="text-luxury-black/80 leading-relaxed text-sm sm:text-base font-light mb-6">
-            Once your flight and (now free) visa are sorted, the real question is: what should you budget per day on the ground? These land-only figures cover stays, food, local transport, and entry tickets:
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white border border-luxury-gold/10 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
-              <span className="px-2 py-0.5 bg-luxury-black/5 text-luxury-black/60 text-[9px] font-mono uppercase tracking-widest font-bold rounded-md mb-3 inline-block">Budget</span>
-              <h3 className="text-base font-bold font-serif text-luxury-black mb-1">Backpacker</h3>
-              <p className="text-2xl font-mono font-bold text-luxury-black mb-1">₹3,000 - ₹4,500</p>
-              <p className="text-[11px] text-luxury-black/50">per person, per day</p>
-            </div>
-            <div className="bg-white border-2 border-luxury-gold rounded-2xl p-6 text-center shadow-sm ring-4 ring-luxury-gold/5">
-              <span className="px-2.5 py-0.5 bg-luxury-gold text-white text-[9px] font-mono uppercase tracking-widest font-bold rounded-md mb-3 inline-block">Most Popular</span>
-              <h3 className="text-base font-bold font-serif text-luxury-green mb-1">Mid-Range</h3>
-              <p className="text-2xl font-mono font-bold text-luxury-green mb-1">₹6,000 - ₹8,500</p>
-              <p className="text-[11px] text-luxury-black/50">per person, per day</p>
-            </div>
-            <div className="bg-white border border-luxury-gold/10 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
-              <span className="px-2 py-0.5 bg-luxury-green/10 text-luxury-green text-[9px] font-mono uppercase tracking-widest font-bold rounded-md mb-3 inline-block">Luxury</span>
-              <h3 className="text-base font-bold font-serif text-luxury-black mb-1">Premium</h3>
-              <p className="text-2xl font-mono font-bold text-luxury-black mb-1">₹14,000 - ₹22,000+</p>
-              <p className="text-[11px] text-luxury-black/50">per person, per day</p>
-            </div>
-          </div>
-          <p className="text-[11px] text-luxury-black/40 italic font-light text-center mt-4">
-            Figures exclude round-trip flights and visa. Add ₹11,000-₹24,000 per person for flights on top of these daily rates.
-          </p>
-        </section>
-
         {/* Section 3: 5-Day Sample Itinerary */}
         <section id="itinerary-5day" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
             <Compass className="w-6 h-6 text-[#d4af37]" />
-            5-Day Sri Lanka Itinerary & Cost (Bangalore Flyer Route)
+            5-Day Sri Lanka Sample Itinerary (Bangalore Flyer Route)
           </h2>
           <p className="text-luxury-black/80 leading-relaxed text-sm sm:text-base font-light mb-6">
             If you only have a standard 5-day holiday window, trying to cover the entire island will cause extreme exhaustion. To keep travel times low and scenic value high, we have engineered the optimal low-fatigue route specifically for Bangalore flyers:
@@ -848,7 +580,7 @@ export default function SrilankaBangaloreCostPillarPage() {
               <h3 className="font-serif font-bold text-lg text-luxury-green">Day 1: Landing at Colombo (CMB)</h3>
               <p className="text-xs text-luxury-gold font-mono font-bold mt-1">Negombo / Colombo • Transit: 20 mins</p>
               <p className="text-xs sm:text-sm text-luxury-black/70 font-light mt-2 leading-relaxed">
-                Land in the morning, complete ETA clearances (free of charge in 2026), and pick up local Dialog SIMs. Take a short 20-minute highway taxi run to Negombo. Check in to your beach resort, shake off airport fatigue, and enjoy a fresh lagoon mud-crab dinner.
+                Land in the morning, complete ETA clearances, and pick up local Dialog SIMs. Take a short 20-minute highway taxi run to Negombo. Check in to your beach resort, shake off airport fatigue, and enjoy a fresh lagoon mud-crab dinner.
               </p>
             </div>
 
@@ -900,506 +632,6 @@ export default function SrilankaBangaloreCostPillarPage() {
               </p>
             </div>
           </div>
-
-          <div className="mt-6 p-4 bg-luxury-cream/15 border border-luxury-gold/20 rounded-2xl text-center">
-            <span className="text-[11px] font-mono text-luxury-black/60 uppercase tracking-wide">5-Day Total Cost, All-In</span>
-            <p className="text-sm font-bold text-luxury-green mt-1">₹27,000 - ₹42,000 (Budget) · ₹48,000 - ₹78,000 (Mid) · ₹95,000+ (Luxury)</p>
-          </div>
-        </section>
-
-        {/* Section: 7-Day Itinerary */}
-        <section id="itinerary-7day" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Compass className="w-6 h-6 text-[#d4af37]" />
-            7-Day Sri Lanka Itinerary & Cost from Bangalore
-          </h2>
-          <p className="text-luxury-black/80 leading-relaxed text-sm sm:text-base font-light mb-6">
-            Seven days is the sweet spot for first-time Bangalore visitors — enough time to add a wildlife safari and the full hill-country train loop without rushing the Cultural Triangle. Extend Day 4-5 of the 5-day route above with:
-          </p>
-          <div className="p-6 bg-white border border-luxury-gold/15 rounded-3xl mb-8">
-            <div className="space-y-4">
-              <div className="flex gap-3">
-                <span className="w-6 h-6 rounded-full bg-luxury-cream text-luxury-green font-mono text-xs font-bold flex items-center justify-center shrink-0">1-3</span>
-                <p className="text-xs sm:text-sm text-luxury-black/80 font-light"><strong>Days 1-3:</strong> Same as the 5-day route — Negombo, Sigiriya Rock Fortress, and Dambulla → Kandy.</p>
-              </div>
-              <div className="flex gap-3">
-                <span className="w-6 h-6 rounded-full bg-luxury-cream text-luxury-green font-mono text-xs font-bold flex items-center justify-center shrink-0">4</span>
-                <p className="text-xs sm:text-sm text-luxury-black/80 font-light"><strong>Day 4:</strong> Early-morning jeep safari at Udawalawe or Minneriya National Park (peak elephant season is July-October) before continuing to Nuwara Eliya.</p>
-              </div>
-              <div className="flex gap-3">
-                <span className="w-6 h-6 rounded-full bg-luxury-cream text-luxury-green font-mono text-xs font-bold flex items-center justify-center shrink-0">5</span>
-                <p className="text-xs sm:text-sm text-luxury-black/80 font-light"><strong>Day 5:</strong> Ride the scenic Nanu Oya-to-Ella train, hike to Nine Arch Bridge, and watch sunset from Ella Rock.</p>
-              </div>
-              <div className="flex gap-3">
-                <span className="w-6 h-6 rounded-full bg-luxury-cream text-luxury-green font-mono text-xs font-bold flex items-center justify-center shrink-0">6</span>
-                <p className="text-xs sm:text-sm text-luxury-black/80 font-light"><strong>Day 6:</strong> Drive to the south coast (Mirissa or Unawatuna) for beach time and, in season (Nov-Apr), whale watching.</p>
-              </div>
-              <div className="flex gap-3">
-                <span className="w-6 h-6 rounded-full bg-luxury-cream text-luxury-green font-mono text-xs font-bold flex items-center justify-center shrink-0">7</span>
-                <p className="text-xs sm:text-sm text-luxury-black/80 font-light"><strong>Day 7:</strong> Explore Galle Fort's Dutch colonial lanes, shop for tea and gems, then transfer to Colombo Airport for your flight home.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="overflow-x-auto border border-luxury-gold/15 rounded-2xl shadow-sm bg-white">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-[#fdfaf2] border-b border-luxury-gold/15">
-                  <th className="p-4 text-xs font-mono uppercase tracking-wider font-bold text-luxury-green">Expense Item</th>
-                  <th className="p-4 text-xs font-mono uppercase tracking-wider font-bold text-luxury-black">Budget Tier</th>
-                  <th className="p-4 text-xs font-mono uppercase tracking-wider font-bold text-[#d4af37]">Comfort Tier</th>
-                  <th className="p-4 text-xs font-mono uppercase tracking-wider font-bold text-luxury-green">Luxury Tier</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-luxury-gold/5 text-sm">
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-black flex items-center gap-2">
-                    <Moon className="w-4 h-4 text-luxury-gold shrink-0" />
-                    Lodging (6 Nights)
-                  </td>
-                  <td className="p-4 font-mono text-xs text-luxury-black/70">₹7,000 (Guesthouses)</td>
-                  <td className="p-4 font-mono text-xs text-[#d4af37] font-semibold">₹18,000 (3-4★ Boutique)</td>
-                  <td className="p-4 font-mono text-xs text-luxury-green font-bold">₹45,000 (5★ Resorts)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-black flex items-center gap-2">
-                    <Navigation className="w-4 h-4 text-luxury-gold shrink-0" />
-                    Transport & Driver
-                  </td>
-                  <td className="p-4 font-mono text-xs text-luxury-black/70">₹5,500 (Trains & tuk-tuks)</td>
-                  <td className="p-4 font-mono text-xs text-[#d4af37] font-semibold">₹16,000 (Private sedan)</td>
-                  <td className="p-4 font-mono text-xs text-luxury-green font-bold">₹30,000 (Private SUV)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-black flex items-center gap-2">
-                    <UtensilsCrossed className="w-4 h-4 text-luxury-gold shrink-0" />
-                    Daily Dining & Meals
-                  </td>
-                  <td className="p-4 font-mono text-xs text-luxury-black/70">₹4,900 (Street food/cafes)</td>
-                  <td className="p-4 font-mono text-xs text-[#d4af37] font-semibold">₹12,000 (Cafes/beach clubs)</td>
-                  <td className="p-4 font-mono text-xs text-luxury-green font-bold">₹24,000 (Fine dining)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-black flex items-center gap-2">
-                    <Compass className="w-4 h-4 text-luxury-gold shrink-0" />
-                    Tours, Tickets & Safari
-                  </td>
-                  <td className="p-4 font-mono text-xs text-luxury-black/70">₹5,500 (Self-guided + 1 safari)</td>
-                  <td className="p-4 font-mono text-xs text-[#d4af37] font-semibold">₹13,000 (Sigiriya + safari + train)</td>
-                  <td className="p-4 font-mono text-xs text-luxury-green font-bold">₹28,000 (Private guides + safari)</td>
-                </tr>
-                <tr className="bg-luxury-cream/10 font-bold border-t border-luxury-gold/20">
-                  <td className="p-4 text-luxury-green uppercase font-mono text-xs">Local Land Cost</td>
-                  <td className="p-4 font-mono text-luxury-black text-sm">₹22,900 - ₹28,000</td>
-                  <td className="p-4 font-mono text-luxury-green text-sm">₹55,000 - ₹68,000</td>
-                  <td className="p-4 font-mono text-luxury-green text-base">₹1,27,000 - ₹1,65,000+</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-black flex items-center gap-2">
-                    <Plane className="w-4 h-4 text-luxury-gold shrink-0" />
-                    + Flights (BLR-CMB Return)
-                  </td>
-                  <td className="p-4 font-mono text-xs text-luxury-black/70">₹11,000 - ₹13,000</td>
-                  <td className="p-4 font-mono text-xs text-[#d4af37] font-semibold">₹13,500 - ₹16,500</td>
-                  <td className="p-4 font-mono text-xs text-luxury-green font-bold">₹17,000 - ₹24,000</td>
-                </tr>
-                <tr className="bg-luxury-green/5 font-bold border-t-2 border-luxury-gold/30">
-                  <td className="p-4 text-luxury-green uppercase font-mono text-xs">Grand Total (7 Days)</td>
-                  <td className="p-4 font-mono text-luxury-black text-sm">₹38,000 - ₹55,000</td>
-                  <td className="p-4 font-mono text-luxury-green text-sm">₹68,000 - ₹1,10,000</td>
-                  <td className="p-4 font-mono text-luxury-green text-base">₹1,35,000+</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* Section: Trip Cost By Traveler Type */}
-        <section id="trip-cost-by-traveler" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Users className="w-6 h-6 text-[#d4af37]" />
-            Sri Lanka Trip Cost By Traveler Type
-          </h2>
-          <p className="text-luxury-black/80 leading-relaxed text-sm sm:text-base font-light mb-8">
-            Your ideal budget depends heavily on who you're traveling with. Here's how a 5-7 day trip breaks down for the four most common Bangalore traveler profiles:
-          </p>
-
-          <div className="space-y-8">
-            {/* Solo */}
-            <div>
-              <h3 className="font-serif font-bold text-lg text-luxury-green mb-2 flex items-center gap-2"><MapPin className="w-4 h-4 text-luxury-gold" /> Solo Backpacker Budget</h3>
-              <p className="text-xs sm:text-sm text-luxury-black/70 font-light leading-relaxed mb-2">
-                Solo travelers can keep costs remarkably low by staying in hostels and homestays, using public trains and PickMe tuk-tuks, and joining shared safari jeeps. Total 5-day solo cost: <strong className="text-luxury-green">₹27,000 - ₹42,000</strong>. English is widely spoken and the hostel network in Ella, Mirissa, and Kandy makes it easy to meet other travelers to split costs with.
-              </p>
-            </div>
-
-            {/* Couple */}
-            <div>
-              <h3 className="font-serif font-bold text-lg text-luxury-green mb-2 flex items-center gap-2"><Heart className="w-4 h-4 text-luxury-gold" /> Couple Trip Budget</h3>
-              <p className="text-xs sm:text-sm text-luxury-black/70 font-light leading-relaxed mb-2">
-                Couples typically upgrade to boutique double rooms and a dedicated private driver for privacy and pace control. Total 5-day couple cost: <strong className="text-luxury-green">₹52,000 (Budget) - ₹88,000 (Mid) - ₹1,75,000+ (Luxury)</strong>. Popular add-ons include a candlelit beach dinner in Mirissa, a couples Ayurvedic spa session, and a first-class train cabin from Kandy to Ella.
-              </p>
-            </div>
-
-            {/* Family */}
-            <div>
-              <h3 className="font-serif font-bold text-lg text-luxury-green mb-2 flex items-center gap-2"><Users className="w-4 h-4 text-luxury-gold" /> Family Trip Budget (4 Pax)</h3>
-              <p className="text-xs sm:text-sm text-luxury-black/70 font-light leading-relaxed mb-2">
-                A family of four (2 adults, 2 kids) should budget <strong className="text-luxury-green">₹1,05,000 (Budget) - ₹1,80,000 (Mid) - ₹3,40,000+ (Luxury)</strong> for a 5-day trip. Sharing a private minivan (Toyota KDH) is far cheaper per head than two taxis, and most attractions offer 50% child discounts under age 12 — carry passports for age verification.
-              </p>
-            </div>
-
-            {/* Luxury */}
-            <div>
-              <h3 className="font-serif font-bold text-lg text-luxury-green mb-2 flex items-center gap-2"><Award className="w-4 h-4 text-luxury-gold" /> Luxury Travel Budget</h3>
-              <p className="text-xs sm:text-sm text-luxury-black/70 font-light leading-relaxed mb-2">
-                For a fully curated 5-star experience — cliffside pool villas, private SUV with an English-speaking chauffeur guide, fine dining, and a private safari vehicle — budget <strong className="text-luxury-green">₹95,000+ per person</strong> for 5 days, or <strong className="text-luxury-green">₹1,35,000+</strong> for a 7-day version. This tier is where our concierge planning adds the most value versus a generic OTA package.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Section: Transport & Train Costs */}
-        <section id="transport-train-costs" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Bus className="w-6 h-6 text-[#d4af37]" />
-            Local Transport & Sri Lanka Railways Costs
-          </h2>
-
-          <h3 className="text-lg sm:text-xl font-serif font-bold text-luxury-green mb-4">Tuk-Tuks, PickMe & Private Drivers</h3>
-          <div className="overflow-x-auto rounded-2xl border border-luxury-green/10 bg-white shadow-sm mb-8">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2] text-[10px] sm:text-xs uppercase font-mono text-luxury-green">
-                  <th className="p-4">Transport Mode</th>
-                  <th className="p-4">Typical Cost</th>
-                  <th className="p-4">Best For</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-luxury-cream text-luxury-black">
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">PickMe Tuk-Tuk</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">~₹23-29/km (metered)</td>
-                  <td className="p-4 font-light text-luxury-black/70">Short hops within Colombo, Kandy, Galle towns</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">PickMe / Uber Car</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">~₹35-45/km</td>
-                  <td className="p-4 font-light text-luxury-black/70">City transfers, airport runs</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Private AC Sedan + Driver</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹4,500 - ₹6,500/day</td>
-                  <td className="p-4 font-light text-luxury-black/70">Multi-city itineraries, 1-4 travelers</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Private SUV / Van + Driver</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹7,000 - ₹9,000/day</td>
-                  <td className="p-4 font-light text-luxury-black/70">Families and groups of 4+</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Public Bus</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹50-200 per route</td>
-                  <td className="p-4 font-light text-luxury-black/70">Ultra-budget backpackers</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h3 className="text-lg sm:text-xl font-serif font-bold text-luxury-green mb-4 flex items-center gap-2"><Train className="w-5 h-5 text-luxury-gold" /> Sri Lanka Railways Ticket Costs</h3>
-          <p className="text-luxury-black/80 leading-relaxed text-sm sm:text-base font-light mb-4">
-            The Kandy-to-Ella line through the tea highlands is one of the world's most scenic train rides — and one of the cheapest. Sri Lanka Railways prices scale by class:
-          </p>
-          <div className="overflow-x-auto rounded-2xl border border-luxury-green/10 bg-white shadow-sm mb-6">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2] text-[10px] sm:text-xs uppercase font-mono text-luxury-green">
-                  <th className="p-4">Class</th>
-                  <th className="p-4">Approx. Cost (Kandy-Ella)</th>
-                  <th className="p-4">Booking Note</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-luxury-cream text-luxury-black">
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">1st Class Observation Saloon</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹430 - ₹570 (LKR 1,500-2,000)</td>
-                  <td className="p-4 font-light text-luxury-black/70">Glass-roof, book ~30 days ahead online</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">2nd Class Reserved</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹115 - ₹170 (LKR 400-600)</td>
-                  <td className="p-4 font-light text-luxury-black/70">Openable windows, best value</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">3rd Class Reserved</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹70 - ₹100 (LKR 250-350)</td>
-                  <td className="p-4 font-light text-luxury-black/70">Budget-friendly, still guaranteed seat</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Unreserved</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹30 - ₹50 (LKR 100-180)</td>
-                  <td className="p-4 font-light text-luxury-black/70">No seat guarantee — can mean standing 3+ hrs</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <Link
-            to="/how-to-plan-a-train-trip-in-sri-lanka"
-            className="text-xs font-mono font-bold text-luxury-gold hover:text-luxury-green transition-colors inline-flex items-center gap-1.5 underline"
-          >
-            Read the Full Sri Lanka Train Booking Guide <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </section>
-
-        {/* Section: Food & Hotel Costs */}
-        <section id="food-hotel-costs" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <UtensilsCrossed className="w-6 h-6 text-[#d4af37]" />
-            Food Costs & Hotel Price Ranges
-          </h2>
-
-          <h3 className="text-lg sm:text-xl font-serif font-bold text-luxury-green mb-4">Daily Food Costs</h3>
-          <div className="overflow-x-auto rounded-2xl border border-luxury-green/10 bg-white shadow-sm mb-8">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2] text-[10px] sm:text-xs uppercase font-mono text-luxury-green">
-                  <th className="p-4">Dining Style</th>
-                  <th className="p-4">Cost Per Meal</th>
-                  <th className="p-4">Example</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-luxury-cream text-luxury-black">
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Local "Kade" / Street Food</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹150 - ₹350</td>
-                  <td className="p-4 font-light text-luxury-black/70">Rice & curry, egg hoppers, king coconut</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Casual Café / Tourist Restaurant</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹450 - ₹850</td>
-                  <td className="p-4 font-light text-luxury-black/70">Seafood curry, kottu roti, fresh juice</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Mid-Range / Hotel Buffet</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹1,200 - ₹2,200</td>
-                  <td className="p-4 font-light text-luxury-black/70">Beach club dinner, boutique hotel buffet</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Fine Dining</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹3,500 - ₹7,000+</td>
-                  <td className="p-4 font-light text-luxury-black/70">5-star resort dining, lobster/crab specialties</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h3 className="text-lg sm:text-xl font-serif font-bold text-luxury-green mb-4">Hotel & Stay Price Ranges (Per Night)</h3>
-          <div className="overflow-x-auto rounded-2xl border border-luxury-green/10 bg-white shadow-sm">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2] text-[10px] sm:text-xs uppercase font-mono text-luxury-green">
-                  <th className="p-4">Stay Category</th>
-                  <th className="p-4">Price Range</th>
-                  <th className="p-4">Typical Style</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-luxury-cream text-luxury-black">
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Hostel / Guesthouse</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹1,200 - ₹2,500</td>
-                  <td className="p-4 font-light text-luxury-black/70">Homestays, dorm beds, family-run lodges</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">3-Star Hotel</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹3,500 - ₹6,000</td>
-                  <td className="p-4 font-light text-luxury-black/70">Clean, AC, reliable Wi-Fi</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">4-Star Boutique</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹7,000 - ₹14,000</td>
-                  <td className="p-4 font-light text-luxury-black/70">Design-led boutique resorts, pool access</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">5-Star Luxury Resort</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹15,000 - ₹40,000+</td>
-                  <td className="p-4 font-light text-luxury-black/70">Cliffside villas, private pools, full-service spas</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* Section: Attractions & Safari */}
-        <section id="attractions-safari" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Ticket className="w-6 h-6 text-[#d4af37]" />
-            Attraction Ticket Prices & Safari Costs
-          </h2>
-
-          <h3 className="text-lg sm:text-xl font-serif font-bold text-luxury-green mb-4">Entry Ticket Prices (Foreigner Rate)</h3>
-          <div className="overflow-x-auto rounded-2xl border border-luxury-green/10 bg-white shadow-sm mb-8">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2] text-[10px] sm:text-xs uppercase font-mono text-luxury-green">
-                  <th className="p-4">Attraction</th>
-                  <th className="p-4">Approx. Entry Fee</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-luxury-cream text-luxury-black">
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Sigiriya Lion Rock Fortress</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">~$30 (≈ ₹2,500)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Temple of the Sacred Tooth Relic, Kandy</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">~$10-15 (≈ ₹850-1,300)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Dambulla Cave Temple</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">~$10 (≈ ₹850)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Polonnaruwa / Anuradhapura Ancient City</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">~$25 (≈ ₹2,100)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Galle Fort (walking the ramparts)</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">Free</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Pinnawala Elephant Orphanage</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">~$15-20 (≈ ₹1,300-1,700)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="text-[11px] text-luxury-black/40 italic font-light mb-8">
-            Entry fees are set by SLTDA/Department of Archaeology and revised periodically — treat these as planning estimates and confirm current rates before you travel.
-          </p>
-
-          <h3 className="text-lg sm:text-xl font-serif font-bold text-luxury-green mb-4">Wildlife Safari Costs</h3>
-          <div className="p-4 bg-emerald-50 border border-emerald-100 rounded-2xl text-xs text-emerald-900 mb-6 flex gap-2">
-            <Sparkles className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
-            <div><strong>It's peak elephant season right now:</strong> August falls within Minneriya and Kaudulla National Park's famous "Gathering" (roughly July-October), when hundreds of wild elephants congregate around the reservoirs as it dries — one of Asia's greatest wildlife spectacles, and a strong reason to book a safari into your itinerary this month.</div>
-          </div>
-          <div className="overflow-x-auto rounded-2xl border border-luxury-green/10 bg-white shadow-sm">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2] text-[10px] sm:text-xs uppercase font-mono text-luxury-green">
-                  <th className="p-4">National Park</th>
-                  <th className="p-4">Cost Per Person (Shared Jeep, Half-Day)</th>
-                  <th className="p-4">Known For</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-luxury-cream text-luxury-black">
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Udawalawe</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹1,200 - ₹2,000</td>
-                  <td className="p-4 font-light text-luxury-black/70">Near-guaranteed elephant sightings, budget-friendly</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Yala National Park</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹1,500 - ₹3,000</td>
-                  <td className="p-4 font-light text-luxury-black/70">Highest leopard density in the world</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">Minneriya / Kaudulla</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">₹1,500 - ₹2,500</td>
-                  <td className="p-4 font-light text-luxury-black/70">"The Gathering" — 200+ elephants (Jul-Oct)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* Section: Currency Exchange */}
-        <section id="currency-exchange" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Landmark className="w-6 h-6 text-[#d4af37]" />
-            Currency Exchange: INR to LKR Examples
-          </h2>
-          <p className="text-luxury-black/80 leading-relaxed text-sm sm:text-base font-light mb-6">
-            As of August 2026, <strong>1 Indian Rupee (INR) ≈ 3.5 Sri Lankan Rupees (LKR)</strong> at the mid-market rate. This is an illustrative reference only — exchange rates move daily, so always check a live converter (Google, XE, or your bank app) close to your travel date.
-          </p>
-          <div className="overflow-x-auto rounded-2xl border border-luxury-green/10 bg-white shadow-sm mb-6">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2] text-[10px] sm:text-xs uppercase font-mono text-luxury-green">
-                  <th className="p-4">You Spend (INR)</th>
-                  <th className="p-4">Approx. Equivalent (LKR)</th>
-                  <th className="p-4">Example Purchase</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-luxury-cream text-luxury-black">
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">₹500</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">≈ LKR 1,750</td>
-                  <td className="p-4 font-light text-luxury-black/70">Casual café meal for one</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">₹1,000</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">≈ LKR 3,500</td>
-                  <td className="p-4 font-light text-luxury-black/70">A day's PickMe/tuk-tuk transport</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">₹5,000</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">≈ LKR 17,500</td>
-                  <td className="p-4 font-light text-luxury-black/70">One night in a 3-star hotel</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-luxury-green">₹10,000</td>
-                  <td className="p-4 font-mono font-bold text-luxury-gold">≈ LKR 35,000</td>
-                  <td className="p-4 font-light text-luxury-black/70">A full day's private chauffeur + fuel</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="p-4 bg-luxury-cream/15 border border-luxury-gold/20 rounded-2xl text-xs text-luxury-black/75 font-light">
-            <strong className="text-luxury-green">Where to exchange:</strong> Airport counters at Bandaranaike (CMB) are convenient but usually offer slightly weaker rates than city forex bureaus in Colombo or Kandy. ATM withdrawals in LKR are widely available and often give a fair mid-market rate minus a small fixed fee — check your Indian bank's foreign withdrawal charges before you fly.
-          </div>
-        </section>
-
-        {/* Section: Hidden Costs & Money-Saving Tips */}
-        <section id="hidden-costs-tips" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <PiggyBank className="w-6 h-6 text-[#d4af37]" />
-            Hidden Costs & Money-Saving Tips
-          </h2>
-
-          <h3 className="text-lg sm:text-xl font-serif font-bold text-luxury-green mb-4 flex items-center gap-2"><ShieldAlert className="w-4 h-4 text-luxury-gold" /> Hidden / Unexpected Costs</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            <div className="bg-white p-5 rounded-2xl border border-luxury-green/10 shadow-sm">
-              <p className="text-xs text-luxury-black/75 leading-relaxed font-light"><strong className="text-luxury-green">Foreigner-tier pricing:</strong> Major attractions charge tourists 2-3x the local entry rate — factor this into ticket budgets.</p>
-            </div>
-            <div className="bg-white p-5 rounded-2xl border border-luxury-green/10 shadow-sm">
-              <p className="text-xs text-luxury-black/75 leading-relaxed font-light"><strong className="text-luxury-green">Camera/drone fees:</strong> Some temples and national parks charge extra for cameras, video, or drones.</p>
-            </div>
-            <div className="bg-white p-5 rounded-2xl border border-luxury-green/10 shadow-sm">
-              <p className="text-xs text-luxury-black/75 leading-relaxed font-light"><strong className="text-luxury-green">Tipping culture:</strong> Drivers and guides expect modest tips (₹300-500/day) not usually itemized in package quotes.</p>
-            </div>
-            <div className="bg-white p-5 rounded-2xl border border-luxury-green/10 shadow-sm">
-              <p className="text-xs text-luxury-black/75 leading-relaxed font-light"><strong className="text-luxury-green">Dynamic currency conversion:</strong> Some card terminals default to billing in INR at a poor rate — always choose to be billed in LKR.</p>
-            </div>
-            <div className="bg-white p-5 rounded-2xl border border-luxury-green/10 shadow-sm">
-              <p className="text-xs text-luxury-black/75 leading-relaxed font-light"><strong className="text-luxury-green">Resort mark-ups:</strong> Bottled water, sunscreen, and mini-bar items can cost 3-5x city prices inside 5-star resorts.</p>
-            </div>
-            <div className="bg-white p-5 rounded-2xl border border-luxury-green/10 shadow-sm">
-              <p className="text-xs text-luxury-black/75 leading-relaxed font-light"><strong className="text-luxury-green">SIM top-ups:</strong> Buy Dialog/Mobitel SIMs at official airport counters — street resellers often overcharge.</p>
-            </div>
-          </div>
-          <p className="text-[11px] text-luxury-black/40 italic font-light mb-8">Rule of thumb: add a 10% contingency buffer on top of your planned budget to comfortably absorb these.</p>
-
-          <h3 className="text-lg sm:text-xl font-serif font-bold text-luxury-green mb-4 flex items-center gap-2"><DollarSign className="w-4 h-4 text-luxury-gold" /> Money-Saving Tips for Bangalore Travellers</h3>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-luxury-black/75 font-light">
-            <li className="flex gap-2 bg-white p-4 rounded-xl border border-luxury-green/10"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Book BLR-CMB flights 6-8 weeks ahead, and avoid Dec-Apr peak dates if flexible.</li>
-            <li className="flex gap-2 bg-white p-4 rounded-xl border border-luxury-green/10"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Travel in the June, September, or October shoulder season for 30-40% cheaper hotels.</li>
-            <li className="flex gap-2 bg-white p-4 rounded-xl border border-luxury-green/10"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Use the metered PickMe app instead of unmetered hotel-arranged taxis.</li>
-            <li className="flex gap-2 bg-white p-4 rounded-xl border border-luxury-green/10"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Eat at local "kade" eateries for lunch, save restaurant budget for one special dinner.</li>
-            <li className="flex gap-2 bg-white p-4 rounded-xl border border-luxury-green/10"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Split a safari jeep and a private chauffeur across 4-6 people to cut per-head cost sharply.</li>
-            <li className="flex gap-2 bg-white p-4 rounded-xl border border-luxury-green/10"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Take 2nd Class Reserved trains instead of the tourist-priced Observation Saloon.</li>
-            <li className="flex gap-2 bg-white p-4 rounded-xl border border-luxury-green/10"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Negotiate a flat multi-day chauffeur rate instead of paying day-by-day.</li>
-            <li className="flex gap-2 bg-white p-4 rounded-xl border border-luxury-green/10"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Since the ETA fee is now free, redirect that ₹1,650/person saving into your safari or spa budget.</li>
-          </ul>
         </section>
 
         {/* Section 4: First Time in Sri Lanka (Reddit & Practical Insights) */}
@@ -1409,7 +641,7 @@ export default function SrilankaBangaloreCostPillarPage() {
             First-Time Travelers From Bangalore Should Know
           </h2>
           <p className="text-luxury-black/80 leading-relaxed text-sm sm:text-base font-light mb-8">
-            These guidelines represent actual field insights compiled from active traveler communities and our own driver-guide network. They are highly practical planning points rather than generic advice:
+            These guidelines represent actual field insights compiled from active Reddit travel discussions. They are highly practical planning points rather than generic AI advice:
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -1445,11 +677,11 @@ export default function SrilankaBangaloreCostPillarPage() {
 
             <div className="bg-white p-6 rounded-2xl border border-luxury-green/10 shadow-sm space-y-2">
               <div className="w-8 h-8 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center mb-2">
-                <Smartphone className="w-4 h-4" />
+                <Check className="w-4 h-4" />
               </div>
-              <h4 className="font-serif font-bold text-sm text-luxury-green">Carry Some Cash & an eSIM</h4>
+              <h4 className="font-serif font-bold text-sm text-luxury-green">Carry Some Cash is Vital</h4>
               <p className="text-xs text-luxury-black/70 leading-relaxed font-light">
-                While boutique resorts and high-end restaurants accept Visa/Mastercard, roadside king-coconut vendors and village tuk-tuks operate on cash. Keep about ₹5,000 equivalent in LKR, and grab a Dialog eSIM or physical SIM at the airport for instant data.
+                While boutique resorts and high-end restaurants accept Visa/Mastercard, roadside king-coconut vendors, local cafes, and village tuk-tuks operate entirely on Sri Lankan Rupees (LKR). Keep about ₹5,000 equivalent in hand.
               </p>
             </div>
 
@@ -1479,10 +711,9 @@ export default function SrilankaBangaloreCostPillarPage() {
             {/* Beaches */}
             <div className="bg-white rounded-2xl overflow-hidden border border-luxury-green/5 shadow-sm hover:shadow-md transition-all">
               <div className="h-44 relative overflow-hidden bg-neutral-200">
-                <img
+                <img 
                   src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=400&h=300"
-                  alt="Golden sand beach with palm trees and turquoise water in Mirissa, Sri Lanka"
-                  loading="lazy"
+                  alt="Beaches in Sri Lanka"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -1500,10 +731,9 @@ export default function SrilankaBangaloreCostPillarPage() {
             {/* Culture */}
             <div className="bg-white rounded-2xl overflow-hidden border border-luxury-green/5 shadow-sm hover:shadow-md transition-all">
               <div className="h-44 relative overflow-hidden bg-neutral-200">
-                <img
+                <img 
                   src="https://images.unsplash.com/photo-1588598176944-4fc3a2862c93?auto=format&fit=crop&q=80&w=400&h=300"
-                  alt="Ancient Sigiriya Lion Rock Fortress rising above the jungle canopy, Sri Lanka Cultural Triangle"
-                  loading="lazy"
+                  alt="Culture in Sri Lanka"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -1521,10 +751,9 @@ export default function SrilankaBangaloreCostPillarPage() {
             {/* Food */}
             <div className="bg-white rounded-2xl overflow-hidden border border-luxury-green/5 shadow-sm hover:shadow-md transition-all">
               <div className="h-44 relative overflow-hidden bg-neutral-200">
-                <img
+                <img 
                   src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=400&h=300"
-                  alt="Sri Lankan rice and curry spread with hoppers, sambol, and fresh seafood"
-                  loading="lazy"
+                  alt="Food in Sri Lanka"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -1542,10 +771,9 @@ export default function SrilankaBangaloreCostPillarPage() {
             {/* Nightlife */}
             <div className="bg-white rounded-2xl overflow-hidden border border-luxury-green/5 shadow-sm hover:shadow-md transition-all">
               <div className="h-44 relative overflow-hidden bg-neutral-200">
-                <img
-                  src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&q=80&w=400&h=300"
-                  alt="Colombo rooftop bar skyline at dusk, Sri Lanka nightlife"
-                  loading="lazy"
+                <img 
+                  src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=400&h=300"
+                  alt="Nightlife in Sri Lanka"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -1563,10 +791,9 @@ export default function SrilankaBangaloreCostPillarPage() {
             {/* Wildlife */}
             <div className="bg-white rounded-2xl overflow-hidden border border-luxury-green/5 shadow-sm hover:shadow-md transition-all">
               <div className="h-44 relative overflow-hidden bg-neutral-200">
-                <img
-                  src="https://images.unsplash.com/photo-1580889240912-c8f0f2c6d5f3?auto=format&fit=crop&q=80&w=400&h=300"
-                  alt="Wild elephants gathering near a reservoir in a Sri Lanka national park safari"
-                  loading="lazy"
+                <img 
+                  src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=400&h=300"
+                  alt="Wildlife in Sri Lanka"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -1646,23 +873,6 @@ export default function SrilankaBangaloreCostPillarPage() {
           </div>
         </section>
 
-        {/* E-E-A-T: Pricing Methodology */}
-        <section id="pricing-methodology" className="scroll-mt-24 mb-16">
-          <div className="bg-[#fdfaf2] border border-luxury-gold/20 rounded-3xl p-6 sm:p-8">
-            <h3 className="font-serif font-bold text-lg text-luxury-green mb-3 flex items-center gap-2">
-              <Info className="w-5 h-5 text-luxury-gold" /> How We Calculate These Prices
-            </h3>
-            <p className="text-xs sm:text-sm text-luxury-black/75 leading-relaxed font-light mb-3">
-              Every figure on this page is compiled from direct BLR-CMB airline fare checks, the official Sri Lanka ETA portal, published national park and heritage-site entry fees, live INR-LKR exchange data, and real quotes from our on-ground driver-guide partners in Sri Lanka. We review and refresh these numbers monthly.
-            </p>
-            <div className="flex flex-wrap gap-4 text-[11px] text-luxury-black/50 font-mono">
-              <span>📅 Published: 27 June 2026</span>
-              <span>🔄 Last Updated: 4 August 2026</span>
-              <span>✅ Reviewed by: Anura Jayasekera, SLTDA National Guide Lecturer</span>
-            </div>
-          </div>
-        </section>
-
         {/* Dynamic Inner CTA Banner */}
         <div className="bg-gradient-to-r from-luxury-green to-[#132c21] text-white p-8 sm:p-10 rounded-[32px] mb-16 shadow-2xl border border-luxury-gold/30 relative overflow-hidden text-center">
           <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-y-8">
@@ -1690,16 +900,6 @@ export default function SrilankaBangaloreCostPillarPage() {
                 💬 WhatsApp Our Team
               </button>
             </div>
-
-            {/* Contextual internal links for crawl depth */}
-            <div className="pt-6 border-t border-white/10 flex flex-wrap justify-center gap-x-5 gap-y-2 text-[11px] text-luxury-cream/60 font-mono">
-              <Link to="/sri-lanka-trip-cost-from-india" className="hover:text-luxury-gold transition-colors underline">India Cost Guide</Link>
-              <Link to="/sri-lanka-trip-cost-from-hyderabad" className="hover:text-luxury-gold transition-colors underline">Hyderabad Guide</Link>
-              <Link to="/sri-lanka-trip-cost-from-mumbai" className="hover:text-luxury-gold transition-colors underline">Mumbai Guide</Link>
-              <Link to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai" className="hover:text-luxury-gold transition-colors underline">Chennai Guide</Link>
-              <Link to="/things-to-do-in-sri-lanka" className="hover:text-luxury-gold transition-colors underline">Things To Do</Link>
-              <Link to="/sri-lanka-10-day-itinerary" className="hover:text-luxury-gold transition-colors underline">10-Day Itinerary</Link>
-            </div>
           </div>
         </div>
 
@@ -1710,8 +910,41 @@ export default function SrilankaBangaloreCostPillarPage() {
           </h2>
 
           <div className="space-y-4">
-            {faqItems.map((faq, idx) => (
-              <div
+            {[
+              {
+                q: "How much does a Sri Lanka trip cost from Bangalore?",
+                a: "A standard 5-day budget trip starts around ₹27,000 - ₹42,000 per person. Comfortable mid-range tours run from ₹48,000 - ₹78,000, while premium high-comfort luxury experiences begin around ₹95,000+ per traveler from Bangalore."
+              },
+              {
+                q: "How much is a Bangalore to Colombo flight?",
+                a: "A direct round-trip flight from Bangalore (BLR) to Colombo (CMB) typically ranges between ₹11,000 and ₹18,000 depending on when you book. Booking 45–60 days in advance usually secures the cheapest fares."
+              },
+              {
+                q: "Do Indians need a visa to travel to Sri Lanka?",
+                a: "Yes, Indian passport holders require a Tourist Electronic Travel Authorization (ETA) prior to arrival. Under ongoing tourism promotional campaigns in 2026, standard ETA visa application fees are frequently waived for Indian passport holders."
+              },
+              {
+                q: "Is Sri Lanka cheaper than Maldives?",
+                a: "Yes, significantly cheaper. While the Maldives functions primarily on private island luxury resorts with expensive speedboat transfers, Sri Lanka offers a diverse range of heritage homestays, public transits, local cuisines, and affordable boutique hotels, making it about 60% cheaper than Maldives."
+              },
+              {
+                q: "Is 5 days enough for Sri Lanka?",
+                a: "Five days is perfect for a short coastal holiday (covering Colombo, Negombo, and Galle Fort) or a cultural trip (covering Sigiriya and Kandy). However, if you wish to do the full scenic train loop to Ella and go on safaris, we recommend a 7 to 9-day itinerary."
+              },
+              {
+                q: "What's the cheapest month to travel to Sri Lanka?",
+                a: "June, September, and October are historically the cheapest months for flights and hotel stays due to the shoulder season. This is when boutique resorts offer heavy discounts of up to 40%."
+              },
+              {
+                q: "Is Sri Lanka good for solo travelers?",
+                a: "Absolutely. Sri Lanka has an extremely friendly, safe local culture, a well-established hostel network, widely spoken English, and cheap PickMe/TukTuk transport options, making it ideal and highly safe for solo travelers."
+              },
+              {
+                q: "Can I travel to Sri Lanka without a tour package?",
+                a: "Yes, easily! DIY travel in Sri Lanka is very simple. Chauffeurs can be booked directly online, hotels can be selected via standard booking engines, and trains can be pre-booked in advance, allowing you to bypass agencies completely."
+              }
+            ].map((faq, idx) => (
+              <div 
                 key={idx}
                 className="bg-white border border-luxury-green/10 rounded-2xl overflow-hidden transition-all duration-300"
               >
@@ -1722,7 +955,7 @@ export default function SrilankaBangaloreCostPillarPage() {
                   <span className="font-serif font-bold text-sm sm:text-base pr-4">{faq.q}</span>
                   <ChevronDown className={`w-5 h-5 text-luxury-gold shrink-0 transition-transform duration-300 ${activeFaq === idx ? "rotate-180" : ""}`} />
                 </button>
-
+                
                 <AnimatePresence initial={false}>
                   {activeFaq === idx && (
                     <motion.div

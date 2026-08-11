@@ -33,8 +33,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaHyderabadCostPillarPage() {
   usePageMetadata({
-    title: "Sri Lanka Trip Cost From Hyderabad (2026): Flights & Budget",
-    description: "Planning a Sri Lanka trip from Hyderabad? See flight prices, 5 & 7-day trip costs, hotel budgets, and family or honeymoon expenses.",
+    title: "Sri Lanka Trip Cost From Hyderabad (2026) | Flights, Budget & 7-Day Cost",
+    description: "Planning a Sri Lanka trip from Hyderabad? Discover flight prices, 5-day and 7-day trip costs, hotel budgets, visa fees, family and honeymoon expenses, plus a free Sri Lanka Trip Planner.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-trip-cost-from-hyderabad",
     ogUrl: "https://plan-srilanka.com/sri-lanka-trip-cost-from-hyderabad"
   });
@@ -129,7 +129,7 @@ export default function SrilankaHyderabadCostPillarPage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Sri Lanka Trip Cost From Hyderabad (2026): Flights, Hotels & Budget Guide",
-            "description": "Planning a Sri Lanka trip from Hyderabad? See flight prices, 5 & 7-day trip costs, hotel budgets, and family or honeymoon expenses.",
+            "description": "Planning a Sri Lanka trip from Hyderabad? Discover flight prices, 5-day and 7-day trip costs, hotel budgets, visa fees, family and honeymoon expenses, plus a free Sri Lanka Trip Planner.",
             "image": [
               "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630"
             ],

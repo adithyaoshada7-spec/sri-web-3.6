@@ -30,7 +30,7 @@ import { trackEvent } from "../lib/analytics";
 export default function SrilankaAmericanGuidePage() {
   usePageMetadata({
     title: "Sri Lanka Travel Guide for Americans (2026) | Plan Sri Lanka",
-    description: "Maximize your dollar's value, secure your free tourist visa, and navigate monsoon splits with our travel guide for US visitors.",
+    description: "The complete Sri Lanka travel guide for US citizens. Learn about the free 30-day visa, flight options, dual monsoon weather, itineraries, costs, and safety guidelines.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-travel-guide-for-americans",
     ogUrl: "https://plan-srilanka.com/sri-lanka-travel-guide-for-americans",
     ogImage: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630"

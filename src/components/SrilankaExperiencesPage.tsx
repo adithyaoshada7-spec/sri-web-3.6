@@ -944,8 +944,8 @@ export default function SrilankaExperiencesPage() {
 
   // Page Metadata SEO injection
   usePageMetadata({
-    title: "15 Best Things to Do in Sri Lanka (2026 Guide)",
-    description: "The ultimate curated list of things to do in Sri Lanka: Yala safaris, misty tea country trains, and UNESCO Galle Fort walking tours.",
+    title: "Discover the Best Things to Do in Sri Lanka | Plan Sri Lanka",
+    description: "Explore interactive wildlife safaris, beaches, scenic train journeys, surfing, tea plantation guides, and cultural heritage. Compare activities, filter by season, and add to your custom trip.",
     canonicalUrl: "https://plan-srilanka.com/things-to-do-in-sri-lanka",
     ogUrl: "https://plan-srilanka.com/things-to-do-in-sri-lanka",
     ogImage: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630"

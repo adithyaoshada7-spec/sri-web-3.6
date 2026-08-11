@@ -31,14 +31,7 @@ import {
   PhoneCall,
   User,
   CheckCircle,
-  FileText,
-  Smartphone,
-  Shield,
-  AlertTriangle,
-  Wallet,
-  Award,
-  Backpack,
-  Gem
+  FileText
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
@@ -61,8 +54,8 @@ interface BudgetBreakdown {
 
 export default function SrilankaCostPage() {
   usePageMetadata({
-    title: "Sri Lanka Trip Cost From India (2026): ₹25K–₹2.5L Guide",
-    description: "Sri Lanka trip cost from India (2026): flights, visa, hotels & daily budgets from ₹25,000. Compare solo, couple, family & luxury costs with a free calculator.",
+    title: "Sri Lanka Trip Cost From India (2026 Guide) | Budget Calculator & Cost Breakdown",
+    description: "Discover the complete Sri Lanka trip cost from India. Compare budget, mid-range and luxury travel costs, flights, hotels, visa fees and use our free trip budget calculator.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-trip-cost-from-india",
     ogUrl: "https://plan-srilanka.com/sri-lanka-trip-cost-from-india",
     ogImage: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/93/07/ac/family-outing.jpg?w=1200&h=900&s=1"
@@ -233,56 +226,6 @@ Departure: ${leadForm.departure}`;
     {
       q: "How much does a 7 day Sri Lanka trip cost?",
       a: "A 7-day comfortable tour costs about ₹48,000 to ₹75,000 per person including round-trip flights, cozy boutique accommodations, a continuously available private vehicle with an English concierge driver, entry passes (Sigiriya, Temple of Tooth), and dining."
-    },
-    {
-      q: "What is the Sri Lanka trip cost for a couple from India?",
-      plainText: "A comfortable 7-day mid-range couple's trip from India typically costs ₹80,000 to ₹1,20,000 total for two people, excluding return flights. Budget couples can manage the same loop for ₹55,000 - ₹75,000 using guesthouses and public transit, while a premium honeymoon with private pool villas and candlelit beach dinners starts around ₹1,50,000. Read our dedicated Sri Lanka honeymoon and couples itinerary for a detailed romantic route.",
-      a: (
-        <>
-          A comfortable 7-day mid-range couple's trip from India typically costs ₹80,000 to ₹1,20,000 total for two people, excluding return flights. Budget couples can manage the same loop for ₹55,000 - ₹75,000 using guesthouses and public transit, while a premium honeymoon with private pool villas and candlelit beach dinners starts around ₹1,50,000. Read our dedicated <Link to="/sri-lanka-itinerary-august-couples" className="text-luxury-gold hover:underline font-bold">Sri Lanka honeymoon and couples itinerary</Link> for a detailed romantic route.
-        </>
-      )
-    },
-    {
-      q: "What is the Sri Lanka trip cost for a family of 4 from India?",
-      plainText: "A family of four should budget ₹150,000 to ₹250,000 for a comfortable 7-day trip, covering connected family villas or resort suites, a spacious private AC van with a driver-guide, kid-friendly dining, and national park safari entries. See our full Sri Lanka family itinerary for a low-fatigue, kid-safe daily route.",
-      a: (
-        <>
-          A family of four should budget ₹150,000 to ₹250,000 for a comfortable 7-day trip, covering connected family villas or resort suites, a spacious private AC van with a driver-guide, kid-friendly dining, and national park safari entries. See our full <Link to="/sri-lanka-family-itinerary" className="text-luxury-gold hover:underline font-bold">Sri Lanka family itinerary</Link> for a low-fatigue, kid-safe daily route.
-        </>
-      )
-    },
-    {
-      q: "How much does a Sri Lanka backpacking trip cost?",
-      a: "Backpackers can comfortably tour Sri Lanka for ₹18,000 - ₹28,000 for 7 days, excluding flights. This covers hostel dorms or basic guest houses (₹1,200 - ₹1,800/night), 2nd/3rd class scenic train tickets, local bus rides, and rice-and-curry meals under ₹250 a plate. Traveling in a small group to split tuk-tuk and safari jeep costs reduces this further."
-    },
-    {
-      q: "What is a realistic daily budget for Sri Lanka?",
-      a: "Excluding flights and visa, budget travelers should plan for ₹2,500 - ₹4,000 per day, mid-range travelers ₹6,000 - ₹9,000 per day, and luxury travelers ₹15,000 - ₹25,000+ per day. This covers accommodation, meals, local transport, and one activity or entry ticket daily."
-    },
-    {
-      q: "How much does a local SIM card or eSIM cost in Sri Lanka?",
-      a: "A tourist SIM card from Dialog or Mobitel at Bandaranaike International Airport costs roughly ₹700 - ₹900 for 20-50GB of high-speed 4G/5G data valid for 30 days. Both carriers also offer digital eSIMs you can activate before landing, so you have connectivity the moment you touch down."
-    },
-    {
-      q: "Do I need travel insurance for a Sri Lanka trip?",
-      a: "It is not a mandatory entry requirement, but we strongly recommend it. A one-week policy typically costs under ₹1,000 and covers flight delays, lost baggage, and emergency medical expenses, which is inexpensive protection against an expensive problem, especially if you're planning safaris, hiking, or water sports."
-    },
-    {
-      q: "How much cash should I carry to Sri Lanka?",
-      a: "We recommend carrying ₹10,000 - ₹20,000 worth of cash (convert to LKR or USD at the airport) for tuk-tuks, tipping, small entry tickets, and rural cafes that don't accept cards. Visa and Mastercard are widely accepted at hotels, resorts, and city restaurants, and UPI is increasingly accepted at select tourist merchants."
-    },
-    {
-      q: "Is Sri Lanka cheaper than Bali, Goa or the Maldives?",
-      a: "Yes. Sri Lanka is roughly 50-60% cheaper than the Maldives (which relies on costly overwater resorts), on par with or slightly cheaper than Bali once you factor in private transport, and comparable to a mid-range Goa trip while offering far more variety: ancient cities, hill-country trains, wildlife safaris, and uncrowded beaches in one loop."
-    },
-    {
-      q: "What are the hidden costs of a Sri Lanka trip?",
-      a: "Watch for foreigner-priced entry tickets (often 2-3x the local rate at Sigiriya and national parks), camera or drone fees, informal parking or guide tips, dynamic currency conversion charges on card payments, and inflated bottled-water or sunscreen prices at resorts. Budgeting an extra 8-10% on top of your estimate comfortably covers these."
-    },
-    {
-      q: "Is 7 days enough for Sri Lanka, or should I plan more?",
-      a: "7 days is enough for the classic first-timer loop (Colombo, Sigiriya, Kandy, Ella, and either Yala or Galle). If you want to add both a wildlife safari and unhurried beach time, extend to 10 days. Short on leave? A tight 5-day trip can still cover the Cultural Triangle or a south-coast beach escape comfortably."
     }
   ];
 
@@ -299,13 +242,7 @@ Departure: ${leadForm.departure}`;
             "author": {
               "@type": "Person",
               "name": "Adithya Oshada",
-              "jobTitle": "Lead Ceylon Travel Stylist",
-              "url": "https://plan-srilanka.com/about-founder"
-            },
-            "reviewedBy": {
-              "@type": "Person",
-              "name": "Anura Jayasekera",
-              "jobTitle": "SLTDA National Guide Lecturer (No: S-1294)"
+              "jobTitle": "Local Travel Planner"
             },
             "publisher": {
               "@type": "Organization",
@@ -315,12 +252,8 @@ Departure: ${leadForm.departure}`;
                 "url": "https://plan-srilanka.com/logo.png"
               }
             },
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://plan-srilanka.com/sri-lanka-trip-cost-from-india"
-            },
             "datePublished": "2026-01-15T08:00:00Z",
-            "dateModified": "2026-08-05T09:00:00+05:30",
+            "dateModified": "2026-06-20T17:54:02-07:00",
             "description": "How much does a Sri Lanka trip cost from India? Calculate exact expenses for flights, visa, hotels, food & travel styles. Get a free personalized holiday budget plan."
           })}
         </script>
@@ -361,8 +294,8 @@ Departure: ${leadForm.departure}`;
             "offers": {
               "@type": "AggregateOffer",
               "priceCurrency": "INR",
-              "lowPrice": "18000",
-              "highPrice": "250000",
+              "lowPrice": "25000",
+              "highPrice": "150000",
               "offerCount": "100"
             }
           })}
@@ -407,61 +340,11 @@ Departure: ${leadForm.departure}`;
           <p className="text-lg md:text-xl text-luxury-black/70 font-light max-w-4xl tracking-wide">
             Your comprehensive visual cost guide. Learn standard expenditures in Indian Rupees (INR) for flights, visas, heritage boutique stays, private English guides, and utilize our smart estimator.
           </p>
-
-          <div className="flex flex-wrap gap-3 text-[11px] font-mono text-luxury-black/50">
-            <span className="flex items-center gap-1.5 py-1.5 px-3 bg-white rounded-full border border-luxury-black/5">
-              <Clock className="w-3.5 h-3.5 text-luxury-gold" /> 12 Min Complete Guide
-            </span>
-            <span className="flex items-center gap-1.5 py-1.5 px-3 bg-white rounded-full border border-luxury-black/5">
-              <Award className="w-3.5 h-3.5 text-luxury-gold" /> Written by Certified Travel Architects
-            </span>
-          </div>
-
-          {/* E-E-A-T Author / Reviewer Bar */}
-          <div className="flex flex-wrap items-center gap-6 pt-4 text-xs">
-            <Link to="/about-founder" className="flex items-center gap-2.5 group">
-              <img
-                src="/adithya-oshada-founder-plan-sri-lanka.jpg"
-                alt="Adithya Oshada, Lead Ceylon Travel Stylist and founder of Plan Sri Lanka"
-                width="36"
-                height="36"
-                className="w-9 h-9 rounded-full border border-luxury-gold/40 object-cover"
-                referrerPolicy="no-referrer"
-                loading="lazy"
-              />
-              <span className="text-left">
-                <span className="block text-luxury-black/80 font-medium group-hover:text-luxury-gold transition-colors">Adithya Oshada</span>
-                <span className="text-[10px] font-mono text-luxury-gold block">Lead Ceylon Travel Stylist</span>
-              </span>
-            </Link>
-            <div className="h-6 w-[1px] bg-luxury-black/10 hidden sm:block"></div>
-            <span className="text-left">
-              <span className="text-luxury-black/80 font-medium flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5 text-luxury-gold" />
-                Reviewed by Anura Jayasekera
-              </span>
-              <span className="text-[10px] text-luxury-black/45 block">SLTDA National Guide Lecturer (No: S-1294)</span>
-            </span>
-            <div className="h-6 w-[1px] bg-luxury-black/10 hidden sm:block"></div>
-            <span className="text-luxury-black/45 font-mono text-[11px]">Updated August 2026</span>
-          </div>
-
-          {/* Quick Jump Table of Contents */}
-          <nav aria-label="Table of contents" className="flex flex-wrap gap-2 pt-4 text-[11px] font-mono">
-            <a href="#quick-answer" className="px-3 py-1.5 bg-white border border-luxury-black/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all">Quick Answer</a>
-            <a href="#departure-cities" className="px-3 py-1.5 bg-white border border-luxury-black/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all">Flights</a>
-            <a href="#visa-cost" className="px-3 py-1.5 bg-white border border-luxury-black/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all">Visa</a>
-            <a href="#trip-length-budget" className="px-3 py-1.5 bg-white border border-luxury-black/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all">5/7/10-Day Budgets</a>
-            <a href="#traveler-styles" className="px-3 py-1.5 bg-white border border-luxury-black/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all">By Traveler Type</a>
-            <a href="#calculator" className="px-3 py-1.5 bg-white border border-luxury-black/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all">Calculator</a>
-            <a href="#hidden-costs" className="px-3 py-1.5 bg-white border border-luxury-black/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all">Hidden Costs</a>
-            <a href="#faqs" className="px-3 py-1.5 bg-white border border-luxury-black/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all">FAQs</a>
-          </nav>
         </div>
       </div>
 
       {/* SECTION 1 - QUICK ANSWER (FEATURED SNIPPET GOLDEN CAPTURE) */}
-      <section className="max-w-7xl mx-auto px-6 mb-16 scroll-mt-24" id="quick-answer">
+      <section className="max-w-7xl mx-auto px-6 mb-16" id="quick-answer">
         <div className="bg-[#1A2F23] text-white rounded-[40px] p-8 md:p-12 relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/[0.02] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           
@@ -601,7 +484,7 @@ Departure: ${leadForm.departure}`;
       </section>
 
       {/* SECTION 3 - INDIA TO SRI LANKA TRIP COST BY DEPARTURE CITY */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 scroll-mt-24" id="departure-cities">
+      <section className="max-w-7xl mx-auto px-6 mb-20" id="departure-cities">
         <div className="text-center mb-12 space-y-2">
           <span className="text-luxury-gold font-serif italic text-lg uppercase tracking-wider block">Flight & Package Hub comparison</span>
           <h2 className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tight font-bold">
@@ -731,64 +614,10 @@ Departure: ${leadForm.departure}`;
             </Link>
           </div>
         </div>
-
-        <p className="text-xs text-luxury-black/50 text-center mt-8 font-light">
-          Prefer to track live schedules first? Check real-time arrivals, delays and airline timetables on our <Link to="/flights" className="text-luxury-gold hover:underline font-bold">Sri Lanka Flights Dashboard</Link>.
-        </p>
-      </section>
-
-      {/* SECTION 3B - VISUAL PROOF: WHAT YOUR MONEY BUYS */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 scroll-mt-24" id="visual-proof">
-        <div className="text-center mb-10 space-y-2">
-          <span className="text-luxury-gold font-serif italic text-lg uppercase tracking-wider block">Real Experiences, Real Prices</span>
-          <h2 className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tight font-bold">
-            What Your Sri Lanka Budget Actually Buys
-          </h2>
-          <p className="text-xs text-luxury-black/50 uppercase tracking-widest">Landmark entry costs tied to the destinations Indian travelers ask about most</p>
-        </div>
-
-        <div className="grid sm:grid-cols-3 gap-6">
-          <div className="bg-white rounded-3xl overflow-hidden border border-luxury-black/5 shadow-sm hover:border-luxury-gold/30 transition-all">
-            <img
-              src="/sigiriya-rock-fortress-sri-lanka.jpg"
-              alt="Sigiriya Lion Rock Fortress, a top Sri Lanka cultural triangle landmark for Indian travelers"
-              loading="lazy"
-              className="w-full h-44 object-cover"
-            />
-            <div className="p-5 space-y-1">
-              <h3 className="font-serif font-bold text-luxury-green">Sigiriya Lion Rock Entry</h3>
-              <p className="text-xs text-luxury-black/60 font-light">₹2,500 per ticket · included in most 7-day itineraries</p>
-            </div>
-          </div>
-          <div className="bg-white rounded-3xl overflow-hidden border border-luxury-black/5 shadow-sm hover:border-luxury-gold/30 transition-all">
-            <img
-              src="/nine-arch-bridge-ella-sri-lanka.jpg"
-              alt="Nine Arch Bridge near Ella on Sri Lanka's scenic hill country blue train route"
-              loading="lazy"
-              className="w-full h-44 object-cover"
-            />
-            <div className="p-5 space-y-1">
-              <h3 className="font-serif font-bold text-luxury-green">Kandy–Ella Blue Train</h3>
-              <p className="text-xs text-luxury-black/60 font-light">₹115 – ₹570 per reserved seat · book 30 days ahead</p>
-            </div>
-          </div>
-          <div className="bg-white rounded-3xl overflow-hidden border border-luxury-black/5 shadow-sm hover:border-luxury-gold/30 transition-all">
-            <img
-              src="/pasikuda-beach-resort-coconut-trees-sri-lanka.jpg"
-              alt="Pasikuda beach resort with coconut trees, a popular Sri Lanka couple and family beach stay"
-              loading="lazy"
-              className="w-full h-44 object-cover"
-            />
-            <div className="p-5 space-y-1">
-              <h3 className="font-serif font-bold text-luxury-green">Boutique Beach Resort Night</h3>
-              <p className="text-xs text-luxury-black/60 font-light">₹5,000 – ₹12,000 per night · double occupancy, pool access</p>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* SECTION 4 - COMPLETE COST BREAKDOWN */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 scroll-mt-24 font-sans" id="cost-breakdown">
+      <section className="max-w-7xl mx-auto px-6 mb-20" id="cost-breakdown font-sans">
         <div className="bg-white rounded-[40px] p-8 md:p-12 border border-luxury-black/5 shadow-luxury">
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center space-y-3">
@@ -900,41 +729,7 @@ Departure: ${leadForm.departure}`;
                   <div className="bg-orange-850 h-full bg-amber-700 rounded-full" style={{ width: "10%" }} />
                 </div>
                 <p className="text-xs text-luxury-black/50 pl-6 leading-relaxed font-light">
-                  UNSECO coordinates have fixed entry fees. Sigiriya lion rock counts approx ₹2,500 per head, while custom private 4x4 wildlife safari ranges ₹8,000 total. Browse the full <Link to="/things-to-do-in-sri-lanka" className="text-luxury-gold hover:underline font-bold">things to do in Sri Lanka</Link> guide to plan which entries to prioritize.
-                </p>
-              </div>
-
-              {/* SIM Card */}
-              <div className="space-y-2">
-                <div className="flex justify-between text-xs font-sans">
-                  <span className="font-bold text-luxury-green flex items-center gap-2">
-                    <Smartphone className="w-4 h-4 text-luxury-gold" />
-                    7. Local SIM Card & Data eSIM
-                  </span>
-                  <span className="font-mono text-luxury-black/60 font-bold">~ 1% - 2% of Total Budget</span>
-                </div>
-                <div className="w-full bg-luxury-cream h-3 rounded-full overflow-hidden">
-                  <div className="bg-sky-700 h-full rounded-full" style={{ width: "2%" }} />
-                </div>
-                <p className="text-xs text-luxury-black/50 pl-6 leading-relaxed font-light">
-                  A Dialog or Mobitel tourist SIM with 20-50GB of 4G/5G data costs ₹700 - ₹900 for 30 days, available at the airport arrivals hall or as a pre-activated eSIM.
-                </p>
-              </div>
-
-              {/* Travel Insurance */}
-              <div className="space-y-2">
-                <div className="flex justify-between text-xs font-sans">
-                  <span className="font-bold text-luxury-green flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-luxury-gold" />
-                    8. Travel Insurance (Recommended, Not Mandatory)
-                  </span>
-                  <span className="font-mono text-luxury-black/60 font-bold">~ 1% - 2% of Total Budget</span>
-                </div>
-                <div className="w-full bg-luxury-cream h-3 rounded-full overflow-hidden">
-                  <div className="bg-rose-700 h-full rounded-full" style={{ width: "2%" }} />
-                </div>
-                <p className="text-xs text-luxury-black/50 pl-6 leading-relaxed font-light">
-                  A one-week policy covering flight delays, lost baggage, and emergency medical costs runs under ₹1,000 per traveler — inexpensive cover for safaris, hikes, and water sports.
+                  UNSECO coordinates have fixed entry fees. Sigiriya lion rock counts approx ₹2,500 per head, while custom private 4x4 wildlife safari ranges ₹8,000 total.
                 </p>
               </div>
             </div>
@@ -943,7 +738,7 @@ Departure: ${leadForm.departure}`;
       </section>
 
       {/* SECTION - SRI LANKA VISA COST FOR INDIANS */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 scroll-mt-24" id="visa-cost">
+      <section className="max-w-7xl mx-auto px-6 mb-20" id="visa-cost">
         <div className="bg-[#FAF8F5] rounded-[40px] p-8 md:p-12 border border-luxury-gold/15 shadow-sm">
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="text-center space-y-2">
@@ -969,18 +764,13 @@ Departure: ${leadForm.departure}`;
                   <p className="text-xs text-luxury-black/50 mt-1">When bilateral visa-free campaigns run regularly.</p>
                 </div>
               </div>
-              <p className="text-center pt-2">
-                <Link to="/sri-lanka-visa-for-indians" className="text-luxury-gold hover:underline font-bold text-sm">
-                  Read the full Sri Lanka Visa Guide for Indians →
-                </Link>
-              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 5 - SUGGESTED 7 DAY ITINERARY */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 scroll-mt-24" id="itinerary">
+      <section className="max-w-7xl mx-auto px-6 mb-20" id="itinerary">
         <div className="text-center mb-12 space-y-2">
           <span className="text-luxury-gold font-serif italic text-lg uppercase tracking-wider block">Recommended 2026 Loop</span>
           <h2 className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tight font-bold">
@@ -1085,19 +875,12 @@ Departure: ${leadForm.departure}`;
             <p className="text-sm text-luxury-black/60 font-light leading-relaxed">
               Looking for a complete step-by-step roadmap breakdown covering transport logistics, hotels, and custom spots? Read our comprehensive 7-day master itinerary.
             </p>
-            <div className="pt-4 space-y-3">
-              <Link
+            <div className="pt-4">
+              <Link 
                 to="/sri-lanka-7-day-itinerary"
                 className="w-full inline-flex px-6 py-4 bg-luxury-green hover:bg-luxury-gold text-white font-bold uppercase text-[11px] tracking-widest rounded-full justify-center items-center gap-2 transition-all shadow-md"
               >
                 <span>Read Full Sri Lanka 7 Day Itinerary</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                to="/sri-lanka-10-day-itinerary"
-                className="w-full inline-flex px-6 py-4 bg-white hover:bg-luxury-gold hover:text-white text-luxury-green border border-luxury-gold/30 font-bold uppercase text-[11px] tracking-widest rounded-full justify-center items-center gap-2 transition-all"
-              >
-                <span>See the 10 Day Itinerary Instead</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -1105,57 +888,8 @@ Departure: ${leadForm.departure}`;
         </div>
       </section>
 
-      {/* SECTION 5B - BUDGET BY TRIP LENGTH */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 scroll-mt-24" id="trip-length-budget">
-        <div className="text-center mb-12 space-y-2">
-          <span className="text-luxury-gold font-serif italic text-lg uppercase tracking-wider block">Plan Around Your Leave Days</span>
-          <h2 className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tight font-bold">
-            Sri Lanka Trip Cost: 5 Days vs 7 Days vs 10 Days
-          </h2>
-          <p className="text-xs text-luxury-black/50 uppercase tracking-widest">Per traveler, including return economy flights from India</p>
-        </div>
-
-        <div className="overflow-x-auto rounded-[32px] border border-luxury-black/5 shadow-luxury bg-white">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-luxury-green text-white text-xs md:text-sm font-serif">
-                <th className="p-6 md:p-8 rounded-tl-[32px]">Trip Length</th>
-                <th className="p-6 md:p-8">Budget Tier</th>
-                <th className="p-6 md:p-8">Mid-Range Tier</th>
-                <th className="p-6 md:p-8 rounded-tr-[32px]">Luxury Tier</th>
-              </tr>
-            </thead>
-            <tbody className="text-xs md:text-sm text-luxury-black/70 divide-y divide-luxury-black/[0.04]">
-              <tr className="hover:bg-luxury-cream/40 transition-all">
-                <td className="p-6 md:p-8 font-serif font-bold text-luxury-green">Sri Lanka 5 Day Trip Cost</td>
-                <td className="p-6 md:p-8">₹22,000 – ₹32,000</td>
-                <td className="p-6 md:p-8">₹38,000 – ₹52,000</td>
-                <td className="p-6 md:p-8">₹95,000+</td>
-              </tr>
-              <tr className="hover:bg-luxury-cream/40 transition-all">
-                <td className="p-6 md:p-8 font-serif font-bold text-luxury-green">Sri Lanka 7 Day Trip Cost</td>
-                <td className="p-6 md:p-8">₹25,000 – ₹40,000</td>
-                <td className="p-6 md:p-8">₹45,000 – ₹65,000</td>
-                <td className="p-6 md:p-8">₹1,50,000+</td>
-              </tr>
-              <tr className="hover:bg-luxury-cream/40 transition-all">
-                <td className="p-6 md:p-8 font-serif font-bold text-luxury-green">
-                  <Link to="/sri-lanka-10-day-itinerary" className="hover:text-luxury-gold transition-colors">Sri Lanka 10 Day Trip Cost</Link>
-                </td>
-                <td className="p-6 md:p-8">₹34,000 – ₹52,000</td>
-                <td className="p-6 md:p-8">₹62,000 – ₹88,000</td>
-                <td className="p-6 md:p-8">₹2,10,000+</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="text-xs text-luxury-black/45 text-center mt-6 font-light max-w-3xl mx-auto">
-          Couple and family totals scale from these per-traveler figures — see the exact breakdown for your group size in the traveler-type cards below, or drag the day slider in our interactive calculator further down this page.
-        </p>
-      </section>
-
       {/* SECTION 6 - COST BY TRAVELER TYPE */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 scroll-mt-24" id="traveler-styles">
+      <section className="max-w-7xl mx-auto px-6 mb-20" id="traveler-styles">
         <div className="text-center mb-12 space-y-2">
           <span className="text-luxury-gold font-serif italic text-lg uppercase tracking-wider block">Bespoke segment Profiles</span>
           <h2 className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tight font-bold">
@@ -1164,27 +898,7 @@ Departure: ${leadForm.departure}`;
           <p className="text-xs text-luxury-black/50 uppercase tracking-widest">Pricing profiles tailored to group dynamic limits</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Backpackers */}
-          <div className="bg-white p-8 rounded-3xl border border-luxury-black/5 space-y-4 hover:border-luxury-gold/30 transition-all flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold">
-                <Backpack className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-2xl text-luxury-green font-bold">Backpackers</h3>
-              <p className="font-mono text-sm text-luxury-gold font-bold">₹18,000 – ₹28,000 Base</p>
-              <p className="text-xs text-luxury-black/60 leading-relaxed font-light">
-                For students and shoestring explorers who want the maximum experience density per rupee, hostel-hopping the classic loop.
-              </p>
-              <ul className="text-xs space-y-2 text-luxury-black/70 list-disc pl-5 font-light">
-                <li>Hostel dorms or shared guest houses (₹1,200/night).</li>
-                <li>2nd/3rd class trains, local buses & shared tuktuks.</li>
-                <li>Street-side rice and curry meals under ₹250/plate.</li>
-              </ul>
-            </div>
-            <p className="text-[10px] text-luxury-black/40 italic font-mono pt-4 border-t border-luxury-black/5">*Excludes international aviation cards</p>
-          </div>
-
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Solo */}
           <div className="bg-white p-8 rounded-3xl border border-luxury-black/5 space-y-4 hover:border-luxury-gold/30 transition-all flex flex-col justify-between">
             <div className="space-y-4">
@@ -1194,10 +908,10 @@ Departure: ${leadForm.departure}`;
               <h3 className="font-serif text-2xl text-luxury-green font-bold">Solo Travelers</h3>
               <p className="font-mono text-sm text-luxury-gold font-bold">₹25,000 – ₹40,000 Base</p>
               <p className="text-xs text-luxury-black/60 leading-relaxed font-light">
-                Perfect for independent travelers or remote digital creators who prioritize local connection and heritage adventure trails over resort stays.
+                Perfect for independent backpackers or remote digital creators who prioritize local connection and heritage adventure trails over resort stays.
               </p>
               <ul className="text-xs space-y-2 text-luxury-black/70 list-disc pl-5 font-light">
-                <li>Private single rooms in clean family guest houses (₹1,500/night).</li>
+                <li>Hostel dorms or clean family guest houses (₹1,500/night).</li>
                 <li>Commute on scenic public train routes & local tuktuks.</li>
                 <li>Dining on authentic pocket-friendly rice and curries (₹250/plate).</li>
               </ul>
@@ -1222,9 +936,6 @@ Departure: ${leadForm.departure}`;
                 <li>Continuously available dedicated private Sedan (all-inclusive fuel/accommodation).</li>
                 <li>Local organic cafes and beachfront private dinners (₹1,500/meal).</li>
               </ul>
-              <Link to="/sri-lanka-itinerary-august-couples" className="inline-flex items-center gap-1.5 text-xs font-bold text-luxury-gold hover:underline pt-1">
-                See our romantic couples itinerary <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
             </div>
             <p className="text-[10px] text-luxury-black/40 italic font-mono pt-4 border-t border-luxury-black/5">*Includes custom VIP airport transfers</p>
           </div>
@@ -1245,43 +956,14 @@ Departure: ${leadForm.departure}`;
                 <li>Spacious high-roof private AC vehicle van with certified guide driver.</li>
                 <li>Customized kid-friendly culinary plates & safe beaches guides.</li>
               </ul>
-              <Link to="/sri-lanka-family-itinerary" className="inline-flex items-center gap-1.5 text-xs font-bold text-luxury-gold hover:underline pt-1">
-                See our stress-free family itinerary <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
             </div>
             <p className="text-[10px] text-luxury-black/40 italic font-mono pt-4 border-t border-luxury-black/5">*Includes national safari entry jeep passes</p>
-          </div>
-
-          {/* Luxury */}
-          <div className="bg-luxury-green text-white p-8 rounded-3xl border border-luxury-gold/30 space-y-4 hover:border-luxury-gold transition-all flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-luxury-gold/20 flex items-center justify-center text-luxury-gold">
-                <Gem className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-2xl text-white font-bold">Luxury Escape</h3>
-              <p className="font-mono text-sm text-luxury-gold font-bold">₹150,000+ Per Traveler</p>
-              <p className="text-xs text-white/70 leading-relaxed font-light">
-                For discerning travelers seeking 5-star clifftop suites, private safaris, and fully bespoke concierge-planned journeys.
-              </p>
-              <ul className="text-xs space-y-2 text-white/80 list-disc pl-5 font-light">
-                <li>Private pool villas & colonial tea bungalows (₹25,000+/night).</li>
-                <li>Dedicated premium SUV with English-fluent concierge driver.</li>
-                <li>Private yacht cruises, VIP wildlife guides & fine dining.</li>
-              </ul>
-              <button
-                onClick={() => handleWhatsAppRedirect("luxury_persona_card")}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-luxury-gold hover:text-white pt-1 cursor-pointer"
-              >
-                Request a bespoke luxury quote <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-            <p className="text-[10px] text-white/40 italic font-mono pt-4 border-t border-white/10">*Fully customized to your preferences</p>
           </div>
         </div>
       </section>
 
       {/* SECTION 7 - BEST TIME TO VISIT & SAVE MONEY */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 scroll-mt-24" id="seasonal-savings">
+      <section className="max-w-7xl mx-auto px-6 mb-20" id="seasonal-savings">
         <div className="bg-white rounded-[40px] p-8 md:p-12 border border-luxury-black/5 shadow-luxury">
           <div className="grid lg:grid-cols-2 gap-12 lg:items-center">
             
@@ -1332,20 +1014,11 @@ Departure: ${leadForm.departure}`;
             </div>
 
           </div>
-
-          <div className="pt-8 mt-8 border-t border-luxury-black/5 text-center">
-            <Link
-              to="/best-time-to-visit-sri-lanka"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-luxury-green hover:text-luxury-gold transition-colors"
-            >
-              Read the full Best Time to Visit Sri Lanka guide <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* SECTION 8 - INTERACTIVE COST CALCULATOR */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 scroll-mt-24" id="calculator">
+      <section className="max-w-7xl mx-auto px-6 mb-20" id="calculator">
         <div className="text-center mb-8 space-y-2">
           <span className="text-luxury-gold font-serif italic text-lg uppercase tracking-wider block">Real-time Budget Planner</span>
           <h2 className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tight font-bold">
@@ -1702,21 +1375,8 @@ Departure: ${leadForm.departure}`;
         </div>
       </section>
 
-      {/* SECTION 9B - PRICING METHODOLOGY (E-E-A-T TRANSPARENCY) */}
-      <section className="max-w-4xl mx-auto px-6 mb-20" id="methodology">
-        <div className="bg-[#FAF8F5] rounded-[32px] p-8 border border-luxury-gold/15">
-          <h2 className="font-serif text-xl md:text-2xl text-luxury-green font-bold flex items-center gap-2.5 mb-4">
-            <Info className="w-5 h-5 text-luxury-gold" />
-            How We Calculate These Cost Estimates
-          </h2>
-          <p className="text-xs md:text-sm text-luxury-black/65 leading-relaxed font-light">
-            Every figure on this page is built from live 2026 flight fares across the five busiest Indian gateways (Delhi, Mumbai, Bangalore, Chennai, Hyderabad), published hotel and boutique-villa rate cards, and the actual daily rates our Colombo-based driver-guide network charges. Ranges reflect low-season vs peak-season pricing, not worst-case padding — we round to realistic figures rather than the cheapest possible outlier, and we flag when a cost (like the visa fee) is currently waived rather than assume it stays that way. Content is written by <Link to="/about-founder" className="text-luxury-gold hover:underline font-bold">Adithya Oshada</Link>, our lead Ceylon travel stylist, and fact-checked by Anura Jayasekera, an SLTDA-licensed national guide lecturer. We update this guide whenever flight fares, visa policy, or hotel rate cards shift materially.
-          </p>
-        </div>
-      </section>
-
       {/* SECTION 10 - FAQs */}
-      <section className="max-w-4xl mx-auto px-6 mb-20 scroll-mt-24" id="faqs">
+      <section className="max-w-4xl mx-auto px-6 mb-20" id="faqs">
         <div className="text-center mb-12 space-y-2">
           <span className="text-luxury-gold font-serif italic text-lg uppercase tracking-wider block">Discerning Answers</span>
           <h2 className="text-3xl md:text-5xl font-serif text-luxury-green tracking-tight font-bold">
@@ -1764,57 +1424,9 @@ Departure: ${leadForm.departure}`;
         </div>
       </section>
 
-      {/* MOVE DOWN SECTIONS: HIDDEN COSTS, MONEY SAVING TIPS & VISUAL SITEMAP DIRECTORY */}
+      {/* MOVE DOWN SECTIONS: MONEY SAVING TIPS & VISUAL SITEMAP DIRECTORY */}
       <div className="bg-white border-t border-luxury-black/10 py-20 divide-y divide-luxury-black/10 space-y-20">
-
-        {/* Hidden Costs to Budget For */}
-        <section className="max-w-7xl mx-auto px-6 scroll-mt-24" id="hidden-costs">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-700">
-                <AlertTriangle className="w-5 h-5" />
-              </div>
-              <h2 className="text-2xl md:text-4xl font-serif text-luxury-green tracking-tight font-bold">
-                Hidden Costs to Budget For
-              </h2>
-            </div>
-            <p className="text-sm text-luxury-black/70 font-light leading-relaxed">
-              Most cost guides stop at flights, hotels, and food. Here's what genuinely catches first-time Indian travelers off guard — budget an extra 8-10% on top of your estimate to comfortably absorb these:
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-4 text-xs md:text-sm text-luxury-black/80 font-light font-sans">
-              <ul className="space-y-3.5">
-                <li className="flex gap-2">
-                  <Wallet className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span><strong>Foreigner-priced entry tickets:</strong> Sigiriya and national park fees are often 2-3x the local rate — always factor the tourist tariff, not the LKR price you may see quoted locally.</span>
-                </li>
-                <li className="flex gap-2">
-                  <Wallet className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span><strong>Dynamic currency conversion (DCC):</strong> Card terminals sometimes offer to bill you in INR "for convenience" — always choose to pay in LKR to avoid a 3-5% markup.</span>
-                </li>
-                <li className="flex gap-2">
-                  <Wallet className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span><strong>Camera & drone permits:</strong> Some heritage sites and national parks charge a separate fee for DSLR cameras or drone operation.</span>
-                </li>
-              </ul>
-              <ul className="space-y-3.5">
-                <li className="flex gap-2">
-                  <Wallet className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span><strong>Driver tips & meals:</strong> On multi-day private chauffeur tours, budget ₹500-800/day in tips plus a meal allowance for your driver-guide.</span>
-                </li>
-                <li className="flex gap-2">
-                  <Wallet className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span><strong>Resort markups:</strong> Bottled water, sunscreen, and mini-bar items at beach resorts can cost 3-4x city prices — carry your own from a supermarket.</span>
-                </li>
-                <li className="flex gap-2">
-                  <Wallet className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span><strong>SIM card & insurance:</strong> Easy to forget when budgeting — set aside roughly ₹1,500-1,800 combined per traveler (see the breakdown above).</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
+        
         {/* 20 Pro Money Saving Tips */}
         <section className="max-w-7xl mx-auto px-6" id="money-tips">
           <div className="max-w-4xl mx-auto space-y-8">
@@ -1931,15 +1543,15 @@ Departure: ${leadForm.departure}`;
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
-
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+              
               {/* Category A: Itineraries */}
               <div className="space-y-4">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-luxury-green bg-luxury-gold/15 px-3 py-1 rounded-full">
                   1. Multi-Day Ceylon Itineraries
                 </span>
                 <div className="space-y-3">
-                  <Link
+                  <Link 
                     to="/sri-lanka-7-day-itinerary"
                     className="bg-white p-4 rounded-2xl border border-luxury-black/5 hover:border-luxury-gold hover:shadow-sm transition-all block group"
                   >
@@ -1956,24 +1568,7 @@ Departure: ${leadForm.departure}`;
                     </div>
                   </Link>
 
-                  <Link
-                    to="/sri-lanka-10-day-itinerary"
-                    className="bg-white p-4 rounded-2xl border border-luxury-black/5 hover:border-luxury-gold hover:shadow-sm transition-all block group"
-                  >
-                    <div className="flex justify-between items-start gap-4">
-                      <div className="space-y-1">
-                        <p className="font-serif text-sm font-bold text-luxury-green group-hover:text-luxury-gold transition-colors">
-                          10-Day Refined Route
-                        </p>
-                        <p className="text-[11px] text-luxury-black/50 leading-relaxed font-light">
-                          Adds unhurried beach time and a full national park safari to the classic loop.
-                        </p>
-                      </div>
-                      <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform shrink-0 mt-1" />
-                    </div>
-                  </Link>
-
-                  <Link
+                  <Link 
                     to="/sri-lanka-family-itinerary"
                     className="bg-white p-4 rounded-2xl border border-luxury-black/5 hover:border-luxury-gold hover:shadow-sm transition-all block group"
                   >
@@ -1989,33 +1584,16 @@ Departure: ${leadForm.departure}`;
                       <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform shrink-0 mt-1" />
                     </div>
                   </Link>
-
-                  <Link
-                    to="/sri-lanka-itinerary-august-couples"
-                    className="bg-white p-4 rounded-2xl border border-luxury-black/5 hover:border-luxury-gold hover:shadow-sm transition-all block group"
-                  >
-                    <div className="flex justify-between items-start gap-4">
-                      <div className="space-y-1">
-                        <p className="font-serif text-sm font-bold text-luxury-green group-hover:text-luxury-gold transition-colors">
-                          Couples & Honeymoon Itinerary
-                        </p>
-                        <p className="text-[11px] text-luxury-black/50 leading-relaxed font-light">
-                          Romantic east-coast beaches, boutique tea hills, and private candlelit dinners.
-                        </p>
-                      </div>
-                      <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform shrink-0 mt-1" />
-                    </div>
-                  </Link>
                 </div>
               </div>
 
-              {/* Category B: Planning Resources */}
+              {/* Category B: Interactive and border info */}
               <div className="space-y-4">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-luxury-green bg-luxury-gold/15 px-3 py-1 rounded-full">
                   2. Planning Resources & Visa Manuals
                 </span>
                 <div className="space-y-3">
-                  <Link
+                  <Link 
                     to="/sri-lanka-visa-for-indians"
                     className="bg-white p-4 rounded-2xl border border-luxury-black/5 hover:border-luxury-gold hover:shadow-sm transition-all block group"
                   >
@@ -2032,41 +1610,7 @@ Departure: ${leadForm.departure}`;
                     </div>
                   </Link>
 
-                  <Link
-                    to="/best-time-to-visit-sri-lanka"
-                    className="bg-white p-4 rounded-2xl border border-luxury-black/5 hover:border-luxury-gold hover:shadow-sm transition-all block group"
-                  >
-                    <div className="flex justify-between items-start gap-4">
-                      <div className="space-y-1">
-                        <p className="font-serif text-sm font-bold text-luxury-green group-hover:text-luxury-gold transition-colors">
-                          Best Time to Visit Sri Lanka
-                        </p>
-                        <p className="text-[11px] text-luxury-black/50 leading-relaxed font-light">
-                          Dual monsoon weather maps, festival calendar, and month-by-month coast recommendations.
-                        </p>
-                      </div>
-                      <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform shrink-0 mt-1" />
-                    </div>
-                  </Link>
-
-                  <Link
-                    to="/things-to-do-in-sri-lanka"
-                    className="bg-white p-4 rounded-2xl border border-luxury-black/5 hover:border-luxury-gold hover:shadow-sm transition-all block group"
-                  >
-                    <div className="flex justify-between items-start gap-4">
-                      <div className="space-y-1">
-                        <p className="font-serif text-sm font-bold text-luxury-green group-hover:text-luxury-gold transition-colors">
-                          Things to Do in Sri Lanka
-                        </p>
-                        <p className="text-[11px] text-luxury-black/50 leading-relaxed font-light">
-                          Safaris, scenic trains, surf breaks, and heritage walks, with per-activity cost guides.
-                        </p>
-                      </div>
-                      <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform shrink-0 mt-1" />
-                    </div>
-                  </Link>
-
-                  <Link
+                  <Link 
                     to="/sri-lanka-trip-planner"
                     className="bg-white p-4 rounded-2xl border border-luxury-black/5 hover:border-luxury-gold hover:shadow-sm transition-all block group"
                   >
@@ -2082,39 +1626,6 @@ Departure: ${leadForm.departure}`;
                       <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform shrink-0 mt-1" />
                     </div>
                   </Link>
-                </div>
-              </div>
-
-              {/* Category C: Trip cost guides by Indian city */}
-              <div className="space-y-4">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-luxury-green bg-luxury-gold/15 px-3 py-1 rounded-full">
-                  3. Trip Cost Guides by City
-                </span>
-                <div className="space-y-3">
-                  {[
-                    { path: "/how-much-will-it-take-to-visit-sri-lanka-from-chennai", title: "Chennai to Sri Lanka Cost", desc: "The cheapest, shortest gateway from South India." },
-                    { path: "/sri-lanka-trip-cost-from-bangalore", title: "Bangalore to Sri Lanka Cost", desc: "Direct BLR-CMB flights and IT-professional weekend budgets." },
-                    { path: "/sri-lanka-trip-cost-from-mumbai", title: "Mumbai to Sri Lanka Cost", desc: "CSMIA departures, honeymoon and classic loop pricing." },
-                    { path: "/sri-lanka-trip-cost-from-hyderabad", title: "Hyderabad to Sri Lanka Cost", desc: "RGIA flight deals and family & honeymoon budgets." }
-                  ].map((city) => (
-                    <Link
-                      key={city.path}
-                      to={city.path}
-                      className="bg-white p-4 rounded-2xl border border-luxury-black/5 hover:border-luxury-gold hover:shadow-sm transition-all block group"
-                    >
-                      <div className="flex justify-between items-start gap-4">
-                        <div className="space-y-1">
-                          <p className="font-serif text-sm font-bold text-luxury-green group-hover:text-luxury-gold transition-colors">
-                            {city.title}
-                          </p>
-                          <p className="text-[11px] text-luxury-black/50 leading-relaxed font-light">
-                            {city.desc}
-                          </p>
-                        </div>
-                        <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform shrink-0 mt-1" />
-                      </div>
-                    </Link>
-                  ))}
                 </div>
               </div>
 

@@ -24,43 +24,20 @@ import {
   Sparkles,
   TrendingUp,
   Heart,
-  Users,
-  Wallet,
-  Globe,
-  Wifi,
-  Calculator,
-  BadgeCheck,
-  XCircle,
-  BookOpen
+  Users
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaChennaiCostPillarPage() {
   usePageMetadata({
-    title: "Sri Lanka Trip Cost From Chennai (2026): Flights & Budget",
-    description: "Planning a Sri Lanka trip from Chennai? See flight, hotel, food, and transport costs, plus our Jaffna overland route guide.",
+    title: "Sri Lanka Trip Cost From Chennai (2026) | Flights, Hotels & Budget Guide",
+    description: "Find the real cost of visiting Sri Lanka from Chennai. Compare 5-day, 7-day, family and honeymoon budgets, flight prices, hotels and transport costs.",
     canonicalUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
     ogUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
   });
 
   const navigate = useNavigate();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-  const [calcDays, setCalcDays] = useState<3 | 5 | 7 | 10>(5);
-  const [calcTier, setCalcTier] = useState<"budget" | "mid" | "luxury">("budget");
-  const [calcTravelers, setCalcTravelers] = useState<1 | 2 | 4>(1);
-
-  const perDayRate: Record<string, number> = {
-    budget: 4800,
-    mid: 9800,
-    luxury: 19500
-  };
-  const flightBase: Record<string, number> = {
-    budget: 11000,
-    mid: 15500,
-    luxury: 22000
-  };
-  const calcTotalPerPerson = flightBase[calcTier] + perDayRate[calcTier] * calcDays;
-  const calcGrandTotal = calcTotalPerPerson * calcTravelers;
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -148,53 +125,6 @@ export default function SrilankaChennaiCostPillarPage() {
             ]
           })}
         </script>
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://plan-srilanka.com/" },
-              { "@type": "ListItem", "position": 2, "name": "Sri Lanka Trip Cost", "item": "https://plan-srilanka.com/sri-lanka-trip-cost-from-india" },
-              { "@type": "ListItem", "position": 3, "name": "From Chennai", "item": "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai" }
-            ]
-          })}
-        </script>
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "How Much Will It Take to Visit Sri Lanka From Chennai? (2026 Cost Guide)",
-            "url": "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
-            "inLanguage": "en-IN",
-            "isPartOf": {
-              "@type": "WebSite",
-              "name": "Plan Sri Lanka Concierge",
-              "url": "https://plan-srilanka.com/"
-            },
-            "about": {
-              "@type": "Thing",
-              "name": "Sri Lanka trip cost from Chennai"
-            },
-            "reviewedBy": {
-              "@type": "Person",
-              "name": "Adithya Oshada",
-              "jobTitle": "Lead Ceylon Travel Stylist"
-            }
-          })}
-        </script>
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Plan Sri Lanka Concierge",
-            "url": "https://plan-srilanka.com/",
-            "logo": "https://plan-srilanka.com/favicon.png",
-            "sameAs": []
-          })}
-        </script>
       </>
 
       {/* Styled Top Banner */}
@@ -209,8 +139,8 @@ export default function SrilankaChennaiCostPillarPage() {
           </div>
           
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#fcfbf7] font-bold leading-tight tracking-tight max-w-4xl mx-auto">
-            How Much Will It Take to Visit Sri Lanka From Chennai? <br/>
-            <span className="text-luxury-gold font-normal italic">(2026 Cost Guide)</span>
+            How Much Will It Cost to Visit Sri Lanka From Chennai? <br/>
+            <span className="text-luxury-gold font-normal italic">(Budget Guide)</span>
           </h1>
           
           <p className="mt-6 text-base sm:text-lg text-luxury-cream/80 max-w-2xl mx-auto font-light leading-relaxed">
@@ -280,27 +210,6 @@ export default function SrilankaChennaiCostPillarPage() {
           </div>
         </section>
 
-        {/* EEAT: Author & Trust Strip */}
-        <section className="flex flex-col sm:flex-row items-center gap-4 bg-white border border-luxury-green/10 rounded-2xl p-5 mb-12 shadow-sm">
-          <img
-            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200"
-            alt="Adithya Oshada, Lead Ceylon Travel Stylist"
-            className="w-14 h-14 rounded-full object-cover border-2 border-luxury-gold/40 shrink-0"
-          />
-          <div className="text-center sm:text-left flex-1">
-            <p className="text-sm font-serif font-bold text-luxury-green">
-              Written & priced by Adithya Oshada <BadgeCheck className="w-4 h-4 text-luxury-gold inline -mt-1 ml-1" />
-            </p>
-            <p className="text-xs text-luxury-black/60 font-light leading-relaxed mt-1">
-              Lead Ceylon Travel Stylist, 8+ years planning Chennai-to-Sri Lanka trips on the ground in Colombo, Galle, and Ella. Every price on this page is cross-checked against live Chennai-Colombo airfares, hotel rate cards, and 2026 ETA visa fees.
-            </p>
-          </div>
-          <div className="flex flex-col items-center sm:items-end gap-1 text-[10px] font-mono text-luxury-black/50 shrink-0">
-            <span>Fact-checked: <strong className="text-luxury-green">Jul 2026</strong></span>
-            <span>Sources: <strong className="text-luxury-green">SriLankan Airlines, IndiGo, Sri Lanka Immigration ETA Portal</strong></span>
-          </div>
-        </section>
-
         {/* Dynamic Mid-Page High-Conversion CTA for Chennai travelers */}
         <div className="bg-gradient-to-r from-luxury-green to-[#132c21] text-white p-6 sm:p-8 rounded-3xl mb-12 shadow-md border border-[#d4af37]/20 relative overflow-hidden">
           <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-y-4">
@@ -329,22 +238,17 @@ export default function SrilankaChennaiCostPillarPage() {
             <span className="text-[10px] font-mono text-luxury-green/60 uppercase tracking-widest font-bold block mb-3">Quick Navigation Navigation</span>
             <div className="flex flex-wrap gap-2.5 text-xs">
               <a href="#glance" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">1. Cost Breakdown</a>
-              <a href="#calculator" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">2. Budget Calculator</a>
-              <a href="#distance" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">3. Distance</a>
-              <a href="#flights" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">4. Flight Costs</a>
-              <a href="#visa" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">5. Visa Cost</a>
-              <a href="#sim-currency" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">6. SIM & Currency</a>
-              <a href="#3day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">7. 3-Day Costs</a>
-              <a href="#5day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">8. 5-Day Costs</a>
-              <a href="#7day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">9. 7-Day Costs</a>
-              <a href="#family" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">10. Family Budgets</a>
-              <a href="#honeymoon" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">11. Honeymoon Costs</a>
-              <a href="#itinerary-chennai" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">12. 7-Day Itinerary</a>
-              <a href="#best-time" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">13. Best Time to Visit</a>
-              <a href="#flight-schedule" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">14. Flight Schedule</a>
-              <a href="#reduce" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">15. Cost Saving Tips</a>
-              <a href="#mistakes" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">16. Common Mistakes</a>
-              <a href="#faq" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">17. FAQs</a>
+              <a href="#distance" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">2. Chennai to Sri Lanka Distance</a>
+              <a href="#flights" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">3. Chennai Flight Costs</a>
+              <a href="#5day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">4. 5-Day Costs</a>
+              <a href="#7day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">5. 7-Day Costs</a>
+              <a href="#family" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">6. Family Budgets</a>
+              <a href="#honeymoon" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">7. Honeymoon Costs</a>
+              <a href="#itinerary-chennai" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">8. Chennai 7-Day Itinerary</a>
+              <a href="#best-time" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">9. Best Time to Visit</a>
+              <a href="#flight-schedule" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">10. Flight Schedule</a>
+              <a href="#reduce" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">11. Cost Saving Tips</a>
+              <a href="#faq" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">12. Interactive FAQs</a>
             </div>
           </div>
         </section>
@@ -354,7 +258,7 @@ export default function SrilankaChennaiCostPillarPage() {
           <p className="font-bold uppercase tracking-widest text-[11px] text-luxury-gold mb-4 flex items-center gap-1.5 font-mono">
             <Info className="w-4 h-4" /> Sri Lanka Planning Pipeline (Step-by-Step):
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch relative">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-stretch relative">
             <Link to="/how-to-plan-a-trip-to-sri-lanka" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
               <div>
                 <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 1</span>
@@ -367,11 +271,11 @@ export default function SrilankaChennaiCostPillarPage() {
               </div>
             </Link>
 
-            <Link to="/sri-lanka-7-day-itinerary-from-chennai" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
+            <Link to="/sri-lanka-7-day-itinerary" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
               <div>
                 <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 2</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">7 Day Itinerary from Chennai</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Day-by-day route built specifically for MAA flyers.</p>
+                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Sri Lanka 7 Day Itinerary</h4>
+                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Our most popular first-timer classic route.</p>
               </div>
               <div className="mt-4 flex items-center justify-end text-luxury-gold">
                 <span className="text-[10px] font-bold mr-1">View Itinerary</span>
@@ -399,42 +303,6 @@ export default function SrilankaChennaiCostPillarPage() {
               </div>
               <div className="mt-4 flex items-center justify-end text-luxury-gold">
                 <span className="text-[10px] font-bold mr-1">See Weather</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link to="/sri-lanka-car-rental" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
-              <div>
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 5</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Car Rental in Sri Lanka</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Self-drive vehicle options and daily prices.</p>
-              </div>
-              <div className="mt-4 flex items-center justify-end text-luxury-gold">
-                <span className="text-[10px] font-bold mr-1">See Prices</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link to="/sri-lanka-trip-cost-from-india" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
-              <div>
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 6</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Cost From Other Indian Cities</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Compare budgets from anywhere in India.</p>
-              </div>
-              <div className="mt-4 flex items-center justify-end text-luxury-gold">
-                <span className="text-[10px] font-bold mr-1">Compare Costs</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link to="/flights" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
-              <div>
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 6</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Flights Guide</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Find and time the cheapest fares.</p>
-              </div>
-              <div className="mt-4 flex items-center justify-end text-luxury-gold">
-                <span className="text-[10px] font-bold mr-1">Search Flights</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
@@ -496,79 +364,6 @@ export default function SrilankaChennaiCostPillarPage() {
               <p className="text-xs text-luxury-gold font-mono font-bold mt-1">₹4,000 - ₹8,000</p>
               <span className="text-[10px] text-luxury-black/50 block mt-1 leading-snug">Sigiriya Climb, Yala wildlife & Ella hikes.</span>
             </div>
-          </div>
-        </section>
-
-        {/* H2: Interactive Sri Lanka Budget Calculator */}
-        <section id="calculator" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Calculator className="w-6 h-6 text-[#d4af37]" />
-            Sri Lanka Trip Cost Calculator (From Chennai)
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            Get an instant, personalized estimate. Choose your trip length, comfort level, and group size below — the numbers update immediately using the same 2026 flight, hotel, and transport rates used throughout this guide.
-          </p>
-
-          <div className="bg-white border border-luxury-green/10 rounded-3xl p-6 sm:p-8 shadow-sm">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
-              <div>
-                <label className="text-[10px] font-mono uppercase tracking-wider text-luxury-green/70 font-bold block mb-2">Trip Length</label>
-                <div className="flex gap-2 flex-wrap">
-                  {[3, 5, 7, 10].map((d) => (
-                    <button
-                      key={d}
-                      onClick={() => setCalcDays(d as 3 | 5 | 7 | 10)}
-                      className={`px-3 py-2 rounded-lg text-xs font-bold border transition-all ${calcDays === d ? "bg-luxury-green text-white border-luxury-green" : "bg-luxury-cream/20 text-luxury-green border-luxury-green/10 hover:border-luxury-gold"}`}
-                    >
-                      {d} Days
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <label className="text-[10px] font-mono uppercase tracking-wider text-luxury-green/70 font-bold block mb-2">Comfort Level</label>
-                <div className="flex gap-2 flex-wrap">
-                  {(["budget", "mid", "luxury"] as const).map((t) => (
-                    <button
-                      key={t}
-                      onClick={() => setCalcTier(t)}
-                      className={`px-3 py-2 rounded-lg text-xs font-bold border capitalize transition-all ${calcTier === t ? "bg-luxury-green text-white border-luxury-green" : "bg-luxury-cream/20 text-luxury-green border-luxury-green/10 hover:border-luxury-gold"}`}
-                    >
-                      {t === "mid" ? "Mid-range" : t}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <label className="text-[10px] font-mono uppercase tracking-wider text-luxury-green/70 font-bold block mb-2">Travelers</label>
-                <div className="flex gap-2 flex-wrap">
-                  {[1, 2, 4].map((p) => (
-                    <button
-                      key={p}
-                      onClick={() => setCalcTravelers(p as 1 | 2 | 4)}
-                      className={`px-3 py-2 rounded-lg text-xs font-bold border transition-all ${calcTravelers === p ? "bg-luxury-green text-white border-luxury-green" : "bg-luxury-cream/20 text-luxury-green border-luxury-green/10 hover:border-luxury-gold"}`}
-                    >
-                      {p === 1 ? "Solo" : p === 2 ? "Couple" : "Family (4)"}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-luxury-green to-[#132c21] rounded-2xl p-6 text-center text-white">
-              <p className="text-[10px] font-mono uppercase tracking-wider text-luxury-cream/60 mb-1">Estimated Total ({calcDays} Days, {calcTravelers === 1 ? "Solo" : calcTravelers === 2 ? "Couple" : "Family of 4"}, {calcTier === "mid" ? "Mid-range" : calcTier})</p>
-              <p className="text-3xl sm:text-4xl font-serif font-bold text-luxury-gold">₹{calcGrandTotal.toLocaleString("en-IN")}</p>
-              <p className="text-xs text-luxury-cream/70 mt-2 font-light">≈ ₹{calcTotalPerPerson.toLocaleString("en-IN")} per person, including flights, hotels, food, transport & entry tickets.</p>
-              <button
-                onClick={() => handleCtaClick("calculator_cta")}
-                className="mt-4 bg-luxury-gold text-white hover:bg-white hover:text-luxury-green text-xs font-bold py-2.5 px-5 rounded-xl transition-all inline-flex items-center gap-1.5"
-              >
-                Get an Exact Quote <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-            <p className="text-[10px] text-luxury-black/40 mt-3 italic font-light text-center">
-              *Estimate only. Actual cost varies with season, hotel brand, and booking window — see the detailed tables below.
-            </p>
           </div>
         </section>
 
@@ -710,98 +505,6 @@ export default function SrilankaChennaiCostPillarPage() {
             <AlertTriangle className="w-5 h-5 text-yellow-600 shrink-0 mt-0.5" />
             <div>
               <strong>⚠️ Critical Airfare Hack:</strong> Standard <strong>chennai to colombo airfare</strong> prices can surge past ₹22,000 during high-demand holidays (Indian Diwali, Pongal, school vacations of May-Oct, and Christmas seasons). Try to secure tickets early during weekday promotional cycles.
-            </div>
-          </div>
-        </section>
-
-        {/* H2: Sri Lanka Visa Cost For Chennai/Indian Travelers */}
-        <section id="visa" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <BookOpen className="w-6 h-6 text-[#d4af37]" />
-            Sri Lanka Visa Cost From Chennai
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            Every Indian passport holder needs a <strong>Tourist Electronic Travel Authorization (ETA)</strong> before boarding a Chennai-Colombo flight — there is no physical visa stamp or embassy visit required. Apply online at the official Sri Lanka ETA portal 3-7 days before departure.
-          </p>
-          <div className="overflow-x-auto rounded-2xl border border-luxury-green/10 bg-white shadow-sm p-2 mb-6">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2] text-[10px] sm:text-xs uppercase font-mono text-luxury-green">
-                  <th className="p-4">Visa Type</th>
-                  <th className="p-4">Validity</th>
-                  <th className="p-4 text-right">Cost (Per Person)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-luxury-cream">
-                <tr>
-                  <td className="p-4 font-serif font-bold text-luxury-green">Tourist ETA (standard)</td>
-                  <td className="p-4 font-light text-luxury-black/80">30 days, single entry</td>
-                  <td className="p-4 text-right font-mono font-bold text-luxury-gold">$20 (≈ ₹1,700)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-serif font-bold text-luxury-green">Tourist ETA (promotional waiver)</td>
-                  <td className="p-4 font-light text-luxury-black/80">30 days, single entry</td>
-                  <td className="p-4 text-right font-mono font-bold text-luxury-gold">₹0 (during active schemes)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-serif font-bold text-luxury-green">Double Entry ETA</td>
-                  <td className="p-4 font-light text-luxury-black/80">30 days, 2 entries</td>
-                  <td className="p-4 text-right font-mono font-bold text-luxury-gold">$35 (≈ ₹2,950)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light">
-            Apply only via the government ETA portal — never through third-party agents charging a markup. You'll need a passport valid for 6+ months, a return flight ticket, and a debit/credit card for online payment. Approval usually lands in your inbox within 24 hours. Full document checklist and step-by-step screenshots are in our <Link to="/sri-lanka-visa-for-indians" className="text-luxury-green font-bold underline decoration-luxury-gold/50 hover:text-luxury-gold">Sri Lanka Visa for Indians guide</Link>.
-          </p>
-        </section>
-
-        {/* H2: SIM Card & Currency Exchange */}
-        <section id="sim-currency" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Wifi className="w-6 h-6 text-[#d4af37]" />
-            SIM Card & Currency Exchange Costs
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4 mb-6">
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm">
-              <h4 className="font-serif font-bold text-sm text-luxury-green mb-2 flex items-center gap-1.5"><Smartphone className="w-4 h-4 text-luxury-gold" /> Local SIM Card</h4>
-              <p className="text-xs text-luxury-black/75 leading-relaxed font-light">
-                Dialog, Mobitel, and Airtel Lanka counters at Bandaranaike Airport (CMB) sell tourist SIM packs with 20-50GB data for <strong>₹350 - ₹800</strong>. eSIMs (Airalo, Holafly) can be activated before you even leave Chennai for ₹500 - ₹1,200.
-              </p>
-            </div>
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm">
-              <h4 className="font-serif font-bold text-sm text-luxury-green mb-2 flex items-center gap-1.5"><Globe className="w-4 h-4 text-luxury-gold" /> Currency Exchange</h4>
-              <p className="text-xs text-luxury-black/75 leading-relaxed font-light">
-                Convert INR cash to Sri Lankan Rupees (LKR) at the airport or licensed city exchange counters — rates are typically better in Colombo/Fort than at the airport kiosk. 1 INR ≈ 3.9 - 4.1 LKR (check live rates before you fly). Avoid unlicensed street changers.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* H2: 3 Day Sri Lanka Trip Cost From Chennai */}
-        <section id="3day" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Clock className="w-6 h-6 text-[#d4af37]" />
-            3 Day Sri Lanka Trip Cost From Chennai (Weekend Escape)
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            Since Chennai is only 80 minutes from Colombo, a 3-day weekend trip is genuinely doable without burning a full leave block — fly out Friday evening, return Sunday night. This window is best spent entirely around Colombo, Negombo, or Bentota rather than the hill country.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-white p-6 rounded-3xl border border-luxury-green/10">
-            <div>
-              <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Budget</span>
-              <p className="text-xl font-serif font-bold text-luxury-green">₹18,000 - ₹24,000</p>
-              <p className="text-[11px] text-luxury-black/60 font-light mt-1">Guesthouse stays, tuk-tuk/PickMe transit, local cafes.</p>
-            </div>
-            <div>
-              <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Mid-range</span>
-              <p className="text-xl font-serif font-bold text-luxury-green">₹28,000 - ₹38,000</p>
-              <p className="text-[11px] text-luxury-black/60 font-light mt-1">3-star beach hotel, private car for 2 days, sit-down dinners.</p>
-            </div>
-            <div>
-              <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Luxury</span>
-              <p className="text-xl font-serif font-bold text-luxury-green">₹55,000 - ₹75,000</p>
-              <p className="text-[11px] text-luxury-black/60 font-light mt-1">Boutique beach resort, chauffeured sedan, fine dining.</p>
             </div>
           </div>
         </section>
@@ -1212,36 +915,6 @@ export default function SrilankaChennaiCostPillarPage() {
               <p className="text-xs text-luxury-black/70 leading-relaxed font-light">
                 Instead of expensive five-star hotel options, check out local homestay guest houses. Savor delicious organic home-style breakfasts, secure local routes advice, and spend less than ₹2,000 per night.
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* H2: Common Mistakes Chennai Travelers Make */}
-        <section id="mistakes" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <XCircle className="w-6 h-6 text-[#d4af37]" />
-            Common Mistakes Chennai Travelers Make
-          </h2>
-          <div className="space-y-3">
-            <div className="p-4 bg-white border border-luxury-green/5 rounded-2xl flex gap-3 items-start shadow-sm">
-              <XCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
-              <p className="text-xs text-luxury-black/75 font-light leading-relaxed"><strong>Booking flights less than 2 weeks out.</strong> Chennai-Colombo fares can double during festival weekends (Pongal, Diwali) — book 45-60 days ahead for the ₹10,000-₹12,000 fares.</p>
-            </div>
-            <div className="p-4 bg-white border border-luxury-green/5 rounded-2xl flex gap-3 items-start shadow-sm">
-              <XCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
-              <p className="text-xs text-luxury-black/75 font-light leading-relaxed"><strong>Skipping the ETA and assuming Aadhaar/PAN works.</strong> Sri Lanka is an international destination — you need a valid passport and an approved ETA before check-in, not just an Indian ID card.</p>
-            </div>
-            <div className="p-4 bg-white border border-luxury-green/5 rounded-2xl flex gap-3 items-start shadow-sm">
-              <XCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
-              <p className="text-xs text-luxury-black/75 font-light leading-relaxed"><strong>Cramming the hill country into a 3-day trip.</strong> Kandy, Ella, and Nuwara Eliya need at least 2 extra travel days — attempting them on a short weekend causes exhausting backtracking.</p>
-            </div>
-            <div className="p-4 bg-white border border-luxury-green/5 rounded-2xl flex gap-3 items-start shadow-sm">
-              <XCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
-              <p className="text-xs text-luxury-black/75 font-light leading-relaxed"><strong>Relying only on card payments.</strong> Small guesthouses, tuk-tuks, and roadside cafes outside Colombo are cash-only — always carry LKR cash converted from INR.</p>
-            </div>
-            <div className="p-4 bg-white border border-luxury-green/5 rounded-2xl flex gap-3 items-start shadow-sm">
-              <XCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
-              <p className="text-xs text-luxury-black/75 font-light leading-relaxed"><strong>Negotiating with unmetered tuk-tuks.</strong> Always use PickMe or Uber for transparent, metered fares instead of street-hailed three-wheelers that quote 3x the local rate to tourists.</p>
             </div>
           </div>
         </section>

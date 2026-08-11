@@ -20,6 +20,7 @@ import {
   Plane
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
+import Footer from "./Footer";
 
 interface ArticleMeta {
   path: string;
@@ -33,23 +34,6 @@ interface ArticleMeta {
 
 const articleCategories = [
   {
-    id: "inspiration",
-    title: "Why Sri Lanka & Travel Inspiration",
-    subtitle: "The bigger picture: why Indian travellers keep choosing this island",
-    icon: <Sparkles className="w-5 h-5 text-luxury-gold" />,
-    articles: [
-      {
-        path: "/blog/why-sri-lanka-is-popular-with-indian-travellers",
-        title: "Why Sri Lanka Wins the Hearts of Indian Travellers (2026)",
-        desc: "Beaches, hill country, wildlife, ancient heritage and Ayurveda inside one compact island — the case for Sri Lanka's 'experience density', plus how to build your own route.",
-        image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
-        readTime: "11 Min Read",
-        badge: "Editor's Pick",
-        tag: "Travel Inspiration"
-      }
-    ]
-  },
-  {
     id: "tools",
     title: "Interactive Trip Planning Tools",
     subtitle: "Real-time route calculators & step-by-step master blueprints",
@@ -58,7 +42,7 @@ const articleCategories = [
     articles: [
       {
         path: "/how-to-plan-a-trip-to-sri-lanka",
-        title: "How to Plan a Trip to Sri Lanka (Step-by-Step Guide)",
+        title: "Master Trip Planner Pillar (Step-by-Step Blueprint)",
         desc: "Our comprehensive 15-minute coordination handbook. Learn how to map climate zones, allocate daily budgets, and sequence driving hours without transit exhaustion.",
         image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
         readTime: "Master Pillar",
@@ -188,15 +172,6 @@ const articleCategories = [
         readTime: "15 Min Read",
         badge: "Comprehensive Guide",
         tag: "Train Trip Guide"
-      },
-      {
-        path: "/private-driver-south-sri-lanka",
-        title: "Why You Should Consider a Private Driver for Your South Sri Lanka Road Trip",
-        desc: "A 10-day south coast route through Mirissa, Galle, Hiriketiya, Udawalawe, Ella and Bentota — with timing tips for sunsets, turtles, and safaris, plus why a private driver beats self-driving.",
-        image: "https://images.unsplash.com/photo-1580889240912-c8f0f2c6d5f3?auto=format&fit=crop&q=80&w=1200&h=630",
-        readTime: "6 Min Read",
-        badge: "South Coast Special",
-        tag: "Private Driver Guide"
       }
     ]
   },
@@ -448,6 +423,8 @@ export default function BlogIndexPage() {
         </div>
 
       </div>
+
+      <Footer />
     </div>
   );
 }

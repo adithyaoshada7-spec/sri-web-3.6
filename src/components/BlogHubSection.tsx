@@ -23,7 +23,7 @@ const getArticleMeta = (path: string) => {
         readTime: "8 Min Read",
         badge: "Highly Popular"
       };
-    case "/sri-lanka-10-day-itinerary":
+    case "/10-day-sri-lanka-itinerary":
       return {
         category: "Ultimate Master Route",
         tag: "10-Day Complete",
@@ -66,7 +66,7 @@ const getArticleMeta = (path: string) => {
     case "/how-to-plan-a-trip-to-sri-lanka":
       return {
         category: "Master Coordination",
-        tag: "Planning Guide",
+        tag: "Trip Planner",
         icon: <BookOpen className="w-3.5 h-3.5 text-[#d4af37]" />,
         readTime: "15 Min Read",
         badge: "Pillar Guide"
@@ -126,14 +126,6 @@ const getArticleMeta = (path: string) => {
         icon: <ShieldCheck className="w-3.5 h-3.5 text-[#d4af37]" />,
         readTime: "12 Min Read",
         badge: "Air Travel Master"
-      };
-    case "/blog/why-sri-lanka-is-popular-with-indian-travellers":
-      return {
-        category: "Travel Inspiration",
-        tag: "Why Sri Lanka",
-        icon: <Globe className="w-3.5 h-3.5 text-[#d4af37]" />,
-        readTime: "11 Min Read",
-        badge: "Editor's Pick"
       };
     case "/flights/why-use-a-flight-search-tool":
       return {
@@ -231,7 +223,7 @@ export const BlogHubSection: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {seoArticles
-              .filter(art => art.path !== "/how-to-plan-a-trip-to-sri-lanka" && art.path !== "/sri-lanka-trip-planner" && art.path !== "/blog" && art.path !== "/about-founder")
+              .filter(art => art.path !== "/how-to-plan-a-trip-to-sri-lanka" && art.path !== "/sri-lanka-trip-planner")
               .slice(0, 6)
               .map((article: Seometa, idx: number) => {
                 const meta = getArticleMeta(article.path);

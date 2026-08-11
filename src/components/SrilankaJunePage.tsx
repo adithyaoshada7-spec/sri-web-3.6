@@ -29,11 +29,10 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaJunePage() {
   usePageMetadata({
-    title: "Where to Go in Sri Lanka in June (2026): Avoid Bad Weather",
-    description: "Find the best time to visit Sri Lanka based on weather, festivals, beaches, wildlife, and train journeys — the perfect month for your trip.",
+    title: "Where To Go In Sri Lanka In June (2026 Guide) | Beat The Monsoon",
+    description: "An expert, high-standard guide on travel to Sri Lanka in June. Learn which coasts are sunny (East Coast, Trincomalee, Pasikudah), what areas to avoid, monsoon updates, and how to plan safely.",
     canonicalUrl: "https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june",
-    ogUrl: "https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june",
-    ogImage: "https://images.unsplash.com/photo-1590123047227-8b04c25b0f76?auto=format&fit=crop&q=80&w=1200&h=630"
+    ogUrl: "https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june"
   });
 
   const navigate = useNavigate();
@@ -168,10 +167,10 @@ export default function SrilankaJunePage() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Sri Lanka in June (2026): Best Places, Weather & 7-Day Itinerary",
-            "description": "Planning a trip to Sri Lanka in June? Full weather table by region, the best places to visit, and a dated 7-day itinerary (Sigiriya, Kandy, Ella, Trincomalee) that avoids the southwest monsoon mistake.",
+            "headline": "Where To Go In Sri Lanka In June (2026 Guide): Most Travelers Choose the Wrong Coast",
+            "description": "Planning a trip to Sri Lanka in June? Avoid the southwest monsoon and discover why Trincomalee, Nilaveli, Passikudah, and the Cultural Triangle are the top choices for Indian families and couples.",
             "image": [
-              "https://images.unsplash.com/photo-1590123047227-8b04c25b0f76?auto=format&fit=crop&q=80&w=1200&h=630"
+              "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630"
             ],
             "author": {
               "@type": "Person",
@@ -191,29 +190,13 @@ export default function SrilankaJunePage() {
               }
             },
             "datePublished": "2026-06-09T06:00:00Z",
-            "dateModified": "2026-07-30T06:00:00Z",
+            "dateModified": "2026-06-09T06:00:00Z",
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": "https://plan-srilanka.com/where-to-go-in-sri-lanka-in-june"
             },
             "inLanguage": "en-US",
-            "keywords": "where to go in sri lanka in june, sri lanka weather in june, best places to visit in sri lanka in june, sri lanka itinerary in june, east coast sri lanka june"
-          })}
-        </script>
-
-        {/* HowTo Schema for the 7-Day June Itinerary */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "HowTo",
-            "name": "7-Day Sri Lanka Itinerary in June",
-            "description": "A dated 7-day route through Sri Lanka optimized for June's dry-zone weather: Sigiriya, Kandy, Ella, and Trincomalee.",
-            "step": [
-              { "@type": "HowToStep", "name": "Day 1-2: Sigiriya", "text": "Climb Sigiriya Rock Fortress, tour Polonnaruwa, and see elephants at Minneriya Reservoir." },
-              { "@type": "HowToStep", "name": "Day 3: Kandy", "text": "Visit the Temple of the Tooth and enjoy a traditional Kandyan dance show." },
-              { "@type": "HowToStep", "name": "Day 4-5: Ella", "text": "Ride the scenic blue train, hike Little Adam's Peak, and photograph Nine Arch Bridge." },
-              { "@type": "HowToStep", "name": "Day 6-7: Trincomalee & Nilaveli", "text": "Relax on dry East Coast beaches, go whale watching, and snorkel at Pigeon Island." }
-            ]
+            "keywords": "where to go in sri lanka in june, sri lanka weather in june, best places to visit in sri lanka in june, east coast sri lanka june"
           })}
         </script>
 
@@ -263,15 +246,8 @@ export default function SrilankaJunePage() {
 
       {/* SECTION 1: HERO SECTION */}
       <section className="relative py-20 md:py-32 overflow-hidden bg-[#1e3a2f] text-white">
-        <img
-          src="https://images.unsplash.com/photo-1590123047227-8b04c25b0f76?auto=format&fit=crop&q=80&w=2000"
-          alt="Calm turquoise water at Nilaveli beach on Sri Lanka's East Coast in June"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
-          loading="eager"
-        />
         {/* Subtle decorative background gradient */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.15),transparent_50%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a2f]/70 via-[#1e3a2f]/80 to-[#1e3a2f]" />
         
         <div className="max-w-5xl mx-auto px-4 md:px-8 relative space-y-6 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#d4af37] text-xs font-mono uppercase tracking-[0.2em] mx-auto">
@@ -279,12 +255,12 @@ export default function SrilankaJunePage() {
             Exclusive June Pacing Guide (2026)
           </div>
           
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif text-white leading-tight max-w-4xl mx-auto">
-            Sri Lanka in June: Where to Go, Weather & 7-Day Itinerary
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-serif text-white leading-tight max-w-4xl mx-auto">
+            Where To Go In Sri Lanka In June
           </h1>
-
+          
           <p className="text-sm md:text-xl text-[#a3bfae] font-light max-w-2xl mx-auto leading-relaxed">
-            Avoid the biggest mistake travelers make in June. Discover which coast has the best weather, the exact temperature and rainfall by region, and a dated 7-day route so you don't waste your limited vacation.
+            Avoid the biggest mistake travelers make in June. Discover which parts of Sri Lanka offer the best weather, beaches, and experiences, so you don't waste your limited vacation.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -301,16 +277,6 @@ export default function SrilankaJunePage() {
               Learn The Big Mistake
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* SECTION 1B: DIRECT ANSWER BLOCK (Featured Snippet / AI Overview Target) */}
-      <section className="py-10 px-4 md:px-8 bg-[#fdfaf2] border-b border-[#1e3a2f]/5">
-        <div className="max-w-3xl mx-auto bg-white border-2 border-[#d4af37]/30 rounded-3xl p-6 md:p-8 shadow-sm">
-          <span className="px-2.5 py-1 bg-[#1e3a2f] text-[#d4af37] text-[10px] font-mono tracking-wider uppercase font-bold rounded-md">Quick Answer</span>
-          <p className="mt-4 text-sm md:text-base text-[#1a2d24] leading-relaxed font-light">
-            In June, Sri Lanka's <strong>East Coast (Trincomalee, Nilaveli, Passikudah)</strong> is dry and sunny with <strong>29-33°C temperatures</strong> and calm seas, while the <strong>South Coast (Mirissa, Galle, Bentota)</strong> is inside the southwest monsoon with rough surf and afternoon rain. The best 7-day June route is: <strong>Sigiriya → Kandy → Ella → Trincomalee</strong>. Average monthly rainfall is roughly 150-240mm on the South Coast versus under 50mm on the East Coast.
-          </p>
         </div>
       </section>
 
@@ -384,91 +350,6 @@ export default function SrilankaJunePage() {
               </ul>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* SECTION 2B: SRI LANKA WEATHER IN JUNE - DATA TABLE */}
-      <section className="py-20 px-4 md:px-8 bg-[#f5f2e8]/40 border-b border-[#1e3a2f]/5">
-        <div className="max-w-5xl mx-auto space-y-10">
-          <div className="text-center space-y-3">
-            <span className="text-xs uppercase tracking-widest text-[#d4af37] font-bold block">
-              Region-By-Region Climate Data
-            </span>
-            <h2 className="text-2xl md:text-5xl font-serif text-[#1e3a2f]">
-              Sri Lanka Weather in June
-            </h2>
-            <p className="text-sm text-[#3a4d44] font-light max-w-2xl mx-auto leading-relaxed">
-              Sri Lanka's central mountains create a rain-shadow effect, so June weather varies sharply by region. Here is the exact temperature and rainfall breakdown.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto rounded-[32px] border border-[#1e3a2f]/10 shadow-lg bg-white">
-            <table className="w-full text-left min-w-[700px] border-collapse">
-              <thead>
-                <tr className="bg-[#1e3a2f] text-[#d4af37] text-xs font-mono uppercase tracking-wider">
-                  <th className="p-5">Region</th>
-                  <th className="p-5">Avg Temp</th>
-                  <th className="p-5">Rainfall (Monthly)</th>
-                  <th className="p-5">Sea Condition</th>
-                  <th className="p-5">Verdict</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#1e3a2f]/5 text-xs md:text-sm text-[#3a4d44]">
-                <tr>
-                  <td className="p-5 font-semibold text-[#1e3a2f]">Trincomalee / Nilaveli (East)</td>
-                  <td className="p-5">29-33°C</td>
-                  <td className="p-5 text-emerald-700 font-medium">&lt;50mm</td>
-                  <td className="p-5 text-emerald-700 font-medium">Calm, flat bay</td>
-                  <td className="p-5 font-bold text-emerald-800">Go</td>
-                </tr>
-                <tr>
-                  <td className="p-5 font-semibold text-[#1e3a2f]">Passikudah (East)</td>
-                  <td className="p-5">29-32°C</td>
-                  <td className="p-5 text-emerald-700 font-medium">&lt;50mm</td>
-                  <td className="p-5 text-emerald-700 font-medium">Shallow, no waves</td>
-                  <td className="p-5 font-bold text-emerald-800">Go</td>
-                </tr>
-                <tr>
-                  <td className="p-5 font-semibold text-[#1e3a2f]">Sigiriya / Cultural Triangle</td>
-                  <td className="p-5">30-34°C</td>
-                  <td className="p-5 text-emerald-700 font-medium">~40-60mm</td>
-                  <td className="p-5 text-neutral-400">N/A (inland)</td>
-                  <td className="p-5 font-bold text-emerald-800">Go</td>
-                </tr>
-                <tr>
-                  <td className="p-5 font-semibold text-[#1e3a2f]">Kandy (Hill Transition)</td>
-                  <td className="p-5">24-28°C</td>
-                  <td className="p-5 text-amber-700 font-medium">~100-140mm</td>
-                  <td className="p-5 text-neutral-400">N/A (inland)</td>
-                  <td className="p-5 font-bold text-amber-700">OK</td>
-                </tr>
-                <tr>
-                  <td className="p-5 font-semibold text-[#1e3a2f]">Ella / Nuwara Eliya (Highlands)</td>
-                  <td className="p-5">16-23°C</td>
-                  <td className="p-5 text-amber-700 font-medium">~120-160mm</td>
-                  <td className="p-5 text-neutral-400">N/A (inland)</td>
-                  <td className="p-5 font-bold text-amber-700">OK (misty)</td>
-                </tr>
-                <tr>
-                  <td className="p-5 font-semibold text-[#1e3a2f]">Colombo (West)</td>
-                  <td className="p-5">26-30°C</td>
-                  <td className="p-5 text-red-600 font-medium">~180-220mm</td>
-                  <td className="p-5 text-red-600 font-medium">Rough, humid</td>
-                  <td className="p-5 font-bold text-red-700">Transit Only</td>
-                </tr>
-                <tr>
-                  <td className="p-5 font-semibold text-[#1e3a2f]">Mirissa / Galle / Bentota (South)</td>
-                  <td className="p-5">27-30°C</td>
-                  <td className="p-5 text-red-600 font-medium">~150-240mm</td>
-                  <td className="p-5 text-red-600 font-medium">Rough, red-flagged</td>
-                  <td className="p-5 font-bold text-red-700">Avoid Beach</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="text-[11px] text-neutral-400 font-mono text-center">
-            *Figures are seasonal averages for June, based on <a href="https://www.meteo.gov.lk/" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#d4af37]">Sri Lanka Department of Meteorology</a> climate norms. Actual daily conditions vary.
-          </p>
         </div>
       </section>
 
@@ -599,45 +480,6 @@ export default function SrilankaJunePage() {
         </div>
       </section>
 
-      {/* SECTION 4B: BEST PLACES TO VISIT IN SRI LANKA IN JUNE (unified list) */}
-      <section className="py-20 px-4 md:px-8 bg-white border-b border-[#1e3a2f]/5">
-        <div className="max-w-5xl mx-auto space-y-12">
-          <div className="text-center space-y-3">
-            <span className="text-xs uppercase tracking-widest text-[#d4af37] font-bold block">
-              Ranked & Verified
-            </span>
-            <h2 className="text-2xl md:text-5xl font-serif text-[#1e3a2f]">
-              Best Places to Visit in Sri Lanka in June
-            </h2>
-            <p className="text-sm text-[#3a4d44] font-light max-w-2xl mx-auto leading-relaxed">
-              Combining beaches, cultural sites, and wildlife parks — these are the five destinations that perform best during June's dry-zone weather window.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
-            {[
-              { rank: "01", name: "Trincomalee & Nilaveli", tag: "Beach & Whale Watching", desc: "Dry, sunny, calm seas. Peak month for blue whale sightings offshore.", img: "/trincomalee-coastal-lagoon-boats-sri-lanka.jpg", alt: "Aerial view of Trincomalee's coastal lagoon with fishing boats, Sri Lanka" },
-              { rank: "02", name: "Sigiriya", tag: "Cultural Triangle", desc: "Dry-zone heat, clear skies. Best climbed at 7 AM before the midday sun.", img: "/sigiriya-rock-fortress-sri-lanka.jpg", alt: "Sigiriya Lion Rock Fortress under clear dry-season skies at sunrise" },
-              { rank: "03", name: "Passikudah Bay", tag: "Family Beach", desc: "Shallow, wave-free bay — the safest ocean swimming spot on the island in June.", img: "/pasikuda-beach-resort-coconut-trees-sri-lanka.jpg", alt: "Coconut trees and calm blue water at Pasikuda beach resort, Sri Lanka" },
-              { rank: "04", name: "Minneriya National Park", tag: "Elephant Safari", desc: "The dry-season elephant gathering around the reservoir is at its best in June.", img: "/minneriya-elephant-safari-sri-lanka.jpg", alt: "Wild elephant herd gathering at Minneriya National Park reservoir" },
-              { rank: "05", name: "Ella", tag: "Highlands & Train", desc: "Misty mornings, occasional rain, but stunning hiking and the iconic blue train ride.", img: "/nine-arch-bridge-ella-sri-lanka.jpg", alt: "Nine Arch Bridge surrounded by lush greenery near Ella, Sri Lanka" }
-            ].map((place) => (
-              <div key={place.rank} className="bg-[#fcfbf7] border border-[#1e3a2f]/5 hover:border-[#d4af37] transition-all rounded-[24px] overflow-hidden">
-                <img src={place.img} alt={place.alt} loading="lazy" className="w-full h-32 object-cover" />
-                <div className="p-5 space-y-3">
-                  <div className="w-9 h-9 rounded-full bg-[#1e3a2f] text-[#d4af37] flex items-center justify-center font-mono font-bold text-xs">
-                    {place.rank}
-                  </div>
-                  <h3 className="font-serif font-bold text-base text-[#1e3a2f]">{place.name}</h3>
-                  <span className="inline-block px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[9px] font-mono uppercase font-bold">{place.tag}</span>
-                  <p className="text-xs text-[#3a4d44] leading-relaxed font-light">{place.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* SECTION 5: BEST ROUTE MAPPER FOR JUNE */}
       <section className="py-20 px-4 md:px-8 bg-[#f5f2e8]/40 border-b border-[#1e3a2f]/5">
         <div className="max-w-5xl mx-auto space-y-12">
@@ -646,10 +488,10 @@ export default function SrilankaJunePage() {
               Proven Path Blueprint
             </span>
             <h2 className="text-2xl md:text-5xl font-serif text-[#1e3a2f]">
-              7-Day Sri Lanka Itinerary in June
+              The Recommended June Route
             </h2>
             <p className="text-sm text-[#3a4d44] font-light max-w-2xl mx-auto leading-relaxed">
-              This dated 7-day loop is optimized to maximize your sunshine hours while eliminating long travel fatigue with our private chauffeur partners. Extend to 8-10 days if you want extra beach time in Trincomalee.
+              We highly recommend this 8-to-10-day loop optimized to maximize your sunshine hours while eliminating long travel fatigue with our private chauffeur partners.
             </p>
           </div>
 
@@ -657,7 +499,7 @@ export default function SrilankaJunePage() {
             {/* Visual Timeline Steps (7 cols) */}
             <div className="lg:col-span-7 bg-white p-6 md:p-8 rounded-[32px] border border-[#1e3a2f]/5 shadow-xl space-y-8">
               <h3 className="font-serif font-bold text-lg text-[#1e3a2f] flex items-center gap-2 pb-4 border-b border-neutral-100">
-                <Globe className="w-5 h-5 text-[#d4af37]" /> Day-By-Day June Route
+                <Globe className="w-5 h-5 text-[#d4af37]" /> The June Optimization Loop
               </h3>
 
               <div className="space-y-8 relative before:absolute before:top-4 before:bottom-4 before:left-3 mt-4 before:w-0.5 before:bg-[#1e3a2f]/10">
@@ -666,7 +508,7 @@ export default function SrilankaJunePage() {
                   <div className="absolute left-0 w-6 h-6 rounded-full bg-[#1e3a2f] text-white flex items-center justify-center font-mono text-xs font-bold">1</div>
                   <div className="space-y-1">
                     <h4 className="font-serif font-bold text-[#1e3a2f] text-sm flex items-center gap-2">
-                      Day 1-2: Sigiriya
+                      Sigiriya (2 Nights)
                       <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-mono uppercase font-bold">Cultural Triangle Dry Zone</span>
                     </h4>
                     <p className="text-xs text-[#3a4d44] leading-relaxed font-light">
@@ -680,7 +522,7 @@ export default function SrilankaJunePage() {
                   <div className="absolute left-0 w-6 h-6 rounded-full bg-[#1e3a2f] text-white flex items-center justify-center font-mono text-xs font-bold">2</div>
                   <div className="space-y-1">
                     <h4 className="font-serif font-bold text-[#1e3a2f] text-sm flex items-center gap-2">
-                      Day 3: Kandy
+                      Kandy Cultural Stopover (1 Night)
                       <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[9px] font-mono uppercase font-bold">Transition Stop</span>
                     </h4>
                     <p className="text-xs text-[#3a4d44] leading-relaxed font-light">
@@ -694,7 +536,7 @@ export default function SrilankaJunePage() {
                   <div className="absolute left-0 w-6 h-6 rounded-full bg-[#1e3a2f] text-white flex items-center justify-center font-mono text-xs font-bold">3</div>
                   <div className="space-y-1">
                     <h4 className="font-serif font-bold text-[#1e3a2f] text-sm flex items-center gap-2">
-                      Day 4-5: Ella
+                      Ella (2 Nights)
                       <span className="px-2 py-0.5 rounded-full bg-[#d4af37]/20 text-neutral-900 text-[9px] font-mono uppercase font-bold">Ethereal Highlands</span>
                     </h4>
                     <p className="text-xs text-[#3a4d44] leading-relaxed font-light">
@@ -708,11 +550,11 @@ export default function SrilankaJunePage() {
                   <div className="absolute left-0 w-6 h-6 rounded-full bg-[#d4af37] text-white flex items-center justify-center font-mono text-xs font-bold">4</div>
                   <div className="space-y-1">
                     <h4 className="font-serif font-bold text-[#1e3a2f] text-sm flex items-center gap-2">
-                      Day 6-7: Trincomalee & Nilaveli
+                      Trincomalee & Nilaveli (3-4 Nights)
                       <span className="px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[9px] font-mono uppercase font-bold">Beach Heaven</span>
                     </h4>
                     <p className="text-xs text-[#3a4d44] leading-relaxed font-light">
-                      Unwind on dry, bright white sands. Embark on whale and dolphin watching cruises, visit Koneswaram Hindu Cliff temple, and snorkel alongside green sea turtles at Pigeon Island in flat seas. Fly back to Colombo (BIA) on Day 7 evening, or extend 1-2 nights for extra beach time.
+                      Unwind on dry, bright white sands. Embark on whale and dolphin watching cruises, visit Koneswaram Hindu Cliff temple, and snorkel alongside green sea turtles at Pigeon Island in flat seas.
                     </p>
                   </div>
                 </div>
@@ -768,9 +610,6 @@ export default function SrilankaJunePage() {
                   </Link>
                   <Link to="/sri-lanka-visa-for-indians" className="text-white/80 hover:text-[#d4af37] underline transition-colors">
                     → Fast Visa Application
-                  </Link>
-                  <Link to="/sri-lanka-car-rental" className="text-white/80 hover:text-[#d4af37] underline transition-colors">
-                    → Car Rental in Sri Lanka
                   </Link>
                 </div>
               </div>

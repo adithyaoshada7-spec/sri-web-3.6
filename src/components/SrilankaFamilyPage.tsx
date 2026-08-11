@@ -251,8 +251,8 @@ const familyItineraryDays: ItineraryDay[] = [
 
 export default function SrilankaFamilyPage() {
   usePageMetadata({
-    title: "Sri Lanka Family Itinerary (2026): Stress-Free Kids Route",
-    description: "A stress-free 12-day Sri Lanka family itinerary with kids: beat transport fatigue, find kid-approved beaches, and avoid common mistakes.",
+    title: "Sri Lanka Family Itinerary (2026) | The Stress-Free Route For Kids",
+    description: "An expert, pre-vetted 7 to 10 day Sri Lanka family dynamic itinerary. Avoid long toddler driving fatigue, discover stroller-friendly pathways, whale watching secrets & baby-safe beaches.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-family-itinerary",
     ogUrl: "https://plan-srilanka.com/sri-lanka-family-itinerary"
   });

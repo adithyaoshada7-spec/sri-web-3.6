@@ -13,7 +13,6 @@ export interface DailySchedule {
   packingTips: string;
   localTips: string;
   commonMistakes: string;
-  bestFor: string;
 }
 
 export const itinerarySchedules: DailySchedule[] = [
@@ -31,8 +30,7 @@ export const itinerarySchedules: DailySchedule[] = [
     photoSpots: "Negombo beach sunset, catamaran sails on the lagoon, local fish drying nets.",
     packingTips: "Breathable cotton shirt, slip-on shoes for airport transfers, sun hat.",
     localTips: "Buy your SIM card and exchange money at the airport; rates are competitive and convenient.",
-    commonMistakes: "Driving to Colombo on Day 1. It wastes 1.5 hours in traffic when you are already exhausted from your flight.",
-    bestFor: "Anyone landing after a long flight, families with young kids, or first-timers who want one easy day before the pace picks up."
+    commonMistakes: "Driving to Colombo on Day 1. It wastes 1.5 hours in traffic when you are already exhausted from your flight."
   },
   {
     day: 2,
@@ -48,8 +46,7 @@ export const itinerarySchedules: DailySchedule[] = [
     photoSpots: "Sunset view of Sigiriya Lion Rock from the top of Pidurangala granite platform.",
     packingTips: "Modest clothes (knees & shoulders covered for temple pass-by), flashlight for climbing down in the dark.",
     localTips: "Pidurangala climb is moderately steep at the end. Wear shoes with excellent grip.",
-    commonMistakes: "Scaling Sigiriya Rock in the mid-afternoon. It is too hot, with zero shade on the rock face.",
-    bestFor: "Sunset photographers and history lovers — this is one of the best photo opportunities of the whole trip."
+    commonMistakes: "Scaling Sigiriya Rock in the mid-afternoon. It is too hot, with zero shade on the rock face."
   },
   {
     day: 3,
@@ -65,8 +62,7 @@ export const itinerarySchedules: DailySchedule[] = [
     photoSpots: "The Lion Paw stairs of Sigiriya, golden ceiling paintings in Dambulla caves, Tooth Temple reflections on Kandy Lake.",
     packingTips: "Socks (white recommended) to walk on sun-baked stones at temples, long sarong, wet wipes.",
     localTips: "Kandy Temple dress code is strictly enforced: knees and shoulders must be covered. No hats or shoes allowed inside.",
-    commonMistakes: "Buying Dambulla Cave tickets at the top. The ticket counter is at the bottom of the hill; don't climb up empty-handed.",
-    bestFor: "Culture-focused travelers who want to see Sigiriya's summit at its quietest and experience a living temple ceremony the same evening."
+    commonMistakes: "Buying Dambulla Cave tickets at the top. The ticket counter is at the bottom of the hill; don't climb up empty-handed."
   },
   {
     day: 4,
@@ -82,8 +78,7 @@ export const itinerarySchedules: DailySchedule[] = [
     photoSpots: "Hanging from the open train door with tea estate backdrop, tea-pickers in the mist.",
     packingTips: "Warm cardigan or fleece sweater (Nuwara Eliya/Ella drops to 14°C at night), high-quality camera lenses.",
     localTips: "Book 2nd class reserved seats instead of 1st class; 1st class AC windows are sealed, preventing photography.",
-    commonMistakes: "Trying to bring heavy suitcases onto the crowded train. There is zero luggage rack space; always send bags with your driver.",
-    bestFor: "First-time visitors — most travelers rank the Kandy-Ella train as the single best experience of the whole trip."
+    commonMistakes: "Trying to bring heavy suitcases onto the crowded train. There is zero luggage rack space; always send bags with your driver."
   },
   {
     day: 5,
@@ -99,8 +94,7 @@ export const itinerarySchedules: DailySchedule[] = [
     photoSpots: "Train crossing Nine Arch Bridge, wild leopards on rocks, herds of elephants at sunset waterholes.",
     packingTips: "Sunscreen, high-strength mosquito repellent (DEET), telephoto zoom lens.",
     localTips: "Book the afternoon safari (2:30 PM to 6:00 PM); leopards are most active on sun-warmed rocks as the day cools.",
-    commonMistakes: "Booking an un-licensed cheap safari operator. Their jeeps are loud, old, and drivers rush, ruining the wildlife experience.",
-    bestFor: "Wildlife-focused travelers. Less ideal for families with toddlers, given the early checkout and long afternoon in a jeep."
+    commonMistakes: "Booking an un-licensed cheap safari operator. Their jeeps are loud, old, and drivers rush, ruining the wildlife experience."
   },
   {
     day: 6,
@@ -116,8 +110,7 @@ export const itinerarySchedules: DailySchedule[] = [
     photoSpots: "Stilt fishermen at Weligama, Galle Fort Lighthouse, waves crashing against the stone ramparts.",
     packingTips: "Linen shirt, sunglasses, comfortable walking sandals for cobbled streets.",
     localTips: "Galle Fort is full of beautiful local boutiques and craft shops; it is the best place to buy authentic Ceylon sapphires and tea.",
-    commonMistakes: "Taking photos of stilt fishermen without tipping them. They are posing for photos as their livelihood; tipping is normal.",
-    bestFor: "Couples and photographers — golden-hour fort walks and a relaxed beach lunch stop after five fast-paced days."
+    commonMistakes: "Taking photos of stilt fishermen without tipping them. They are posing for photos as their livelihood; tipping is normal."
   },
   {
     day: 7,
@@ -133,7 +126,6 @@ export const itinerarySchedules: DailySchedule[] = [
     photoSpots: "Ministry of Crab dishes, Colombo skyline from Galle Face Green, colonial architecture of Colombo Fort.",
     packingTips: "Keep your travel documents, flight tickets, and airport clothing handy in your driver's car.",
     localTips: "Reserve your table at Ministry of Crab at least 2 weeks in advance; they sell out every night.",
-    commonMistakes: "Leaving Galle too late for your flight. Always factor in a 3-hour airport arrival buffer plus expressway transit times.",
-    bestFor: "Anyone on an evening flight — a slow morning and one final meal before the airport, without wasting a full day."
+    commonMistakes: "Leaving Galle too late for your flight. Always factor in a 3-hour airport arrival buffer plus expressway transit times."
   }
 ];
