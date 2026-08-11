@@ -2002,26 +2002,143 @@ function generatePrerenderPages(): PrerenderPage[] {
 
   // 3. Dynamic experiences (from Activities)
   const legacyExperiences = [
-    { slug: "cultural-triangle", title: "Cultural Triangle Luxury Experience", description: "Immerse in the heritage of Sri Lanka's ancient cities." },
-    { slug: "tea-country", title: "Luxury Tea Country & Misty Highlands", description: "Discover the breathtaking tea plantations and colonial heritage of Nuwara Eliya." },
-    { slug: "wildlife-safari", title: "Elite Wildlife Safari Experience", description: "Encounter legendary wildlife in Sri Lanka's premium national parks." },
-    { slug: "yala-safari-morning", title: "Yala Safari - Morning", description: "The morning safari is the prime window to witness Yala National Park's famous leopards, elephants, and sloth bears as they wake and hunt at dawn." },
-    { slug: "yala-leopard-safari", title: "Yala Leopard Safari", description: "Yala National Park holds the highest density of leopards in the world, making it the premier destination for big cat photography." },
-    { slug: "kumana-bird-safari", title: "Kumana Bird Safari", description: "A tranquil sanctuary for bird lovers and those seeking leopards away from the crowds." },
-    { slug: "udawalawe-elephant-safari", title: "Udawalawe Elephant Safari", description: "Udawalawe National Park is famous for its massive reservoir backdrop and dry-zone grasslands with wild elephants guaranteed." },
-    { slug: "scenic-train-ride", title: "Scenic Highlands Train Ride", description: "Consistently voted one of the most beautiful train journeys in the world, winding through misty tea country peaks." },
-    { slug: "surfing-arugam-bay", title: "Surfing at Arugam Bay", description: "Arugam Bay is a world-class surfing crescent on the dry east coast of Sri Lanka." },
-    { slug: "whale-watching-mirissa", title: "Whale Watching in Mirissa", description: "Set sail to witness Blue Whales, the largest creatures on Earth, in their ocean highway." },
-    { slug: "pigeon-island-snorkeling", title: "Pigeon Island Coral Snorkeling", description: "Swim with blacktip reef sharks and green sea turtles in a protected marine sanctuary." },
-    { slug: "sigiriya-rock-fortress", title: "Sigiriya Lion Rock Citadel", description: "Ascend a sheer 200m volcanic monolith housing a royal fortress, frescoes, and gardens." },
-    { slug: "pidurangala-sunrise-trek", title: "Pidurangala Sunrise Hike", description: "Scale the neighboring monastery peak for the ultimate sunrise view of Sigiriya Rock." },
-    { slug: "ella-rock-hiking", title: "Ella Rock & Little Adam's Peak Trek", description: "Hike through mountain cloud forests for dramatic panoramic vistas of the southern plains." },
-    { slug: "nine-arch-bridge-walk", title: "Nine Arch Bridge Walkway", description: "Walk the tracks of the spectacular 91m colonial stone viaduct framed by green jungle." },
-    { slug: "tea-plantation-high-tea", title: "High Country Tea Estate Tour", description: "Harvest organic tea buds with local pluckers and enjoy high tea in colonial bungalows." },
-    { slug: "galle-fort-heritage-walk", title: "Galle Fort UNESCO Walkway", description: "Wander cobblestone streets, Dutch colonial villas, and ocean battlements at sunset." },
-    { slug: "paddy-lake-trail", title: "The Paddy & Lake Trail", description: "A beautifully curated cycling tour around Koggala Lake, paddy fields, and local villages." },
-    { slug: "kitulgala-white-water-rafting", title: "White Water Rafting in Kitulgala", description: "An exhilarating rafting adventure down the Kelani River with Class II and Class III rapids." },
-    { slug: "kitesurf-lessons-kalpitiya", title: "Kitesurf Lessons in Kalpitiya | Plan Sri Lanka", description: "Master the wind at Kalpitiya Lagoon with certified IKO instructors from Margarita Kite School. We guide you, you do the magic!" }
+    {
+      slug: "cultural-triangle", title: "Cultural Triangle Luxury Experience",
+      description: "Immerse in the heritage of Sri Lanka's ancient cities.",
+      longDescription: "Explore the ancient royal capitals of Anuradhapura, Polonnaruwa and the Sigiriya citadel — a heartland of Buddhist temples, sacred relics, and 2,000-year-old irrigation engineering, guided by English-fluent local experts who bring the history of Sri Lanka's ancient kings to life.",
+      image: "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      slug: "tea-country", title: "Luxury Tea Country & Misty Highlands",
+      description: "Discover the breathtaking tea plantations and colonial heritage of Nuwara Eliya.",
+      longDescription: "Wind through emerald hillsides carpeted in Ceylon tea, tour a working colonial-era tea factory, and stay in restored planter's bungalows in the cool misty highlands of Nuwara Eliya — a complete change of pace and climate from the coast.",
+      image: "https://images.unsplash.com/photo-1524350302447-3a888d716823?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      slug: "wildlife-safari", title: "Elite Wildlife Safari Experience",
+      description: "Encounter legendary wildlife in Sri Lanka's premium national parks.",
+      longDescription: "Track wild leopards, elephant herds and sloth bears across Sri Lanka's premier national parks in a private open-jeep safari, timed for the golden light and peak animal activity of dawn and dusk.",
+      image: "https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      slug: "yala-safari-morning", title: "Yala Safari - Morning",
+      description: "The morning safari is the prime window to witness Yala National Park's famous leopards, elephants, and sloth bears as they wake and hunt at dawn.",
+      longDescription: "The morning safari is the prime window to witness Yala National Park's famous leopards, elephants, and sloth bears as they wake and hunt at dawn. Operating from 5:00 AM to 10:00 AM, this open-jeep excursion provides cool morning temperatures and spectacular golden hour lighting, perfect for capturing active predators and diverse bird species near waterholes.",
+      image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=1200",
+      location: "Yala National Park", duration: "Half Day", difficulty: "Easy", cost: "$45 - $85"
+    },
+    {
+      slug: "yala-leopard-safari", title: "Yala Leopard Safari",
+      description: "Yala National Park holds the highest density of leopards in the world, making it the premier destination for big cat photography.",
+      longDescription: "Yala National Park borders the Indian Ocean and boasts a unique coastal scrubland ecosystem. It holds the highest density of leopards in the world, making it the premier destination for big cat photography. In addition to leopards, you'll track sloth bears, Asian elephants, crocodiles, and painted storks across salt flats and dunes.",
+      image: "https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&q=80&w=1200",
+      location: "Yala National Park", duration: "Half Day", difficulty: "Easy", cost: "$90 - $180"
+    },
+    {
+      slug: "kumana-bird-safari", title: "Kumana Bird Safari",
+      description: "A tranquil sanctuary for bird lovers and those seeking leopards away from the crowds.",
+      longDescription: "Known as Yala East, Kumana is incredibly quiet and peaceful. Centered around a massive 200-hectare mangrove swamp, it is a key nesting ground for tens of thousands of migratory waterfowl, including rare Black-necked Storks and Spoonbills. Leopards and elephants frequently roam here, but without the tourist crowd.",
+      image: "https://images.unsplash.com/photo-1470115636472-8d21172be5fa?auto=format&fit=crop&q=80&w=1200",
+      location: "Kumana National Park", duration: "Half Day", difficulty: "Easy", cost: "$50 - $90"
+    },
+    {
+      slug: "udawalawe-elephant-safari", title: "Udawalawe Elephant Safari",
+      description: "Udawalawe National Park is famous for its massive reservoir backdrop and dry-zone grasslands with wild elephants guaranteed.",
+      longDescription: "Udawalawe National Park is famous for its massive reservoir backdrop and dry-zone grasslands that resemble the East African savanna. Wild elephants are 100% guaranteed here on any given day. You'll watch families of giants bathing, feeding, and playing, and can also visit the Elephant Transit Home nearby.",
+      image: "https://images.unsplash.com/photo-1589656966895-2f33e7653819?auto=format&fit=crop&q=80&w=1200",
+      location: "Udawalawe", duration: "Half Day", difficulty: "Easy", cost: "$45 - $80"
+    },
+    {
+      slug: "scenic-train-ride", title: "Scenic Highlands Train Ride",
+      description: "Consistently voted one of the most beautiful train journeys in the world, winding through misty tea country peaks.",
+      longDescription: "Consistently voted one of the most beautiful train journeys in the world, the route between Kandy and Ella takes you through pine forests, terraced organic tea fields, cascading waterfalls, and local mountain villages. The fresh mountain air and slow pacing make this a classic must-do.",
+      image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200",
+      location: "Kandy to Ella Route", duration: "Half Day", difficulty: "Easy", cost: "$10 - $25"
+    },
+    {
+      slug: "surfing-arugam-bay", title: "Surfing at Arugam Bay",
+      description: "Arugam Bay is a world-class surfing crescent on the dry east coast of Sri Lanka.",
+      longDescription: "Arugam Bay is a world-class surfing crescent on the dry east coast of Sri Lanka. Famously relaxed, it draws surfers globally for its long, consistent right-hand point breaks. From May to September, the town becomes a lively surf haven filled with beachfront music, healthy cafes, and coastal wellness retreats.",
+      image: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=1200",
+      location: "Arugam Bay", duration: "1 Day", difficulty: "Moderate", cost: "$25 - $60"
+    },
+    {
+      slug: "whale-watching-mirissa", title: "Whale Watching in Mirissa",
+      description: "Set sail to witness Blue Whales, the largest creatures on Earth, in their ocean highway.",
+      longDescription: "The deep continental shelf off Mirissa is one of the world's finest pathways for marine giants. Experience this once-in-a-lifetime journey with an official local operator. You will witness majestic Blue Whales, Fin Whales, Sperm Whales, and mega-pods of Spinner Dolphins jumping, while on an eco-friendly double-decker cruiser respecting safe and ethical viewing distances.",
+      image: "https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&q=80&w=1200",
+      location: "Mirissa Harbor", duration: "Half Day", difficulty: "Easy", cost: "$55 - $110"
+    },
+    {
+      slug: "pigeon-island-snorkeling", title: "Pigeon Island Coral Snorkeling",
+      description: "Swim with blacktip reef sharks and green sea turtles in a protected marine sanctuary.",
+      longDescription: "Pigeon Island is a designated marine national park off Nilaveli. Encircled by a gorgeous shallow powder-coral reef, it is a haven for rich tropical fish, colorful hard corals, Hawksbill Turtles, and harmless Blacktip Reef Sharks gliding right in the clear turquoise shallows.",
+      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1200",
+      location: "Trincomalee / Nilaveli", duration: "Half Day", difficulty: "Easy", cost: "$40 - $75"
+    },
+    {
+      slug: "sigiriya-rock-fortress", title: "Sigiriya Lion Rock Citadel",
+      description: "Ascend a sheer 200m volcanic monolith housing a royal fortress, frescoes, and gardens.",
+      longDescription: "Known as the 8th Wonder of the Ancient World, Sigiriya is a massive column of rock rising 200m from the forest. Built by King Kasyapa in the 5th century, it features symmetric water gardens, 1500-year-old plaster frescoes, a glistening mirror wall, and colossal lion paws guarding the summit stairway.",
+      image: "https://images.unsplash.com/photo-1588598126710-530ced49b914?auto=format&fit=crop&q=80&w=1200",
+      location: "Sigiriya", duration: "Half Day", difficulty: "Moderate", cost: "$36 - $50"
+    },
+    {
+      slug: "pidurangala-sunrise-trek", title: "Pidurangala Sunrise Hike",
+      description: "Scale the neighboring monastery peak for the ultimate sunrise view of Sigiriya Rock.",
+      longDescription: "Pidurangala is a rugged companion rock located just 2km north of Sigiriya. It offers a wilder, spiritual trek through ancient forest monasteries and reclining stone Buddhas. The flat, windswept summit is the absolute best viewpoint on earth to watch the sun rise directly behind the iconic Sigiriya monolith.",
+      image: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&q=80&w=1200",
+      location: "Pidurangala", duration: "Half Day", difficulty: "Moderate", cost: "$5 - $15"
+    },
+    {
+      slug: "ella-rock-hiking", title: "Ella Rock & Little Adam's Peak Trek",
+      description: "Hike through mountain cloud forests for dramatic panoramic vistas of the southern plains.",
+      longDescription: "The highlands around Ella are a trekker's paradise. Little Adam's Peak is an easy, panoramic trail through tea terraces, while Ella Rock is a deeper, forested expedition that takes you along active train tracks, Eucalyptus groves, and high craggy ridges framing the famous Ella Gap pass.",
+      image: "https://images.unsplash.com/photo-1543731068-7e0f5beff43a?auto=format&fit=crop&q=80&w=1200",
+      location: "Ella Village", duration: "Half Day", difficulty: "Challenging", cost: "$10 - $35"
+    },
+    {
+      slug: "nine-arch-bridge-walk", title: "Nine Arch Bridge Walkway",
+      description: "Walk the tracks of the spectacular 91m colonial stone viaduct framed by green jungle.",
+      longDescription: "Hidden in a lush tropical valley between Ella and Demodara, this architectural masterpiece was built during the British colonial period entirely out of brick, stone, and cement — without a single piece of structural steel. Walking along its curved span as the blue train slowly passes is a classic Sri Lankan memory.",
+      image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200",
+      location: "Demodara / Ella", duration: "Half Day", difficulty: "Easy", cost: "$5 - $12"
+    },
+    {
+      slug: "tea-plantation-high-tea", title: "High Country Tea Estate Tour",
+      description: "Harvest organic tea buds with local pluckers and enjoy high tea in colonial bungalows.",
+      longDescription: "Nestled in the emerald valleys of Nuwara Eliya, also known as 'Little England', you will walk through endless rows of Ceylon tea plants. You'll learn the delicate art of harvesting 'two leaves and a bud', tour a 150-year-old active steam-dry factory, and end with an elite English high tea session overlooking the estates.",
+      image: "https://images.unsplash.com/photo-1524350302447-3a888d716823?auto=format&fit=crop&q=80&w=1200",
+      location: "Nuwara Eliya / Tea Country", duration: "Half Day", difficulty: "Easy", cost: "$40 - $95"
+    },
+    {
+      slug: "galle-fort-heritage-walk", title: "Galle Fort UNESCO Walkway",
+      description: "Wander cobblestone streets, Dutch colonial villas, and ocean battlements at sunset.",
+      longDescription: "Built by the Portuguese in 1588 and fortified heavily by the Dutch in the 17th century, Galle Fort is an outstanding living museum. Enclosed by thick granite sea walls, the fort is home to cobblestone alleys, ancient churches, boutique spice stores, vintage gem galleries, and the iconic white lighthouse.",
+      image: "https://images.unsplash.com/photo-1590050752117-238cb0612b1b?auto=format&fit=crop&q=80&w=1200",
+      location: "Galle Fort", duration: "Half Day", difficulty: "Easy", cost: "$15 - $35"
+    },
+    {
+      slug: "paddy-lake-trail", title: "The Paddy & Lake Trail",
+      description: "A beautifully curated cycling tour around Koggala Lake, paddy fields, and local villages.",
+      longDescription: "Experience the soul of southern Sri Lanka with a guided 26km cycling tour. Winding past lush rice fields, local temples, cinnamon gardens, and Koggala Lake, this gentle ride offers a deep dive into rural village life. Led by professional cycling guides, it features high-quality mountain bikes and helmet gear, a fresh king coconut refreshment stop, and seamless support.",
+      image: "https://idlebikes.com/wp-content/uploads/2025/04/Paddy-Lake.jpg",
+      location: "Galle & Koggala", duration: "Half Day", difficulty: "Easy", cost: "$35"
+    },
+    {
+      slug: "kitulgala-white-water-rafting", title: "White Water Rafting in Kitulgala",
+      description: "An exhilarating rafting adventure down the Kelani River with Class II and Class III rapids.",
+      longDescription: "Dive into an epic aquatic adventure in Kitulgala, Sri Lanka's premier destination for eco-adventure sports. Navigating the majestic Kelani River, you will tackle Class II and III rapids, including iconic runs like 'Head Chopper', 'Virgin's Breast', and 'Butter Knife'. Guided by highly experienced international raft masters and fully equipped with certified rescue gear, this tour delivers pure adrenaline in a safe and pristine jungle river environment.",
+      image: "https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&q=80&w=1200",
+      location: "Kitulgala", duration: "Half Day", difficulty: "Moderate", cost: "$30"
+    },
+    {
+      slug: "kitesurf-lessons-kalpitiya", title: "Kitesurf Lessons in Kalpitiya",
+      description: "Master the wind at Kalpitiya Lagoon with certified IKO instructors from Margarita Kite School. We guide you, you do the magic!",
+      longDescription: "Kalpitiya Lagoon's flat, shallow water and steady cross-shore winds make it one of the world's best teaching grounds for kitesurfing. Certified IKO instructors take you from dry-land safety basics through to your first rides on the water, with full equipment and rescue-boat support included.",
+      image: "https://tse1.explicit.bing.net/th/id/OIP.wVpFFYsu6pTsZSRaSJh8YwHaE7?rs=1&pid=ImgDetMain&o=7&rm=3",
+      location: "Kalpitiya Lagoon", duration: "Half Day", difficulty: "Moderate", cost: "$65 - $420"
+    }
   ];
 
   // Merge act and legacy experiences to form a complete list of Slugs
@@ -2069,24 +2186,56 @@ function generatePrerenderPages(): PrerenderPage[] {
   legacyExperiences.forEach(leg => {
     if (renderedSlugs.has(leg.slug)) return;
     renderedSlugs.add(leg.slug);
+
+    const canonicalUrl = `${domain}/experience/${leg.slug}`;
+    const detailItems = [
+      leg.location ? `<li><strong>Location:</strong> ${leg.location}</li>` : "",
+      leg.duration ? `<li><strong>Duration:</strong> ${leg.duration}</li>` : "",
+      leg.difficulty ? `<li><strong>Difficulty:</strong> ${leg.difficulty}</li>` : "",
+      leg.cost ? `<li><strong>Estimated Cost:</strong> ${leg.cost}</li>` : ""
+    ].filter(Boolean).join("\n          ");
+
     pages.push({
       path: `/experience/${leg.slug}`,
       title: `${leg.title} | Plan Sri Lanka`,
       description: leg.description,
-      image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200",
+      image: leg.image,
       ogType: "article",
-      canonicalUrl: `${domain}/experience/${leg.slug}`,
+      canonicalUrl,
       bodyHtml: `
         <header>
           <h1>${leg.title}</h1>
           <p><strong>${leg.description}</strong></p>
         </header>
         <section>
-         <h2>Discover Bespoke Itineraries</h2>
-         <p>Contact our elite concierge desk to integrate this landmark into your master custom journey.</p>
+          <h2>About This Experience</h2>
+          <p>${leg.longDescription}</p>
         </section>
+        ${detailItems ? `<section>
+          <h2>Trip Details</h2>
+          <ul>
+          ${detailItems}
+          </ul>
+        </section>` : ""}
+        <footer>
+          <p><strong>Plan More of Your Trip:</strong></p>
+          <ul>
+            <li><a href="/things-to-do-in-sri-lanka">All Sri Lanka Experiences &amp; Activities</a></li>
+            <li><a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner</a></li>
+            <li><a href="/sri-lanka-7-day-itinerary">Sri Lanka 7-Day Itinerary</a></li>
+          </ul>
+        </footer>
       `,
-      schemas: []
+      schemas: [
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "TouristAttraction",
+          "name": leg.title,
+          "description": leg.description,
+          "image": leg.image,
+          "url": canonicalUrl
+        }, null, 2)
+      ]
     });
   });
 
