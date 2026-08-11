@@ -13,6 +13,7 @@ import {
   Compass,
   CheckCircle2,
   AlertTriangle,
+  MessageCircle,
   ChevronDown,
   Info,
   Layers,
@@ -657,6 +658,15 @@ export default function SrilankaBangaloreCostPillarPage() {
                 <p className="text-[11px] text-luxury-black/60 font-light p-3">Same-day Sigiriya arrival, sunset with the local guide</p>
               </div>
             </div>
+            <a
+              href="https://wa.me/94710652424?text=Hi%20Dissanayaka%20Priyantha!%20I%20found%20you%20on%20Plan%20Sri%20Lanka%20and%20would%20like%20to%20ask%20about%20a%20Sigiriya%20guided%20visit."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#1ebd5a] text-white font-bold text-xs sm:text-sm rounded-full shadow-md transition-all hover:scale-105"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Ask Dissanayaka Priyantha (Local Guide) on WhatsApp
+            </a>
           </div>
         </section>
 
