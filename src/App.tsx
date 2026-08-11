@@ -590,9 +590,11 @@ export default function App() {
               Planning Tools
             </span>
             {[
+              { title: "Sri Lanka Trip Planner", path: "/sri-lanka-trip-planner" },
               { title: "Trip Cost Calculator", path: "/sri-lanka-trip-cost-from-india" },
               { title: "Visa & ETA Guide", path: "/sri-lanka-visa-for-indians" },
-              { title: "Sample Itineraries", path: "/sri-lanka-7-day-itinerary" },
+              { title: "7-Day Itinerary", path: "/sri-lanka-7-day-itinerary" },
+              { title: "10-Day Itinerary", path: "/sri-lanka-10-day-itinerary" },
               { title: "Train Route Planner", path: "/sri-lanka-train-trip-planner" },
               { title: "Flights Dashboard", path: "/flights" },
               { title: "Car Rental", path: "/sri-lanka-car-rental" }
