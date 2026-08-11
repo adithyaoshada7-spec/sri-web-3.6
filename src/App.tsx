@@ -46,6 +46,7 @@ const SrilankaHowToUsePlannerPage = lazy(() => import("./components/SrilankaHowT
 const SrilankaPrivateDriverSouthPage = lazy(() => import("./components/SrilankaPrivateDriverSouthPage"));
 const SrilankaChennaiItineraryPage = lazy(() => import("./components/SrilankaChennaiItineraryPage"));
 const SrilankaWhyIndianTravellersPage = lazy(() => import("./components/SrilankaWhyIndianTravellersPage"));
+const SrilankaCarRentalPage = lazy(() => import("./components/SrilankaCarRentalPage"));
 
 export default function App() {
   const navigate = useNavigate();
@@ -518,6 +519,16 @@ export default function App() {
           </Suspense>
         } />
 
+        <Route path="/sri-lanka-car-rental" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaCarRentalPage />
+          </Suspense>
+        } />
+
       </Routes>
 
       {/* Footer */}
@@ -583,7 +594,8 @@ export default function App() {
               { title: "Visa & ETA Guide", path: "/sri-lanka-visa-for-indians" },
               { title: "Sample Itineraries", path: "/sri-lanka-7-day-itinerary" },
               { title: "Train Route Planner", path: "/sri-lanka-train-trip-planner" },
-              { title: "Flights Dashboard", path: "/flights" }
+              { title: "Flights Dashboard", path: "/flights" },
+              { title: "Car Rental", path: "/sri-lanka-car-rental" }
             ].map((tool) => (
               <Link
                 key={tool.path}

@@ -260,5 +260,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.8"
+  },
+  {
+    path: "/sri-lanka-car-rental",
+    title: "Sri Lanka Car Rental | Self-Drive Cars & Rental Prices",
+    description: "Rent a self-drive car in Sri Lanka from LKR 5,000/day. Compare Audi, Honda & Suzuki models, see transparent rental prices, and check availability today.",
+    image: "https://images.unsplash.com/photo-1541443131876-44b03de101c5?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];
