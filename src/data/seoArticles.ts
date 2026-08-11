@@ -119,8 +119,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/how-to-plan-a-trip-to-sri-lanka",
-    title: "Sri Lanka Trip Planner: Build Your Perfect Itinerary (2026)",
-    description: "Build your perfect Sri Lanka itinerary with our master guide: step-by-step planning advice, monsoon-safe zones, budget calculators, and sample routes.",
+    title: "How to Plan a Trip to Sri Lanka: Complete Step-by-Step Guide (2026)",
+    description: "A complete step-by-step guide to planning a Sri Lanka trip: monsoon-safe routes, budgeting advice, sample itineraries, and the mistakes to avoid — then build your exact route with our free trip planner tool.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
