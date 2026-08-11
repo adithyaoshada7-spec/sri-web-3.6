@@ -27,20 +27,34 @@ import {
   UtensilsCrossed,
   ShieldAlert,
   Moon,
-  Volume2
+  Volume2,
+  DollarSign,
+  Send,
+  Star,
+  Zap,
+  Luggage,
+  ShieldCheck
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaBangaloreCostPillarPage() {
   usePageMetadata({
-    title: "Sri Lanka Trip Cost From Bangalore (2026 Guide) | Stays, Flights & Budgets",
-    description: "Calculate your total budget, compare BLR-CMB flight costs, understand visa requirements, and plan the perfect Sri Lanka itinerary from Bangalore with our 2026 guide.",
+    title: "Sri Lanka Trip Cost From Bangalore (2026 Breakdown) | Flights & 7-Day Budget",
+    description: "Calculate your complete Sri Lanka trip cost from Bangalore (BLR). Direct 85-min flight schedules, 4-day & 7-day itinerary budgets in INR, online visa guidance & instant WhatsApp quote.",
     canonicalUrl: "https://plan-srilanka.com/sri-lanka-trip-cost-from-bangalore",
     ogUrl: "https://plan-srilanka.com/sri-lanka-trip-cost-from-bangalore"
   });
 
   const navigate = useNavigate();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [travelerType, setTravelerType] = useState<"couple" | "family" | "solo" | "friends">("couple");
+  const [comfortTier, setComfortTier] = useState<"budget" | "comfort" | "luxury">("comfort");
+  const [selectedServices, setSelectedServices] = useState<string[]>([
+    "Direct BLR Flight Guidance",
+    "Private Chauffeur Sedan / SUV",
+    "3/4-Star Boutique Hotel Stays",
+    "ETA Visa Clearance Assistance"
+  ]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -56,10 +70,73 @@ export default function SrilankaBangaloreCostPillarPage() {
     navigate("/sri-lanka-trip-planner");
   };
 
+  const toggleService = (service: string) => {
+    if (selectedServices.includes(service)) {
+      setSelectedServices(selectedServices.filter(s => s !== service));
+    } else {
+      setSelectedServices([...selectedServices, service]);
+    }
+  };
+
+  const calculateDynamicBudget = () => {
+    let perPersonInr = 38000;
+    if (comfortTier === "budget") perPersonInr = 27000;
+    if (comfortTier === "luxury") perPersonInr = 82000;
+
+    if (travelerType === "solo") perPersonInr *= 1.15; // single supplement
+    if (travelerType === "family") perPersonInr *= 0.85; // group savings
+    if (travelerType === "friends") perPersonInr *= 0.88;
+
+    const roundInr = Math.round(perPersonInr);
+    const totalGroupInr = travelerType === "couple" ? roundInr * 2 : travelerType === "family" ? roundInr * 4 : roundInr;
+
+    return {
+      perPerson: roundInr.toLocaleString("en-IN"),
+      totalGroup: totalGroupInr.toLocaleString("en-IN"),
+      flightCost: "12,500",
+      hotelCost: Math.round(roundInr * 0.42).toLocaleString("en-IN"),
+      transitCost: Math.round(roundInr * 0.25).toLocaleString("en-IN"),
+      mealsCost: Math.round(roundInr * 0.22).toLocaleString("en-IN"),
+    };
+  };
+
+  const dynamicCosts = calculateDynamicBudget();
+
   const handleWhatsAppClick = () => {
     trackEvent("whatsapp_click", "conversion", "bangalore_pillar");
-    window.open("https://wa.me/94722968210?text=Hi%20Plan%20Sri%20Lanka!%20I'm%20planning%20a%20trip%20from%20Bangalore%20and%20would%2520love%2520a%2520free%2520custom%2520cost%2520estimate%2520and%2520itinerary.", "_blank");
+    const msg = `Hi Vibe Tour Concierge! I'm planning a Sri Lanka trip from Bangalore (BLR).\n\nDetails:\n• Traveler Type: ${travelerType.toUpperCase()}\n• Style: ${comfortTier.toUpperCase()}\n• Est. Budget / Person: ₹${dynamicCosts.perPerson}\n• Key Services Needed: ${selectedServices.join(", ")}\n\nPlease send me a customized 5-Day/7-Day itinerary and flight package quote!`;
+    window.open(`https://wa.me/94722968210?text=${encodeURIComponent(msg)}`, "_blank");
   };
+
+  const blrFlights = [
+    {
+      airline: "SriLankan Airlines (UL 172)",
+      depTime: "09:30 AM (BLR)",
+      arrTime: "10:55 AM (CMB)",
+      duration: "1h 25m",
+      days: "Daily Direct",
+      recommended: true,
+      perks: "Full-service flight with hot breakfast & 30kg luggage allowance."
+    },
+    {
+      airline: "IndiGo Airlines (6E 1177)",
+      depTime: "05:40 AM (BLR)",
+      arrTime: "07:05 AM (CMB)",
+      duration: "1h 25m",
+      days: "Daily Direct",
+      recommended: true,
+      perks: "Early arrival! Maximizes your entire Day 1 on the island."
+    },
+    {
+      airline: "SriLankan Airlines (UL 174)",
+      depTime: "08:40 PM (BLR)",
+      arrTime: "10:05 PM (CMB)",
+      duration: "1h 25m",
+      days: "Daily Direct",
+      recommended: false,
+      perks: "Ideal for tech workers flying straight after office hours."
+    }
+  ];
 
   return (
     <div className="bg-[#fcfbf7] min-h-screen text-luxury-black font-sans selection:bg-luxury-gold selection:text-white pb-20">
@@ -339,6 +416,141 @@ export default function SrilankaBangaloreCostPillarPage() {
           </div>
         </section>
 
+        {/* Dynamic Interactive Bangalore Cost Calculator */}
+        <section className="bg-luxury-green text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-luxury-gold/30 mb-12 relative overflow-hidden">
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+            <div>
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-luxury-gold font-bold block mb-1">
+                ⚡ Instant Bangalore Budget Estimator
+              </span>
+              <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#fcfbf7]">
+                Calculate Your Custom Sri Lanka Trip Cost
+              </h3>
+            </div>
+            <div className="inline-flex items-center gap-2 text-xs font-mono bg-white/10 px-3.5 py-1.5 rounded-full border border-white/10 text-luxury-gold">
+              <DollarSign className="w-3.5 h-3.5" /> Updated for 2026 Season
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {/* Controls */}
+            <div className="space-y-5">
+              <div>
+                <label className="text-xs font-mono uppercase text-luxury-cream/70 font-bold block mb-2">
+                  1. Traveler Group
+                </label>
+                <div className="grid grid-cols-4 gap-2">
+                  {(["couple", "family", "solo", "friends"] as const).map((t) => (
+                    <button
+                      key={t}
+                      onClick={() => setTravelerType(t)}
+                      className={`py-2 px-1 text-xs font-bold rounded-xl border transition-all text-center capitalize ${
+                        travelerType === t
+                          ? "bg-luxury-gold text-black border-luxury-gold shadow-md"
+                          : "bg-white/5 text-white/80 border-white/10 hover:border-white/30"
+                      }`}
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-mono uppercase text-luxury-cream/70 font-bold block mb-2">
+                  2. Travel Style & Comfort
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  {(["budget", "comfort", "luxury"] as const).map((c) => (
+                    <button
+                      key={c}
+                      onClick={() => setComfortTier(c)}
+                      className={`py-2.5 px-2 text-xs font-bold rounded-xl border transition-all text-center capitalize ${
+                        comfortTier === c
+                          ? "bg-luxury-gold text-black border-luxury-gold shadow-md"
+                          : "bg-white/5 text-white/80 border-white/10 hover:border-white/30"
+                      }`}
+                    >
+                      {c === "budget" ? "🎒 Budget 3★" : c === "comfort" ? "🌴 Comfort 4★" : "👑 Luxury 5★"}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-mono uppercase text-luxury-cream/70 font-bold block mb-2">
+                  3. Select Services Needed
+                </label>
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  {[
+                    "Direct BLR Flight Guidance",
+                    "Private Chauffeur Sedan / SUV",
+                    "3/4-Star Boutique Hotel Stays",
+                    "ETA Visa Clearance Assistance"
+                  ].map((service) => (
+                    <button
+                      key={service}
+                      onClick={() => toggleService(service)}
+                      className={`p-2 rounded-lg text-left text-[11px] font-medium border transition-all flex items-center gap-1.5 ${
+                        selectedServices.includes(service)
+                          ? "bg-white/20 border-luxury-gold text-white"
+                          : "bg-white/5 border-white/10 text-luxury-cream/60"
+                      }`}
+                    >
+                      <Check className={`w-3.5 h-3.5 ${selectedServices.includes(service) ? "text-luxury-gold" : "opacity-0"}`} />
+                      <span className="truncate">{service}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Live Calculation Output Card */}
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start border-b border-white/10 pb-4 mb-4">
+                  <div>
+                    <span className="text-[10px] font-mono text-luxury-gold uppercase tracking-wider block">Estimated Cost / Person</span>
+                    <span className="text-3xl font-serif font-bold text-white">₹{dynamicCosts.perPerson}</span>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-[10px] font-mono text-luxury-cream/60 uppercase tracking-wider block">Est. Total Group Cost</span>
+                    <span className="text-lg font-mono font-bold text-luxury-gold">₹{dynamicCosts.totalGroup}</span>
+                  </div>
+                </div>
+
+                <div className="space-y-2 text-xs font-mono text-luxury-cream/80">
+                  <div className="flex justify-between">
+                    <span>• Return Flight (BLR → CMB):</span>
+                    <span className="font-bold text-white">~₹{dynamicCosts.flightCost}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>• Hotel & Lodging ({comfortTier.toUpperCase()}):</span>
+                    <span className="font-bold text-white">~₹{dynamicCosts.hotelCost}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>• Private Transit & Driver:</span>
+                    <span className="font-bold text-white">~₹{dynamicCosts.transitCost}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>• Dining & Entry Tickets:</span>
+                    <span className="font-bold text-white">~₹{dynamicCosts.mealsCost}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6">
+                <button
+                  onClick={handleWhatsAppClick}
+                  className="w-full py-3.5 bg-luxury-gold text-luxury-black font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white transition-all flex items-center justify-center gap-2 shadow-lg"
+                >
+                  <Send className="w-4 h-4" /> Get Custom Quote on WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Dynamic Navigation Shortcuts */}
         <section className="mb-12">
           <div className="bg-luxury-green/5 border border-luxury-green/10 p-5 rounded-2xl">
@@ -456,6 +668,48 @@ export default function SrilankaBangaloreCostPillarPage() {
                   <span className="text-xs font-light text-luxury-black">Chennai (MAA), Mumbai (BOM)</span>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Direct BLR Flight Intelligence Schedule Table */}
+          <div className="bg-white rounded-2xl border border-luxury-green/10 p-6 mb-8 shadow-sm">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-serif font-bold text-base text-luxury-green flex items-center gap-2">
+                <Plane className="w-4 h-4 text-luxury-gold" /> Direct Flight Intelligence (Kempegowda BLR → Colombo CMB)
+              </h3>
+              <span className="text-[10px] font-mono text-luxury-gold uppercase font-bold px-2.5 py-1 bg-luxury-cream rounded-full">2026 Flight Timings</span>
+            </div>
+            <p className="text-xs text-luxury-black/70 font-light mb-4">
+              Flying directly from BLR takes only <strong>85 minutes</strong>. Here are the top direct carrier options to help you plan your landing time:
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="border-b border-luxury-green/10 bg-[#fdfaf2] text-[10px] font-mono text-luxury-green uppercase">
+                    <th className="p-3">Flight / Carrier</th>
+                    <th className="p-3">Departure (BLR)</th>
+                    <th className="p-3">Arrival (CMB)</th>
+                    <th className="p-3">Duration</th>
+                    <th className="p-3">Key Advantage</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-luxury-cream text-luxury-black/80 font-light">
+                  {blrFlights.map((flight, idx) => (
+                    <tr key={idx} className="hover:bg-luxury-cream/10">
+                      <td className="p-3 font-semibold text-luxury-green">
+                        {flight.airline}
+                        {flight.recommended && (
+                          <span className="ml-2 px-2 py-0.5 bg-green-100 text-green-800 text-[9px] font-mono rounded font-bold">Recommended</span>
+                        )}
+                      </td>
+                      <td className="p-3 font-mono font-bold text-luxury-gold">{flight.depTime}</td>
+                      <td className="p-3 font-mono">{flight.arrTime}</td>
+                      <td className="p-3 font-mono">{flight.duration}</td>
+                      <td className="p-3 text-[11px] text-luxury-black/70">{flight.perks}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
 
@@ -631,6 +885,21 @@ export default function SrilankaBangaloreCostPillarPage() {
                 Drive early down the southern foothills to Galle Fort. Tour the historic Dutch colonial lanes, buy premium Ceylon tea packs, and have a fresh seafood lunch. Hop on the Southern Expressway to Colombo Airport for your late evening flight to Bangalore.
               </p>
             </div>
+          </div>
+
+          {/* 7-Day Itinerary Bridge Callout */}
+          <div className="mt-8 bg-[#fdfaf2] border-2 border-luxury-gold/30 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-[10px] font-mono font-bold text-luxury-gold uppercase tracking-wider block">Have 7 Days Available?</span>
+              <h4 className="font-serif font-bold text-luxury-green text-base">Explore Complete 7-Day Sri Lanka Itineraries (INR Budget)</h4>
+              <p className="text-xs text-luxury-black/70">Covers Yala Leopard Safaris, Mirissa Whale Watching, and Kandy Tea Estate Trails.</p>
+            </div>
+            <Link
+              to="/sri-lanka-itinerary"
+              className="px-5 py-2.5 bg-luxury-green text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-luxury-gold hover:text-black transition-all whitespace-nowrap shadow-sm"
+            >
+              View 7-Day Itinerary →
+            </Link>
           </div>
         </section>
 
