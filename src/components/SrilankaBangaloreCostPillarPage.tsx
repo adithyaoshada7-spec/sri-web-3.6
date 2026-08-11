@@ -497,6 +497,18 @@ export default function SrilankaBangaloreCostPillarPage() {
               </div>
             </Link>
 
+            <Link to="/sri-lanka-car-rental" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
+              <div>
+                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Self-Drive</span>
+                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Car Rental</h4>
+                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Compare vehicles and daily rental prices.</p>
+              </div>
+              <div className="mt-4 flex items-center justify-end text-luxury-gold">
+                <span className="text-[10px] font-bold mr-1">See Prices</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
             <Link to="/best-time-to-visit-sri-lanka" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
               <div>
                 <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Climatology</span>
