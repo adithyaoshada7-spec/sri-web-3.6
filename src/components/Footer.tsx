@@ -13,7 +13,8 @@ const resourceLinks = [
   { label: "Travel Guides & Blog", to: "/blog" },
   { label: "Trip Cost Calculator", to: "/sri-lanka-trip-cost-from-india" },
   { label: "Visa & ETA Guide", to: "/sri-lanka-visa-for-indians" },
-  { label: "7-Day Itinerary", to: "/sri-lanka-7-day-itinerary" }
+  { label: "7-Day Itinerary", to: "/sri-lanka-7-day-itinerary" },
+  { label: "Sri Lanka Car Rental", to: "/sri-lanka-car-rental" }
 ];
 
 export const Footer = () => (
