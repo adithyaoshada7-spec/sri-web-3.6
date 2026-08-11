@@ -624,6 +624,40 @@ export default function SrilankaBangaloreCostPillarPage() {
               <strong>✈️ Chauffeur Booking tip:</strong> Direct flights on IndiGo generally leave BLR in the early morning or mid-afternoon, allowing you to land at Bandaranaike Airport (CMB) by noon. This leaves ample daylight hours to hire a private taxi and drive directly to Sigiriya or Galle Fort without losing a day.
             </div>
           </div>
+
+          {/* Real traveler photos: Sigiriya, reached via this same BLR-CMB route */}
+          <div className="mt-8">
+            <span className="text-[10px] uppercase font-mono font-bold text-luxury-gold tracking-widest block mb-3">Real Travelers On This Route</span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="rounded-2xl overflow-hidden border border-luxury-green/10 shadow-sm bg-white">
+                <img
+                  src="/images/trust/sigiriya-travelers/sigiriya-summit-view-group-traveler.jpg"
+                  alt="Family and local guide at the Sigiriya viewpoint after flying Bangalore to Colombo"
+                  loading="lazy"
+                  className="w-full h-56 object-cover"
+                />
+                <p className="text-[11px] text-luxury-black/60 font-light p-3">Family trip, guided viewpoint hike near Sigiriya Rock</p>
+              </div>
+              <div className="rounded-2xl overflow-hidden border border-luxury-green/10 shadow-sm bg-white">
+                <img
+                  src="/images/trust/sigiriya-travelers/sigiriya-sunrise-visit-traveler.jpg"
+                  alt="Travelers watching sunrise near Sigiriya after a direct Bangalore to Colombo flight"
+                  loading="lazy"
+                  className="w-full h-56 object-cover"
+                />
+                <p className="text-[11px] text-luxury-black/60 font-light p-3">Sunrise at the Sigiriya viewpoint, Cultural Triangle</p>
+              </div>
+              <div className="rounded-2xl overflow-hidden border border-luxury-green/10 shadow-sm bg-white">
+                <img
+                  src="/images/trust/sigiriya-travelers/sigiriya-rock-summit-traveler-1.jpg"
+                  alt="Travelers and guide at Sigiriya viewpoint at sunset, reachable same-day from Bangalore"
+                  loading="lazy"
+                  className="w-full h-56 object-cover"
+                />
+                <p className="text-[11px] text-luxury-black/60 font-light p-3">Same-day Sigiriya arrival, sunset with the local guide</p>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Section: Visa Cost */}
