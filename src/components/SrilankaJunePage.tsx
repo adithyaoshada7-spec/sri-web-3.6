@@ -769,6 +769,9 @@ export default function SrilankaJunePage() {
                   <Link to="/sri-lanka-visa-for-indians" className="text-white/80 hover:text-[#d4af37] underline transition-colors">
                     → Fast Visa Application
                   </Link>
+                  <Link to="/sri-lanka-car-rental" className="text-white/80 hover:text-[#d4af37] underline transition-colors">
+                    → Car Rental in Sri Lanka
+                  </Link>
                 </div>
               </div>
             </div>
