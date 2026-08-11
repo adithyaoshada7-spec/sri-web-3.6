@@ -1,5 +1,4 @@
 export const trainFallbackHtml = `
-<article class="crawler-seo-wrapper">
   <header>
     <h1>How to Plan a Train Trip in Sri Lanka: The Ultimate 2026 Master Guide</h1>
     <p><em>The definitive, field-tested handbook for booking rail tickets, navigating classes, mapping scenic routes, and using our digital interactive Sri Lanka Train Trip Planner to secure your tropical railway adventure.</em></p>
@@ -266,16 +265,14 @@ export const trainFallbackHtml = `
       <li><a href="/">Home</a></li>
       <li><a href="/sri-lanka-7-day-itinerary">Sri Lanka 7-Day Itinerary</a></li>
       <li><a href="/sri-lanka-trip-planner">Sri Lanka Trip Planner</a></li>
-      <li><a href="/sri-lanka-cost">Sri Lanka Trip Cost</a></li>
-      <li><a href="/sri-lanka-family-tour">Sri Lanka Family Tour Guide</a></li>
-      <li><a href="/sri-lanka-visa-requirements">Sri Lanka Visa Guide</a></li>
-      <li><a href="/sri-lanka-best-time-to-visit">Best Time To Visit Sri Lanka</a></li>
-      <li><a href="/sri-lanka-june-weather">Sri Lanka June Weather</a></li>
-      <li><a href="/sri-lanka-chennai-srilanka-packages-cost">Chennai to Sri Lanka tour packages</a></li>
-      <li><a href="/sri-lanka-trip-planner-pillar">Detailed Complete Sri Lanka Travel Planner</a></li>
-      <li><a href="/how-to-plan-a-train-trip-in-sri-lanka">How to Plan a Train Trip in Sri Lanka (2026)</a></li>
+      <li><a href="/sri-lanka-trip-cost-from-india">Sri Lanka Trip Cost From India</a></li>
+      <li><a href="/sri-lanka-family-itinerary">Sri Lanka Family Itinerary</a></li>
+      <li><a href="/sri-lanka-visa-for-indians">Sri Lanka Visa Guide</a></li>
+      <li><a href="/best-time-to-visit-sri-lanka">Best Time To Visit Sri Lanka</a></li>
+      <li><a href="/where-to-go-in-sri-lanka-in-june">Sri Lanka in June</a></li>
+      <li><a href="/how-much-will-it-take-to-visit-sri-lanka-from-chennai">Sri Lanka Trip Cost From Chennai</a></li>
+      <li><a href="/how-to-plan-a-trip-to-sri-lanka">Complete Sri Lanka Trip Planning Guide</a></li>
       <li><a href="/sri-lanka-train-trip-planner">Interactive Train Planner Map</a></li>
     </ul>
   </footer>
-</article>
 `;
