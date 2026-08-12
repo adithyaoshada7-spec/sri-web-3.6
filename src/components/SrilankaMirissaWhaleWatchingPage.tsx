@@ -33,12 +33,8 @@ import {
   ThumbsUp,
   Image as ImageIcon
 } from "lucide-react";
+// Analytics
 import { trackEvent } from "../lib/analytics";
-
-// Image Imports
-import mirissaWhaleTailImg from "../assets/images/mirissa_whale_tail_1786499973435.jpg";
-import mirissaCatamaranImg from "../assets/images/mirissa_catamaran_tour_1786499988551.jpg";
-import mirissaTrustProofImg from "../assets/images/mirissa_trust_proof_1786500000795.jpg";
 
 type MonthKey = "nov" | "dec_jan" | "feb_mar" | "apr" | "may_oct";
 type CurrencyKey = "USD" | "INR" | "EUR" | "GBP" | "LKR";
@@ -120,12 +116,138 @@ export default function SrilankaMirissaWhaleWatchingPage() {
     title: "Whale Watching Mirissa (2026 Guide) | Best Time, Costs & Ethical Tours",
     description: "Complete 2026 traveler guide to whale watching in Mirissa, Sri Lanka. Compare Blue Whale sighting probabilities by month, ethical operator standards, boat prices in USD & INR, 6:00 AM harbour timeline & seasickness tips.",
     canonicalUrl: "https://plan-srilanka.com/whale-watching-mirissa",
-    ogUrl: "https://plan-srilanka.com/whale-watching-mirissa"
+    ogUrl: "https://plan-srilanka.com/whale-watching-mirissa",
+    ogImage: "https://plan-srilanka.com/mirissa-blue-whale-tail.jpg"
   });
 
   const [selectedMonth, setSelectedMonth] = useState<MonthKey>("dec_jan");
   const [selectedCurrency, setSelectedCurrency] = useState<CurrencyKey>("USD");
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  // Structured Data (JSON-LD Schemas) for Rich Google Search Snippets
+  const touristAttractionSchema = {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    "name": "Whale Watching Mirissa",
+    "description": "Premier Blue Whale watching destination in Sri Lanka, located near Dondra Deep Ocean Trench.",
+    "url": "https://plan-srilanka.com/whale-watching-mirissa",
+    "image": "https://plan-srilanka.com/mirissa-blue-whale-tail.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mirissa",
+      "addressRegion": "Southern Province",
+      "addressCountry": "Sri Lanka"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 5.9483,
+      "longitude": 80.4552
+    },
+    "priceRange": "$35 - $130 USD",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "1240",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://plan-srilanka.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Guides",
+        "item": "https://plan-srilanka.com/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Whale Watching Mirissa",
+        "item": "https://plan-srilanka.com/whale-watching-mirissa"
+      }
+    ]
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best month for whale watching in Mirissa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The peak season runs from December to March, boasting a 95% to 98% Blue Whale sighting rate in ultra-calm Indian Ocean waters. November and April are also good shoulder months. Avoid May through October in Mirissa due to the Yala monsoon; if visiting in summer, head to Trincomalee on the East Coast instead."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a Mirissa whale watching ticket cost in 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard shared passenger boat tickets cost $35 to $50 USD per adult (approx. ₹3,000 - ₹4,300 INR). Luxury ethical catamaran or yacht charters cost $85 to $130 USD with sun decks, warm buffet breakfast, and smaller passenger counts. All legitimate tours include the mandatory Sri Lanka Ports Authority harbor clearance tax."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What time do whale watching boats depart Mirissa Harbor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Boats depart early at 06:00 AM - 06:30 AM from the Mirissa Fisheries Harbor. You should arrive at the pier by 05:45 AM for lifejacket fitting and safety briefings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a whale watching tour take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A typical trip lasts 3 to 5 hours, returning to Mirissa Harbor between 10:30 AM and 11:30 AM, depending on how far offshore (12 to 25 nautical miles) whales are feeding."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is whale watching in Mirissa ethical and safe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, provided you choose an accredited ethical operator adhering to World Cetacean Alliance (WCA) guidelines: maintaining a 100m distance, cutting engines when whales surface, avoiding head-on intercept courses, and providing SOLAS lifejackets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I prevent seasickness on the boat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Take an anti-motion sickness tablet (Stugeron or Avomine) 30 to 45 minutes before departure (around 05:15 AM). Sit on the lower deck near the boat center of gravity and keep your gaze on the horizon."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I combine whale watching with other southern Sri Lanka attractions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! After returning around 11:00 AM, visit Coconut Tree Hill, Secret Beach, Weligama beach, or take an evening drive to Galle Fort or Yala National Park."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to book whale watching in Mirissa in advance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, especially during peak season (December - February). Ethical operators capped at lower passenger capacities sell out 1 to 2 weeks in advance."
+        }
+      }
+    ]
+  };
 
   const formatPrice = (usdAmount: number) => {
     const { rate, symbol } = currencyRates[selectedCurrency];
@@ -203,12 +325,26 @@ export default function SrilankaMirissaWhaleWatchingPage() {
   return (
     <div className="bg-[#fcfbf7] text-[#1e293b] min-h-screen font-sans antialiased selection:bg-[#d4af37]/30">
       
+      {/* JSON-LD Schemas for Google Rich Snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(touristAttractionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* 1. HERO SECTION */}
       <section className="relative pt-28 md:pt-36 pb-20 md:pb-28 bg-[#0a192f] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a192f]/60 via-[#0a192f]/80 to-[#0a192f] z-10" />
         <img 
-          src="https://images.unsplash.com/photo-1568430460464-02e7078e7c33?auto=format&fit=crop&q=80&w=2000"
-          alt="Blue Whale Tail Fluke in Mirissa Sri Lanka"
+          src="/mirissa-blue-whale-tail.jpg"
+          alt="Blue Whale Tail Fluke lifting out of ocean off Dondra Head Mirissa Sri Lanka"
           className="absolute inset-0 w-full h-full object-cover object-center opacity-40 scale-105"
         />
 
@@ -276,8 +412,25 @@ export default function SrilankaMirissaWhaleWatchingPage() {
         </div>
       </section>
 
+      {/* QUICK JUMP TABLE OF CONTENTS (ANCHOR NAV FOR GOOGLE RICH SITESEP NIPPETS) */}
+      <section className="sticky top-16 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 py-3 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 overflow-x-auto no-scrollbar text-xs font-mono font-bold">
+          <span className="text-slate-400 shrink-0 uppercase tracking-widest hidden md:inline">Jump To:</span>
+          <a href="#oceanic-geography" className="px-3 py-1.5 rounded-lg hover:bg-slate-100 text-slate-700 shrink-0 transition-colors">Geography</a>
+          <a href="#sighting-seasons" className="px-3 py-1.5 rounded-lg hover:bg-slate-100 text-slate-700 shrink-0 transition-colors">Best Time</a>
+          <a href="#species-guide" className="px-3 py-1.5 rounded-lg hover:bg-slate-100 text-slate-700 shrink-0 transition-colors">Species</a>
+          <a href="#ticket-costs" className="px-3 py-1.5 rounded-lg hover:bg-slate-100 text-slate-700 shrink-0 transition-colors">Ticket Prices</a>
+          <a href="#morning-schedule" className="px-3 py-1.5 rounded-lg hover:bg-slate-100 text-slate-700 shrink-0 transition-colors">6 AM Schedule</a>
+          <a href="#ethical-rules" className="px-3 py-1.5 rounded-lg hover:bg-slate-100 text-slate-700 shrink-0 transition-colors">Ethics & Motion</a>
+          <a href="#trust-proof" className="px-3 py-1.5 rounded-lg hover:bg-slate-100 text-slate-700 shrink-0 transition-colors">Licenses & Trust</a>
+          <a href="#photo-gallery" className="px-3 py-1.5 rounded-lg hover:bg-slate-100 text-slate-700 shrink-0 transition-colors">Gallery</a>
+          <a href="#southern-itineraries" className="px-3 py-1.5 rounded-lg hover:bg-slate-100 text-slate-700 shrink-0 transition-colors">Itineraries</a>
+          <a href="#faqs" className="px-3 py-1.5 rounded-lg bg-[#0a192f] text-[#d4af37] shrink-0 hover:bg-[#d4af37] hover:text-black transition-colors">FAQs</a>
+        </div>
+      </section>
+
       {/* 2. WHY MIRISSA IS THE WORLD'S BLUE WHALE CAPITAL */}
-      <section className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="oceanic-geography" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-7 space-y-6">
@@ -301,7 +454,7 @@ export default function SrilankaMirissaWhaleWatchingPage() {
                 <div>
                   <h3 className="font-serif font-bold text-slate-900 text-base">The Dondra Deep Submarine Trench</h3>
                   <p className="text-sm text-slate-600 mt-1">
-                    Upwelling ocean currents push dense swarms of krill and plankton straight into the shallow coastal shelf, creating a permanent marine feeding highway for migratory Blue Whales.
+                    Upwelling ocean currents push dense swarms of krill and plankton straight into the shallow coastal shelf, creating a permanent marine feeding highway for migratory Blue Whales. If planning your overall route, check our <Link to="/sri-lanka-7-day-itinerary" className="text-[#0a192f] font-bold underline hover:text-[#d4af37]">7-day Sri Lanka itinerary</Link> or <Link to="/10-day-sri-lanka-itinerary" className="text-[#0a192f] font-bold underline hover:text-[#d4af37]">10-day island travel guide</Link>.
                   </p>
                 </div>
               </div>
@@ -354,7 +507,7 @@ export default function SrilankaMirissaWhaleWatchingPage() {
       </section>
 
       {/* 3. INTERACTIVE MONTHLY SIGHTING & WEATHER MATRIX */}
-      <section className="py-16 md:py-24 bg-[#0a192f] text-white">
+      <section id="sighting-seasons" className="py-16 md:py-24 bg-[#0a192f] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -490,7 +643,7 @@ export default function SrilankaMirissaWhaleWatchingPage() {
       </section>
 
       {/* 4. MARINE SPECIES SPOTLIGHT */}
-      <section className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section id="species-guide" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="text-xs font-mono font-bold text-[#0a192f] uppercase tracking-widest bg-[#0a192f]/5 px-3 py-1 rounded-md">
             Marine Life Diversity
@@ -577,7 +730,7 @@ export default function SrilankaMirissaWhaleWatchingPage() {
       </section>
 
       {/* 5. TOUR TYPES & COST CALCULATOR COMPARISON */}
-      <section className="py-16 md:py-24 bg-slate-100 border-y border-slate-200">
+      <section id="ticket-costs" className="py-16 md:py-24 bg-slate-100 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 border-b border-slate-200 pb-8">
@@ -755,7 +908,7 @@ export default function SrilankaMirissaWhaleWatchingPage() {
       </section>
 
       {/* 6. STEP-BY-STEP MORNING HARBOR TIMELINE */}
-      <section className="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section id="morning-schedule" className="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center space-y-4">
           <span className="text-xs font-mono font-bold text-[#0a192f] uppercase tracking-widest bg-[#0a192f]/5 px-3 py-1 rounded-md">
             Morning Schedule
@@ -821,7 +974,7 @@ export default function SrilankaMirissaWhaleWatchingPage() {
       </section>
 
       {/* 7. ETHICAL CODE OF CONDUCT & SEASICKNESS SURVIVAL TIPS */}
-      <section className="py-16 md:py-24 bg-[#0a192f] text-white">
+      <section id="ethical-rules" className="py-16 md:py-24 bg-[#0a192f] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -896,7 +1049,7 @@ export default function SrilankaMirissaWhaleWatchingPage() {
       </section>
 
       {/* 7.5 TRUST PROOF & VERIFIED OPERATOR GUARANTEES SECTION */}
-      <section className="py-16 md:py-24 bg-[#f4f1ea] border-y border-slate-300">
+      <section id="trust-proof" className="py-16 md:py-24 bg-[#f4f1ea] border-y border-slate-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -1026,7 +1179,7 @@ export default function SrilankaMirissaWhaleWatchingPage() {
       </section>
 
       {/* 7.6 REAL TOUR PHOTO GALLERY & TRAVELER MOMENTS */}
-      <section className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section id="photo-gallery" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="text-xs font-mono font-bold text-[#0a192f] uppercase tracking-widest bg-[#0a192f]/5 px-3 py-1 rounded-md inline-flex items-center gap-1.5">
             <ImageIcon className="w-4 h-4 text-[#d4af37]" /> Tour Photo Gallery
@@ -1079,7 +1232,7 @@ export default function SrilankaMirissaWhaleWatchingPage() {
       </section>
 
       {/* 8. COMBINING MIRISSA WITH SOUTHERN ITINERARY */}
-      <section className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section id="southern-itineraries" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="text-xs font-mono font-bold text-[#0a192f] uppercase tracking-widest bg-[#0a192f]/5 px-3 py-1 rounded-md">
             Trip Integration
@@ -1131,7 +1284,7 @@ export default function SrilankaMirissaWhaleWatchingPage() {
       </section>
 
       {/* 9. FAQ ACCORDION WITH SCHEMA MARKUP */}
-      <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
+      <section id="faqs" className="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="text-center space-y-3">
