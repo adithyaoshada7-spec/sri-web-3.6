@@ -224,5 +224,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/whale-watching-mirissa",
+    title: "Whale Watching Mirissa (2026 Guide) | Best Time, Costs & Ethical Tours",
+    description: "Complete 2026 traveler guide to whale watching in Mirissa, Sri Lanka. Compare Blue Whale sighting probabilities by month, ethical operator standards, boat prices in USD & INR, 6:00 AM harbour timeline & seasickness tips.",
+    image: "https://images.unsplash.com/photo-1568430460464-02e7078e7c33?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.95"
   }
 ];

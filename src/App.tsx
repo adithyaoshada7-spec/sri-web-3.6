@@ -65,6 +65,7 @@ const SrilankaFlightsPage = lazy(() => import("./components/SrilankaFlightsPage"
 const SrilankaFlightsGuidePage = lazy(() => import("./components/SrilankaFlightsGuidePage"));
 const SrilankaFlightSearchToolBlogPage = lazy(() => import("./components/SrilankaFlightSearchToolBlogPage"));
 const SrilankaHowToUsePlannerPage = lazy(() => import("./components/SrilankaHowToUsePlannerPage"));
+const SrilankaMirissaWhaleWatchingPage = lazy(() => import("./components/SrilankaMirissaWhaleWatchingPage"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -835,6 +836,16 @@ export default function App() {
             <SrilankaExperiencesPage />
           </Suspense>
         } />
+
+        <Route path="/whale-watching-mirissa" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#0a192f] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#d4af37] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaMirissaWhaleWatchingPage />
+          </Suspense>
+        } />
       </Routes>
 
       {/* Footer */}
@@ -961,6 +972,7 @@ export default function App() {
             </div>
             <div className="space-y-3">
               {[
+                { title: "Mirissa Whale Watching Guide (2026)", path: "/whale-watching-mirissa", badge: "Trending +900%", desc: "Blue whales, 6:00 AM harbour timing & boat costs." },
                 { title: "Plan a Sri Lanka Train Trip (2026)", path: "/how-to-plan-a-train-trip-in-sri-lanka", badge: "Rail Master Guide", desc: "Settle ticket bookings, cabin classes, and routes." },
                 { title: "US Travel Guide for Americans", path: "/sri-lanka-travel-guide-for-americans", badge: "US Travelers", desc: "Monsoon navigation, visas & dollar purchase value." },
                 { title: "Hyderabad to Sri Lanka Trip Cost", path: "/sri-lanka-trip-cost-from-hyderabad", badge: "Hyderabad Gateway", desc: "RGIA flight deals, stays & realistic budgets." },

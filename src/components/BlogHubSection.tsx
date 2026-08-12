@@ -143,6 +143,14 @@ const getArticleMeta = (path: string) => {
         readTime: "8 Min Read",
         badge: "Smart Outbound"
       };
+    case "/whale-watching-mirissa":
+      return {
+        category: "Marine Wildlife",
+        tag: "Mirissa Blue Whales",
+        icon: <Globe className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "7 Min Read",
+        badge: "Trending +900%"
+      };
     default:
       return {
         category: "Travel Guide",
