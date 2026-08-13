@@ -65,8 +65,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/where-to-go-in-sri-lanka-in-june",
-    title: "Where To Go In Sri Lanka In June 2026: Weather, Itinerary & Best Places",
-    description: "Sri Lanka in June: full weather breakdown by region, a ready-made 8-10 day itinerary, and the best places and beaches to visit. Avoid the monsoon coast and pick East Coast sunshine instead.",
+    title: "Where To Go In Sri Lanka In June (2026 Guide) | Avoid Bad Weather",
+    description: "Avoid the biggest mistake travelers make in June! Discover which parts of Sri Lanka offer the best weather, beaches, ocean swimming, and seasonal experiences.",
     image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
@@ -110,8 +110,8 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
-    title: "How Much Will It Take to Visit Sri Lanka From Chennai in 2026?",
-    description: "Your comprehensive master cost guide for visiting Sri Lanka from Chennai. Includes actual flight pricing, lodging, food, local transport budgets, and our growing Jaffna overland route guide.",
+    title: "How Much Will It Take to Visit Sri Lanka From Chennai? (₹25,000 Budget Guide)",
+    description: "Planning a trip from Chennai to Sri Lanka? Exact 2026 cost breakdown: Flights from ₹10,500, hotels, visa & 5-day budget options starting from ₹25,000!",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",

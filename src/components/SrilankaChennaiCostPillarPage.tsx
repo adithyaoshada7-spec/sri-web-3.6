@@ -30,8 +30,8 @@ import { trackEvent } from "../lib/analytics";
 
 export default function SrilankaChennaiCostPillarPage() {
   usePageMetadata({
-    title: "Sri Lanka Trip Cost From Chennai (2026) | Flights, Hotels & Budget Guide",
-    description: "Find the real cost of visiting Sri Lanka from Chennai. Compare 5-day, 7-day, family and honeymoon budgets, flight prices, hotels and transport costs.",
+    title: "How Much Will It Take to Visit Sri Lanka From Chennai? (₹25,000 Budget Guide)",
+    description: "Planning a trip from Chennai to Sri Lanka? Exact 2026 cost breakdown: Flights from ₹10,500, hotels, visa & 5-day budget options starting from ₹25,000!",
     canonicalUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
     ogUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
   });
@@ -66,13 +66,13 @@ export default function SrilankaChennaiCostPillarPage() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Sri Lanka Trip Cost From Chennai (2026) | Flights, Hotels & Budget Guide",
-            "description": "Find the real cost of visiting Sri Lanka from Chennai. Compare 5-day, 7-day, family and honeymoon budgets, flight prices, hotels and transport costs.",
+            "headline": "How Much Will It Take to Visit Sri Lanka From Chennai? (₹25,000 Budget Guide)",
+            "description": "Planning a trip from Chennai to Sri Lanka? Exact 2026 cost breakdown: Flights from ₹10,500, hotels, visa & 5-day budget options starting from ₹25,000!",
             "image": [
               "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630"
             ],
             "datePublished": "2026-06-20T08:00:00+05:30",
-            "dateModified": "2026-06-21T10:00:00+05:30",
+            "dateModified": "2026-08-12T10:00:00+05:30",
             "author": {
               "@type": "Person",
               "name": "Adithya Oshada",
@@ -100,10 +100,18 @@ export default function SrilankaChennaiCostPillarPage() {
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "How much does a Sri Lanka trip cost from Chennai?",
+                "name": "How much will it take to visit Sri Lanka from Chennai?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "A standard 5-day budget trip starts around ₹25,000 - ₹40,000 per person. Comfortable mid-range tours run from ₹45,000 - ₹75,000, while premium high-comfort luxury experiences begin around ₹90,000+ per traveler."
+                  "text": "A standard 5-day budget trip from Chennai to Sri Lanka costs approximately ₹25,000 to ₹40,000 per person, including direct round-trip flights (₹10,500 - ₹14,000), basic hotels, ETA visa, local transport, and meals. Comfortable mid-range tours cost ₹45,000 to ₹75,000, while luxury packages start at ₹90,000+ per traveler."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the distance and flight time from Chennai to Sri Lanka?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The air distance between Chennai (MAA) and Colombo (CMB) is approximately 650 km. Non-stop direct flights take only 1 hour and 20 minutes."
                 }
               },
               {
@@ -111,15 +119,23 @@ export default function SrilankaChennaiCostPillarPage() {
                 "name": "What is the average flight cost from Chennai to Colombo?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "A standard round-trip flight from Chennai to Colombo ranges between ₹10,000 and ₹18,000 depending on how early you book, the carrier (e.g. IndiGo, SriLankan Airlines), and travel season."
+                  "text": "A round-trip direct flight ticket from Chennai to Colombo ranges between ₹10,500 and ₹18,000 depending on airline (IndiGo, SriLankan Airlines) and booking lead time."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Do I need a physical visa before traveling from Chennai to Sri Lanka?",
+                "name": "What is the cost of a Sri Lanka tour package from Chennai?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "No, Indian passport holders do not need a physical visa stamp. You can apply for a Tourist Electronic Travel Authorization (ETA) online in under 24 hours, which costs around $20 USD (often waived to ₹0 during dynamic promotional schemes)."
+                  "text": "All-inclusive tour packages from Chennai range from ₹18,000 - ₹24,000 for a 3-day weekend trip, ₹25,000 - ₹34,000 for a 5-day beach tour, and ₹33,000 - ₹45,000 for a 7-day classic highlands tour."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do Indian passport holders need a physical visa stamp for Sri Lanka?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No physical visa stamp is required. Indian citizens can apply online for an Electronic Travel Authorization (ETA) in under 24 hours."
                 }
               }
             ]
@@ -139,12 +155,12 @@ export default function SrilankaChennaiCostPillarPage() {
           </div>
           
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#fcfbf7] font-bold leading-tight tracking-tight max-w-4xl mx-auto">
-            How Much Will It Cost to Visit Sri Lanka From Chennai? <br/>
-            <span className="text-luxury-gold font-normal italic">(Budget Guide)</span>
+            How Much Will It Take to Visit Sri Lanka From Chennai? <br/>
+            <span className="text-luxury-gold font-normal italic">(2026 ₹25,000 Budget Guide)</span>
           </h1>
           
           <p className="mt-6 text-base sm:text-lg text-luxury-cream/80 max-w-2xl mx-auto font-light leading-relaxed">
-            Planning a short escape from the Chennai heat? Sri Lanka is just an 80-minute flight away. This guide shows you the real costs of flights, visa rules, hotels, and daily budgets.
+            Planning a short island escape from Chennai? Sri Lanka is just an 80-minute flight away. Explore exact flight ticket prices, visa rules, hotel costs, and 5-day budget options.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4 justify-center items-center text-xs text-luxury-cream/70 font-mono">
@@ -158,7 +174,7 @@ export default function SrilankaChennaiCostPillarPage() {
             </span>
             <span className="flex items-center gap-1.5 py-1 px-3 bg-white/5 rounded-full border border-white/10">
               <TrendingUp className="w-3.5 h-3.5 text-[#d4af37]" />
-              Updated June 2026
+              Updated August 2026
             </span>
           </div>
         </div>
@@ -175,7 +191,7 @@ export default function SrilankaChennaiCostPillarPage() {
           </div>
           <div className="mt-8">
             <p className="text-sm sm:text-base text-luxury-black/85 leading-relaxed mb-6 font-light">
-              How much will it take to visit Sri Lanka from Chennai? The baseline answer is incredibly encouraging: a <strong>5-day budget backpacking trip from Chennai costs approximately ₹25,000 to ₹40,000 per person</strong>. Couples seeking comfortable <strong>mid-range boutique stays spend about ₹45,000 to ₹75,000</strong>, while highly customizable, high-end <strong>luxury journeys cost ₹90,000+ per traveler</strong>.
+              <strong>How much will it take to visit Sri Lanka from Chennai?</strong> A 5-day budget trip from Chennai to Sri Lanka costs approximately <strong>₹25,000 to ₹40,000 per person</strong>, including direct round-trip flights (₹10,500 - ₹14,000), budget hotels, ETA visa, local transport, and authentic meals. Comfortable mid-range tours cost <strong>₹45,000 to ₹75,000</strong>, while luxury packages cost <strong>₹90,000+</strong> per traveler.
             </p>
 
             <div className="bg-luxury-cream/80 border border-luxury-gold/40 rounded-2xl p-5 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -945,6 +961,14 @@ export default function SrilankaChennaiCostPillarPage() {
 
           <div className="space-y-4">
             {[
+              {
+                q: "How much will it take to visit Sri Lanka from Chennai?",
+                a: "A 5-day budget trip from Chennai to Sri Lanka costs approximately ₹25,000 to ₹40,000 per person, including direct round-trip flights (₹10,500 - ₹14,000), budget hotels, ETA visa, local transport, and authentic meals. Comfortable mid-range tours cost ₹45,000 to ₹75,000, while luxury packages cost ₹90,000+ per traveler."
+              },
+              {
+                q: "What is the distance and flight time from Chennai to Sri Lanka?",
+                a: "The air distance between Chennai (MAA) and Colombo (CMB) is approximately 650 km. Non-stop direct flights take only 1 hour and 20 minutes."
+              },
               {
                 q: "Is a passport required to visit Sri Lanka from India?",
                 a: "Yes, a physical passport is absolutely required. Your passport must have at least 6 months of validity from your date of arrival in Sri Lanka. You cannot travel to Sri Lanka using an Aadhaar card, PAN card, or Voter ID, as it is an international flight destination."
