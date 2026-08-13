@@ -740,6 +740,107 @@ export default function SrilankaFlightSearchToolBlogPage() {
           </div>
         </section>
 
+        {/* RELATED DEPARTURE CITY COST GUIDES */}
+        <section className="py-12 border-t border-neutral-200 mt-12">
+          <h3 className="text-xs uppercase tracking-[0.2em] text-[#d4af37] font-bold mb-6 text-center">
+            City-Specific Flight & Trip Cost Guides
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <Link 
+              to="/sri-lanka-trip-cost-from-bangalore"
+              className="p-5 rounded-2xl bg-white border border-neutral-200 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Bangalore Hub</span>
+                <h4 className="font-serif font-bold text-[#1a2d24] text-sm group-hover:text-[#d4af37] transition-colors">Sri Lanka Trip Cost From Bangalore</h4>
+                <p className="text-[11px] text-neutral-600 mt-1 font-light">BLR-CMB schedules, 5-day budget calculator & flight tips.</p>
+              </div>
+              <div className="flex items-center justify-end mt-4">
+                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link 
+              to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+              className="p-5 rounded-2xl bg-white border border-neutral-200 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Chennai Hub</span>
+                <h4 className="font-serif font-bold text-[#1a2d24] text-sm group-hover:text-[#d4af37] transition-colors">Sri Lanka Trip Cost From Chennai</h4>
+                <p className="text-[11px] text-neutral-600 mt-1 font-light">Shortest 75-min direct flights starting at ₹10,500.</p>
+              </div>
+              <div className="flex items-center justify-end mt-4">
+                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link 
+              to="/sri-lanka-trip-cost-from-mumbai"
+              className="p-5 rounded-2xl bg-white border border-neutral-200 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Mumbai Hub</span>
+                <h4 className="font-serif font-bold text-[#1a2d24] text-sm group-hover:text-[#d4af37] transition-colors">Sri Lanka Trip Cost From Mumbai</h4>
+                <p className="text-[11px] text-neutral-600 mt-1 font-light">Direct BOM-CMB flight fare analysis & 7-day budget guide.</p>
+              </div>
+              <div className="flex items-center justify-end mt-4">
+                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link 
+              to="/sri-lanka-trip-cost-from-hyderabad"
+              className="p-5 rounded-2xl bg-white border border-neutral-200 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Hyderabad Hub</span>
+                <h4 className="font-serif font-bold text-[#1a2d24] text-sm group-hover:text-[#d4af37] transition-colors">Sri Lanka Trip Cost From Hyderabad</h4>
+                <p className="text-[11px] text-neutral-600 mt-1 font-light">HYD connecting fares, packages & 7-day cost breakdown.</p>
+              </div>
+              <div className="flex items-center justify-end mt-4">
+                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          </div>
+
+          <h3 className="text-xs uppercase tracking-[0.2em] text-[#d4af37] font-bold mb-6 text-center">
+            More Sri Lanka Travel Guides
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link 
+              to="/sri-lanka-visa-for-indians"
+              className="p-4 bg-white rounded-xl border border-neutral-200 hover:border-[#d4af37] transition-all text-xs font-bold text-[#1a2d24] flex items-center justify-between group shadow-sm"
+            >
+              <span>Sri Lanka ETA Visa For Indians</span>
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link 
+              to="/sri-lanka-7-day-itinerary"
+              className="p-4 bg-white rounded-xl border border-neutral-200 hover:border-[#d4af37] transition-all text-xs font-bold text-[#1a2d24] flex items-center justify-between group shadow-sm"
+            >
+              <span>7-Day Master Sri Lanka Blueprint</span>
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link 
+              to="/kandy-to-ella-train-tickets-guide"
+              className="p-4 bg-white rounded-xl border border-neutral-200 hover:border-[#d4af37] transition-all text-xs font-bold text-[#1a2d24] flex items-center justify-between group shadow-sm"
+            >
+              <span>Kandy to Ella Train Booking Guide</span>
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link 
+              to="/things-to-do-in-sri-lanka"
+              className="p-4 bg-white rounded-xl border border-neutral-200 hover:border-[#d4af37] transition-all text-xs font-bold text-[#1a2d24] flex items-center justify-between group shadow-sm"
+            >
+              <span>Best Things to Do for First-Timers</span>
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </section>
+
       </main>
     </div>
   );

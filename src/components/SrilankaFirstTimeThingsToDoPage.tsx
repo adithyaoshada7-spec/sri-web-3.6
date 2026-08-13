@@ -1060,6 +1060,126 @@ export default function SrilankaFirstTimeThingsToDoPage() {
         </div>
       </section>
 
+      {/* Related Internal Travel Guides & Tools */}
+      <section className="py-12 bg-white px-4 md:px-8 border-t border-luxury-green/10 max-w-7xl mx-auto my-8 rounded-3xl shadow-sm">
+        <h3 className="text-xs uppercase tracking-[0.2em] text-luxury-gold font-bold mb-6 text-center">
+          Essential Sri Lanka Travel Guides & Planning Tools
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Link 
+            to="/sri-lanka-7-day-itinerary"
+            className="p-5 rounded-2xl bg-[#fcfbf7] border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Itinerary Guide</span>
+              <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">7-Day Ultimate Sri Lanka Blueprint</h4>
+              <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Complete route map, daily timings & stay recommendations.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link 
+            to="/sri-lanka-visa-for-indians"
+            className="p-5 rounded-2xl bg-[#fcfbf7] border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Visa & Entry</span>
+              <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Sri Lanka ETA Visa For Indians</h4>
+              <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Step-by-step online application, fees & document checklist.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link 
+            to="/sri-lanka-trip-cost-from-india"
+            className="p-5 rounded-2xl bg-[#fcfbf7] border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Budget Planner</span>
+              <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Sri Lanka Trip Cost From India</h4>
+              <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Full INR cost breakdown for flights, hotels, food & safaris.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link 
+            to="/kandy-to-ella-train-tickets-guide"
+            className="p-5 rounded-2xl bg-[#fcfbf7] border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Scenic Railway</span>
+              <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Kandy to Ella Train Booking Guide</h4>
+              <p className="text-[11px] text-luxury-black/70 mt-1 font-light">How to reserve seats, choose class & photo-worthy seats.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link 
+            to="/best-time-to-visit-sri-lanka"
+            className="p-5 rounded-2xl bg-[#fcfbf7] border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Seasonality</span>
+              <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Best Time to Visit Sri Lanka</h4>
+              <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Monsoon patterns, microclimates & best beach months.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link 
+            to="/whale-watching-mirissa"
+            className="p-5 rounded-2xl bg-[#fcfbf7] border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Marine Safari</span>
+              <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Mirissa Whale Watching Guide</h4>
+              <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Blue whale catamaran cruises, best seasons & ethical tours.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link 
+            to="/sri-lanka-family-itinerary"
+            className="p-5 rounded-2xl bg-[#fcfbf7] border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Family Travel</span>
+              <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Sri Lanka Family Itinerary</h4>
+              <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Low-fatigue travel plans designed for kids and seniors.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link 
+            to="/sri-lanka-trip-planner"
+            className="p-5 rounded-2xl bg-[#fcfbf7] border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Interactive Tool</span>
+              <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Smart Trip Planner Tool</h4>
+              <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Build, customize & export your bespoke route in seconds.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+        </div>
+      </section>
+
     </div>
   );
 }

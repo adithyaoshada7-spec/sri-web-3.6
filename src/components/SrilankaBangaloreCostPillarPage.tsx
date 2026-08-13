@@ -1244,6 +1244,93 @@ export default function SrilankaBangaloreCostPillarPage() {
           </div>
         </section>
 
+        {/* Cross-City Departure Hubs & Guides Section */}
+        <section className="py-12 border-t border-luxury-green/10 mt-12">
+          <h3 className="text-xs uppercase tracking-[0.2em] text-luxury-gold font-bold mb-6 text-center">
+            Compare Flight Costs From Other Indian Departure Cities
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+            <Link 
+              to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+              className="p-5 rounded-2xl bg-white border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">South India Hub</span>
+                <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Sri Lanka Trip Cost From Chennai</h4>
+                <p className="text-[11px] text-luxury-black/70 mt-1 font-light">75-min flights starting ₹10,500 with 5-day itineraries.</p>
+              </div>
+              <div className="flex items-center justify-end mt-4">
+                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link 
+              to="/sri-lanka-trip-cost-from-mumbai"
+              className="p-5 rounded-2xl bg-white border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">West India Hub</span>
+                <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Sri Lanka Trip Cost From Mumbai</h4>
+                <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Direct BOM-CMB flight schedules & honeymoon budgets.</p>
+              </div>
+              <div className="flex items-center justify-end mt-4">
+                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link 
+              to="/sri-lanka-trip-cost-from-hyderabad"
+              className="p-5 rounded-2xl bg-white border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Deccan Hub</span>
+                <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Sri Lanka Trip Cost From Hyderabad</h4>
+                <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Connecting flight options, 7-day budget breakdown & packages.</p>
+              </div>
+              <div className="flex items-center justify-end mt-4">
+                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          </div>
+
+          <h3 className="text-xs uppercase tracking-[0.2em] text-luxury-gold font-bold mb-6 text-center">
+            More Sri Lanka Travel Planning Guides
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link 
+              to="/sri-lanka-visa-for-indians"
+              className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group"
+            >
+              <span>Sri Lanka ETA Visa For Indians</span>
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link 
+              to="/sri-lanka-flight-ticket-price-from-india"
+              className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group"
+            >
+              <span>India to Sri Lanka Flights Guide</span>
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link 
+              to="/kandy-to-ella-train-tickets-guide"
+              className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group"
+            >
+              <span>Kandy to Ella Train Booking Guide</span>
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link 
+              to="/things-to-do-in-sri-lanka"
+              className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group"
+            >
+              <span>Best Things to Do in Sri Lanka</span>
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </section>
+
       </div>
     </div>
   );

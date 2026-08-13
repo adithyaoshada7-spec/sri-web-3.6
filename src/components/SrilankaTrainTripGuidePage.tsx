@@ -1118,6 +1118,70 @@ export default function SrilankaTrainTripGuidePage() {
             </div>
           </section>
 
+          {/* RELATED INTERNAL TRAVEL GUIDES & TOOLS */}
+          <section className="py-12 border-t border-[#1e3a2f]/10 mt-12">
+            <h3 className="text-xs uppercase tracking-[0.2em] text-[#d4af37] font-bold mb-6 text-center">
+              Explore More Sri Lanka Itineraries & Budget Tools
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link 
+                to="/sri-lanka-7-day-itinerary"
+                className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+              >
+                <div>
+                  <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Itinerary Blueprint</span>
+                  <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">Sri Lanka 7-Day Signature Itinerary</h4>
+                  <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">Combining hill country trains, Sigiriya & southern beaches.</p>
+                </div>
+                <div className="flex items-center justify-end mt-4">
+                  <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+
+              <Link 
+                to="/things-to-do-in-sri-lanka"
+                className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+              >
+                <div>
+                  <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">First-Timer Guide</span>
+                  <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">Best Things to Do in Sri Lanka</h4>
+                  <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">Top experiences, splurge vs save guide & scams to avoid.</p>
+                </div>
+                <div className="flex items-center justify-end mt-4">
+                  <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+
+              <Link 
+                to="/sri-lanka-trip-cost-from-india"
+                className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+              >
+                <div>
+                  <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Financial Planning</span>
+                  <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">Sri Lanka Trip Cost From India</h4>
+                  <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">Flights, hotels, train fares, food & entrance fee estimates.</p>
+                </div>
+                <div className="flex items-center justify-end mt-4">
+                  <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+
+              <Link 
+                to="/best-time-to-visit-sri-lanka"
+                className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+              >
+                <div>
+                  <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Seasonality Guide</span>
+                  <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">Best Time to Visit Sri Lanka</h4>
+                  <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">Monsoon breakdown, hill country climate & best beach months.</p>
+                </div>
+                <div className="flex items-center justify-end mt-4">
+                  <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            </div>
+          </section>
+
         </main>
       </section>
     </div>

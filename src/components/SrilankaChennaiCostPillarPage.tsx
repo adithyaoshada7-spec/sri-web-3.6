@@ -1083,6 +1083,107 @@ export default function SrilankaChennaiCostPillarPage() {
           </div>
         </section>
 
+        {/* Cross-City Departure Hubs & Guides Section */}
+        <section className="py-12 border-t border-luxury-green/10 mt-12">
+          <h3 className="text-xs uppercase tracking-[0.2em] text-luxury-gold font-bold mb-6 text-center">
+            Compare Flight Costs From Other Indian Departure Hubs
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <Link 
+              to="/5-day-sri-lanka-itinerary-from-chennai"
+              className="p-5 rounded-2xl bg-white border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between shadow-sm"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Chennai Route Special</span>
+                <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">5-Day Sri Lanka Itinerary From Chennai</h4>
+                <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Custom day-by-day routes for Galle beaches or Kandy hills.</p>
+              </div>
+              <div className="flex items-center justify-end mt-4">
+                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link 
+              to="/sri-lanka-trip-cost-from-bangalore"
+              className="p-5 rounded-2xl bg-white border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between shadow-sm"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Bangalore Hub</span>
+                <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Sri Lanka Trip Cost From Bangalore</h4>
+                <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Direct 85-min flights, 5-day budget calculator & schedules.</p>
+              </div>
+              <div className="flex items-center justify-end mt-4">
+                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link 
+              to="/sri-lanka-trip-cost-from-mumbai"
+              className="p-5 rounded-2xl bg-white border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between shadow-sm"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Mumbai Hub</span>
+                <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Sri Lanka Trip Cost From Mumbai</h4>
+                <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Direct BOM-CMB flight schedules & honeymoon budgets.</p>
+              </div>
+              <div className="flex items-center justify-end mt-4">
+                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link 
+              to="/sri-lanka-trip-cost-from-hyderabad"
+              className="p-5 rounded-2xl bg-white border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between shadow-sm"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Hyderabad Hub</span>
+                <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Sri Lanka Trip Cost From Hyderabad</h4>
+                <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Connecting flight options, 7-day budget breakdown & packages.</p>
+              </div>
+              <div className="flex items-center justify-end mt-4">
+                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          </div>
+
+          <h3 className="text-xs uppercase tracking-[0.2em] text-luxury-gold font-bold mb-6 text-center">
+            Essential Sri Lanka Planning Guides
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link 
+              to="/sri-lanka-visa-for-indians"
+              className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group shadow-sm"
+            >
+              <span>Sri Lanka ETA Visa For Indians</span>
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link 
+              to="/sri-lanka-7-day-itinerary"
+              className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group shadow-sm"
+            >
+              <span>7-Day Master Sri Lanka Blueprint</span>
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link 
+              to="/kandy-to-ella-train-tickets-guide"
+              className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group shadow-sm"
+            >
+              <span>Kandy to Ella Train Tickets Guide</span>
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link 
+              to="/things-to-do-in-sri-lanka"
+              className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group shadow-sm"
+            >
+              <span>Best Things to Do for First-Timers</span>
+              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </section>
+
       </div>
     </div>
   );

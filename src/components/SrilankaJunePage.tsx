@@ -1019,6 +1019,71 @@ export default function SrilankaJunePage() {
           </AnimatePresence>
         </div>
       </section>
+
+      {/* RELATED INTERNAL TRAVEL GUIDES & TOOLS */}
+      <section className="py-12 bg-[#fcfbf7] border-t border-[#1e3a2f]/10 max-w-7xl mx-auto px-4 md:px-8">
+        <h3 className="text-xs uppercase tracking-[0.2em] text-[#d4af37] font-bold mb-6 text-center">
+          Explore Other Seasonal & Regional Sri Lanka Guides
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Link 
+            to="/sri-lanka-couples-itinerary-august"
+            className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">August Special</span>
+              <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">Sri Lanka August Couples Itinerary</h4>
+              <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">Kandy Esala Perahera festival & east coast beach weather.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link 
+            to="/best-time-to-visit-sri-lanka"
+            className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Seasonality Master Guide</span>
+              <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">Best Time to Visit Sri Lanka</h4>
+              <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">Year-round climate breakdown & monsoon matrix.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link 
+            to="/sri-lanka-7-day-itinerary"
+            className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Itinerary Guide</span>
+              <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">7-Day Signature Sri Lanka Itinerary</h4>
+              <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">Curated road map comparing route pacing and transit times.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link 
+            to="/sri-lanka-visa-for-indians"
+            className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Visa & Immigration</span>
+              <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">Sri Lanka Visa For Indians</h4>
+              <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">ETA fees, online application & airport entry guidelines.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+        </div>
+      </section>
+
     </div>
   );
 }
