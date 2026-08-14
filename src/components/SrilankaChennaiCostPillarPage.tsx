@@ -1,43 +1,71 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { usePageMetadata } from "../hooks/usePageMetadata";
-import { 
-  ArrowRight, 
-  MapPin, 
-  Check, 
-  HelpCircle, 
-  Plane, 
-  Award, 
-  Clock, 
-  Compass, 
-  CheckCircle2, 
-  AlertTriangle, 
-  ChevronDown, 
-  Info,
-  Layers,
-  Coffee,
-  ShieldAlert,
-  Smartphone,
-  Navigation,
-  Map,
+import {
+  ArrowRight,
+  MapPin,
+  Clock,
+  Car,
+  Utensils,
   Sparkles,
-  TrendingUp,
+  Calendar,
+  Info,
+  CheckCircle2,
+  HelpCircle,
+  ChevronDown,
+  AlertTriangle,
   Heart,
-  Users
+  Users,
+  Train,
+  Plane,
+  ShieldCheck,
+  DollarSign,
+  Send,
+  Luggage,
+  Star,
+  Hotel,
+  TrendingDown,
+  Check,
+  UserCheck,
+  Compass
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
+interface CostBreakdown {
+  flights: number;
+  hotels: number;
+  food: number;
+  transport: number;
+  activities: number;
+  visaAndMisc: number;
+  totalPerPerson: number;
+  totalGroup: number;
+}
+
 export default function SrilankaChennaiCostPillarPage() {
   usePageMetadata({
-    title: "How Much Will It Take to Visit Sri Lanka From Chennai? (₹25,000 Budget Guide)",
-    description: "Planning a trip from Chennai to Sri Lanka? Exact 2026 cost breakdown: Flights from ₹10,500, hotels, visa & 5-day budget options starting from ₹25,000!",
+    title: "Sri Lanka Trip Cost From Chennai (2026): Budget, Flights & 7-Day Guide",
+    description: "Planning a Sri Lanka trip from Chennai in 2026? Exact cost breakdown: flights from ₹10,500, hotel rates, 5-day & 7-day budgets, couple & family expenses, plus calculator.",
     canonicalUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
-    ogUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+    ogUrl: "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
+    ogImage: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article"
   });
 
-  const navigate = useNavigate();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  // Interactive Calculator State
+  const [calcDuration, setCalcDuration] = useState<number>(7);
+  const [calcTravelers, setCalcTravelers] = useState<number>(2);
+  const [calcTier, setCalcTier] = useState<"budget" | "midrange" | "luxury">("midrange");
+  const [calcPrivateDriver, setCalcPrivateDriver] = useState<boolean>(true);
+  const [calcIncludeSafaris, setCalcIncludeSafaris] = useState<boolean>(true);
+
+  // Lead inquiry form state
+  const [inquiryName, setInquiryName] = useState("");
+  const [inquiryPhone, setInquiryPhone] = useState("");
+  const [inquirySubmitted, setInquirySubmitted] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -45,1146 +73,1239 @@ export default function SrilankaChennaiCostPillarPage() {
 
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index);
-    trackEvent("faq_toggle", "engagement", `faq_${index}`);
+    trackEvent("faq_toggle", "engagement", `chennai_cost_faq_${index}`);
   };
 
-  const handleCtaClick = (buttonId: string) => {
-    trackEvent("planner_pillar_cta_click", "conversion", buttonId);
-    navigate("/sri-lanka-trip-planner");
+  // Dynamic calculation logic in INR
+  const calculateCosts = (): CostBreakdown => {
+    // Flight rates from MAA roundtrip per person
+    const flightRatePerPax = calcTier === "budget" ? 11000 : calcTier === "midrange" ? 13500 : 22000;
+    const flightsTotal = flightRatePerPax * calcTravelers;
+
+    // Hotel rates per room per night (assuming 2 pax per room)
+    const roomsNeeded = Math.ceil(calcTravelers / 2);
+    const nights = Math.max(1, calcDuration - 1);
+    const hotelNightlyRate = calcTier === "budget" ? 1800 : calcTier === "midrange" ? 4800 : 14000;
+    const hotelsTotal = hotelNightlyRate * roomsNeeded * nights;
+
+    // Daily food cost per person
+    const foodDailyRatePerPax = calcTier === "budget" ? 700 : calcTier === "midrange" ? 1600 : 3800;
+    const foodTotal = foodDailyRatePerPax * calcDuration * calcTravelers;
+
+    // Transport costs
+    let transportTotal = 0;
+    if (calcPrivateDriver) {
+      // Dedicated AC Sedan/Van with English speaking chauffeur (per vehicle per day)
+      const vehicleDailyRate = calcTravelers <= 2 ? 3800 : 5200;
+      transportTotal = vehicleDailyRate * calcDuration;
+    } else {
+      // Public train + PickMe/local tuktuks per person
+      const localTransportPerPaxDay = calcTier === "budget" ? 400 : 800;
+      transportTotal = localTransportPerPaxDay * calcDuration * calcTravelers;
+    }
+
+    // Activities & Entrance tickets per person
+    let activitiesPerPax = calcTier === "budget" ? 2500 : calcTier === "midrange" ? 6500 : 14000;
+    if (calcIncludeSafaris) {
+      activitiesPerPax += 4500; // Yala/Udawalawe 4x4 safari + entry pass
+    }
+    const activitiesTotal = activitiesPerPax * calcTravelers;
+
+    // Visa ETA & SIM & Tipping
+    const visaAndMiscPerPax = 1500; // SIM ₹500 + misc contingency
+    const miscTotal = visaAndMiscPerPax * calcTravelers;
+
+    const grandTotal = flightsTotal + hotelsTotal + foodTotal + transportTotal + activitiesTotal + miscTotal;
+    const perPax = Math.round(grandTotal / calcTravelers);
+
+    return {
+      flights: flightsTotal,
+      hotels: hotelsTotal,
+      food: foodTotal,
+      transport: transportTotal,
+      activities: activitiesTotal,
+      visaAndMisc: miscTotal,
+      totalPerPerson: perPax,
+      totalGroup: grandTotal
+    };
   };
 
-  const handleWhatsAppClick = () => {
-    trackEvent("whatsapp_click", "conversion", "chennai_pillar");
-    window.open("https://wa.me/94722968210", "_blank");
+  const currentCalc = calculateCosts();
+
+  // Pre-formatted WhatsApp inquiry message
+  const generateWhatsAppMessage = () => {
+    const text = `Hi Plan Sri Lanka team! I am planning a ${calcDuration}-day Sri Lanka trip from Chennai for ${calcTravelers} traveler(s) in ${calcTier} tier. Estimated total: ₹${currentCalc.totalGroup.toLocaleString("en-IN")}. Please send me a customized itinerary and private driver quote.`;
+    return encodeURIComponent(text);
   };
+
+  // Structured Data Schema for Rich Snippets & AI Search
+  const jsonLdData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Sri Lanka Trip Cost From Chennai (2026): Budget, Flights & 7-Day Guide",
+      "description": "Planning a Sri Lanka trip from Chennai in 2026? Exact cost breakdown: flights from ₹10,500, hotel rates, 5-day & 7-day budgets, couple & family expenses, plus calculator.",
+      "image": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+      "author": {
+        "@type": "Person",
+        "name": "Oshada Adithya",
+        "jobTitle": "Lead Travel Planner",
+        "url": "https://plan-srilanka.com/about-founder"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Plan Sri Lanka",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://plan-srilanka.com/logo.png"
+        }
+      },
+      "datePublished": "2026-01-15T08:00:00+05:30",
+      "dateModified": "2026-03-28T10:00:00+05:30",
+      "mainEntityOfPage": "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://plan-srilanka.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Trip Costs",
+          "item": "https://plan-srilanka.com/sri-lanka-trip-cost-from-india"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Sri Lanka Trip Cost From Chennai",
+          "item": "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristDestination",
+      "name": "Sri Lanka",
+      "description": "Tropical island nation located just 80 minutes by direct flight from Chennai (MAA), renowned for UNESCO world heritage sites, tea highlands, golden surf beaches, and wildlife safaris.",
+      "about": {
+        "@type": "Place",
+        "name": "Sri Lanka"
+      },
+      "touristType": [
+        "Couples",
+        "Families",
+        "Budget Travelers",
+        "Honeymooners",
+        "Culture & Wildlife Enthusiasts"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does a Sri Lanka trip from Chennai cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Sri Lanka trip from Chennai typically costs ₹25,000 to ₹35,000 per person for a 5-day budget trip, ₹45,000 to ₹62,000 per person for a 5-day comfortable mid-range vacation, and ₹58,000 to ₹78,000 per person for a 7-day classic island loop with a dedicated private chauffeur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much are direct flight tickets from Chennai to Colombo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Direct round-trip flights from Chennai (MAA) to Colombo (CMB) on IndiGo, SriLankan Airlines, or Air India typically cost between ₹10,500 and ₹14,500 when booked 30 to 60 days in advance. Last-minute fares or holiday peaks can reach ₹18,000 to ₹22,000."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long is the flight from Chennai to Sri Lanka?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The non-stop flight from Chennai International Airport (MAA) to Colombo Bandaranaike International Airport (CMB) takes just 1 hour and 20 minutes (80 minutes). Flights to Jaffna (JAF) on Alliance Air take approximately 60 minutes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Indians need a visa for Sri Lanka in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Indian passport holders require an online Tourist Electronic Travel Authorization (ETA). Sri Lanka frequently runs promotional visa fee waivers making it free (₹0). When standard fees apply, the 30-day tourist ETA costs approximately $20 USD (~₹1,650)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a 7-day Sri Lanka trip cost for a couple from Chennai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 7-day mid-range Sri Lanka trip for a couple from Chennai costs between ₹1,10,000 and ₹1,45,000 total (around ₹55,000 to ₹72,500 per person), including return flights, 3 to 4-star boutique hotels with breakfast, a private AC car with driver-guide, entrance fees, and daily dining."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Sri Lanka cheaper than domestic Indian holidays like Goa or Kerala?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Due to the ultra-short 80-minute flight from Chennai and favorable exchange rates (1 INR ≈ 3.5 to 3.7 LKR), total spending on private chauffeur transport, boutique coastal resorts, and fresh seafood in Sri Lanka is often comparable to or cheaper than peak-season trips to Goa or Kerala."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much physical cash should I carry from Chennai to Sri Lanka?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Carry approximately ₹15,000 to ₹20,000 in crisp Indian Rupee (INR) ₹500 notes per person to convert directly to Sri Lankan Rupees (LKR) at Colombo Airport official exchange counters. Use zero-forex debit or credit cards for hotels and modern restaurants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the cheapest month to visit Sri Lanka from Chennai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "September, October, May, and June offer the lowest round-trip flight prices and deep off-season hotel discounts of up to 40%. For the sunny southern beaches, December to April is prime dry season."
+          }
+        }
+      ]
+    }
+  ];
 
   return (
-    <div className="bg-[#fcfbf7] min-h-screen text-luxury-black font-sans selection:bg-luxury-gold selection:text-white pb-20">
-      {/* Real Dynamic Schema Formats to solidify EEAT signals */}
-      <>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "How Much Will It Take to Visit Sri Lanka From Chennai? (₹25,000 Budget Guide)",
-            "description": "Planning a trip from Chennai to Sri Lanka? Exact 2026 cost breakdown: Flights from ₹10,500, hotels, visa & 5-day budget options starting from ₹25,000!",
-            "image": [
-              "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630"
-            ],
-            "datePublished": "2026-06-20T08:00:00+05:30",
-            "dateModified": "2026-08-12T10:00:00+05:30",
-            "author": {
-              "@type": "Person",
-              "name": "Adithya Oshada",
-              "jobTitle": "Lead Ceylon Travel Stylist"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Plan Sri Lanka Concierge",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://plan-srilanka.com/favicon.png"
-              }
-            },
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://plan-srilanka.com/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
-            }
-          })}
-        </script>
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How much will it take to visit Sri Lanka from Chennai?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A standard 5-day budget trip from Chennai to Sri Lanka costs approximately ₹25,000 to ₹40,000 per person, including direct round-trip flights (₹10,500 - ₹14,000), basic hotels, ETA visa, local transport, and meals. Comfortable mid-range tours cost ₹45,000 to ₹75,000, while luxury packages start at ₹90,000+ per traveler."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is the distance and flight time from Chennai to Sri Lanka?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "The air distance between Chennai (MAA) and Colombo (CMB) is approximately 650 km. Non-stop direct flights take only 1 hour and 20 minutes."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is the average flight cost from Chennai to Colombo?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A round-trip direct flight ticket from Chennai to Colombo ranges between ₹10,500 and ₹18,000 depending on airline (IndiGo, SriLankan Airlines) and booking lead time."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is the cost of a Sri Lanka tour package from Chennai?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "All-inclusive tour packages from Chennai range from ₹18,000 - ₹24,000 for a 3-day weekend trip, ₹25,000 - ₹34,000 for a 5-day beach tour, and ₹33,000 - ₹45,000 for a 7-day classic highlands tour."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do Indian passport holders need a physical visa stamp for Sri Lanka?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No physical visa stamp is required. Indian citizens can apply online for an Electronic Travel Authorization (ETA) in under 24 hours."
-                }
-              }
-            ]
-          })}
-        </script>
-      </>
+    <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] font-sans selection:bg-[#E5D5B8] selection:text-[#1A1A1A]">
+      {/* Inject Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+      />
 
-      {/* Styled Top Banner */}
-      <div className="bg-luxury-green relative overflow-hidden py-16 md:py-24 text-white">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630')] bg-cover bg-center brightness-[0.22] opacity-80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-luxury-green/90" />
-        
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#f3e5ab] px-3.5 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wider backdrop-blur-md">
-            <Sparkles className="w-3.5 h-3.5 text-luxury-gold" />
-            Simple 2026 Budget Guide
+      {/* HERO SECTION */}
+      <header className="relative pt-12 pb-14 md:pt-16 md:pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-b border-[#E8E4D9]">
+        {/* Breadcrumb Navigation */}
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#7A7365]">
+            <li>
+              <Link to="/" className="hover:text-[#1F3D2B] transition-colors">
+                Home
+              </Link>
+            </li>
+            <li>/</li>
+            <li>
+              <Link to="/sri-lanka-trip-cost-from-india" className="hover:text-[#1F3D2B] transition-colors">
+                Trip Costs
+              </Link>
+            </li>
+            <li>/</li>
+            <li className="text-[#1F3D2B] font-bold" aria-current="page">
+              Chennai to Sri Lanka Cost
+            </li>
+          </ol>
+        </nav>
+
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EBF3ED] text-[#1F3D2B] text-xs font-bold uppercase tracking-wider mb-4 border border-[#C5DAC9]">
+          <Sparkles className="w-3.5 h-3.5 text-[#B38728]" />
+          <span>2026 Chennai Flight & Budget Master Guide</span>
+        </div>
+
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#1F3D2B] tracking-tight leading-[1.15] mb-6">
+          Sri Lanka Trip Cost From Chennai (2026): Complete Budget Guide
+        </h1>
+
+        <p className="text-lg sm:text-xl text-[#4A453A] leading-relaxed max-w-3xl mb-6 font-sans">
+          Planning a trip from Chennai to Sri Lanka? Because Colombo is just <strong>80 minutes away by direct flight</strong>, Sri Lanka is one of the fastest, most affordable international holidays for travellers in Tamil Nadu. Here is the realistic 2026 cost breakdown for flights, hotels, private transport, food, couples, and families.
+        </p>
+
+        <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-[#7A7365] font-mono border-t border-[#E8E4D9] pt-4">
+          <span className="flex items-center gap-1.5">
+            <UserCheck className="w-4 h-4 text-[#1F3D2B]" />
+            Author: <strong>Oshada Adithya</strong> (Local Trip Specialist)
+          </span>
+          <span className="flex items-center gap-1.5">
+            <Clock className="w-4 h-4 text-[#1F3D2B]" />
+            Updated: <strong>March 2026</strong>
+          </span>
+          <span className="flex items-center gap-1.5">
+            <MapPin className="w-4 h-4 text-[#1F3D2B]" />
+            Route: <strong>MAA → CMB / JAF</strong>
+          </span>
+        </div>
+      </header>
+
+      {/* QUICK ANSWER / FEATURED SNIPPET SUMMARY BOX */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto -mt-6 pt-10 pb-10">
+        <div className="bg-[#FFFFFF] rounded-2xl border-2 border-[#1F3D2B] p-6 sm:p-8 shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 bg-[#1F3D2B] text-[#FFFFFF] text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-bl-xl flex items-center gap-1.5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#F2C94C]" />
+            Quick Answer (Direct Summary)
           </div>
-          
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#fcfbf7] font-bold leading-tight tracking-tight max-w-4xl mx-auto">
-            How Much Will It Take to Visit Sri Lanka From Chennai? <br/>
-            <span className="text-luxury-gold font-normal italic">(2026 ₹25,000 Budget Guide)</span>
-          </h1>
-          
-          <p className="mt-6 text-base sm:text-lg text-luxury-cream/80 max-w-2xl mx-auto font-light leading-relaxed">
-            Planning a short island escape from Chennai? Sri Lanka is just an 80-minute flight away. Explore exact flight ticket prices, visa rules, hotel costs, and 5-day budget options.
+
+          <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1F3D2B] mb-3">
+            How Much Does a Sri Lanka Trip From Chennai Cost?
+          </h2>
+
+          <p className="text-base text-[#332F28] leading-relaxed mb-6 font-medium">
+            A holiday to Sri Lanka from Chennai typically costs <strong>₹25,000 to ₹75,000 per person</strong> for a 5 to 7-day trip, depending on your travel style, accommodation choice, and whether you hire a private chauffeur or take public trains. Direct flights from Chennai (MAA) start from <strong>₹10,500 roundtrip</strong>.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4 justify-center items-center text-xs text-luxury-cream/70 font-mono">
-            <span className="flex items-center gap-1.5 py-1 px-3 bg-white/5 rounded-full border border-white/10">
-              <Clock className="w-3.5 h-3.5 text-[#d4af37]" />
-              10 Min Deep Read
-            </span>
-            <span className="flex items-center gap-1.5 py-1 px-3 bg-white/5 rounded-full border border-white/10">
-              <Award className="w-3.5 h-3.5 text-[#d4af37]" />
-              Verified by Local Travel Experts
-            </span>
-            <span className="flex items-center gap-1.5 py-1 px-3 bg-white/5 rounded-full border border-white/10">
-              <TrendingUp className="w-3.5 h-3.5 text-[#d4af37]" />
-              Updated August 2026
-            </span>
+          {/* Core Cost Comparison Table */}
+          <div className="overflow-x-auto rounded-xl border border-[#E8E4D9] mb-6">
+            <table className="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead>
+                <tr className="bg-[#1F3D2B] text-white font-serif">
+                  <th className="p-3.5 font-semibold">Travel Tier</th>
+                  <th className="p-3.5 font-semibold">5-Day Cost (Per Pax)</th>
+                  <th className="p-3.5 font-semibold">7-Day Cost (Per Pax)</th>
+                  <th className="p-3.5 font-semibold">Best Suited For</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#E8E4D9] bg-white">
+                <tr className="hover:bg-[#F9F7F2] transition-colors">
+                  <td className="p-3.5 font-bold text-[#1F3D2B] flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                    Budget Tier
+                  </td>
+                  <td className="p-3.5 font-mono font-bold text-[#1A1A1A]">₹25,000 – ₹35,000</td>
+                  <td className="p-3.5 font-mono font-bold text-[#1A1A1A]">₹33,000 – ₹45,000</td>
+                  <td className="p-3.5 text-[#5A5448]">Solo backpackers, hostels/homestays, trains & PickMe tuk-tuks</td>
+                </tr>
+                <tr className="hover:bg-[#F9F7F2] transition-colors bg-[#FAF8F3]">
+                  <td className="p-3.5 font-bold text-[#1F3D2B] flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                    Mid-Range Comfort ⭐
+                  </td>
+                  <td className="p-3.5 font-mono font-bold text-[#1F3D2B]">₹45,000 – ₹62,000</td>
+                  <td className="p-3.5 font-mono font-bold text-[#1F3D2B]">₹58,000 – ₹78,000</td>
+                  <td className="p-3.5 text-[#5A5448]">Couples & families, 3-4★ boutique hotels, private dedicated AC car</td>
+                </tr>
+                <tr className="hover:bg-[#F9F7F2] transition-colors">
+                  <td className="p-3.5 font-bold text-[#1F3D2B] flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
+                    Luxury & Honeymoon
+                  </td>
+                  <td className="p-3.5 font-mono font-bold text-[#1A1A1A]">₹90,000 – ₹1,20,000</td>
+                  <td className="p-3.5 font-mono font-bold text-[#1A1A1A]">₹1,20,000 – ₹1,80,000+</td>
+                  <td className="p-3.5 text-[#5A5448]">5★ beach resorts, private pool villas, colonial tea bungalows, premium SUV</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#F2F7F4] p-4 rounded-xl border border-[#C5DAC9]">
+            <p className="text-xs sm:text-sm text-[#1F3D2B] font-medium">
+              Want a tailored itinerary with precise day-by-day costs for your exact dates?
+            </p>
+            <Link
+              to="/sri-lanka-trip-planner"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1F3D2B] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-colors shrink-0 shadow-md"
+            >
+              <span>Use Free Trip Planner</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Main Container */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-12">
-        
-        {/* Quick Answer Snippet Box (Article එකේ උඩින්ම) */}
-        <section className="bg-white border-2 border-luxury-gold/30 rounded-3xl p-6 sm:p-8 shadow-md mb-12 scroll-mt-24">
-          <div className="bg-[#fdfaf2] -m-6 sm:-m-8 p-5 sm:p-6 rounded-t-[22px] border-b border-luxury-gold/20 flex items-center gap-3">
-            <span className="px-2.5 py-1 bg-luxury-gold text-white text-[10px] font-mono tracking-wider uppercase font-bold rounded-md">Featured Snippet Guide</span>
-            <h3 className="text-sm font-bold font-mono text-luxury-green uppercase">Quick Answer: Trips From Chennai</h3>
+      {/* MAIN CONTENT WRAPPER */}
+      <main className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-14 py-6">
+
+        {/* SECTION 1: KEY AT-A-GLANCE FACTS */}
+        <section aria-labelledby="glance-heading" className="space-y-4">
+          <h2 id="glance-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+            Sri Lanka Trip Cost From Chennai at a Glance
+          </h2>
+          <p className="text-base text-[#4A453A] leading-relaxed">
+            Chennai is geographically the closest major Indian metro to Sri Lanka. With multiple daily non-stop flights and streamlined immigration, here are the vital trip metrics you should know before building your budget:
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            <div className="bg-white p-4 rounded-xl border border-[#E8E4D9] text-center">
+              <span className="text-[11px] font-mono text-[#7A7365] uppercase block mb-1">Departure</span>
+              <strong className="text-sm sm:text-base font-serif text-[#1F3D2B] block">Chennai (MAA)</strong>
+              <span className="text-[10px] text-[#5A5448]">Terminal 2 Intl</span>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-[#E8E4D9] text-center">
+              <span className="text-[11px] font-mono text-[#7A7365] uppercase block mb-1">Flight Time</span>
+              <strong className="text-sm sm:text-base font-serif text-[#1F3D2B] block">80 Minutes</strong>
+              <span className="text-[10px] text-[#5A5448]">Direct non-stop</span>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-[#E8E4D9] text-center">
+              <span className="text-[11px] font-mono text-[#7A7365] uppercase block mb-1">Return Flights</span>
+              <strong className="text-sm sm:text-base font-serif text-[#1F3D2B] block">₹10,500 – ₹14,500</strong>
+              <span className="text-[10px] text-[#5A5448]">Advance booked</span>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-[#E8E4D9] text-center">
+              <span className="text-[11px] font-mono text-[#7A7365] uppercase block mb-1">Exchange Rate</span>
+              <strong className="text-sm sm:text-base font-serif text-[#1F3D2B] block">1 INR ≈ 3.6 LKR</strong>
+              <span className="text-[10px] text-[#5A5448]">Strong INR power</span>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-[#E8E4D9] text-center">
+              <span className="text-[11px] font-mono text-[#7A7365] uppercase block mb-1">Tourist Visa</span>
+              <strong className="text-sm sm:text-base font-serif text-[#1F3D2B] block">₹0 / $20 ETA</strong>
+              <span className="text-[10px] text-[#5A5448]">Online approval</span>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-[#E8E4D9] text-center">
+              <span className="text-[11px] font-mono text-[#7A7365] uppercase block mb-1">Best Duration</span>
+              <strong className="text-sm sm:text-base font-serif text-[#1F3D2B] block">5 to 7 Days</strong>
+              <span className="text-[10px] text-[#5A5448]">Zero jet-lag</span>
+            </div>
           </div>
-          <div className="mt-8">
-            <p className="text-sm sm:text-base text-luxury-black/85 leading-relaxed mb-6 font-light">
-              <strong>How much will it take to visit Sri Lanka from Chennai?</strong> A 5-day budget trip from Chennai to Sri Lanka costs approximately <strong>₹25,000 to ₹40,000 per person</strong>, including direct round-trip flights (₹10,500 - ₹14,000), budget hotels, ETA visa, local transport, and authentic meals. Comfortable mid-range tours cost <strong>₹45,000 to ₹75,000</strong>, while luxury packages cost <strong>₹90,000+</strong> per traveler.
-            </p>
+        </section>
 
-            <div className="bg-luxury-cream/80 border border-luxury-gold/40 rounded-2xl p-5 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div>
-                <span className="text-[10px] font-mono font-bold text-luxury-gold uppercase tracking-wider block">Looking for a Day-by-Day Route?</span>
-                <h4 className="font-serif font-bold text-luxury-green text-base">Check our 5-Day Sri Lanka Itinerary From Chennai</h4>
-                <p className="text-xs text-luxury-black/70">75-min direct flights, 2 route choices (Galle Coast or Kandy Hills), and flight schedules.</p>
+        {/* SECTION 2: CHENNAI TO SRI LANKA FLIGHT COST */}
+        <section aria-labelledby="flights-heading" className="space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#EBF3ED] flex items-center justify-center text-[#1F3D2B]">
+              <Plane className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-mono text-[#7A7365] uppercase tracking-wider">Aviation & Routes</span>
+              <h2 id="flights-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+                Chennai to Sri Lanka Flight Cost
+              </h2>
+            </div>
+          </div>
+
+          <p className="text-base text-[#4A453A] leading-relaxed">
+            The flight route from <strong>Chennai International Airport (MAA) to Colombo Bandaranaike International Airport (CMB)</strong> is the cheapest and shortest international flight route out of India. With an air distance of just 650 km, you land in Colombo in only <strong>1 hour and 20 minutes</strong>.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-3">
+              <h3 className="font-serif font-bold text-lg text-[#1F3D2B]">Direct Flight Operators & Typical Fares</h3>
+              <ul className="space-y-2.5 text-xs sm:text-sm text-[#4A453A]">
+                <li className="flex items-start justify-between border-b border-[#F0ECE1] pb-2">
+                  <div>
+                    <strong>IndiGo (MAA → CMB)</strong>
+                    <p className="text-xs text-[#7A7365]">Daily direct morning & evening flights (15kg check-in)</p>
+                  </div>
+                  <span className="font-mono font-bold text-[#1F3D2B]">₹10,500 – ₹13,500</span>
+                </li>
+                <li className="flex items-start justify-between border-b border-[#F0ECE1] pb-2">
+                  <div>
+                    <strong>SriLankan Airlines (MAA → CMB)</strong>
+                    <p className="text-xs text-[#7A7365]">Full-service widebody, complimentary hot meal, 30kg check-in</p>
+                  </div>
+                  <span className="font-mono font-bold text-[#1F3D2B]">₹12,000 – ₹15,500</span>
+                </li>
+                <li className="flex items-start justify-between border-b border-[#F0ECE1] pb-2">
+                  <div>
+                    <strong>Air India / Vistara Connections</strong>
+                    <p className="text-xs text-[#7A7365]">Connecting or direct seasonal flights</p>
+                  </div>
+                  <span className="font-mono font-bold text-[#1F3D2B]">₹13,000 – ₹17,000</span>
+                </li>
+                <li className="flex items-start justify-between pt-1">
+                  <div>
+                    <strong>Alliance Air (MAA → JAF Jaffna)</strong>
+                    <p className="text-xs text-[#7A7365]">Direct 60-min turboprop flight to Northern Sri Lanka</p>
+                  </div>
+                  <span className="font-mono font-bold text-[#1F3D2B]">₹11,500 – ₹15,000</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[#FAF8F3] p-5 rounded-2xl border border-[#E8E4D9] space-y-3">
+              <h3 className="font-serif font-bold text-lg text-[#1F3D2B]">Smart Chennai Flight Booking Rules</h3>
+              <ul className="space-y-2 text-xs sm:text-sm text-[#5A5448]">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Book 45 to 60 days ahead:</strong> Fares on IndiGo regularly sit at ₹10,500–₹11,500 round-trip during this window.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Watch out for Pongal & Diwali surges:</strong> During Tamil holidays and long weekends, MAA–CMB tickets spike to ₹18,000–₹24,000 if not booked early.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Calculate baggage allowance:</strong> SriLankan Airlines offers 30 kg baggage in economy, which saves money if shopping for Ceylon tea, spices, and handlooms compared to low-cost carriers with 15 kg limits.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 3 & 4: 5-DAY AND 7-DAY COMPLETE LINE-ITEM BREAKDOWNS */}
+        <section aria-labelledby="duration-cost-heading" className="space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#EBF3ED] flex items-center justify-center text-[#1F3D2B]">
+              <DollarSign className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-mono text-[#7A7365] uppercase tracking-wider">Detailed Expense Breakdown</span>
+              <h2 id="duration-cost-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+                Sri Lanka Trip Cost for 5 Days vs 7 Days
+              </h2>
+            </div>
+          </div>
+
+          <p className="text-base text-[#4A453A] leading-relaxed">
+            To prevent unexpected surprises, here are the itemized, line-by-line calculations for both a quick 5-day escape (ideal for long weekends) and the classic 7-day comprehensive island loop.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* 5-Day Card */}
+            <div className="bg-white p-6 rounded-2xl border border-[#E8E4D9] shadow-sm space-y-4">
+              <div className="flex justify-between items-baseline border-b border-[#E8E4D9] pb-3">
+                <div>
+                  <h3 className="font-serif font-bold text-xl text-[#1F3D2B]">5-Day Trip Cost (Per Person)</h3>
+                  <span className="text-xs text-[#7A7365]">Colombo • Bentota • Galle Fort Coastal Route</span>
+                </div>
+                <div className="text-right">
+                  <span className="text-xs text-[#7A7365] block">Mid-Range Avg</span>
+                  <span className="font-mono font-bold text-xl text-[#1F3D2B]">₹48,000</span>
+                </div>
               </div>
+
+              <div className="space-y-2.5 text-xs sm:text-sm">
+                <div className="flex justify-between py-1 border-b border-[#F5F2EA]">
+                  <span className="text-[#5A5448]">Return Flight (MAA ↔ CMB)</span>
+                  <span className="font-mono font-semibold">₹11,500</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#F5F2EA]">
+                  <span className="text-[#5A5448]">Hotels (4 Nights @ ₹4,500 / 2 pax)</span>
+                  <span className="font-mono font-semibold">₹9,000</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#F5F2EA]">
+                  <span className="text-[#5A5448]">Food & Dining (5 Days @ ₹1,500/day)</span>
+                  <span className="font-mono font-semibold">₹7,500</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#F5F2EA]">
+                  <span className="text-[#5A5448]">Private Chauffeur Car (₹3,800/day / 2)</span>
+                  <span className="font-mono font-semibold">₹9,500</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#F5F2EA]">
+                  <span className="text-[#5A5448]">Activities (Madu River, Galle, Turtle Hatchery)</span>
+                  <span className="font-mono font-semibold">₹4,000</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#F5F2EA]">
+                  <span className="text-[#5A5448]">Tourist Visa ETA & Dialog SIM Card</span>
+                  <span className="font-mono font-semibold">₹1,500</span>
+                </div>
+                <div className="flex justify-between pt-2 text-sm font-bold text-[#1F3D2B] bg-[#F9F7F2] p-2.5 rounded-lg">
+                  <span>5-Day Mid-Range Total:</span>
+                  <span className="font-mono">₹43,000 – ₹52,000</span>
+                </div>
+                <div className="text-[11px] text-[#7A7365]">
+                  * Budget backpacker alternative using trains and hostels: <strong>₹25,000 – ₹32,000 per pax</strong>.
+                </div>
+              </div>
+
               <Link
                 to="/sri-lanka-5-day-itinerary-from-chennai"
-                className="px-5 py-2.5 bg-luxury-green text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-luxury-gold hover:text-black transition-all whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-[#1F3D2B] text-[#1F3D2B] text-xs font-bold uppercase tracking-wider hover:bg-[#1F3D2B] hover:text-white transition-all text-center"
               >
-                View 5-Day Itinerary →
+                <span>Read Full 5-Day Chennai Route</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
-            
-            {/* The Google Featured Snippet Optimized Table */}
-            <div className="overflow-hidden border border-luxury-green/10 rounded-2xl">
-              <table className="w-full text-left border-collapse text-xs sm:text-sm">
-                <thead>
-                  <tr className="bg-luxury-green text-white font-mono text-[11px] sm:text-xs uppercase">
-                    <th className="p-4">Trip Type</th>
-                    <th className="p-4 text-right">Estimated Cost (5 Days / Person)</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-luxury-cream">
-                  <tr className="hover:bg-luxury-cream/30 transition-colors">
-                    <td className="p-4 font-serif font-bold text-luxury-green">🎒 Budget (5 Days)</td>
-                    <td className="p-4 text-right font-mono font-bold text-luxury-gold">₹25,000 - ₹40,000</td>
-                  </tr>
-                  <tr className="hover:bg-luxury-cream/30 transition-colors">
-                    <td className="p-4 font-serif font-bold text-luxury-green">🌴 Mid-range (5 Days)</td>
-                    <td className="p-4 text-right font-mono font-bold text-luxury-gold">₹45,000 - ₹75,000</td>
-                  </tr>
-                  <tr className="hover:bg-luxury-cream/30 transition-colors">
-                    <td className="p-4 font-serif font-bold text-luxury-green">👑 Luxury (5 Days)</td>
-                    <td className="p-4 text-right font-mono font-bold text-luxury-gold">₹90,000+</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            
-            <p className="text-[11px] text-luxury-black/40 mt-3 italic font-light text-center">
-              *Estimates contain direct round-trip flights from Chennai (MAA), basic visas, lodging, local food, and transits.
-            </p>
-          </div>
-        </section>
 
-        {/* Dynamic Mid-Page High-Conversion CTA for Chennai travelers */}
-        <div className="bg-gradient-to-r from-luxury-green to-[#132c21] text-white p-6 sm:p-8 rounded-3xl mb-12 shadow-md border border-[#d4af37]/20 relative overflow-hidden">
-          <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-y-4">
-            <Compass className="w-40 h-40 text-luxury-gold" />
-          </div>
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-center md:text-left space-y-2">
-              <span className="px-2.5 py-0.5 bg-luxury-gold/20 border border-luxury-gold/30 text-luxury-gold text-[10px] font-mono uppercase tracking-wider rounded-full font-bold">Chennai Direct Concierge</span>
-              <h4 className="text-lg sm:text-xl font-serif font-bold text-[#fcfbf7]">Planning from Chennai?</h4>
-              <p className="text-xs text-luxury-cream/80 max-w-sm font-light">
-                Get a free personalized Sri Lanka travel plan tailored to Chennai flight timings, custom budgets, and your unique style.
-              </p>
-            </div>
-            <button
-              onClick={() => handleCtaClick("mid_page_chennai_quick_cta")}
-              className="bg-luxury-gold text-white hover:bg-white hover:text-luxury-green text-xs font-bold py-3 px-6 rounded-xl transition-all flex items-center gap-1.5 shrink-0 shadow-lg group w-full md:w-auto justify-center"
-            >
-              🚀 Get Your Free Plan <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
+            {/* 7-Day Card */}
+            <div className="bg-white p-6 rounded-2xl border-2 border-[#1F3D2B]/30 shadow-md space-y-4">
+              <div className="flex justify-between items-baseline border-b border-[#E8E4D9] pb-3">
+                <div>
+                  <h3 className="font-serif font-bold text-xl text-[#1F3D2B]">7-Day Trip Cost (Per Person)</h3>
+                  <span className="text-xs text-[#7A7365]">Sigiriya • Kandy • Ella • Yala • Galle Classic Loop</span>
+                </div>
+                <div className="text-right">
+                  <span className="text-xs text-[#7A7365] block">Mid-Range Avg</span>
+                  <span className="font-mono font-bold text-xl text-[#1F3D2B]">₹68,000</span>
+                </div>
+              </div>
 
-        {/* Quick Links Header Grid */}
-        <section className="mb-12">
-          <div className="bg-luxury-green/5 border border-luxury-green/10 p-5 rounded-2xl">
-            <span className="text-[10px] font-mono text-luxury-green/60 uppercase tracking-widest font-bold block mb-3">Quick Navigation Navigation</span>
-            <div className="flex flex-wrap gap-2.5 text-xs">
-              <a href="#glance" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">1. Cost Breakdown</a>
-              <a href="#distance" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">2. Chennai to Sri Lanka Distance</a>
-              <a href="#flights" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">3. Chennai Flight Costs</a>
-              <a href="#5day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">4. 5-Day Costs</a>
-              <a href="#7day" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">5. 7-Day Costs</a>
-              <a href="#family" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">6. Family Budgets</a>
-              <a href="#honeymoon" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">7. Honeymoon Costs</a>
-              <a href="#itinerary-chennai" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">8. Chennai 7-Day Itinerary</a>
-              <a href="#best-time" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">9. Best Time to Visit</a>
-              <a href="#flight-schedule" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">10. Flight Schedule</a>
-              <a href="#reduce" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">11. Cost Saving Tips</a>
-              <a href="#faq" className="px-3.5 py-1.5 bg-white border border-luxury-green/5 rounded-lg text-luxury-green hover:bg-luxury-gold hover:text-white transition-all font-medium">12. Interactive FAQs</a>
+              <div className="space-y-2.5 text-xs sm:text-sm">
+                <div className="flex justify-between py-1 border-b border-[#F5F2EA]">
+                  <span className="text-[#5A5448]">Return Flight (MAA ↔ CMB)</span>
+                  <span className="font-mono font-semibold">₹12,000</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#F5F2EA]">
+                  <span className="text-[#5A5448]">Hotels (6 Nights @ ₹5,000 / 2 pax)</span>
+                  <span className="font-mono font-semibold">₹15,000</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#F5F2EA]">
+                  <span className="text-[#5A5448]">Food & Dining (7 Days @ ₹1,600/day)</span>
+                  <span className="font-mono font-semibold">₹11,200</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#F5F2EA]">
+                  <span className="text-[#5A5448]">Private Chauffeur Sedan (₹4,000/day / 2)</span>
+                  <span className="font-mono font-semibold">₹14,000</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#F5F2EA]">
+                  <span className="text-[#5A5448]">Key Tickets (Sigiriya, Tooth Temple, Ella, Safari)</span>
+                  <span className="font-mono font-semibold">₹11,000</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#F5F2EA]">
+                  <span className="text-[#5A5448]">Tourist Visa ETA, SIM & Driver Tips</span>
+                  <span className="font-mono font-semibold">₹2,800</span>
+                </div>
+                <div className="flex justify-between pt-2 text-sm font-bold text-[#1F3D2B] bg-[#F2F7F4] p-2.5 rounded-lg border border-[#C5DAC9]">
+                  <span>7-Day Mid-Range Total:</span>
+                  <span className="font-mono">₹62,000 – ₹76,000</span>
+                </div>
+                <div className="text-[11px] text-[#7A7365]">
+                  * Budget backpacker 7-day loop (hostels + public buses/trains): <strong>₹33,000 – ₹42,000 per pax</strong>.
+                </div>
+              </div>
+
+              <Link
+                to="/sri-lanka-7-day-itinerary"
+                className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-[#1F3D2B] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-all text-center shadow"
+              >
+                <span>Read Full 7-Day Classic Route</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* Dynamic Inner Link Box: Sequential Planning Pipeline */}
-        <div className="bg-white border-2 border-luxury-gold/20 p-6 sm:p-8 rounded-3xl mb-12 shadow-sm">
-          <p className="font-bold uppercase tracking-widest text-[11px] text-luxury-gold mb-4 flex items-center gap-1.5 font-mono">
-            <Info className="w-4 h-4" /> Sri Lanka Planning Pipeline (Step-by-Step):
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-stretch relative">
-            <Link to="/how-to-plan-a-trip-to-sri-lanka" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
-              <div>
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 1</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Sri Lanka Trip Planner</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Our master step-by-step master planner guide.</p>
-              </div>
-              <div className="mt-4 flex items-center justify-end text-luxury-gold">
-                <span className="text-[10px] font-bold mr-1">Read Guide</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link to="/sri-lanka-7-day-itinerary" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
-              <div>
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 2</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Sri Lanka 7 Day Itinerary</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Our most popular first-timer classic route.</p>
-              </div>
-              <div className="mt-4 flex items-center justify-end text-luxury-gold">
-                <span className="text-[10px] font-bold mr-1">View Itinerary</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link to="/sri-lanka-visa-for-indians" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
-              <div>
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 3</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Visa Guide</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Complete online ETA registration & waivers.</p>
-              </div>
-              <div className="mt-4 flex items-center justify-end text-luxury-gold">
-                <span className="text-[10px] font-bold mr-1">Check Rules</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link to="/best-time-to-visit-sri-lanka" className="flex flex-col justify-between p-4 bg-luxury-cream/40 border border-luxury-green/10 rounded-2xl hover:border-luxury-gold transition-all duration-300 group hover:shadow-sm">
-              <div>
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Step 4</span>
-                <h4 className="font-serif font-bold text-sm text-luxury-green group-hover:text-luxury-gold transition-colors">Best Time to Visit</h4>
-                <p className="text-[11px] text-luxury-black/60 font-light mt-1">Dual monsoon mapping & ideal seasonal months.</p>
-              </div>
-              <div className="mt-4 flex items-center justify-end text-luxury-gold">
-                <span className="text-[10px] font-bold mr-1">See Weather</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-          </div>
-        </div>
-
-        {/* H2: Sri Lanka Trip Cost From Chennai Breakdown */}
-        <section id="glance" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <CheckCircle2 className="w-6 h-6 text-[#d4af37]" />
-            Sri Lanka Trip Cost From Chennai Breakdown
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-8">
-            How do you plan your expenses? When estimating your <strong>sri lanka travel cost from chennai</strong>, budgets can be split into five main categories so you can plan easily.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-all text-center">
-              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-3 text-blue-700">
-                <Plane className="w-5 h-5" />
-              </div>
-              <h4 className="font-serif font-bold text-sm text-luxury-green">Flights</h4>
-              <p className="text-xs text-luxury-gold font-mono font-bold mt-1">₹10,000 - ₹18,000</p>
-              <span className="text-[10px] text-luxury-black/50 block mt-1 leading-snug">Return ticket if booked early.</span>
-            </div>
-
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-all text-center">
-              <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3 text-green-700">
-                <Coffee className="w-5 h-5" />
-              </div>
-              <h4 className="font-serif font-bold text-sm text-luxury-green">Hotels</h4>
-              <p className="text-xs text-luxury-gold font-mono font-bold mt-1">₹3,500 - ₹12,000</p>
-              <span className="text-[10px] text-luxury-black/50 block mt-1 leading-snug">Chic boutiques to beachfront villas.</span>
-            </div>
-
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-all text-center">
-              <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-3 text-orange-700">
-                <span className="font-serif font-bold text-sm">🍲</span>
-              </div>
-              <h4 className="font-serif font-bold text-sm text-luxury-green">Food</h4>
-              <p className="text-xs text-luxury-gold font-mono font-bold mt-1">₹600 - ₹1,500</p>
-              <span className="text-[10px] text-luxury-black/50 block mt-1 leading-snug">Daily Ceylonese crab & authentic clay hoppers.</span>
-            </div>
-
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-all text-center">
-              <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mx-auto mb-3 text-purple-700">
-                <Navigation className="w-4 h-4" />
-              </div>
-              <h4 className="font-serif font-bold text-sm text-luxury-green">Transport</h4>
-              <p className="text-xs text-luxury-gold font-mono font-bold mt-1">₹2,000 - ₹5,500</p>
-              <span className="text-[10px] text-luxury-black/50 block mt-1 leading-snug">PickMe apps, trains, or private chauffeurs.</span>
-            </div>
-
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-all text-center">
-              <div className="w-10 h-10 rounded-full bg-[#fdfaf2] flex items-center justify-center mx-auto mb-3 text-yellow-700">
-                <Map className="w-4 h-4" />
-              </div>
-              <h4 className="font-serif font-bold text-sm text-luxury-green">Activities</h4>
-              <p className="text-xs text-luxury-gold font-mono font-bold mt-1">₹4,000 - ₹8,000</p>
-              <span className="text-[10px] text-luxury-black/50 block mt-1 leading-snug">Sigiriya Climb, Yala wildlife & Ella hikes.</span>
-            </div>
-          </div>
-        </section>
-
-        {/* H2: Chennai to Sri Lanka Distance */}
-        <section id="distance" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Navigation className="w-6 h-6 text-[#d4af37]" />
-            Chennai to Sri Lanka Distance
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            When planning a trip, understanding the geographical proximity makes the journey feel even closer. The actual physical distance between Chennai and Sri Lanka is incredibly short, making it quicker to reach than many domestic Indian destinations.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-all flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
-                <MapPin className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="font-serif font-bold text-sm text-luxury-green">Chennai → Colombo (Air Route)</h4>
-                <p className="text-base font-mono font-bold text-luxury-gold mt-1">≈ 650 km</p>
-              </div>
-            </div>
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold transition-all flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-green-600 shrink-0">
-                <Plane className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="font-serif font-bold text-sm text-luxury-green">Flight Duration</h4>
-                <p className="text-base font-mono font-bold text-luxury-gold mt-1">≈ 1 hour 20 minutes</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="overflow-x-auto rounded-xl border border-luxury-green/10 bg-white p-2">
-            <table className="w-full text-left text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2]">
-                  <th className="p-4 font-serif font-bold text-luxury-green">Route</th>
-                  <th className="p-4 font-serif font-bold text-luxury-green">Distance</th>
-                  <th className="p-4 font-serif font-bold text-luxury-green">Flight Time</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-luxury-green/5 hover:bg-[#fdfaf2]/40 transition-colors">
-                  <td className="p-4 font-medium text-[#333333]">Chennai to Colombo</td>
-                  <td className="p-4 font-mono text-luxury-gold font-bold">650 km</td>
-                  <td className="p-4 font-medium text-[#333333]">1h 20m</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* H2: Chennai to Sri Lanka Tour Package Cost */}
-        <section id="package-cost" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Layers className="w-6 h-6 text-[#d4af37]" />
-            Chennai to Sri Lanka Tour Package Cost
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            Compare all-inclusive standard packages departing from Chennai. These projections cover direct airfares, standard accommodations, breakfast plans, basic tourist entry cards, and daily private car commutes.
-          </p>
-
-          <div className="overflow-x-auto rounded-2xl border border-luxury-green/10 bg-white shadow-sm p-2">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-luxury-green/10 bg-[#fdfaf2] text-[10px] sm:text-xs uppercase font-mono text-luxury-green">
-                  <th className="p-4">Duration</th>
-                  <th className="p-4">Budget Package (Solo)</th>
-                  <th className="p-4">Mid-Range Package (Per Person)</th>
-                  <th className="p-4">Luxury Package (Per Person)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-luxury-cream">
-                <tr className="hover:bg-luxury-cream/10 transition-colors">
-                  <td className="p-4 font-serif font-bold text-luxury-green">3 Days (Weekend Escape)</td>
-                  <td className="p-4 font-mono text-luxury-gold font-bold">₹18,000 - ₹24,000</td>
-                  <td className="p-4 font-mono text-[#8B6E30] font-bold">₹28,000 - ₹38,000</td>
-                  <td className="p-4 font-mono text-[#4A3B18] font-bold">₹55,000 - ₹75,000</td>
-                </tr>
-                <tr className="hover:bg-luxury-cream/10 transition-colors">
-                  <td className="p-4 font-serif font-bold text-luxury-green">5 Days (Coastal Beach Tour)</td>
-                  <td className="p-4 font-mono text-luxury-gold font-bold">₹25,000 - ₹34,000</td>
-                  <td className="p-4 font-mono text-[#8B6E30] font-bold">₹45,000 - ₹62,000</td>
-                  <td className="p-4 font-mono text-[#4A3B18] font-bold">₹90,000 - ₹1,20,000</td>
-                </tr>
-                <tr className="hover:bg-luxury-cream/10 transition-colors">
-                  <td className="p-4 font-serif font-bold text-luxury-green">7 Days (Classic Highlands Loop)</td>
-                  <td className="p-4 font-mono text-luxury-gold font-bold">₹33,000 - ₹45,000</td>
-                  <td className="p-4 font-mono text-[#8B6E30] font-bold">₹58,000 - ₹78,000</td>
-                  <td className="p-4 font-mono text-[#4A3B18] font-bold">₹1,20,000 - ₹1,65,000</td>
-                </tr>
-                <tr className="hover:bg-luxury-cream/10 transition-colors">
-                  <td className="p-4 font-serif font-bold text-luxury-green">10 Days (Comprehensive Tour)</td>
-                  <td className="p-4 font-mono text-luxury-gold font-bold">₹45,000 - ₹58,000</td>
-                  <td className="p-4 font-mono text-[#8B6E30] font-bold">₹78,000 - ₹1,10,000</td>
-                  <td className="p-4 font-mono text-[#4A3B18] font-bold">₹1,75,000 - ₹2,40,000</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="text-[11px] text-luxury-black/50 mt-3 italic font-light text-center">
-            *Note: Package estimates are comprehensive of average seasonal flight fares from Chennai (MAA) and are updated for the 2026 travel season.
-          </p>
-        </section>
-
-        {/* H2: Chennai to Sri Lanka Flight Cost */}
-        <section id="flights" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Plane className="w-6 h-6 text-[#d4af37]" />
-            Chennai to Sri Lanka Flight Cost
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            The flight ticket forms the entry gate of your travel spending. Due to the proximity, the <strong>chennai to colombo flight cost</strong> is routinely the cheapest international airfare available anywhere in India. Flying between Anna International Airport (MAA) and Bandaranaike International Airport (CMB) in Colombo takes only about 80 minutes of non-stop flight duration.
-          </p>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            If you are shopping for the absolute <strong>cheapest flights from chennai to sri lanka</strong>, you should target booking times around 60 days ahead. Budget carriers like <strong>IndiGo</strong> and <strong>Alliance Air</strong> periodically deliver promotional, low-cost options starting around <strong>₹10,500 to ₹12,000 for a direct round-trip</strong>.
-          </p>
-
-          <div className="bg-white border border-[#d4af37]/25 p-5 rounded-2xl shadow-sm mb-6">
-            <h4 className="font-serif font-bold text-sm text-luxury-green mb-3">Comparing Chennai to Colombo Airfare Carriers (2026 Rates)</h4>
-            <ul className="space-y-3.5 text-xs text-luxury-black/80 font-light">
-              <li className="flex justify-between items-center bg-[#fdfaf2] p-3 rounded-xl border border-luxury-cream">
-                <span>✈️ <strong>IndiGo Airlines:</strong> Direct daily runs, standard 15 Kg checkout baggage</span>
-                <span className="font-mono font-bold text-[#8B6E30]">₹11,000 - ₹14,500</span>
-              </li>
-              <li className="flex justify-between items-center bg-[#fdfaf2] p-3 rounded-xl border border-luxury-cream">
-                <span>✈️ <strong>SriLankan Airlines:</strong> Full-service carrier, delicious hot food, 30 Kg baggage weight</span>
-                <span className="font-mono font-bold text-[#8B6E30]">₹14,500 - ₹18,000</span>
-              </li>
-              <li className="flex justify-between items-center bg-[#fdfaf2] p-3 rounded-xl border border-luxury-cream">
-                <span>✈️ <strong>Air India:</strong> Connecting and occasional non-stop runs, generous hand carriage rules</span>
-                <span className="font-mono font-bold text-[#8B6E30]">₹13,500 - ₹16,500</span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-2xl text-xs text-yellow-950 flex gap-2">
-            <AlertTriangle className="w-5 h-5 text-yellow-600 shrink-0 mt-0.5" />
-            <div>
-              <strong>⚠️ Critical Airfare Hack:</strong> Standard <strong>chennai to colombo airfare</strong> prices can surge past ₹22,000 during high-demand holidays (Indian Diwali, Pongal, school vacations of May-Oct, and Christmas seasons). Try to secure tickets early during weekday promotional cycles.
-            </div>
-          </div>
-        </section>
-
-        {/* H2: 5 Day Sri Lanka Trip Cost From Chennai */}
-        <section id="5day" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Clock className="w-6 h-6 text-[#d4af37]" />
-            5 Day Sri Lanka Trip Cost From Chennai
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            If you are looking for the absolute money-saving option, calculating the <strong>5 day sri lanka trip cost from chennai</strong> is a must-read planning template. This timeframe is perfect for a compact long weekend tour focused on the coastal lowlands of Colombo and Gall Fort, bypassing hilly driving loops.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-white p-6 rounded-3xl border border-luxury-green/10 mb-6">
-            <div>
-              <h4 className="font-serif font-bold text-luxury-green text-base mb-3 border-b border-luxury-cream pb-2">🎒 Standard Budget Level</h4>
-              <p className="text-2xl font-mono font-bold text-luxury-gold py-1">₹25,000 - ₹34,000 <span className="text-xs text-luxury-black/50 font-sans">/ Person</span></p>
-              <ul className="text-xs text-luxury-black/75 space-y-2 mt-4 font-light">
-                <li className="flex gap-2"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Round ticket on Alliance Air/IndiGo</li>
-                <li className="flex gap-2"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> High-rated family beach guesthouses (Negombo/Bentota)</li>
-                <li className="flex gap-2"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Dinners at local roadside rice cafes</li>
-                <li className="flex gap-2"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Exploring Colombo via metered PickMe tuk-tuks</li>
-              </ul>
+        {/* SECTION 5: HOTEL & ACCOMMODATION COSTS */}
+        <section aria-labelledby="hotels-heading" className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#EBF3ED] flex items-center justify-center text-[#1F3D2B]">
+              <Hotel className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="font-serif font-bold text-luxury-green text-base mb-3 border-b border-luxury-cream pb-2">🌴 Comfort Mid-Range level</h4>
-              <p className="text-2xl font-mono font-bold text-luxury-gold py-1">₹45,000 - ₹62,000 <span className="text-xs text-luxury-black/50 font-sans">/ Person</span></p>
-              <ul className="text-xs text-luxury-black/75 space-y-2 mt-4 font-light">
-                <li className="flex gap-2"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Direct round tickets on SriLankan Airlines</li>
-                <li className="flex gap-2"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> 3 or 4-star beautiful swimming pool retreats</li>
-                <li className="flex gap-2"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Private chauffeur-led air conditioned sedan</li>
-                <li className="flex gap-2"><Check className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" /> Beautiful beach restaurants and guided Galle Fort visits</li>
-              </ul>
+              <span className="text-xs font-mono text-[#7A7365] uppercase tracking-wider">Accommodation</span>
+              <h2 id="hotels-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+                Sri Lanka Hotel Cost Breakdown
+              </h2>
             </div>
           </div>
-          
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light">
-            When organizing a <strong>sri lanka budget trip from chennai</strong>, keeping it strictly to 5 days lets you save heavily on hotels and car leases, giving you a powerful dose of tropical beach life without excessive spend.
+
+          <p className="text-base text-[#4A453A] leading-relaxed">
+            Accommodation in Sri Lanka delivers superb value for Indian travelers. Because 1 INR is roughly 3.6 LKR, ₹4,500 to ₹7,000 per night buys high-ceilinged colonial boutique suites with pools, gardens, and included breakfasts that would cost ₹12,000+ in comparable Southeast Asian hubs.
           </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <span className="text-xs font-mono font-bold text-emerald-700 uppercase">Budget Stays</span>
+              <h3 className="font-serif font-bold text-lg text-[#1F3D2B]">₹1,200 – ₹2,500 <span className="text-xs font-normal text-[#7A7365]">/ night</span></h3>
+              <p className="text-xs text-[#5A5448]">Clean guesthouses, family-run villas, and boutique backpacker hostels in Negombo, Kandy, Ella, and Weligama with AC and Wi-Fi.</p>
+            </div>
+            <div className="bg-[#FAF8F3] p-5 rounded-2xl border-2 border-[#1F3D2B]/20 space-y-2">
+              <span className="text-xs font-mono font-bold text-[#1F3D2B] uppercase">3★ to 4★ Boutique Hotels</span>
+              <h3 className="font-serif font-bold text-lg text-[#1F3D2B]">₹4,000 – ₹8,000 <span className="text-xs font-normal text-[#7A7365]">/ night</span></h3>
+              <p className="text-xs text-[#5A5448]">Charming colonial mansions, beachfront properties in Galle/Bentota with swimming pools, lush tea estate vistas, and hot breakfasts.</p>
+            </div>
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <span className="text-xs font-mono font-bold text-purple-700 uppercase">5★ Luxury Resorts & Villas</span>
+              <h3 className="font-serif font-bold text-lg text-[#1F3D2B]">₹14,000 – ₹38,000+ <span className="text-xs font-normal text-[#7A7365]">/ night</span></h3>
+              <p className="text-xs text-[#5A5448]">Heritance Kandalama, Cape Weligama, Ceylon Tea Trails, and private beachfront pool villas with personal butler service.</p>
+            </div>
+          </div>
         </section>
 
-        {/* H2: 7 Day Sri Lanka Trip Cost From Chennai */}
-        <section id="7day" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Compass className="w-6 h-6 text-[#d4af37]" />
-            7 Day Sri Lanka Trip Cost From Chennai
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            For most first-time travelers arriving from South India, 7 days is the absolute perfect travel window. This <strong>sri lanka tour cost from chennai</strong> calculation assumes the complete Classic Tour Route: <strong>Colombo → Sigiriya Fortress → Nuwara Eliya → Highlands of Ella → Galle Fort → Colombo</strong>.
+        {/* SECTION 6: FOOD & DAILY DINING COSTS */}
+        <section aria-labelledby="food-heading" className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#EBF3ED] flex items-center justify-center text-[#1F3D2B]">
+              <Utensils className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-mono text-[#7A7365] uppercase tracking-wider">Gastronomy & Dining</span>
+              <h2 id="food-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+                Food Cost in Sri Lanka for Indian Travelers
+              </h2>
+            </div>
+          </div>
+
+          <p className="text-base text-[#4A453A] leading-relaxed">
+            South Indian travelers from Chennai find Sri Lankan cuisine instantly comforting yet excitingly distinct. With fresh coconut sambols, string hoppers, kottu roti, and abundant vegetarian options alongside fresh lagoon mud crab, here is what dining actually costs:
           </p>
 
-          {/* Table of 7-Day Classic Route cost breakdown */}
-          <div className="overflow-x-auto bg-white rounded-2xl border border-luxury-green/10 mb-6 shadow-sm">
-            <table className="w-full text-xs sm:text-sm text-left border-collapse">
+          <div className="overflow-x-auto rounded-xl border border-[#E8E4D9]">
+            <table className="w-full text-left border-collapse text-xs sm:text-sm">
               <thead>
-                <tr className="bg-luxury-green text-white font-mono text-[10px] uppercase">
-                  <th className="p-4">Expense Component</th>
-                  <th className="p-4 text-right">Backpacker Solo</th>
-                  <th className="p-4 text-right">Double Couple Total</th>
+                <tr className="bg-[#FAF8F3] text-[#1F3D2B] font-serif border-b border-[#E8E4D9]">
+                  <th className="p-3 font-semibold">Dining Style</th>
+                  <th className="p-3 font-semibold">Typical Meal Items</th>
+                  <th className="p-3 font-semibold">Cost in LKR</th>
+                  <th className="p-3 font-semibold">Cost in INR (₹)</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-luxury-cream">
-                <tr className="hover:bg-luxury-cream/30">
-                  <td className="p-4 font-serif font-bold text-luxury-green">✈️ Flights (Direct Round)</td>
-                  <td className="p-4 text-right font-mono text-luxury-gold">₹11,500</td>
-                  <td className="p-4 text-right font-mono text-luxury-gold">₹23,000</td>
+              <tbody className="divide-y divide-[#E8E4D9] bg-white">
+                <tr>
+                  <td className="p-3 font-bold text-[#1F3D2B]">Local Eateries & Street Food</td>
+                  <td className="p-3 text-[#5A5448]">Egg hoppers, string hoppers, veg rice & curry, kottu roti, King Coconut</td>
+                  <td className="p-3 font-mono">500 – 1,200 LKR</td>
+                  <td className="p-3 font-mono font-bold">₹140 – ₹330</td>
                 </tr>
-                <tr className="hover:bg-luxury-cream/30">
-                  <td className="p-4 font-serif font-bold text-luxury-green">🏨 Stays (6 Nights Boutique)</td>
-                  <td className="p-4 text-right font-mono text-luxury-gold">₹9,000</td>
-                  <td className="p-4 text-right font-mono text-luxury-gold">₹24,000</td>
+                <tr>
+                  <td className="p-3 font-bold text-[#1F3D2B]">Mid-Range Beach & City Cafes</td>
+                  <td className="p-3 text-[#5A5448]">Wood-fired pizzas, fresh seafood rice bowls, grilled fish, smoothies</td>
+                  <td className="p-3 font-mono">2,500 – 5,500 LKR</td>
+                  <td className="p-3 font-mono font-bold">₹700 – ₹1,550</td>
                 </tr>
-                <tr className="hover:bg-luxury-cream/30">
-                  <td className="p-4 font-serif font-bold text-luxury-green">🍲 Gourmet & Local Food</td>
-                  <td className="p-4 text-right font-mono text-luxury-gold">₹4,200</td>
-                  <td className="p-4 text-right font-mono text-luxury-gold">₹10,500</td>
-                </tr>
-                <tr className="hover:bg-luxury-cream/30">
-                  <td className="p-4 font-serif font-bold text-luxury-green">🚈 Local Transits & Trains</td>
-                  <td className="p-4 text-right font-mono text-luxury-gold">₹2,800</td>
-                  <td className="p-4 text-right font-mono text-luxury-gold">₹6,500</td>
-                </tr>
-                <tr className="hover:bg-luxury-cream/30">
-                  <td className="p-4 font-serif font-bold text-luxury-green">🎟️ Entry Tickets (Sigiriya/Safari)</td>
-                  <td className="p-4 text-right font-mono text-luxury-gold">₹5,500</td>
-                  <td className="p-4 text-right font-mono text-luxury-gold">₹11,000</td>
-                </tr>
-                <tr className="bg-luxury-cream/40 font-bold">
-                  <td className="p-4 font-serif text-luxury-green">📊 Total Estimated 7-Day Net</td>
-                  <td className="p-4 text-right font-mono text-luxury-gold">₹33,000</td>
-                  <td className="p-4 text-right font-mono text-[#8B6E30] text-sm">₹75,000</td>
+                <tr>
+                  <td className="p-3 font-bold text-[#1F3D2B]">Fine Dining & Premium Seafood</td>
+                  <td className="p-3 text-[#5A5448]">Ministry of Crab (Colombo), 5-star hotel buffets, romantic ocean dinners</td>
+                  <td className="p-3 font-mono">12,000 – 30,000+ LKR</td>
+                  <td className="p-3 font-mono font-bold">₹3,300 – ₹8,500+</td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light">
-            With a total land budget of ₹75,000 for two, you can travel with complete ease, stay in beautiful heritage homestays, take the epic first-class mountain train ride to Ella, and hire private drivers when you choose to.
+          <p className="text-xs text-[#7A7365]">
+            💡 <strong>Pro-Tip for Chennai Vegetarians:</strong> Traditional Sri Lankan rice and curry spreads come with 4 to 6 separate vegetarian side curries (dhal, beetroot, jackfruit, pumpkin, pol sambol). Finding pure-vegetarian food in Colombo, Kandy, and Jaffna is effortless.
           </p>
         </section>
 
-        {/* H2: Sri Lanka Family Trip Cost From Chennai */}
-        <section id="family" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Users className="w-6 h-6 text-[#d4af37]" />
-            Sri Lanka Family Trip Cost From Chennai
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            For Indian family travelers seeking complete comfort, calculating the <strong>sri lanka family trip cost from chennai</strong> requires a focus on safety, lower road transit fatigue, and baby-safe dining properties. A family of 4 can easily experience a gorgeous 7-day tropical vacation for less than **₹1,60,000 to ₹2,10,000 total**.
-          </p>
-
-          <div className="bg-white p-6 rounded-2xl border border-luxury-green/10 mb-6">
-            <h4 className="font-serif font-bold text-sm text-luxury-green mb-4">Indian Family Comfort Cost Checklist</h4>
-            <div className="grid sm:grid-cols-2 gap-4 text-xs font-light text-luxury-black/80">
-              <div className="p-3 bg-luxury-cream/10 border border-luxury-cream rounded-xl">
-                <strong>👨‍👩‍👧‍👦 Family Rooms:</strong> Booking multi-bedroom villas with pool facilities or adjoining suites runs from ₹8,000 to ₹15,000 per night.
-              </div>
-              <div className="p-3 bg-luxury-cream/10 border border-luxury-cream rounded-xl">
-                <strong>🚐 Large Van Commutes:</strong> A dedicated, spacious private AC Toyota van with driver-guide to cover all baggage and stroller gear runs around ₹6,000 per day.
-              </div>
-              <div className="p-3 bg-luxury-cream/10 border border-luxury-cream rounded-xl">
-                <strong>🍲 Healthy Diets:</strong> Kids can readily digest local hoppers, mild coconut-profile white curries, and clean bananas, starting at ₹300 per child's meal.
-              </div>
-              <div className="p-3 bg-luxury-cream/10 border border-luxury-cream rounded-xl">
-                <strong>👨‍⚕️ Kid-Friendly Safety:</strong> Tap water is boiled/filtered in all heritage hotels, and pharmacies inside towns have well-stocked baby assets.
-              </div>
+        {/* SECTION 7: TRANSPORT COMPARISON */}
+        <section aria-labelledby="transport-heading" className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#EBF3ED] flex items-center justify-center text-[#1F3D2B]">
+              <Car className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-mono text-[#7A7365] uppercase tracking-wider">Ground Logistics</span>
+              <h2 id="transport-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+                Transport Cost in Sri Lanka (Chauffeur vs Trains vs Tuk-Tuks)
+              </h2>
             </div>
           </div>
 
-          {/* Detailed Budget Breakdown Sub-Section */}
-          <div className="mt-8 space-y-4">
-            <h3 className="font-serif font-bold text-lg text-luxury-green border-b border-luxury-cream pb-2">📦 Budget Breakdown for Families</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Flights</span>
-                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹40,000 - ₹55,000</p>
-                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Direct round-trip flights from Chennai (MAA) to Colombo (CMB) for a family of 4 on budget carriers like IndiGo or Alliance Air.</p>
-              </div>
-              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Hotels</span>
-                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹48,000 - ₹90,000</p>
-                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">6 nights in adjoining family rooms or beachside villa rentals with swimming pools (averaging ₹8,000 - ₹15,000 per night).</p>
-              </div>
-              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Food</span>
-                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹12,000 - ₹24,000</p>
-                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Kid-safe local hoppers, mild coconut white curries, organic fruits, and standard family cafe dinners.</p>
-              </div>
-              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Transport</span>
-                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹30,000 - ₹42,000</p>
-                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Spacious private AC van (Toyota HiAce/KDH) with dedicated driver-guide covering all local travel and luggage.</p>
-              </div>
-              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Visa</span>
-                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹0 - ₹5,000</p>
-                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Online ETA is free (₹0) under dynamic booster schemes or standard ₹1,650/adult depending on the promotional season.</p>
-              </div>
-              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Activities</span>
-                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹15,000 - ₹25,000</p>
-                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Entrance fees to Sigiriya Lion Rock Fortress, botanical garden walks, Yala national park safaris, and train tickets.</p>
-              </div>
-            </div>
-          </div>
-          
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mt-6">
-            With standard direct flights from Chennai making flight fatigue extremely minimal, Sri Lanka serves as the ultimate international family introductory getaway.
-          </p>
-        </section>
-
-        {/* H2: Sri Lanka Honeymoon Package Cost From Chennai */}
-        <section id="honeymoon" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Heart className="w-6 h-6 text-[#d4af37]" />
-            Sri Lanka Honeymoon Package Cost From Chennai
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            Honeymoons are high-intent romantic getaways. Many newly married couples search for a personalized <strong>sri lanka honeymoon package from chennai</strong>. The commercial value is unmatched: for the price of standard hillside resorts in Kerala or Ooty, you can secure private oceanfront plunge pool villas in Tangalle or colonial tea country properties.
+          <p className="text-base text-[#4A453A] leading-relaxed">
+            Ground transport is the most pivotal factor determining your trip comfort. Unlike domestic Indian road trips where self-driving is common, Indian tourists in Sri Lanka either hire a <strong>dedicated private tourist chauffeur</strong> or rely on trains and the PickMe app.
           </p>
 
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            A romantic <strong>sri lanka honeymoon cost from chennai</strong> for 5 to 7 days typically budgets around <strong>₹95,000 to ₹1,40,000 total per couple</strong>, depending on how often you indulge in luxury boutique hotels.
-          </p>
-
-          <div className="grid sm:grid-cols-2 gap-4 mb-6">
-            <div className="p-5 bg-white border border-luxury-gold/20 rounded-2xl flex gap-3.5 items-start">
-              <span className="text-2xl">🌴</span>
-              <div>
-                <h4 className="font-serif font-bold text-sm text-luxury-green">High-End Coastal Luxury Retreats</h4>
-                <p className="text-xs text-luxury-black/70 mt-1 leading-relaxed">
-                  Relax in beautiful cliff properties along Mirissa or secure beautiful ocean suites with private spa sessions, costing ₹15,000 - ₹28,000/night.
-                </p>
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <span className="text-xs font-mono font-bold text-[#1F3D2B] uppercase">Private Chauffeur Sedan / Van</span>
+              <h3 className="font-serif font-bold text-lg text-[#1F3D2B]">₹3,500 – ₹5,500 <span className="text-xs font-normal text-[#7A7365]">/ day</span></h3>
+              <p className="text-xs text-[#5A5448]">Includes dedicated AC car/van, English-speaking tourist driver, petrol, highway tolls, driver accommodation & meals. Door-to-door comfort for couples and families.</p>
             </div>
-            <div className="p-5 bg-white border border-luxury-gold/20 rounded-2xl flex gap-3.5 items-start">
-              <span className="text-2xl">🥂</span>
-              <div>
-                <h4 className="font-serif font-bold text-sm text-luxury-green">Romantic Extras & Intimate Dining</h4>
-                <p className="text-xs text-luxury-black/70 mt-1 leading-relaxed">
-                  Arrange intimate private dining on golden sand beaches, sunset cocktails, or luxury local safari jeep drives, costing ₹4,500 - ₹9,000 total.
-                </p>
-              </div>
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <span className="text-xs font-mono font-bold text-[#1F3D2B] uppercase">Scenic Highland Trains</span>
+              <h3 className="font-serif font-bold text-lg text-[#1F3D2B]">₹300 – ₹1,200 <span className="text-xs font-normal text-[#7A7365]">/ ticket</span></h3>
+              <p className="text-xs text-[#5A5448]">The world-famous Kandy to Ella blue train ride. Reserved 1st and 2nd class tickets must be booked 30 days in advance via Sri Lanka Railways portal.</p>
             </div>
-          </div>
-
-          {/* Detailed Budget Breakdown Sub-Section */}
-          <div className="mt-8 space-y-4">
-            <h3 className="font-serif font-bold text-lg text-luxury-green border-b border-luxury-cream pb-2">📦 Budget Breakdown for Honeymoons</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Flights</span>
-                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹24,000 - ₹32,000</p>
-                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Round-trip flights from Chennai (MAA) to Colombo (CMB) for 2 adults on premier carriers (e.g., SriLankan Airlines) with full luggage allowance.</p>
-              </div>
-              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Hotels</span>
-                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹60,000 - ₹1,50,000</p>
-                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">6 nights in premium honeymoon suites, cozy cliff villas, and private plunge pool beach properties (averaging ₹10,000 - ₹25,000 per night).</p>
-              </div>
-              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Food</span>
-                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹18,000 - ₹36,000</p>
-                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Fine dining, beachside candlelit seafood dinners, fresh ocean cocktails, and colonial high tea.</p>
-              </div>
-              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Transport</span>
-                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹24,000 - ₹33,000</p>
-                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Private comfortable sedan with a professional English-speaking chauffeur-guide for highly personalized touring.</p>
-              </div>
-              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Visa</span>
-                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹0 - ₹3,300</p>
-                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Tourist online ETA registration for 2 travelers (regularly waived to ₹0, standard is ₹1,650/person).</p>
-              </div>
-              <div className="p-4 bg-white border border-luxury-green/10 rounded-xl hover:border-luxury-gold/50 transition-colors shadow-sm">
-                <span className="font-mono text-[10px] text-luxury-gold font-bold uppercase block mb-1">Activities</span>
-                <p className="text-base font-serif font-bold text-luxury-green mb-1">₹12,000 - ₹22,000</p>
-                <p className="text-xs text-luxury-black/70 leading-relaxed font-light">Romantic whale watching, couples' spa massage, private Yala leopard safari drives, and scenic highlands train tickets.</p>
-              </div>
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <span className="text-xs font-mono font-bold text-[#1F3D2B] uppercase">PickMe & Metered Tuk-Tuks</span>
+              <h3 className="font-serif font-bold text-lg text-[#1F3D2B]">₹80 – ₹300 <span className="text-xs font-normal text-[#7A7365]">/ ride</span></h3>
+              <p className="text-xs text-[#5A5448]">Always hail three-wheelers in Colombo, Galle, and Kandy using the <strong>PickMe app</strong> to prevent arbitrary street overcharging.</p>
             </div>
           </div>
         </section>
 
-        {/* H2: Best 7-Day Sri Lanka Itinerary From Chennai */}
-        <section id="itinerary-chennai" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Compass className="w-6 h-6 text-[#d4af37]" />
-            Best 7-Day Sri Lanka Itinerary From Chennai
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            Looking for a perfectly balanced route optimized for flights originating from Chennai? Since flights out of Anna International Airport (MAA) are short, they arrive early or mid-day, leaving your very first afternoon completely open for exploration.
-          </p>
-          <div className="space-y-4">
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold/50 transition-colors">
-              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 1: Arrival & Coastal Breeze</span>
-              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
-                Depart Chennai in the morning. Touch down at CMB by noon, retrieve currency, and settle in your cozy boutique beach hotel in Negombo or Bentota (approx. ₹3,500). Spend a relaxing afternoon overlooking the Indian Ocean.
+        {/* SECTION 8, 9, 10: COUPLES, FAMILIES, & HONEYMOON BUDGETS */}
+        <section aria-labelledby="groups-heading" className="space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#EBF3ED] flex items-center justify-center text-[#1F3D2B]">
+              <Users className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-mono text-[#7A7365] uppercase tracking-wider">Group & Category Costs</span>
+              <h2 id="groups-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+                Cost for Couples, Families & Honeymoons From Chennai
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Couple Card */}
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-3">
+              <div className="flex items-center gap-2 text-rose-700">
+                <Heart className="w-4 h-4" />
+                <span className="text-xs font-mono font-bold uppercase tracking-wider">Couples (7 Days)</span>
+              </div>
+              <h3 className="font-serif font-bold text-2xl text-[#1F3D2B]">₹1,15,000 – ₹1,45,000</h3>
+              <span className="text-xs text-[#7A7365] block -mt-2">Total for 2 Adults with Flights</span>
+              <p className="text-xs text-[#5A5448] leading-relaxed">
+                Includes 2 direct return flights from Chennai, 6 nights in romantic 3-4★ boutique villas, private dedicated AC sedan car with chauffeur, scenic train ride to Ella, and memorable beachside dinners in Galle.
               </p>
             </div>
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold/50 transition-colors">
-              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 2: The Mighty Sigiriya Rock Fortress</span>
-              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
-                Take a private AC sedan ride to the Cultural Triangle. Climb the legendary <strong>Sigiriya Lion Rock Fortress</strong> in the cool morning hours, followed by an authentic wood-fired organic village lunch.
+
+            {/* Family Card */}
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-3">
+              <div className="flex items-center gap-2 text-blue-700">
+                <Users className="w-4 h-4" />
+                <span className="text-xs font-mono font-bold uppercase tracking-wider">Family of 4 (7 Days)</span>
+              </div>
+              <h3 className="font-serif font-bold text-2xl text-[#1F3D2B]">₹1,85,000 – ₹2,40,000</h3>
+              <span className="text-xs text-[#7A7365] block -mt-2">Total for 2 Adults + 2 Kids with Flights</span>
+              <p className="text-xs text-[#5A5448] leading-relaxed">
+                Includes 4 return flights, spacious private AC High-Roof Van with child booster seats, interconnecting family hotel rooms with swimming pools, elephant transit home, and sea turtle conservation visits.
               </p>
             </div>
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold/50 transition-colors">
-              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 3: Sacred Kandy & High-Altitude Tea Estates</span>
-              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
-                Settle in the royal castle capital of Kandy. Savor beautiful flower offerings inside the <strong>Temple of the Tooth Relic</strong> and stroll through aromatic spice forests.
-              </p>
-            </div>
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold/50 transition-colors">
-              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 4: Epic Highland Train Carriage to Ella</span>
-              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
-                Board the legendary blue train departing Kandy, snaking past cascading waterfalls and vast terraced tea gardens to the mist-shrouded village of Ella.
-              </p>
-            </div>
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold/50 transition-colors">
-              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 5: Iconic Hikes & Southern Waves</span>
-              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
-                Snap photos at the <strong>Nine Arch Bridge</strong> and hike Little Adam’s Peak. Drive down the mountain foothills for a beautiful sunset at Mirissa Beach or Weligama.
-              </p>
-            </div>
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm hover:border-luxury-gold/50 transition-colors">
-              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 6: Whale Watching & UNESCO Galle Fort</span>
-              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
-                Stroll the historic cobblestone streets of <strong>UNESCO Galle Fort</strong>. Find beautiful gelato stores, chic boutiques, and colonial architectures.
-              </p>
-            </div>
-            <div className="p-5 bg-white rounded-2xl border border-[#d4af37]/25 shadow-sm bg-[#fdfaf2]">
-              <span className="font-mono text-xs font-bold text-luxury-gold uppercase block mb-1">Day 7: Souvenirs & Flight back to Chennai</span>
-              <p className="text-xs text-luxury-black/80 font-light leading-relaxed">
-                Drive up to Colombo for some quick hand-loomed shopping, enjoy Colombo's famous crab specialties, and hop onto your short flight returning to Chennai.
+
+            {/* Honeymoon Card */}
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-3">
+              <div className="flex items-center gap-2 text-amber-700">
+                <Sparkles className="w-4 h-4" />
+                <span className="text-xs font-mono font-bold uppercase tracking-wider">Luxury Honeymoon (7 Days)</span>
+              </div>
+              <h3 className="font-serif font-bold text-2xl text-[#1F3D2B]">₹2,10,000 – ₹3,20,000</h3>
+              <span className="text-xs text-[#7A7365] block -mt-2">Total for Couple with Luxury Stays</span>
+              <p className="text-xs text-[#5A5448] leading-relaxed">
+                Private oceanfront plunge pool villas in Bentota/Mirissa, colonial tea estate bungalows in Nuwara Eliya, couples spa sessions, premium SUV chauffeur transfers, and candlelit seafood dinners.
               </p>
             </div>
           </div>
         </section>
 
-        {/* H2: Best Time to Visit Sri Lanka From Chennai */}
-        <section id="best-time" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Clock className="w-6 h-6 text-[#d4af37]" />
-            Best Time to Visit Sri Lanka From Chennai
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            The climate of Sri Lanka is characterized by a "dual monsoon" cycle, meaning different sides of the island experience perfect weather at different periods of the year. This weather profile is ideal for travelers escaping the intense Chennai summer or looking for cool winter breaks.
+        {/* SECTION 11: CHEAPEST WAYS TO TRAVEL FROM CHENNAI */}
+        <section aria-labelledby="savings-heading" className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#EBF3ED] flex items-center justify-center text-[#1F3D2B]">
+              <TrendingDown className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-mono text-[#7A7365] uppercase tracking-wider">Insider Money Hacks</span>
+              <h2 id="savings-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+                Cheapest Way to Travel From Chennai to Sri Lanka
+              </h2>
+            </div>
+          </div>
+
+          <p className="text-base text-[#4A453A] leading-relaxed">
+            Experienced travelers from Tamil Nadu slash their total vacation expense by up to 35% using these tested insider steps:
           </p>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            Chennai travelers have a unique planning advantage: since the flight duration is just about 1 hour 20 minutes, any weekend, national holiday, or major festival such as Pongal, Diwali, or summer school vacations can be seamlessly transformed into a tropical escape. By matching your travel dates with the right side of the island (the West/South coast from December to April, or the East coast from May to September), you can guarantee a perfect, sun-kissed vacation without worrying about heavy rains.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm">
-              <strong className="text-sm font-serif text-luxury-green block mb-2">🌴 Winter Peak (December to April)</strong>
-              <p className="text-xs text-luxury-black/75 leading-relaxed font-light">
-                This is the best season to explore the South and West Coast beaches (Galle, Bentota, Hikkaduwa, Mirissa) and central hill country (Nuwara Eliya, Ella). Safe from rain, sunny, and perfect for sunset beach dining.
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-white p-4 rounded-xl border border-[#E8E4D9] space-y-2">
+              <h3 className="font-serif font-bold text-base text-[#1F3D2B]">1. Convert INR at Colombo Airport Arrival Desks</h3>
+              <p className="text-xs text-[#5A5448] leading-relaxed">
+                Do not exchange money in Chennai before leaving or pay heavy bank ATM international markup charges. Carry crisp ₹500 Indian Rupee banknotes and convert them directly to LKR at the official bank desks in the CMB arrivals hall.
               </p>
             </div>
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm">
-              <strong className="text-sm font-serif text-luxury-green block mb-2">☀️ Summer Escapes (May to September)</strong>
-              <p className="text-xs text-luxury-black/75 leading-relaxed font-light">
-                If you are planning to travel during Chennai's school vacations, head to Sri Lanka's beautiful Northern and Eastern beaches (Nilaveli, Trincomalee, Passikudah) or explore historical ancient cities which remain wonderfully dry.
+            <div className="bg-white p-4 rounded-xl border border-[#E8E4D9] space-y-2">
+              <h3 className="font-serif font-bold text-base text-[#1F3D2B]">2. Take the Direct Train from Negombo or Colombo</h3>
+              <p className="text-xs text-[#5A5448] leading-relaxed">
+                Instead of hiring long-distance taxi transfers across the whole country, take the scenic 2nd class train from Colombo to Galle or Kandy (₹150 to ₹350 per ticket), then hire local tuk-tuks via PickMe.
+              </p>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-[#E8E4D9] space-y-2">
+              <h3 className="font-serif font-bold text-base text-[#1F3D2B]">3. Fly During Shoulder Months (Sept, Oct, May)</h3>
+              <p className="text-xs text-[#5A5448] leading-relaxed">
+                Round-trip flight fares on IndiGo drop to ₹10,500 and 4-star boutique beach hotels offer discounts of up to 40% compared to December and January peak periods.
+              </p>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-[#E8E4D9] space-y-2">
+              <h3 className="font-serif font-bold text-base text-[#1F3D2B]">4. Skip Sigiriya Lion Rock for Pidurangala</h3>
+              <p className="text-xs text-[#5A5448] leading-relaxed">
+                Climbing Sigiriya Lion Rock costs $36 USD (approx. ₹3,000) per foreign adult. The adjacent monastery peak <strong>Pidurangala Rock</strong> costs only $3 USD (₹250) and gives you a panoramic, unobstructed view of Sigiriya at sunrise!
               </p>
             </div>
           </div>
         </section>
 
-        {/* H2: Chennai to Colombo Flight Schedule Guide */}
-        <section id="flight-schedule" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <Plane className="w-6 h-6 text-[#d4af37]" />
-            Chennai to Colombo Flight Schedule Guide
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            Thanks to the high volume of business and leisure travel between Tamil Nadu and Sri Lanka, there are multiple daily direct flights connecting Chennai (MAA) to Colombo (CMB):
-          </p>
-          <div className="overflow-hidden border border-luxury-green/10 rounded-2xl mb-6 bg-white">
-            <table className="w-full text-xs sm:text-sm text-left border-collapse">
-              <thead>
-                <tr className="bg-luxury-green/5 text-luxury-green font-mono text-[10px] uppercase border-b border-luxury-green/10">
-                  <th className="p-4">Airline</th>
-                  <th className="p-4">Flight Details</th>
-                  <th className="p-4 text-right">Luggage Rules</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-luxury-cream">
-                <tr className="hover:bg-luxury-cream/10">
-                  <td className="p-4 font-bold text-luxury-green">IndiGo Airlines</td>
-                  <td className="p-4 leading-relaxed font-light text-luxury-black/80">
-                    Multiple daily direct flights. Great for mid-morning and late evening departures.
-                  </td>
-                  <td className="p-4 text-right font-mono font-bold text-luxury-gold">15 Kg Check-in</td>
-                </tr>
-                <tr className="hover:bg-luxury-cream/10">
-                  <td className="p-4 font-bold text-luxury-green">SriLankan Airlines</td>
-                  <td className="p-4 leading-relaxed font-light text-luxury-black/80">
-                    Premium full-service airline. Daily departures. Hot inflight dining with delicious South-Asian flavors.
-                  </td>
-                  <td className="p-4 text-right font-mono font-bold text-luxury-gold">30 Kg Checked</td>
-                </tr>
-                <tr className="hover:bg-luxury-cream/10">
-                  <td className="p-4 font-bold text-luxury-green">Alliance Air / Others</td>
-                  <td className="p-4 leading-relaxed font-light text-luxury-black/80">
-                    Direct flights connecting Chennai to Jaffna (JAF) Airport—highly recommended for travelers seeking a deep cultural tour of northern Sri Lanka.
-                  </td>
-                  <td className="p-4 text-right font-mono font-bold text-luxury-gold">15 Kg Check-in</td>
-                </tr>
-              </tbody>
-            </table>
+        {/* SECTION 12: BEST TIME TO VISIT FROM CHENNAI */}
+        <section aria-labelledby="weather-heading" className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#EBF3ED] flex items-center justify-center text-[#1F3D2B]">
+              <Calendar className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-mono text-[#7A7365] uppercase tracking-wider">Seasonality & Weather</span>
+              <h2 id="weather-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+                Best Time to Visit Sri Lanka From Chennai
+              </h2>
+            </div>
           </div>
-        </section>
 
-        {/* H2: How To Reduce Your Sri Lanka Travel Cost */}
-        <section id="reduce" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-6 flex items-center gap-2">
-            <ShieldAlert className="w-5 h-5 text-luxury-gold" />
-            How To Reduce Your Sri Lanka Travel Cost
-          </h2>
-          <p className="text-[#333333]/90 leading-relaxed text-sm sm:text-base font-light mb-6">
-            Ready to squeeze extra value from your Indian Rupees? Apply these battle-tested spending rules specifically customized for citizens traveling from Chennai:
+          <p className="text-base text-[#4A453A] leading-relaxed">
+            Sri Lanka operates on a unique <strong>dual-monsoon microclimate</strong>. When it rains on one side of the island, the other side enjoys dry, blue skies. Because Chennai is so close, you can visit year-round by picking the correct coast:
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm">
-              <h4 className="font-serif font-bold text-[#1e3a2f] mb-2">1. Use local PickMe apps, not casual tuk-tuks</h4>
-              <p className="text-xs text-luxury-black/70 leading-relaxed font-light">
-                Random three-wheelers waiting at busy Colombo or Galle city corners will demand up to triple the standard rate. Always book local PickMe or Uber apps—they feature transparent, legally metered rates.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <div className="flex items-center justify-between">
+                <h3 className="font-serif font-bold text-base text-[#1F3D2B]">December to April (South & West Coasts)</h3>
+                <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Prime Winter Break</span>
+              </div>
+              <p className="text-xs text-[#5A5448] leading-relaxed">
+                Ideal for Pongal holidays and winter vacations. Experience calm, azure waters at Galle, Bentota, Mirissa (blue whale watching), and crisp mountain air in Nuwara Eliya.
               </p>
             </div>
 
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm">
-              <h4 className="font-serif font-bold text-[#1e3a2f] mb-2">2. Avoid International Debit Card Markups</h4>
-              <p className="text-xs text-luxury-black/70 leading-relaxed font-light">
-                Standard Indian credit/debit cards charge up to 5% flat currency conversion plus ATM gateway commissions. Bring clean physical Indian Cash (₹500 notes) and convert them at reputable airport exchange desks.
-              </p>
-            </div>
-
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm">
-              <h4 className="font-serif font-bold text-[#1e3a2f] mb-2">3. Book Mountain Scenic Trains Early</h4>
-              <p className="text-xs text-luxury-black/70 leading-relaxed font-light">
-                Standard 1st and 2nd class reserved train tickets sell out 30 days ahead. Don't fall for local resellers overcharging 4x pricing. Buy authentic tickets online via the official railway portals.
-              </p>
-            </div>
-
-            <div className="p-5 bg-white rounded-2xl border border-luxury-green/5 shadow-sm">
-              <h4 className="font-serif font-bold text-[#1e3a2f] mb-2">4. Stay in Family Guest Houses</h4>
-              <p className="text-xs text-luxury-black/70 leading-relaxed font-light">
-                Instead of expensive five-star hotel options, check out local homestay guest houses. Savor delicious organic home-style breakfasts, secure local routes advice, and spend less than ₹2,000 per night.
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <div className="flex items-center justify-between">
+                <h3 className="font-serif font-bold text-base text-[#1F3D2B]">May to September (East Coast & Cultural Triangle)</h3>
+                <span className="text-xs font-mono font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">Summer School Holidays</span>
+              </div>
+              <p className="text-xs text-[#5A5448] leading-relaxed">
+                Perfect for escaping Chennai's summer heat. Trincomalee, Nilaveli, Pasikudah, Sigiriya, and Minneriya elephant gatherings experience dry, sunny weather.
               </p>
             </div>
           </div>
+
+          <p className="text-xs text-[#7A7365]">
+            Learn more in our detailed <Link to="/best-time-to-visit-sri-lanka" className="text-[#1F3D2B] font-bold underline hover:text-[#B38728]">Best Time to Visit Sri Lanka Guide</Link>.
+          </p>
         </section>
 
-        {/* Interactive FAQ Accordion Area */}
-        <section id="faq" className="scroll-mt-24 py-8 border-b border-luxury-green/10 mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-luxury-green mb-2 flex items-center gap-2">
-            <HelpCircle className="w-6 h-6 text-[#d4af37]" />
-            Frequently Asked Questions
-          </h2>
-          <p className="text-sm font-light text-luxury-black/75 mb-8">
-            Clear, authoritative answers to help you structure your logistics and expenses perfectly from Chennai.
+        {/* SECTION 13: 7-DAY ITINERARY BLUEPRINT */}
+        <section aria-labelledby="itinerary-heading" className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#EBF3ED] flex items-center justify-center text-[#1F3D2B]">
+              <Compass className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-mono text-[#7A7365] uppercase tracking-wider">Optimized Route Blueprint</span>
+              <h2 id="itinerary-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+                Optimized 7-Day Sri Lanka Itinerary From Chennai
+              </h2>
+            </div>
+          </div>
+
+          <p className="text-base text-[#4A453A] leading-relaxed">
+            Taking the 80-minute morning flight out of Chennai allows you to be in Sri Lanka before lunchtime. Here is the field-tested 7-day loop that minimizes travel fatigue:
           </p>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {[
               {
-                q: "How much will it take to visit Sri Lanka from Chennai?",
-                a: "A 5-day budget trip from Chennai to Sri Lanka costs approximately ₹25,000 to ₹40,000 per person, including direct round-trip flights (₹10,500 - ₹14,000), budget hotels, ETA visa, local transport, and authentic meals. Comfortable mid-range tours cost ₹45,000 to ₹75,000, while luxury packages cost ₹90,000+ per traveler."
+                day: "Day 1",
+                title: "Chennai (MAA) → Colombo (CMB) → Negombo / Sigiriya",
+                desc: "Board morning flight, land at CMB in 80 mins. Meet your private chauffeur, transfer to Sigiriya jungle resort. Relax by the pool with King Coconut drinks."
               },
               {
-                q: "What is the distance and flight time from Chennai to Sri Lanka?",
-                a: "The air distance between Chennai (MAA) and Colombo (CMB) is approximately 650 km. Non-stop direct flights take only 1 hour and 20 minutes."
+                day: "Day 2",
+                title: "Sigiriya Lion Rock Citadel & Dambulla Golden Cave Temple",
+                desc: "Early morning ascent of Sigiriya Lion Rock Fortress. Afternoon visit to UNESCO Dambulla Cave Temples, drive to the royal hill capital of Kandy."
               },
               {
-                q: "Is a passport required to visit Sri Lanka from India?",
-                a: "Yes, a physical passport is absolutely required. Your passport must have at least 6 months of validity from your date of arrival in Sri Lanka. You cannot travel to Sri Lanka using an Aadhaar card, PAN card, or Voter ID, as it is an international flight destination."
+                day: "Day 3",
+                title: "Sacred Temple of the Tooth Relic & Peradeniya Botanic Gardens",
+                desc: "Attend morning cultural pujah ceremony at Tooth Temple. Stroll the royal palm avenues at Peradeniya, taste authentic Ceylon spiced curries."
               },
               {
-                q: "Can I use Indian Rupees (INR) in Sri Lanka?",
-                a: "No, you cannot spend Indian Rupees directly in Sri Lankan shops, restaurants, or taxis. You must convert your INR cash into Sri Lankan Rupees (LKR) at Bandaranaike Airport (CMB) on arrival, or use international debit/credit cards at local ATMs to withdraw LKR."
+                day: "Day 4",
+                title: "Scenic Highland Blue Train Ride to Ella & Tea Plantations",
+                desc: "Board the world-renowned colonial train winding through misty waterfalls and emerald tea valleys. Arrive in relaxed Ella mountain town."
               },
               {
-                q: "How many days are enough to visit Sri Lanka?",
-                a: "For most Chennai travelers, 5 to 7 days is the perfect sweet spot. A 5-day trip is ideal for a coastal getaway (Colombo, Bentota, Galle Fort). A 7-day trip is perfect if you want to include the famous Ella-Kandy scenic train ride, tea country, and a wildlife safari. If you want to explore the northern historic cities like Sigiriya and Anuradhapura, plan for 10 days."
+                day: "Day 5",
+                title: "Nine Arch Bridge, Little Adam's Peak & Southern Coast",
+                desc: "Sunrise photography at Nine Arch stone viaduct, hike Little Adam's Peak, descend through Ravana Falls down to the southern beaches of Mirissa/Weligama."
               },
               {
-                q: "Is Sri Lanka safe for Indian tourists and families?",
-                a: "Yes, Sri Lanka is incredibly safe and welcoming for Indian travelers, including families, couples, and solo female backpackers. The local people are warm and hospitable. Just follow basic travel safety habits: use trusted metered ride-hailing apps like PickMe or Uber instead of random roadside tuk-tuks, and keep an eye on your belongings in busy markets."
+                day: "Day 6",
+                title: "UNESCO Galle Dutch Fort Colonial Bastions & Sunset Ramparts",
+                desc: "Wander cobblestone lanes, Dutch colonial villas, boutique tea shops, and watch cliff-jumpers from Flag Rock during golden sunset."
               },
               {
-                q: "Do Indians need travel insurance to enter Sri Lanka?",
-                a: "No, travel insurance is not legally mandatory to pass through immigration in Sri Lanka. However, we highly recommend getting a basic budget travel insurance plan before leaving Chennai. It costs very little and covers unexpected flight cancellations, lost baggage, and any medical emergencies."
-              },
-              {
-                q: "Is Sri Lanka cheaper than Maldives for Chennai travelers?",
-                a: "Yes, Sri Lanka is significantly cheaper than the Maldives. While a basic 4-night stay in a Maldives overwater resort starts at ₹1,50,000+ per couple (with mandatory premium ferry/seaplane transfers costing ₹30,000+), you can complete a magnificent 7-day tour across Sri Lanka's beaches, heritage forts, and tea plantations for under ₹75,000 total per couple, including round-trip flights from Chennai."
-              },
-              {
-                q: "How much money should I carry from Chennai to Sri Lanka?",
-                a: "We recommend holding approximately ₹15,000 to ₹25,000 in physical Indian Cash (preferably clean ₹500 notes) per person to convert directly at Bandaranaike Airport (CMB) for street food, tuk-tuks, and small tips. For hotels, high-end dinners, and tickets, you can safely use standard international credit cards or zero-markup travel cards."
-              },
-              {
-                q: "What is the cheapest month to visit Sri Lanka from Chennai?",
-                a: "The cheapest months to secure low-priced flights and off-season hotel yields from Chennai are September and October. During these shoulder-season transitional months, hotel tariffs drop up to 40% and round-trip flight tickets can be regularly booked for under ₹11,000."
-              },
-              {
-                q: "Do Indian citizens need physical visa stamps for Sri Lanka?",
-                a: "No physical stamps or embassy visits are necessary. You can apply for a Tourist Electronic Travel Authorization (ETA) online in under 24 hours. Under dynamic tourism booster schemes, the standard $20 USD visa fee is regularly waived to ₹0 for Indian passport holders."
+                day: "Day 7",
+                title: "Colombo Souvenir Shopping & Evening Flight back to Chennai",
+                desc: "Southern Expressway to Colombo. Pick up Ceylon tea & handlooms at Barefoot, quick lunch at Dutch Hospital, 20-min highway transfer to CMB for your 80-min return flight."
               }
-            ].map((item, index) => {
-              const isOpen = activeFaq === index;
-              return (
-                <div 
-                  key={index} 
-                  className="bg-white border border-luxury-green/10 rounded-2xl overflow-hidden transition-all duration-300"
-                >
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 font-serif font-bold text-sm sm:text-base text-[#1e3a2f] hover:text-luxury-gold transition-colors"
-                  >
-                    <span>{item.q}</span>
-                    <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-luxury-gold" : "text-luxury-green"}`} />
-                  </button>
-                  
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: "easeInOut" }}
-                      >
-                        <div className="px-5 sm:px-6 pb-6 border-t border-luxury-green/5 pt-4 text-xs sm:text-sm text-luxury-black/75 font-light leading-relaxed bg-[#fdfaf2]/40">
-                          {item.a}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+            ].map((item, idx) => (
+              <div key={idx} className="bg-white p-4 rounded-xl border border-[#E8E4D9] flex flex-col sm:flex-row gap-3 items-start">
+                <span className="px-2.5 py-1 rounded bg-[#1F3D2B] text-white font-mono text-xs font-bold shrink-0">
+                  {item.day}
+                </span>
+                <div className="space-y-1">
+                  <h3 className="font-serif font-bold text-sm sm:text-base text-[#1F3D2B]">{item.title}</h3>
+                  <p className="text-xs text-[#5A5448] leading-relaxed">{item.desc}</p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Brand New Redefined High-Conversion CTA Area with interactive link to Planner Pillar */}
-        <section id="cta" className="scroll-mt-24 py-12">
-          <div className="bg-luxury-green text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-lg border border-[#d4af37]/20">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200')] bg-cover bg-center opacity-10 brightness-[0.3]" />
-            <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-              
-              <div className="inline-flex items-center gap-2 bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#f3e5ab] px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-luxury-gold animate-spin-slow" />
-                Durable Travel Planning Tool
+        {/* SECTION 14: INTERACTIVE COST CALCULATOR */}
+        <section aria-labelledby="calculator-heading" className="bg-[#1F3D2B] text-white p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-mono text-[#F2C94C] uppercase tracking-widest font-bold">
+              Interactive Tool
+            </span>
+            <h2 id="calculator-heading" className="text-2xl sm:text-3xl font-serif font-bold">
+              Sri Lanka Trip Cost Calculator (Chennai Departure)
+            </h2>
+            <p className="text-xs sm:text-sm text-[#E0DDD5]">
+              Adjust your duration, travelers, and comfort tier to get an instant, realistic budget estimate in Indian Rupees (₹).
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            {/* Input Controls */}
+            <div className="lg:col-span-7 space-y-4 bg-white/10 p-5 rounded-2xl backdrop-blur-sm border border-white/10">
+              {/* Duration Slider */}
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs">
+                  <span className="font-semibold text-[#E0DDD5]">Trip Duration:</span>
+                  <span className="font-mono font-bold text-[#F2C94C]">{calcDuration} Days</span>
+                </div>
+                <input
+                  type="range"
+                  min={3}
+                  max={14}
+                  value={calcDuration}
+                  onChange={(e) => setCalcDuration(Number(e.target.value))}
+                  className="w-full accent-[#F2C94C] cursor-pointer"
+                />
               </div>
-              
-              <h2 className="text-3xl sm:text-5xl font-serif font-bold text-[#fcfbf7]">
-                Get Your Free Sri Lanka Travel Plan
+
+              {/* Travelers Slider */}
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs">
+                  <span className="font-semibold text-[#E0DDD5]">Number of Travelers:</span>
+                  <span className="font-mono font-bold text-[#F2C94C]">{calcTravelers} Person(s)</span>
+                </div>
+                <input
+                  type="range"
+                  min={1}
+                  max={8}
+                  value={calcTravelers}
+                  onChange={(e) => setCalcTravelers(Number(e.target.value))}
+                  className="w-full accent-[#F2C94C] cursor-pointer"
+                />
+              </div>
+
+              {/* Travel Style Selector */}
+              <div className="space-y-1.5">
+                <span className="font-semibold text-xs text-[#E0DDD5] block">Travel Style & Hotel Tier:</span>
+                <div className="grid grid-cols-3 gap-2">
+                  {(["budget", "midrange", "luxury"] as const).map((tier) => (
+                    <button
+                      key={tier}
+                      onClick={() => setCalcTier(tier)}
+                      className={`py-2 px-2 rounded-xl text-xs font-bold capitalize transition-all border ${
+                        calcTier === tier
+                          ? "bg-[#F2C94C] text-[#1F3D2B] border-[#F2C94C] shadow"
+                          : "bg-white/5 text-white border-white/20 hover:bg-white/10"
+                      }`}
+                    >
+                      {tier}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Toggles */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 text-xs">
+                <label className="flex items-center gap-2 cursor-pointer bg-white/5 p-2 rounded-lg border border-white/10">
+                  <input
+                    type="checkbox"
+                    checked={calcPrivateDriver}
+                    onChange={(e) => setCalcPrivateDriver(e.target.checked)}
+                    className="accent-[#F2C94C] w-4 h-4 rounded"
+                  />
+                  <span>Private Chauffeur Car</span>
+                </label>
+                <label className="flex items-center gap-2 cursor-pointer bg-white/5 p-2 rounded-lg border border-white/10">
+                  <input
+                    type="checkbox"
+                    checked={calcIncludeSafaris}
+                    onChange={(e) => setCalcIncludeSafaris(e.target.checked)}
+                    className="accent-[#F2C94C] w-4 h-4 rounded"
+                  />
+                  <span>Include Wildlife Safari</span>
+                </label>
+              </div>
+            </div>
+
+            {/* Calculated Output Card */}
+            <div className="lg:col-span-5 bg-white text-[#1A1A1A] p-6 rounded-2xl shadow-xl space-y-4">
+              <div className="text-center border-b border-[#E8E4D9] pb-3">
+                <span className="text-xs font-mono text-[#7A7365] uppercase">Estimated Budget</span>
+                <div className="text-3xl font-serif font-bold text-[#1F3D2B] mt-1">
+                  ₹{currentCalc.totalPerPerson.toLocaleString("en-IN")}
+                </div>
+                <span className="text-xs text-[#5A5448]">per person (₹{currentCalc.totalGroup.toLocaleString("en-IN")} total for {calcTravelers})</span>
+              </div>
+
+              <div className="space-y-1.5 text-xs text-[#4A453A]">
+                <div className="flex justify-between">
+                  <span>Flights (MAA ↔ CMB):</span>
+                  <span className="font-mono font-semibold">₹{currentCalc.flights.toLocaleString("en-IN")}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Hotels ({calcDuration - 1} nights):</span>
+                  <span className="font-mono font-semibold">₹{currentCalc.hotels.toLocaleString("en-IN")}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Food & Meals ({calcDuration} days):</span>
+                  <span className="font-mono font-semibold">₹{currentCalc.food.toLocaleString("en-IN")}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Transport ({calcPrivateDriver ? "Private Car" : "Public/Trains"}):</span>
+                  <span className="font-mono font-semibold">₹{currentCalc.transport.toLocaleString("en-IN")}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Activities & Tickets:</span>
+                  <span className="font-mono font-semibold">₹{currentCalc.activities.toLocaleString("en-IN")}</span>
+                </div>
+              </div>
+
+              <a
+                href={`https://wa.me/94722968210?text=${generateWhatsAppMessage()}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("whatsapp_click", "conversion", "chennai_cost_calculator")}
+                className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#25D366] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1EBE5D] transition-all shadow-md text-center"
+              >
+                <Send className="w-4 h-4" />
+                <span>Get Itinerary Quote on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 15: TRAVEL REQUIREMENTS FOR INDIAN TRAVELERS */}
+        <section aria-labelledby="visa-heading" className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#EBF3ED] flex items-center justify-center text-[#1F3D2B]">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-mono text-[#7A7365] uppercase tracking-wider">Immigration & Entry</span>
+              <h2 id="visa-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+                Sri Lanka Travel Requirements for Indian Citizens (2026)
               </h2>
-              
-              <p className="text-sm text-luxury-cream/80 leading-relaxed max-w-2xl mx-auto font-light">
-                Calculate your direct land expenses in real-time. Choose your preferred monsoon clusters, choose custom travel budgets in Indian Rupees, and download a customized daily route spreadsheet instantly.
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <h3 className="font-serif font-bold text-base text-[#1F3D2B]">1. Tourist Electronic Travel Authorization (ETA)</h3>
+              <p className="text-xs text-[#5A5448] leading-relaxed">
+                Indian passport holders must apply online for a 30-day Tourist ETA via the official government portal before departure. Sri Lanka frequently extends fee waivers (making it <strong>₹0</strong>). When standard processing applies, it costs $20 USD (~₹1,650).
               </p>
+              <Link to="/sri-lanka-visa-for-indians" className="text-[#1F3D2B] font-bold underline inline-block text-xs">
+                Read Complete Visa ETA Guide →
+              </Link>
+            </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                <button
-                  onClick={() => handleCtaClick("chennai_pillar_planner_cta")}
-                  className="bg-[#d4af37] text-white hover:bg-white hover:text-luxury-green font-bold text-sm px-8 py-4 rounded-xl shadow-lg transition-all flex items-center gap-2 group w-full sm:w-auto justify-center"
-                >
-                  🚀 Get Your Free Sri Lanka Travel Plan
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
-                </button>
-                
-                <button
-                  onClick={handleWhatsAppClick}
-                  className="bg-transparent text-white border border-white/20 hover:border-luxury-gold font-bold text-sm px-8 py-4 rounded-xl transition-all flex items-center gap-2 w-full sm:w-auto justify-center"
-                >
-                  💬 Settle Routes on WhatsApp
-                </button>
-              </div>
-
-              <p className="text-[10px] text-white/40 font-mono">
-                Approved by Ceylon Tourist Board Guidelines • 100% Free Interactive Travel Tool
+            <div className="bg-white p-5 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <h3 className="font-serif font-bold text-base text-[#1F3D2B]">2. Passport Validity & Digital Arrival Card</h3>
+              <p className="text-xs text-[#5A5448] leading-relaxed">
+                Your Indian passport must have at least <strong>6 months of validity</strong> from your arrival date. You can fill out the online Sri Lanka Immigration Arrival Card within 3 days before boarding at Chennai airport.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Cross-City Departure Hubs & Guides Section */}
-        <section className="py-12 border-t border-luxury-green/10 mt-12">
-          <h3 className="text-xs uppercase tracking-[0.2em] text-luxury-gold font-bold mb-6 text-center">
-            Compare Flight Costs From Other Indian Departure Hubs
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <Link 
-              to="/5-day-sri-lanka-itinerary-from-chennai"
-              className="p-5 rounded-2xl bg-white border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between shadow-sm"
-            >
-              <div>
-                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Chennai Route Special</span>
-                <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">5-Day Sri Lanka Itinerary From Chennai</h4>
-                <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Custom day-by-day routes for Galle beaches or Kandy hills.</p>
-              </div>
-              <div className="flex items-center justify-end mt-4">
-                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
+        {/* SECTION 16: METHODOLOGY & EDITORIAL TRANSPARENCY */}
+        <section aria-labelledby="methodology-heading" className="bg-[#FAF8F3] p-6 rounded-2xl border border-[#E8E4D9] space-y-3">
+          <h2 id="methodology-heading" className="font-serif font-bold text-lg text-[#1F3D2B]">
+            How We Calculate Sri Lanka Trip Costs
+          </h2>
+          <p className="text-xs text-[#5A5448] leading-relaxed">
+            All price estimates on Plan Sri Lanka are compiled from verified ground rates, active airline pricing directories (IndiGo, SriLankan Airlines, Alliance Air), real-time hotel supplier datasets, and licensed local tourist chauffeur unions in Sri Lanka.
+          </p>
+          <p className="text-xs text-[#7A7365] leading-relaxed">
+            <em>Disclaimer: Airfares and hotel room rates are subject to dynamic seasonal fluctuations, currency rate changes (INR/LKR/USD), and availability during holiday periods. These calculations provide realistic benchmarks for trip planning.</em>
+          </p>
+        </section>
 
-            <Link 
-              to="/sri-lanka-trip-cost-from-bangalore"
-              className="p-5 rounded-2xl bg-white border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between shadow-sm"
-            >
-              <div>
-                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Bangalore Hub</span>
-                <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Sri Lanka Trip Cost From Bangalore</h4>
-                <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Direct 85-min flights, 5-day budget calculator & schedules.</p>
-              </div>
-              <div className="flex items-center justify-end mt-4">
-                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link 
-              to="/sri-lanka-trip-cost-from-mumbai"
-              className="p-5 rounded-2xl bg-white border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between shadow-sm"
-            >
-              <div>
-                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Mumbai Hub</span>
-                <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Sri Lanka Trip Cost From Mumbai</h4>
-                <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Direct BOM-CMB flight schedules & honeymoon budgets.</p>
-              </div>
-              <div className="flex items-center justify-end mt-4">
-                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link 
-              to="/sri-lanka-trip-cost-from-hyderabad"
-              className="p-5 rounded-2xl bg-white border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between shadow-sm"
-            >
-              <div>
-                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-luxury-gold block mb-1">Hyderabad Hub</span>
-                <h4 className="font-serif font-bold text-luxury-green text-sm group-hover:text-luxury-gold transition-colors">Sri Lanka Trip Cost From Hyderabad</h4>
-                <p className="text-[11px] text-luxury-black/70 mt-1 font-light">Connecting flight options, 7-day budget breakdown & packages.</p>
-              </div>
-              <div className="flex items-center justify-end mt-4">
-                <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
+        {/* SECTION 17: FAQ ACCORDION */}
+        <section aria-labelledby="faq-heading" className="space-y-6">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-mono text-[#7A7365] uppercase tracking-widest">Clear Answers</span>
+            <h2 id="faq-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+              Frequently Asked Questions (Chennai Route)
+            </h2>
           </div>
 
-          <h3 className="text-xs uppercase tracking-[0.2em] text-luxury-gold font-bold mb-6 text-center">
-            Essential Sri Lanka Planning Guides
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <Link 
-              to="/sri-lanka-visa-for-indians"
-              className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group shadow-sm"
-            >
-              <span>Sri Lanka ETA Visa For Indians</span>
-              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
-            </Link>
+          <div className="space-y-3">
+            {[
+              {
+                q: "How much does a Sri Lanka trip from Chennai cost?",
+                a: "A standard 5-day budget trip starts from ₹25,000 to ₹35,000 per person. A comfortable 5-day mid-range vacation with boutique hotels and a private chauffeur averages ₹45,000 to ₹62,000 per person. A 7-day comprehensive island tour typically costs ₹58,000 to ₹78,000 per person."
+              },
+              {
+                q: "Are flights cheaper to Sri Lanka from Chennai than Bangalore or Mumbai?",
+                a: "Yes! Chennai offers the cheapest flight tickets to Sri Lanka across all Indian departure hubs. Round-trip flights from Chennai (MAA) regularly cost ₹10,500 to ₹13,500, compared to ₹13,000–₹17,000 from Bangalore and ₹16,000–₹22,000 from Mumbai or Delhi."
+              },
+              {
+                q: "How long is the direct flight from Chennai to Colombo?",
+                a: "The flight takes exactly 1 hour and 20 minutes (80 minutes). It is faster to fly from Chennai to Colombo than it is to drive from Chennai to Pondicherry or fly to Delhi."
+              },
+              {
+                q: "Is 5 days enough time to visit Sri Lanka from Chennai?",
+                a: "Yes, 5 days is perfect for a targeted trip focusing on the Southern Coast (Bentota, Galle Fort, Mirissa) or the Cultural Triangle (Sigiriya and Kandy). For the full highland tea country loop with Ella and wildlife safaris, a 7-day itinerary is ideal."
+              },
+              {
+                q: "Can I use Indian Rupees (INR) or Indian Credit Cards in Sri Lanka?",
+                a: "Most boutique hotels, supermarkets, and upscale restaurants accept international Visa and Mastercard with nominal forex markup. For cash spending (tuk-tuks, street food, tipping), bring ₹15,000 to ₹20,000 in physical ₹500 INR notes to exchange for Sri Lankan Rupees (LKR) at Colombo Airport."
+              },
+              {
+                q: "Is Sri Lanka cheaper than the Maldives for Chennai travelers?",
+                a: "Significantly cheaper. A 4-night budget Maldives package typically starts at ₹1,20,000+ per couple due to expensive speedboat or seaplane transfers and high resort taxes. In contrast, a 7-day private boutique tour in Sri Lanka with dedicated chauffeur transport costs around ₹1,15,000 total per couple, flights included."
+              },
+              {
+                q: "Can I fly directly from Chennai to Jaffna?",
+                a: "Yes, Alliance Air operates direct scheduled flights from Chennai (MAA) to Jaffna International Airport (JAF) in northern Sri Lanka, taking roughly 60 minutes. This is ideal for exploring Northern Tamil culture and ancient Hindu temples."
+              }
+            ].map((faq, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-xl border border-[#E8E4D9] overflow-hidden transition-shadow hover:shadow-sm"
+              >
+                <button
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full p-4 sm:p-5 text-left font-serif font-bold text-[#1F3D2B] text-sm sm:text-base flex justify-between items-center gap-4 hover:text-[#B38728] transition-colors"
+                >
+                  <span>{faq.q}</span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-[#1F3D2B] transition-transform duration-300 shrink-0 ${
+                      activeFaq === idx ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
 
-            <Link 
+                <AnimatePresence>
+                  {activeFaq === idx && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="px-4 pb-4 sm:px-5 sm:pb-5 text-xs sm:text-sm text-[#5A5448] font-sans leading-relaxed border-t border-[#F0ECE1] pt-3"
+                    >
+                      {faq.a}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECTION 18: RELATED HUB & INTERNAL LINKING */}
+        <section aria-labelledby="resources-heading" className="pt-6 border-t border-[#E8E4D9]">
+          <h2 id="resources-heading" className="text-xs font-mono uppercase tracking-[0.2em] text-[#7A7365] font-bold mb-4 text-center">
+            Explore Related Sri Lanka Travel Guides
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <Link
+              to="/sri-lanka-5-day-itinerary-from-chennai"
+              className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group"
+            >
+              <span>5-Day Chennai Itinerary</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              to="/sri-lanka-trip-cost-from-india"
+              className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group"
+            >
+              <span>All India Trip Cost Guide</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              to="/sri-lanka-trip-cost-from-bangalore"
+              className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group"
+            >
+              <span>Bangalore Trip Cost Guide</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
               to="/sri-lanka-7-day-itinerary"
-              className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group shadow-sm"
+              className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group"
             >
-              <span>7-Day Master Sri Lanka Blueprint</span>
-              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
-            </Link>
-
-            <Link 
-              to="/kandy-to-ella-train-tickets-guide"
-              className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group shadow-sm"
-            >
-              <span>Kandy to Ella Train Tickets Guide</span>
-              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
-            </Link>
-
-            <Link 
-              to="/things-to-do-in-sri-lanka"
-              className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group shadow-sm"
-            >
-              <span>Best Things to Do for First-Timers</span>
-              <ArrowRight className="w-4 h-4 text-luxury-gold group-hover:translate-x-1 transition-transform" />
+              <span>7-Day Master Itinerary</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </section>
 
-      </div>
+      </main>
     </div>
   );
 }

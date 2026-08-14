@@ -110,12 +110,12 @@ export const seoArticles: Seometa[] = [
   },
   {
     path: "/how-much-will-it-take-to-visit-sri-lanka-from-chennai",
-    title: "How Much Will It Take to Visit Sri Lanka From Chennai? (₹25,000 Budget Guide)",
-    description: "Planning a trip from Chennai to Sri Lanka? Exact 2026 cost breakdown: Flights from ₹10,500, hotels, visa & 5-day budget options starting from ₹25,000!",
+    title: "Sri Lanka Trip Cost From Chennai (2026): Budget, Flights & 7-Day Guide",
+    description: "Planning a Sri Lanka trip from Chennai in 2026? Exact cost breakdown: flights from ₹10,500, hotel rates, 5-day & 7-day budgets, couple & family expenses, plus calculator.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
-    priority: "0.9"
+    priority: "0.95"
   },
   {
     path: "/sri-lanka-trip-cost-from-bangalore",
