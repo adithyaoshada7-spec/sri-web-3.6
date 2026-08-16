@@ -267,16 +267,6 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
                 <div className="text-xl font-serif font-bold text-white">Dolphin Cruise</div>
               </div>
             </div>
-
-            <a
-              href={buildWaLink(waBase)}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackEvent("whatsapp_click", "trincomalee_travel_guide", "hero_cta")}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold uppercase tracking-wider text-xs rounded-full hover:bg-[#1ebe57] transition-all shadow-lg"
-            >
-              <MessageCircle className="w-4 h-4" /> Chat On WhatsApp: {WHATSAPP_DISPLAY}
-            </a>
           </div>
         </div>
       </section>
