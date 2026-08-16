@@ -263,7 +263,7 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
           <span className="text-xs font-mono font-bold text-[#1e3a2f] uppercase tracking-widest bg-[#1e3a2f]/5 px-3 py-1 rounded-md inline-flex items-center gap-1.5">
             <ImageIcon className="w-4 h-4 text-[#d4af37]" /> Activities
           </span>
-          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1e3a2f]">What You Can Actually Do Here</h2>
+          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1e3a2f]">You Can Directly Book These Services, No Charges Included</h2>
           <p className="text-sm text-[#3a4d44] font-light max-w-2xl mx-auto">
             Book yourself and compare which is better for you by talking to them directly on WhatsApp — no agent in between.
           </p>
