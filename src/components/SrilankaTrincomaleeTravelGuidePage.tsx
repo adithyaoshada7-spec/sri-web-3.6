@@ -265,7 +265,7 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
           </span>
           <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1e3a2f]">What You Can Actually Do Here</h2>
           <p className="text-sm text-[#3a4d44] font-light max-w-2xl mx-auto">
-            Real, doable activities in and around Trincomalee — not a padded list. Boat-based trips can be booked directly on WhatsApp.
+            Book yourself and compare which is better for you by talking to them directly on WhatsApp — no agent in between.
           </p>
         </div>
 
