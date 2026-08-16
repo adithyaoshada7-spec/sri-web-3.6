@@ -235,9 +235,9 @@ export const seoArticles: Seometa[] = [
     priority: "0.95"
   },
   {
-    path: "/dolphin-watching-trincomalee",
-    title: "Dolphin Watching Trincomalee (2026 Guide) | Book Your Boat Tour Direct",
-    description: "Book a dolphin watching boat tour in Trincomalee / Uppuveli, Sri Lanka. Sunrise departures, spinner dolphin pods, calm June-to-September seas & direct WhatsApp booking — no agents.",
+    path: "/trincomalee-travel-guide",
+    title: "Trincomalee Travel Guide (2026) | Things To Do & Book Activities Direct",
+    description: "Everything you can actually do in Trincomalee: dolphin watching, Pigeon Island snorkeling, Nilaveli & Uppuveli beaches, Koneswaram Temple, hot springs & diving — with direct WhatsApp booking, no agents.",
     image: "https://images.unsplash.com/photo-1607153333879-c174d265f1d2?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
