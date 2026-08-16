@@ -674,6 +674,12 @@ export default function SrilankaJunePage() {
                   <p className="text-xs text-[#3a4d44] leading-relaxed font-light">
                     Sunrise boat tours from Uppuveli/Trincomalee harbor to spot spinner dolphin pods in calm June waters.
                   </p>
+                  <Link
+                    to="/dolphin-watching-trincomalee"
+                    className="inline-flex items-center justify-center gap-1.5 w-full px-4 py-2 border border-[#1e3a2f]/15 text-[#1e3a2f] font-bold uppercase tracking-wider text-[10px] rounded-full hover:border-[#d4af37] hover:text-[#d4af37] transition-all"
+                  >
+                    View Tour Details & Prices
+                  </Link>
                   <a
                     href="https://wa.me/94770424646?text=Hi!%20I%20want%20to%20book%20the%20Dolphin%20Watching%20Cruise%20in%20Trincomalee."
                     target="_blank"
