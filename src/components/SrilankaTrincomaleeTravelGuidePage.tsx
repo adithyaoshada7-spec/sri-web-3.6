@@ -21,7 +21,12 @@ import {
   Landmark,
   Fish,
   Droplets,
-  Compass
+  Compass,
+  Car,
+  TrainFront,
+  BedDouble,
+  ListChecks,
+  CheckCircle2
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
@@ -179,6 +184,14 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
     {
       q: "Is dolphin watching in Trincomalee guaranteed?",
       a: "Sightings are frequent in season but never 100% guaranteed, as pods move with the tide and weather. A reputable captain will be upfront with you about conditions on the day before you head out."
+    },
+    {
+      q: "How do I get to Trincomalee from Colombo?",
+      a: "By private car or taxi it's about 4 to 5 hours (roughly 250 km) via the Central Expressway and A6. Direct trains from Colombo Fort also run to Trincomalee, taking around 7 to 8 hours."
+    },
+    {
+      q: "Should I stay in Uppuveli, Nilaveli, or Trincomalee town?",
+      a: "Uppuveli is closest to the harbor for dolphin and whale watching departures. Nilaveli is quieter and closest to the Pigeon Island boat trips. Trincomalee town is best if you want to be near Koneswaram Temple and local markets."
     }
   ];
 
@@ -268,8 +281,36 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
         </div>
       </section>
 
+      {/* QUICK ANSWER BOX */}
+      <section className="px-4 sm:px-6 lg:px-8 -mt-10 md:-mt-14 relative z-30">
+        <div className="max-w-5xl mx-auto bg-white rounded-[28px] border border-[#1e3a2f]/10 shadow-xl p-6 md:p-8 space-y-4">
+          <span className="text-[10px] font-mono uppercase tracking-widest font-bold text-[#d4af37]">Quick Answer</span>
+          <p className="text-sm md:text-base text-[#1e3a2f] leading-relaxed font-light">
+            Trincomalee is Sri Lanka's East Coast base for <strong className="font-bold">dolphin & whale watching boat trips</strong>, <strong className="font-bold">Pigeon Island snorkeling</strong>, and calm, swimmable beaches (Nilaveli, Uppuveli) — best visited <strong className="font-bold">May to September</strong>, when this coast is dry while the South and West are in monsoon. Give it <strong className="font-bold">2–3 days</strong>, and book the boat-based activities directly on WhatsApp below rather than through a hotel agent.
+          </p>
+          <div className="flex flex-wrap gap-2 pt-1">
+            {[
+              { label: "Things To Do", href: "#things-to-do" },
+              { label: "Best Time", href: "#best-time" },
+              { label: "Getting There", href: "#getting-there" },
+              { label: "Where To Stay", href: "#where-to-stay" },
+              { label: "Itinerary", href: "#itinerary" },
+              { label: "FAQ", href: "#faq" }
+            ].map((link, i) => (
+              <a
+                key={i}
+                href={link.href}
+                className="px-3.5 py-1.5 rounded-full bg-[#fcfbf7] border border-[#1e3a2f]/10 text-[#1e3a2f] text-[11px] font-bold uppercase tracking-wider hover:border-[#d4af37] hover:text-[#d4af37] transition-all"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ACTIVITIES GRID */}
-      <section className="py-14 md:py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <section id="things-to-do" className="pt-14 md:pt-20 pb-14 md:pb-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 scroll-mt-24">
         <div className="text-center space-y-3">
           <span className="text-xs font-mono font-bold text-[#1e3a2f] uppercase tracking-widest bg-[#1e3a2f]/5 px-3 py-1 rounded-md inline-flex items-center gap-1.5">
             <ImageIcon className="w-4 h-4 text-[#d4af37]" /> Activities
@@ -310,11 +351,14 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
         </div>
       </section>
 
-      {/* WHY TRINCOMALEE */}
-      <section className="py-14 md:py-20 bg-white border-y border-[#1e3a2f]/5 px-4 sm:px-6 lg:px-8">
+      {/* BEST TIME TO VISIT */}
+      <section id="best-time" className="py-14 md:py-20 bg-white border-y border-[#1e3a2f]/5 px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="space-y-4">
-            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1e3a2f]">Why Visit Trincomalee</h2>
+            <span className="text-xs font-mono font-bold text-[#1e3a2f] uppercase tracking-widest bg-[#1e3a2f]/5 px-3 py-1 rounded-md inline-flex items-center gap-1.5">
+              <Calendar className="w-4 h-4 text-[#d4af37]" /> Best Time To Visit
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1e3a2f]">Why Visit Trincomalee, And When</h2>
             <p className="text-[#3a4d44] leading-relaxed font-light">
               While Mirissa on the South Coast is Sri Lanka's most famous whale watching hub, its season shuts down during the Southwest monsoon (May–September). That's exactly when the East Coast — Trincomalee, Uppuveli and Nilaveli — flips into its dry, calm season, opening up dolphin watching, snorkeling, diving and flat, safe beach swimming all at once.
             </p>
@@ -346,6 +390,99 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
             <p className="text-xs text-amber-800 leading-relaxed">
               Dolphin sightings depend on weather, tide, and season — no operator can guarantee a sighting on every trip. Always confirm today's sea conditions and departure time on WhatsApp before heading to the harbor.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* GETTING THERE */}
+      <section id="getting-there" className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-24">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="space-y-3">
+            <span className="text-xs font-mono font-bold text-[#1e3a2f] uppercase tracking-widest bg-[#1e3a2f]/5 px-3 py-1 rounded-md inline-flex items-center gap-1.5">
+              <Car className="w-4 h-4 text-[#d4af37]" /> Getting There
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1e3a2f]">How To Get To Trincomalee</h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div className="p-6 rounded-2xl bg-white border border-[#1e3a2f]/10 space-y-3">
+              <div className="w-9 h-9 rounded-full bg-[#1e3a2f] text-[#d4af37] flex items-center justify-center">
+                <Car className="w-4 h-4" />
+              </div>
+              <h3 className="font-serif font-bold text-[#1e3a2f]">By Private Car / Taxi</h3>
+              <p className="text-sm text-[#3a4d44] font-light leading-relaxed">
+                About 4 to 5 hours from Colombo (roughly 250 km) via the Central Expressway and A6. The most flexible option, and the easiest way to combine Trincomalee with Sigiriya or Dambulla en route.
+              </p>
+            </div>
+            <div className="p-6 rounded-2xl bg-white border border-[#1e3a2f]/10 space-y-3">
+              <div className="w-9 h-9 rounded-full bg-[#1e3a2f] text-[#d4af37] flex items-center justify-center">
+                <TrainFront className="w-4 h-4" />
+              </div>
+              <h3 className="font-serif font-bold text-[#1e3a2f]">By Train</h3>
+              <p className="text-sm text-[#3a4d44] font-light leading-relaxed">
+                Direct trains run from Colombo Fort to Trincomalee, typically taking around 7 to 8 hours. A scenic but slower option — book reserved seats in advance during peak season.
+              </p>
+            </div>
+          </div>
+
+          <p className="text-xs text-[#3a4d44]/70 font-light">
+            Once in town, Uppuveli and Nilaveli are a short 15–25 minute tuk-tuk or taxi ride from Trincomalee itself, and most hotels can arrange local transport.
+          </p>
+        </div>
+      </section>
+
+      {/* WHERE TO STAY */}
+      <section id="where-to-stay" className="py-14 md:py-20 bg-white border-y border-[#1e3a2f]/5 px-4 sm:px-6 lg:px-8 scroll-mt-24">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="space-y-3">
+            <span className="text-xs font-mono font-bold text-[#1e3a2f] uppercase tracking-widest bg-[#1e3a2f]/5 px-3 py-1 rounded-md inline-flex items-center gap-1.5">
+              <BedDouble className="w-4 h-4 text-[#d4af37]" /> Where To Stay
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1e3a2f]">Which Area To Base Yourself In</h2>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-5">
+            {[
+              { name: "Uppuveli", desc: "Closest to the harbor and dolphin/whale watching departures. Lively strip of beach cafés and guesthouses, easy tuk-tuk ride to town." },
+              { name: "Nilaveli", desc: "Quieter, wider beach a bit further north — closest base for Pigeon Island boat trips, best for a relaxed, low-key stay." },
+              { name: "Trincomalee Town", desc: "Closest to Koneswaram Temple, Fort Frederick and the local markets — best if culture and convenience matter more than beachfront." }
+            ].map((area, i) => (
+              <div key={i} className="p-6 rounded-2xl bg-[#fcfbf7] border border-[#1e3a2f]/10 space-y-2">
+                <h3 className="font-serif font-bold text-[#1e3a2f]">{area.name}</h3>
+                <p className="text-xs text-[#3a4d44] font-light leading-relaxed">{area.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SUGGESTED ITINERARY */}
+      <section id="itinerary" className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-24">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="space-y-3">
+            <span className="text-xs font-mono font-bold text-[#1e3a2f] uppercase tracking-widest bg-[#1e3a2f]/5 px-3 py-1 rounded-md inline-flex items-center gap-1.5">
+              <ListChecks className="w-4 h-4 text-[#d4af37]" /> Suggested Itinerary
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1e3a2f]">A Simple 3-Day Trincomalee Plan</h2>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              { day: "Day 1", title: "Arrive & Settle In", text: "Travel in from Colombo or your prior stop, check into Uppuveli or Nilaveli, and spend the afternoon swimming and relaxing on the beach." },
+              { day: "Day 2", title: "Dolphin / Whale Watching Cruise", text: "Early 6:00 AM boat departure from the Uppuveli/Trincomalee harbor. Confirm your seats and today's conditions on WhatsApp the evening before." },
+              { day: "Day 3", title: "Pigeon Island & Culture", text: "Morning snorkeling trip to Pigeon Island from Nilaveli, then an afternoon visit to Koneswaram Temple and Fort Frederick before you head onward." }
+            ].map((step, i) => (
+              <div key={i} className="flex gap-4 p-5 rounded-2xl bg-white border border-[#1e3a2f]/10">
+                <div className="w-16 shrink-0 text-center">
+                  <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-[#d4af37] block">{step.day}</span>
+                  <CheckCircle2 className="w-5 h-5 text-[#1e3a2f]/20 mx-auto mt-1" />
+                </div>
+                <div>
+                  <h3 className="font-serif font-bold text-sm text-[#1e3a2f] mb-1">{step.title}</h3>
+                  <p className="text-xs text-[#3a4d44] font-light leading-relaxed">{step.text}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -429,7 +566,7 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      <section id="faq" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="max-w-3xl mx-auto space-y-8">
           <div className="text-center space-y-3">
             <span className="text-xs font-mono font-bold text-[#1e3a2f] uppercase tracking-widest bg-[#1e3a2f]/5 px-3 py-1 rounded-md inline-flex items-center gap-1.5">
