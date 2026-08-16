@@ -18,10 +18,6 @@ import {
   Info,
   ArrowRight,
   Image as ImageIcon,
-  Landmark,
-  Fish,
-  Droplets,
-  Compass,
   Car,
   TrainFront,
   BedDouble,
@@ -71,47 +67,6 @@ const activities: Activity[] = [
     waNumber: WHALE_WATCHING_WHATSAPP_NUMBER,
     waDisplay: WHALE_WATCHING_WHATSAPP_DISPLAY,
     image: "https://images.unsplash.com/photo-1568430460464-02e7078e7c33?auto=format&fit=crop&q=80&w=700&h=500"
-  },
-  {
-    icon: Fish,
-    title: "Pigeon Island Snorkeling",
-    bestFor: "Coral reefs & sea turtles",
-    description: "Short boat ride from Nilaveli to Pigeon Island National Park. Shallow reef snorkeling with reef fish, occasional blacktip reef sharks, and green turtles.",
-    bookable: true,
-    waText: "Hi! I want to arrange a Pigeon Island snorkeling boat trip from Nilaveli.",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=700&h=500"
-  },
-  {
-    icon: Sun,
-    title: "Nilaveli & Uppuveli Beaches",
-    bestFor: "Swimming & relaxing",
-    description: "Wide, quiet stretches of white sand with warm, shallow, calm water — Sri Lanka's most reliably swimmable beaches during the June–September dry season.",
-    bookable: false,
-    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=700&h=500"
-  },
-  {
-    icon: Landmark,
-    title: "Koneswaram Temple & Fort Frederick",
-    bestFor: "Culture & sunset views",
-    description: "A cliffside Hindu temple perched on Swami Rock inside the old Dutch/British Fort Frederick grounds, with sweeping ocean views — an easy half-day stop in Trincomalee town.",
-    bookable: false,
-    image: "https://images.unsplash.com/photo-1580746738099-79ea3b7f4b5f?auto=format&fit=crop&q=80&w=700&h=500"
-  },
-  {
-    icon: Droplets,
-    title: "Kanniya Hot Springs",
-    bestFor: "A quick, offbeat stop",
-    description: "Seven small square wells of natural hot water a short drive from Trincomalee town — a quick, unusual stop to combine with a day trip.",
-    bookable: false,
-    image: "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&q=80&w=700&h=500"
-  },
-  {
-    icon: Compass,
-    title: "Scuba Diving & WWII Wrecks",
-    bestFor: "Certified & trial divers",
-    description: "Trincomalee's natural deep-water harbor holds WWII shipwrecks and reef dive sites, arranged through local dive operators during the dry season.",
-    bookable: false,
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=700&h=500"
   }
 ];
 
@@ -311,7 +266,7 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {activities.map((act, i) => (
             <div key={i} className="bg-white border border-[#1e3a2f]/5 hover:border-[#d4af37] transition-all rounded-[28px] overflow-hidden flex flex-col justify-between">
               <img src={act.image} alt={act.title} referrerPolicy="no-referrer" className="w-full h-36 object-cover" />
