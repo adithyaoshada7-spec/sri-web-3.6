@@ -237,7 +237,7 @@ export const seoArticles: Seometa[] = [
   {
     path: "/trincomalee-travel-guide",
     title: "Trincomalee Travel Guide (2026) | Things To Do & Book Activities Direct",
-    description: "Everything you can actually do in Trincomalee: dolphin watching, Pigeon Island snorkeling, Nilaveli & Uppuveli beaches, Koneswaram Temple, hot springs & diving — with direct WhatsApp booking, no agents.",
+    description: "Everything you can actually do in Trincomalee: dolphin & whale watching, Pigeon Island snorkeling, Nilaveli & Uppuveli beaches, Koneswaram Temple, hot springs & diving — with direct WhatsApp booking, no agents.",
     image: "https://images.unsplash.com/photo-1607153333879-c174d265f1d2?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
