@@ -20,10 +20,11 @@ import {
   Send, 
   ThumbsUp, 
   Compass, 
-  Sun, 
-  CloudRain, 
+  Sun,
+  CloudRain,
   Sunset,
-  Volume2
+  Volume2,
+  MessageCircle
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
@@ -652,6 +653,12 @@ export default function SrilankaJunePage() {
 
             {/* Trincomalee / Uppuveli */}
             <div className="bg-[#fcfbf7] border border-[#1e3a2f]/5 hover:border-[#d4af37] transition-all rounded-[28px] overflow-hidden flex flex-col justify-between">
+              <img
+                src="https://images.unsplash.com/photo-1607153333879-c174d265f1d2?auto=format&fit=crop&q=80&w=600&h=360"
+                alt="Dolphin watching boat cruise off Trincomalee, Sri Lanka"
+                referrerPolicy="no-referrer"
+                className="w-full h-32 object-cover"
+              />
               <div className="p-6 space-y-4">
                 <div className="w-10 h-10 rounded-full bg-[#1e3a2f] text-[#d4af37] flex items-center justify-center font-mono font-bold text-sm">
                   02
@@ -660,6 +667,23 @@ export default function SrilankaJunePage() {
                 <p className="text-xs text-[#3a4d44] leading-relaxed font-light">
                   Lively and atmospheric with highly rated beach resorts, juice hubs, and local boat captains offering dolphin cruises on demand.
                 </p>
+                <div className="pt-3 border-t border-[#1e3a2f]/10 space-y-2">
+                  <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-[#d4af37]">
+                    Top Activity: Dolphin Watching Cruise
+                  </span>
+                  <p className="text-xs text-[#3a4d44] leading-relaxed font-light">
+                    Sunrise boat tours from Uppuveli/Trincomalee harbor to spot spinner dolphin pods in calm June waters.
+                  </p>
+                  <a
+                    href="https://wa.me/94770424646?text=Hi!%20I%20want%20to%20book%20the%20Dolphin%20Watching%20Cruise%20in%20Trincomalee."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent("whatsapp_click", "june_beaches", "trincomalee_dolphin_watching")}
+                    className="inline-flex items-center justify-center gap-1.5 w-full px-4 py-2.5 bg-[#25D366] text-white font-bold uppercase tracking-wider text-[10px] rounded-full hover:bg-[#1ebe57] transition-all"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" /> WhatsApp: +94 77 042 4646
+                  </a>
+                </div>
               </div>
               <div className="p-6 bg-emerald-50 text-emerald-800 text-[10px] font-mono uppercase font-bold text-center border-t border-neutral-100">
                 ⭐ Best For: Beach Cafes & Socials
