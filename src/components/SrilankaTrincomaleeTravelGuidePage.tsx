@@ -292,7 +292,7 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
                     onClick={() => trackEvent("whatsapp_click", "trincomalee_travel_guide", act.title)}
                     className="inline-flex items-center justify-center gap-1.5 w-full px-4 py-2.5 bg-[#25D366] text-white font-bold uppercase tracking-wider text-[10px] rounded-full hover:bg-[#1ebe57] transition-all"
                   >
-                    <MessageCircle className="w-3.5 h-3.5" /> Book On WhatsApp{act.waDisplay ? `: ${act.waDisplay}` : ""}
+                    <MessageCircle className="w-3.5 h-3.5" /> Directly Book On WhatsApp{act.waDisplay ? `: ${act.waDisplay}` : ""}
                   </a>
                 )}
               </div>
