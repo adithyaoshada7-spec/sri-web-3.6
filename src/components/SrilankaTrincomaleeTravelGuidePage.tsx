@@ -269,7 +269,7 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
         <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {activities.map((act, i) => (
             <div key={i} className="bg-white border border-[#1e3a2f]/5 hover:border-[#d4af37] transition-all rounded-[28px] overflow-hidden flex flex-col justify-between">
-              <img src={act.image} alt={act.title} referrerPolicy="no-referrer" className="w-full h-36 object-cover" />
+              <img src={act.image} alt={act.title} referrerPolicy="no-referrer" loading="lazy" className="w-full h-48 sm:h-56 object-cover object-center" />
               <div className="p-6 space-y-3 flex-1 flex flex-col">
                 <div className="w-9 h-9 rounded-full bg-[#1e3a2f] text-[#d4af37] flex items-center justify-center">
                   <act.icon className="w-4 h-4" />
