@@ -28,8 +28,11 @@ import { trackEvent } from "../lib/analytics";
 const WHATSAPP_NUMBER = "94770424646";
 const WHATSAPP_DISPLAY = "+94 77 042 4646";
 
-const buildWaLink = (text: string) =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+const WHALE_WATCHING_WHATSAPP_NUMBER = "94776487757";
+const WHALE_WATCHING_WHATSAPP_DISPLAY = "+94 77 648 7757";
+
+const buildWaLink = (text: string, number: string = WHATSAPP_NUMBER) =>
+  `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
 
 interface Activity {
   icon: React.ComponentType<{ className?: string }>;
@@ -38,6 +41,8 @@ interface Activity {
   description: string;
   bookable: boolean;
   waText?: string;
+  waNumber?: string;
+  waDisplay?: string;
   image: string;
 }
 
@@ -50,6 +55,17 @@ const activities: Activity[] = [
     bookable: true,
     waText: "Hi! I want to book the Dolphin Watching Cruise in Trincomalee.",
     image: "https://images.unsplash.com/photo-1607153333879-c174d265f1d2?auto=format&fit=crop&q=80&w=700&h=500"
+  },
+  {
+    icon: Anchor,
+    title: "Whale Watching Trincomalee",
+    bestFor: "Blue & sperm whale season",
+    description: "Boat tours heading further offshore from Trincomalee to look for blue whales and sperm whales, alongside dolphin pods, during the East Coast's calm dry season.",
+    bookable: true,
+    waText: "Hi! I want to book the Whale Watching tour in Trincomalee.",
+    waNumber: WHALE_WATCHING_WHATSAPP_NUMBER,
+    waDisplay: WHALE_WATCHING_WHATSAPP_DISPLAY,
+    image: "https://images.unsplash.com/photo-1568430460464-02e7078e7c33?auto=format&fit=crop&q=80&w=700&h=500"
   },
   {
     icon: Fish,
@@ -97,7 +113,7 @@ const activities: Activity[] = [
 export default function SrilankaTrincomaleeTravelGuidePage() {
   usePageMetadata({
     title: "Trincomalee Travel Guide (2026) | Things To Do & Book Activities Direct",
-    description: "Everything you can actually do in Trincomalee: dolphin watching, Pigeon Island snorkeling, Nilaveli & Uppuveli beaches, Koneswaram Temple, hot springs & diving — with direct WhatsApp booking, no agents.",
+    description: "Everything you can actually do in Trincomalee: dolphin & whale watching, Pigeon Island snorkeling, Nilaveli & Uppuveli beaches, Koneswaram Temple, hot springs & diving — with direct WhatsApp booking, no agents.",
     canonicalUrl: "https://plan-srilanka.com/trincomalee-travel-guide",
     ogUrl: "https://plan-srilanka.com/trincomalee-travel-guide",
     ogImage: "https://images.unsplash.com/photo-1607153333879-c174d265f1d2?auto=format&fit=crop&q=80&w=1200&h=630"
@@ -109,7 +125,7 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
     "@context": "https://schema.org",
     "@type": "TouristAttraction",
     "name": "Trincomalee Travel Guide",
-    "description": "Guide to activities in Trincomalee, Sri Lanka: dolphin watching, Pigeon Island snorkeling, beaches, temples, hot springs and diving.",
+    "description": "Guide to activities in Trincomalee, Sri Lanka: dolphin and whale watching, Pigeon Island snorkeling, beaches, temples, hot springs and diving.",
     "url": "https://plan-srilanka.com/trincomalee-travel-guide",
     "image": "https://images.unsplash.com/photo-1607153333879-c174d265f1d2?auto=format&fit=crop&q=80&w=1200&h=630",
     "address": {
@@ -138,11 +154,15 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
   const faqs = [
     {
       q: "What are the best things to do in Trincomalee?",
-      a: "The core lineup is a dolphin watching boat cruise, snorkeling at Pigeon Island National Park, swimming at Nilaveli or Uppuveli beach, visiting Koneswaram Temple inside Fort Frederick, and — if you have extra time — the Kanniya hot springs or a dive trip to the WWII wrecks in the harbor."
+      a: "The core lineup is a dolphin watching boat cruise, whale watching further offshore, snorkeling at Pigeon Island National Park, swimming at Nilaveli or Uppuveli beach, visiting Koneswaram Temple inside Fort Frederick, and — if you have extra time — the Kanniya hot springs or a dive trip to the WWII wrecks in the harbor."
     },
     {
-      q: "What time do dolphin watching boats leave from Trincomalee?",
-      a: "Boats depart early, typically between 6:00 AM and 6:30 AM from the Uppuveli / Trincomalee harbor area, when the sea is calmest and dolphin pods are most active near the surface."
+      q: "What time do dolphin and whale watching boats leave from Trincomalee?",
+      a: "Boats depart early, typically between 6:00 AM and 6:30 AM from the Uppuveli / Trincomalee harbor area, when the sea is calmest and marine life is most active near the surface. Whale watching trips head further offshore and can run a little longer than dolphin cruises."
+    },
+    {
+      q: "Can you see whales in Trincomalee, not just dolphins?",
+      a: "Yes. Alongside spinner dolphin pods, boats heading further out from Trincomalee during the dry season can encounter blue whales and sperm whales — this is a separate, longer trip from the shorter dolphin cruise, so confirm which one you're booking."
     },
     {
       q: "What is the best month to visit Trincomalee?",
@@ -275,13 +295,13 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
                 </span>
                 {act.bookable && act.waText && (
                   <a
-                    href={buildWaLink(act.waText)}
+                    href={buildWaLink(act.waText, act.waNumber)}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackEvent("whatsapp_click", "trincomalee_travel_guide", act.title)}
                     className="inline-flex items-center justify-center gap-1.5 w-full px-4 py-2.5 bg-[#25D366] text-white font-bold uppercase tracking-wider text-[10px] rounded-full hover:bg-[#1ebe57] transition-all"
                   >
-                    <MessageCircle className="w-3.5 h-3.5" /> Book On WhatsApp
+                    <MessageCircle className="w-3.5 h-3.5" /> Book On WhatsApp{act.waDisplay ? `: ${act.waDisplay}` : ""}
                   </a>
                 )}
               </div>
@@ -346,15 +366,16 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
                 Send your travel dates, number of travelers, and hotel area (Uppuveli / Nilaveli / Trincomalee town). You'll get today's sea conditions, activity timing, and pricing confirmed before you commit.
               </p>
 
-              <div className="grid sm:grid-cols-3 gap-4 pt-2">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
                 {[
                   { label: "Book the dolphin cruise", text: "Hi! I want to book the Dolphin Watching Cruise in Trincomalee." },
+                  { label: "Book whale watching", text: "Hi! I want to book the Whale Watching tour in Trincomalee.", waNumber: WHALE_WATCHING_WHATSAPP_NUMBER },
                   { label: "Arrange Pigeon Island snorkeling", text: "Hi! I want to arrange a Pigeon Island snorkeling boat trip from Nilaveli." },
                   { label: "General trip planning", text: waBase }
                 ].map((opt, i) => (
                   <a
                     key={i}
-                    href={buildWaLink(opt.text)}
+                    href={buildWaLink(opt.text, opt.waNumber)}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackEvent("whatsapp_click", "trincomalee_travel_guide", `booking_option_${i}`)}
