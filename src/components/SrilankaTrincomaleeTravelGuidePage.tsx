@@ -44,9 +44,8 @@ interface Activity {
   waText?: string;
   waNumber?: string;
   waDisplay?: string;
-  image: string;
-  operatorLogo?: string;
-  operatorName?: string;
+  operatorLogo: string;
+  operatorName: string;
 }
 
 const activities: Activity[] = [
@@ -57,7 +56,6 @@ const activities: Activity[] = [
     description: "Morning boat tour out of the Uppuveli / Trincomalee harbor area to spot wild spinner dolphin pods. Calmest and most reliable May to September.",
     bookable: true,
     waText: "Hi! I want to book the Dolphin Watching Cruise in Trincomalee.",
-    image: "https://images.unsplash.com/photo-1607153333879-c174d265f1d2?auto=format&fit=crop&q=80&w=700&h=500",
     operatorLogo: "/tuktukdude-logo.png.webp",
     operatorName: "TukTukDude Leisure Pvt Ltd"
   },
@@ -71,8 +69,7 @@ const activities: Activity[] = [
     operatorName: "Minneriya Safari",
     waText: "Hi! I want to book the Whale Watching tour in Trincomalee.",
     waNumber: WHALE_WATCHING_WHATSAPP_NUMBER,
-    waDisplay: WHALE_WATCHING_WHATSAPP_DISPLAY,
-    image: "https://images.unsplash.com/photo-1568430460464-02e7078e7c33?auto=format&fit=crop&q=80&w=700&h=500"
+    waDisplay: WHALE_WATCHING_WHATSAPP_DISPLAY
   }
 ];
 
@@ -275,13 +272,8 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
         <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {activities.map((act, i) => (
             <div key={i} className="bg-white border border-[#1e3a2f]/5 hover:border-[#d4af37] transition-all rounded-[28px] overflow-hidden flex flex-col justify-between">
-              <div className="relative">
-                <img src={act.image} alt={act.title} referrerPolicy="no-referrer" loading="lazy" className="w-full h-48 sm:h-56 object-cover object-center" />
-                {act.operatorLogo && (
-                  <div className="absolute top-3 right-3 w-12 h-12 rounded-full bg-white border-2 border-white shadow-lg overflow-hidden flex items-center justify-center">
-                    <img src={act.operatorLogo} alt={`${act.operatorName} logo`} className="w-full h-full object-contain" />
-                  </div>
-                )}
+              <div className="w-full h-48 sm:h-56 bg-[#fcfbf7] flex items-center justify-center p-8">
+                <img src={act.operatorLogo} alt={`${act.operatorName} logo`} className="max-w-full max-h-full object-contain" />
               </div>
               <div className="p-6 space-y-3 flex-1 flex flex-col">
                 <div className="w-9 h-9 rounded-full bg-[#1e3a2f] text-[#d4af37] flex items-center justify-center">
@@ -289,11 +281,6 @@ export default function SrilankaTrincomaleeTravelGuidePage() {
                 </div>
                 <h3 className="font-serif font-bold text-base text-[#1e3a2f]">{act.title}</h3>
                 <p className="text-xs text-[#3a4d44] leading-relaxed font-light flex-1">{act.description}</p>
-                {act.operatorName && (
-                  <span className="text-[10px] text-[#3a4d44]/70 font-mono uppercase tracking-wider">
-                    Operated by {act.operatorName}
-                  </span>
-                )}
                 <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-[#d4af37]">
                   ⭐ Best For: {act.bestFor}
                 </span>
