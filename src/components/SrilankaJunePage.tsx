@@ -710,6 +710,11 @@ export default function SrilankaJunePage() {
                 <p className="text-xs text-[#3a4d44] leading-relaxed font-light">
                   A quiet, crescent-shaped shallow bay. You can walk 150+ meters into the ocean with zero waves, ideal for toddlers to play.
                 </p>
+                <div className="pt-3 border-t border-[#1e3a2f]/10">
+                  <span className="inline-flex items-center justify-center gap-1.5 w-full px-4 py-2 border border-[#1e3a2f]/10 text-[#1e3a2f]/40 font-bold uppercase tracking-wider text-[10px] rounded-full cursor-not-allowed">
+                    Direct Booking Not Available Right Now
+                  </span>
+                </div>
               </div>
               <div className="p-6 bg-emerald-50 text-emerald-800 text-[10px] font-mono uppercase font-bold text-center border-t border-neutral-100">
                 ⭐ Best For: Absolute Safety & Toddlers
@@ -726,6 +731,11 @@ export default function SrilankaJunePage() {
                 <p className="text-xs text-[#3a4d44] leading-relaxed font-light">
                   The absolute surfing capital of Sri Lanka. Enjoys brilliant consistent warm point breaks and a wonderful backpacker night vibe.
                 </p>
+                <div className="pt-3 border-t border-[#1e3a2f]/10">
+                  <span className="inline-flex items-center justify-center gap-1.5 w-full px-4 py-2 border border-[#1e3a2f]/10 text-[#1e3a2f]/40 font-bold uppercase tracking-wider text-[10px] rounded-full cursor-not-allowed">
+                    Direct Booking Not Available Right Now
+                  </span>
+                </div>
               </div>
               <div className="p-6 bg-emerald-50 text-emerald-800 text-[10px] font-mono uppercase font-bold text-center border-t border-neutral-100">
                 ⭐ Best For: Surfers & Solo Outings
