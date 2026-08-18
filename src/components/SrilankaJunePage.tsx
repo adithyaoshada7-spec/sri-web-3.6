@@ -645,6 +645,29 @@ export default function SrilankaJunePage() {
                 <p className="text-xs text-[#3a4d44] leading-relaxed font-light">
                   A serene, miles-long expanse of fine white sand located north of Trincomalee. Known for clear, shallow warm water and quiet shores.
                 </p>
+                <div className="pt-3 border-t border-[#1e3a2f]/10 space-y-2">
+                  <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-[#d4af37]">
+                    Top Activity: Pigeon Island Snorkeling
+                  </span>
+                  <p className="text-xs text-[#3a4d44] leading-relaxed font-light">
+                    Short boat trip from Nilaveli to swim with sea turtles and reef fish at Pigeon Island National Park.
+                  </p>
+                  <Link
+                    to="/nilaveli-beach-travel-guide"
+                    className="btn-shine inline-flex items-center justify-center gap-1.5 w-full px-4 py-2 border border-[#1e3a2f]/15 text-[#1e3a2f] font-bold uppercase tracking-wider text-[10px] rounded-full hover:border-[#d4af37] hover:text-[#d4af37] transition-all"
+                  >
+                    Direct Book Nilaveli Activities
+                  </Link>
+                  <a
+                    href="https://wa.me/94770424646?text=Hi!%20I%20want%20to%20arrange%20a%20Pigeon%20Island%20snorkeling%20boat%20trip%20from%20Nilaveli."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent("whatsapp_click", "june_beaches", "nilaveli_pigeon_island")}
+                    className="inline-flex items-center justify-center gap-1.5 w-full px-4 py-2.5 bg-[#25D366] text-white font-bold uppercase tracking-wider text-[10px] rounded-full hover:bg-[#1ebe57] transition-all"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" /> WhatsApp: +94 77 042 4646
+                  </a>
+                </div>
               </div>
               <div className="p-6 bg-emerald-50 text-emerald-800 text-[10px] font-mono uppercase font-bold text-center border-t border-neutral-100">
                 ⭐ Best For: Families & Snorkelers

@@ -67,6 +67,7 @@ const SrilankaFlightSearchToolBlogPage = lazy(() => import("./components/Srilank
 const SrilankaHowToUsePlannerPage = lazy(() => import("./components/SrilankaHowToUsePlannerPage"));
 const SrilankaMirissaWhaleWatchingPage = lazy(() => import("./components/SrilankaMirissaWhaleWatchingPage"));
 const SrilankaTrincomaleeTravelGuidePage = lazy(() => import("./components/SrilankaTrincomaleeTravelGuidePage"));
+const SrilankaNilaveliBeachGuidePage = lazy(() => import("./components/SrilankaNilaveliBeachGuidePage"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -855,6 +856,16 @@ export default function App() {
             </div>
           }>
             <SrilankaTrincomaleeTravelGuidePage />
+          </Suspense>
+        } />
+
+        <Route path="/nilaveli-beach-travel-guide" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#1e3a2f] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#d4af37] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaNilaveliBeachGuidePage />
           </Suspense>
         } />
       </Routes>
