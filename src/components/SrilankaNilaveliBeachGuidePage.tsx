@@ -19,10 +19,13 @@ import {
   Image as ImageIcon,
   Car,
   TrainFront,
+  Plane,
   BedDouble,
   ListChecks,
   CheckCircle2,
-  Fish
+  Fish,
+  Backpack,
+  CalendarDays
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
@@ -147,9 +150,18 @@ export default function SrilankaNilaveliBeachGuidePage() {
           </div>
 
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#d4af37] text-xs font-mono font-bold uppercase tracking-widest backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Direct Booking • No Agent Fees</span>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#d4af37] text-xs font-mono font-bold uppercase tracking-widest backdrop-blur-md">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Direct Booking • No Agent Fees</span>
+              </div>
+              <div className="inline-flex items-center gap-3 text-white/60 text-[11px] font-mono uppercase tracking-wider">
+                <span className="inline-flex items-center gap-1.5">
+                  <CalendarDays className="w-3.5 h-3.5" /> Updated 2026
+                </span>
+                <span className="w-1 h-1 rounded-full bg-white/30" />
+                <span>8 min read</span>
+              </div>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight leading-[1.05]">
@@ -331,7 +343,7 @@ export default function SrilankaNilaveliBeachGuidePage() {
             <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1e3a2f]">How To Get To Nilaveli</h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <div className="p-6 rounded-2xl bg-white border border-[#1e3a2f]/10 space-y-3">
               <div className="w-9 h-9 rounded-full bg-[#1e3a2f] text-[#d4af37] flex items-center justify-center">
                 <Car className="w-4 h-4" />
@@ -348,6 +360,15 @@ export default function SrilankaNilaveliBeachGuidePage() {
               <h3 className="font-serif font-bold text-[#1e3a2f]">By Train + Taxi</h3>
               <p className="text-sm text-[#3a4d44] font-light leading-relaxed">
                 Direct trains run from Colombo Fort to Trincomalee, typically taking around 7 to 8 hours, followed by a short 20-30 minute tuk-tuk or taxi ride onward to Nilaveli.
+              </p>
+            </div>
+            <div className="p-6 rounded-2xl bg-white border border-[#1e3a2f]/10 space-y-3">
+              <div className="w-9 h-9 rounded-full bg-[#1e3a2f] text-[#d4af37] flex items-center justify-center">
+                <Plane className="w-4 h-4" />
+              </div>
+              <h3 className="font-serif font-bold text-[#1e3a2f]">By Domestic Flight</h3>
+              <p className="text-sm text-[#3a4d44] font-light leading-relaxed">
+                FitsAir and other domestic carriers occasionally connect Colombo (Ratmalana) to Trincomalee's China Bay Airport in under 90 minutes. Fares typically run USD 50–120 one way — check current schedules directly with the carrier, then a short taxi covers the final stretch to Nilaveli.
               </p>
             </div>
           </div>
@@ -481,6 +502,36 @@ export default function SrilankaNilaveliBeachGuidePage() {
                   <h3 className="font-serif font-bold text-sm text-[#1e3a2f] mb-1">{item.title}</h3>
                   <p className="text-xs text-[#3a4d44] font-light leading-relaxed">{item.text}</p>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT TO PACK */}
+      <section className="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="space-y-3 text-center">
+            <span className="text-xs font-mono font-bold text-[#1e3a2f] uppercase tracking-widest bg-[#1e3a2f]/5 px-3 py-1 rounded-md inline-flex items-center gap-1.5">
+              <Backpack className="w-4 h-4 text-[#d4af37]" /> What To Pack
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1e3a2f]">Nilaveli Beach Packing Checklist</h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3 bg-white border border-[#1e3a2f]/10 rounded-3xl p-6 md:p-8">
+            {[
+              "Reef-safe, high-SPF sunscreen — protect the coral at Pigeon Island",
+              "Rash guard or UV-protective swimwear for long stretches in the water",
+              "Waterproof bag or dry sack for valuables on the boat",
+              "Insect repellent for evening use",
+              "Light, breathable clothing — modest dress if visiting Koneswaram Temple",
+              "Underwater camera or a waterproof phone case",
+              "Reusable water bottle",
+              "Cash in Sri Lankan Rupees — nearest ATMs are in Trincomalee town"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
+                <span className="text-sm text-[#3a4d44] font-light leading-relaxed">{item}</span>
               </div>
             ))}
           </div>
