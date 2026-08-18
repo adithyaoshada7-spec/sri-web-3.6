@@ -825,6 +825,59 @@ export default function SrilankaJunePage() {
         </div>
       </section>
 
+      {/* SECTION 8.5: IS IT WORTH VISITING IN JUNE OR JULY? */}
+      <section className="py-20 px-4 md:px-8 bg-[#1e3a2f] text-white">
+        <div className="max-w-4xl mx-auto space-y-12">
+          <div className="text-center space-y-3">
+            <span className="text-xs uppercase tracking-widest text-[#d4af37] font-bold block">
+              June vs. July
+            </span>
+            <h2 className="text-2xl md:text-5xl font-serif text-white">
+              Is It Worth Visiting In June Or July?
+            </h2>
+            <p className="text-sm text-[#a3bfae] font-light max-w-2xl mx-auto leading-relaxed">
+              Both months sit inside the East Coast's dry season, so the weather question is basically a tie. The real difference is crowds, pricing, and how far in advance you need to plan.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="bg-white/5 border-2 border-[#d4af37]/50 p-7 rounded-3xl space-y-4 relative">
+              <span className="absolute -top-3 left-6 px-3 py-1 bg-[#d4af37] text-[#1e3a2f] text-[10px] font-mono font-bold uppercase tracking-wider rounded-full">
+                Better Value
+              </span>
+              <div className="flex items-center gap-2 text-[#d4af37] font-serif font-bold text-lg pt-1">
+                <Calendar className="w-5 h-5" /> June
+              </div>
+              <ul className="space-y-2.5 text-sm text-white/80 font-light leading-relaxed">
+                <li className="flex gap-2"><Check className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" /> East Coast is already fully dry and calm — same flat seas and snorkeling visibility as July.</li>
+                <li className="flex gap-2"><Check className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" /> Noticeably fewer crowds at Pigeon Island, Nilaveli and Trincomalee before the July–August rush.</li>
+                <li className="flex gap-2"><Check className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" /> Hotel rates are lower — you're booking just ahead of peak season pricing, not during it.</li>
+                <li className="flex gap-2"><Check className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" /> Boats, guides and rooms are easier to secure last-minute.</li>
+              </ul>
+            </div>
+
+            <div className="bg-white/5 border border-white/10 p-7 rounded-3xl space-y-4">
+              <div className="flex items-center gap-2 text-white/70 font-serif font-bold text-lg">
+                <Calendar className="w-5 h-5" /> July
+              </div>
+              <ul className="space-y-2.5 text-sm text-white/70 font-light leading-relaxed">
+                <li className="flex gap-2"><Info className="w-4 h-4 text-white/40 shrink-0 mt-0.5" /> Sea conditions are just as good, arguably at their absolute peak clarity alongside August.</li>
+                <li className="flex gap-2"><Info className="w-4 h-4 text-white/40 shrink-0 mt-0.5" /> This is peak East Coast season — expect busier beaches, boats, and restaurants.</li>
+                <li className="flex gap-2"><Info className="w-4 h-4 text-white/40 shrink-0 mt-0.5" /> Accommodation prices rise and popular hotels sell out — advance booking becomes essential.</li>
+                <li className="flex gap-2"><Info className="w-4 h-4 text-white/40 shrink-0 mt-0.5" /> Overlaps with European and Indian school-holiday travel, adding to the crowd.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 flex gap-4">
+            <ThumbsUp className="w-6 h-6 text-[#d4af37] shrink-0" />
+            <p className="text-sm text-white/80 font-light leading-relaxed">
+              <strong className="text-white font-bold">Our take: June is the better option.</strong> You get the exact same dry-season weather, calm seas, and snorkeling conditions as July, but with smaller crowds, lower prices, and far more flexible booking. Save July/August for if June simply doesn't fit your calendar — you won't get meaningfully better weather by waiting, just a busier and pricier trip.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 9: FREQUENTLY ASKED QUESTIONS */}
       <section className="py-20 md:py-32 px-4 md:px-8 bg-[#fcfbf7] border-b border-[#1e3a2f]/5">
         <div className="max-w-4xl mx-auto space-y-12">
