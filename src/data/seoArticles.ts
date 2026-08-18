@@ -242,5 +242,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/nilaveli-beach-travel-guide",
+    title: "Nilaveli Beach Travel Guide (2026) | Pigeon Island Snorkeling & Direct Booking",
+    description: "Everything to know about Nilaveli Beach, Sri Lanka: calm shallow swimming, Pigeon Island National Park snorkeling with turtles, best time to visit, where to stay, and direct WhatsApp booking — no agent fees.",
+    image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
   }
 ];
