@@ -676,7 +676,7 @@ export default function SrilankaJunePage() {
                   </p>
                   <Link
                     to="/trincomalee-travel-guide"
-                    className="inline-flex items-center justify-center gap-1.5 w-full px-4 py-2 border border-[#1e3a2f]/15 text-[#1e3a2f] font-bold uppercase tracking-wider text-[10px] rounded-full hover:border-[#d4af37] hover:text-[#d4af37] transition-all"
+                    className="btn-shine inline-flex items-center justify-center gap-1.5 w-full px-4 py-2 border border-[#1e3a2f]/15 text-[#1e3a2f] font-bold uppercase tracking-wider text-[10px] rounded-full hover:border-[#d4af37] hover:text-[#d4af37] transition-all"
                   >
                     Direct Book Trincomalee Activities
                   </Link>
