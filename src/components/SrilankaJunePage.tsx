@@ -23,7 +23,9 @@ import {
   Sun,
   CloudRain,
   Sunset,
-  Volume2
+  Volume2,
+  Mountain,
+  Droplets
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
@@ -37,6 +39,34 @@ export default function SrilankaJunePage() {
 
   const navigate = useNavigate();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [activeRegion, setActiveRegion] = useState<number>(0);
+
+  const regionWeather = [
+    {
+      name: "East Coast",
+      icon: Sun,
+      summary: "Sunny & Calm",
+      description: "June is one of the most reliable months here — long sunny days, calm seas, great snorkeling visibility, and peak conditions for surfing at Arugam Bay."
+    },
+    {
+      name: "South & West Coast",
+      icon: CloudRain,
+      summary: "Monsoon & Rough",
+      description: "Firmly inside the southwest monsoon — rough seas, strong winds, frequent rain. Swimming is often unsafe and beach days unreliable."
+    },
+    {
+      name: "Hill Country",
+      icon: Mountain,
+      summary: "Cool & Misty",
+      description: "Cool and misty with beautiful scenery. Expect clear mornings and rainy afternoons — plan outdoor activities early in the day."
+    },
+    {
+      name: "Cultural Triangle",
+      icon: Droplets,
+      summary: "Hot & Mostly Dry",
+      description: "Hot, mostly dry, and easy to explore, though humidity rises as the month goes on."
+    }
+  ];
 
   // Lead capture state
   const [leadForm, setLeadForm] = useState({
@@ -405,6 +435,73 @@ export default function SrilankaJunePage() {
             <p className="text-[10px] text-neutral-400 font-mono text-center">
               *Choose the East Coast in June for clean sand and calm turquoise bays.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3.5: WEATHER BY REGION (INTERACTIVE) */}
+      <section className="py-20 px-4 md:px-8 bg-white border-b border-[#1e3a2f]/5">
+        <div className="max-w-5xl mx-auto space-y-10">
+          <div className="text-center space-y-3">
+            <span className="text-xs uppercase tracking-widest text-[#d4af37] font-bold block">
+              Region By Region
+            </span>
+            <h2 className="text-2xl md:text-5xl font-serif text-[#1e3a2f]">
+              Sri Lanka's Weather In June
+            </h2>
+            <p className="text-sm text-[#3a4d44] font-light max-w-2xl mx-auto leading-relaxed">
+              Tap a region to see what June actually looks like there.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            {regionWeather.map((region, i) => (
+              <button
+                key={region.name}
+                onClick={() => setActiveRegion(i)}
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all border ${
+                  activeRegion === i
+                    ? "bg-[#1e3a2f] text-[#d4af37] border-[#1e3a2f]"
+                    : "bg-white text-[#1e3a2f]/60 border-[#1e3a2f]/15 hover:border-[#d4af37] hover:text-[#1e3a2f]"
+                }`}
+              >
+                <region.icon className="w-3.5 h-3.5" />
+                {region.name}
+              </button>
+            ))}
+          </div>
+
+          {/* All 4 regions render in the DOM at all times (prerender/crawler friendly) — the buttons above only toggle highlight styling below */}
+          <div className="grid sm:grid-cols-2 gap-5">
+            {regionWeather.map((region, i) => (
+              <div
+                key={region.name}
+                className={`p-6 md:p-7 rounded-3xl border transition-all space-y-3 ${
+                  activeRegion === i
+                    ? "bg-[#1e3a2f] border-[#1e3a2f] shadow-xl scale-[1.02]"
+                    : "bg-[#fcfbf7] border-[#1e3a2f]/10"
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${
+                    activeRegion === i ? "bg-[#d4af37] text-[#1e3a2f]" : "bg-[#1e3a2f] text-[#d4af37]"
+                  }`}>
+                    <region.icon className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className={`font-serif font-bold text-base ${activeRegion === i ? "text-white" : "text-[#1e3a2f]"}`}>
+                      {region.name}
+                    </h3>
+                    <span className={`text-[10px] font-mono uppercase tracking-wider font-bold ${activeRegion === i ? "text-[#d4af37]" : "text-[#d4af37]"}`}>
+                      {region.summary}
+                    </span>
+                  </div>
+                </div>
+                <p className={`text-xs leading-relaxed font-light ${activeRegion === i ? "text-white/80" : "text-[#3a4d44]"}`}>
+                  {region.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
