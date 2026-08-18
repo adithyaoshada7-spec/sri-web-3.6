@@ -108,6 +108,14 @@ export default function SrilankaNilaveliBeachGuidePage() {
     {
       q: "Nilaveli or Uppuveli — which should I stay in?",
       a: "Nilaveli is quieter, wider, and closest to the Pigeon Island boat launch — best for a relaxed, low-key stay. Uppuveli is livelier with more beach cafés and is closer to Trincomalee harbor for dolphin and whale watching."
+    },
+    {
+      q: "Is Nilaveli Beach better than Uppuveli Beach?",
+      a: "Honestly, many travelers rate Uppuveli slightly higher for a general beach stay — it's less crowded, cleaner, and the water shelves much more gently than Nilaveli's deeper, steeper drop-off. Nilaveli still wins if your main goal is being close to the Pigeon Island boat launch, but for calm, shallow swimming and a laid-back cafe scene, Uppuveli is the stronger all-round pick."
+    },
+    {
+      q: "How does Marble Beach compare to Nilaveli Beach, and is it better?",
+      a: "Marble Beach (about 30 minutes from Nilaveli, on Sri Lanka Navy land) is a different kind of beach entirely — smaller waves, noticeably clearer water, and a quieter, more sheltered feel. Many visitors who've done all three would rank the trio roughly Uppuveli > Marble Beach > Nilaveli for overall swimming experience, though Nilaveli still leads for snorkeling access thanks to Pigeon Island right offshore. It's worth combining a day trip to Marble Beach with your Nilaveli stay rather than treating it as a replacement."
     }
   ];
 
