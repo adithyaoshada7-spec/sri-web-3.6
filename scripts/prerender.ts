@@ -74,6 +74,29 @@ function generatePrerenderPages(): PrerenderPage[] {
   });
 
   // 2. SEO Articles (from the shared list)
+  const juneFaqList = [
+    { q: "Is June a good time to visit Sri Lanka?", a: "Yes, June is an exceptional month for Sri Lanka, provided you choose the East Coast (Trincomalee, Nilaveli, Passikudah, Arugam Bay) and the Cultural Triangle (Sigiriya, Dambulla). While the south-west coast experiences monsoon rains and rough seas, the east coast is dry, sunny, and enjoys calm, crystal-clear ocean waters." },
+    { q: "Should I completely avoid the South Coast in June?", a: "If dry beach days and calm ocean swimming are non-negotiable for you, then yes, avoid booking beach resorts on the South Coast (such as Mirissa, Galle, Hikkaduwa or Bentota). However, if you do not mind afternoon rain showers, want to enjoy lush greenery, surf-oriented vibe cultures, and take advantage of incredibly low luxury hotel rates, the south is still very much visitable." },
+    { q: "Can I still visit Mirissa and swim in June?", a: "You can visit Mirissa for its highly rated restaurants, cafes, and boutique properties, but swimming in the ocean is highly discouraged. The southwest monsoon makes the waves very powerful and produces dangerous undercurrents. Safe ocean swimming in June is found on the East Coast instead." },
+    { q: "Which coast has the absolute best weather in June?", a: "The East Coast has the absolute best weather, with average daily temperatures around 29°C to 33°C, minimal rainfall, and calm, glassy seas. The Cultural Triangle (in the north-central area) also enjoys wonderfully dry, sunny days." },
+    { q: "Where can I swim safely in the ocean in June?", a: "The safest places to swim in June are Trincomalee (Nilaveli and Uppuveli beaches) and Passikudah. Passikudah is particularly famous for having a shallow, protected bay where you can walk hundreds of meters out with calm, waist-deep water perfect for children." },
+    { q: "How much rain should I expect in June?", a: "On the southwest coast (Colombo, Galle, Bentota), expect heavy, short cloudbursts, usually in the late afternoon or evening, averaging 150-240mm for the month. On the East Coast (Trincomalee, Passikudah), rainfall is extremely sparse, often averaging less than 50mm, with most days remaining entirely dry and bright." },
+    { q: "Is Colombo rainy and wet in June?", a: "Yes, Colombo is in the southwest wet zone and experiences frequent rain showers and high humidity in June. It is best to use Colombo simply as an overnight transit stop upon arrival and head inland to the Cultural Triangle the following morning." },
+    { q: "Can I see wild elephants in Sri Lanka in June?", a: "Yes, absolutely! June is a brilliant month for elephant safaris. Minneriya National Park, located in the dry zone near Sigiriya, becomes a focal point as herds gather around the ancient reservoir. You can also spot them easily in Kaudulla or Hurulu Eco Park." },
+    { q: "Is Ella worth visiting in June or is it too rainy?", a: "Ella is absolutely worth visiting in June. Situated in the central highlands, its weather is highly dynamic. While you will likely experience fog, mist, and occasional afternoon rain showers, this actually enhances Ella's ethereal beauty, making the tea estates and waterfalls look spectacular. Mornings are often clear for hiking Little Adam's Peak." },
+    { q: "What clothes should I pack for a June trip to Sri Lanka?", a: "You need a dual pack: light, breathable linen or cotton garments, swimwear, sunglasses, and high-factor sunscreen for the sunny East Coast beaches, combined with a light rain jacket, hiking shoes, and a light fleece or sweater for the cooler, mistier central hills like Ella and Nuwara Eliya." },
+    { q: "Is Kandy rainy in June?", a: "Kandy is in a transition zone and experiences moderate showers, typically towards the late afternoon. The historic Temple of the Tooth is mostly indoors, making Kandy an easy and pleasant cultural stopover regardless of weather." },
+    { q: "Is snorkeling good at Pigeon Island in June?", a: "Yes, June is the absolute peak season for snorkeling at Pigeon Island National Park (off Nilaveli). The water clarity is superb, the ocean is extremely calm, and visitors regularly swim alongside green sea turtles and harmless blacktip reef sharks in waist-deep water." },
+    { q: "Is Arugam Bay good for beginner surfers in June?", a: "June is world-famous in Arugam Bay for surfing, attracting professionals with its massive, consistent Right Hand point breaks. While the main break is suited for experienced surfers, adjacent points like Baby Point and Elephant Rock are excellent, gentle spots for beginners with active surf schools." },
+    { q: "Are there flight connections between the south and east coast in June?", a: "While there are no major commercial scheduled jet lines, Cinnamon Air operates domestic air taxi sea planes linking Colombo International Airport (BIA) directly to Trincomalee and Dickwella, allowing couples and luxury travelers to bypass driving times entirely." },
+    { q: "Are Sri Lankan trains comfortable and safe during the monsoon?", a: "The legendary train journey between Kandy, Hatton, and Ella is fully operational in June. The trains travel at low, safe speeds. Booking a 1st Class air-conditioned cabin or 2nd Class reserved seat ensures total comfort, and the misty atmospheric mountain landscape is stunningly beautiful in June." },
+    { q: "Do Indian passport holders need a visa to visit in June?", a: "Yes, Indian travelers need to apply for an online Electronic Travel Authorization (ETA). You can check our detailed step-by-step visa guidelines over at our dedicated page to successfully apply." },
+    { q: "What is the average sea temperature in June?", a: "Around the East Coast, the sea temperature in June is a blissful 28°C to 29°C (82°F to 84°F), creating bath-like warmth that is incredibly comfortable for toddlers and long family snorkeling sessions." },
+    { q: "Can we still climb Sigiriya Rock Fortress in June?", a: "Yes, you can! Sigiriya sits in the dry zone and has excellent climbing conditions in June. It is highly recommended to start your climb at 7:00 AM to beat the mid-day dry heat and enjoy clear, endless views of the surrounding forest reserves." },
+    { q: "Are luxury boutique hotels offering cheap rates in June?", a: "Yes! Because many travelers mistakenly assume the entire island is under monsoon, five-star luxury resorts on the South Coast (traditional high-season zones) drop their rates by 40% to 60%, offering phenomenal luxury value. Even East Coast resorts offer great rates because the region is less commercialized." },
+    { q: "How do driving times compare in June due to monsoon rains?", a: "Sri Lanka's major highways (such as the Southern Expressway) are built to international standards with great drainage, keeping travel times constant. Normal interior routes can see minor delays during afternoon downpours, which is why we recommend choosing our customized, pre-vetted private drivers." }
+  ];
+
   const defaultArticleBodies: Record<string, string> = {
     "/sri-lanka-trip-cost-from-india": `
       <header>
@@ -900,6 +923,34 @@ function generatePrerenderPages(): PrerenderPage[] {
           <li><strong>How many days are recommended to see the major highlights?</strong> A 7 to 10 day itinerary is perfect to experience a beautiful combination of cultural ruins, mountain country, wildlife safaris, and golden sandy beaches.</li>
         </ul>
       </section>
+    `,
+    "/where-to-go-in-sri-lanka-in-june": `
+      <header>
+        <h1>Where To Go In Sri Lanka In June (2026 Guide)</h1>
+        <p><strong>Planning a trip to Sri Lanka in June? Avoid the southwest monsoon and discover why Trincomalee, Nilaveli, Passikudah, and the Cultural Triangle are the top choices for Indian families and couples.</strong></p>
+      </header>
+
+      <section>
+        <h2>Sri Lanka's Weather In June — Region By Region</h2>
+        <ul>
+          <li><strong>East Coast:</strong> June is one of the most reliable months here — long sunny days, calm seas, great snorkeling visibility, and peak conditions for surfing at Arugam Bay.</li>
+          <li><strong>South &amp; West Coast:</strong> Firmly inside the southwest monsoon — rough seas, strong winds, frequent rain. Swimming is often unsafe and beach days unreliable.</li>
+          <li><strong>Hill Country:</strong> Cool and misty with beautiful scenery. Expect clear mornings and rainy afternoons — plan outdoor activities early in the day.</li>
+          <li><strong>Cultural Triangle:</strong> Hot, mostly dry, and easy to explore, though humidity rises as the month goes on.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Is It Worth Visiting In June Or July?</h2>
+        <p>Both months sit inside the East Coast's dry season, so weather is basically a tie. June is the better-value pick: the same calm seas and snorkeling conditions as July, but with smaller crowds, lower hotel rates, and far easier last-minute booking. July matches June on conditions but is peak season — busier beaches, higher prices, and advance booking becomes essential.</p>
+      </section>
+
+      <section>
+        <h2>Frequently Asked Questions</h2>
+        <ul>
+          ${juneFaqList.map(faq => `<li><strong>${faq.q}</strong> ${faq.a}</li>`).join("\n          ")}
+        </ul>
+      </section>
     `
   };
 
@@ -1509,6 +1560,45 @@ function generatePrerenderPages(): PrerenderPage[] {
               }
             }
           ]
+        }, null, 2)
+      );
+    } else if (art.path === "/where-to-go-in-sri-lanka-in-june") {
+      schemas.push(
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": `${domain}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Travel Guides",
+              "item": `${domain}#guides-hub`
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Where To Go In June",
+              "item": `${domain}/where-to-go-in-sri-lanka-in-june`
+            }
+          ]
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": juneFaqList.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.a
+            }
+          }))
         }, null, 2)
       );
     }
