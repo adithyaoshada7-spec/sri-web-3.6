@@ -23,8 +23,7 @@ import {
   Sun,
   CloudRain,
   Sunset,
-  Volume2,
-  MessageCircle
+  Volume2
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
@@ -658,15 +657,6 @@ export default function SrilankaJunePage() {
                   >
                     Direct Book Nilaveli Activities
                   </Link>
-                  <a
-                    href="https://wa.me/94770424646?text=Hi!%20I%20want%20to%20arrange%20a%20Pigeon%20Island%20snorkeling%20boat%20trip%20from%20Nilaveli."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackEvent("whatsapp_click", "june_beaches", "nilaveli_pigeon_island")}
-                    className="inline-flex items-center justify-center gap-1.5 w-full px-4 py-2.5 bg-[#25D366] text-white font-bold uppercase tracking-wider text-[10px] rounded-full hover:bg-[#1ebe57] transition-all"
-                  >
-                    <MessageCircle className="w-3.5 h-3.5" /> WhatsApp: +94 77 042 4646
-                  </a>
                 </div>
               </div>
               <div className="p-6 bg-emerald-50 text-emerald-800 text-[10px] font-mono uppercase font-bold text-center border-t border-neutral-100">
@@ -703,15 +693,6 @@ export default function SrilankaJunePage() {
                   >
                     Direct Book Trincomalee Activities
                   </Link>
-                  <a
-                    href="https://wa.me/94770424646?text=Hi!%20I%20want%20to%20book%20the%20Dolphin%20Watching%20Cruise%20in%20Trincomalee."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackEvent("whatsapp_click", "june_beaches", "trincomalee_dolphin_watching")}
-                    className="inline-flex items-center justify-center gap-1.5 w-full px-4 py-2.5 bg-[#25D366] text-white font-bold uppercase tracking-wider text-[10px] rounded-full hover:bg-[#1ebe57] transition-all"
-                  >
-                    <MessageCircle className="w-3.5 h-3.5" /> WhatsApp: +94 77 042 4646
-                  </a>
                 </div>
               </div>
               <div className="p-6 bg-emerald-50 text-emerald-800 text-[10px] font-mono uppercase font-bold text-center border-t border-neutral-100">
