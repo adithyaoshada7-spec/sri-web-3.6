@@ -26,18 +26,18 @@ function generatePrerenderPages(): PrerenderPage[] {
   // 1. Homepage
   pages.push({
     path: "/",
-    title: "Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours",
-    description: "An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka.",
+    title: "Plan Sri Lanka | Bespoke Luxury Tours & Travel Planner",
+    description: "Your bespoke Sri Lanka travel planner — an exclusive concierge crafting tailored bespoke tours across Sri Lanka's most extraordinary landscapes for discerning families and couples.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200",
     ogType: "website",
     canonicalUrl: `${domain}/`,
     bodyHtml: `
       <header>
-        <h1>Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours</h1>
-        <p><strong>An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka.</strong></p>
+        <h1>Plan Sri Lanka | Bespoke Luxury Tours & Travel Planner</h1>
+        <p><strong>Your bespoke Sri Lanka travel planner — an exclusive concierge crafting tailored bespoke tours across Sri Lanka's most extraordinary landscapes for discerning families and couples.</strong></p>
       </header>
       <section>
-        <h2>Bespoke Curated Experiences</h2>
+        <h2>Bespoke Sri Lanka Tours & Travel Planning</h2>
         <ul>
           <li><strong>Vibe Tour Sri Lanka</strong> - Elite luxury coastal getaway and customized family discovery sessions from Colombo Marina.</li>
           <li><strong>Cultural Triangle</strong> - Explore ancient cave temples, lion rock fortress, and sacred relics with private English-fluent guides.</li>
