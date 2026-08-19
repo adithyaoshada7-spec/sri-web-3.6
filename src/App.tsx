@@ -25,10 +25,11 @@ import { activities } from "./data/activities";
 
 const HomeMetadata = () => {
   usePageMetadata({
-    title: "Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours",
-    description: "An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka.",
+    title: "Plan Sri Lanka | Bespoke Luxury Tours & Travel Planner",
+    description: "Your bespoke Sri Lanka travel planner — an exclusive concierge crafting tailored bespoke tours across Sri Lanka's most extraordinary landscapes for discerning families and couples.",
     canonicalUrl: "https://plan-srilanka.com/",
-    ogUrl: "https://plan-srilanka.com/"
+    ogUrl: "https://plan-srilanka.com/",
+    ogType: "website"
   });
   return null;
 };
@@ -120,7 +121,7 @@ export default function App() {
           transition={{ duration: 1.5 }}
           className="text-white text-[11px] uppercase mb-8 font-medium"
         >
-          Bespoke Journeys • Unrivalled Service
+          Bespoke Sri Lanka Journeys • Unrivalled Service
         </motion.p>
         <motion.h1 
           {...fadeUp}
@@ -172,7 +173,7 @@ export default function App() {
           className="text-luxury-black/70 space-y-6 text-base md:text-lg font-light leading-relaxed"
         >
           <p>
-            Unforgettable Vibe Tour Sri Lanka where coastal beauty, stylish experiences, music, food, and relaxed luxury come together. Designed for travelers who want more than just a trip, this tour creates moments full of culture, connection, celebration, and unforgettable memories inspired by the charm and energy of the premium island lifestyle.
+            As a dedicated bespoke Sri Lanka travel planner, we craft an unforgettable Vibe Tour Sri Lanka where coastal beauty, stylish experiences, music, food, and relaxed luxury come together. Designed for travelers who want more than just a trip, every bespoke tour creates moments full of culture, connection, celebration, and unforgettable memories inspired by the charm and energy of the premium island lifestyle.
           </p>
           <p>
             Feel the premium vibe in Sri Lanka—with complete privacy, exceptional luxury, and soulful connection.
@@ -421,13 +422,13 @@ export default function App() {
                   "url": "https://plan-srilanka.com/",
                   "logo": "https://plan-srilanka.com/logo.png",
                   "image": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
-                  "description": "Exclusive boutique luxury travel concierge for families, couples, and honeymoons seeking bespoke Sri Lanka travel plans, vacation packages, and curated Vibe Tours.",
+                  "description": "Exclusive boutique luxury travel planner and concierge for families, couples, and honeymoons seeking bespoke tours, tailored Sri Lanka travel plans, vacation packages, and curated Vibe Tours.",
                   "telephone": "+94722968210",
                   "priceRange": "$$$",
                   "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "Bespoke Regency Towers, Colpetty",
-                    "addressLocality": "Cardiff",
+                    "addressLocality": "Colombo",
                     "addressRegion": "Western Province",
                     "postalCode": "00300",
                     "addressCountry": "LK"
