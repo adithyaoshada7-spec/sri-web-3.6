@@ -143,6 +143,14 @@ const getArticleMeta = (path: string) => {
         readTime: "8 Min Read",
         badge: "Smart Outbound"
       };
+    case "/sri-lanka-13-day-tuk-tuk-itinerary":
+      return {
+        category: "Self-Drive Review",
+        tag: "Tuk-Tuk Route",
+        icon: <Globe className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "11 Min Read",
+        badge: "Reader Itinerary"
+      };
     case "/whale-watching-mirissa":
       return {
         category: "Marine Wildlife",
