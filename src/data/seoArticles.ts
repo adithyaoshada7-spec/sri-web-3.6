@@ -37,6 +37,15 @@ export const seoArticles: Seometa[] = [
     priority: "0.95"
   },
   {
+    path: "/sri-lanka-13-day-tuk-tuk-itinerary",
+    title: "13-Night Sri Lanka Tuk-Tuk Itinerary Review: Negombo to Colombo (2026)",
+    description: "An expert review of a 13-night self-drive tuk-tuk itinerary across Sri Lanka: Negombo, Kandy, Sigiriya, Trincomalee, Pasikudah, Ella, Mirissa & Colombo. Real tuk-tuk drive times, pacing feedback, and the one route fix we'd make.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.9"
+  },
+  {
     path: "/sri-lanka-visa-for-indians",
     title: "Sri Lanka Visa For Indians (2026 ETA Guide) | Apply Online & Entry Requirements",
     description: "Unravel the Sri Lanka Visa for Indians. Discover how to get your Sri Lanka Tourist ETA online, latest requirements, application steps, and how to stay stress-free at the airport.",

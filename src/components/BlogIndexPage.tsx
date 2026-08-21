@@ -120,6 +120,15 @@ const articleCategories = [
     icon: <Globe className="w-5 h-5 text-luxury-gold" />,
     articles: [
       {
+        path: "/sri-lanka-13-day-tuk-tuk-itinerary",
+        title: "13-Night Sri Lanka Tuk-Tuk Itinerary Review (2026)",
+        desc: "A reader-submitted self-drive tuk-tuk route reviewed leg by leg: real tuk-tuk drive times, what's working, and the one reorder we'd make to avoid a 9-hour driving day.",
+        image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "11 Min Read",
+        badge: "Self-Drive Review",
+        tag: "Tuk-Tuk Route"
+      },
+      {
         path: "/best-things-to-do-sri-lanka-first-time-visitors",
         title: "Best Things to Do in Sri Lanka for First-Time Visitors (2026 Guide)",
         desc: "The ultimate field-tested first timer's guide. Discover what experiences are worth paying for, what to avoid, interactive activity matchers, local datasets, and before-you-fly checklists.",

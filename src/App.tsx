@@ -38,6 +38,7 @@ const ExperienceDetail = lazy(() => import("./components/ExperienceDetail"));
 const SrilankaCostPage = lazy(() => import("./components/SrilankaCostPage"));
 const SrilankaItineraryPage = lazy(() => import("./components/SrilankaItineraryPage"));
 const SrilankaTenDayItineraryPage = lazy(() => import("./components/SrilankaTenDayItineraryPage"));
+const SrilankaTukTukItineraryReviewPage = lazy(() => import("./components/SrilankaTukTukItineraryReviewPage"));
 const SrilankaVisaPage = lazy(() => import("./components/SrilankaVisaPage"));
 const SrilankaBestTimePage = lazy(() => import("./components/SrilankaBestTimePage"));
 const SrilankaFamilyPage = lazy(() => import("./components/SrilankaFamilyPage"));
@@ -560,6 +561,16 @@ export default function App() {
           </Suspense>
         } />
 
+        <Route path="/sri-lanka-13-day-tuk-tuk-itinerary" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaTukTukItineraryReviewPage />
+          </Suspense>
+        } />
+
         <Route path="/sri-lanka-visa-for-indians" element={
           <Suspense fallback={
             <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
@@ -995,6 +1006,7 @@ export default function App() {
             </div>
             <div className="space-y-3">
               {[
+                { title: "13-Night Tuk-Tuk Itinerary Review (2026)", path: "/sri-lanka-13-day-tuk-tuk-itinerary", badge: "Self-Drive Review", desc: "Real tuk-tuk drive times & a pacing fix for an East Coast + hills loop." },
                 { title: "Mirissa Whale Watching Guide (2026)", path: "/whale-watching-mirissa", badge: "Trending +900%", desc: "Blue whales, 6:00 AM harbour timing & boat costs." },
                 { title: "Plan a Sri Lanka Train Trip (2026)", path: "/how-to-plan-a-train-trip-in-sri-lanka", badge: "Rail Master Guide", desc: "Settle ticket bookings, cabin classes, and routes." },
                 { title: "US Travel Guide for Americans", path: "/sri-lanka-travel-guide-for-americans", badge: "US Travelers", desc: "Monsoon navigation, visas & dollar purchase value." },
