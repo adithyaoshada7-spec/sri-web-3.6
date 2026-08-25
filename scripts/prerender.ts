@@ -26,18 +26,18 @@ function generatePrerenderPages(): PrerenderPage[] {
   // 1. Homepage
   pages.push({
     path: "/",
-    title: "Plan Sri Lanka | Bespoke Luxury Tours & Travel Planner",
-    description: "Your bespoke Sri Lanka travel planner — an exclusive concierge crafting tailored bespoke tours across Sri Lanka's most extraordinary landscapes for discerning families and couples.",
+    title: "Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours",
+    description: "An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka.",
     image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200",
     ogType: "website",
     canonicalUrl: `${domain}/`,
     bodyHtml: `
       <header>
-        <h1>Plan Sri Lanka | Bespoke Luxury Tours & Travel Planner</h1>
-        <p><strong>Your bespoke Sri Lanka travel planner — an exclusive concierge crafting tailored bespoke tours across Sri Lanka's most extraordinary landscapes for discerning families and couples.</strong></p>
+        <h1>Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours</h1>
+        <p><strong>An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka.</strong></p>
       </header>
       <section>
-        <h2>Bespoke Sri Lanka Tours & Travel Planning</h2>
+        <h2>Bespoke Curated Experiences</h2>
         <ul>
           <li><strong>Vibe Tour Sri Lanka</strong> - Elite luxury coastal getaway and customized family discovery sessions from Colombo Marina.</li>
           <li><strong>Cultural Triangle</strong> - Explore ancient cave temples, lion rock fortress, and sacred relics with private English-fluent guides.</li>
@@ -74,29 +74,6 @@ function generatePrerenderPages(): PrerenderPage[] {
   });
 
   // 2. SEO Articles (from the shared list)
-  const juneFaqList = [
-    { q: "Is June a good time to visit Sri Lanka?", a: "Yes, June is an exceptional month for Sri Lanka, provided you choose the East Coast (Trincomalee, Nilaveli, Passikudah, Arugam Bay) and the Cultural Triangle (Sigiriya, Dambulla). While the south-west coast experiences monsoon rains and rough seas, the east coast is dry, sunny, and enjoys calm, crystal-clear ocean waters." },
-    { q: "Should I completely avoid the South Coast in June?", a: "If dry beach days and calm ocean swimming are non-negotiable for you, then yes, avoid booking beach resorts on the South Coast (such as Mirissa, Galle, Hikkaduwa or Bentota). However, if you do not mind afternoon rain showers, want to enjoy lush greenery, surf-oriented vibe cultures, and take advantage of incredibly low luxury hotel rates, the south is still very much visitable." },
-    { q: "Can I still visit Mirissa and swim in June?", a: "You can visit Mirissa for its highly rated restaurants, cafes, and boutique properties, but swimming in the ocean is highly discouraged. The southwest monsoon makes the waves very powerful and produces dangerous undercurrents. Safe ocean swimming in June is found on the East Coast instead." },
-    { q: "Which coast has the absolute best weather in June?", a: "The East Coast has the absolute best weather, with average daily temperatures around 29°C to 33°C, minimal rainfall, and calm, glassy seas. The Cultural Triangle (in the north-central area) also enjoys wonderfully dry, sunny days." },
-    { q: "Where can I swim safely in the ocean in June?", a: "The safest places to swim in June are Trincomalee (Nilaveli and Uppuveli beaches) and Passikudah. Passikudah is particularly famous for having a shallow, protected bay where you can walk hundreds of meters out with calm, waist-deep water perfect for children." },
-    { q: "How much rain should I expect in June?", a: "On the southwest coast (Colombo, Galle, Bentota), expect heavy, short cloudbursts, usually in the late afternoon or evening, averaging 150-240mm for the month. On the East Coast (Trincomalee, Passikudah), rainfall is extremely sparse, often averaging less than 50mm, with most days remaining entirely dry and bright." },
-    { q: "Is Colombo rainy and wet in June?", a: "Yes, Colombo is in the southwest wet zone and experiences frequent rain showers and high humidity in June. It is best to use Colombo simply as an overnight transit stop upon arrival and head inland to the Cultural Triangle the following morning." },
-    { q: "Can I see wild elephants in Sri Lanka in June?", a: "Yes, absolutely! June is a brilliant month for elephant safaris. Minneriya National Park, located in the dry zone near Sigiriya, becomes a focal point as herds gather around the ancient reservoir. You can also spot them easily in Kaudulla or Hurulu Eco Park." },
-    { q: "Is Ella worth visiting in June or is it too rainy?", a: "Ella is absolutely worth visiting in June. Situated in the central highlands, its weather is highly dynamic. While you will likely experience fog, mist, and occasional afternoon rain showers, this actually enhances Ella's ethereal beauty, making the tea estates and waterfalls look spectacular. Mornings are often clear for hiking Little Adam's Peak." },
-    { q: "What clothes should I pack for a June trip to Sri Lanka?", a: "You need a dual pack: light, breathable linen or cotton garments, swimwear, sunglasses, and high-factor sunscreen for the sunny East Coast beaches, combined with a light rain jacket, hiking shoes, and a light fleece or sweater for the cooler, mistier central hills like Ella and Nuwara Eliya." },
-    { q: "Is Kandy rainy in June?", a: "Kandy is in a transition zone and experiences moderate showers, typically towards the late afternoon. The historic Temple of the Tooth is mostly indoors, making Kandy an easy and pleasant cultural stopover regardless of weather." },
-    { q: "Is snorkeling good at Pigeon Island in June?", a: "Yes, June is the absolute peak season for snorkeling at Pigeon Island National Park (off Nilaveli). The water clarity is superb, the ocean is extremely calm, and visitors regularly swim alongside green sea turtles and harmless blacktip reef sharks in waist-deep water." },
-    { q: "Is Arugam Bay good for beginner surfers in June?", a: "June is world-famous in Arugam Bay for surfing, attracting professionals with its massive, consistent Right Hand point breaks. While the main break is suited for experienced surfers, adjacent points like Baby Point and Elephant Rock are excellent, gentle spots for beginners with active surf schools." },
-    { q: "Are there flight connections between the south and east coast in June?", a: "While there are no major commercial scheduled jet lines, Cinnamon Air operates domestic air taxi sea planes linking Colombo International Airport (BIA) directly to Trincomalee and Dickwella, allowing couples and luxury travelers to bypass driving times entirely." },
-    { q: "Are Sri Lankan trains comfortable and safe during the monsoon?", a: "The legendary train journey between Kandy, Hatton, and Ella is fully operational in June. The trains travel at low, safe speeds. Booking a 1st Class air-conditioned cabin or 2nd Class reserved seat ensures total comfort, and the misty atmospheric mountain landscape is stunningly beautiful in June." },
-    { q: "Do Indian passport holders need a visa to visit in June?", a: "Yes, Indian travelers need to apply for an online Electronic Travel Authorization (ETA). You can check our detailed step-by-step visa guidelines over at our dedicated page to successfully apply." },
-    { q: "What is the average sea temperature in June?", a: "Around the East Coast, the sea temperature in June is a blissful 28°C to 29°C (82°F to 84°F), creating bath-like warmth that is incredibly comfortable for toddlers and long family snorkeling sessions." },
-    { q: "Can we still climb Sigiriya Rock Fortress in June?", a: "Yes, you can! Sigiriya sits in the dry zone and has excellent climbing conditions in June. It is highly recommended to start your climb at 7:00 AM to beat the mid-day dry heat and enjoy clear, endless views of the surrounding forest reserves." },
-    { q: "Are luxury boutique hotels offering cheap rates in June?", a: "Yes! Because many travelers mistakenly assume the entire island is under monsoon, five-star luxury resorts on the South Coast (traditional high-season zones) drop their rates by 40% to 60%, offering phenomenal luxury value. Even East Coast resorts offer great rates because the region is less commercialized." },
-    { q: "How do driving times compare in June due to monsoon rains?", a: "Sri Lanka's major highways (such as the Southern Expressway) are built to international standards with great drainage, keeping travel times constant. Normal interior routes can see minor delays during afternoon downpours, which is why we recommend choosing our customized, pre-vetted private drivers." }
-  ];
-
   const defaultArticleBodies: Record<string, string> = {
     "/sri-lanka-trip-cost-from-india": `
       <header>
@@ -924,31 +901,54 @@ function generatePrerenderPages(): PrerenderPage[] {
         </ul>
       </section>
     `,
-    "/where-to-go-in-sri-lanka-in-june": `
+    "/sri-lanka-13-day-tuk-tuk-itinerary": `
       <header>
-        <h1>Where To Go In Sri Lanka In June (2026 Guide)</h1>
-        <p><strong>Planning a trip to Sri Lanka in June? Avoid the southwest monsoon and discover why Trincomalee, Nilaveli, Passikudah, and the Cultural Triangle are the top choices for Indian families and couples.</strong></p>
+        <h1>13-Day Sri Lanka Tuk-Tuk Itinerary & WhatsApp Rental Booking (2026)</h1>
+        <p><strong>Self-drive Sri Lanka across 13 days by Tuk-Tuk! Complete loop itinerary (Negombo, Sigiriya, Kandy, Nuwara Eliya, Ella, Yala, Hiriketiya, Galle Fort), driving permit guide, and direct WhatsApp Tuk-Tuk booking.</strong></p>
       </header>
 
       <section>
-        <h2>Sri Lanka's Weather In June — Region By Region</h2>
+        <h2>The Ultimate 1,100 km Self-Drive Tuk-Tuk Loop</h2>
+        <p>Renting and driving your own Tuk-Tuk (three-wheeler) across Sri Lanka provides unmatched freedom to explore rural backroads, ancient ruins, tea plantations, and southern surf breaks at your own pace. With 24/7 roadside assistance, comprehensive insurance, and full Automobile Association of Ceylon (AAC) driving permit processing, self-driving is safe, legal, and unforgettable.</p>
+        
+        <h3>13-Day Route Overview:</h3>
         <ul>
-          <li><strong>East Coast:</strong> June is one of the most reliable months here — long sunny days, calm seas, great snorkeling visibility, and peak conditions for surfing at Arugam Bay.</li>
-          <li><strong>South &amp; West Coast:</strong> Firmly inside the southwest monsoon — rough seas, strong winds, frequent rain. Swimming is often unsafe and beach days unreliable.</li>
-          <li><strong>Hill Country:</strong> Cool and misty with beautiful scenery. Expect clear mornings and rainy afternoons — plan outdoor activities early in the day.</li>
-          <li><strong>Cultural Triangle:</strong> Hot, mostly dry, and easy to explore, though humidity rises as the month goes on.</li>
+          <li><strong>Day 1:</strong> Negombo / Airport Arrival, 1-on-1 Driving Lesson, AAC License Endorsement & Sunset Drive.</li>
+          <li><strong>Day 2:</strong> Negombo to Sigiriya (145 km) via rural coconut highways & Kurunegala boulder peaks.</li>
+          <li><strong>Day 3:</strong> Sigiriya Lion Rock, Pidurangala sunrise hike & ancient Polonnaruwa ruins.</li>
+          <li><strong>Day 4:</strong> Sigiriya to Kandy (90 km) via Dambulla Golden Cave Temples & Matale spice groves.</li>
+          <li><strong>Day 5:</strong> Kandy to Nuwara Eliya (78 km) – Climbing Ramboda Pass & Ceylon tea factory tours.</li>
+          <li><strong>Day 6:</strong> Nuwara Eliya to Ella (60 km) – Misty hairpins, Nine Arch Bridge & Ravana Falls.</li>
+          <li><strong>Day 7:</strong> Ella Adventures – Little Adam's Peak trek, Flying Ravana zipline & mountain shacks.</li>
+          <li><strong>Day 8:</strong> Ella to Udawalawe (100 km) – Descending to elephant plains & 4x4 open-top safari.</li>
+          <li><strong>Day 9:</strong> Udawalawe to Hiriketiya (75 km) – Southern ocean arrival & horseshoe surf bay.</li>
+          <li><strong>Day 10:</strong> Hiriketiya to Mirissa & Weligama (35 km) – Coconut Tree Hill, secret beaches & sunset surf.</li>
+          <li><strong>Day 11:</strong> Weligama to Galle Dutch Fort (30 km) – Stilt fishermen & UNESCO cobblestone ramparts.</li>
+          <li><strong>Day 12:</strong> Galle to Bentota (55 km) – Coastal A2 road & Madu Ganga mangrove boat safari.</li>
+          <li><strong>Day 13:</strong> Bentota to Colombo / CMB Airport (85 km) – Souvenirs, vehicle return handover & departure.</li>
         </ul>
       </section>
 
       <section>
-        <h2>Is It Worth Visiting In June Or July?</h2>
-        <p>Both months sit inside the East Coast's dry season, so weather is basically a tie. June is the better-value pick: the same calm seas and snorkeling conditions as July, but with smaller crowds, lower hotel rates, and far easier last-minute booking. July matches June on conditions but is peak season — busier beaches, higher prices, and advance booking becomes essential.</p>
+        <h2>Tuk-Tuk Rental Rates & Inclusions</h2>
+        <p>Self-drive Tuk-Tuk rentals start from <strong>$17 USD per day (approx. ₹1,450 INR)</strong> with substantial discounts for long-term adventures. Every rental package includes:</p>
+        <ul>
+          <li>Official Sri Lankan AAC Driving Permit Endorsement (handled before arrival).</li>
+          <li>Comprehensive Full Coverage Insurance with $0 excess.</li>
+          <li>Mandatory 1-on-1 driving lesson and road safety certification.</li>
+          <li>24/7 Islandwide WhatsApp Roadside Assistance & Mobile Mechanic Dispatch.</li>
+          <li>Bluetooth audio speaker, phone mount with USB fast charger, spare tire, and tool kit.</li>
+          <li>Optional surfboard foam roof racks for coastal surf tours.</li>
+        </ul>
       </section>
 
       <section>
         <h2>Frequently Asked Questions</h2>
         <ul>
-          ${juneFaqList.map(faq => `<li><strong>${faq.q}</strong> ${faq.a}</li>`).join("\n          ")}
+          <li><strong>Can foreigners drive a Tuk-Tuk legally in Sri Lanka?</strong> Yes, provided your national license is officially endorsed by the Automobile Association of Ceylon (AAC). Plan Sri Lanka processes this endorsement in advance.</li>
+          <li><strong>What is the Tuk-Tuk speed limit?</strong> The strict national speed limit for three-wheelers is 40 km/h.</li>
+          <li><strong>Are Tuk-Tuks allowed on expressways?</strong> No, Tuk-Tuks are prohibited on Class-E Expressways and must use scenic A and B roads.</li>
+          <li><strong>How do I book on WhatsApp?</strong> Use our interactive booking tool or message us directly on WhatsApp at +94 72 296 8210 to lock in vehicle dates.</li>
         </ul>
       </section>
     `
@@ -1562,7 +1562,9 @@ function generatePrerenderPages(): PrerenderPage[] {
           ]
         }, null, 2)
       );
-    } else if (art.path === "/where-to-go-in-sri-lanka-in-june") {
+    }
+
+    if (art.path === "/sri-lanka-13-day-tuk-tuk-itinerary") {
       schemas.push(
         JSON.stringify({
           "@context": "https://schema.org",
@@ -1577,28 +1579,151 @@ function generatePrerenderPages(): PrerenderPage[] {
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Travel Guides",
-              "item": `${domain}#guides-hub`
+              "name": "Itineraries",
+              "item": `${domain}/sri-lanka-7-day-itinerary`
             },
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "Where To Go In June",
-              "item": `${domain}/where-to-go-in-sri-lanka-in-june`
+              "name": "13-Day Tuk-Tuk Itinerary & Booking",
+              "item": `${domain}/sri-lanka-13-day-tuk-tuk-itinerary`
             }
           ]
         }, null, 2),
         JSON.stringify({
           "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Sri Lanka 13-Day Self-Drive Tuk-Tuk Rental & Adventure Package",
+          "description": "Comprehensive self-drive Tuk-Tuk rental in Sri Lanka including AAC driving permit endorsement, comprehensive insurance, 1-on-1 driving lesson, 24/7 roadside assistance, and phone mount.",
+          "image": art.image,
+          "brand": {
+            "@type": "Brand",
+            "name": "Plan Sri Lanka Tuk-Tuk Adventures"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "17.00",
+            "priceCurrency": "USD",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock",
+            "url": `${domain}/sri-lanka-13-day-tuk-tuk-itinerary`
+          }
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": juneFaqList.map(faq => ({
-            "@type": "Question",
-            "name": faq.q,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": faq.a
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can foreigners legally drive a Tuk-Tuk in Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! However, Sri Lankan law strictly requires your regular home driving license or IDP to be officially endorsed by the Automobile Association of Ceylon (AAC). Plan Sri Lanka handles this endorsement ahead of time so your permit is ready upon arrival."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "I have never driven a Tuk-Tuk before. Is it easy to learn?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! On Day 1 in Negombo, we provide a mandatory, comprehensive 1-on-1 driving lesson with our licensed instructor until you feel 100% confident."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens if my Tuk-Tuk breaks down in the mountains?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Every rental includes 24/7 on-demand roadside assistance across the entire island with local mechanics in every village and live WhatsApp dispatch."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are Tuk-Tuks allowed on Sri Lankan highways?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Three-wheelers are prohibited from Class-E Expressways and must use scenic A and B roads."
+              }
             }
-          }))
+          ]
+        }, null, 2)
+      );
+    }
+
+    if (art.path === "/sri-lanka-self-drive-tuk-tuk-rental-guide") {
+      schemas.push(
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": `${domain}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Tuk-Tuk Travel",
+              "item": `${domain}/sri-lanka-13-day-tuk-tuk-itinerary`
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Self-Drive Rules & TukTukRental Guide",
+              "item": `${domain}/sri-lanka-self-drive-tuk-tuk-rental-guide`
+            }
+          ]
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Self-Drive Sri Lanka Tuk-Tuk Rental & Permit (Powered by TukTukRental.com)",
+          "description": "Verified self-drive Tuk-Tuk rental in Sri Lanka. Includes Automobile Association of Ceylon (AAC) driving endorsement, $0 excess comprehensive insurance, 1-on-1 driving lesson, and 24/7 on-road mechanics.",
+          "image": art.image,
+          "brand": {
+            "@type": "Brand",
+            "name": "TukTukRental.com"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "17.00",
+            "priceCurrency": "USD",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock",
+            "url": `${domain}/sri-lanka-self-drive-tuk-tuk-rental-guide`
+          }
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can foreigners legally drive a Tuk-Tuk in Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Foreign tourists can legally drive a tuk-tuk in Sri Lanka with an Automobile Association of Ceylon (AAC) endorsement, which is processed by our partner tuktukrental.com in advance."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the speed limit for Tuk-Tuks in Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The strict legal maximum speed limit for three-wheelers in Sri Lanka is 40 km/h across all roads. Tuk-tuks are strictly forbidden on expressways."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does tuktukrental.com benefit local communities?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Vehicles are rented directly from local Sri Lankan families, providing them with stable, fair monthly incomes."
+              }
+            }
+          ]
         }, null, 2)
       );
     }

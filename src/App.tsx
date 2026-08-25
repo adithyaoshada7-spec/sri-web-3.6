@@ -25,11 +25,10 @@ import { activities } from "./data/activities";
 
 const HomeMetadata = () => {
   usePageMetadata({
-    title: "Plan Sri Lanka | Bespoke Luxury Tours & Travel Planner",
-    description: "Your bespoke Sri Lanka travel planner — an exclusive concierge crafting tailored bespoke tours across Sri Lanka's most extraordinary landscapes for discerning families and couples.",
+    title: "Plan Sri Lanka | Curated Luxury Travel & Bespoke Vibe Tours",
+    description: "An exclusive travel concierge for high-net-worth individuals and families seeking extraordinary, tailored journeys across the majestic landscapes of Sri Lanka.",
     canonicalUrl: "https://plan-srilanka.com/",
-    ogUrl: "https://plan-srilanka.com/",
-    ogType: "website"
+    ogUrl: "https://plan-srilanka.com/"
   });
   return null;
 };
@@ -38,7 +37,6 @@ const ExperienceDetail = lazy(() => import("./components/ExperienceDetail"));
 const SrilankaCostPage = lazy(() => import("./components/SrilankaCostPage"));
 const SrilankaItineraryPage = lazy(() => import("./components/SrilankaItineraryPage"));
 const SrilankaTenDayItineraryPage = lazy(() => import("./components/SrilankaTenDayItineraryPage"));
-const SrilankaTukTukItineraryReviewPage = lazy(() => import("./components/SrilankaTukTukItineraryReviewPage"));
 const SrilankaVisaPage = lazy(() => import("./components/SrilankaVisaPage"));
 const SrilankaBestTimePage = lazy(() => import("./components/SrilankaBestTimePage"));
 const SrilankaFamilyPage = lazy(() => import("./components/SrilankaFamilyPage"));
@@ -68,8 +66,8 @@ const SrilankaFlightsGuidePage = lazy(() => import("./components/SrilankaFlights
 const SrilankaFlightSearchToolBlogPage = lazy(() => import("./components/SrilankaFlightSearchToolBlogPage"));
 const SrilankaHowToUsePlannerPage = lazy(() => import("./components/SrilankaHowToUsePlannerPage"));
 const SrilankaMirissaWhaleWatchingPage = lazy(() => import("./components/SrilankaMirissaWhaleWatchingPage"));
-const SrilankaTrincomaleeTravelGuidePage = lazy(() => import("./components/SrilankaTrincomaleeTravelGuidePage"));
-const SrilankaNilaveliBeachGuidePage = lazy(() => import("./components/SrilankaNilaveliBeachGuidePage"));
+const SrilankaThirteenDayTukTukItineraryPage = lazy(() => import("./components/SrilankaThirteenDayTukTukItineraryPage"));
+const SrilankaSelfDriveTukTukPage = lazy(() => import("./components/SrilankaSelfDriveTukTukPage"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -122,7 +120,7 @@ export default function App() {
           transition={{ duration: 1.5 }}
           className="text-white text-[11px] uppercase mb-8 font-medium"
         >
-          Bespoke Sri Lanka Journeys • Unrivalled Service
+          Bespoke Journeys • Unrivalled Service
         </motion.p>
         <motion.h1 
           {...fadeUp}
@@ -174,7 +172,7 @@ export default function App() {
           className="text-luxury-black/70 space-y-6 text-base md:text-lg font-light leading-relaxed"
         >
           <p>
-            As a dedicated bespoke Sri Lanka travel planner, we craft an unforgettable Vibe Tour Sri Lanka where coastal beauty, stylish experiences, music, food, and relaxed luxury come together. Designed for travelers who want more than just a trip, every bespoke tour creates moments full of culture, connection, celebration, and unforgettable memories inspired by the charm and energy of the premium island lifestyle.
+            Unforgettable Vibe Tour Sri Lanka where coastal beauty, stylish experiences, music, food, and relaxed luxury come together. Designed for travelers who want more than just a trip, this tour creates moments full of culture, connection, celebration, and unforgettable memories inspired by the charm and energy of the premium island lifestyle.
           </p>
           <p>
             Feel the premium vibe in Sri Lanka—with complete privacy, exceptional luxury, and soulful connection.
@@ -423,13 +421,13 @@ export default function App() {
                   "url": "https://plan-srilanka.com/",
                   "logo": "https://plan-srilanka.com/logo.png",
                   "image": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
-                  "description": "Exclusive boutique luxury travel planner and concierge for families, couples, and honeymoons seeking bespoke tours, tailored Sri Lanka travel plans, vacation packages, and curated Vibe Tours.",
+                  "description": "Exclusive boutique luxury travel concierge for families, couples, and honeymoons seeking bespoke Sri Lanka travel plans, vacation packages, and curated Vibe Tours.",
                   "telephone": "+94722968210",
                   "priceRange": "$$$",
                   "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "Bespoke Regency Towers, Colpetty",
-                    "addressLocality": "Colombo",
+                    "addressLocality": "Cardiff",
                     "addressRegion": "Western Province",
                     "postalCode": "00300",
                     "addressCountry": "LK"
@@ -563,11 +561,41 @@ export default function App() {
 
         <Route path="/sri-lanka-13-day-tuk-tuk-itinerary" element={
           <Suspense fallback={
-            <div className="pt-24 md:pt-32 bg-luxury-cream min-h-screen flex items-center justify-center">
-              <div className="w-12 h-12 border-4 border-luxury-gold border-t-transparent rounded-full animate-spin"></div>
+            <div className="pt-24 md:pt-32 bg-[#FDFBF7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1F3D2B] border-t-transparent rounded-full animate-spin"></div>
             </div>
           }>
-            <SrilankaTukTukItineraryReviewPage />
+            <SrilankaThirteenDayTukTukItineraryPage />
+          </Suspense>
+        } />
+
+        <Route path="/13-day-sri-lanka-tuk-tuk-itinerary" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#FDFBF7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1F3D2B] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaThirteenDayTukTukItineraryPage />
+          </Suspense>
+        } />
+
+        <Route path="/sri-lanka-self-drive-tuk-tuk-rental-guide" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#FDFBF7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1F3D2B] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaSelfDriveTukTukPage />
+          </Suspense>
+        } />
+
+        <Route path="/self-drive-tuk-tuk-sri-lanka-guide" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#FDFBF7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1F3D2B] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaSelfDriveTukTukPage />
           </Suspense>
         } />
 
@@ -860,26 +888,6 @@ export default function App() {
             <SrilankaMirissaWhaleWatchingPage />
           </Suspense>
         } />
-
-        <Route path="/trincomalee-travel-guide" element={
-          <Suspense fallback={
-            <div className="pt-24 md:pt-32 bg-[#1e3a2f] min-h-screen flex items-center justify-center">
-              <div className="w-12 h-12 border-4 border-[#d4af37] border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          }>
-            <SrilankaTrincomaleeTravelGuidePage />
-          </Suspense>
-        } />
-
-        <Route path="/nilaveli-beach-travel-guide" element={
-          <Suspense fallback={
-            <div className="pt-24 md:pt-32 bg-[#1e3a2f] min-h-screen flex items-center justify-center">
-              <div className="w-12 h-12 border-4 border-[#d4af37] border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          }>
-            <SrilankaNilaveliBeachGuidePage />
-          </Suspense>
-        } />
       </Routes>
 
       {/* Footer */}
@@ -1006,7 +1014,6 @@ export default function App() {
             </div>
             <div className="space-y-3">
               {[
-                { title: "13-Night Tuk-Tuk Itinerary Review (2026)", path: "/sri-lanka-13-day-tuk-tuk-itinerary", badge: "Self-Drive Review", desc: "Real tuk-tuk drive times & a pacing fix for an East Coast + hills loop." },
                 { title: "Mirissa Whale Watching Guide (2026)", path: "/whale-watching-mirissa", badge: "Trending +900%", desc: "Blue whales, 6:00 AM harbour timing & boat costs." },
                 { title: "Plan a Sri Lanka Train Trip (2026)", path: "/how-to-plan-a-train-trip-in-sri-lanka", badge: "Rail Master Guide", desc: "Settle ticket bookings, cabin classes, and routes." },
                 { title: "US Travel Guide for Americans", path: "/sri-lanka-travel-guide-for-americans", badge: "US Travelers", desc: "Monsoon navigation, visas & dollar purchase value." },

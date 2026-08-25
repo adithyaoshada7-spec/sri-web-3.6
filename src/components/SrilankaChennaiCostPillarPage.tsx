@@ -1008,6 +1008,118 @@ export default function SrilankaChennaiCostPillarPage() {
           </div>
         </section>
 
+        {/* ========================================================================= */}
+        {/* ⭐ DEDICATED 13-DAY TUK-TUK ITINERARY & DIRECT WHATSAPP BOOKING SECTION ⭐ */}
+        {/* ========================================================================= */}
+        <section aria-labelledby="tuktuk-section-heading" className="bg-gradient-to-br from-[#1F3D2B] to-[#142A1D] text-white p-6 sm:p-10 rounded-3xl shadow-2xl border border-[#3E6B4F] relative overflow-hidden space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#2C523B] pb-5">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-[#2C523B] flex items-center justify-center text-3xl shadow-inner shrink-0">
+                🛺
+              </div>
+              <div>
+                <span className="text-[10px] font-mono uppercase bg-[#2C523B] text-[#F2C94C] px-3 py-0.5 rounded-full font-bold border border-[#3E6B4F]">
+                  Self-Drive Adventure & Rental Booking
+                </span>
+                <h2 id="tuktuk-section-heading" className="text-2xl sm:text-3xl font-serif font-bold text-white mt-1">
+                  13-Day Sri Lanka Tuk-Tuk Itinerary & WhatsApp Booking
+                </h2>
+              </div>
+            </div>
+
+            <Link
+              to="/sri-lanka-13-day-tuk-tuk-itinerary"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-[#F2C94C] text-xs font-mono font-bold transition-colors border border-white/20 shrink-0"
+            >
+              <span>View Full 13-Day Guide</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <p className="text-xs sm:text-sm text-[#E0DDD5] leading-relaxed max-w-3xl">
+            Looking for the ultimate freedom? Instead of a standard car tour, drive your own Tuk-Tuk across <strong>1,100 km of Sri Lanka's most breathtaking landscapes</strong>—from Sigiriya's ancient jungle rocks and Nuwara Eliya's misty tea plantations to Ella's Nine Arch Bridge and Hiriketiya's turquoise surf bays.
+          </p>
+
+          {/* Feature Highlights Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div className="bg-white/10 p-3.5 rounded-xl border border-white/10 space-y-1">
+              <div className="flex items-center gap-2 text-[#F2C94C] font-bold">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <span>AAC Driving Permit</span>
+              </div>
+              <p className="text-[11px] text-[#C5DAC9]">We endorse your Indian/home license legally before you land.</p>
+            </div>
+
+            <div className="bg-white/10 p-3.5 rounded-xl border border-white/10 space-y-1">
+              <div className="flex items-center gap-2 text-[#F2C94C] font-bold">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <span>1-on-1 Driving Lesson</span>
+              </div>
+              <p className="text-[11px] text-[#C5DAC9]">Learn throttle, clutch, reverse & road safety with a pro instructor.</p>
+            </div>
+
+            <div className="bg-white/10 p-3.5 rounded-xl border border-white/10 space-y-1">
+              <div className="flex items-center gap-2 text-[#F2C94C] font-bold">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <span>Full Comprehensive Insurance</span>
+              </div>
+              <p className="text-[11px] text-[#C5DAC9]">$0 excess deductible covers vehicle, third-party & passenger liability.</p>
+            </div>
+
+            <div className="bg-white/10 p-3.5 rounded-xl border border-white/10 space-y-1">
+              <div className="flex items-center gap-2 text-[#F2C94C] font-bold">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <span>24/7 WhatsApp SOS</span>
+              </div>
+              <p className="text-[11px] text-[#C5DAC9]">Islandwide mechanic dispatch network in every single town.</p>
+            </div>
+          </div>
+
+          {/* Quick Route Summary */}
+          <div className="bg-[#142A1D] p-4 sm:p-5 rounded-2xl border border-[#2C523B] space-y-2 text-xs">
+            <strong className="text-[#F2C94C] font-mono uppercase text-[11px] block">
+              13-Day Island Loop Route:
+            </strong>
+            <p className="text-[#C5DAC9] leading-relaxed">
+              <strong>Negombo</strong> (Driving Lesson) → <strong>Sigiriya</strong> (Lion Rock & Pidurangala) → <strong>Kandy</strong> (Tooth Temple & Spices) → <strong>Nuwara Eliya</strong> (Tea Trails) → <strong>Ella</strong> (Nine Arch & Waterfalls) → <strong>Udawalawe</strong> (Elephant Safari) → <strong>Hiriketiya & Weligama</strong> (Surf & Whale Watching) → <strong>Galle Dutch Fort</strong> → <strong>Bentota & Colombo</strong> → Airport Handover.
+            </p>
+          </div>
+
+          {/* Direct WhatsApp Booking Callout Bar */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/10 p-5 rounded-2xl border border-white/15">
+            <div>
+              <div className="text-sm font-bold text-white flex items-center gap-2">
+                <span>Self-Drive from $17 USD / Day (~₹1,450 INR)</span>
+                <span className="bg-[#25D366] text-white text-[10px] font-mono px-2 py-0.5 rounded-full font-bold">Instant Confirmation</span>
+              </div>
+              <p className="text-xs text-[#C5DAC9] mt-0.5">
+                Message us on WhatsApp to check vehicle availability, lock in your travel dates, and start your AAC license paperwork.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto shrink-0">
+              <a
+                href="https://wa.me/94722968210?text=Hi%20Plan%20Sri%20Lanka!%20I%20am%20planning%20the%2013-Day%20Sri%20Lanka%20Tuk-Tuk%20Itinerary%20and%20would%20like%20to%20book%20a%20self-drive%20Tuk-Tuk%20rental%20with%20AAC%20driving%20permit%20endorsement.%20Please%20share%20availability%20and%20rates!"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("tuktuk_whatsapp_click", "conversion", "chennai_pillar_page_tuktuk_cta")}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl transition-transform hover:scale-105"
+              >
+                <Send className="w-4 h-4" />
+                <span>Book Tuk-Tuk on WhatsApp</span>
+              </a>
+
+              <Link
+                to="/sri-lanka-13-day-tuk-tuk-itinerary"
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white text-[#1F3D2B] hover:bg-[#F2C94C] text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors shadow-md text-center"
+              >
+                <span>Full Itinerary Guide</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* SECTION 14: INTERACTIVE COST CALCULATOR */}
         <section aria-labelledby="calculator-heading" className="bg-[#1F3D2B] text-white p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl">
           <div className="text-center max-w-2xl mx-auto space-y-2">

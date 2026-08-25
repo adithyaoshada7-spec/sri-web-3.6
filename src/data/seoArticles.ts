@@ -37,15 +37,6 @@ export const seoArticles: Seometa[] = [
     priority: "0.95"
   },
   {
-    path: "/sri-lanka-13-day-tuk-tuk-itinerary",
-    title: "13-Night Sri Lanka Tuk-Tuk Itinerary Review: Negombo to Colombo (2026)",
-    description: "An expert review of a 13-night self-drive tuk-tuk itinerary across Sri Lanka: Negombo, Kandy, Sigiriya, Trincomalee, Pasikudah, Ella, Mirissa & Colombo. Real tuk-tuk drive times, pacing feedback, and the one route fix we'd make.",
-    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
-    ogType: "article",
-    changefreq: "weekly",
-    priority: "0.9"
-  },
-  {
     path: "/sri-lanka-visa-for-indians",
     title: "Sri Lanka Visa For Indians (2026 ETA Guide) | Apply Online & Entry Requirements",
     description: "Unravel the Sri Lanka Visa for Indians. Discover how to get your Sri Lanka Tourist ETA online, latest requirements, application steps, and how to stay stress-free at the airport.",
@@ -244,21 +235,21 @@ export const seoArticles: Seometa[] = [
     priority: "0.95"
   },
   {
-    path: "/trincomalee-travel-guide",
-    title: "Trincomalee Travel Guide (2026) | Things To Do & Book Activities Direct",
-    description: "Everything you can actually do in Trincomalee: dolphin & whale watching, Pigeon Island snorkeling, Nilaveli & Uppuveli beaches, Koneswaram Temple, hot springs & diving — with direct WhatsApp booking, no agents.",
-    image: "https://images.unsplash.com/photo-1607153333879-c174d265f1d2?auto=format&fit=crop&q=80&w=1200&h=630",
+    path: "/sri-lanka-13-day-tuk-tuk-itinerary",
+    title: "13-Day Sri Lanka Tuk-Tuk Itinerary & WhatsApp Rental Booking (2026)",
+    description: "Self-drive Sri Lanka in 13 days by Tuk-Tuk! Complete loop itinerary (Negombo, Sigiriya, Kandy, Ella, Yala, Hiriketiya, Galle), driving permit guide, and direct WhatsApp Tuk-Tuk booking.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
-    priority: "0.9"
+    priority: "0.95"
   },
   {
-    path: "/nilaveli-beach-travel-guide",
-    title: "Nilaveli Beach Travel Guide (2026) | Pigeon Island Snorkeling & Direct Booking",
-    description: "Everything to know about Nilaveli Beach, Sri Lanka: calm shallow swimming, Pigeon Island National Park snorkeling with turtles, best time to visit, where to stay, and direct WhatsApp booking — no agent fees.",
-    image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200&h=630",
+    path: "/sri-lanka-self-drive-tuk-tuk-rental-guide",
+    title: "Self-Drive Tuk-Tuk in Sri Lanka (2026): Rules, Permits, Safety & Partner Booking",
+    description: "Everything you must know before driving a Tuk-Tuk in Sri Lanka: AAC license permits, 40 km/h rules, insurance, mountain safety, and verified rentals powered by tuktukrental.com.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
     ogType: "article",
     changefreq: "weekly",
-    priority: "0.9"
+    priority: "0.95"
   }
 ];
