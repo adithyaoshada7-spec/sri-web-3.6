@@ -792,6 +792,84 @@ export default function SrilankaChennaiCostPillarPage() {
           </div>
         </section>
 
+        {/* SECTION 7.5: ACTIVITIES & SIGHTSEEING EXPERIENCES + BACKLINK CTA */}
+        <section aria-labelledby="activities-heading" className="space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#EBF3ED] flex items-center justify-center text-[#1F3D2B]">
+              <Compass className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-mono text-[#7A7365] uppercase tracking-wider">Experiences & Sightseeing</span>
+              <h2 id="activities-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1F3D2B]">
+                What to Do in Sri Lanka: Activity Costs for Indian Travelers
+              </h2>
+            </div>
+          </div>
+
+          <p className="text-base text-[#4A453A] leading-relaxed">
+            Wondering what experiences to budget for once you land from Chennai? From dawn leopard safaris in Yala to blue whale watching in Mirissa and tea estate tours in Ella, here are the realistic ticket and excursion costs in Indian Rupees:
+          </p>
+
+          {/* Quick Experience Price Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <span className="text-[11px] font-mono font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">Wildlife Safari</span>
+              <h3 className="font-serif font-bold text-base text-[#1F3D2B]">Yala / Udawalawe Safari</h3>
+              <div className="text-sm font-mono font-bold text-[#1F3D2B]">₹4,500 – ₹7,000 <span className="text-xs font-normal text-[#7A7365]">/ pax</span></div>
+              <p className="text-xs text-[#5A5448]">Includes 4x4 private open-top safari jeep, national park entry ticket, and wildlife tracker.</p>
+            </div>
+
+            <div className="bg-white p-4 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <span className="text-[11px] font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Marine Adventure</span>
+              <h3 className="font-serif font-bold text-base text-[#1F3D2B]">Mirissa Whale Watching</h3>
+              <div className="text-sm font-mono font-bold text-[#1F3D2B]">₹3,800 – ₹6,500 <span className="text-xs font-normal text-[#7A7365]">/ pax</span></div>
+              <p className="text-xs text-[#5A5448]">Luxury catamaran or insured cruiser with marine biologist onboard and breakfast.</p>
+            </div>
+
+            <div className="bg-white p-4 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <span className="text-[11px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Heritage & Culture</span>
+              <h3 className="font-serif font-bold text-base text-[#1F3D2B]">Sigiriya Fortress & Kandy</h3>
+              <div className="text-sm font-mono font-bold text-[#1F3D2B]">₹1,200 – ₹3,200 <span className="text-xs font-normal text-[#7A7365]">/ entry</span></div>
+              <p className="text-xs text-[#5A5448]">Sigiriya UNESCO Rock (₹3,000 / $36 USD) & Temple of the Sacred Tooth Relic (₹600).</p>
+            </div>
+
+            <div className="bg-white p-4 rounded-2xl border border-[#E8E4D9] space-y-2">
+              <span className="text-[11px] font-mono font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">Coastal & Adventure</span>
+              <h3 className="font-serif font-bold text-base text-[#1F3D2B]">Surfing & Ella Tea Hikes</h3>
+              <div className="text-sm font-mono font-bold text-[#1F3D2B]">₹1,500 – ₹3,000 <span className="text-xs font-normal text-[#7A7365]">/ session</span></div>
+              <p className="text-xs text-[#5A5448]">Surf board rental & beginner lessons in Weligama, Little Adam's Peak zip-line in Ella.</p>
+            </div>
+          </div>
+
+          {/* High-Converting Visual CTA Banner */}
+          <div className="relative overflow-hidden bg-gradient-to-br from-[#1F3D2B] via-[#2A4D38] to-[#142A1D] rounded-3xl p-6 sm:p-8 text-white shadow-xl">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#B38728]/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div className="space-y-3 max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-[11px] text-[#E8E4D9] uppercase tracking-wider font-semibold">
+                  <Sparkles className="w-3.5 h-3.5 text-[#B38728]" /> Complete Experience Directory
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
+                  Looking for the Best Activities & Things to Do in Sri Lanka?
+                </h3>
+                <p className="text-sm text-white/80 leading-relaxed font-light">
+                  Compare verified ticket prices, best visiting hours, safari jeep options, and customer reviews across 45+ hand-picked activities in our dedicated catalog.
+                </p>
+              </div>
+
+              <div className="shrink-0 w-full md:w-auto">
+                <Link
+                  to="/things-to-do-in-sri-lanka"
+                  className="inline-flex items-center justify-center gap-3 w-full md:w-auto px-7 py-4 bg-[#B38728] hover:bg-[#c9982e] text-[#1F3D2B] font-bold rounded-2xl text-xs uppercase tracking-[0.15em] transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] group text-center"
+                >
+                  <span>Explore All Things to Do</span>
+                  <ArrowRight className="w-4 h-4 text-[#1F3D2B] group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* SECTION 8, 9, 10: COUPLES, FAMILIES, & HONEYMOON BUDGETS */}
         <section aria-labelledby="groups-heading" className="space-y-6">
           <div className="flex items-center gap-3">
@@ -1383,9 +1461,16 @@ export default function SrilankaChennaiCostPillarPage() {
         {/* SECTION 18: RELATED HUB & INTERNAL LINKING */}
         <section aria-labelledby="resources-heading" className="pt-6 border-t border-[#E8E4D9]">
           <h2 id="resources-heading" className="text-xs font-mono uppercase tracking-[0.2em] text-[#7A7365] font-bold mb-4 text-center">
-            Explore Related Sri Lanka Travel Guides
+            Explore Related Sri Lanka Travel Guides & Activities
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            <Link
+              to="/things-to-do-in-sri-lanka"
+              className="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#1F3D2B]/30 hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group shadow-sm"
+            >
+              <span>45+ Things to Do Directory</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform" />
+            </Link>
             <Link
               to="/sri-lanka-5-day-itinerary-from-chennai"
               className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group"
