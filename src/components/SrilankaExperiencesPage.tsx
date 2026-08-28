@@ -164,7 +164,7 @@ export const EXPERIENCES: Experience[] = [
     id: "yala-safari-morning",
     title: "Yala Safari - Morning",
     slug: "yala-safari-morning",
-    image: "/yala-safari-morning.jpg",
+    image: "/yala-safari-morning.jpg.avif",
     shortSummary: "Embark on an early morning adventure to witness Yala's active wildlife at sunrise.",
     description: "The morning safari is the prime window to witness Yala National Park's famous leopards, elephants, and sloth bears as they wake and hunt at dawn. Operating from 5:00 AM to 10:00 AM, this open-jeep excursion provides cool morning temperatures and spectacular golden hour lighting, perfect for capturing active predators and diverse bird species near waterholes.",
     categories: ["Wildlife Safaris", "Photography Spots"],
