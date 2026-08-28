@@ -37,7 +37,6 @@ import {
   Scale
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
-import MarketplaceTrustDashboard from "./MarketplaceTrustDashboard";
 
 // --- INTERFACES ---
 export interface Category {
@@ -165,7 +164,7 @@ export const EXPERIENCES: Experience[] = [
     id: "yala-safari-morning",
     title: "Yala Safari - Morning",
     slug: "yala-safari-morning",
-    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800",
+    image: "/yala-safari-morning.jpg",
     shortSummary: "Embark on an early morning adventure to witness Yala's active wildlife at sunrise.",
     description: "The morning safari is the prime window to witness Yala National Park's famous leopards, elephants, and sloth bears as they wake and hunt at dawn. Operating from 5:00 AM to 10:00 AM, this open-jeep excursion provides cool morning temperatures and spectacular golden hour lighting, perfect for capturing active predators and diverse bird species near waterholes.",
     categories: ["Wildlife Safaris", "Photography Spots"],
@@ -1111,59 +1110,6 @@ export default function SrilankaExperiencesPage() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* --------------------------------------------------
-          HERO SECTION
-         -------------------------------------------------- */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-luxury-cream/100 z-10" />
-        <img 
-          src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1600&h=900"
-          alt="Highland Sri Lanka Tea Country"
-          className="absolute inset-0 w-full h-full object-cover scale-100 origin-center animate-[subtle-zoom_20s_infinite_alternate]"
-          referrerPolicy="no-referrer"
-        />
-        
-        <div className="relative z-20 text-center px-6 max-w-4xl space-y-6 mt-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-[10px] md:text-xs text-white uppercase tracking-[0.2em] font-medium mx-auto">
-            <Sparkles className="w-3.5 h-3.5 text-luxury-gold" /> Plan Sri Lanka Curated
-          </div>
-          <h1 className="text-white text-4xl sm:text-6xl md:text-7xl font-serif leading-none tracking-tight">
-            Discover the Best <br />
-            <span className="italic text-luxury-gold font-normal">Things to Do</span> in Sri Lanka
-          </h1>
-          <p className="text-white/90 text-sm md:text-lg font-light leading-relaxed max-w-2xl mx-auto">
-            Explore wildlife safaris, beaches, surfing, hiking, whale watching, cultural experiences, train journeys and hidden gems. Find experiences that perfectly match your travel style.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <button 
-              onClick={() => experiencesListRef.current?.scrollIntoView({ behavior: "smooth" })}
-              className="w-full sm:w-auto px-8 py-4 bg-luxury-green hover:bg-luxury-gold text-white font-bold rounded-full text-xs uppercase tracking-[0.2em] shadow-xl transition-all flex items-center justify-center gap-3 group"
-            >
-              <span>Explore Experiences</span>
-              <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
-            </button>
-            <Link 
-              to="/sri-lanka-trip-planner"
-              className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-neutral-50 text-luxury-green border border-luxury-green/10 font-bold rounded-full text-xs uppercase tracking-[0.2em] shadow-md transition-all text-center"
-            >
-              Plan My Trip
-            </Link>
-          </div>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce hidden md:block">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-1 cursor-pointer" onClick={() => experiencesListRef.current?.scrollIntoView({ behavior: "smooth" })}>
-            <div className="w-1.5 h-2.5 bg-white rounded-full" />
-          </div>
-        </div>
-      </section>
-      
-      {/* --------------------------------------------------
-          MARKETPLACE TRUST STATISTICS SECTION
-         -------------------------------------------------- */}
-      <MarketplaceTrustDashboard />
 
       {/* --------------------------------------------------
           CURATED EXPERIENCES PORTAL
