@@ -116,7 +116,7 @@ const CATEGORIES: Category[] = [
     id: "snorkeling-diving",
     name: "Snorkeling & Diving",
     icon: <Compass className="w-5 h-5 text-teal-600" />,
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=600",
+    image: "/snorkeler-trincomalee-nilaveli.jpg",
     description: "Explore marine sanctuaries, vibrant coral reefs, and historical shipwrecks in crystal clear waters.",
     destinationsCount: 2,
     bestSeason: "Nov to April (South) & April to Sept (East)"
@@ -452,7 +452,7 @@ export const EXPERIENCES: Experience[] = [
     id: "pigeon-island-snorkeling",
     title: "Pigeon Island Coral Snorkeling",
     slug: "pigeon-island-snorkeling",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=800",
+    image: "/snorkeler-trincomalee-nilaveli.jpg",
     shortSummary: "Swim with blacktip reef sharks and green sea turtles in a protected marine sanctuary.",
     description: "Pigeon Island is a designated marine national park off Nilaveli. Encircled by a gorgeous shallow powder-coral reef, it is a haven for rich tropical fish, colorful hard corals, Hawksbill Turtles, and harmless Blacktip Reef Sharks gliding right in the clear turquoise shallows.",
     categories: ["Snorkeling & Diving", "Beaches"],
