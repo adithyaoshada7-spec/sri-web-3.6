@@ -107,7 +107,7 @@ const CATEGORIES: Category[] = [
     id: "surfing",
     name: "Surfing",
     icon: <Waves className="w-5 h-5 text-blue-600" />,
-    image: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=600",
+    image: "/arugam-bay-surfing-plan-srilanka.jpg",
     description: "Ride world-class reef breaks and gentle sandy points tailored for both beginners and pros.",
     destinationsCount: 3,
     bestSeason: "May to Sept (East) & Nov to April (South)"
@@ -369,7 +369,7 @@ export const EXPERIENCES: Experience[] = [
     id: "surfing-arugam-bay",
     title: "Surfing at Arugam Bay",
     slug: "surfing-arugam-bay",
-    image: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=800",
+    image: "/arugam-bay-surfing-plan-srilanka.jpg",
     shortSummary: "Ride legendary point breaks and enjoy laidback beach party vibes on the East Coast.",
     description: "Arugam Bay is a world-class surfing crescent on the dry east coast of Sri Lanka. Famously relaxed, it draws surfers globally for its long, consistent right-hand point breaks. From May to September, the town becomes a lively surf haven filled with beachfront music, healthy cafes, and coastal wellness retreats.",
     categories: ["Surfing", "Beaches"],
