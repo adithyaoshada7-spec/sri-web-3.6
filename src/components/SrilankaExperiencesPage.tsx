@@ -487,7 +487,8 @@ export const EXPERIENCES: Experience[] = [
       bestSeason: "May to October (Trinco dry window features flat, glassy seas).",
       familyFriendly: "Fantastic (9/10) - shallow reef makes shark spotting safe and easy.",
       photography: "Excellent (8/10) for underwater GoPros and tropical island drone views."
-    }
+    },
+    provider: "Nilaveli & Pigeon Island Snorkeling"
   },
   {
     id: "sigiriya-rock-fortress",
@@ -1177,18 +1178,35 @@ export default function SrilankaExperiencesPage() {
                       <span>{exp.popularityScore} Score</span>
                     </div>
 
-                    {/* Add to Trip list button */}
-                    <button
-                      onClick={(e) => toggleAddToTrip(exp.id, e)}
-                      className={`absolute top-4 right-4 p-2.5 rounded-full backdrop-blur-sm transition-all shadow-sm ${
-                        myTripExperiences.includes(exp.id)
-                          ? "bg-red-500 text-white hover:bg-red-600"
-                          : "bg-white/80 text-[#1e3a2f] hover:bg-white"
-                      }`}
-                      title={myTripExperiences.includes(exp.id) ? "Remove from my trip planner" : "Add to trip planner"}
-                    >
-                      <Heart className={`w-4 h-4 ${myTripExperiences.includes(exp.id) ? "fill-white text-white" : ""}`} />
-                    </button>
+                    {/* Add to Trip list button / Direct WhatsApp button */}
+                    {exp.id === "pigeon-island-snorkeling" ? (
+                      <a
+                        href="https://wa.me/94717251024?text=Hi!%20I%20want%20to%20inquire%20about%20Pigeon%20Island%20Coral%20Snorkeling"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          trackEvent("whatsapp_click", "conversion", "pigeon_island_card_top_button");
+                        }}
+                        className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] flex items-center gap-1.5 shadow-md backdrop-blur-sm transition-all z-10"
+                        title="Direct WhatsApp: +94 717 251 024"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5 fill-white text-emerald-600" />
+                        <span>WhatsApp</span>
+                      </a>
+                    ) : (
+                      <button
+                        onClick={(e) => toggleAddToTrip(exp.id, e)}
+                        className={`absolute top-4 right-4 p-2.5 rounded-full backdrop-blur-sm transition-all shadow-sm ${
+                          myTripExperiences.includes(exp.id)
+                            ? "bg-red-500 text-white hover:bg-red-600"
+                            : "bg-white/80 text-[#1e3a2f] hover:bg-white"
+                        }`}
+                        title={myTripExperiences.includes(exp.id) ? "Remove from my trip planner" : "Add to trip planner"}
+                      >
+                        <Heart className={`w-4 h-4 ${myTripExperiences.includes(exp.id) ? "fill-white text-white" : ""}`} />
+                      </button>
+                    )}
 
                     {/* Region & Location overlay */}
                     <div className="absolute bottom-4 left-4 flex items-center gap-1 text-white text-[10px] font-mono uppercase tracking-wider font-bold">
@@ -1222,10 +1240,15 @@ export default function SrilankaExperiencesPage() {
                       <p className="text-xs text-luxury-black/60 font-light leading-relaxed line-clamp-3">
                         {exp.shortSummary}
                       </p>
-                      {(exp.id === "paddy-lake-trail" || exp.id === "kitulgala-white-water-rafting" || exp.id === "kitesurf-lessons-kalpitiya") && (
+                      {(exp.id === "paddy-lake-trail" || exp.id === "kitulgala-white-water-rafting" || exp.id === "kitesurf-lessons-kalpitiya" || exp.id === "pigeon-island-snorkeling") && (
                         <div className="mt-3" onClick={(e) => e.stopPropagation()}>
                           <a 
-                            href={exp.id === "paddy-lake-trail" ? "https://wa.me/94777906156" : exp.id === "kitulgala-white-water-rafting" ? "https://wa.me/94777163543" : "https://wa.me/94773686235"} 
+                            href={
+                              exp.id === "paddy-lake-trail" ? "https://wa.me/94777906156" : 
+                              exp.id === "kitulgala-white-water-rafting" ? "https://wa.me/94777163543" : 
+                              exp.id === "kitesurf-lessons-kalpitiya" ? "https://wa.me/94773686235" : 
+                              "https://wa.me/94717251024?text=Hi!%20I%20want%20to%20inquire%20about%20Pigeon%20Island%20Coral%20Snorkeling"
+                            } 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-100 hover:bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-xl text-[10px] font-bold transition-all shadow-sm"
@@ -1235,7 +1258,14 @@ export default function SrilankaExperiencesPage() {
                               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                             </span>
                             <MessageCircle className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600/10" />
-                            <span>Contact {exp.provider}: {exp.id === "paddy-lake-trail" ? "+94 77 790 6156" : exp.id === "kitulgala-white-water-rafting" ? "+94 77 716 3543" : "+94 77 368 6235"}</span>
+                            <span>
+                              Contact {exp.provider || "Direct"}: {
+                                exp.id === "paddy-lake-trail" ? "+94 77 790 6156" : 
+                                exp.id === "kitulgala-white-water-rafting" ? "+94 77 716 3543" : 
+                                exp.id === "kitesurf-lessons-kalpitiya" ? "+94 77 368 6235" : 
+                                "+94 717 251 024"
+                              }
+                            </span>
                           </a>
                         </div>
                       )}
@@ -1658,8 +1688,8 @@ export default function SrilankaExperiencesPage() {
                     </ul>
                   </div>
 
-                  {/* WhatsApp contact section inside detail modal if Paddy & Lake Trail */}
-                  {(activeDetailExperience.id === "paddy-lake-trail" || activeDetailExperience.id === "kitulgala-white-water-rafting" || activeDetailExperience.id === "kitesurf-lessons-kalpitiya" || activeDetailExperience.id === "whale-watching-mirissa") && (
+                  {/* WhatsApp contact section inside detail modal */}
+                  {(activeDetailExperience.id === "paddy-lake-trail" || activeDetailExperience.id === "kitulgala-white-water-rafting" || activeDetailExperience.id === "kitesurf-lessons-kalpitiya" || activeDetailExperience.id === "whale-watching-mirissa" || activeDetailExperience.id === "pigeon-island-snorkeling") && (
                     <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-2xl space-y-2">
                       <div className="flex items-center gap-2 text-emerald-800 font-bold text-xs uppercase tracking-wider">
                         <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600/10" />
@@ -1672,32 +1702,60 @@ export default function SrilankaExperiencesPage() {
                             ? "Have questions about the river rapids, gear requirements, or custom timings? Connect with the raft masters directly on WhatsApp."
                             : activeDetailExperience.id === "kitesurf-lessons-kalpitiya"
                               ? "Have questions about kitesurfing lessons, wind conditions, or course bookings? Connect with the kite masters directly on WhatsApp."
-                              : "Have questions about boat departure times, sea-sickness prevention, or direct bookings? Connect with Geeth directly on WhatsApp."}
+                              : activeDetailExperience.id === "pigeon-island-snorkeling"
+                                ? "Have questions about Nilaveli boat transfers, marine park permits, turtle snorkeling, or equipment? Connect directly on WhatsApp."
+                                : "Have questions about boat departure times, sea-sickness prevention, or direct bookings? Connect with Geeth directly on WhatsApp."}
                       </p>
                       <a 
-                        href={activeDetailExperience.id === "paddy-lake-trail" ? "https://wa.me/94777906156" : activeDetailExperience.id === "kitulgala-white-water-rafting" ? "https://wa.me/94777163543" : activeDetailExperience.id === "kitesurf-lessons-kalpitiya" ? "https://wa.me/94773686235" : "https://wa.me/94718324015"}
+                        href={
+                          activeDetailExperience.id === "paddy-lake-trail" ? "https://wa.me/94777906156" : 
+                          activeDetailExperience.id === "kitulgala-white-water-rafting" ? "https://wa.me/94777163543" : 
+                          activeDetailExperience.id === "kitesurf-lessons-kalpitiya" ? "https://wa.me/94773686235" : 
+                          activeDetailExperience.id === "pigeon-island-snorkeling" ? "https://wa.me/94717251024?text=Hi!%20I%20want%20to%20inquire%20about%20Pigeon%20Island%20Coral%20Snorkeling" :
+                          "https://wa.me/94718324015"
+                        }
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold uppercase tracking-widest transition-all shadow-md"
                       >
                         <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
-                        <span>Message {activeDetailExperience.id === "paddy-lake-trail" ? "+94 77 790 6156" : activeDetailExperience.id === "kitulgala-white-water-rafting" ? "+94 77 716 3543" : activeDetailExperience.id === "kitesurf-lessons-kalpitiya" ? "+94 77 368 6235" : "+94 71 832 4015"}</span>
+                        <span>
+                          Message {
+                            activeDetailExperience.id === "paddy-lake-trail" ? "+94 77 790 6156" : 
+                            activeDetailExperience.id === "kitulgala-white-water-rafting" ? "+94 77 716 3543" : 
+                            activeDetailExperience.id === "kitesurf-lessons-kalpitiya" ? "+94 77 368 6235" : 
+                            activeDetailExperience.id === "pigeon-island-snorkeling" ? "+94 717 251 024" :
+                            "+94 71 832 4015"
+                          }
+                        </span>
                       </a>
                     </div>
                   )}
 
                   {/* Action buttons inside drawer */}
                   <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                    <button
-                      onClick={(e) => {
-                        toggleAddToTrip(activeDetailExperience.id, e);
-                        setActiveDetailExperience(null);
-                      }}
-                      className="flex-1 py-4 bg-luxury-green hover:bg-neutral-900 text-white font-bold uppercase tracking-widest text-xs rounded-xl shadow transition-all flex items-center justify-center gap-2"
-                    >
-                      <Plus className="w-4 h-4" />
-                      <span>{myTripExperiences.includes(activeDetailExperience.id) ? "Remove from Itinerary" : "Add to My Trip"}</span>
-                    </button>
+                    {activeDetailExperience.id === "pigeon-island-snorkeling" ? (
+                      <a
+                        href="https://wa.me/94717251024?text=Hi!%20I%20want%20to%20inquire%20about%20Pigeon%20Island%20Coral%20Snorkeling"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold uppercase tracking-widest text-xs rounded-xl shadow transition-all flex items-center justify-center gap-2"
+                      >
+                        <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
+                        <span>WhatsApp: +94 717 251 024</span>
+                      </a>
+                    ) : (
+                      <button
+                        onClick={(e) => {
+                          toggleAddToTrip(activeDetailExperience.id, e);
+                          setActiveDetailExperience(null);
+                        }}
+                        className="flex-1 py-4 bg-luxury-green hover:bg-neutral-900 text-white font-bold uppercase tracking-widest text-xs rounded-xl shadow transition-all flex items-center justify-center gap-2"
+                      >
+                        <Plus className="w-4 h-4" />
+                        <span>{myTripExperiences.includes(activeDetailExperience.id) ? "Remove from Itinerary" : "Add to My Trip"}</span>
+                      </button>
+                    )}
                     
                     <button
                       onClick={(e) => {

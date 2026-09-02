@@ -246,6 +246,11 @@ const ExperienceDetail = () => {
                   Official Operator: Margarita Kite School
                 </div>
               )}
+              {selectedActivity.slug === 'pigeon-island-snorkeling' && (
+                <div className="mb-4 px-4 py-1.5 bg-emerald-600/30 border border-emerald-500/30 rounded-full text-emerald-400 font-mono text-xs uppercase tracking-widest font-bold">
+                  Official Operator: Nilaveli & Pigeon Island Snorkeling (+94 717 251 024)
+                </div>
+              )}
               <h1 className="text-5xl md:text-[11rem] font-serif text-white mb-8 leading-[0.9] md:leading-[0.85] tracking-tighter">
                 {selectedActivity.title.includes("Vibe") ? (
                    <>
@@ -290,10 +295,14 @@ const ExperienceDetail = () => {
                     <motion.a
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      href="https://wa.me/94722968210"
+                      href={
+                        selectedActivity.slug === 'pigeon-island-snorkeling' 
+                          ? "https://wa.me/94717251024?text=Hi!%20I%20want%20to%20inquire%20about%20Pigeon%20Island%20Coral%20Snorkeling"
+                          : "https://wa.me/94722968210"
+                      }
                       target="_blank"
                       onClick={() => {
-                        trackEvent('whatsapp_click', 'conversion', 'detail_claim_free_tour');
+                        trackEvent('whatsapp_click', 'conversion', selectedActivity.slug === 'pigeon-island-snorkeling' ? 'pigeon_island_detail_book' : 'detail_claim_free_tour');
                         if (typeof window !== 'undefined' && (window as any).fbq) {
                           (window as any).fbq('track', 'Lead');
                         }
@@ -301,7 +310,7 @@ const ExperienceDetail = () => {
                       className="w-full sm:w-auto px-10 py-5 bg-luxury-gold text-white rounded-full font-serif text-xl shadow-xl shadow-luxury-gold/20 flex items-center justify-center gap-4 group"
                     >
                       <MessageCircle className="w-6 h-6" />
-                      <span>Claim My Free Tour</span>
+                      <span>{selectedActivity.slug === 'pigeon-island-snorkeling' ? "Inquire on WhatsApp (+94 717 251 024)" : "Claim My Free Tour"}</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </motion.a>
                   </div>
