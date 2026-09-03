@@ -410,7 +410,7 @@ export const EXPERIENCES: Experience[] = [
     id: "whale-watching-mirissa",
     title: "Whale Watching in Mirissa",
     slug: "whale-watching-mirissa",
-    image: "https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&q=80&w=800",
+    image: "/Whale-Watching-in-Mirissa.jpg",
     shortSummary: "Set sail with Geeth's Whale Watching Mirissa, the premier direct operator to witness majestic Blue Whales on their ocean highway.",
     description: "The deep continental shelf off Mirissa is one of the world's finest pathways for marine giants. Experience this once-in-a-lifetime journey with the premier official team of www.whale-watching-mirissa.com (operated by Geeth). You will witness majestic Blue Whales, Fin Whales, Sperm Whales, and mega-pods of Spinner Dolphins jumping, while on an eco-friendly double-decker cruiser respecting safe and ethical viewing distances.",
     categories: ["Whale Watching", "Beaches", "Photography Spots"],
@@ -962,6 +962,22 @@ export default function SrilankaExperiencesPage() {
     setTimeout(() => setToastMessage(null), 3000);
   };
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const target = e.currentTarget;
+    const src = target.src;
+    if (src.includes("Whale-Watching-in-Mirissa")) {
+      if (src.endsWith(".jpg")) {
+        target.src = "/Whale-Watching-in-Mirissa.webp";
+      } else if (src.endsWith(".webp")) {
+        target.src = "/Whale-Watching-in-Mirissa.png";
+      } else if (src.endsWith(".png")) {
+        target.src = "/Whale-Watching-in-Mirissa.jpeg";
+      } else if (src.endsWith(".jpeg")) {
+        target.src = "/mirissa-blue-whale-tail.jpg";
+      }
+    }
+  };
+
   // --- ACTION HANDLERS ---
   const toggleAddToTrip = (experienceId: string, event: React.MouseEvent) => {
     event.stopPropagation();
@@ -1169,6 +1185,7 @@ export default function SrilankaExperiencesPage() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                       referrerPolicy="no-referrer"
+                      onError={handleImageError}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     
@@ -1457,6 +1474,7 @@ export default function SrilankaExperiencesPage() {
                           alt={exp.title}
                           className="w-14 h-14 rounded-xl object-cover"
                           referrerPolicy="no-referrer"
+                          onError={handleImageError}
                         />
                         <div className="space-y-1">
                           <h4 className="text-xs font-serif font-black text-luxury-green line-clamp-1">{exp.title}</h4>
@@ -1622,6 +1640,7 @@ export default function SrilankaExperiencesPage() {
                     alt={activeDetailExperience.title}
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
+                    onError={handleImageError}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   
