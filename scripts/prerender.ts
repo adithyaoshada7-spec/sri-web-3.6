@@ -1811,6 +1811,8 @@ function generatePrerenderPages(): PrerenderPage[] {
     renderedSlugs.add(leg.slug);
     const customImage = leg.slug === "whale-watching-mirissa"
       ? `${domain}/Whale-Watching-in-Mirissa-2.jpeg`
+      : leg.slug === "sigiriya-rock-fortress"
+      ? `${domain}/Sigiriya-Lion-Rock-Citadel.jpeg`
       : "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200";
     pages.push({
       path: `/experience/${leg.slug}`,

@@ -494,7 +494,7 @@ export const EXPERIENCES: Experience[] = [
     id: "sigiriya-rock-fortress",
     title: "Sigiriya Lion Rock Citadel",
     slug: "sigiriya-rock-fortress",
-    image: "https://images.unsplash.com/photo-1588598126710-530ced49b914?auto=format&fit=crop&q=80&w=800",
+    image: "/Sigiriya-Lion-Rock-Citadel.jpeg",
     shortSummary: "Ascend a sheer 200m volcanic monolith housing a royal fortress, frescoes, and gardens.",
     description: "Known as the 8th Wonder of the Ancient World, Sigiriya is a massive columns of rock rising 200m from the forest. Built by King Kasyapa in the 5th century, it features symmetric water gardens, 1500-year-old plaster frescoes, a glistening mirror wall, and colossal lion paws guarding the summit stairway.",
     categories: ["Cultural Experiences", "Hiking & Trekking", "Photography Spots"],
@@ -974,6 +974,19 @@ export default function SrilankaExperiencesPage() {
         "/whale-watching-in-mirissa-2.jpg",
         "/Whale-Watching-in-Mirissa.jpg",
         "/mirissa-blue-whale-tail.jpg"
+      ];
+      if (attempts < variants.length) {
+        target.dataset.fallbackAttempts = String(attempts + 1);
+        target.src = variants[attempts];
+      }
+    } else if (currentSrc.toLowerCase().includes("sigiriya-lion-rock-citadel")) {
+      const attempts = target.dataset.fallbackAttempts ? parseInt(target.dataset.fallbackAttempts, 10) : 0;
+      const variants = [
+        "/Sigiriya-Lion-Rock-Citadel.jpeg",
+        "/Sigiriya-Lion-Rock-Citadel.jpg",
+        "/sigiriya-lion-rock-citadel.jpeg",
+        "/sigiriya-lion-rock-citadel.jpg",
+        "https://images.unsplash.com/photo-1588598126710-530ced49b914?auto=format&fit=crop&q=80&w=800"
       ];
       if (attempts < variants.length) {
         target.dataset.fallbackAttempts = String(attempts + 1);
