@@ -1809,11 +1809,14 @@ function generatePrerenderPages(): PrerenderPage[] {
   legacyExperiences.forEach(leg => {
     if (renderedSlugs.has(leg.slug)) return;
     renderedSlugs.add(leg.slug);
+    const customImage = leg.slug === "whale-watching-mirissa"
+      ? `${domain}/Whale-Watching-in-Mirissa-2.jpeg`
+      : "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200";
     pages.push({
       path: `/experience/${leg.slug}`,
       title: `${leg.title} | Plan Sri Lanka`,
       description: leg.description,
-      image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200",
+      image: customImage,
       ogType: "article",
       canonicalUrl: `${domain}/experience/${leg.slug}`,
       bodyHtml: `
