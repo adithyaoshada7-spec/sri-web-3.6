@@ -39,7 +39,10 @@ import {
   MessageCircle,
   Camera,
   Coffee,
-  ExternalLink
+  ExternalLink,
+  Mountain,
+  Waves,
+  Flag
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
@@ -61,6 +64,21 @@ interface DayPlan {
   tukTukTip: string;
 }
 
+interface AdventureRouteDay {
+  day: number;
+  title: string;
+  from: string;
+  to: string;
+  distanceKm: number;
+  drivingTime: string;
+  terrainDifficulty: "Moderate" | "Challenging" | "Scenic Cruise" | "Highland Endurance";
+  adventureHighlight: string;
+  rallyTask: string;
+  routeStops: string[];
+  overnight: string;
+  mechanicTip: string;
+}
+
 export default function SrilankaThirteenDayTukTukItineraryPage() {
   usePageMetadata({
     title: "13-Day Sri Lanka Tuk-Tuk Itinerary & WhatsApp Rental Booking (2026)",
@@ -73,6 +91,10 @@ export default function SrilankaThirteenDayTukTukItineraryPage() {
 
   const [activeDay, setActiveDay] = useState<number>(1);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  // Tuk-Tuk Adventure Seasonal Route States
+  const [adventureRoute, setAdventureRoute] = useState<"spring-summer" | "autumn">("spring-summer");
+  const [adventureActiveDay, setAdventureActiveDay] = useState<number>(1);
 
   // Tuk Tuk Booking Widget State
   const [tukTukCount, setTukTukCount] = useState<number>(1);
@@ -553,7 +575,380 @@ export default function SrilankaThirteenDayTukTukItineraryPage() {
     }
   ];
 
-  // FAQ list
+  // =========================================================================
+  // TUK-TUK ADVENTURE CONCEPT: SEASONAL EXPEDITION ROUTES (13-DAY BREAKDOWNS)
+  // Inspired by iconic rally formats (e.g. Large Minority Lanka Challenge)
+  // =========================================================================
+
+  const springSummerAdventureDays: AdventureRouteDay[] = [
+    {
+      day: 1,
+      title: "Depot Briefing, 1-on-1 Driving Lesson & Negombo Coast",
+      from: "Bandaranaike Airport (CMB) / Negombo",
+      to: "Negombo & Kammala Beach",
+      distanceKm: 20,
+      drivingTime: "1 hour",
+      terrainDifficulty: "Scenic Cruise",
+      adventureHighlight: "Vehicle handover, comprehensive safety test, mastering the twist-throttle, 4-speed hand/foot clutch, and reverse lever.",
+      rallyTask: "Rally Challenge: Navigate your first busy roundabout without stalling, test your Bluetooth sound system, and snap your maiden sunset photo on Lewis Place.",
+      routeStops: ["Negombo Depot", "Dutch Canal", "Lewis Place Strip", "Kammala Estuary"],
+      overnight: "Coastal Surf Hotel or Villa in Negombo / Kammala",
+      mechanicTip: "Check oil level on the dipstick and verify the 92-octane petrol tank is full before hitting long rural roads."
+    },
+    {
+      day: 2,
+      title: "Coconut Highways & Kurunegala Boulders to Sigiriya",
+      from: "Negombo / Kammala",
+      to: "Sigiriya (Cultural Triangle)",
+      distanceKm: 145,
+      drivingTime: "4.5 hours",
+      terrainDifficulty: "Moderate",
+      adventureHighlight: "Inland push through endless emerald coconut estates, roadside fruit stands, and ancient granite monoliths around Kurunegala.",
+      rallyTask: "Rally Challenge: Stop at a rural clay-pot stall for hot woodfired roti, pol sambol, and fresh King Coconut water (Thambili).",
+      routeStops: ["Kurunegala Elephant Rock", "Ibbagamuwa Tank", "Dambulla Forest Edge"],
+      overnight: "Eco Jungle Treehouse Resort in Sigiriya / Habarana",
+      mechanicTip: "Tuk-Tuk speed limit is strictly 40 km/h. Keep to the left side and yield easily to express buses on straightaways."
+    },
+    {
+      day: 3,
+      title: "Pidurangala Dawn Climb & East Coast Crossing to Pasikuda",
+      from: "Sigiriya",
+      to: "Pasikuda Bay (East Coast)",
+      distanceKm: 125,
+      drivingTime: "3.5 hours",
+      terrainDifficulty: "Moderate",
+      adventureHighlight: "Dawn scramble up Pidurangala Rock overlooking Sigiriya Citadel, followed by a fast run east across dry-zone agricultural plains.",
+      rallyTask: "Rally Challenge: Drive past Minneriya tank bund; keep eyes peeled for wild peacock clusters and lone tuskers at a safe distance.",
+      routeStops: ["Pidurangala Sunrise Rock", "Polonnaruwa Border Tracks", "Valaichchenai Coconut Belt"],
+      overnight: "Beachfront Resort on the calm turquoise sands of Pasikuda Bay",
+      mechanicTip: "Midday heat in the eastern dry zone increases tire pressure: keep rear tires at 28-30 PSI and front at 24 PSI."
+    },
+    {
+      day: 4,
+      title: "Pasikuda Lagoons to Global Surfing Capital: Arugam Bay",
+      from: "Pasikuda",
+      to: "Arugam Bay",
+      distanceKm: 140,
+      drivingTime: "4 hours",
+      terrainDifficulty: "Scenic Cruise",
+      adventureHighlight: "Cruising along the eastern ocean highway past Batticaloa lagoons, historical singing fish bridges, and wild elephant corridors.",
+      rallyTask: "Rally Challenge: Mount your surfboard onto your tuk-tuk roof racks and arrive in Arugam Bay in time for a sunset surf check.",
+      routeStops: ["Batticaloa Lighthouse", "Kalmunai Palm Highway", "Pottuvil Lagoon Bridge"],
+      overnight: "Surf Cabana or Boutique Eco Hostel in Arugam Bay",
+      mechanicTip: "Salty sea breezes: rinse coastal road sand off your wheel rims and apply fresh chain/axle lubricant."
+    },
+    {
+      day: 5,
+      title: "Arugam Bay Dedicated Adventure Rest Day & Point Break Surf",
+      from: "Arugam Bay",
+      to: "Whiskey Point & Peanut Farm",
+      distanceKm: 35,
+      drivingTime: "1 hour total",
+      terrainDifficulty: "Scenic Cruise",
+      adventureHighlight: "Official rally rest day! Morning right-hand point break surf, afternoon lagoon boat safari with saltwater crocs, and beach bonfire.",
+      rallyTask: "Rally Challenge: Drive down the unpaved dirt track to Peanut Farm beach and watch wild elephants graze near the surf line at dusk.",
+      routeStops: ["Main Surf Point", "Whiskey Point Dunes", "Peanut Farm Lagoon", "Panama Sand Dunes"],
+      overnight: "Arugam Bay Surf Strip",
+      mechanicTip: "Never drive onto dry, soft beach sand; three-wheeler wheels will sink instantly. Keep wheels on firm dirt tracks."
+    },
+    {
+      day: 6,
+      title: "Arugam Bay into Untouched Gal Oya Wilderness",
+      from: "Arugam Bay",
+      to: "Gal Oya National Park (Wild Glamping)",
+      distanceKm: 95,
+      drivingTime: "3 hours",
+      terrainDifficulty: "Challenging",
+      adventureHighlight: "Heading inland through sugarcane farmlands into Sri Lanka's least commercialized wilderness—home of indigenous Vedda forest tribes.",
+      rallyTask: "Rally Challenge: Navigate rugged gravel jungle roads to your eco-glamping safari camp and join a forest walk with Vedda elders.",
+      routeStops: ["Siyambalanduwa Junction", "Inginiyagala Dam", "Gal Oya Wilderness Edge"],
+      overnight: "Wild Safari Glamping Tents or Eco Lodge in Gal Oya",
+      mechanicTip: "Gravel road vibration check: inspect side mirror tightening bolts and wheel lug nuts on all three wheels."
+    },
+    {
+      day: 7,
+      title: "Boat Safari with Swimming Elephants to Mahiyanganaya",
+      from: "Gal Oya",
+      to: "Mahiyanganaya (Mahaweli Plains)",
+      distanceKm: 75,
+      drivingTime: "2.5 hours",
+      terrainDifficulty: "Moderate",
+      adventureHighlight: "Early morning boat safari on Senanayake Samudraya reservoir—the only place in Asia where wild elephants swim between islands.",
+      rallyTask: "Rally Challenge: Cross the Mahaweli River bridge at sunset and stop to view the ancient white Mahiyangana Stupa.",
+      routeStops: ["Senanayake Samudraya Lake", "Bibile Orange Orchards", "Mahaweli River Valley"],
+      overnight: "Riverside Eco Resort in Mahiyanganaya",
+      mechanicTip: "Fuel up to full with 92-octane petrol; tomorrow's stage climbs into high-elevation mountain passes with sparse fuel stations."
+    },
+    {
+      day: 8,
+      title: "The 18 Hairpin Bends to Hidden Mandaram Nuwara",
+      from: "Mahiyanganaya",
+      to: "Mandaram Nuwara (The Shadowless Valley)",
+      distanceKm: 85,
+      drivingTime: "3.5 hours",
+      terrainDifficulty: "Highland Endurance",
+      adventureHighlight: "Conquering the legendary 18 Hairpin Bends (Dahas Ata Wanguwa) up into the mysterious misty valley nestled behind Mt. Pidurutalagala.",
+      rallyTask: "Rally Challenge: Master 2nd and 1st gear clutching up 18 consecutive steep mountain switchbacks without missing a gear.",
+      routeStops: ["18 Hairpin Viewpoint", "Padiyapelella Cascades", "Mandaram Nuwara Pine Forests"],
+      overnight: "Mountain Cabins or Tea Estate Homestay in Mandaram Nuwara",
+      mechanicTip: "On steep uphill hairpins, downshift early into 2nd gear before engine RPM drops. Never ride the clutch continuously."
+    },
+    {
+      day: 9,
+      title: "Mandaram Nuwara to Ella Highlands via High Tea Valleys",
+      from: "Mandaram Nuwara",
+      to: "Ella Highlands",
+      distanceKm: 75,
+      drivingTime: "3 hours",
+      terrainDifficulty: "Highland Endurance",
+      adventureHighlight: "Navigating high-altitude cloud forests, tea plantation terraces, and dropping down into the lively mountain town of Ella.",
+      rallyTask: "Rally Challenge: Pull over at an authentic hillside tea stall for hot Ceylon ginger milk tea and spicy vegetable samosas.",
+      routeStops: ["Kandapola Cloud Forests", "Welimada Vegetable Terraces", "Ella Gap Viewpoint"],
+      overnight: "Hillside View Villa or Boutique Lodge in Ella",
+      mechanicTip: "On prolonged downhill descents, use engine compression braking in 2nd/3rd gear to prevent brake drum overheating."
+    },
+    {
+      day: 10,
+      title: "Ella Viaducts, Little Adam's Peak & Zipline Thrills",
+      from: "Ella",
+      to: "Nine Arch Bridge & Demodara Loop",
+      distanceKm: 30,
+      drivingTime: "1 hour total",
+      terrainDifficulty: "Moderate",
+      adventureHighlight: "Morning photography of the iconic blue steam train rumbling across Nine Arch Bridge, flying down Ravana Mega Zipline.",
+      rallyTask: "Rally Challenge: Drive up to the Demodara Railway Loop where the mountain railway spirals underneath its own tunnel.",
+      routeStops: ["Nine Arch Bridge Trailhead", "Little Adam's Peak", "Ravana Falls Natural Pools"],
+      overnight: "Ella Town",
+      mechanicTip: "Check handbrake cable tension; parking on steep Ella inclines requires strong handbrake plus steering turned toward the curb."
+    },
+    {
+      day: 11,
+      title: "Ella to Royal Kandy via Ramboda Waterfall Pass",
+      from: "Ella",
+      to: "Kandy (Hill Capital)",
+      distanceKm: 135,
+      drivingTime: "4.5 hours",
+      terrainDifficulty: "Highland Endurance",
+      adventureHighlight: "The signature mountain marathon: cruising through Nuwara Eliya's colonial cottages, roaring Ramboda Falls, and descending into Kandy.",
+      rallyTask: "Rally Challenge: Stop at an active orthodox tea factory, inhale the fragrant withering tea leaves, and pick up fresh Ceylon Pekoe.",
+      routeStops: ["Gregory Lake", "Ramboda Falls Curvature", "Matale Spice Valley Border"],
+      overnight: "Colonial Manor or Hillside Hotel in Kandy",
+      mechanicTip: "Refill 2-stroke oil or verify 4-stroke sump oil level after tackling prolonged mountain climbs."
+    },
+    {
+      day: 12,
+      title: "Kandy Cultural Immersion & Knuckles Foothills Roads",
+      from: "Kandy",
+      to: "Knuckles Foothills Loop",
+      distanceKm: 40,
+      drivingTime: "1.5 hours",
+      terrainDifficulty: "Moderate",
+      adventureHighlight: "Visiting the UNESCO Temple of the Sacred Tooth Relic during morning drumming rituals and circling scenic Kandy Lake.",
+      rallyTask: "Rally Challenge: Find the local market vendor with authentic organic Ceylon cinnamon quills and aromatic cardamom pods.",
+      routeStops: ["Sri Dalada Maligawa", "Kandy Lake Round Drive", "Peradeniya Royal Botanical Gardens"],
+      overnight: "Kandy",
+      mechanicTip: "City traffic etiquette: three-wheelers are agile, but remember city buses have large blind spots—honk politely before overtaking."
+    },
+    {
+      day: 13,
+      title: "Kandy Descent to Kammala / Negombo Beach Finish Line",
+      from: "Kandy",
+      to: "Kammala / Negombo Depot",
+      distanceKm: 105,
+      drivingTime: "3.5 hours",
+      terrainDifficulty: "Scenic Cruise",
+      adventureHighlight: "Coasting down Kadugannawa mountain pass, rolling through rubber groves, and crossing the triumphant finish line on the beach.",
+      rallyTask: "Rally Challenge: Celebrate 1,150 km of mountain passes, jungle crossings, and east coast surf with cold Lion beers and jumbo garlic prawns!",
+      routeStops: ["Kadugannawa Rock Tunnel", "Kegalle Rubber Plantations", "Kammala Beach Finish Line"],
+      overnight: "Departure Flight or Beachfront Hotel in Negombo",
+      mechanicTip: "Final vehicle inspection: check tire tread, return toolkit & AAC paperwork, and collect your security deposit refund."
+    }
+  ];
+
+  const autumnAdventureDays: AdventureRouteDay[] = [
+    {
+      day: 1,
+      title: "Negombo Depot Kickoff & Highway Inland to Sigiriya",
+      from: "Bandaranaike Airport (CMB) / Negombo",
+      to: "Sigiriya (Cultural Triangle)",
+      distanceKm: 145,
+      drivingTime: "4.5 hours",
+      terrainDifficulty: "Moderate",
+      adventureHighlight: "Vehicle handover, comprehensive safety driving lesson, mastering 4-speed twist-throttle, and heading inland into coconut country.",
+      rallyTask: "Rally Challenge: Master hand clutch and gear indicator display; stop for your first claypot buffalo curd with organic kithul treacle.",
+      routeStops: ["Negombo Depot", "Kurunegala Monoliths", "Habarana Jungle Corridor"],
+      overnight: "Eco Jungle Treehouse Lodge in Sigiriya / Habarana",
+      mechanicTip: "Beginner driver tip: keep a relaxed two-finger grip on the handlebar and allow the 200cc engine to pull smoothly."
+    },
+    {
+      day: 2,
+      title: "Pidurangala Dawn & The Autumn Minneriya Elephant Gathering",
+      from: "Sigiriya",
+      to: "Minneriya / Kaudulla National Park",
+      distanceKm: 50,
+      drivingTime: "2 hours",
+      terrainDifficulty: "Moderate",
+      adventureHighlight: "Dawn climb of Pidurangala Rock, followed by the world-famous Autumn Elephant Gathering—up to 300 wild elephants congregating at the reservoir.",
+      rallyTask: "Rally Challenge: Tuk-tuk to the edge of the ancient Minneriya tank and watch baby elephants splashing in the mud at sunset.",
+      routeStops: ["Pidurangala Summit", "Sigiriya Moat Drive", "Minneriya Safari Gate"],
+      overnight: "Sigiriya / Habarana",
+      mechanicTip: "Never park your three-wheeler directly in elephant paths along jungle roads. Always maintain 100m distance and yield."
+    },
+    {
+      day: 3,
+      title: "Sigiriya to Knuckles Foothills & Royal Kandy",
+      from: "Sigiriya",
+      to: "Kandy",
+      distanceKm: 95,
+      drivingTime: "3.5 hours",
+      terrainDifficulty: "Moderate",
+      adventureHighlight: "Climbing through Dambulla Golden Cave Temples, fragrant Matale clove and vanilla groves, into the UNESCO hill capital.",
+      rallyTask: "Rally Challenge: Climb the steep granite staircase to Dambulla's 5 gilded cave sanctuaries before lunchtime.",
+      routeStops: ["Dambulla Cave Temples", "Matale Spice Gardens", "Kandy Lake Gateway"],
+      overnight: "Boutique Colonial Manor in Kandy",
+      mechanicTip: "Test headlamps, horn, and wiper blade before entering mountain rain/mist zones in the central highlands."
+    },
+    {
+      day: 4,
+      title: "Kandy Heritage, Sacred Relics & Hilltop Panoramas",
+      from: "Kandy",
+      to: "Peradeniya & Bahirawakanda",
+      distanceKm: 30,
+      drivingTime: "1.5 hours",
+      terrainDifficulty: "Moderate",
+      adventureHighlight: "Attending the royal Thevava drumming ritual at Temple of the Tooth and driving past giant Javan fig trees in Peradeniya.",
+      rallyTask: "Rally Challenge: Tuk-tuk up to Bahirawakanda Giant Buddha hill for a sweeping panoramic view over Kandy city and lake.",
+      routeStops: ["Temple of the Tooth", "Peradeniya Botanical Gardens", "Bahirawakanda Viewpoint"],
+      overnight: "Kandy",
+      mechanicTip: "Check spare wheel pressure in the rear luggage bay; verify wheel wrench and bottle jack are securely fastened."
+    },
+    {
+      day: 5,
+      title: "The Grand Mountain Climb: Kandy to Nuwara Eliya",
+      from: "Kandy",
+      to: "Nuwara Eliya (1,800m Elevation)",
+      distanceKm: 78,
+      drivingTime: "3.5 hours",
+      terrainDifficulty: "Highland Endurance",
+      adventureHighlight: "The signature mountain stage! Climbing 1,400 meters of elevation through endless emerald tea carpets and roaring Ramboda Falls.",
+      rallyTask: "Rally Challenge: Park outside the misty roar of Ramboda Waterfall and photograph your tuk-tuk wrapped in swirling tea clouds.",
+      routeStops: ["Gampola River Track", "Ramboda Falls Curvature", "Labookellie Tea Estate"],
+      overnight: "Victorian Cottage or Heritage Hotel in Nuwara Eliya",
+      mechanicTip: "Engine running warm on steep climbs? Pull over at a mountain scenic turnout for 5 minutes and let the cooling fan run."
+    },
+    {
+      day: 6,
+      title: "Nuwara Eliya Highland Valleys to Backpacker Ella",
+      from: "Nuwara Eliya",
+      to: "Ella Gap",
+      distanceKm: 60,
+      drivingTime: "2.5 hours",
+      terrainDifficulty: "Highland Endurance",
+      adventureHighlight: "Driving past misty Gregory Lake, through vegetable farm terraces, and dropping down into vibrant backpacker Ella.",
+      rallyTask: "Rally Challenge: Buy freshly picked hillside mountain strawberries at a roadside farm stall along Hakgala Pass.",
+      routeStops: ["Gregory Lake Esplanade", "Hakgala Botanical Pass", "Kumbalwela Switchbacks"],
+      overnight: "Valley View Hotel or Eco Cabana in Ella",
+      mechanicTip: "High-altitude damp weather: wipe spark plug cap dry in the morning to prevent moisture misfires."
+    },
+    {
+      day: 7,
+      title: "Ella Viaducts, Little Adam's Peak & Waterfall Scramble",
+      from: "Ella",
+      to: "Nine Arch Bridge & Ravana Pool",
+      distanceKm: 30,
+      drivingTime: "1 hour total",
+      terrainDifficulty: "Moderate",
+      adventureHighlight: "Morning hike to Nine Arch Bridge to watch the blue train pass over deep jungle ravines, afternoon dip at Ravana Falls.",
+      rallyTask: "Rally Challenge: Navigate your tuk-tuk through narrow village roads right to the hidden trailhead of Nine Arch Bridge.",
+      routeStops: ["Nine Arch Bridge", "Little Adam's Peak", "Ravana Falls Base"],
+      overnight: "Ella",
+      mechanicTip: "Check rear luggage tie-down straps before descending mountain passes tomorrow."
+    },
+    {
+      day: 8,
+      title: "Descending the Highlands into Udawalawe Savannah",
+      from: "Ella",
+      to: "Udawalawe National Park Border",
+      distanceKm: 90,
+      drivingTime: "2.5 hours",
+      terrainDifficulty: "Moderate",
+      adventureHighlight: "Dramatic transition from 15°C misty tea mountains down to 30°C tropical savanna plains populated by wild Asian elephants.",
+      rallyTask: "Rally Challenge: Watch wild elephant herds grazing right on the boundary fence of Udawalawe reservoir from your tuk-tuk.",
+      routeStops: ["Wellawaya Valley Highway", "Thanamalwila Junction", "Udawalawe Reservoir Dam"],
+      overnight: "Safari Glamping Tents or Eco Safari Lodge in Udawalawe",
+      mechanicTip: "Check air filter after dusty savanna dirt roads; tap out any dust particles to maintain crisp acceleration."
+    },
+    {
+      day: 9,
+      title: "Dawn Big-Game Safari & Drive to Hiriketiya Surf Bay",
+      from: "Udawalawe",
+      to: "Hiriketiya Horseshoe Beach",
+      distanceKm: 85,
+      drivingTime: "2.5 hours",
+      terrainDifficulty: "Scenic Cruise",
+      adventureHighlight: "Morning open-top 4x4 jeep safari tracking tuskers and wild buffaloes, then cruising straight to the Indian Ocean at Hiriketiya.",
+      rallyTask: "Rally Challenge: Arrive at Hiriketiya, park under the coconut palms, and jump into the warm turquoise horseshoe bay.",
+      routeStops: ["Udawalawe Park Gates", "Embilipitiya Canals", "Dikwella & Hiriketiya Bay"],
+      overnight: "Beachfront Surf Lodge in Hiriketiya",
+      mechanicTip: "Salt air zone entered: spray keyhole and throttle cable joints with protective lubricant."
+    },
+    {
+      day: 10,
+      title: "Southern Coastline: Dondra Lighthouse to Mirissa & Weligama",
+      from: "Hiriketiya",
+      to: "Mirissa & Weligama Bay",
+      distanceKm: 45,
+      drivingTime: "1.5 hours",
+      terrainDifficulty: "Scenic Cruise",
+      adventureHighlight: "Visiting Dondra Head—the southernmost tip of Sri Lanka—photos at Coconut Tree Hill, and sunset surf in Weligama.",
+      rallyTask: "Rally Challenge: Position your three-wheeler on the scenic Matara coastal curve for a classic Indian Ocean road shot.",
+      routeStops: ["Dondra 1889 Lighthouse", "Coconut Tree Hill", "Weligama Sandy Surf Beach"],
+      overnight: "Boutique Coastal Resort in Weligama or Mirissa",
+      mechanicTip: "Smooth flat coastal driving: enjoy 30 km/L maximum fuel economy on the A2 coastal road."
+    },
+    {
+      day: 11,
+      title: "Weligama Stilt Fishermen to UNESCO Galle Dutch Fort",
+      from: "Weligama",
+      to: "Galle Fort",
+      distanceKm: 30,
+      drivingTime: "1 hour",
+      terrainDifficulty: "Scenic Cruise",
+      adventureHighlight: "Cruising past Koggala stilt fishermen, arriving at the 17th-century UNESCO Dutch Fort, navigating cobblestone colonial streets.",
+      rallyTask: "Rally Challenge: Drive through the historical main gate of Galle Fort and walk the ocean ramparts at golden hour.",
+      routeStops: ["Ahangama Surf Shacks", "Koggala Stilt Fishermen", "Galle Fort Ramparts"],
+      overnight: "Heritage Dutch Manor Hotel inside Galle Fort",
+      mechanicTip: "Drive at 10-15 km/h inside Galle Fort cobblestones; pedestrians have total right of way."
+    },
+    {
+      day: 12,
+      title: "Galle Fort to Bentota: Mangrove Lagoons & Sea Turtles",
+      from: "Galle",
+      to: "Bentota",
+      distanceKm: 55,
+      drivingTime: "1.5 hours",
+      terrainDifficulty: "Scenic Cruise",
+      adventureHighlight: "Wading with giant green sea turtles in Hikkaduwa reef, navigating a wooden boat through 64 Madu Ganga mangrove islands.",
+      rallyTask: "Rally Challenge: Try natural fish foot therapy and fresh cinnamon peeling demonstration on Madu River island.",
+      routeStops: ["Hikkaduwa Marine Sanctuary", "Ambalangoda Mask Workshops", "Bentota Golden Spit"],
+      overnight: "Riverside or Luxury Beachfront Resort in Bentota",
+      mechanicTip: "Remember: Three-wheelers are prohibited from entering expressway E01. Stay on scenic coastal Galle Road A2."
+    },
+    {
+      day: 13,
+      title: "Bentota to Colombo / Negombo Airport Coast Finale",
+      from: "Bentota",
+      to: "Colombo / Negombo Depot",
+      distanceKm: 85,
+      drivingTime: "2.5 hours",
+      terrainDifficulty: "Scenic Cruise",
+      adventureHighlight: "Coasting along Colombo's scenic Marine Drive next to ocean train tracks, souvenir shopping, and triumphant vehicle return.",
+      rallyTask: "Rally Challenge: Final celebratory kottu feast at Galle Face Green before returning keys and receiving your completion certificate.",
+      routeStops: ["Colombo Marine Drive", "Dutch Hospital Precinct", "Negombo Depot"],
+      overnight: "Departure Flight Home from CMB Airport",
+      mechanicTip: "Complete vehicle return inventory check, top up fuel tank to full, and transfer to airport departure lounge."
+    }
+  ];
   const faqs = [
     {
       q: "Can foreigners legally drive a Tuk-Tuk in Sri Lanka?",
@@ -1350,6 +1745,413 @@ export default function SrilankaThirteenDayTukTukItineraryPage() {
               </div>
             );
           })()}
+        </section>
+
+        {/* ========================================================================= */}
+        {/* SECTION: TUK-TUK ADVENTURE CONCEPT — SPRING & SUMMER vs. AUTUMN ROUTES */}
+        {/* Inspired by Large Minority Lanka Challenge & Expedition Rally Formats */}
+        {/* ========================================================================= */}
+        <section aria-labelledby="adventure-routes-heading" className="space-y-8 pt-6 border-t border-[#E8E4D9]">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="space-y-2 max-w-3xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF3E0] text-[#B38728] text-xs font-bold uppercase tracking-wider border border-[#E6D4A5]">
+                <Flag className="w-3.5 h-3.5 text-[#B38728]" />
+                <span>Rally Concept & Seasonal Route Planning</span>
+              </div>
+              <h2 id="adventure-routes-heading" className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#1F3D2B]">
+                Sri Lanka Tuk-Tuk Adventure: Spring & Summer vs. Autumn Routes
+              </h2>
+              <p className="text-xs sm:text-sm text-[#5A5448] leading-relaxed">
+                Inspired by world-famous self-drive tuk-tuk challenges (such as Large Minority's iconic <em>Lanka Challenge</em>), Sri Lanka's geography requires two distinct seasonal route architectures to optimize for monsoon weather, surfing swells, wildlife migrations, and elevation changes.
+              </p>
+            </div>
+            <span className="text-xs font-mono bg-[#1F3D2B] text-white px-3.5 py-1.5 rounded-xl self-start md:self-auto shrink-0 shadow-sm flex items-center gap-1.5">
+              <Compass className="w-3.5 h-3.5 text-[#F2C94C]" />
+              <span>Two Signature Expeditions</span>
+            </span>
+          </div>
+
+          {/* Route Mode Switcher: Spring & Summer vs Autumn */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Tab 1: Spring & Summer */}
+            <button
+              type="button"
+              onClick={() => {
+                setAdventureRoute("spring-summer");
+                setAdventureActiveDay(1);
+                trackEvent("tuktuk_adventure_route_select", "engagement", "spring_summer");
+              }}
+              className={`p-5 rounded-2xl border text-left transition-all relative overflow-hidden flex flex-col justify-between space-y-4 ${
+                adventureRoute === "spring-summer"
+                  ? "bg-[#1F3D2B] text-white border-[#1F3D2B] shadow-xl ring-2 ring-[#B38728]/40"
+                  : "bg-white text-[#1A1A1A] border-[#E8E4D9] hover:border-[#1F3D2B]/60 hover:bg-[#FAF8F3]"
+              }`}
+            >
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className={`text-[10px] font-mono uppercase px-2.5 py-1 rounded-full font-bold flex items-center gap-1 ${
+                    adventureRoute === "spring-summer"
+                      ? "bg-[#2C523B] text-[#F2C94C] border border-[#3E6B4F]"
+                      : "bg-[#EBF3ED] text-[#1F3D2B] border border-[#C5DAC9]"
+                  }`}>
+                    <Sun className="w-3 h-3" /> March – August Season
+                  </span>
+                  <span className={`text-xs font-mono font-bold ${adventureRoute === "spring-summer" ? "text-emerald-300" : "text-[#7A7365]"}`}>
+                    ~1,150 km Circuit
+                  </span>
+                </div>
+                <h3 className={`text-lg sm:text-xl font-serif font-bold ${adventureRoute === "spring-summer" ? "text-white" : "text-[#1F3D2B]"}`}>
+                  🌸 Spring & Summer Tuk-Tuk Adventure Route
+                </h3>
+                <p className={`text-xs leading-relaxed ${adventureRoute === "spring-summer" ? "text-[#C5DAC9]" : "text-[#5A5448]"}`}>
+                  <strong>Central Highlands, East Coast Surf & Wild Gal Oya:</strong> Sigiriya → Pasikuda → Arugam Bay (Point Breaks & Rest Day) → Wild Glamping Gal Oya → 18 Hairpin Bends to Mandaram Nuwara → Ella → Kandy → Kammala.
+                </p>
+              </div>
+
+              <div className="flex items-center justify-between pt-3 border-t border-current/10 text-xs font-mono">
+                <span className="flex items-center gap-1">
+                  <Waves className="w-3.5 h-3.5 text-[#F2C94C]" /> Arugam Bay Surf Season
+                </span>
+                <span className="font-bold underline flex items-center gap-1">
+                  {adventureRoute === "spring-summer" ? "Active View" : "View Route Plan →"}
+                </span>
+              </div>
+            </button>
+
+            {/* Tab 2: Autumn */}
+            <button
+              type="button"
+              onClick={() => {
+                setAdventureRoute("autumn");
+                setAdventureActiveDay(1);
+                trackEvent("tuktuk_adventure_route_select", "engagement", "autumn");
+              }}
+              className={`p-5 rounded-2xl border text-left transition-all relative overflow-hidden flex flex-col justify-between space-y-4 ${
+                adventureRoute === "autumn"
+                  ? "bg-[#1F3D2B] text-white border-[#1F3D2B] shadow-xl ring-2 ring-[#B38728]/40"
+                  : "bg-white text-[#1A1A1A] border-[#E8E4D9] hover:border-[#1F3D2B]/60 hover:bg-[#FAF8F3]"
+              }`}
+            >
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className={`text-[10px] font-mono uppercase px-2.5 py-1 rounded-full font-bold flex items-center gap-1 ${
+                    adventureRoute === "autumn"
+                      ? "bg-[#2C523B] text-[#F2C94C] border border-[#3E6B4F]"
+                      : "bg-[#FAF3E0] text-[#B38728] border border-[#E6D4A5]"
+                  }`}>
+                    <Calendar className="w-3 h-3" /> September – November Season
+                  </span>
+                  <span className={`text-xs font-mono font-bold ${adventureRoute === "autumn" ? "text-emerald-300" : "text-[#7A7365]"}`}>
+                    ~1,080 km Circuit
+                  </span>
+                </div>
+                <h3 className={`text-lg sm:text-xl font-serif font-bold ${adventureRoute === "autumn" ? "text-white" : "text-[#1F3D2B]"}`}>
+                  🍂 Autumn Tuk-Tuk Adventure Route
+                </h3>
+                <p className={`text-xs leading-relaxed ${adventureRoute === "autumn" ? "text-[#C5DAC9]" : "text-[#5A5448]"}`}>
+                  <strong>Southern "Greatest Hits", Big-Game Safari & Coastline:</strong> Sigiriya (Minneriya Elephant Gathering) → Knuckles Foothills → Kandy → Nuwara Eliya (Ramboda Pass) → Ella → Udawalawe Safari → Hiriketiya → Galle Fort → Negombo.
+                </p>
+              </div>
+
+              <div className="flex items-center justify-between pt-3 border-t border-current/10 text-xs font-mono">
+                <span className="flex items-center gap-1">
+                  <Camera className="w-3.5 h-3.5 text-[#F2C94C]" /> Minneriya Elephant Gathering
+                </span>
+                <span className="font-bold underline flex items-center gap-1">
+                  {adventureRoute === "autumn" ? "Active View" : "View Route Plan →"}
+                </span>
+              </div>
+            </button>
+          </div>
+
+          {/* Active Route Quick Specs Banner */}
+          {(() => {
+            const isSpring = adventureRoute === "spring-summer";
+            const activeDataset = isSpring ? springSummerAdventureDays : autumnAdventureDays;
+            const currentDay = activeDataset.find(d => d.day === adventureActiveDay) || activeDataset[0];
+
+            return (
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-[#FAF8F3] via-white to-[#F5F2EA] p-5 sm:p-6 rounded-2xl border border-[#E8E4D9] shadow-sm">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
+                    <div>
+                      <span className="text-[10px] text-[#7A7365] uppercase block font-medium">Selected Route:</span>
+                      <strong className="text-[#1F3D2B] text-sm block">
+                        {isSpring ? "Spring & Summer Expedition" : "Autumn Greatest Hits Loop"}
+                      </strong>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-[#7A7365] uppercase block font-medium">Primary Weather Advantage:</span>
+                      <span className="text-[#332F28] font-bold block">
+                        {isSpring ? "Sunny East Coast & Calm Seas" : "Shoulder Season & Wildlife Gathering"}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-[#7A7365] uppercase block font-medium">Climbing & Elevation:</span>
+                      <span className="text-[#332F28] font-bold block">
+                        {isSpring ? "Mandaram Nuwara & Ramboda (1,600m)" : "Nuwara Eliya High Pass (1,800m)"}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-[#7A7365] uppercase block font-medium">Signature Adventure:</span>
+                      <span className="text-[#332F28] font-bold block">
+                        {isSpring ? "Arugam Bay Surf & Gal Oya Swimming Elephants" : "Minneriya 300+ Elephants & Galle Fort"}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Day Tabs Scroller */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs font-mono text-[#7A7365]">
+                    <span>Select Day ({isSpring ? "Spring & Summer" : "Autumn"} Route):</span>
+                    <span>Day {adventureActiveDay} of 13</span>
+                  </div>
+                  <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
+                    {activeDataset.map((d) => (
+                      <button
+                        key={d.day}
+                        type="button"
+                        onClick={() => {
+                          setAdventureActiveDay(d.day);
+                          trackEvent("tuktuk_adventure_day_tab", "engagement", `${adventureRoute}_day_${d.day}`);
+                        }}
+                        className={`px-3 py-2 rounded-xl text-xs font-mono font-bold whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                          adventureActiveDay === d.day
+                            ? "bg-[#1F3D2B] text-white shadow-md scale-105"
+                            : "bg-white border border-[#E8E4D9] text-[#5A5448] hover:border-[#1F3D2B]"
+                        }`}
+                      >
+                        <span>Day {d.day}</span>
+                        {adventureActiveDay === d.day && <span className="w-1.5 h-1.5 rounded-full bg-[#F2C94C]"></span>}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Active Adventure Day Card */}
+                <div className="bg-white rounded-3xl border border-[#E8E4D9] p-6 sm:p-8 shadow-lg space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E8E4D9] pb-4">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-mono font-bold text-[#1F3D2B] bg-[#EBF3ED] px-2.5 py-1 rounded-md uppercase tracking-wider">
+                          Day {currentDay.day} • {isSpring ? "Spring & Summer Route" : "Autumn Route"}
+                        </span>
+                        <span className={`text-[10px] font-mono px-2 py-0.5 rounded-md font-bold uppercase ${
+                          currentDay.terrainDifficulty === "Highland Endurance"
+                            ? "bg-amber-100 text-amber-800"
+                            : currentDay.terrainDifficulty === "Challenging"
+                            ? "bg-rose-100 text-rose-800"
+                            : currentDay.terrainDifficulty === "Scenic Cruise"
+                            ? "bg-blue-100 text-blue-800"
+                            : "bg-emerald-100 text-emerald-800"
+                        }`}>
+                          {currentDay.terrainDifficulty}
+                        </span>
+                      </div>
+                      <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1F3D2B] mt-2">
+                        {currentDay.title}
+                      </h4>
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-[#5A5448]">
+                      <span className="bg-[#FAF8F3] px-3 py-1.5 rounded-xl border border-[#E8E4D9] flex items-center gap-1.5">
+                        <Navigation className="w-3.5 h-3.5 text-[#1F3D2B]" />
+                        <strong>{currentDay.from} → {currentDay.to}</strong>
+                      </span>
+                      <span className="bg-[#FAF8F3] px-3 py-1.5 rounded-xl border border-[#E8E4D9] flex items-center gap-1.5">
+                        <Compass className="w-3.5 h-3.5 text-[#1F3D2B]" />
+                        <strong>{currentDay.distanceKm} km</strong> (~{currentDay.drivingTime})
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Highlights Description */}
+                  <div className="text-xs sm:text-sm text-[#4A453A] leading-relaxed bg-[#FAF8F3] p-4 rounded-2xl border border-[#E8E4D9]">
+                    <strong className="text-[#1F3D2B] font-mono uppercase text-xs block mb-1">Route Expedition Highlight:</strong>
+                    {currentDay.adventureHighlight}
+                  </div>
+
+                  {/* Rally Challenge Box */}
+                  <div className="bg-[#FAF3E0] p-4 sm:p-5 rounded-2xl border border-[#E6D4A5] space-y-2">
+                    <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#B38728]">
+                      <Flag className="w-4 h-4 text-[#B38728]" />
+                      <span>Rally Adventure Challenge / Mystery Task</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-[#664D12] font-medium leading-relaxed">
+                      {currentDay.rallyTask}
+                    </p>
+                  </div>
+
+                  {/* Stops & Waypoints */}
+                  <div className="space-y-2">
+                    <span className="text-[11px] font-mono font-bold text-[#7A7365] uppercase tracking-wider block">
+                      Key Waypoints & Route Checkpoints:
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {currentDay.routeStops.map((stop, sIdx) => (
+                        <span
+                          key={sIdx}
+                          className="bg-white px-3 py-1 rounded-lg text-xs font-mono text-[#1F3D2B] border border-[#E8E4D9] shadow-2xs flex items-center gap-1"
+                        >
+                          <MapPin className="w-3 h-3 text-[#B38728]" />
+                          {stop}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Bottom Stats: Overnight stay & Mechanical pro tip */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#E8E4D9] text-xs">
+                    <div className="bg-[#FAF8F3] p-3.5 rounded-xl border border-[#E8E4D9]">
+                      <span className="text-[10px] font-mono uppercase text-[#7A7365] block mb-1">Recommended Stay</span>
+                      <strong className="text-[#1F3D2B] block">{currentDay.overnight}</strong>
+                    </div>
+                    <div className="bg-[#EBF3ED] p-3.5 rounded-xl border border-[#C5DAC9]">
+                      <span className="text-[10px] font-mono uppercase text-[#1F3D2B] font-bold block mb-1 flex items-center gap-1">
+                        <Wrench className="w-3 h-3 text-[#1F3D2B]" /> Expedition Mechanic Tip
+                      </span>
+                      <span className="text-[#1F3D2B] block font-medium">{currentDay.mechanicTip}</span>
+                    </div>
+                  </div>
+
+                  {/* Prev / Next day buttons */}
+                  <div className="flex items-center justify-between pt-2">
+                    <button
+                      type="button"
+                      disabled={adventureActiveDay === 1}
+                      onClick={() => setAdventureActiveDay(adventureActiveDay - 1)}
+                      className="px-4 py-2 rounded-xl text-xs font-mono font-bold border border-[#E8E4D9] text-[#5A5448] hover:bg-[#FAF8F3] disabled:opacity-30 disabled:cursor-not-allowed"
+                    >
+                      ← Previous Day {adventureActiveDay > 1 ? adventureActiveDay - 1 : ""}
+                    </button>
+                    <button
+                      type="button"
+                      disabled={adventureActiveDay === 13}
+                      onClick={() => setAdventureActiveDay(adventureActiveDay + 1)}
+                      className="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-[#1F3D2B] text-white hover:bg-[#142A1D] disabled:opacity-30 disabled:cursor-not-allowed"
+                    >
+                      Next Day {adventureActiveDay < 13 ? adventureActiveDay + 1 : ""} →
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* ========================================================================= */}
+          {/* SEASONAL COMPARISON MATRIX: SPRING & SUMMER vs. AUTUMN */}
+          {/* ========================================================================= */}
+          <div className="space-y-4 pt-4">
+            <div className="flex items-center gap-2">
+              <Compass className="w-5 h-5 text-[#1F3D2B]" />
+              <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1F3D2B]">
+                Spring & Summer vs. Autumn: Route Comparison Matrix
+              </h3>
+            </div>
+            <p className="text-xs sm:text-sm text-[#5A5448] leading-relaxed">
+              Wondering which seasonal Tuk-Tuk Adventure aligns best with your travel calendar? Use this operational comparison table to decide between the two expedition loops:
+            </p>
+
+            <div className="overflow-x-auto rounded-2xl border border-[#E8E4D9] bg-white shadow-sm">
+              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+                <thead>
+                  <tr className="bg-[#1F3D2B] text-white font-serif">
+                    <th className="p-4 font-semibold">Route Dimension</th>
+                    <th className="p-4 font-semibold">🌸 Spring & Summer Route</th>
+                    <th className="p-4 font-semibold">🍂 Autumn Route</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#E8E4D9]">
+                  <tr className="hover:bg-[#FAF8F3]">
+                    <td className="p-4 font-bold text-[#1F3D2B]">Best Travel Window</td>
+                    <td className="p-4 font-mono font-bold text-emerald-800">March to August (Spring/Summer)</td>
+                    <td className="p-4 font-mono font-bold text-amber-800">September to November (Autumn)</td>
+                  </tr>
+                  <tr className="hover:bg-[#FAF8F3]">
+                    <td className="p-4 font-bold text-[#1F3D2B]">Total Loop Distance</td>
+                    <td className="p-4 font-mono">~1,150 km Loop</td>
+                    <td className="p-4 font-mono">~1,080 km Loop</td>
+                  </tr>
+                  <tr className="hover:bg-[#FAF8F3]">
+                    <td className="p-4 font-bold text-[#1F3D2B]">Geographic Focus</td>
+                    <td className="p-4 text-[#4A453A]">Cultural Triangle, East Coast (Pasikuda, Arugam Bay), Gal Oya & Central Mountains</td>
+                    <td className="p-4 text-[#4A453A]">Cultural Triangle, Knuckles, High Tea Country (Nuwara Eliya, Ella), Udawalawe Safari & Southern Coast</td>
+                  </tr>
+                  <tr className="hover:bg-[#FAF8F3]">
+                    <td className="p-4 font-bold text-[#1F3D2B]">Ocean & Surf Highlights</td>
+                    <td className="p-4 text-[#4A453A]">World-class point breaks in Arugam Bay (Whiskey Point, Peanut Farm); calm shallow waters at Pasikuda</td>
+                    <td className="p-4 text-[#4A453A]">Beginner-friendly beach breaks in Weligama and horseshoe reef swells in Hiriketiya</td>
+                  </tr>
+                  <tr className="hover:bg-[#FAF8F3]">
+                    <td className="p-4 font-bold text-[#1F3D2B]">Signature Mountain Driving</td>
+                    <td className="p-4 text-[#4A453A]">18 Hairpin Bends (Dahas Ata Wanguwa) and remote ascent into hidden Mandaram Nuwara valley</td>
+                    <td className="p-4 text-[#4A453A]">Ramboda Waterfall Pass ascent to Nuwara Eliya (1,800m) and Ella Gap descent</td>
+                  </tr>
+                  <tr className="hover:bg-[#FAF8F3]">
+                    <td className="p-4 font-bold text-[#1F3D2B]">Wildlife & Safari Peak</td>
+                    <td className="p-4 text-[#4A453A]">Gal Oya boat safari with wild swimming elephants and Kumana migratory bird sanctuaries</td>
+                    <td className="p-4 text-[#4A453A]">Peak season for Minneriya "Great Elephant Gathering" (up to 300 elephants) + Yala leopards</td>
+                  </tr>
+                  <tr className="hover:bg-[#FAF8F3]">
+                    <td className="p-4 font-bold text-[#1F3D2B]">Driving Endurance Level</td>
+                    <td className="p-4 text-[#4A453A] font-semibold text-rose-800">Advanced / High Endurance (More remote unpaved savanna stretches & steep single-lane climbs)</td>
+                    <td className="p-4 text-[#4A453A] font-semibold text-emerald-800">Moderate / Balanced (Smooth coastal highways paired with scenic paved highland passes)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Rally Concept / Self-Drive Spirit Card */}
+          <div className="bg-[#142A1D] text-white p-6 sm:p-8 rounded-3xl border border-[#2C523B] space-y-4 shadow-xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#2C523B] pb-4">
+              <div className="flex items-center gap-3">
+                <span className="text-3xl">🛺</span>
+                <div>
+                  <span className="text-[10px] font-mono text-[#F2C94C] uppercase tracking-wider block font-bold">
+                    The Tuk-Tuk Adventure Spirit
+                  </span>
+                  <h4 className="text-xl font-serif font-bold text-white">
+                    Rally-Style Challenge with Total Self-Drive Freedom
+                  </h4>
+                </div>
+              </div>
+              <span className="px-3 py-1 bg-[#2C523B] text-[#A3BFAB] text-xs font-mono rounded-full border border-[#3E6B4F] self-start sm:self-auto">
+                No Fixed Convoys • Your Pace
+              </span>
+            </div>
+
+            <p className="text-xs sm:text-sm text-[#C5DAC9] leading-relaxed">
+              Unlike rigid tour buses or locked-in guided convoys, our Tuk-Tuk Adventure concept empowers you to experience the full camaraderie and route challenges of famous island rallies like Large Minority's <em>Lanka Challenge</em>, but on your own schedule. You get pre-vetted expedition GPS tracks, daily mystery checkpoints, 24/7 on-call islandwide mechanics, AAC legal permit endorsements, and direct WhatsApp support every kilometer of the way.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+              <button
+                type="button"
+                onClick={() => {
+                  const selectedRouteName = adventureRoute === "spring-summer" ? "Spring & Summer (East Coast & Central)" : "Autumn (Southern Greatest Hits)";
+                  const msg = encodeURIComponent(`Hi Plan Sri Lanka! I'm interested in doing the ${selectedRouteName} Tuk-Tuk Adventure route. Could you send me vehicle availability, GPS route files, and AAC driving permit requirements?`);
+                  window.open(`https://wa.me/94722968210?text=${msg}`, "_blank");
+                }}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-105"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>Inquire on WhatsApp about the {adventureRoute === "spring-summer" ? "Spring & Summer" : "Autumn"} Route</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  window.scrollTo({ top: 400, behavior: "smooth" });
+                }}
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-[#244632] hover:bg-[#2c553d] text-[#C5DAC9] hover:text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 border border-[#386146] transition-colors"
+              >
+                <span>Configure Your Tuk-Tuk Rental Above ↑</span>
+              </button>
+            </div>
+          </div>
         </section>
 
         {/* ========================================================================= */}
