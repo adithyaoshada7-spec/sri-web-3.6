@@ -108,7 +108,9 @@ export default function SrilankaJunePage() {
     setTimeout(() => {
       setIsSubmitting(false);
       setFormSubmitted(true);
-      trackEvent("june_lead_form_submit_success", "conversion", leadForm.travelStyle);
+      trackEvent("june_lead_form_submit_success", "conversion", leadForm.travelStyle, {
+        phone: leadForm.whatsapp
+      });
     }, 1200);
   };
 

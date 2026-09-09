@@ -68,7 +68,9 @@ export default function SrilankaTripPlannerPillarPage() {
     setTimeout(() => {
       setIsSubmitting(false);
       setFormSubmitted(true);
-      trackEvent("planner_pillar_lead_submit_success", "conversion", leadForm.travelStyle);
+      trackEvent("planner_pillar_lead_submit_success", "conversion", leadForm.travelStyle, {
+        phone: leadForm.whatsapp
+      });
     }, 1200);
   };
 

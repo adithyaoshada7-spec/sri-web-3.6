@@ -2,16 +2,138 @@ import express from "express";
 import { createServer as createViteServer } from "vite";
 import fs from "fs";
 import path from "path";
+import crypto from "crypto";
+import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import { activities } from "./src/data/activities";
 import { seoArticles } from "./src/data/seoArticles";
 import { trainFallbackHtml } from "./src/data/trainFallbackHtml";
+
+dotenv.config();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function startServer() {
   const app = express();
   const PORT = 3000;
+
+  // JSON Body parsing for API routes
+  app.use(express.json());
+
+  // Meta Conversions API (CAPI) Endpoint
+  app.post("/api/meta-capi", async (req, res) => {
+    try {
+      const {
+        eventName,
+        eventId,
+        eventSourceUrl,
+        userData = {},
+        customData = {}
+      } = req.body;
+
+      if (!eventName) {
+        return res.status(400).json({ error: "eventName is required" });
+      }
+
+      const pixelId = process.env.META_PIXEL_ID || "2857205307994379";
+      const accessToken = process.env.META_ACCESS_TOKEN;
+
+      if (!accessToken) {
+        console.warn("[Meta CAPI] META_ACCESS_TOKEN is not configured in server environment.");
+        return res.status(200).json({ status: "skipped", reason: "META_ACCESS_TOKEN_MISSING" });
+      }
+
+      // Hash function for PII compliance (SHA-256 in lowercase hex)
+      const hashSha256 = (str?: string) => {
+        if (!str) return undefined;
+        const normalized = str.trim().toLowerCase();
+        return crypto.createHash("sha256").update(normalized).digest("hex");
+      };
+
+      // Extract client IP & User Agent
+      const clientIp = (req.headers["x-forwarded-for"] as string)?.split(",")[0].trim() || req.socket.remoteAddress || "";
+      const clientUserAgent = req.headers["user-agent"] || "";
+
+      // Format User Data
+      const processedUserData: Record<string, any> = {
+        client_ip_address: clientIp,
+        client_user_agent: clientUserAgent
+      };
+
+      if (userData.email) {
+        processedUserData.em = [hashSha256(userData.email)];
+      }
+      if (userData.phone) {
+        // Strip non-digits and hash
+        const cleanPhone = userData.phone.replace(/[^0-9]/g, "");
+        processedUserData.ph = [hashSha256(cleanPhone)];
+      }
+      if (userData.firstName) {
+        processedUserData.fn = [hashSha256(userData.firstName)];
+      }
+      if (userData.lastName) {
+        processedUserData.ln = [hashSha256(userData.lastName)];
+      }
+      if (userData.fbp) {
+        processedUserData.fbp = userData.fbp;
+      }
+      if (userData.fbc) {
+        processedUserData.fbc = userData.fbc;
+      }
+
+      const currentTimestamp = Math.floor(Date.now() / 1000);
+
+      const eventPayload: Record<string, any> = {
+        event_name: eventName,
+        event_time: currentTimestamp,
+        action_source: "website",
+        event_source_url: eventSourceUrl || req.headers.referer || "https://plan-srilanka.com",
+        user_data: processedUserData,
+        custom_data: customData
+      };
+
+      if (eventId) {
+        eventPayload.event_id = eventId;
+      }
+
+      const requestBody: Record<string, any> = {
+        data: [eventPayload]
+      };
+
+      if (process.env.META_TEST_EVENT_CODE) {
+        requestBody.test_event_code = process.env.META_TEST_EVENT_CODE;
+      }
+
+      const metaGraphUrl = `https://graph.facebook.com/v19.0/${pixelId}/events?access_token=${accessToken}`;
+      
+      const metaResponse = await fetch(metaGraphUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestBody)
+      });
+
+      const metaResult = await metaResponse.json();
+
+      if (!metaResponse.ok) {
+        console.error("[Meta CAPI Error]", metaResult);
+        return res.status(metaResponse.status).json({
+          status: "error",
+          details: metaResult
+        });
+      }
+
+      return res.json({
+        status: "success",
+        events_received: metaResult.events_received,
+        fbtrace_id: metaResult.fbtrace_id
+      });
+    } catch (err: any) {
+      console.error("[Meta CAPI Exception]", err);
+      return res.status(500).json({ error: err.message || "Internal server error" });
+    }
+  });
 
 
   // Dynamic sitemap.xml route for SEO compliance
