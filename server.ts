@@ -51,8 +51,11 @@ async function startServer() {
       };
 
       // Extract client IP & User Agent
-      const clientIp = (req.headers["x-forwarded-for"] as string)?.split(",")[0].trim() || req.socket.remoteAddress || "";
-      const clientUserAgent = req.headers["user-agent"] || "";
+      let clientIp = (req.headers["x-forwarded-for"] as string)?.split(",")[0].trim() || req.socket.remoteAddress || "";
+      if (clientIp === "::1" || clientIp === "127.0.0.1" || !clientIp) {
+        clientIp = "123.231.100.50"; // Fallback public IP for local testing
+      }
+      const clientUserAgent = req.headers["user-agent"] || "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36";
 
       // Format User Data
       const processedUserData: Record<string, any> = {
