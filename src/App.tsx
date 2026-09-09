@@ -83,9 +83,13 @@ export default function App() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Scroll to top on location change
+  // Scroll to top and track SPA pageview on location change
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Track Meta Pixel SPA PageView on route navigation
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'PageView');
+    }
   }, [location]);
 
   const fadeUp = {
@@ -289,9 +293,6 @@ export default function App() {
             rel="noopener noreferrer"
             onClick={() => {
               trackEvent('whatsapp_click', 'conversion', 'offer_section_claim');
-              if (typeof window !== 'undefined' && (window as any).fbq) {
-                (window as any).fbq('track', 'Lead');
-              }
             }}
             className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-luxury-green text-white rounded-full font-bold uppercase tracking-[0.2em] text-xs shadow-xl transition-all hover:bg-luxury-gold hover:scale-105 mb-16"
           >
@@ -350,9 +351,6 @@ export default function App() {
               rel="noopener noreferrer"
               onClick={() => {
                 trackEvent('whatsapp_click', 'engagement', 'header_book_now');
-                if (typeof window !== 'undefined' && (window as any).fbq) {
-                  (window as any).fbq('track', 'Lead');
-                }
               }}
               className="px-8 py-3 bg-luxury-gold text-white rounded-full hover:bg-white hover:text-black transition-all shadow-lg text-[11px]"
             >
@@ -1071,9 +1069,6 @@ export default function App() {
             onClick={() => {
               setIsMenuOpen(false);
               trackEvent('whatsapp_click', 'engagement', 'mobile_menu_book');
-              if (typeof window !== 'undefined' && (window as any).fbq) {
-                (window as any).fbq('track', 'Lead');
-              }
             }}
             className="w-full py-4 bg-[#d4af37] text-black font-bold text-center rounded-full uppercase text-xs tracking-widest hover:bg-white transition-colors block"
           >

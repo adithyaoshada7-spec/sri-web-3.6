@@ -66,10 +66,6 @@ export default function SrilankaAmericanGuidePage() {
       setIsSubmitting(false);
       setFormSubmitted(true);
       trackEvent("us_guide_lead_form_submit_success", "conversion", leadForm.travelStyle);
-      
-      if ((window as any).fbq) {
-        (window as any).fbq('track', 'Lead');
-      }
     }, 1200);
   };
 

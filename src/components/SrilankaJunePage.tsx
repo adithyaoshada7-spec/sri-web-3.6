@@ -109,11 +109,6 @@ export default function SrilankaJunePage() {
       setIsSubmitting(false);
       setFormSubmitted(true);
       trackEvent("june_lead_form_submit_success", "conversion", leadForm.travelStyle);
-      
-      // Inject Facebook Pixel Lead tracking if present
-      if ((window as any).fbq) {
-        (window as any).fbq('track', 'Lead');
-      }
     }, 1200);
   };
 

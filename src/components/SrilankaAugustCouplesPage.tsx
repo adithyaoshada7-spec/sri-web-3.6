@@ -75,10 +75,6 @@ export default function SrilankaAugustCouplesPage() {
       setIsSubmitting(false);
       setFormSubmitted(true);
       trackEvent("august_couples_lead_submit_success", "conversion", leadForm.budget);
-      
-      if ((window as any).fbq) {
-        (window as any).fbq('track', 'Lead');
-      }
     }, 1200);
   };
 

@@ -69,20 +69,12 @@ export default function SrilankaTripPlannerPillarPage() {
       setIsSubmitting(false);
       setFormSubmitted(true);
       trackEvent("planner_pillar_lead_submit_success", "conversion", leadForm.travelStyle);
-      
-      // Inject Facebook Pixel Lead tracking if present
-      if ((window as any).fbq) {
-        (window as any).fbq('track', 'Lead');
-      }
     }, 1200);
   };
 
   // WhatsApp CTA Redirect
   const handleWhatsAppRedirect = (source: string) => {
     trackEvent("whatsapp_click", "conversion", `pillar_${source}`);
-    if ((window as any).fbq) {
-      (window as any).fbq('track', 'Contact');
-    }
     window.open("https://wa.me/94722968210", "_blank");
   };
 

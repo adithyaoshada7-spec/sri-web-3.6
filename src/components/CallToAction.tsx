@@ -26,9 +26,6 @@ export const CallToAction = ({ trackEvent, fadeUp }: CTAProps) => (
             rel="noopener noreferrer"
             onClick={() => {
               trackEvent('whatsapp_click', 'conversion', 'footer_cta');
-              if (typeof window !== 'undefined' && (window as any).fbq) {
-                (window as any).fbq('track', 'Lead');
-              }
             }}
             className="group relative flex flex-col md:flex-row items-center justify-center gap-4 px-10 md:px-16 py-8 md:py-10 bg-luxury-green text-white rounded-full transition-all duration-500 overflow-hidden hover:bg-luxury-gold hover:shadow-2xl hover:scale-[1.02]"
           >
