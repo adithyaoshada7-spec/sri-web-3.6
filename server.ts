@@ -20,6 +20,11 @@ async function startServer() {
   // JSON Body parsing for API routes
   app.use(express.json());
 
+  // Health check endpoint
+  app.get("/api/health", (req, res) => {
+    res.json({ status: "ok" });
+  });
+
   // Meta Conversions API (CAPI) Endpoint
   app.post("/api/meta-capi", async (req, res) => {
     try {
@@ -534,10 +539,16 @@ async function startServer() {
     }
   });
 
+  const hasDist = fs.existsSync(path.resolve(__dirname, "dist/index.html"));
+  const isProd = process.env.NODE_ENV === "production" && hasDist;
+
   let vite: any;
-  if (process.env.NODE_ENV !== "production") {
+  if (!isProd) {
     vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: {
+        middlewareMode: true,
+        hmr: process.env.DISABLE_HMR === "true" ? false : undefined,
+      },
       appType: "custom",
     });
     app.use(vite.middlewares);
@@ -556,11 +567,13 @@ async function startServer() {
 
     try {
       let template: string;
-      if (process.env.NODE_ENV !== "production") {
+      if (vite) {
         template = fs.readFileSync(path.resolve(__dirname, "index.html"), "utf-8");
         template = await vite.transformIndexHtml(url, template);
-      } else {
+      } else if (fs.existsSync(path.resolve(__dirname, "dist/index.html"))) {
         template = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8");
+      } else {
+        template = fs.readFileSync(path.resolve(__dirname, "index.html"), "utf-8");
       }
 
       // Metadata Injection Logic
@@ -684,7 +697,7 @@ async function startServer() {
 
       res.status(200).set({ "Content-Type": "text/html" }).end(template);
     } catch (e) {
-      if (process.env.NODE_ENV !== "production") {
+      if (vite) {
         vite.ssrFixStacktrace(e as Error);
       }
       next(e);
