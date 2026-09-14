@@ -576,7 +576,7 @@ export const EXPERIENCES: Experience[] = [
     id: "ella-rock-hiking",
     title: "Ella Rock & Little Adam's Peak Trek",
     slug: "ella-rock-hiking",
-    image: "https://images.unsplash.com/photo-1543731068-7e0f5beff43a?auto=format&fit=crop&q=80&w=800",
+    image: "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpg",
     shortSummary: "Hike through mountain cloud forests for dramatic panoramic vistas of the southern plains.",
     description: "The highlands around Ella are a trekker's paradise. Little Adam's Peak is an easy, panoramic trail through tea terraces, while Ella Rock is a deeper, forested expedition that takes you along active train tracks, Eucalyptus groves, and high craggy ridges framing the famous Ella Gap pass.",
     categories: ["Hiking & Trekking", "Photography Spots"],
@@ -991,6 +991,23 @@ export default function SrilankaExperiencesPage() {
         "/sigiriya-lion-rock-citadel.jpeg",
         "/sigiriya-lion-rock-citadel.jpg",
         "https://images.unsplash.com/photo-1588598126710-530ced49b914?auto=format&fit=crop&q=80&w=800"
+      ];
+      if (attempts < variants.length) {
+        target.dataset.fallbackAttempts = String(attempts + 1);
+        target.src = variants[attempts];
+      }
+    } else if (currentSrc.toLowerCase().includes("adams-peak") || currentSrc.toLowerCase().includes("hiking-to") || currentSrc.toLowerCase().includes("ella-rock")) {
+      const attempts = target.dataset.fallbackAttempts ? parseInt(target.dataset.fallbackAttempts, 10) : 0;
+      const variants = [
+        "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpg",
+        "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpeg",
+        "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.png",
+        "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.webp",
+        "/Hiking-to-Scred-Adams-Peak-Sri-Lanka",
+        "/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpg",
+        "/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpeg",
+        "/hiking-to-scred-adams-peak-sri-lanka.jpg",
+        "https://images.unsplash.com/photo-1543731068-7e0f5beff43a?auto=format&fit=crop&q=80&w=800"
       ];
       if (attempts < variants.length) {
         target.dataset.fallbackAttempts = String(attempts + 1);

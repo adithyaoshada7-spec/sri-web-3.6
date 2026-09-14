@@ -235,6 +235,23 @@ const ExperienceDetail = () => {
                   target.dataset.fallbackAttempts = String(attempts + 1);
                   target.src = variants[attempts];
                 }
+              } else if (currentSrc.toLowerCase().includes("adams-peak") || currentSrc.toLowerCase().includes("hiking-to") || currentSrc.toLowerCase().includes("ella-rock")) {
+                const variants = [
+                  "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpg",
+                  "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpeg",
+                  "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.png",
+                  "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.webp",
+                  "/Hiking-to-Scred-Adams-Peak-Sri-Lanka",
+                  "/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpg",
+                  "/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpeg",
+                  "/hiking-to-scred-adams-peak-sri-lanka.jpg",
+                  "https://images.unsplash.com/photo-1543731068-7e0f5beff43a?auto=format&fit=crop&q=80&w=1200"
+                ];
+                const attempts = target.dataset.fallbackAttempts ? parseInt(target.dataset.fallbackAttempts, 10) : 0;
+                if (attempts < variants.length) {
+                  target.dataset.fallbackAttempts = String(attempts + 1);
+                  target.src = variants[attempts];
+                }
               }
             }}
           />
