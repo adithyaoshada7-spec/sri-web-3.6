@@ -19,7 +19,6 @@ import { motion, AnimatePresence } from "motion/react";
 import { usePageMetadata } from "../hooks/usePageMetadata";
 import { activities } from "../data/activities";
 import { EXPERIENCES } from "./SrilankaExperiencesPage";
-import ellaRockImg from "../assets/images/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpg";
 
 // Helper function for tracking events
 const trackEvent = (action: string, category: string, label: string) => {
@@ -238,13 +237,10 @@ const ExperienceDetail = () => {
                 }
               } else if (currentSrc.toLowerCase().includes("adams-peak") || currentSrc.toLowerCase().includes("hiking-to") || currentSrc.toLowerCase().includes("ella-rock")) {
                 const variants = [
-                  ellaRockImg,
                   "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpg",
                   "/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpg",
                   "/hiking-to-scred-adams-peak-sri-lanka.jpg",
-                  "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpeg",
-                  "https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=1200",
-                  "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&q=80&w=1200"
+                  "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpeg"
                 ];
                 const attempts = target.dataset.fallbackAttempts ? parseInt(target.dataset.fallbackAttempts, 10) : 0;
                 if (attempts < variants.length) {

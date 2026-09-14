@@ -37,7 +37,6 @@ import {
   Scale
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
-import ellaRockImg from "../assets/images/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpg";
 
 // --- INTERFACES ---
 export interface Category {
@@ -577,7 +576,7 @@ export const EXPERIENCES: Experience[] = [
     id: "ella-rock-hiking",
     title: "Ella Rock & Little Adam's Peak Trek",
     slug: "ella-rock-hiking",
-    image: ellaRockImg || "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpg",
+    image: "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpg",
     shortSummary: "Hike through mountain cloud forests for dramatic panoramic vistas of the southern plains.",
     description: "The highlands around Ella are a trekker's paradise. Little Adam's Peak is an easy, panoramic trail through tea terraces, while Ella Rock is a deeper, forested expedition that takes you along active train tracks, Eucalyptus groves, and high craggy ridges framing the famous Ella Gap pass.",
     categories: ["Hiking & Trekking", "Photography Spots"],
@@ -1000,13 +999,10 @@ export default function SrilankaExperiencesPage() {
     } else if (currentSrc.toLowerCase().includes("adams-peak") || currentSrc.toLowerCase().includes("hiking-to") || currentSrc.toLowerCase().includes("ella-rock")) {
       const attempts = target.dataset.fallbackAttempts ? parseInt(target.dataset.fallbackAttempts, 10) : 0;
       const variants = [
-        ellaRockImg,
         "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpg",
         "/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpg",
         "/hiking-to-scred-adams-peak-sri-lanka.jpg",
-        "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpeg",
-        "https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&q=80&w=800"
+        "/Hiking-to-Scred-Adams-Peak-Sri-Lanka.jpeg"
       ];
       if (attempts < variants.length) {
         target.dataset.fallbackAttempts = String(attempts + 1);
