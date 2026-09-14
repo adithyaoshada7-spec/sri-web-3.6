@@ -539,6 +539,9 @@ async function startServer() {
     }
   });
 
+  // Serve static assets from public directory
+  app.use(express.static(path.resolve(__dirname, "public")));
+
   const hasDist = fs.existsSync(path.resolve(__dirname, "dist/index.html"));
   const isProd = process.env.NODE_ENV === "production" && hasDist;
 
