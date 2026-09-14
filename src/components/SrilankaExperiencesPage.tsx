@@ -1917,7 +1917,7 @@ export default function SrilankaExperiencesPage() {
       {/* --------------------------------------------------
           FINAL EMBEDDED CTA BANNER
          -------------------------------------------------- */}
-      <section className="py-24 bg-luxury-green px-6 relative overflow-hidden">
+      <section id="concierge" className="py-24 bg-luxury-green px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-luxury-gold/5 blur-3xl pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
           <span className="text-luxury-gold font-serif italic text-lg block">Bespoke Island Tailoring</span>

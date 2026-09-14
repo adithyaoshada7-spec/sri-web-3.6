@@ -1966,7 +1966,7 @@ export default function SrilankaJunePage() {
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Link 
-            to="/sri-lanka-couples-itinerary-august"
+            to="/sri-lanka-itinerary-august-couples"
             className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
           >
             <div>

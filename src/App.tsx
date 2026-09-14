@@ -18,7 +18,7 @@ import {
   Mail
 } from "lucide-react";
 import React, { useState, useEffect, lazy, Suspense, useCallback } from "react";
-import { useNavigate, useParams, Link, Routes, Route, useLocation } from "react-router-dom";
+import { useNavigate, useParams, Link, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { usePageMetadata } from "./hooks/usePageMetadata";
 import { trackEvent } from "./lib/analytics";
 import { activities } from "./data/activities";
@@ -68,6 +68,8 @@ const SrilankaHowToUsePlannerPage = lazy(() => import("./components/SrilankaHowT
 const SrilankaMirissaWhaleWatchingPage = lazy(() => import("./components/SrilankaMirissaWhaleWatchingPage"));
 const SrilankaThirteenDayTukTukItineraryPage = lazy(() => import("./components/SrilankaThirteenDayTukTukItineraryPage"));
 const SrilankaSelfDriveTukTukPage = lazy(() => import("./components/SrilankaSelfDriveTukTukPage"));
+const SrilankaNilaveliBeachGuidePage = lazy(() => import("./components/SrilankaNilaveliBeachGuidePage"));
+const SrilankaTrincomaleeTravelGuidePage = lazy(() => import("./components/SrilankaTrincomaleeTravelGuidePage"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -886,6 +888,42 @@ export default function App() {
             <SrilankaMirissaWhaleWatchingPage />
           </Suspense>
         } />
+
+        <Route path="/nilaveli-beach-travel-guide" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaNilaveliBeachGuidePage />
+          </Suspense>
+        } />
+
+        <Route path="/trincomalee-travel-guide" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#fcfbf7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1e3a2f] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaTrincomaleeTravelGuidePage />
+          </Suspense>
+        } />
+
+        {/* --- 404 Prevention Redirects for Legacy / Alternate URL Patterns --- */}
+        <Route path="/kandy-to-ella-train-tickets-guide" element={<Navigate to="/how-to-plan-a-train-trip-in-sri-lanka" replace />} />
+        <Route path="/sri-lanka-itinerary" element={<Navigate to="/sri-lanka-7-day-itinerary" replace />} />
+        <Route path="/sri-lanka-flight-ticket-price-from-india" element={<Navigate to="/flights" replace />} />
+        <Route path="/sri-lanka-couples-itinerary-august" element={<Navigate to="/sri-lanka-itinerary-august-couples" replace />} />
+        <Route path="/sri-lanka-cost" element={<Navigate to="/sri-lanka-trip-cost-from-india" replace />} />
+        <Route path="/sri-lanka-family-tour" element={<Navigate to="/sri-lanka-family-itinerary" replace />} />
+        <Route path="/sri-lanka-visa-requirements" element={<Navigate to="/sri-lanka-visa-for-indians" replace />} />
+        <Route path="/sri-lanka-best-time-to-visit" element={<Navigate to="/best-time-to-visit-sri-lanka" replace />} />
+        <Route path="/sri-lanka-june-weather" element={<Navigate to="/where-to-go-in-sri-lanka-in-june" replace />} />
+        <Route path="/sri-lanka-chennai-srilanka-packages-cost" element={<Navigate to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai" replace />} />
+        <Route path="/sri-lanka-trip-planner-pillar" element={<Navigate to="/how-to-plan-a-trip-to-sri-lanka" replace />} />
+
+        {/* Fallback Catch-all: Seamless redirect to Things to Do to eliminate 404 errors */}
+        <Route path="*" element={<Navigate to="/things-to-do-in-sri-lanka" replace />} />
       </Routes>
 
       {/* Footer */}

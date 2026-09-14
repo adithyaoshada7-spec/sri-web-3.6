@@ -893,7 +893,7 @@ export default function SrilankaMumbaiCostPillarPage() {
             </Link>
 
             <Link 
-              to="/kandy-to-ella-train-tickets-guide"
+              to="/how-to-plan-a-train-trip-in-sri-lanka"
               className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group shadow-sm"
             >
               <span>Kandy to Ella Train Tickets Guide</span>

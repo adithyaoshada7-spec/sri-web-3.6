@@ -1109,7 +1109,7 @@ export default function SrilankaFirstTimeThingsToDoPage() {
           </Link>
 
           <Link 
-            to="/kandy-to-ella-train-tickets-guide"
+            to="/how-to-plan-a-train-trip-in-sri-lanka"
             className="p-5 rounded-2xl bg-[#fcfbf7] border border-luxury-green/10 hover:border-luxury-gold transition-all group flex flex-col justify-between"
           >
             <div>

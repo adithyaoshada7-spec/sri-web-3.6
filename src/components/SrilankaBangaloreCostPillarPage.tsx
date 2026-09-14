@@ -895,7 +895,7 @@ export default function SrilankaBangaloreCostPillarPage() {
               <p className="text-xs text-luxury-black/70">Covers Yala Leopard Safaris, Mirissa Whale Watching, and Kandy Tea Estate Trails.</p>
             </div>
             <Link
-              to="/sri-lanka-itinerary"
+              to="/sri-lanka-7-day-itinerary"
               className="px-5 py-2.5 bg-luxury-green text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-luxury-gold hover:text-black transition-all whitespace-nowrap shadow-sm"
             >
               View 7-Day Itinerary →
@@ -1306,7 +1306,7 @@ export default function SrilankaBangaloreCostPillarPage() {
             </Link>
 
             <Link 
-              to="/sri-lanka-flight-ticket-price-from-india"
+              to="/flights"
               className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group"
             >
               <span>India to Sri Lanka Flights Guide</span>
@@ -1314,7 +1314,7 @@ export default function SrilankaBangaloreCostPillarPage() {
             </Link>
 
             <Link 
-              to="/kandy-to-ella-train-tickets-guide"
+              to="/how-to-plan-a-train-trip-in-sri-lanka"
               className="p-4 bg-white rounded-xl border border-luxury-green/10 hover:border-luxury-gold transition-all text-xs font-bold text-luxury-green flex items-center justify-between group"
             >
               <span>Kandy to Ella Train Booking Guide</span>

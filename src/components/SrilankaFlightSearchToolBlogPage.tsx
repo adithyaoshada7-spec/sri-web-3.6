@@ -824,7 +824,7 @@ export default function SrilankaFlightSearchToolBlogPage() {
             </Link>
 
             <Link 
-              to="/kandy-to-ella-train-tickets-guide"
+              to="/how-to-plan-a-train-trip-in-sri-lanka"
               className="p-4 bg-white rounded-xl border border-neutral-200 hover:border-[#d4af37] transition-all text-xs font-bold text-[#1a2d24] flex items-center justify-between group shadow-sm"
             >
               <span>Kandy to Ella Train Booking Guide</span>
