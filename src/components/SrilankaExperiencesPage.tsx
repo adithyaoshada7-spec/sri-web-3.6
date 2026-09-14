@@ -410,7 +410,7 @@ export const EXPERIENCES: Experience[] = [
     id: "whale-watching-mirissa",
     title: "Whale Watching in Mirissa",
     slug: "whale-watching-mirissa",
-    image: "/Whale-Watching-in-Mirissa-2.jpeg",
+    image: "/whale-watching-sri-lanka-Copy.jpg",
     shortSummary: "Set sail with Geeth's Whale Watching Mirissa, the premier direct operator to witness majestic Blue Whales on their ocean highway.",
     description: "The deep continental shelf off Mirissa is one of the world's finest pathways for marine giants. Experience this once-in-a-lifetime journey with the premier official team of www.whale-watching-mirissa.com (operated by Geeth). You will witness majestic Blue Whales, Fin Whales, Sperm Whales, and mega-pods of Spinner Dolphins jumping, while on an eco-friendly double-decker cruiser respecting safe and ethical viewing distances.",
     categories: ["Whale Watching", "Beaches", "Photography Spots"],
@@ -965,13 +965,17 @@ export default function SrilankaExperiencesPage() {
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const target = e.currentTarget;
     const currentSrc = target.getAttribute("src") || target.src;
-    if (currentSrc.toLowerCase().includes("whale-watching-in-mirissa")) {
+    if (currentSrc.toLowerCase().includes("whale-watching") || currentSrc.toLowerCase().includes("mirissa-blue-whale")) {
       const attempts = target.dataset.fallbackAttempts ? parseInt(target.dataset.fallbackAttempts, 10) : 0;
       const variants = [
+        "/whale-watching-sri-lanka-Copy.jpg",
+        "/whale-watching-sri-lanka-Copy.jpeg",
+        "/whale-watching-sri-lanka-Copy.png",
+        "/whale-watching-sri-lanka-Copy.webp",
+        "/whale-watching-sri-lanka-Copy",
+        "/whale-watching-sri-lanka-Copy.jpg.jpg",
         "/Whale-Watching-in-Mirissa-2.jpeg",
         "/Whale-Watching-in-Mirissa-2.jpg",
-        "/whale-watching-in-mirissa-2.jpeg",
-        "/whale-watching-in-mirissa-2.jpg",
         "/Whale-Watching-in-Mirissa.jpg",
         "/mirissa-blue-whale-tail.jpg"
       ];

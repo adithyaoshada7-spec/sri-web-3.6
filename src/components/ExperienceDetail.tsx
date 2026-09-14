@@ -218,6 +218,25 @@ const ExperienceDetail = () => {
             className="w-full h-full object-cover opacity-80" 
             alt={selectedActivity.title} 
             referrerPolicy="no-referrer"
+            onError={(e) => {
+              const target = e.currentTarget;
+              const currentSrc = target.getAttribute("src") || target.src;
+              if (currentSrc.toLowerCase().includes("whale-watching") || currentSrc.toLowerCase().includes("mirissa")) {
+                const variants = [
+                  "/whale-watching-sri-lanka-Copy.jpg",
+                  "/whale-watching-sri-lanka-Copy.jpeg",
+                  "/whale-watching-sri-lanka-Copy.png",
+                  "/whale-watching-sri-lanka-Copy.webp",
+                  "/Whale-Watching-in-Mirissa.jpg",
+                  "/mirissa-blue-whale-tail.jpg"
+                ];
+                const attempts = target.dataset.fallbackAttempts ? parseInt(target.dataset.fallbackAttempts, 10) : 0;
+                if (attempts < variants.length) {
+                  target.dataset.fallbackAttempts = String(attempts + 1);
+                  target.src = variants[attempts];
+                }
+              }
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-transparent to-luxury-black/30" />
         </motion.div>
