@@ -78,8 +78,8 @@ const DRIVERS_LIST: Driver[] = [
     recommendedFor: "Families & Groups (4-8 Passengers)"
   },
   {
-    id: "driver-dinesh",
-    name: "Dinesh Rajapaksha",
+    id: "driver-kasun",
+    name: "Kasun Sameera",
     licenseNo: "SLTDA / S-3059",
     experienceYears: 9,
     languages: ["English", "German", "Sinhala"],
