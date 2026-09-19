@@ -52,7 +52,7 @@ const DRIVERS_LIST: Driver[] = [
     rating: 4.98,
     totalTrips: 340,
     photo: "/BEN-tours-&-travels-sri-lanka.jpg",
-    vehiclePhoto: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=600&h=380",
+    vehiclePhoto: "/BEN-tours-&-travels-sri-lanka.jpg",
     startingPricePerDay: "$55 / day",
     bio: "Premier Sri Lanka tourist chauffeur & fleet agency with over 14 years serving international couples and small families. Expert on island routes, mountain curves, and bespoke sightseeing.",
     features: ["Free Wi-Fi Hotspot", "Cold Bottled Water", "Child Safety Seat Available", "Unlimited Tolls Included"],
