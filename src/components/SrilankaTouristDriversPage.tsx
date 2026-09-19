@@ -51,7 +51,7 @@ const DRIVERS_LIST: Driver[] = [
     vehicleType: "Sedan",
     rating: 4.98,
     totalTrips: 340,
-    photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&h=400",
+    photo: "/BEN-tours-&-travels-sri-lanka.jpg",
     vehiclePhoto: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=600&h=380",
     startingPricePerDay: "$55 / day",
     bio: "Premier Sri Lanka tourist chauffeur & fleet agency with over 14 years serving international couples and small families. Expert on island routes, mountain curves, and bespoke sightseeing.",
