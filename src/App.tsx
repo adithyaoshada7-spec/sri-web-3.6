@@ -70,6 +70,7 @@ const SrilankaThirteenDayTukTukItineraryPage = lazy(() => import("./components/S
 const SrilankaSelfDriveTukTukPage = lazy(() => import("./components/SrilankaSelfDriveTukTukPage"));
 const SrilankaNilaveliBeachGuidePage = lazy(() => import("./components/SrilankaNilaveliBeachGuidePage"));
 const SrilankaTrincomaleeTravelGuidePage = lazy(() => import("./components/SrilankaTrincomaleeTravelGuidePage"));
+const SrilankaTouristDriversPage = lazy(() => import("./components/SrilankaTouristDriversPage"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -909,7 +910,19 @@ export default function App() {
           </Suspense>
         } />
 
+        <Route path="/sri-lanka-tourist-drivers" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#1e3a2f] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#d4af37] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaTouristDriversPage />
+          </Suspense>
+        } />
+
         {/* --- 404 Prevention Redirects for Legacy / Alternate URL Patterns --- */}
+        <Route path="/sri-lanka-tourist-driver" element={<Navigate to="/sri-lanka-tourist-drivers" replace />} />
+        <Route path="/sri-lanka-private-drivers" element={<Navigate to="/sri-lanka-tourist-drivers" replace />} />
         <Route path="/kandy-to-ella-train-tickets-guide" element={<Navigate to="/how-to-plan-a-train-trip-in-sri-lanka" replace />} />
         <Route path="/sri-lanka-itinerary" element={<Navigate to="/sri-lanka-7-day-itinerary" replace />} />
         <Route path="/sri-lanka-flight-ticket-price-from-india" element={<Navigate to="/flights" replace />} />

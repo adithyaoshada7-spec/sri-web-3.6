@@ -251,5 +251,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.95"
+  },
+  {
+    path: "/sri-lanka-tourist-drivers",
+    title: "Licensed Tourist Drivers & Private Chauffeurs in Sri Lanka | Verified Rates",
+    description: "Book verified, English-speaking tourist driver-guides in Sri Lanka. View licensed driver profiles, transparent daily vehicle rates, fuel, toll inclusions, and WhatsApp instant booking.",
+    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "website",
+    changefreq: "weekly",
+    priority: "0.95"
   }
 ];

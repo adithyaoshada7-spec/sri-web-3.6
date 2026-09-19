@@ -1355,20 +1355,20 @@ export default function SrilankaJunePage() {
           </div>
 
           <div className="pt-4 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/sri-lanka-tourist-drivers"
+              className="btn-shine inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#d4af37] text-[#1e3a2f] font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white transition-all shadow-lg shadow-black/20"
+            >
+              Inquire Driver Rates & View Drivers <ArrowRight className="w-4 h-4" />
+            </Link>
             <a
               href="https://wa.me/94722968210?text=Hi!%20I'm%20looking%20for%20a%20trustworthy%20private%20driver%20in%20Sri%20Lanka."
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-shine inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#d4af37] text-[#1e3a2f] font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white transition-all shadow-lg shadow-black/20"
-            >
-              Inquire Driver Rates on WhatsApp <ArrowRight className="w-4 h-4" />
-            </a>
-            <Link
-              to="/sri-lanka-trip-planner"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:border-[#d4af37] hover:text-[#d4af37] transition-all"
             >
-              Plan Your Route With Driver
-            </Link>
+              Instant WhatsApp Support
+            </a>
           </div>
         </div>
       </section>
