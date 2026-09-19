@@ -1035,6 +1035,30 @@ export default function SrilankaTenDayItineraryPage() {
           </div>
         </div>
 
+        {/* LOOKING FOR A TRUSTWORTHY DRIVER BANNER (BACKLINK TO /sri-lanka-tourist-drivers) */}
+        <div className="bg-[#1A2F23] rounded-3xl p-6 md:p-8 text-white relative overflow-hidden shadow-lg border border-[#C5A059]/30 my-6">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 text-center md:text-left">
+              <span className="text-[10px] uppercase font-mono font-bold text-[#C5A059] tracking-widest block">
+                PRIVATE CHAUFFEUR & FLEET SERVICE
+              </span>
+              <h3 className="text-xl md:text-2xl font-serif font-bold text-white">
+                Looking for a Trustworthy Driver?
+              </h3>
+              <p className="text-xs text-white/80 font-light max-w-xl leading-relaxed">
+                Hire a vetted, English-speaking tourist driver for your 10-day Sri Lanka trip. Includes modern AC vehicle, all fuel, highway tolls, parking, and driver lodging pre-included.
+              </p>
+            </div>
+            <Link
+              to="/sri-lanka-tourist-drivers"
+              className="btn-shine shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#C5A059] text-[#1A2F23] font-bold text-xs uppercase tracking-wider rounded-full hover:bg-white transition-all shadow-md"
+            >
+              Inquire Driver Rates & View Drivers <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+
         {/* Selected Active Day Detail Card */}
         {tenDayItineraryData.map((dayPlan) => {
           if (dayPlan.day !== activeDay) return null;
