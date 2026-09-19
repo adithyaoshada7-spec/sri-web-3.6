@@ -7,7 +7,7 @@
       "destination": "/sitemap.xml"
     },
     {
-      "source": "/((?!assets|sitemap.xml|robots.txt|sri-lanka-trip-cost-from-india|sri-lanka-7-day-itinerary|sri-lanka-visa-for-indians|best-time-to-visit-sri-lanka|sri-lanka-family-itinerary|where-to-go-in-sri-lanka-in-june|sri-lanka-trip-planner|sri-lanka-train-trip-planner|how-to-plan-a-trip-to-sri-lanka|how-much-will-it-take-to-visit-sri-lanka-from-chennai|sri-lanka-trip-cost-from-bangalore|sri-lanka-trip-cost-from-mumbai|sri-lanka-trip-cost-from-hyderabad|sri-lanka-itinerary-august-couples|things-to-do-in-sri-lanka|flights|experience).*)$",
+      "source": "/((?!assets|sitemap.xml|robots.txt|sri-lanka-trip-cost-from-india|sri-lanka-7-day-itinerary|sri-lanka-visa-for-indians|best-time-to-visit-sri-lanka|sri-lanka-family-itinerary|where-to-go-in-sri-lanka-in-june|sri-lanka-tourist-drivers|sri-lanka-tourist-driver|sri-lanka-private-drivers|sri-lanka-trip-planner|sri-lanka-train-trip-planner|how-to-plan-a-trip-to-sri-lanka|how-much-will-it-take-to-visit-sri-lanka-from-chennai|sri-lanka-trip-cost-from-bangalore|sri-lanka-trip-cost-from-mumbai|sri-lanka-trip-cost-from-hyderabad|sri-lanka-itinerary-august-couples|things-to-do-in-sri-lanka|flights|experience).*)$",
       "destination": "/index.html"
     }
   ]
