@@ -70,7 +70,7 @@ const DRIVERS_LIST: Driver[] = [
     vehicleType: "High-Roof Van",
     rating: 4.95,
     totalTrips: 285,
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400",
+    photo: "/Rashika-Mahesh.jpg",
     vehiclePhoto: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&q=80&w=600&h=380",
     startingPricePerDay: "$75 / day",
     bio: "Spacious luxury van chauffeur specializing in group trips, multi-generational families, and heavy luggage transfers. Known for smooth driving and excellent restaurant tips across the island.",
