@@ -42,9 +42,9 @@ interface Driver {
 
 const DRIVERS_LIST: Driver[] = [
   {
-    id: "driver-nimal",
-    name: "Nimal Perera",
-    licenseNo: "SLTDA / B-4821",
+    id: "driver-ben-tours",
+    name: "BEN Tours & Travels Sri Lanka",
+    licenseNo: "SLTDA Certified Fleet",
     experienceYears: 14,
     languages: ["English", "Hindi", "Sinhala"],
     vehicle: "Toyota Allion Premier (AC Sedan)",
@@ -54,7 +54,7 @@ const DRIVERS_LIST: Driver[] = [
     photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&h=400",
     vehiclePhoto: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=600&h=380",
     startingPricePerDay: "$55 / day",
-    bio: "Certified senior tourist driver with over 14 years driving international couples and small families. Expert on highland mountain curves and secret sunset viewpoints in Sigiriya and Ella.",
+    bio: "Premier Sri Lanka tourist chauffeur & fleet agency with over 14 years serving international couples and small families. Expert on island routes, mountain curves, and bespoke sightseeing.",
     features: ["Free Wi-Fi Hotspot", "Cold Bottled Water", "Child Safety Seat Available", "Unlimited Tolls Included"],
     recommendedFor: "Couples & Small Families (1-3 Passengers)"
   },
