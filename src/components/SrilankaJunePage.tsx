@@ -1243,6 +1243,11 @@ export default function SrilankaJunePage() {
 
             {/* Passikudah */}
             <div className="bg-[#fcfbf7] border border-[#1e3a2f]/5 hover:border-[#d4af37] transition-all rounded-[28px] overflow-hidden flex flex-col justify-between">
+              <img
+                src="/passikudah.jpg"
+                alt="Passikudah Bay shallow clear waters"
+                className="w-full h-32 object-cover"
+              />
               <div className="p-6 space-y-4">
                 <div className="w-10 h-10 rounded-full bg-[#1e3a2f] text-[#d4af37] flex items-center justify-center font-mono font-bold text-sm">
                   03
