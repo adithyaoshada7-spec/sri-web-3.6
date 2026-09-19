@@ -1296,6 +1296,83 @@ export default function SrilankaJunePage() {
         </div>
       </section>
 
+      {/* SECTION: LOOKING FOR A TRUSTWORTHY DRIVER */}
+      <section className="py-16 px-4 md:px-8 bg-[#1e3a2f] text-white relative overflow-hidden border-b border-[#1e3a2f]/10">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+        <div className="max-w-5xl mx-auto relative z-10 space-y-8">
+          <div className="text-center space-y-3">
+            <span className="text-xs uppercase tracking-widest text-[#d4af37] font-mono font-bold block">
+              Private Chauffeur & Driver Service
+            </span>
+            <h2 className="text-2xl md:text-4xl font-serif text-white">
+              Looking for a Trustworthy Driver?
+            </h2>
+            <p className="text-sm text-white/80 font-light max-w-2xl mx-auto leading-relaxed">
+              Explore Sri Lanka stress-free with a vetted, English-speaking tourist driver-guide. Enjoy modern AC luxury vehicles with all fuel, highway tolls, parking fees, and driver accommodations 100% pre-included.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3 hover:border-[#d4af37]/50 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center font-bold">
+                <ShieldCheck className="w-5 h-5 text-[#d4af37]" />
+              </div>
+              <h3 className="font-serif font-bold text-base text-white">SLTDA Vetted Drivers</h3>
+              <p className="text-xs text-white/70 leading-relaxed font-light">
+                100% licensed, background-checked tourist drivers with flawless driving records and local expertise.
+              </p>
+            </div>
+
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3 hover:border-[#d4af37]/50 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center font-bold">
+                <Car className="w-5 h-5 text-[#d4af37]" />
+              </div>
+              <h3 className="font-serif font-bold text-base text-white">All-Inclusive Rates</h3>
+              <p className="text-xs text-white/70 leading-relaxed font-light">
+                All gasoline, express highway tolls, parking fees, and driver lodging covered with zero surprise add-ons.
+              </p>
+            </div>
+
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3 hover:border-[#d4af37]/50 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center font-bold">
+                <MapPin className="w-5 h-5 text-[#d4af37]" />
+              </div>
+              <h3 className="font-serif font-bold text-base text-white">Flexible Stopovers</h3>
+              <p className="text-xs text-white/70 leading-relaxed font-light">
+                Stop whenever you want for king coconuts, roadside fruit stalls, spice gardens, or spontaneous photo points.
+              </p>
+            </div>
+
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3 hover:border-[#d4af37]/50 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center font-bold">
+                <Clock className="w-5 h-5 text-[#d4af37]" />
+              </div>
+              <h3 className="font-serif font-bold text-base text-white">24/7 Concierge Sync</h3>
+              <p className="text-xs text-white/70 leading-relaxed font-light">
+                Direct WhatsApp coordination between your driver and our Colombo support desk throughout your trip.
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-4 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="https://wa.me/94722968210?text=Hi!%20I'm%20looking%20for%20a%20trustworthy%20private%20driver%20in%20Sri%20Lanka."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-shine inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#d4af37] text-[#1e3a2f] font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white transition-all shadow-lg shadow-black/20"
+            >
+              Inquire Driver Rates on WhatsApp <ArrowRight className="w-4 h-4" />
+            </a>
+            <Link
+              to="/sri-lanka-trip-planner"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:border-[#d4af37] hover:text-[#d4af37] transition-all"
+            >
+              Plan Your Route With Driver
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* GETTING AROUND SRI LANKA IN JUNE (TRANSPORT & LOGISTICS) */}
       <section id="getting-around" className="py-20 px-4 md:px-8 bg-white border-b border-[#1e3a2f]/5">
         <div className="max-w-5xl mx-auto space-y-12">
