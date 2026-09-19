@@ -38,6 +38,7 @@ interface Driver {
   bio: string;
   features: string[];
   recommendedFor: string;
+  whatsappNumber?: string;
 }
 
 const DRIVERS_LIST: Driver[] = [
@@ -56,7 +57,8 @@ const DRIVERS_LIST: Driver[] = [
     startingPricePerDay: "$55 / day",
     bio: "Premier Sri Lanka tourist chauffeur & fleet agency with over 14 years serving international couples and small families. Expert on island routes, mountain curves, and bespoke sightseeing.",
     features: ["Free Wi-Fi Hotspot", "Cold Bottled Water", "Child Safety Seat Available", "Unlimited Tolls Included"],
-    recommendedFor: "Couples & Small Families (1-3 Passengers)"
+    recommendedFor: "Couples & Small Families (1-3 Passengers)",
+    whatsappNumber: "94766031721"
   },
   {
     id: "driver-saman",
@@ -249,7 +251,7 @@ export default function SrilankaTouristDriversPage() {
                 </div>
 
                 <a
-                  href={`https://wa.me/94722968210?text=Hi!%20I'm%20interested%20in%20booking%20driver%20${encodeURIComponent(driver.name)}%20(${encodeURIComponent(driver.vehicle)}).%20Please%20share%20availability.`}
+                  href={`https://wa.me/${driver.whatsappNumber || "94722968210"}?text=Hi!%20I'm%20interested%20in%20booking%20driver%20${encodeURIComponent(driver.name)}%20(${encodeURIComponent(driver.vehicle)}).%20Please%20share%20availability.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-shine inline-flex items-center justify-center gap-2 w-full py-3 bg-[#1e3a2f] text-[#d4af37] font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-[#d4af37] hover:text-[#1e3a2f] transition-all shadow-sm"
