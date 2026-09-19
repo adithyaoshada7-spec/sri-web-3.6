@@ -71,7 +71,7 @@ const DRIVERS_LIST: Driver[] = [
     rating: 4.95,
     totalTrips: 285,
     photo: "/Rashika-Mahesh.jpg",
-    vehiclePhoto: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&q=80&w=600&h=380",
+    vehiclePhoto: "/Rashika-Mahesh.jpg",
     startingPricePerDay: "$75 / day",
     bio: "Spacious luxury van chauffeur specializing in group trips, multi-generational families, and heavy luggage transfers. Known for smooth driving and excellent restaurant tips across the island.",
     features: ["Dual AC Units", "Reclining Captain Seats", "Luggage Roof Rack", "Free Onboard Refreshments"],
