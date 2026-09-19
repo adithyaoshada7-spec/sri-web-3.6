@@ -41,7 +41,7 @@ export default function SrilankaNilaveliBeachGuidePage() {
     description: "Everything to know about Nilaveli Beach, Sri Lanka: calm shallow swimming, Pigeon Island National Park snorkeling with turtles, best time to visit, where to stay, and direct WhatsApp booking — no agent fees.",
     canonicalUrl: "https://plan-srilanka.com/nilaveli-beach-travel-guide",
     ogUrl: "https://plan-srilanka.com/nilaveli-beach-travel-guide",
-    ogImage: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200&h=630"
+    ogImage: "https://plan-srilanka.com/Nilaveli-Beach-background-image.jpg"
   });
 
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
@@ -52,7 +52,7 @@ export default function SrilankaNilaveliBeachGuidePage() {
     "name": "Nilaveli Beach Travel Guide",
     "description": "Guide to Nilaveli Beach, Sri Lanka: calm shallow swimming, Pigeon Island National Park snorkeling, family safety, and where to stay.",
     "url": "https://plan-srilanka.com/nilaveli-beach-travel-guide",
-    "image": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200&h=630",
+    "image": "https://plan-srilanka.com/Nilaveli-Beach-background-image.jpg",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Nilaveli",
@@ -142,9 +142,8 @@ export default function SrilankaNilaveliBeachGuidePage() {
       <section className="relative pt-28 md:pt-36 pb-16 md:pb-24 bg-[#1e3a2f] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a2f]/50 via-[#1e3a2f]/85 to-[#1e3a2f] z-10" />
         <img
-          src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1600&h=900"
+          src="/Nilaveli-Beach-background-image.jpg"
           alt="Calm shallow water on Nilaveli Beach, Sri Lanka"
-          referrerPolicy="no-referrer"
           className="absolute inset-0 w-full h-full object-cover opacity-40 scale-105"
         />
 
