@@ -61,8 +61,8 @@ const DRIVERS_LIST: Driver[] = [
     whatsappNumber: "94766031721"
   },
   {
-    id: "driver-saman",
-    name: "Saman Kumara",
+    id: "driver-rashika",
+    name: "Rashika Mahesh",
     licenseNo: "SLTDA / V-9104",
     experienceYears: 11,
     languages: ["English", "Tamil", "Sinhala"],
