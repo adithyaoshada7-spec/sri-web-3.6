@@ -1807,6 +1807,70 @@ export default function SrilankaJunePage() {
         </div>
       </section>
 
+      {/* SECTION 8.6: TESTIMONIAL / TRUSTED DRIVER STORY */}
+      <section className="py-20 px-4 md:px-8 bg-[#fcfbf7] border-b border-[#1e3a2f]/5">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-white border border-[#1e3a2f]/10 rounded-[32px] p-8 md:p-12 shadow-xl relative overflow-hidden">
+            <div className="grid md:grid-cols-12 gap-8 items-center">
+              {/* Image Container */}
+              <div className="md:col-span-5 relative rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[3/4] bg-[#1e3a2f]/5 border border-[#1e3a2f]/10">
+                <img
+                  src="/jude-driver-testimonial-sri-lanka.jpg"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=800";
+                  }}
+                  alt="Private driver Jude with happy travelers in Sri Lanka"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-4 left-4 bg-[#1e3a2f]/90 text-[#d4af37] px-3.5 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider backdrop-blur-md">
+                  ⭐ Verified 12-Day Tour Review
+                </div>
+              </div>
+
+              {/* Testimonial Content */}
+              <div className="md:col-span-7 space-y-6">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-1 text-[#d4af37]">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className="text-lg">★</span>
+                    ))}
+                    <span className="text-xs font-mono font-bold text-[#1e3a2f] ml-2">5.0 / 5.0 Rating</span>
+                  </div>
+                  <span className="text-xs uppercase tracking-widest text-[#d4af37] font-bold block">
+                    Traveler Experience & Trust
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-serif text-[#1e3a2f]">
+                    "Felt Like Family From Day One"
+                  </h3>
+                </div>
+
+                <blockquote className="text-sm md:text-base text-[#3a4d44] font-light leading-relaxed italic bg-[#fcfbf7] p-6 rounded-2xl border-l-4 border-[#d4af37]">
+                  "We spent 12 days traveling through Sri Lanka, and we could not have asked for a kinder, more caring driver than Jude. From the very first day, he treated us like family, taking such thoughtful care of every detail of our journey."
+                </blockquote>
+
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2 border-t border-[#1e3a2f]/10">
+                  <div>
+                    <span className="font-serif font-bold text-base text-[#1e3a2f] block">
+                      Jude — Certified Tourist Driver & Guide
+                    </span>
+                    <span className="text-xs text-[#3a4d44] font-light">
+                      12-Day Custom Island Exploration • Private AC Chauffeur
+                    </span>
+                  </div>
+
+                  <Link
+                    to="/sri-lanka-tourist-drivers"
+                    className="btn-shine inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#1e3a2f] text-[#d4af37] font-bold text-xs uppercase tracking-wider rounded-full hover:bg-[#d4af37] hover:text-[#1e3a2f] transition-all shadow-md shrink-0"
+                  >
+                    View Driver Directory <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 9: FREQUENTLY ASKED QUESTIONS */}
       <section className="py-20 md:py-32 px-4 md:px-8 bg-[#fcfbf7] border-b border-[#1e3a2f]/5">
         <div className="max-w-4xl mx-auto space-y-12">
