@@ -1815,7 +1815,7 @@ export default function SrilankaJunePage() {
               {/* Image Container */}
               <div className="md:col-span-5 relative rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[3/4] bg-[#1e3a2f]/5 border border-[#1e3a2f]/10">
                 <img
-                  src="/jude-driver-testimonial-sri-lanka.jpg"
+                  src="/Payas-Jude.jpg"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=800";
                   }}
