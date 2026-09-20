@@ -109,7 +109,8 @@ const DRIVERS_LIST: Driver[] = [
     startingPricePerDay: "$70 / day",
     bio: "Certified tourist chauffeur specializing in family group tours, cultural triangle loops, and scenic hill country drives.",
     features: ["Dual AC Units", "Reclining Seats", "Free Bottled Water", "Express Tolls Included"],
-    recommendedFor: "Families & Groups (4-7 Passengers)"
+    recommendedFor: "Families & Groups (4-7 Passengers)",
+    whatsappNumber: "94720440693"
   }
 ];
 
