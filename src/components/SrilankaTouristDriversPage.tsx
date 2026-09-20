@@ -95,8 +95,8 @@ const DRIVERS_LIST: Driver[] = [
     recommendedFor: "VIP Travel & Luxury Couples"
   },
   {
-    id: "driver-nuwan",
-    name: "Nuwan Pradeep",
+    id: "driver-richard",
+    name: "Kandy Tourism Richard",
     licenseNo: "SLTDA Certified Chauffeur",
     experienceYears: 10,
     languages: ["English", "Sinhala"],
@@ -104,8 +104,8 @@ const DRIVERS_LIST: Driver[] = [
     vehicleType: "High-Roof Van",
     rating: 4.97,
     totalTrips: 195,
-    photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=400",
-    vehiclePhoto: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&q=80&w=600&h=380",
+    photo: "/Kandy-Tourism-Richard.jpg",
+    vehiclePhoto: "/Kandy-Tourism-Richard.jpg",
     startingPricePerDay: "$70 / day",
     bio: "Certified tourist chauffeur specializing in family group tours, cultural triangle loops, and scenic hill country drives.",
     features: ["Dual AC Units", "Reclining Seats", "Free Bottled Water", "Express Tolls Included"],
