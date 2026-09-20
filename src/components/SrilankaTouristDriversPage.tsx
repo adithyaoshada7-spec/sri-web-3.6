@@ -93,6 +93,23 @@ const DRIVERS_LIST: Driver[] = [
     bio: "Premium 4WD luxury chauffeur for travelers seeking high-end comfort, off-the-beaten-path exploration, and safari sanctuary transfers. Fully fluent in German & English.",
     features: ["Leather Interior", "High Ground Clearance 4WD", "Premium Sound System", "Airport VIP Pick-up"],
     recommendedFor: "VIP Travel & Luxury Couples"
+  },
+  {
+    id: "driver-nuwan",
+    name: "Nuwan Pradeep",
+    licenseNo: "SLTDA Certified Chauffeur",
+    experienceYears: 10,
+    languages: ["English", "Sinhala"],
+    vehicle: "Toyota KDH Luxury High-Roof Van",
+    vehicleType: "High-Roof Van",
+    rating: 4.97,
+    totalTrips: 195,
+    photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=400",
+    vehiclePhoto: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&q=80&w=600&h=380",
+    startingPricePerDay: "$70 / day",
+    bio: "Certified tourist chauffeur specializing in family group tours, cultural triangle loops, and scenic hill country drives.",
+    features: ["Dual AC Units", "Reclining Seats", "Free Bottled Water", "Express Tolls Included"],
+    recommendedFor: "Families & Groups (4-7 Passengers)"
   }
 ];
 
