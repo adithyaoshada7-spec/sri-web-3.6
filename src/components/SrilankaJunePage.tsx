@@ -1858,12 +1858,14 @@ export default function SrilankaJunePage() {
                     </span>
                   </div>
 
-                  <Link
-                    to="/sri-lanka-tourist-drivers"
+                  <a
+                    href="https://www.facebook.com/pious.jude.9/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="btn-shine inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#1e3a2f] text-[#d4af37] font-bold text-xs uppercase tracking-wider rounded-full hover:bg-[#d4af37] hover:text-[#1e3a2f] transition-all shadow-md shrink-0"
                   >
-                    View Driver Directory <ArrowRight className="w-4 h-4" />
-                  </Link>
+                    Contact Jude <ArrowRight className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </div>
