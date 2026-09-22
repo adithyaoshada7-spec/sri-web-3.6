@@ -23,7 +23,8 @@ import {
   Check,
   Share2,
   MessageSquare,
-  DollarSign
+  DollarSign,
+  CloudSun
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
@@ -240,8 +241,19 @@ export default function SrilankaWhichNationalParkPage() {
         />
 
         <div className="relative z-20 max-w-5xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#d4af37] text-xs font-mono font-bold uppercase tracking-widest backdrop-blur-md">
-            <Binoculars className="w-4 h-4" /> 2026 Wildlife Safari & Route Blueprint
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#d4af37] text-xs font-mono font-bold uppercase tracking-widest backdrop-blur-md">
+              <Binoculars className="w-4 h-4" /> 2026 Wildlife Safari & Route Blueprint
+            </div>
+            <a
+              href="https://wa.me/94720440693?text=Hi!%20I%20want%20to%20ask%20about%20the%20current%20weather%20and%20safari%20conditions%20in%20Sri%20Lanka"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("ask_weather_hero_whatsapp", "cta", "hero_badge")}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#25D366]/20 border border-[#25D366]/60 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all text-xs font-mono font-bold uppercase tracking-widest backdrop-blur-md shadow-md"
+            >
+              <CloudSun className="w-4 h-4" /> Ask Live Weather On WhatsApp 💬
+            </a>
           </div>
 
           <h1 className="text-3xl md:text-6xl font-serif text-white leading-tight">
@@ -532,6 +544,63 @@ export default function SrilankaWhichNationalParkPage() {
         </div>
       </section>
 
+      {/* ASK WEATHER SPECIAL HIGHLIGHTED SECTION */}
+      <section className="py-16 px-4 md:px-8 max-w-5xl mx-auto">
+        <div className="relative overflow-hidden rounded-[36px] bg-gradient-to-br from-[#1e3a2f] via-[#142921] to-[#0d1d17] text-white border-2 border-[#d4af37]/40 shadow-2xl p-8 md:p-12">
+          {/* Decorative Ambient Glowing Orbs */}
+          <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#d4af37]/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#2e5a49]/40 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+            <div className="space-y-4 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/50 text-[#d4af37] text-xs font-mono font-bold uppercase tracking-widest backdrop-blur-md">
+                <CloudSun className="w-4 h-4 text-[#d4af37]" /> Live Weather Concierge Service
+              </div>
+
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-white leading-tight">
+                Not Sure About Park Weather? <br className="hidden sm:inline" />
+                <span className="text-[#d4af37] italic">Ask Live Weather On WhatsApp!</span>
+              </h2>
+
+              <p className="text-xs md:text-sm text-white/85 font-light leading-relaxed">
+                Sri Lanka's microclimates vary park by park — Yala might be dry and sunny while Minneriya experiences sudden monsoon rain. Don't let unpredictable weather spoil your safari! Text our local concierge team directly on WhatsApp for real-time park weather forecasts, trail conditions, and ideal safari windows.
+              </p>
+
+              <div className="grid sm:grid-cols-3 gap-3 pt-2 text-left">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
+                  <span className="text-[10px] font-mono text-[#d4af37] font-bold block uppercase">⚡ Instant Reply</span>
+                  <p className="text-[11px] text-white/80 font-light mt-0.5">Under 5 mins response</p>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
+                  <span className="text-[10px] font-mono text-[#d4af37] font-bold block uppercase">🌧️ Rain Tracking</span>
+                  <p className="text-[11px] text-white/80 font-light mt-0.5">Live park block reports</p>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
+                  <span className="text-[10px] font-mono text-[#d4af37] font-bold block uppercase">🐆 Safari Timing</span>
+                  <p className="text-[11px] text-white/80 font-light mt-0.5">Best heat & animal slots</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-shrink-0 flex flex-col items-center gap-3 w-full lg:w-auto">
+              <a
+                href="https://wa.me/94720440693?text=Hi!%20I'm%20planning%20a%20safari%20in%20Sri%20Lanka.%20Can%20you%20please%20tell%20me%20the%20current%20weather%20and%20safari%20conditions?"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("ask_weather_whatsapp_click", "cta", "ask_weather_section")}
+                className="btn-shine w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#25D366] text-white font-bold text-xs md:text-sm uppercase tracking-wider rounded-full hover:bg-[#20ba59] transition-all shadow-2xl scale-105 hover:scale-110 group"
+              >
+                <MessageSquare className="w-5 h-5 fill-current" />
+                <span>Ask Weather on WhatsApp</span>
+              </a>
+              <span className="text-[10px] font-mono text-[#d4af37] uppercase tracking-wider font-semibold">
+                📱 Direct WhatsApp: +94 720 440 693
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* PRIVATE CHAUFFEUR TRANSPORTATION INTEGRATION */}
       <section className="py-16 px-4 md:px-8 bg-[#1e3a2f] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
@@ -590,7 +659,7 @@ export default function SrilankaWhichNationalParkPage() {
               Browse Tourist Drivers & Rates <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="https://wa.me/94722968210?text=Hi!%20I'm%20planning%20a%20wildlife%20safari%20in%20Sri%20Lanka%20and%20need%20a%20private%20driver."
+              href="https://wa.me/94720440693?text=Hi!%20I'm%20planning%20a%20wildlife%20safari%20in%20Sri%20Lanka%20and%20need%20a%20private%20driver."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:border-[#d4af37] hover:text-[#d4af37] transition-all"
