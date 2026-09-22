@@ -351,6 +351,15 @@ export default function SrilankaThingsNeverOverpayPage() {
               👉 <strong>Tip:</strong> Always check what data package you are actually receiving (anytime data vs nighttime data split) before handing over cash.
             </p>
           </div>
+
+          {/* Section Image */}
+          <div className="rounded-2xl overflow-hidden border border-[#1e3a2f]/10 shadow-sm mt-4">
+            <img
+              src="/things-never-to-overpay-for-in-sri-lanka1.jpg"
+              alt="Official Tourist SIM Card Counter Packages in Sri Lanka"
+              className="w-full h-auto max-h-[450px] object-cover hover:scale-102 transition-transform duration-500"
+            />
+          </div>
         </div>
 
         {/* NUMBER 4: SOUVENIRS, GEMS AND TOURIST SHOPS */}
