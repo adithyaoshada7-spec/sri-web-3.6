@@ -246,7 +246,7 @@ export default function SrilankaWhichNationalParkPage() {
               <Binoculars className="w-4 h-4" /> 2026 Wildlife Safari & Route Blueprint
             </div>
             <a
-              href="https://wa.me/94720440693?text=Hi!%20I%20want%20to%20ask%20about%20the%20current%20weather%20and%20safari%20conditions%20in%20Sri%20Lanka"
+              href="https://wa.me/94722968210?text=Hi!%20I%20want%20to%20ask%20about%20the%20current%20weather%20and%20safari%20conditions%20in%20Sri%20Lanka"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent("ask_weather_hero_whatsapp", "cta", "hero_badge")}
@@ -584,7 +584,7 @@ export default function SrilankaWhichNationalParkPage() {
 
             <div className="flex-shrink-0 flex flex-col items-center gap-3 w-full lg:w-auto">
               <a
-                href="https://wa.me/94720440693?text=Hi!%20I'm%20planning%20a%20safari%20in%20Sri%20Lanka.%20Can%20you%20please%20tell%20me%20the%20current%20weather%20and%20safari%20conditions?"
+                href="https://wa.me/94722968210?text=Hi!%20I'm%20planning%20a%20safari%20in%20Sri%20Lanka.%20Can%20you%20please%20tell%20me%20the%20current%20weather%20and%20safari%20conditions?"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("ask_weather_whatsapp_click", "cta", "ask_weather_section")}
@@ -594,7 +594,7 @@ export default function SrilankaWhichNationalParkPage() {
                 <span>Ask Weather on WhatsApp</span>
               </a>
               <span className="text-[10px] font-mono text-[#d4af37] uppercase tracking-wider font-semibold">
-                📱 Direct WhatsApp: +94 720 440 693
+                📱 Direct WhatsApp: +94 722 968 210
               </span>
             </div>
           </div>
@@ -659,7 +659,7 @@ export default function SrilankaWhichNationalParkPage() {
               Browse Tourist Drivers & Rates <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="https://wa.me/94720440693?text=Hi!%20I'm%20planning%20a%20wildlife%20safari%20in%20Sri%20Lanka%20and%20need%20a%20private%20driver."
+              href="https://wa.me/94722968210?text=Hi!%20I'm%20planning%20a%20wildlife%20safari%20in%20Sri%20Lanka%20and%20need%20a%20private%20driver."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:border-[#d4af37] hover:text-[#d4af37] transition-all"
