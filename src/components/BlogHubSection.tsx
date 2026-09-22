@@ -151,13 +151,13 @@ const getArticleMeta = (path: string) => {
         readTime: "11 Min Read",
         badge: "Reader Itinerary"
       };
-    case "/whale-watching-mirissa":
+    case "/which-national-park-to-visit-sri-lanka":
       return {
-        category: "Marine Wildlife",
-        tag: "Mirissa Blue Whales",
+        category: "Wildlife Safari Guide",
+        tag: "National Parks 2026",
         icon: <Globe className="w-3.5 h-3.5 text-[#d4af37]" />,
-        readTime: "7 Min Read",
-        badge: "Trending +900%"
+        readTime: "12 Min Read",
+        badge: "Pillar Safari Guide"
       };
     default:
       return {

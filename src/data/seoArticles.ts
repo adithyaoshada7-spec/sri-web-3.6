@@ -260,5 +260,14 @@ export const seoArticles: Seometa[] = [
     ogType: "website",
     changefreq: "weekly",
     priority: "0.95"
+  },
+  {
+    path: "/which-national-park-to-visit-sri-lanka",
+    title: "Which National Park Should You Visit in Sri Lanka? (2026 Safari Guide)",
+    description: "Compare Yala, Wilpattu, Udawalawe, Minneriya, Kaudulla, Wasgamuwa, Bundala & Gal Oya. Find the best Sri Lanka national park based on leopards, elephants, season, and route.",
+    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.95"
   }
 ];
