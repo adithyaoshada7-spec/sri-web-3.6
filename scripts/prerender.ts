@@ -947,9 +947,44 @@ function generatePrerenderPages(): PrerenderPage[] {
         <ul>
           <li><strong>Can foreigners drive a Tuk-Tuk legally in Sri Lanka?</strong> Yes, provided your national license is officially endorsed by the Automobile Association of Ceylon (AAC). Plan Sri Lanka processes this endorsement in advance.</li>
           <li><strong>What is the Tuk-Tuk speed limit?</strong> The strict national speed limit for three-wheelers is 40 km/h.</li>
-          <li><strong>Are Tuk-Tuks allowed on expressways?</strong> No, Tuk-Tuks are prohibited on Class-E Expressways and must use scenic A and B roads.</li>
           <li><strong>How do I book on WhatsApp?</strong> Use our interactive booking tool or message us directly on WhatsApp at +94 72 296 8210 to lock in vehicle dates.</li>
         </ul>
+      </section>
+    `,
+    "/things-never-to-overpay-for-in-sri-lanka": `
+      <header>
+        <h1>5 Things You Should Never Overpay For in Sri Lanka (2026 Tourist Price Guide)</h1>
+        <p><strong>Sri Lanka can be great value for travellers, but there are a few things you shouldn't be paying silly money for. Here are 5 things to check before paying.</strong></p>
+      </header>
+
+      <section>
+        <h2>My Simple Rule</h2>
+        <p><strong>Don't chase the cheapest price. Chase a clear price.</strong> Ask what you're paying for before you agree. A good operator shouldn't have a problem explaining the costs.</p>
+      </section>
+
+      <section>
+        <h2>1. Tuk-Tuks</h2>
+        <p>Don't just jump into the first tuk-tuk and ask the price when you arrive. Ask the fare before you leave, use the meter where appropriate, or check a ride-hailing app such as PickMe or Uber where available. If the price sounds ridiculous, thank them and check another option.</p>
+      </section>
+
+      <section>
+        <h2>2. Airport Transfers</h2>
+        <p>After a long flight, it's easy to accept the first transport option you find. Instead, know the price before you travel. Ask whether the quote includes highway tolls, parking, and driver charges. A slightly cheaper quote isn't cheaper if extras suddenly appear later.</p>
+      </section>
+
+      <section>
+        <h2>3. SIM Cards</h2>
+        <p>Don't pay an inflated price just because you've landed and need internet. Check official tourist packages from operators like Dialog or Mobitel at the airport. You'll normally need your passport for registration.</p>
+      </section>
+
+      <section>
+        <h2>4. Souvenirs, Gems and Tourist Shops</h2>
+        <p>Slow down! If you're buying something expensive, especially jewellery or gems, don't feel pressured into buying because someone says 'Special price just for you, mate'. Compare prices and check seller documentation. Your driver suggesting a shop doesn't mean you have to buy anything.</p>
+      </section>
+
+      <section>
+        <h2>5. Tours and Safaris</h2>
+        <p>Don't look only at the cheapest or most expensive price. Ask what's actually included. For safaris, check if jeep, entrance tickets, and fees are included. For round tours, check driver meals, accommodation, parking, tolls, and daily kilometers.</p>
       </section>
     `
   };

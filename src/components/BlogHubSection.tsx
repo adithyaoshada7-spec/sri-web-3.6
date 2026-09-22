@@ -159,6 +159,14 @@ const getArticleMeta = (path: string) => {
         readTime: "12 Min Read",
         badge: "Pillar Safari Guide"
       };
+    case "/things-never-to-overpay-for-in-sri-lanka":
+      return {
+        category: "Tourist Price Transparency",
+        tag: "Value Travel 2026",
+        icon: <Globe className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "8 Min Read",
+        badge: "Essential Price Guide"
+      };
     default:
       return {
         category: "Travel Guide",

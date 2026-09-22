@@ -269,5 +269,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.95"
+  },
+  {
+    path: "/things-never-to-overpay-for-in-sri-lanka",
+    title: "5 Things You Should Never Overpay For in Sri Lanka (2026 Price Guide)",
+    description: "Avoid common price markups & tourist traps in Sri Lanka. Expert advice on tuk-tuks, airport transfers, SIM cards, gem shops & safari quotes. Get fair, transparent prices.",
+    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.95"
   }
 ];

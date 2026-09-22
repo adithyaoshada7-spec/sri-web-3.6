@@ -72,6 +72,7 @@ const SrilankaNilaveliBeachGuidePage = lazy(() => import("./components/SrilankaN
 const SrilankaTrincomaleeTravelGuidePage = lazy(() => import("./components/SrilankaTrincomaleeTravelGuidePage"));
 const SrilankaTouristDriversPage = lazy(() => import("./components/SrilankaTouristDriversPage"));
 const SrilankaWhichNationalParkPage = lazy(() => import("./components/SrilankaWhichNationalParkPage"));
+const SrilankaThingsNeverOverpayPage = lazy(() => import("./components/SrilankaThingsNeverOverpayPage"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -931,7 +932,19 @@ export default function App() {
           </Suspense>
         } />
 
+        <Route path="/things-never-to-overpay-for-in-sri-lanka" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#1e3a2f] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#d4af37] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <SrilankaThingsNeverOverpayPage />
+          </Suspense>
+        } />
+
         {/* --- 404 Prevention Redirects for Legacy / Alternate URL Patterns --- */}
+        <Route path="/things-you-should-never-overpay-for-in-sri-lanka" element={<Navigate to="/things-never-to-overpay-for-in-sri-lanka" replace />} />
+        <Route path="/5-things-you-should-never-overpay-for-in-sri-lanka" element={<Navigate to="/things-never-to-overpay-for-in-sri-lanka" replace />} />
         <Route path="/which-national-park-should-you-visit-in-sri-lanka" element={<Navigate to="/which-national-park-to-visit-sri-lanka" replace />} />
         <Route path="/sri-lanka-tourist-driver" element={<Navigate to="/sri-lanka-tourist-drivers" replace />} />
         <Route path="/sri-lanka-private-drivers" element={<Navigate to="/sri-lanka-tourist-drivers" replace />} />
