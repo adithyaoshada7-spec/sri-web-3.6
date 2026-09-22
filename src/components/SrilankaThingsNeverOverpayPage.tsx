@@ -314,6 +314,9 @@ export default function SrilankaThingsNeverOverpayPage() {
               <p className="text-[#3a4d44] leading-relaxed font-light">
                 A slightly cheaper initial quote isn't necessarily cheaper if unexpected extras suddenly appear later. Pre-booking a verified tourist driver guarantees your driver is waiting with your name sign in arrivals, with all tolls pre-included.
               </p>
+              <p className="text-xs text-[#1e3a2f] font-light pt-2">
+                ✈️ <strong>Flying in from India?</strong> Read our complete breakdown on <Link to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai" className="font-bold underline hover:text-[#d4af37] transition-colors">How Much Will It Take to Visit Sri Lanka from Chennai</Link> for flight rates and 5-day vs 7-day budget plans.
+              </p>
             </div>
           </div>
         </div>
@@ -533,6 +536,38 @@ export default function SrilankaThingsNeverOverpayPage() {
                 📱 Direct WhatsApp: +94 722 968 210
               </span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* RELATED COST GUIDES & BACKLINKS */}
+      <section className="py-12 px-4 md:px-8 max-w-5xl mx-auto">
+        <div className="bg-white border border-[#1e3a2f]/10 rounded-3xl p-6 md:p-8 space-y-4 text-center shadow-sm">
+          <span className="text-xs font-mono font-bold text-[#d4af37] uppercase tracking-widest block">
+            Explore Related Budget & Transport Guides
+          </span>
+          <h3 className="font-serif font-bold text-xl text-[#1e3a2f]">
+            More Insider Sri Lanka Price Guides
+          </h3>
+          <div className="flex flex-wrap justify-center gap-3 text-xs font-mono font-bold pt-2">
+            <Link
+              to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+              className="px-4 py-2 bg-[#fcfbf7] border border-[#1e3a2f]/15 rounded-full text-[#1e3a2f] hover:border-[#d4af37] hover:text-[#d4af37] transition-all shadow-sm"
+            >
+              🇮🇳 Sri Lanka Trip Cost From Chennai
+            </Link>
+            <Link
+              to="/sri-lanka-tourist-drivers"
+              className="px-4 py-2 bg-[#fcfbf7] border border-[#1e3a2f]/15 rounded-full text-[#1e3a2f] hover:border-[#d4af37] hover:text-[#d4af37] transition-all shadow-sm"
+            >
+              🚗 Licensed Tourist Driver Rates
+            </Link>
+            <Link
+              to="/sri-lanka-trip-cost-from-india"
+              className="px-4 py-2 bg-[#fcfbf7] border border-[#1e3a2f]/15 rounded-full text-[#1e3a2f] hover:border-[#d4af37] hover:text-[#d4af37] transition-all shadow-sm"
+            >
+              💰 Sri Lanka Trip Cost Master Guide
+            </Link>
           </div>
         </div>
       </section>
