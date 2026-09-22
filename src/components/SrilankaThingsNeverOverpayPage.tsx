@@ -265,6 +265,15 @@ export default function SrilankaThingsNeverOverpayPage() {
               </p>
             </div>
           </div>
+
+          {/* Section Image */}
+          <div className="rounded-2xl overflow-hidden border border-[#1e3a2f]/10 shadow-sm mt-4">
+            <img
+              src="/things-never-to-overpay-for-in-sri-lanka.jpg"
+              alt="Sri Lanka Tuk-Tuk Fair Pricing and Metered Rates Guide"
+              className="w-full h-auto max-h-[450px] object-cover hover:scale-102 transition-transform duration-500"
+            />
+          </div>
         </div>
 
         {/* NUMBER 2: AIRPORT TRANSFERS */}
