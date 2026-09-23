@@ -455,6 +455,26 @@ export default function SrilankaChennaiCostPillarPage() {
               <span className="text-[10px] text-[#5A5448]">Zero jet-lag</span>
             </div>
           </div>
+
+          {/* TOURIST PRICE TRANSPARENCY CALLOUT */}
+          <div className="bg-[#FAF8F3] border-2 border-[#1F3D2B]/20 rounded-2xl p-6 space-y-3 shadow-sm mt-6">
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#1F3D2B] uppercase tracking-wider">
+              <span>💡 Essential Price Safeguards</span>
+            </div>
+            <h3 className="font-serif font-bold text-lg text-[#1F3D2B]">
+              5 Things You Should Never Overpay For in Sri Lanka 🇱🇰
+            </h3>
+            <p className="text-xs sm:text-sm text-[#4A453A] leading-relaxed">
+              Before booking tuk-tuks, roadside SIM cards, gem shops, or safari jeeps, read our expert checklist on avoiding common tourist price markups and hidden fees.
+            </p>
+            <Link
+              to="/things-never-to-overpay-for-in-sri-lanka"
+              className="inline-flex items-center gap-2 text-xs font-bold text-[#1F3D2B] uppercase tracking-wider underline hover:text-[#b38728] transition-colors pt-1"
+            >
+              <span>Read 5 Things Never to Overpay For Guide</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#b38728]" />
+            </Link>
+          </div>
         </section>
 
         {/* SECTION 2: CHENNAI TO SRI LANKA FLIGHT COST */}

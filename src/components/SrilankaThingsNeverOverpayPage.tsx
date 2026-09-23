@@ -551,6 +551,12 @@ export default function SrilankaThingsNeverOverpayPage() {
           </h3>
           <div className="flex flex-wrap justify-center gap-3 text-xs font-mono font-bold pt-2">
             <Link
+              to="/things-to-do-in-sri-lanka"
+              className="px-4 py-2 bg-[#fcfbf7] border border-[#1e3a2f]/15 rounded-full text-[#1e3a2f] hover:border-[#d4af37] hover:text-[#d4af37] transition-all shadow-sm"
+            >
+              🏝️ Find Things to Do in Sri Lanka
+            </Link>
+            <Link
               to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
               className="px-4 py-2 bg-[#fcfbf7] border border-[#1e3a2f]/15 rounded-full text-[#1e3a2f] hover:border-[#d4af37] hover:text-[#d4af37] transition-all shadow-sm"
             >
@@ -615,10 +621,16 @@ export default function SrilankaThingsNeverOverpayPage() {
           <p className="text-xs md:text-sm text-white/80 font-light leading-relaxed">
             Use our free interactive trip planner to build your custom itinerary and compare realistic daily budgets.
           </p>
-          <div className="pt-2">
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/things-to-do-in-sri-lanka"
+              className="btn-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#d4af37] text-[#1e3a2f] font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white transition-all shadow-xl"
+            >
+              Find Things to Do in Sri Lanka <ArrowRight className="w-4 h-4" />
+            </Link>
             <Link
               to="/sri-lanka-trip-planner"
-              className="btn-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#d4af37] text-[#1e3a2f] font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white transition-all shadow-xl"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 border border-white/30 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:border-[#d4af37] hover:text-[#d4af37] transition-all"
             >
               Use Free Trip Planner <ArrowRight className="w-4 h-4" />
             </Link>
