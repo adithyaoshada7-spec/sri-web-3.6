@@ -31,6 +31,7 @@ import {
   Compass
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
+import InteractiveRouteFunnelModal from "./InteractiveRouteFunnelModal";
 
 interface CostBreakdown {
   flights: number;
@@ -54,6 +55,7 @@ export default function SrilankaChennaiCostPillarPage() {
   });
 
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [isFunnelOpen, setIsFunnelOpen] = useState<boolean>(false);
 
   // Interactive Calculator State
   const [calcDuration, setCalcDuration] = useState<number>(7);
@@ -321,6 +323,20 @@ export default function SrilankaChennaiCostPillarPage() {
           Planning a trip from Chennai to Sri Lanka? Because Colombo is just <strong>80 minutes away by direct flight</strong>, Sri Lanka is one of the fastest, most affordable international holidays for travellers in Tamil Nadu. Here is the realistic 2026 cost breakdown for flights, hotels, private transport, food, couples, and families.
         </p>
 
+        <div className="mb-6">
+          <button
+            onClick={() => {
+              setIsFunnelOpen(true);
+              trackEvent("funnel_open_hero", "conversion", "chennai_cost_hero");
+            }}
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#1F3D2B] text-white text-sm font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] group cursor-pointer"
+          >
+            <Sparkles className="w-4 h-4 text-[#F2C94C]" />
+            <span>Create My Own Route 🚀</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+
         <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-[#7A7365] font-mono border-t border-[#E8E4D9] pt-4">
           <span className="flex items-center gap-1.5">
             <UserCheck className="w-4 h-4 text-[#1F3D2B]" />
@@ -398,15 +414,19 @@ export default function SrilankaChennaiCostPillarPage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#F2F7F4] p-4 rounded-xl border border-[#C5DAC9]">
             <p className="text-xs sm:text-sm text-[#1F3D2B] font-medium">
-              Want a tailored itinerary with precise day-by-day costs for your exact dates?
+              Want a tailored route validation with precise day-by-day costs for your exact dates?
             </p>
-            <Link
-              to="/sri-lanka-trip-planner"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1F3D2B] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-colors shrink-0 shadow-md"
+            <button
+              onClick={() => {
+                setIsFunnelOpen(true);
+                trackEvent("funnel_open_quick_answer", "conversion", "chennai_cost_quick_answer");
+              }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1F3D2B] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-colors shrink-0 shadow-md cursor-pointer"
             >
-              <span>Use Free Trip Planner</span>
+              <Sparkles className="w-3.5 h-3.5 text-[#F2C94C]" />
+              <span>Create My Own Route 🚀</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -1343,16 +1363,30 @@ export default function SrilankaChennaiCostPillarPage() {
                 </div>
               </div>
 
-              <a
-                href={`https://wa.me/94722968210?text=${generateWhatsAppMessage()}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("whatsapp_click", "conversion", "chennai_cost_calculator")}
-                className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#25D366] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1EBE5D] transition-all shadow-md text-center"
-              >
-                <Send className="w-4 h-4" />
-                <span>Get Itinerary Quote on WhatsApp</span>
-              </a>
+              <div className="space-y-2 pt-1">
+                <button
+                  onClick={() => {
+                    setIsFunnelOpen(true);
+                    trackEvent("funnel_open_calc", "conversion", "chennai_cost_calculator");
+                  }}
+                  className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#1F3D2B] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-all shadow-md cursor-pointer"
+                >
+                  <Sparkles className="w-4 h-4 text-[#F2C94C]" />
+                  <span>Create My Own Route 🚀</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+
+                <a
+                  href={`https://wa.me/94722968210?text=${generateWhatsAppMessage()}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackEvent("whatsapp_click", "conversion", "chennai_cost_calculator")}
+                  className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#25D366] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1EBE5D] transition-all shadow-md text-center"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Get Itinerary Quote on WhatsApp</span>
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -1523,6 +1557,12 @@ export default function SrilankaChennaiCostPillarPage() {
         </section>
 
       </main>
+
+      {/* Interactive 3-Step Micro-SaaS Route Funnel Modal */}
+      <InteractiveRouteFunnelModal
+        isOpen={isFunnelOpen}
+        onClose={() => setIsFunnelOpen(false)}
+      />
     </div>
   );
 }
