@@ -30,6 +30,21 @@ const DESTINATIONS_LIST = [
   { id: "Nilaveli / Trincomalee", label: "Nilaveli / Trincomalee", subtitle: "Pristine East Coast & Snorkeling", icon: "🦩" },
 ];
 
+const TRIP_VIBES = [
+  { id: "cultural", name: "Cultural & Heritage", icon: "🏛️", desc: "Ancient ruins & UNESCO temples" },
+  { id: "romantic", name: "Romantic & Honeymoon", icon: "✨", desc: "Scenic highlands & oceanfront resorts" },
+  { id: "family", name: "Family & Kids Friendly", icon: "👨‍👩‍👧‍👦", desc: "Safe & relaxed pacing for all ages" },
+  { id: "beach", name: "Beach & Leisure", icon: "🌴", desc: "Sun, surf, sand & coastal relaxation" },
+  { id: "wildlife", name: "Wildlife & Safari", icon: "🐘", desc: "Leopards, elephants & national parks" },
+  { id: "adventure", name: "Adventure & Nature", icon: "🥾", desc: "Hikes, waterfalls & outdoor thrills" },
+  { id: "hill_country", name: "Hill Country & Tea Trails", icon: "🚂", desc: "Misty mountains & blue trains" },
+  { id: "luxury", name: "Luxury & Boutique", icon: "💎", desc: "5-star villas & private transfers" },
+  { id: "budget", name: "Budget & Backpacker", icon: "🎒", desc: "Cozy guesthouses & local train loops" },
+  { id: "food", name: "Food & Culinary", icon: "🍛", desc: "Ceylon spices, seafood & street food" },
+  { id: "wellness", name: "Wellness & Ayurveda", icon: "🧘", desc: "Ayurvedic spas, yoga & retreats" },
+  { id: "instagram", name: "Photography & Insta Spots", icon: "📸", desc: "Nine Arch Bridge, Pidurangala & views" },
+];
+
 const DURATION_OPTIONS = ["5 Days", "7 Days", "10 Days"];
 
 const GROUP_OPTIONS = [
@@ -49,6 +64,7 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
   const [step, setStep] = useState<1 | 2 | "loading" | 3 | "success">(1);
 
   // Step 1 State
+  const [selectedVibe, setSelectedVibe] = useState<string>("cultural");
   const [selectedDestinations, setSelectedDestinations] = useState<string[]>([
     "Sigiriya",
     "Kandy",
@@ -134,10 +150,15 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
     setFormError("");
     trackEvent("funnel_step_3_submit", "conversion", "chennai_cost_funnel");
 
+    // Find selected vibe display name
+    const vibeObj = TRIP_VIBES.find((v) => v.id === selectedVibe);
+    const vibeName = vibeObj ? `${vibeObj.icon} ${vibeObj.name}` : selectedVibe;
+
     // Format WhatsApp message
     const message = `Hi Plan Sri Lanka! 🚀 I used your Route Feasibility Tool for my Chennai trip.
     
 📌 *My Route Configuration:*
+• *Trip Vibe:* ${vibeName}
 • *Destinations:* ${selectedDestinations.join(", ")}
 • *Duration:* ${selectedDays}
 • *Group Type:* ${groupType}
@@ -203,7 +224,7 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                 <span className={`w-6 h-6 rounded-full flex items-center justify-center font-bold ${step === 1 ? "bg-[#1F3D2B] text-[#D4AF37]" : "bg-[#1F3D2B]/10 text-[#1F3D2B]"}`}>
                   1
                 </span>
-                <span className={`font-semibold ${step === 1 ? "text-[#1F3D2B]" : "text-[#7A7365]"}`}>Destinations & Days</span>
+                <span className={`font-semibold ${step === 1 ? "text-[#1F3D2B]" : "text-[#7A7365]"}`}>Vibe & Destinations</span>
               </div>
               <div className="h-0.5 w-8 bg-[#E8E4D9] hidden sm:block" />
               <div className="flex items-center gap-2">
@@ -225,7 +246,7 @@ Please send my customized route & budget review directly to my WhatsApp!`;
           {/* MODAL BODY */}
           <div className="p-5 sm:p-6 overflow-y-auto space-y-6">
 
-            {/* STEP 1: DESTINATIONS & DAYS */}
+            {/* STEP 1: VIBES, DESTINATIONS & DAYS */}
             {step === 1 && (
               <motion.div
                 key="step1"
@@ -234,14 +255,52 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                 exit={{ opacity: 0, x: 10 }}
                 className="space-y-6"
               >
-                <div>
-                  <label className="text-xs font-mono font-bold text-[#1F3D2B] uppercase tracking-wider block mb-1">
-                    Step 1: Select Your Preferred Destinations (Multi-Select)
-                  </label>
-                  <p className="text-xs text-[#5A5448]">
-                    Choose the key places you want to include in your Sri Lanka itinerary:
-                  </p>
+                {/* Step 1: Trip Vibe / Travel Style Selection */}
+                <div className="space-y-3">
+                  <div>
+                    <label className="text-xs font-mono font-bold text-[#1F3D2B] uppercase tracking-wider block mb-1">
+                      What kind of trip vibe are you looking for? ✨
+                    </label>
+                    <p className="text-xs text-[#5A5448]">
+                      Select your preferred travel style to customize your route:
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
+                    {TRIP_VIBES.map((vibe) => {
+                      const isSelected = selectedVibe === vibe.id;
+                      return (
+                        <button
+                          key={vibe.id}
+                          type="button"
+                          onClick={() => setSelectedVibe(vibe.id)}
+                          className={`cursor-pointer p-3 rounded-2xl border transition-all duration-200 text-center flex flex-col items-center justify-center ${
+                            isSelected
+                              ? "border-[#1F3D2B] bg-[#1F3D2B] text-white shadow-md ring-2 ring-[#1F3D2B]/20 scale-[1.02]"
+                              : "border-[#E8E4D9] bg-white hover:border-[#1F3D2B]/40 hover:bg-[#FAF8F3] text-[#1A1A1A]"
+                          }`}
+                        >
+                          <div className="text-2xl mb-1">{vibe.icon}</div>
+                          <h4 className="font-serif font-bold text-xs leading-tight">{vibe.name}</h4>
+                          <p className={`text-[10px] mt-1 line-clamp-2 leading-tight ${isSelected ? "text-white/80" : "text-[#7A7365]"}`}>
+                            {vibe.desc}
+                          </p>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
+
+                {/* Step 1: Destinations Selection */}
+                <div className="pt-2 space-y-3">
+                  <div>
+                    <label className="text-xs font-mono font-bold text-[#1F3D2B] uppercase tracking-wider block mb-1">
+                      Select Key Destinations (Multi-Select):
+                    </label>
+                    <p className="text-xs text-[#5A5448]">
+                      Choose the key places you want to include in your route:
+                    </p>
+                  </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {DESTINATIONS_LIST.map((dest) => {
@@ -277,6 +336,7 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                     );
                   })}
                 </div>
+              </div>
 
                 {/* DAYS SELECTION PILLS */}
                 <div className="pt-2 space-y-2">
