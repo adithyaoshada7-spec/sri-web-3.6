@@ -130,7 +130,7 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
   };
 
   const handleStep1Next = () => {
-    if (selectedDestinations.length === 0) return;
+    if (!selectedVibe) return;
     trackEvent("funnel_step_1_complete", "engagement", "chennai_cost_funnel");
     setStep(2);
   };
@@ -291,53 +291,6 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                   </div>
                 </div>
 
-                {/* Step 1: Destinations Selection */}
-                <div className="pt-2 space-y-3">
-                  <div>
-                    <label className="text-xs font-mono font-bold text-[#1F3D2B] uppercase tracking-wider block mb-1">
-                      Select Key Destinations (Multi-Select):
-                    </label>
-                    <p className="text-xs text-[#5A5448]">
-                      Choose the key places you want to include in your route:
-                    </p>
-                  </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {DESTINATIONS_LIST.map((dest) => {
-                    const isSelected = selectedDestinations.includes(dest.id);
-                    return (
-                      <button
-                        key={dest.id}
-                        type="button"
-                        onClick={() => toggleDestination(dest.id)}
-                        className={`p-3.5 rounded-2xl border text-left transition-all flex items-start gap-3 relative ${
-                          isSelected
-                            ? "bg-[#1F3D2B] text-white border-[#1F3D2B] shadow-md scale-[1.01]"
-                            : "bg-white border-[#E8E4D9] text-[#1A1A1A] hover:border-[#1F3D2B]/40"
-                        }`}
-                      >
-                        <span className="text-2xl">{dest.icon}</span>
-                        <div className="flex-1 pr-6">
-                          <h4 className="font-serif font-bold text-sm leading-tight mb-0.5">
-                            {dest.label}
-                          </h4>
-                          <p className={`text-[11px] leading-tight ${isSelected ? "text-white/80" : "text-[#7A7365]"}`}>
-                            {dest.subtitle}
-                          </p>
-                        </div>
-                        <div className={`w-5 h-5 rounded-full flex items-center justify-center border text-xs absolute top-3.5 right-3.5 ${
-                          isSelected
-                            ? "bg-[#D4AF37] border-[#D4AF37] text-[#1F3D2B]"
-                            : "border-[#E8E4D9] bg-gray-50 text-transparent"
-                        }`}>
-                          ✓
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
                 {/* DAYS SELECTION PILLS */}
                 <div className="pt-2 space-y-2">
                   <label className="text-xs font-mono font-bold text-[#1F3D2B] uppercase tracking-wider block">
@@ -365,7 +318,7 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                   <button
                     type="button"
                     onClick={handleStep1Next}
-                    disabled={selectedDestinations.length === 0}
+                    disabled={!selectedVibe}
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#1F3D2B] text-white font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-[#142A1D] transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <span>Next: Travelers & Budget</span>
