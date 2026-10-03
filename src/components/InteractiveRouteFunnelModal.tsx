@@ -45,7 +45,7 @@ const TRIP_VIBES = [
   { id: "instagram", name: "Photography & Insta Spots", icon: "📸", desc: "Nine Arch Bridge, Pidurangala & views" },
 ];
 
-const DURATION_OPTIONS = ["5 Days", "7 Days", "10 Days"];
+const DURATION_OPTIONS = ["5 Days", "7 Days", "10 Days", "Custom ✏️"];
 
 const GROUP_OPTIONS = [
   { id: "Solo", label: "Solo Traveler", icon: "🎒" },
@@ -71,6 +71,8 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
     "Nuwara Eliya / Ella"
   ]);
   const [selectedDays, setSelectedDays] = useState<string>("7 Days");
+  const [isCustomDays, setIsCustomDays] = useState<boolean>(false);
+  const [customDays, setCustomDays] = useState<string>("12");
 
   // Step 2 State
   const [groupType, setGroupType] = useState<string>("Couple");
@@ -118,6 +120,8 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
     setTimeout(() => {
       setStep(1);
       setFormError("");
+      setIsCustomDays(false);
+      setSelectedDays("7 Days");
     }, 300);
   };
 
@@ -292,26 +296,71 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                 </div>
 
                 {/* DAYS SELECTION PILLS */}
-                <div className="pt-2 space-y-2">
+                <div className="pt-2 space-y-3">
                   <label className="text-xs font-mono font-bold text-[#1F3D2B] uppercase tracking-wider block">
                     Select Your Trip Duration:
                   </label>
-                  <div className="flex flex-wrap gap-2">
-                    {DURATION_OPTIONS.map((days) => (
-                      <button
-                        key={days}
-                        type="button"
-                        onClick={() => setSelectedDays(days)}
-                        className={`px-5 py-2.5 rounded-full text-xs font-mono font-bold transition-all ${
-                          selectedDays === days
-                            ? "bg-[#1F3D2B] text-[#D4AF37] shadow-md scale-105"
-                            : "bg-white border border-[#E8E4D9] text-[#1A1A1A] hover:border-[#1F3D2B]"
-                        }`}
-                      >
-                        ⏱️ {days}
-                      </button>
-                    ))}
+                  <div className="flex flex-wrap items-center gap-2">
+                    {DURATION_OPTIONS.map((days) => {
+                      const isCustomPill = days.startsWith("Custom");
+                      const isSelected = isCustomPill ? isCustomDays : selectedDays === days && !isCustomDays;
+
+                      return (
+                        <button
+                          key={days}
+                          type="button"
+                          onClick={() => {
+                            if (isCustomPill) {
+                              setIsCustomDays(true);
+                              setSelectedDays(customDays ? `${customDays} Days` : "12 Days");
+                            } else {
+                              setIsCustomDays(false);
+                              setSelectedDays(days);
+                            }
+                          }}
+                          className={`px-5 py-2.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                            isSelected
+                              ? "bg-[#1F3D2B] text-[#D4AF37] shadow-md scale-105"
+                              : "bg-white border border-[#E8E4D9] text-[#1A1A1A] hover:border-[#1F3D2B]"
+                          }`}
+                        >
+                          ⏱️ {days}
+                        </button>
+                      );
+                    })}
                   </div>
+
+                  {/* Custom Days Input */}
+                  {isCustomDays && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-3.5 rounded-2xl bg-[#FAF8F3] border border-[#1F3D2B]/30 flex flex-wrap items-center gap-3"
+                    >
+                      <span className="text-xs font-mono font-bold text-[#1F3D2B]">
+                        Specify Number of Days:
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="number"
+                          min={1}
+                          max={60}
+                          value={customDays}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            setCustomDays(val);
+                            setSelectedDays(val ? `${val} Days` : "Custom Days");
+                          }}
+                          className="w-20 px-3 py-1.5 rounded-xl border-2 border-[#1F3D2B] bg-white text-sm font-mono font-bold text-[#1F3D2B] focus:outline-none focus:ring-2 focus:ring-[#1F3D2B]/30"
+                          placeholder="e.g. 12"
+                        />
+                        <span className="text-xs font-mono font-bold text-[#1F3D2B]">Days</span>
+                      </div>
+                      <span className="text-[11px] text-[#7A7365] italic">
+                        (Flexible itinerary planning for any duration)
+                      </span>
+                    </motion.div>
+                  )}
                 </div>
 
                 <div className="pt-4 border-t border-[#E8E4D9] flex justify-end">
