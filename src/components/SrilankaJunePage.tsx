@@ -40,6 +40,7 @@ import {
   Clock
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
+import InteractiveRouteFunnelModal from "./InteractiveRouteFunnelModal";
 
 export default function SrilankaJunePage() {
   usePageMetadata({
@@ -52,6 +53,7 @@ export default function SrilankaJunePage() {
   const navigate = useNavigate();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [activeRegion, setActiveRegion] = useState<number>(0);
+  const [isFunnelOpen, setIsFunnelOpen] = useState<boolean>(false);
 
   const regionWeather = [
     {
@@ -303,17 +305,22 @@ export default function SrilankaJunePage() {
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
+            <button
+              onClick={() => {
+                setIsFunnelOpen(true);
+                trackEvent("funnel_open_hero", "conversion", "june_page_hero");
+              }}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#d4af37] hover:bg-white text-[#1e3a2f] font-bold uppercase tracking-wider text-xs rounded-full shadow-lg transition-all hover:scale-[1.02] cursor-pointer"
+            >
+              <Sparkles className="w-4 h-4 text-[#1e3a2f]" />
+              <span>Create My Own Route (Free) 🚀</span>
+              <ArrowRight className="w-4 h-4 text-[#1e3a2f]" />
+            </button>
             <a
               href="#june-form"
-              className="w-full sm:w-auto px-8 py-4 bg-[#d4af37] hover:bg-white text-black font-bold uppercase tracking-widest text-[#1e3a2f] text-xs rounded-full shadow-lg transition-all"
+              className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold uppercase tracking-wider text-xs rounded-full border border-white/20 transition-all text-center"
             >
-              Get My June Route Plan
-            </a>
-            <a
-              href="#june-mistake"
-              className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-semibold uppercase tracking-widest text-xs rounded-full border border-white/10 transition-all"
-            >
-              Learn The Big Mistake
+              Get June Concierge Advice
             </a>
           </div>
         </div>
@@ -388,6 +395,29 @@ export default function SrilankaJunePage() {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Quick Answer Route Funnel Banner */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#f5f2e8] p-5 rounded-2xl border border-[#1e3a2f]/15 mt-6">
+            <div className="space-y-1 text-center sm:text-left">
+              <span className="font-serif font-bold text-[#1e3a2f] text-sm sm:text-base block">
+                Want a personalized June route avoiding the monsoon?
+              </span>
+              <p className="text-xs text-[#3a4d44] font-light">
+                Use our interactive 3-step validator to test your preferred vibe, days, and budget for June.
+              </p>
+            </div>
+            <button
+              onClick={() => {
+                setIsFunnelOpen(true);
+                trackEvent("funnel_open_quick_answer", "conversion", "june_page_quick_answer");
+              }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1e3a2f] text-[#d4af37] text-xs font-bold uppercase tracking-wider hover:bg-[#152921] transition-all shrink-0 shadow-md cursor-pointer hover:scale-[1.02]"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
+              <span>Create My Own Route (Free) 🚀</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
       </section>
@@ -2175,6 +2205,12 @@ export default function SrilankaJunePage() {
           </Link>
         </div>
       </section>
+
+      {/* Interactive 3-Step Micro-SaaS Route Funnel Modal */}
+      <InteractiveRouteFunnelModal
+        isOpen={isFunnelOpen}
+        onClose={() => setIsFunnelOpen(false)}
+      />
 
     </div>
   );
