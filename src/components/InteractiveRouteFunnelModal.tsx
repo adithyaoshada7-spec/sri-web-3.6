@@ -13,7 +13,8 @@ import {
   ShieldCheck,
   MessageSquare,
   Compass,
-  Check
+  Check,
+  Globe
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
@@ -113,11 +114,164 @@ const GROUP_OPTIONS = [
   { id: "Family / Friends", label: "Family / Group", icon: "👨‍👩‍👧‍👦" },
 ];
 
-const BUDGET_TIERS = [
-  { id: "Budget (₹30k–₹45k)", title: "Budget Tier", range: "₹30k – ₹45k", desc: "Cozy guesthouses & scenic train loops" },
-  { id: "Comfort (₹45k–₹65k)", title: "Comfort Tier ⭐", range: "₹45k – ₹65k", desc: "3-4★ Boutique villas & AC private car" },
-  { id: "Luxury (₹65k+)", title: "Luxury Tier", range: "₹65k+", desc: "5★ Beach resorts & colonial tea estates" },
-  { id: "Custom", title: "Custom Budget ✏️", range: "Your Budget", desc: "Specify your own target budget (e.g. INR / USD)" },
+export interface CurrencyConfig {
+  code: string;
+  symbol: string;
+  name: string;
+  flag: string;
+  tiers: {
+    budget: string;
+    comfort: string;
+    luxury: string;
+  };
+  customPlaceholder: string;
+  defaultCustom: string;
+}
+
+const CURRENCIES: CurrencyConfig[] = [
+  {
+    code: "USD",
+    symbol: "$",
+    name: "USD ($) - US Dollar",
+    flag: "🇺🇸",
+    tiers: {
+      budget: "$400 – $600",
+      comfort: "$600 – $900",
+      luxury: "$1,000+",
+    },
+    customPlaceholder: "e.g. $750 / person or $2,500 total",
+    defaultCustom: "$750 / person",
+  },
+  {
+    code: "EUR",
+    symbol: "€",
+    name: "EUR (€) - Euro",
+    flag: "🇪🇺",
+    tiers: {
+      budget: "€350 – €550",
+      comfort: "€550 – €850",
+      luxury: "€950+",
+    },
+    customPlaceholder: "e.g. €700 / person or €2,300 total",
+    defaultCustom: "€700 / person",
+  },
+  {
+    code: "GBP",
+    symbol: "£",
+    name: "GBP (£) - British Pound",
+    flag: "🇬🇧",
+    tiers: {
+      budget: "£300 – £500",
+      comfort: "£500 – £750",
+      luxury: "£850+",
+    },
+    customPlaceholder: "e.g. £650 / person or £2,000 total",
+    defaultCustom: "£650 / person",
+  },
+  {
+    code: "AUD",
+    symbol: "A$",
+    name: "AUD (A$) - Australian Dollar",
+    flag: "🇦🇺",
+    tiers: {
+      budget: "A$600 – A$900",
+      comfort: "A$900 – A$1,400",
+      luxury: "A$1,500+",
+    },
+    customPlaceholder: "e.g. A$1,100 / person or A$3,500 total",
+    defaultCustom: "A$1,100 / person",
+  },
+  {
+    code: "CAD",
+    symbol: "C$",
+    name: "CAD (C$) - Canadian Dollar",
+    flag: "🇨🇦",
+    tiers: {
+      budget: "C$550 – C$850",
+      comfort: "C$850 – C$1,300",
+      luxury: "C$1,400+",
+    },
+    customPlaceholder: "e.g. C$1,000 / person or C$3,200 total",
+    defaultCustom: "C$1,000 / person",
+  },
+  {
+    code: "INR",
+    symbol: "₹",
+    name: "INR (₹) - Indian Rupee",
+    flag: "🇮🇳",
+    tiers: {
+      budget: "₹30,000 – ₹45,000",
+      comfort: "₹45,000 – ₹65,000",
+      luxury: "₹70,000+",
+    },
+    customPlaceholder: "e.g. ₹50,000 / person or ₹2,00,000 total",
+    defaultCustom: "₹50,000 / person",
+  },
+  {
+    code: "LKR",
+    symbol: "Rs",
+    name: "LKR (Rs) - Sri Lankan Rupee",
+    flag: "🇱🇰",
+    tiers: {
+      budget: "Rs 120,000 – 180,000",
+      comfort: "Rs 180,000 – 270,000",
+      luxury: "Rs 300,000+",
+    },
+    customPlaceholder: "e.g. Rs 220,000 / person or Rs 700,000 total",
+    defaultCustom: "Rs 220,000 / person",
+  },
+  {
+    code: "AED",
+    symbol: "AED",
+    name: "AED (AED) - UAE Dirham",
+    flag: "🇦🇪",
+    tiers: {
+      budget: "AED 1,500 – 2,200",
+      comfort: "AED 2,200 – 3,500",
+      luxury: "AED 3,800+",
+    },
+    customPlaceholder: "e.g. AED 2,800 / person or AED 8,000 total",
+    defaultCustom: "AED 2,800 / person",
+  },
+  {
+    code: "SGD",
+    symbol: "S$",
+    name: "SGD (S$) - Singapore Dollar",
+    flag: "🇸🇬",
+    tiers: {
+      budget: "S$550 – S$800",
+      comfort: "S$800 – S$1,250",
+      luxury: "S$1,350+",
+    },
+    customPlaceholder: "e.g. S$950 / person or S$3,000 total",
+    defaultCustom: "S$950 / person",
+  },
+  {
+    code: "CHF",
+    symbol: "CHF",
+    name: "CHF (CHF) - Swiss Franc",
+    flag: "🇨🇭",
+    tiers: {
+      budget: "CHF 350 – 550",
+      comfort: "CHF 550 – 850",
+      luxury: "CHF 950+",
+    },
+    customPlaceholder: "e.g. CHF 750 / person",
+    defaultCustom: "CHF 750 / person",
+  },
+  {
+    code: "OTHER",
+    symbol: "🌐",
+    name: "Other / Any Currency",
+    flag: "🌐",
+    tiers: {
+      budget: "Budget Tier",
+      comfort: "Comfort Tier",
+      luxury: "Luxury Tier",
+    },
+    customPlaceholder: "Type your currency & budget (e.g. 1200 NZD)",
+    defaultCustom: "Custom Budget",
+  },
 ];
 
 export default function InteractiveRouteFunnelModal({ isOpen, onClose }: InteractiveRouteFunnelModalProps) {
@@ -138,8 +292,9 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
   // Step 2 State
   const [groupType, setGroupType] = useState<string>("Couple");
   const [travelerCount, setTravelerCount] = useState<number>(2);
-  const [budgetTier, setBudgetTier] = useState<string>("Comfort (₹45k–₹65k)");
-  const [customBudgetAmount, setCustomBudgetAmount] = useState<string>("₹50,000 / person");
+  const [currencyCode, setCurrencyCode] = useState<string>("USD");
+  const [budgetTierType, setBudgetTierType] = useState<"budget" | "comfort" | "luxury" | "custom">("comfort");
+  const [customBudgetAmount, setCustomBudgetAmount] = useState<string>("$750 / person");
 
   // Micro-SaaS Loading simulation message index
   const [loadingTextIndex, setLoadingTextIndex] = useState(0);
@@ -187,9 +342,31 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
       setSelectedDays("7 Days");
       setGroupType("Couple");
       setTravelerCount(2);
-      setBudgetTier("Comfort (₹45k–₹65k)");
-      setCustomBudgetAmount("₹50,000 / person");
+      setCurrencyCode("USD");
+      setBudgetTierType("comfort");
+      setCustomBudgetAmount("$750 / person");
     }, 300);
+  };
+
+  const activeCurrency = CURRENCIES.find((c) => c.code === currencyCode) || CURRENCIES[0];
+
+  const handleCurrencyChange = (newCode: string) => {
+    setCurrencyCode(newCode);
+    const newCurr = CURRENCIES.find((c) => c.code === newCode) || CURRENCIES[0];
+    if (budgetTierType === "custom") {
+      setCustomBudgetAmount(newCurr.defaultCustom);
+    }
+  };
+
+  const getBudgetDisplay = () => {
+    if (budgetTierType === "custom") {
+      return customBudgetAmount.trim()
+        ? `Custom (${customBudgetAmount.trim()})`
+        : `Custom Budget (${activeCurrency.code})`;
+    }
+    if (budgetTierType === "budget") return `Budget Tier (${activeCurrency.tiers.budget} ${activeCurrency.code})`;
+    if (budgetTierType === "luxury") return `Luxury Tier (${activeCurrency.tiers.luxury} ${activeCurrency.code})`;
+    return `Comfort Tier (${activeCurrency.tiers.comfort} ${activeCurrency.code})`;
   };
 
   const handleGroupSelect = (grpId: string) => {
@@ -215,12 +392,12 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
 
   const handleStep1Next = () => {
     if (!selectedVibe) return;
-    trackEvent("funnel_step_1_complete", "engagement", "chennai_cost_funnel");
+    trackEvent("funnel_step_1_complete", "engagement", "route_feasibility_funnel");
     setStep(2);
   };
 
   const handleStep2Validate = () => {
-    trackEvent("funnel_step_2_validate", "engagement", "chennai_cost_funnel");
+    trackEvent("funnel_step_2_validate", "engagement", "route_feasibility_funnel");
     setStep("loading");
   };
 
@@ -232,16 +409,13 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
     }
 
     setFormError("");
-    trackEvent("funnel_step_3_submit", "conversion", "chennai_cost_funnel");
+    trackEvent("funnel_step_3_submit", "conversion", "route_feasibility_funnel");
 
     // Find selected vibe display name
     const vibeObj = TRIP_VIBES.find((v) => v.id === selectedVibe);
     const vibeName = vibeObj ? vibeObj.name : selectedVibe;
 
-    // Calculate effective budget display
-    const effectiveBudget = budgetTier === "Custom"
-      ? `Custom Target (${customBudgetAmount.trim() ? customBudgetAmount.trim() : "Custom Budget"})`
-      : budgetTier;
+    const formattedBudget = getBudgetDisplay();
 
     // Format WhatsApp message
     const message = `Hi Plan Sri Lanka! 🚀 I used your Route Feasibility Tool for my Sri Lanka trip.
@@ -251,7 +425,7 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
 • *Destinations:* ${selectedDestinations.join(", ")}
 • *Duration:* ${selectedDays}
 • *Group Size:* ${groupType} (${travelerCount} ${travelerCount === 1 ? "Person" : "Persons"})
-• *Budget:* ${effectiveBudget}
+• *Currency & Budget:* ${formattedBudget}
 
 👤 *My Contact Details:*
 • *Name:* ${fullName}
@@ -596,19 +770,100 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                   </div>
                 </div>
 
-                {/* Budget Tiers */}
-                <div className="space-y-2.5">
-                  <span className="text-xs font-mono font-semibold text-[#7A7365] block">
-                    Target Budget (Per Pax or Total):
-                  </span>
+                {/* Budget Tiers & Currency Switcher */}
+                <div className="space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                      <span className="text-xs font-mono font-semibold text-[#7A7365] block">
+                        Target Budget (Per Pax or Total):
+                      </span>
+                      <span className="text-[11px] text-[#5A5448]">
+                        Choose your currency or specify custom spending:
+                      </span>
+                    </div>
+
+                    {/* Currency Selector Dropdown */}
+                    <div className="flex items-center gap-1.5 self-start sm:self-auto bg-white border border-[#E8E4D9] rounded-xl px-2.5 py-1.5 shadow-sm hover:border-[#1F3D2B] transition-colors">
+                      <Globe className="w-3.5 h-3.5 text-[#1F3D2B] shrink-0" />
+                      <span className="text-[10px] font-mono text-[#7A7365] uppercase font-bold">Currency:</span>
+                      <select
+                        value={currencyCode}
+                        onChange={(e) => handleCurrencyChange(e.target.value)}
+                        className="bg-transparent text-xs font-mono font-bold text-[#1F3D2B] focus:outline-none cursor-pointer pr-1"
+                        aria-label="Select currency"
+                      >
+                        {CURRENCIES.map((c) => (
+                          <option key={c.code} value={c.code} className="text-[#1A1A1A]">
+                            {c.flag} {c.code} ({c.symbol})
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Popular Currency Quick Chips */}
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="text-[10px] font-mono text-[#7A7365] mr-1">Popular:</span>
+                    {["USD", "EUR", "GBP", "AUD", "CAD", "INR", "LKR", "AED"].map((code) => {
+                      const c = CURRENCIES.find((item) => item.code === code);
+                      if (!c) return null;
+                      const isCurrent = currencyCode === code;
+                      return (
+                        <button
+                          key={code}
+                          type="button"
+                          onClick={() => handleCurrencyChange(code)}
+                          className={`px-2 py-0.5 rounded-lg text-[11px] font-mono font-bold border transition-all ${
+                            isCurrent
+                              ? "bg-[#1F3D2B] text-white border-[#1F3D2B] shadow-xs"
+                              : "bg-white text-[#5A5448] border-[#E8E4D9] hover:border-[#1F3D2B]"
+                          }`}
+                        >
+                          {c.flag} {c.code}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Preset Budget Cards */}
                   <div className="space-y-2.5">
-                    {BUDGET_TIERS.map((tier) => (
+                    {[
+                      {
+                        id: "budget" as const,
+                        title: "Budget Tier",
+                        range: activeCurrency.tiers.budget,
+                        desc: "Cozy guesthouses & scenic train loops",
+                      },
+                      {
+                        id: "comfort" as const,
+                        title: "Comfort Tier ⭐",
+                        range: activeCurrency.tiers.comfort,
+                        desc: "3-4★ Boutique villas & AC private car",
+                      },
+                      {
+                        id: "luxury" as const,
+                        title: "Luxury Tier",
+                        range: activeCurrency.tiers.luxury,
+                        desc: "5★ Beach resorts & colonial tea estates",
+                      },
+                      {
+                        id: "custom" as const,
+                        title: "Custom Budget ✏️",
+                        range: "Your Choice",
+                        desc: `Specify your target in ${activeCurrency.code} or any currency`,
+                      },
+                    ].map((tier) => (
                       <button
                         key={tier.id}
                         type="button"
-                        onClick={() => setBudgetTier(tier.id)}
+                        onClick={() => {
+                          setBudgetTierType(tier.id);
+                          if (tier.id === "custom" && !customBudgetAmount) {
+                            setCustomBudgetAmount(activeCurrency.defaultCustom);
+                          }
+                        }}
                         className={`w-full p-4 rounded-2xl border text-left transition-all flex items-center justify-between ${
-                          budgetTier === tier.id
+                          budgetTierType === tier.id
                             ? "bg-[#1F3D2B] text-white border-[#1F3D2B] shadow-md"
                             : "bg-white border-[#E8E4D9] text-[#1A1A1A] hover:border-[#1F3D2B]"
                         }`}
@@ -617,12 +872,12 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                           <div className="font-serif font-bold text-sm leading-tight flex items-center gap-2">
                             <span>{tier.title}</span>
                           </div>
-                          <p className={`text-xs mt-0.5 ${budgetTier === tier.id ? "text-white/80" : "text-[#7A7365]"}`}>
+                          <p className={`text-xs mt-0.5 ${budgetTierType === tier.id ? "text-white/80" : "text-[#7A7365]"}`}>
                             {tier.desc}
                           </p>
                         </div>
                         <span className={`font-mono font-bold text-xs px-3 py-1 rounded-full ${
-                          budgetTier === tier.id ? "bg-[#D4AF37] text-[#1F3D2B]" : "bg-[#FAF8F3] text-[#1F3D2B]"
+                          budgetTierType === tier.id ? "bg-[#D4AF37] text-[#1F3D2B]" : "bg-[#FAF8F3] text-[#1F3D2B]"
                         }`}>
                           {tier.range}
                         </span>
@@ -631,26 +886,35 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                   </div>
 
                   {/* Custom Budget Input if Selected */}
-                  {budgetTier === "Custom" && (
+                  {budgetTierType === "custom" && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
                       className="p-3.5 bg-[#FAF8F3] border-2 border-[#D4AF37]/50 rounded-2xl space-y-2 mt-2"
                     >
-                      <label className="text-xs font-mono font-bold text-[#1F3D2B] flex items-center justify-between">
-                        <span>Specify Your Budget Amount:</span>
-                        <span className="text-[10px] text-[#7A7365] font-normal">e.g. INR ₹ or USD $</span>
-                      </label>
-                      <input
-                        type="text"
-                        value={customBudgetAmount}
-                        onChange={(e) => setCustomBudgetAmount(e.target.value)}
-                        placeholder="e.g. ₹50,000 per person or ₹2,00,000 total"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E4D9] bg-white text-xs sm:text-sm font-semibold text-[#1A1A1A] focus:outline-none focus:border-[#1F3D2B] focus:ring-1 focus:ring-[#1F3D2B]"
-                      />
+                      <div className="flex items-center justify-between">
+                        <label className="text-xs font-mono font-bold text-[#1F3D2B]">
+                          Enter Your Target Budget ({activeCurrency.code}):
+                        </label>
+                        <span className="text-[10px] text-[#7A7365] font-normal">Per Person or Total</span>
+                      </div>
+                      <div className="relative">
+                        {activeCurrency.symbol !== "🌐" && (
+                          <span className="absolute left-3.5 top-1/2 -translate-y-1/2 font-mono font-bold text-[#1F3D2B] text-sm select-none">
+                            {activeCurrency.symbol}
+                          </span>
+                        )}
+                        <input
+                          type="text"
+                          value={customBudgetAmount}
+                          onChange={(e) => setCustomBudgetAmount(e.target.value)}
+                          placeholder={activeCurrency.customPlaceholder}
+                          className={`w-full ${activeCurrency.symbol !== "🌐" ? "pl-9" : "pl-3.5"} pr-3.5 py-2.5 rounded-xl border border-[#E8E4D9] bg-white text-xs sm:text-sm font-semibold text-[#1A1A1A] focus:outline-none focus:border-[#1F3D2B] focus:ring-1 focus:ring-[#1F3D2B]`}
+                        />
+                      </div>
                       <p className="text-[11px] text-[#7A7365]">
-                        💡 We'll configure suitable hotels, vehicle tier, and activities to match this exact target.
+                        💡 You can type any currency or amount (e.g. {activeCurrency.customPlaceholder}). We will configure hotel categories, private vehicle sizing, and experiences to suit your exact target.
                       </p>
                     </motion.div>
                   )}
@@ -732,7 +996,7 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                       Route Validated! ({selectedDays} • {travelerCount} {travelerCount === 1 ? "Traveler" : "Travelers"} • {selectedDestinations.length} Key Stops)
                     </h4>
                     <p className="text-xs text-[#5A5448] mt-0.5">
-                      Your chosen route ({selectedDestinations.join(", ")}) is verified feasible for {travelerCount} {travelerCount === 1 ? "traveler" : "travelers"} with your target budget ({budgetTier === "Custom" ? (customBudgetAmount.trim() ? customBudgetAmount.trim() : "Custom Budget") : budgetTier}). Enter your WhatsApp below to receive the complete custom itinerary & price breakdown.
+                      Your chosen route ({selectedDestinations.join(", ")}) is verified feasible for {travelerCount} {travelerCount === 1 ? "traveler" : "travelers"} with your target budget ({getBudgetDisplay()}). Enter your WhatsApp below to receive the complete custom itinerary & price breakdown.
                     </p>
                   </div>
                 </div>
@@ -751,7 +1015,7 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Ramesh Kumar"
+                      placeholder="e.g. Sarah Jenkins or Alex Smith"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-[#E8E4D9] bg-white text-sm text-[#1A1A1A] focus:outline-none focus:border-[#1F3D2B] focus:ring-1 focus:ring-[#1F3D2B]"
@@ -764,7 +1028,7 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                     </label>
                     <input
                       type="email"
-                      placeholder="e.g. ramesh@gmail.com"
+                      placeholder="e.g. sarah@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-[#E8E4D9] bg-white text-sm text-[#1A1A1A] focus:outline-none focus:border-[#1F3D2B] focus:ring-1 focus:ring-[#1F3D2B]"
@@ -778,7 +1042,7 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                     <input
                       type="tel"
                       required
-                      placeholder="e.g. +91 98765 43210"
+                      placeholder="e.g. +1 555 123 4567, +44 7911..., +91 98765..."
                       value={whatsapp}
                       onChange={(e) => setWhatsapp(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-[#E8E4D9] bg-white text-sm text-[#1A1A1A] focus:outline-none focus:border-[#1F3D2B] focus:ring-1 focus:ring-[#1F3D2B]"
