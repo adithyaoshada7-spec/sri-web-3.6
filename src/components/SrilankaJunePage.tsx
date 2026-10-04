@@ -2147,7 +2147,49 @@ export default function SrilankaJunePage() {
         <h3 className="text-xs uppercase tracking-[0.2em] text-[#d4af37] font-bold mb-6 text-center">
           Explore Other Seasonal & Regional Sri Lanka Guides
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Link 
+            to="/why-choose-plan-sri-lanka"
+            className="p-5 rounded-2xl bg-white border border-[#d4af37]/40 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm ring-1 ring-[#d4af37]/20"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Our Advantage</span>
+              <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">Why Choose Plan Sri Lanka?</h4>
+              <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">Interactive route customization, vetted local chauffeur-guides & zero markups.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link 
+            to="/nilaveli-beach-travel-guide"
+            className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">East Coast Paradise</span>
+              <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">Nilaveli Beach Travel Guide</h4>
+              <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">Pigeon Island snorkeling, crystal calm seas & luxury beachfront stays.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link 
+            to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+            className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
+          >
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Budget & Flight Guide</span>
+              <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">Chennai to Sri Lanka Cost Breakdown</h4>
+              <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">Direct flights, visa fees, hotel tiers & daily spending estimates.</p>
+            </div>
+            <div className="flex items-center justify-end mt-4">
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
           <Link 
             to="/sri-lanka-itinerary-august-couples"
             className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
@@ -2184,20 +2226,6 @@ export default function SrilankaJunePage() {
               <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Itinerary Guide</span>
               <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">7-Day Signature Sri Lanka Itinerary</h4>
               <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">Curated road map comparing route pacing and transit times.</p>
-            </div>
-            <div className="flex items-center justify-end mt-4">
-              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
-
-          <Link 
-            to="/sri-lanka-visa-for-indians"
-            className="p-5 rounded-2xl bg-white border border-[#1e3a2f]/10 hover:border-[#d4af37] transition-all group flex flex-col justify-between shadow-sm"
-          >
-            <div>
-              <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Visa & Immigration</span>
-              <h4 className="font-serif font-bold text-[#1e3a2f] text-sm group-hover:text-[#d4af37] transition-colors">Sri Lanka Visa For Indians</h4>
-              <p className="text-[11px] text-[#1a2d24]/70 mt-1 font-light">ETA fees, online application & airport entry guidelines.</p>
             </div>
             <div className="flex items-center justify-end mt-4">
               <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />

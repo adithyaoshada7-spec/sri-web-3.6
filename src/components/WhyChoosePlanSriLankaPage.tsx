@@ -431,7 +431,7 @@ export default function WhyChoosePlanSriLankaPage() {
                   Complete Budget and Multi-Currency Flexibility
                 </h3>
                 <p className="text-sm text-[#5A5448] leading-relaxed">
-                  Travel planning shouldn't be one-size-fits-all. Our tool allows you to specify your exact group size—whether you are a solo traveler, a couple, or a large family—and select your preferred travel budget tier (from economical stays to 5-star villas). Plus, you can seamlessly view estimates in any global currency (USD, EUR, GBP, AUD, CAD, INR, LKR, AED).
+                  Travel planning shouldn't be one-size-fits-all. Our tool allows you to specify your exact group size—whether you are a solo traveler, a couple, or a large family—and select your preferred travel budget tier (from economical stays to 5-star villas). Plus, you can seamlessly view estimates in any global currency (USD, EUR, GBP, AUD, CAD, INR, LKR, AED). For a detailed real-world cost case study, explore our dedicated <Link to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai" className="text-[#1F3D2B] font-bold underline hover:text-[#D4AF37]">Chennai to Sri Lanka Trip Cost Guide</Link>.
                 </p>
               </div>
             </div>
@@ -779,7 +779,7 @@ export default function WhyChoosePlanSriLankaPage() {
                   Pristine Coastlines & Beaches
                 </h3>
                 <p className="text-xs sm:text-sm text-[#5A5448] leading-relaxed">
-                  Unwind on golden sands, catch world-class waves, go ethical whale watching in Mirissa, or snorkel coral reefs along the pristine eastern shores (including stunning coastal escapes like Nilaveli and Trincomalee).
+                  Unwind on golden sands, catch world-class waves, go ethical whale watching in Mirissa, or snorkel coral reefs along the pristine eastern shores (including iconic coastal escapes like our featured <Link to="/nilaveli-beach-travel-guide" className="text-[#1F3D2B] font-bold underline hover:text-[#D4AF37]">Nilaveli Beach Travel Guide</Link>). Wondering which coast is dry and sunny during summer? Check our seasonal breakdown on <Link to="/where-to-go-in-sri-lanka-in-june" className="text-[#1F3D2B] font-bold underline hover:text-[#D4AF37]">Where to Go in Sri Lanka in June</Link>.
                 </p>
               </div>
             </div>
@@ -806,6 +806,78 @@ export default function WhyChoosePlanSriLankaPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* ESSENTIAL RELATED REGIONAL & PLANNING GUIDES */}
+        <section className="mb-14 p-6 sm:p-8 rounded-3xl bg-[#FAF8F3] border border-[#E8E4D9] shadow-sm">
+          <div className="flex items-center gap-2 mb-2">
+            <Compass className="w-5 h-5 text-[#D4AF37]" />
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#1F3D2B]">
+              Recommended Regional Intelligence & Gateway Guides
+            </span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1F3D2B] mb-6">
+            Continue Crafting Your Sri Lanka Itinerary
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Link
+              to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+              className="p-5 rounded-2xl bg-white border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all group flex flex-col justify-between shadow-xs hover:shadow-md"
+            >
+              <div>
+                <span className="text-[10px] font-mono uppercase font-bold text-[#D4AF37] block mb-1">Gateway Costs</span>
+                <h3 className="font-serif font-bold text-sm text-[#1F3D2B] group-hover:text-[#D4AF37] transition-colors">
+                  Chennai to Sri Lanka Trip Cost Guide
+                </h3>
+                <p className="text-xs text-[#5A5448] mt-1.5 leading-relaxed">
+                  Direct 80-minute flights, realistic INR budgets, driver costs & 5-day sample loops.
+                </p>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[#1F3D2B] mt-4 pt-3 border-t border-[#E8E4D9]/60">
+                <span>Explore Cost Guide</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/nilaveli-beach-travel-guide"
+              className="p-5 rounded-2xl bg-white border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all group flex flex-col justify-between shadow-xs hover:shadow-md"
+            >
+              <div>
+                <span className="text-[10px] font-mono uppercase font-bold text-[#D4AF37] block mb-1">East Coast Paradise</span>
+                <h3 className="font-serif font-bold text-sm text-[#1F3D2B] group-hover:text-[#D4AF37] transition-colors">
+                  Nilaveli Beach Travel Guide
+                </h3>
+                <p className="text-xs text-[#5A5448] mt-1.5 leading-relaxed">
+                  Pigeon Island snorkeling, golden beaches, ocean swimming & Trincomalee sights.
+                </p>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[#1F3D2B] mt-4 pt-3 border-t border-[#E8E4D9]/60">
+                <span>View Beach Guide</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/where-to-go-in-sri-lanka-in-june"
+              className="p-5 rounded-2xl bg-white border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all group flex flex-col justify-between shadow-xs hover:shadow-md"
+            >
+              <div>
+                <span className="text-[10px] font-mono uppercase font-bold text-[#D4AF37] block mb-1">Monsoon Strategy</span>
+                <h3 className="font-serif font-bold text-sm text-[#1F3D2B] group-hover:text-[#D4AF37] transition-colors">
+                  Where to Go in Sri Lanka in June
+                </h3>
+                <p className="text-xs text-[#5A5448] mt-1.5 leading-relaxed">
+                  Navigate seasonal dual monsoons, find dry sunny coasts, and avoid vacation rainouts.
+                </p>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[#1F3D2B] mt-4 pt-3 border-t border-[#E8E4D9]/60">
+                <span>Read Season Guide</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
           </div>
         </section>
 

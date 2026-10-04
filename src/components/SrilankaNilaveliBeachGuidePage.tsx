@@ -582,23 +582,58 @@ export default function SrilankaNilaveliBeachGuidePage() {
 
       {/* RELATED LINKS */}
       <section className="py-14 md:py-20 bg-[#1e3a2f] text-white px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-center">Continue Planning Your East Coast Trip</h2>
-          <div className="grid sm:grid-cols-3 gap-4">
-            <Link to="/where-to-go-in-sri-lanka-in-june" className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#d4af37] transition-all flex flex-col gap-2 group">
-              <span className="font-serif font-bold text-sm group-hover:text-[#d4af37]">Where To Go In June</span>
-              <span className="text-[11px] text-white/60 font-light">Full East Coast vs. South Coast weather guide</span>
-              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+        <div className="max-w-5xl mx-auto space-y-8">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-center">Continue Planning Your Sri Lanka Journey</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <Link to="/why-choose-plan-sri-lanka" className="p-5 rounded-2xl bg-white/5 border border-[#d4af37]/30 hover:border-[#d4af37] transition-all flex flex-col justify-between group">
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">Our Advantage</span>
+                <span className="font-serif font-bold text-sm group-hover:text-[#d4af37] block">Why Choose Plan Sri Lanka?</span>
+                <span className="text-[11px] text-white/70 font-light block mt-1">Outperforming traditional tour operators with 100% free interactive custom planning & verified local drivers.</span>
+              </div>
+              <div className="flex items-center justify-end mt-3">
+                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+              </div>
             </Link>
-            <Link to="/trincomalee-travel-guide" className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#d4af37] transition-all flex flex-col gap-2 group">
-              <span className="font-serif font-bold text-sm group-hover:text-[#d4af37]">Trincomalee Travel Guide</span>
-              <span className="text-[11px] text-white/60 font-light">Dolphin & whale watching, temples, hot springs</span>
-              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            <Link to="/where-to-go-in-sri-lanka-in-june" className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#d4af37] transition-all flex flex-col justify-between group">
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-white/50 block mb-1">Seasonal Weather</span>
+                <span className="font-serif font-bold text-sm group-hover:text-[#d4af37] block">Where To Go In June</span>
+                <span className="text-[11px] text-white/60 font-light block mt-1">Full East Coast vs. South Coast weather & monsoon breakdown.</span>
+              </div>
+              <div className="flex items-center justify-end mt-3">
+                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+              </div>
             </Link>
-            <Link to="/sri-lanka-itinerary-august-couples" className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#d4af37] transition-all flex flex-col gap-2 group">
-              <span className="font-serif font-bold text-sm group-hover:text-[#d4af37]">August Couples Itinerary</span>
-              <span className="text-[11px] text-white/60 font-light">Romantic East Coast route ideas</span>
-              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            <Link to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai" className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#d4af37] transition-all flex flex-col justify-between group">
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-white/50 block mb-1">Gateway Costs</span>
+                <span className="font-serif font-bold text-sm group-hover:text-[#d4af37] block">Chennai to Sri Lanka Cost</span>
+                <span className="text-[11px] text-white/60 font-light block mt-1">Direct 80-minute flights, visa fees, daily budget tiers & route costs.</span>
+              </div>
+              <div className="flex items-center justify-end mt-3">
+                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+            <Link to="/trincomalee-travel-guide" className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#d4af37] transition-all flex flex-col justify-between group">
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-white/50 block mb-1">Regional Deep Dive</span>
+                <span className="font-serif font-bold text-sm group-hover:text-[#d4af37] block">Trincomalee Travel Guide</span>
+                <span className="text-[11px] text-white/60 font-light block mt-1">Dolphin & whale watching, Koneswaram temple & hot springs.</span>
+              </div>
+              <div className="flex items-center justify-end mt-3">
+                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+            <Link to="/sri-lanka-itinerary-august-couples" className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#d4af37] transition-all flex flex-col justify-between group">
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-white/50 block mb-1">Couple Travel</span>
+                <span className="font-serif font-bold text-sm group-hover:text-[#d4af37] block">August Couples Itinerary</span>
+                <span className="text-[11px] text-white/60 font-light block mt-1">Romantic East Coast route ideas and calm ocean escapes.</span>
+              </div>
+              <div className="flex items-center justify-end mt-3">
+                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+              </div>
             </Link>
           </div>
         </div>

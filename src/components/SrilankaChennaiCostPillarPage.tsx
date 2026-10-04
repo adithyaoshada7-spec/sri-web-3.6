@@ -1517,41 +1517,86 @@ export default function SrilankaChennaiCostPillarPage() {
           <h2 id="resources-heading" className="text-xs font-mono uppercase tracking-[0.2em] text-[#7A7365] font-bold mb-4 text-center">
             Explore Related Sri Lanka Travel Guides & Activities
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <Link
-              to="/things-to-do-in-sri-lanka"
-              className="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#1F3D2B]/30 hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group shadow-sm"
+              to="/why-choose-plan-sri-lanka"
+              className="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#1F3D2B]/40 hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group shadow-xs hover:shadow-md"
             >
-              <span>45+ Things to Do Directory</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform" />
+              <div>
+                <span className="text-[9px] uppercase font-mono text-[#B38728] block mb-0.5">Master Blueprint</span>
+                <span>Why Choose Plan Sri Lanka?</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform shrink-0" />
+            </Link>
+            <Link
+              to="/nilaveli-beach-travel-guide"
+              className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group shadow-xs hover:shadow-md"
+            >
+              <div>
+                <span className="text-[9px] uppercase font-mono text-[#B38728] block mb-0.5">East Coast Escape</span>
+                <span>Nilaveli Beach Travel Guide</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform shrink-0" />
+            </Link>
+            <Link
+              to="/where-to-go-in-sri-lanka-in-june"
+              className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group shadow-xs hover:shadow-md"
+            >
+              <div>
+                <span className="text-[9px] uppercase font-mono text-[#B38728] block mb-0.5">Seasonal Weather</span>
+                <span>Where to Go in June Guide</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
             <Link
               to="/sri-lanka-5-day-itinerary-from-chennai"
               className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group"
             >
-              <span>5-Day Chennai Itinerary</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform" />
+              <div>
+                <span className="text-[9px] uppercase font-mono text-[#B38728] block mb-0.5">Short Gateway</span>
+                <span>5-Day Chennai Itinerary</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform shrink-0" />
+            </Link>
+            <Link
+              to="/things-to-do-in-sri-lanka"
+              className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group"
+            >
+              <div>
+                <span className="text-[9px] uppercase font-mono text-[#B38728] block mb-0.5">Attractions Hub</span>
+                <span>45+ Things to Do Directory</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
             <Link
               to="/sri-lanka-trip-cost-from-india"
               className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group"
             >
-              <span>All India Trip Cost Guide</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform" />
+              <div>
+                <span className="text-[9px] uppercase font-mono text-[#B38728] block mb-0.5">National Benchmark</span>
+                <span>All India Trip Cost Guide</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
             <Link
               to="/sri-lanka-trip-cost-from-bangalore"
               className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group"
             >
-              <span>Bangalore Trip Cost Guide</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform" />
+              <div>
+                <span className="text-[9px] uppercase font-mono text-[#B38728] block mb-0.5">Regional Gateway</span>
+                <span>Bangalore Trip Cost Guide</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
             <Link
               to="/sri-lanka-7-day-itinerary"
               className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group"
             >
-              <span>7-Day Master Itinerary</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform" />
+              <div>
+                <span className="text-[9px] uppercase font-mono text-[#B38728] block mb-0.5">Classic Loop</span>
+                <span>7-Day Master Itinerary</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
           </div>
         </section>
