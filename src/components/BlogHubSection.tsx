@@ -167,6 +167,14 @@ const getArticleMeta = (path: string) => {
         readTime: "8 Min Read",
         badge: "Essential Price Guide"
       };
+    case "/why-choose-plan-sri-lanka":
+      return {
+        category: "Official Master Guide",
+        tag: "Plan Sri Lanka vs. Agencies",
+        icon: <ShieldCheck className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "8 Min Read",
+        badge: "Must-Read 2026"
+      };
     default:
       return {
         category: "Travel Guide",

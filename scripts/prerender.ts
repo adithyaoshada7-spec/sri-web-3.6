@@ -986,6 +986,92 @@ function generatePrerenderPages(): PrerenderPage[] {
         <h2>5. Tours and Safaris</h2>
         <p>Don't look only at the cheapest or most expensive price. Ask what's actually included. For safaris, check if jeep, entrance tickets, and fees are included. For round tours, check driver meals, accommodation, parking, tolls, and daily kilometers.</p>
       </section>
+    `,
+    "/why-choose-plan-sri-lanka": `
+      <header>
+        <h1>Why Choose Plan Sri Lanka? The Ultimate Guide to Stress-Free, Custom Island Travel (Outperforming Traditional Competitors)</h1>
+        <p><strong>Are you dreaming of an escape to the tropical paradise of Sri Lanka? From misty highlands and ancient ruins to sun-kissed beaches, discover why modern travelers choose Plan Sri Lanka over traditional tour operators.</strong></p>
+      </header>
+      
+      <section>
+        <h2>1. The Flaw with Traditional Travel Agencies and Competitors</h2>
+        <p>Before diving into why Plan Sri Lanka is revolutionizing island travel, it is worth looking at why traditional travel planning and competing operators often fall short:</p>
+        <ul>
+          <li><strong>Rigid Itineraries:</strong> Most conventional agencies force you into fixed schedules without freedom to explore at your personal pace.</li>
+          <li><strong>Hidden Costs and Paywalls:</strong> Traditional tools lure travelers with "free" templates only to lock crucial details behind consultation fees or booking markups.</li>
+          <li><strong>Impersonal Experiences:</strong> Mass-market tourism shuttles tourists through overcrowded traps with little regard for style or preferences.</li>
+        </ul>
+        <p>Plan Sri Lanka was built from the ground up to solve these exact frustrations, putting total control, transparency, and personalization directly into the hands of the traveler.</p>
+      </section>
+
+      <section>
+        <h2>2. A 100% Free Interactive Trip Planner vs. Expensive Competitor Consultations</h2>
+        <p>We provide a <strong>100% free interactive trip planner tool</strong>. You can design, customize, and test your travel routes, group sizes, and budget styles directly on our platform without spending a single penny before booking.</p>
+        <ul>
+          <li><strong>Tailored Travel Vibes:</strong> Filter by romantic honeymoons, UNESCO cultural heritage, wildlife safaris, or beach leisure.</li>
+          <li><strong>Complete Budget & Group Flexibility:</strong> Multi-currency support across USD, EUR, GBP, AUD, CAD, INR, LKR, and AED with custom traveler counters.</li>
+          <li><strong>Zero Financial Risk:</strong> Experiment freely with routes and durations with absolute clarity before making any commitments.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Trusted, Verified Local Drivers vs. Unreliable Public Transport</h2>
+        <p>Navigating Sri Lanka's mountain passes and traffic can be overwhelming. We connect you exclusively with professional, experienced, licensed local drivers who double as knowledgeable guides.</p>
+        <ul>
+          <li><strong>Local Expertise:</strong> Island insiders who share historical secrets, recommend authentic non-touristy restaurants, and bypass long lines.</li>
+          <li><strong>Stress-Free Travel:</strong> Relax, enjoy scenic panoramic window views, and focus entirely on making memories without navigation worries.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. Fully Adjustable Itineraries vs. Rigid Mass-Market Tour Packages</h2>
+        <p>Every traveler is unique, and your vacation should reflect that. Our itineraries are fully customizable to match your pace, with geographically logical route optimization that eliminates wasteful backtracking across the island.</p>
+      </section>
+
+      <section>
+        <h2>5. Experiencing the Best of Sri Lanka with Us</h2>
+        <ul>
+          <li><strong>The Cultural Triangle:</strong> Sigiriya Lion Rock Fortress, Temple of the Tooth in Kandy, and Dambulla Cave Temples.</li>
+          <li><strong>The Misty Hill Country:</strong> Scenic blue train through tea valleys, waterfalls, Ella, and Nuwara Eliya.</li>
+          <li><strong>Pristine Coastlines:</strong> Golden beaches of Nilaveli, Bentota, and Mirissa whale watching.</li>
+          <li><strong>Wildlife Sanctuaries:</strong> Thrilling private safaris in Yala, Wilpattu, and Minneriya.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Plan Sri Lanka vs. Competitors: Direct Comparison</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Plan Sri Lanka</th>
+              <th>Traditional Competitors</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Itinerary Customization</td>
+              <td>100% Bespoke & fully adjustable</td>
+              <td>Rigid fixed-group packages</td>
+            </tr>
+            <tr>
+              <td>Interactive Route Tool</td>
+              <td>100% Free interactive route validation</td>
+              <td>Paid consultations or PDF paywalls</td>
+            </tr>
+            <tr>
+              <td>Driver & Guide Quality</td>
+              <td>Verified, licensed English-fluent local drivers</td>
+              <td>Randomly outsourced drivers</td>
+            </tr>
+            <tr>
+              <td>Pricing Transparency</td>
+              <td>Multi-currency estimates, zero hidden fees</td>
+              <td>Hidden markups & forced shopping stops</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     `
   };
 

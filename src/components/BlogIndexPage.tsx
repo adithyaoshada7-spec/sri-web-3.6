@@ -41,6 +41,15 @@ const articleCategories = [
     isToolSection: true,
     articles: [
       {
+        path: "/why-choose-plan-sri-lanka",
+        title: "Why Choose Plan Sri Lanka? (The Official Master Guide)",
+        desc: "Discover why modern travelers choose Plan Sri Lanka over traditional agencies. 100% free interactive route planner, verified local drivers, transparent multi-currency budgets & flexible bespoke itineraries.",
+        image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "8 Min Read",
+        badge: "Official Guide",
+        tag: "Plan Sri Lanka vs. Agencies"
+      },
+      {
         path: "/how-to-plan-a-trip-to-sri-lanka",
         title: "Master Trip Planner Pillar (Step-by-Step Blueprint)",
         desc: "Our comprehensive 15-minute coordination handbook. Learn how to map climate zones, allocate daily budgets, and sequence driving hours without transit exhaustion.",

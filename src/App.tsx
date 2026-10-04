@@ -73,6 +73,7 @@ const SrilankaTrincomaleeTravelGuidePage = lazy(() => import("./components/Srila
 const SrilankaTouristDriversPage = lazy(() => import("./components/SrilankaTouristDriversPage"));
 const SrilankaWhichNationalParkPage = lazy(() => import("./components/SrilankaWhichNationalParkPage"));
 const SrilankaThingsNeverOverpayPage = lazy(() => import("./components/SrilankaThingsNeverOverpayPage"));
+const WhyChoosePlanSriLankaPage = lazy(() => import("./components/WhyChoosePlanSriLankaPage"));
 
 // Helper for mapping icon names to components
 const IconMap: Record<string, React.ReactNode> = {
@@ -942,6 +943,16 @@ export default function App() {
           </Suspense>
         } />
 
+        <Route path="/why-choose-plan-sri-lanka" element={
+          <Suspense fallback={
+            <div className="pt-24 md:pt-32 bg-[#FCFBF7] min-h-screen flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-[#1F3D2B] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <WhyChoosePlanSriLankaPage />
+          </Suspense>
+        } />
+
         {/* --- 404 Prevention Redirects for Legacy / Alternate URL Patterns --- */}
         <Route path="/things-you-should-never-overpay-for-in-sri-lanka" element={<Navigate to="/things-never-to-overpay-for-in-sri-lanka" replace />} />
         <Route path="/5-things-you-should-never-overpay-for-in-sri-lanka" element={<Navigate to="/things-never-to-overpay-for-in-sri-lanka" replace />} />
@@ -1088,6 +1099,7 @@ export default function App() {
             </div>
             <div className="space-y-3">
               {[
+                { title: "Why Choose Plan Sri Lanka? (The Master Guide)", path: "/why-choose-plan-sri-lanka", badge: "Official Master Guide", desc: "100% free interactive planner, verified drivers & bespoke routes." },
                 { title: "Mirissa Whale Watching Guide (2026)", path: "/whale-watching-mirissa", badge: "Trending +900%", desc: "Blue whales, 6:00 AM harbour timing & boat costs." },
                 { title: "Plan a Sri Lanka Train Trip (2026)", path: "/how-to-plan-a-train-trip-in-sri-lanka", badge: "Rail Master Guide", desc: "Settle ticket bookings, cabin classes, and routes." },
                 { title: "US Travel Guide for Americans", path: "/sri-lanka-travel-guide-for-americans", badge: "US Travelers", desc: "Monsoon navigation, visas & dollar purchase value." },

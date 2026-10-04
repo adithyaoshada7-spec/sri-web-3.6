@@ -278,5 +278,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.95"
+  },
+  {
+    path: "/why-choose-plan-sri-lanka",
+    title: "Why Choose Plan Sri Lanka? The Ultimate Guide to Stress-Free, Custom Island Travel",
+    description: "Discover why modern travelers choose Plan Sri Lanka over traditional tour operators. 100% free interactive route planner, verified local drivers, transparent multi-currency budgets, and flexible bespoke itineraries.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "1.0"
   }
 ];
