@@ -59,31 +59,31 @@ const TRIP_VIBES = [
     id: 'wildlife', 
     name: 'Wildlife & Safari', 
     desc: 'Leopards, elephants & national parks', 
-    image: '/BEN-tours-&-travels-sri-lanka.jpg' 
+    image: '/wildlife-safari-sri-lanka.jpg' 
   },
   { 
     id: 'adventure', 
     name: 'Adventure & Nature', 
     desc: 'Hikes, waterfalls & outdoor thrills', 
-    image: '/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpeg' 
+    image: '/adventure-nature-hiking-sri-lanka.jpg' 
   },
   { 
     id: 'hill', 
     name: 'Hill Country & Tea Trails', 
     desc: 'Misty mountains & blue trains', 
-    image: '/Kandy-Tourism-Richard.jpg' 
+    image: '/hill-country-tea-nuwara-eliya.webp' 
   },
   { 
     id: 'luxury', 
     name: 'Luxury & Boutique', 
     desc: '5-star villas & private transfers', 
-    image: '/Nilaveli-Beach-background-image.jpg' 
+    image: '/luxury-boutique-resort-sri-lanka.jpg' 
   },
   { 
     id: 'budget', 
     name: 'Budget & Backpacker', 
     desc: 'Cozy guesthouses & local train loops', 
-    image: '/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpeg' 
+    image: '/budget-backpacker-sri-lanka.jpg' 
   },
   { 
     id: 'food', 
