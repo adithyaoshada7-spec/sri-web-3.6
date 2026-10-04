@@ -31,18 +31,78 @@ const DESTINATIONS_LIST = [
 ];
 
 const TRIP_VIBES = [
-  { id: "cultural", name: "Cultural & Heritage", icon: "🏛️", desc: "Ancient ruins & UNESCO temples" },
-  { id: "romantic", name: "Romantic & Honeymoon", icon: "✨", desc: "Scenic highlands & oceanfront resorts" },
-  { id: "family", name: "Family & Kids Friendly", icon: "👨‍👩‍👧‍👦", desc: "Safe & relaxed pacing for all ages" },
-  { id: "beach", name: "Beach & Leisure", icon: "🌴", desc: "Sun, surf, sand & coastal relaxation" },
-  { id: "wildlife", name: "Wildlife & Safari", icon: "🐘", desc: "Leopards, elephants & national parks" },
-  { id: "adventure", name: "Adventure & Nature", icon: "🥾", desc: "Hikes, waterfalls & outdoor thrills" },
-  { id: "hill_country", name: "Hill Country & Tea Trails", icon: "🚂", desc: "Misty mountains & blue trains" },
-  { id: "luxury", name: "Luxury & Boutique", icon: "💎", desc: "5-star villas & private transfers" },
-  { id: "budget", name: "Budget & Backpacker", icon: "🎒", desc: "Cozy guesthouses & local train loops" },
-  { id: "food", name: "Food & Culinary", icon: "🍛", desc: "Ceylon spices, seafood & street food" },
-  { id: "wellness", name: "Wellness & Ayurveda", icon: "🧘", desc: "Ayurvedic spas, yoga & retreats" },
-  { id: "instagram", name: "Photography & Insta Spots", icon: "📸", desc: "Nine Arch Bridge, Pidurangala & views" },
+  { 
+    id: 'cultural', 
+    name: 'Cultural & Heritage', 
+    desc: 'Ancient ruins & UNESCO temples', 
+    image: '/Sigiriya-Lion-Rock-Citadel.jpeg' 
+  },
+  { 
+    id: 'romantic', 
+    name: 'Romantic & Honeymoon', 
+    desc: 'Scenic highlands & oceanfront resorts', 
+    image: '/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpeg' 
+  },
+  { 
+    id: 'family', 
+    name: 'Family & Kids Friendly', 
+    desc: 'Safe & relaxed pacing for all ages', 
+    image: '/Kandy-Tourism-Richard.jpg' 
+  },
+  { 
+    id: 'beach', 
+    name: 'Beach & Leisure', 
+    desc: 'Sun, surf, sand & coastal relaxation', 
+    image: '/Nilaveli-Beach-background-image.jpg' 
+  },
+  { 
+    id: 'wildlife', 
+    name: 'Wildlife & Safari', 
+    desc: 'Leopards, elephants & national parks', 
+    image: '/BEN-tours-&-travels-sri-lanka.jpg' 
+  },
+  { 
+    id: 'adventure', 
+    name: 'Adventure & Nature', 
+    desc: 'Hikes, waterfalls & outdoor thrills', 
+    image: '/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpeg' 
+  },
+  { 
+    id: 'hill', 
+    name: 'Hill Country & Tea Trails', 
+    desc: 'Misty mountains & blue trains', 
+    image: '/Kandy-Tourism-Richard.jpg' 
+  },
+  { 
+    id: 'luxury', 
+    name: 'Luxury & Boutique', 
+    desc: '5-star villas & private transfers', 
+    image: '/Nilaveli-Beach-background-image.jpg' 
+  },
+  { 
+    id: 'budget', 
+    name: 'Budget & Backpacker', 
+    desc: 'Cozy guesthouses & local train loops', 
+    image: '/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpeg' 
+  },
+  { 
+    id: 'food', 
+    name: 'Food & Culinary', 
+    desc: 'Ceylon spices, seafood & street food', 
+    image: '/Kandy-Tourism-Richard.jpg' 
+  },
+  { 
+    id: 'wellness', 
+    name: 'Wellness & Ayurveda', 
+    desc: 'Ayurvedic spas, yoga & retreats', 
+    image: '/Nilaveli-Beach-background-image.jpg' 
+  },
+  { 
+    id: 'photography', 
+    name: 'Photography & Insta Spots', 
+    desc: 'Nine Arch Bridge, Pidurangala & views', 
+    image: '/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpeg' 
+  }
 ];
 
 const DURATION_OPTIONS = ["5 Days", "7 Days", "10 Days", "Custom ✏️"];
@@ -156,7 +216,7 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
 
     // Find selected vibe display name
     const vibeObj = TRIP_VIBES.find((v) => v.id === selectedVibe);
-    const vibeName = vibeObj ? `${vibeObj.icon} ${vibeObj.name}` : selectedVibe;
+    const vibeName = vibeObj ? vibeObj.name : selectedVibe;
 
     // Format WhatsApp message
     const message = `Hi Plan Sri Lanka! 🚀 I used your Route Feasibility Tool for my Chennai trip.
@@ -259,37 +319,55 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                 exit={{ opacity: 0, x: 10 }}
                 className="space-y-6"
               >
-                {/* Step 1: Trip Vibe / Travel Style Selection */}
-                <div className="space-y-3">
-                  <div>
-                    <label className="text-xs font-mono font-bold text-[#1F3D2B] uppercase tracking-wider block mb-1">
-                      What kind of trip vibe are you looking for? ✨
-                    </label>
-                    <p className="text-xs text-[#5A5448]">
+                {/* Step 1: Vibe & Destinations (First Page Only) */}
+                <div className="space-y-6">
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold text-gray-900 tracking-wide uppercase">
+                      WHAT KIND OF TRIP VIBE ARE YOU LOOKING FOR? ✨
+                    </h3>
+                    <p className="text-sm text-gray-600 mt-1">
                       Select your preferred travel style to customize your route:
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                     {TRIP_VIBES.map((vibe) => {
                       const isSelected = selectedVibe === vibe.id;
                       return (
-                        <button
+                        <div
                           key={vibe.id}
-                          type="button"
                           onClick={() => setSelectedVibe(vibe.id)}
-                          className={`cursor-pointer p-3 rounded-2xl border transition-all duration-200 text-center flex flex-col items-center justify-center ${
-                            isSelected
-                              ? "border-[#1F3D2B] bg-[#1F3D2B] text-white shadow-md ring-2 ring-[#1F3D2B]/20 scale-[1.02]"
-                              : "border-[#E8E4D9] bg-white hover:border-[#1F3D2B]/40 hover:bg-[#FAF8F3] text-[#1A1A1A]"
+                          className={`cursor-pointer relative rounded-2xl overflow-hidden border-2 transition-all duration-200 group bg-gray-900 ${
+                            isSelected 
+                              ? 'border-emerald-500 shadow-xl ring-2 ring-emerald-500/30 scale-[1.02]' 
+                              : 'border-gray-800 hover:border-gray-600'
                           }`}
                         >
-                          <div className="text-2xl mb-1">{vibe.icon}</div>
-                          <h4 className="font-serif font-bold text-xs leading-tight">{vibe.name}</h4>
-                          <p className={`text-[10px] mt-1 line-clamp-2 leading-tight ${isSelected ? "text-white/80" : "text-[#7A7365]"}`}>
-                            {vibe.desc}
-                          </p>
-                        </button>
+                          {/* Background Image with Overlay */}
+                          <div className="h-28 w-full overflow-hidden relative">
+                            <img 
+                              src={vibe.image} 
+                              alt={vibe.name}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-60"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent" />
+                            
+                            {/* Selection Tick Badge */}
+                            {isSelected && (
+                              <div className="absolute top-2 right-2 bg-emerald-600 text-white rounded-full p-1 shadow-md">
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                </svg>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Title & Description */}
+                          <div className="p-3 text-center relative -mt-8 bg-transparent">
+                            <h4 className="font-bold text-white text-sm mb-1">{vibe.name}</h4>
+                            <p className="text-[11px] text-gray-300 leading-tight">{vibe.desc}</p>
+                          </div>
+                        </div>
                       );
                     })}
                   </div>
