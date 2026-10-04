@@ -41,7 +41,7 @@ const TRIP_VIBES = [
     id: 'romantic', 
     name: 'Romantic & Honeymoon', 
     desc: 'Scenic highlands & oceanfront resorts', 
-    image: '/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpeg' 
+    image: '/romantic-honeymoon-bentota-couple.webp' 
   },
   { 
     id: 'family', 
