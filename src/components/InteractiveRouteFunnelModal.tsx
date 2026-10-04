@@ -117,6 +117,7 @@ const BUDGET_TIERS = [
   { id: "Budget (₹30k–₹45k)", title: "Budget Tier", range: "₹30k – ₹45k", desc: "Cozy guesthouses & scenic train loops" },
   { id: "Comfort (₹45k–₹65k)", title: "Comfort Tier ⭐", range: "₹45k – ₹65k", desc: "3-4★ Boutique villas & AC private car" },
   { id: "Luxury (₹65k+)", title: "Luxury Tier", range: "₹65k+", desc: "5★ Beach resorts & colonial tea estates" },
+  { id: "Custom", title: "Custom Budget ✏️", range: "Your Budget", desc: "Specify your own target budget (e.g. INR / USD)" },
 ];
 
 export default function InteractiveRouteFunnelModal({ isOpen, onClose }: InteractiveRouteFunnelModalProps) {
@@ -136,7 +137,9 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
 
   // Step 2 State
   const [groupType, setGroupType] = useState<string>("Couple");
+  const [travelerCount, setTravelerCount] = useState<number>(2);
   const [budgetTier, setBudgetTier] = useState<string>("Comfort (₹45k–₹65k)");
+  const [customBudgetAmount, setCustomBudgetAmount] = useState<string>("₹50,000 / person");
 
   // Micro-SaaS Loading simulation message index
   const [loadingTextIndex, setLoadingTextIndex] = useState(0);
@@ -182,7 +185,24 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
       setFormError("");
       setIsCustomDays(false);
       setSelectedDays("7 Days");
+      setGroupType("Couple");
+      setTravelerCount(2);
+      setBudgetTier("Comfort (₹45k–₹65k)");
+      setCustomBudgetAmount("₹50,000 / person");
     }, 300);
+  };
+
+  const handleGroupSelect = (grpId: string) => {
+    setGroupType(grpId);
+    if (grpId === "Solo") {
+      setTravelerCount(1);
+    } else if (grpId === "Couple") {
+      setTravelerCount(2);
+    } else if (grpId === "Family / Friends") {
+      if (travelerCount <= 2) {
+        setTravelerCount(4);
+      }
+    }
   };
 
   const toggleDestination = (destId: string) => {
@@ -218,15 +238,20 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
     const vibeObj = TRIP_VIBES.find((v) => v.id === selectedVibe);
     const vibeName = vibeObj ? vibeObj.name : selectedVibe;
 
+    // Calculate effective budget display
+    const effectiveBudget = budgetTier === "Custom"
+      ? `Custom Target (${customBudgetAmount.trim() ? customBudgetAmount.trim() : "Custom Budget"})`
+      : budgetTier;
+
     // Format WhatsApp message
-    const message = `Hi Plan Sri Lanka! 🚀 I used your Route Feasibility Tool for my Chennai trip.
+    const message = `Hi Plan Sri Lanka! 🚀 I used your Route Feasibility Tool for my Sri Lanka trip.
     
 📌 *My Route Configuration:*
 • *Trip Vibe:* ${vibeName}
 • *Destinations:* ${selectedDestinations.join(", ")}
 • *Duration:* ${selectedDays}
-• *Group Type:* ${groupType}
-• *Budget Tier:* ${budgetTier}
+• *Group Size:* ${groupType} (${travelerCount} ${travelerCount === 1 ? "Person" : "Persons"})
+• *Budget:* ${effectiveBudget}
 
 👤 *My Contact Details:*
 • *Name:* ${fullName}
@@ -469,21 +494,27 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                     Step 2: Group Composition & Target Budget
                   </label>
                   <p className="text-xs text-[#5A5448]">
-                    Specify your group type and comfort budget tier:
+                    Specify your group type, number of travelers, and target budget:
                   </p>
                 </div>
 
                 {/* Group Types */}
-                <div className="space-y-2">
-                  <span className="text-xs font-mono font-semibold text-[#7A7365] block">
-                    Group Type:
-                  </span>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-semibold text-[#7A7365]">
+                      Group Type:
+                    </span>
+                    <span className="text-[11px] font-mono text-[#1F3D2B] font-bold">
+                      {travelerCount} {travelerCount === 1 ? "Traveler" : "Travelers"}
+                    </span>
+                  </div>
+
                   <div className="grid grid-cols-3 gap-3">
                     {GROUP_OPTIONS.map((grp) => (
                       <button
                         key={grp.id}
                         type="button"
-                        onClick={() => setGroupType(grp.id)}
+                        onClick={() => handleGroupSelect(grp.id)}
                         className={`p-3 rounded-2xl border text-center transition-all ${
                           groupType === grp.id
                             ? "bg-[#1F3D2B] text-white border-[#1F3D2B] shadow-md"
@@ -495,12 +526,80 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                       </button>
                     ))}
                   </div>
+
+                  {/* Interactive Traveler Count Selector */}
+                  <div className="bg-[#FAF8F3] border border-[#E8E4D9] p-3.5 rounded-2xl space-y-2.5">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Users className="w-4 h-4 text-[#1F3D2B]" />
+                        <div>
+                          <span className="text-xs font-mono font-bold text-[#1F3D2B] block">
+                            How many people are traveling?
+                          </span>
+                          <span className="text-[11px] text-[#7A7365]">
+                            {groupType === "Solo"
+                              ? "Solo adventurer"
+                              : groupType === "Couple"
+                              ? "Traveling as a couple"
+                              : "Family or group members"}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setTravelerCount((prev) => Math.max(1, prev - 1))}
+                          disabled={travelerCount <= 1}
+                          className="w-8 h-8 rounded-xl bg-white border border-[#E8E4D9] text-[#1F3D2B] font-bold text-base hover:bg-[#1F3D2B] hover:text-white transition-colors flex items-center justify-center shadow-sm disabled:opacity-40 disabled:cursor-not-allowed"
+                          aria-label="Decrease traveler count"
+                        >
+                          -
+                        </button>
+                        <div className="min-w-[4.2rem] px-2 py-1 bg-white border border-[#1F3D2B]/30 rounded-xl text-center font-mono font-bold text-xs text-[#1F3D2B] shadow-inner">
+                          {travelerCount} {travelerCount === 1 ? "Pax" : "Pax"}
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setTravelerCount((prev) => Math.min(30, prev + 1))}
+                          className="w-8 h-8 rounded-xl bg-white border border-[#E8E4D9] text-[#1F3D2B] font-bold text-base hover:bg-[#1F3D2B] hover:text-white transition-colors flex items-center justify-center shadow-sm"
+                          aria-label="Increase traveler count"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Quick Group Size Buttons */}
+                    <div className="flex items-center gap-1.5 flex-wrap pt-1 border-t border-[#E8E4D9]/60">
+                      <span className="text-[10px] font-mono text-[#7A7365] mr-1">Quick pick:</span>
+                      {[1, 2, 3, 4, 5, 6, 8, 10, 12].map((num) => (
+                        <button
+                          key={num}
+                          type="button"
+                          onClick={() => {
+                            setTravelerCount(num);
+                            if (num === 1) setGroupType("Solo");
+                            else if (num === 2) setGroupType("Couple");
+                            else setGroupType("Family / Friends");
+                          }}
+                          className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold border transition-all ${
+                            travelerCount === num
+                              ? "bg-[#1F3D2B] text-white border-[#1F3D2B]"
+                              : "bg-white text-[#5A5448] border-[#E8E4D9] hover:border-[#1F3D2B]"
+                          }`}
+                        >
+                          {num}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
                 {/* Budget Tiers */}
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <span className="text-xs font-mono font-semibold text-[#7A7365] block">
-                    Budget Tier (Per Pax):
+                    Target Budget (Per Pax or Total):
                   </span>
                   <div className="space-y-2.5">
                     {BUDGET_TIERS.map((tier) => (
@@ -530,6 +629,31 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                       </button>
                     ))}
                   </div>
+
+                  {/* Custom Budget Input if Selected */}
+                  {budgetTier === "Custom" && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="p-3.5 bg-[#FAF8F3] border-2 border-[#D4AF37]/50 rounded-2xl space-y-2 mt-2"
+                    >
+                      <label className="text-xs font-mono font-bold text-[#1F3D2B] flex items-center justify-between">
+                        <span>Specify Your Budget Amount:</span>
+                        <span className="text-[10px] text-[#7A7365] font-normal">e.g. INR ₹ or USD $</span>
+                      </label>
+                      <input
+                        type="text"
+                        value={customBudgetAmount}
+                        onChange={(e) => setCustomBudgetAmount(e.target.value)}
+                        placeholder="e.g. ₹50,000 per person or ₹2,00,000 total"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E4D9] bg-white text-xs sm:text-sm font-semibold text-[#1A1A1A] focus:outline-none focus:border-[#1F3D2B] focus:ring-1 focus:ring-[#1F3D2B]"
+                      />
+                      <p className="text-[11px] text-[#7A7365]">
+                        💡 We'll configure suitable hotels, vehicle tier, and activities to match this exact target.
+                      </p>
+                    </motion.div>
+                  )}
                 </div>
 
                 <div className="pt-4 border-t border-[#E8E4D9] flex items-center justify-between gap-3">
@@ -605,10 +729,10 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-serif font-bold text-sm text-[#1F3D2B]">
-                      Route Validated! ({selectedDays} • {selectedDestinations.length} Key Stops)
+                      Route Validated! ({selectedDays} • {travelerCount} {travelerCount === 1 ? "Traveler" : "Travelers"} • {selectedDestinations.length} Key Stops)
                     </h4>
                     <p className="text-xs text-[#5A5448] mt-0.5">
-                      Your chosen route ({selectedDestinations.join(", ")}) is feasible with realistic drive times. Enter your WhatsApp below to receive the complete custom itinerary & price breakdown.
+                      Your chosen route ({selectedDestinations.join(", ")}) is verified feasible for {travelerCount} {travelerCount === 1 ? "traveler" : "travelers"} with your target budget ({budgetTier === "Custom" ? (customBudgetAmount.trim() ? customBudgetAmount.trim() : "Custom Budget") : budgetTier}). Enter your WhatsApp below to receive the complete custom itinerary & price breakdown.
                     </p>
                   </div>
                 </div>
