@@ -89,19 +89,19 @@ const TRIP_VIBES = [
     id: 'food', 
     name: 'Food & Culinary', 
     desc: 'Ceylon spices, seafood & street food', 
-    image: '/Kandy-Tourism-Richard.jpg' 
+    image: '/food-culinary-sri-lanka.jpeg' 
   },
   { 
     id: 'wellness', 
     name: 'Wellness & Ayurveda', 
     desc: 'Ayurvedic spas, yoga & retreats', 
-    image: '/Nilaveli-Beach-background-image.jpg' 
+    image: '/wellness-ayurveda-sri-lanka.jpg' 
   },
   { 
     id: 'photography', 
     name: 'Photography & Insta Spots', 
     desc: 'Nine Arch Bridge, Pidurangala & views', 
-    image: '/Hiking-to-Sacred-Adams-Peak-Sri-Lanka.jpeg' 
+    image: '/photography-insta-spots-sri-lanka.jpg' 
   }
 ];
 
