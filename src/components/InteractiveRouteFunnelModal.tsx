@@ -47,13 +47,13 @@ const TRIP_VIBES = [
     id: 'family', 
     name: 'Family & Kids Friendly', 
     desc: 'Safe & relaxed pacing for all ages', 
-    image: '/Kandy-Tourism-Richard.jpg' 
+    image: '/family-trip-to-sri-lanka.webp' 
   },
   { 
     id: 'beach', 
     name: 'Beach & Leisure', 
     desc: 'Sun, surf, sand & coastal relaxation', 
-    image: '/Nilaveli-Beach-background-image.jpg' 
+    image: '/serene-beaches-sri-lanka.png' 
   },
   { 
     id: 'wildlife', 
