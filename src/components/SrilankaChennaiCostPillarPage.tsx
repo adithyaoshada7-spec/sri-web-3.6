@@ -332,7 +332,7 @@ export default function SrilankaChennaiCostPillarPage() {
             className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#1F3D2B] text-white text-sm font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] group cursor-pointer"
           >
             <Sparkles className="w-4 h-4 text-[#F2C94C]" />
-            <span>Create My Own Route 🚀</span>
+            <span>Create My Own Route (Free) 🚀</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
@@ -424,7 +424,7 @@ export default function SrilankaChennaiCostPillarPage() {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1F3D2B] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-colors shrink-0 shadow-md cursor-pointer"
             >
               <Sparkles className="w-3.5 h-3.5 text-[#F2C94C]" />
-              <span>Create My Own Route 🚀</span>
+              <span>Create My Own Route (Free) 🚀</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -1372,7 +1372,7 @@ export default function SrilankaChennaiCostPillarPage() {
                   className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#1F3D2B] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-all shadow-md cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-[#F2C94C]" />
-                  <span>Create My Own Route 🚀</span>
+                  <span>Create My Own Route (Free) 🚀</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
