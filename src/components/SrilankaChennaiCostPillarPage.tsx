@@ -329,11 +329,11 @@ export default function SrilankaChennaiCostPillarPage() {
               setIsFunnelOpen(true);
               trackEvent("funnel_open_hero", "conversion", "chennai_cost_hero");
             }}
-            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#1F3D2B] text-white text-sm font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] group cursor-pointer"
+            className="cta-pulse-glow btn-shine inline-flex items-center gap-2.5 px-7 py-4 rounded-xl bg-[#1F3D2B] text-white text-sm font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-all group cursor-pointer border-2 border-[#D4AF37]/50"
           >
-            <Sparkles className="w-4 h-4 text-[#F2C94C]" />
-            <span>Create My Own Route (Free) 🚀</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Sparkles className="w-4 h-4 text-[#F2C94C] animate-spin" style={{ animationDuration: "6s" }} />
+            <span className="tracking-wide">Create My Own Route (Free) 🚀</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#F2C94C]" />
           </button>
         </div>
 
@@ -421,11 +421,11 @@ export default function SrilankaChennaiCostPillarPage() {
                 setIsFunnelOpen(true);
                 trackEvent("funnel_open_quick_answer", "conversion", "chennai_cost_quick_answer");
               }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1F3D2B] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-colors shrink-0 shadow-md cursor-pointer"
+              className="cta-pulse-glow btn-shine inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1F3D2B] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-all shrink-0 cursor-pointer border border-[#D4AF37]/50"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#F2C94C]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#F2C94C] animate-spin" style={{ animationDuration: "6s" }} />
               <span>Create My Own Route (Free) 🚀</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#F2C94C]" />
             </button>
           </div>
         </div>
@@ -1369,11 +1369,11 @@ export default function SrilankaChennaiCostPillarPage() {
                     setIsFunnelOpen(true);
                     trackEvent("funnel_open_calc", "conversion", "chennai_cost_calculator");
                   }}
-                  className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#1F3D2B] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-all shadow-md cursor-pointer"
+                  className="cta-pulse-glow btn-shine inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-[#1F3D2B] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#142A1D] transition-all cursor-pointer border border-[#D4AF37]/50"
                 >
-                  <Sparkles className="w-4 h-4 text-[#F2C94C]" />
+                  <Sparkles className="w-4 h-4 text-[#F2C94C] animate-spin" style={{ animationDuration: "6s" }} />
                   <span>Create My Own Route (Free) 🚀</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-[#F2C94C]" />
                 </button>
 
                 <a

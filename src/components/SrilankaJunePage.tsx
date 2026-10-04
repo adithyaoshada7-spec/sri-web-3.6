@@ -310,9 +310,9 @@ export default function SrilankaJunePage() {
                 setIsFunnelOpen(true);
                 trackEvent("funnel_open_hero", "conversion", "june_page_hero");
               }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#d4af37] hover:bg-white text-[#1e3a2f] font-bold uppercase tracking-wider text-xs rounded-full shadow-lg transition-all hover:scale-[1.02] cursor-pointer"
+              className="cta-pulse-glow btn-shine w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#d4af37] hover:bg-white text-[#1e3a2f] font-bold uppercase tracking-wider text-xs rounded-full shadow-lg transition-all cursor-pointer border border-white/50"
             >
-              <Sparkles className="w-4 h-4 text-[#1e3a2f]" />
+              <Sparkles className="w-4 h-4 text-[#1e3a2f] animate-spin" style={{ animationDuration: "6s" }} />
               <span>Create My Own Route (Free) 🚀</span>
               <ArrowRight className="w-4 h-4 text-[#1e3a2f]" />
             </button>
@@ -412,11 +412,11 @@ export default function SrilankaJunePage() {
                 setIsFunnelOpen(true);
                 trackEvent("funnel_open_quick_answer", "conversion", "june_page_quick_answer");
               }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1e3a2f] text-[#d4af37] text-xs font-bold uppercase tracking-wider hover:bg-[#152921] transition-all shrink-0 shadow-md cursor-pointer hover:scale-[1.02]"
+              className="cta-pulse-glow btn-shine inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#1e3a2f] text-[#d4af37] text-xs font-bold uppercase tracking-wider hover:bg-[#152921] transition-all shrink-0 cursor-pointer border border-[#d4af37]/40 shadow-lg"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#d4af37] animate-spin" style={{ animationDuration: "6s" }} />
               <span>Create My Own Route (Free) 🚀</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
             </button>
           </div>
         </div>
