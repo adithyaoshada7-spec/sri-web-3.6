@@ -292,6 +292,8 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
   // Step 2 State
   const [groupType, setGroupType] = useState<string>("Couple");
   const [travelerCount, setTravelerCount] = useState<number>(2);
+  const [adultCount, setAdultCount] = useState<number>(2);
+  const [childCount, setChildCount] = useState<number>(1);
   const [currencyCode, setCurrencyCode] = useState<string>("USD");
   const [budgetTierType, setBudgetTierType] = useState<"budget" | "comfort" | "luxury" | "custom">("comfort");
   const [customBudgetAmount, setCustomBudgetAmount] = useState<string>("$750 / person");
@@ -342,6 +344,8 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
       setSelectedDays("7 Days");
       setGroupType("Couple");
       setTravelerCount(2);
+      setAdultCount(2);
+      setChildCount(1);
       setCurrencyCode("USD");
       setBudgetTierType("comfort");
       setCustomBudgetAmount("$750 / person");
@@ -376,10 +380,21 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
     } else if (grpId === "Couple") {
       setTravelerCount(2);
     } else if (grpId === "Family / Friends") {
-      if (travelerCount <= 2) {
-        setTravelerCount(4);
-      }
+      const totalFam = adultCount + childCount;
+      setTravelerCount(totalFam > 0 ? totalFam : 3);
     }
+  };
+
+  const handleAdultCountChange = (newAdults: number) => {
+    const validAdults = Math.max(1, Math.min(20, newAdults));
+    setAdultCount(validAdults);
+    setTravelerCount(validAdults + childCount);
+  };
+
+  const handleChildCountChange = (newChildren: number) => {
+    const validChildren = Math.max(0, Math.min(15, newChildren));
+    setChildCount(validChildren);
+    setTravelerCount(adultCount + validChildren);
   };
 
   const toggleDestination = (destId: string) => {
@@ -417,6 +432,11 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
 
     const formattedBudget = getBudgetDisplay();
 
+    const formattedGroupSize =
+      groupType === "Family / Friends"
+        ? `Family / Group (${adultCount} ${adultCount === 1 ? "Adult" : "Adults"}, ${childCount} ${childCount === 1 ? "Child" : "Children"} • Total ${travelerCount} Pax)`
+        : `${groupType} (${travelerCount} ${travelerCount === 1 ? "Person" : "Persons"})`;
+
     // Format WhatsApp message
     const message = `Hi Plan Sri Lanka! 🚀 I used your Route Feasibility Tool for my Sri Lanka trip.
     
@@ -424,7 +444,7 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
 • *Trip Vibe:* ${vibeName}
 • *Destinations:* ${selectedDestinations.join(", ")}
 • *Duration:* ${selectedDays}
-• *Group Size:* ${groupType} (${travelerCount} ${travelerCount === 1 ? "Person" : "Persons"})
+• *Group Size:* ${formattedGroupSize}
 • *Currency & Budget:* ${formattedBudget}
 
 👤 *My Contact Details:*
@@ -701,73 +721,173 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                     ))}
                   </div>
 
-                  {/* Interactive Traveler Count Selector */}
-                  <div className="bg-[#FAF8F3] border border-[#E8E4D9] p-3.5 rounded-2xl space-y-2.5">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4 text-[#1F3D2B]" />
-                        <div>
-                          <span className="text-xs font-mono font-bold text-[#1F3D2B] block">
-                            How many people are traveling?
-                          </span>
-                          <span className="text-[11px] text-[#7A7365]">
-                            {groupType === "Solo"
-                              ? "Solo adventurer"
-                              : groupType === "Couple"
-                              ? "Traveling as a couple"
-                              : "Family or group members"}
-                          </span>
+                  {/* Family / Friends: Dedicated Adult & Child Count Controls */}
+                  {groupType === "Family / Friends" ? (
+                    <div className="bg-[#FAF8F3] border-2 border-[#1F3D2B]/30 p-4 rounded-2xl space-y-3.5 shadow-sm">
+                      <div className="flex items-center justify-between border-b border-[#E8E4D9] pb-2.5">
+                        <div className="flex items-center gap-2">
+                          <Users className="w-4 h-4 text-[#1F3D2B]" />
+                          <div>
+                            <span className="text-xs font-mono font-bold text-[#1F3D2B] block">
+                              Family Composition
+                            </span>
+                            <span className="text-[11px] text-[#7A7365]">
+                              Specify number of adults and children traveling
+                            </span>
+                          </div>
+                        </div>
+                        <div className="px-2.5 py-1 bg-[#1F3D2B] text-[#D4AF37] rounded-xl text-center font-mono font-bold text-xs shadow-sm">
+                          Total: {travelerCount} Pax
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={() => setTravelerCount((prev) => Math.max(1, prev - 1))}
-                          disabled={travelerCount <= 1}
-                          className="w-8 h-8 rounded-xl bg-white border border-[#E8E4D9] text-[#1F3D2B] font-bold text-base hover:bg-[#1F3D2B] hover:text-white transition-colors flex items-center justify-center shadow-sm disabled:opacity-40 disabled:cursor-not-allowed"
-                          aria-label="Decrease traveler count"
-                        >
-                          -
-                        </button>
-                        <div className="min-w-[4.2rem] px-2 py-1 bg-white border border-[#1F3D2B]/30 rounded-xl text-center font-mono font-bold text-xs text-[#1F3D2B] shadow-inner">
-                          {travelerCount} {travelerCount === 1 ? "Pax" : "Pax"}
+                      {/* Adult & Child Stepper Grid */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {/* Adults Stepper */}
+                        <div className="bg-white p-3 rounded-xl border border-[#E8E4D9] flex items-center justify-between">
+                          <div>
+                            <span className="text-xs font-serif font-bold text-[#1F3D2B] block">
+                              Adults
+                            </span>
+                            <span className="text-[10px] text-[#7A7365] block">
+                              Age 12+ years
+                            </span>
+                          </div>
+
+                          <div className="flex items-center gap-2">
+                            <button
+                              type="button"
+                              onClick={() => handleAdultCountChange(adultCount - 1)}
+                              disabled={adultCount <= 1}
+                              className="w-8 h-8 rounded-lg bg-[#FAF8F3] border border-[#E8E4D9] text-[#1F3D2B] font-bold text-base hover:bg-[#1F3D2B] hover:text-white transition-colors flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
+                              aria-label="Decrease adult count"
+                            >
+                              -
+                            </button>
+                            <span className="w-8 text-center font-mono font-bold text-sm text-[#1F3D2B]">
+                              {adultCount}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() => handleAdultCountChange(adultCount + 1)}
+                              disabled={adultCount >= 20}
+                              className="w-8 h-8 rounded-lg bg-[#FAF8F3] border border-[#E8E4D9] text-[#1F3D2B] font-bold text-base hover:bg-[#1F3D2B] hover:text-white transition-colors flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
+                              aria-label="Increase adult count"
+                            >
+                              +
+                            </button>
+                          </div>
                         </div>
-                        <button
-                          type="button"
-                          onClick={() => setTravelerCount((prev) => Math.min(30, prev + 1))}
-                          className="w-8 h-8 rounded-xl bg-white border border-[#E8E4D9] text-[#1F3D2B] font-bold text-base hover:bg-[#1F3D2B] hover:text-white transition-colors flex items-center justify-center shadow-sm"
-                          aria-label="Increase traveler count"
-                        >
-                          +
-                        </button>
+
+                        {/* Children Stepper */}
+                        <div className="bg-white p-3 rounded-xl border border-[#E8E4D9] flex items-center justify-between">
+                          <div>
+                            <span className="text-xs font-serif font-bold text-[#1F3D2B] block">
+                              Children
+                            </span>
+                            <span className="text-[10px] text-[#7A7365] block">
+                              Age 0 – 11 years
+                            </span>
+                          </div>
+
+                          <div className="flex items-center gap-2">
+                            <button
+                              type="button"
+                              onClick={() => handleChildCountChange(childCount - 1)}
+                              disabled={childCount <= 0}
+                              className="w-8 h-8 rounded-lg bg-[#FAF8F3] border border-[#E8E4D9] text-[#1F3D2B] font-bold text-base hover:bg-[#1F3D2B] hover:text-white transition-colors flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
+                              aria-label="Decrease child count"
+                            >
+                              -
+                            </button>
+                            <span className="w-8 text-center font-mono font-bold text-sm text-[#1F3D2B]">
+                              {childCount}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() => handleChildCountChange(childCount + 1)}
+                              disabled={childCount >= 15}
+                              className="w-8 h-8 rounded-lg bg-[#FAF8F3] border border-[#E8E4D9] text-[#1F3D2B] font-bold text-base hover:bg-[#1F3D2B] hover:text-white transition-colors flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
+                              aria-label="Increase child count"
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="text-[11px] text-[#5A5448] flex items-center gap-1.5 pt-1">
+                        <span className="text-[#D4AF37]">💡</span>
+                        <span>Vehicle size and family child car seats will be automatically calculated for your route.</span>
                       </div>
                     </div>
+                  ) : (
+                    /* General Interactive Traveler Count Selector (Solo / Couple) */
+                    <div className="bg-[#FAF8F3] border border-[#E8E4D9] p-3.5 rounded-2xl space-y-2.5">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Users className="w-4 h-4 text-[#1F3D2B]" />
+                          <div>
+                            <span className="text-xs font-mono font-bold text-[#1F3D2B] block">
+                              How many people are traveling?
+                            </span>
+                            <span className="text-[11px] text-[#7A7365]">
+                              {groupType === "Solo"
+                                ? "Solo adventurer"
+                                : "Traveling as a couple"}
+                            </span>
+                          </div>
+                        </div>
 
-                    {/* Quick Group Size Buttons */}
-                    <div className="flex items-center gap-1.5 flex-wrap pt-1 border-t border-[#E8E4D9]/60">
-                      <span className="text-[10px] font-mono text-[#7A7365] mr-1">Quick pick:</span>
-                      {[1, 2, 3, 4, 5, 6, 8, 10, 12].map((num) => (
-                        <button
-                          key={num}
-                          type="button"
-                          onClick={() => {
-                            setTravelerCount(num);
-                            if (num === 1) setGroupType("Solo");
-                            else if (num === 2) setGroupType("Couple");
-                            else setGroupType("Family / Friends");
-                          }}
-                          className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold border transition-all ${
-                            travelerCount === num
-                              ? "bg-[#1F3D2B] text-white border-[#1F3D2B]"
-                              : "bg-white text-[#5A5448] border-[#E8E4D9] hover:border-[#1F3D2B]"
-                          }`}
-                        >
-                          {num}
-                        </button>
-                      ))}
+                        <div className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => setTravelerCount((prev) => Math.max(1, prev - 1))}
+                            disabled={travelerCount <= 1}
+                            className="w-8 h-8 rounded-xl bg-white border border-[#E8E4D9] text-[#1F3D2B] font-bold text-base hover:bg-[#1F3D2B] hover:text-white transition-colors flex items-center justify-center shadow-sm disabled:opacity-40 disabled:cursor-not-allowed"
+                            aria-label="Decrease traveler count"
+                          >
+                            -
+                          </button>
+                          <div className="min-w-[4.2rem] px-2 py-1 bg-white border border-[#1F3D2B]/30 rounded-xl text-center font-mono font-bold text-xs text-[#1F3D2B] shadow-inner">
+                            {travelerCount} {travelerCount === 1 ? "Pax" : "Pax"}
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => setTravelerCount((prev) => Math.min(30, prev + 1))}
+                            className="w-8 h-8 rounded-xl bg-white border border-[#E8E4D9] text-[#1F3D2B] font-bold text-base hover:bg-[#1F3D2B] hover:text-white transition-colors flex items-center justify-center shadow-sm"
+                            aria-label="Increase traveler count"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Quick Group Size Buttons */}
+                      <div className="flex items-center gap-1.5 flex-wrap pt-1 border-t border-[#E8E4D9]/60">
+                        <span className="text-[10px] font-mono text-[#7A7365] mr-1">Quick pick:</span>
+                        {[1, 2, 3, 4, 5, 6].map((num) => (
+                          <button
+                            key={num}
+                            type="button"
+                            onClick={() => {
+                              setTravelerCount(num);
+                              if (num === 1) setGroupType("Solo");
+                              else if (num === 2) setGroupType("Couple");
+                              else setGroupType("Family / Friends");
+                            }}
+                            className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold border transition-all ${
+                              travelerCount === num
+                                ? "bg-[#1F3D2B] text-white border-[#1F3D2B]"
+                                : "bg-white text-[#5A5448] border-[#E8E4D9] hover:border-[#1F3D2B]"
+                            }`}
+                          >
+                            {num}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 {/* Budget Tiers & Currency Switcher */}
