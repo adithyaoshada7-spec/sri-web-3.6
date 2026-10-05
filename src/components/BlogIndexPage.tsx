@@ -216,6 +216,15 @@ const articleCategories = [
         readTime: "9 Min Read",
         badge: "Summer Escape",
         tag: "June Optimizer"
+      },
+      {
+        path: "/where-to-go-in-sri-lanka-in-october",
+        title: "Where to Go in Sri Lanka in October (Chennai & Family Guide)",
+        desc: "The ultimate October guide: transitional inter-monsoon weather breakdown, accurate costs in INR/LKR, verified driver safety, and a custom 7-day family itinerary from Chennai.",
+        image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+        readTime: "11 Min Read",
+        badge: "October Special",
+        tag: "Chennai & Family Guide"
       }
     ]
   },

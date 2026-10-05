@@ -821,7 +821,7 @@ export default function WhyChoosePlanSriLankaPage() {
             Continue Crafting Your Sri Lanka Itinerary
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link
               to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
               className="p-5 rounded-2xl bg-white border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all group flex flex-col justify-between shadow-xs hover:shadow-md"
@@ -829,7 +829,7 @@ export default function WhyChoosePlanSriLankaPage() {
               <div>
                 <span className="text-[10px] font-mono uppercase font-bold text-[#D4AF37] block mb-1">Gateway Costs</span>
                 <h3 className="font-serif font-bold text-sm text-[#1F3D2B] group-hover:text-[#D4AF37] transition-colors">
-                  Chennai to Sri Lanka Trip Cost Guide
+                  Chennai to Sri Lanka Cost
                 </h3>
                 <p className="text-xs text-[#5A5448] mt-1.5 leading-relaxed">
                   Direct 80-minute flights, realistic INR budgets, driver costs & 5-day sample loops.
@@ -837,6 +837,25 @@ export default function WhyChoosePlanSriLankaPage() {
               </div>
               <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[#1F3D2B] mt-4 pt-3 border-t border-[#E8E4D9]/60">
                 <span>Explore Cost Guide</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/where-to-go-in-sri-lanka-in-october"
+              className="p-5 rounded-2xl bg-white border border-[#D4AF37]/40 hover:border-[#D4AF37] transition-all group flex flex-col justify-between shadow-xs hover:shadow-md ring-1 ring-[#D4AF37]/20"
+            >
+              <div>
+                <span className="text-[10px] font-mono uppercase font-bold text-[#D4AF37] block mb-1">Seasonal Feature</span>
+                <h3 className="font-serif font-bold text-sm text-[#1F3D2B] group-hover:text-[#D4AF37] transition-colors">
+                  Where to Go in October
+                </h3>
+                <p className="text-xs text-[#5A5448] mt-1.5 leading-relaxed">
+                  October inter-monsoon weather, itemized family budgets & 7-day route from Chennai.
+                </p>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[#1F3D2B] mt-4 pt-3 border-t border-[#E8E4D9]/60">
+                <span>Read October Guide</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
@@ -867,7 +886,7 @@ export default function WhyChoosePlanSriLankaPage() {
               <div>
                 <span className="text-[10px] font-mono uppercase font-bold text-[#D4AF37] block mb-1">Monsoon Strategy</span>
                 <h3 className="font-serif font-bold text-sm text-[#1F3D2B] group-hover:text-[#D4AF37] transition-colors">
-                  Where to Go in Sri Lanka in June
+                  Where to Go in June
                 </h3>
                 <p className="text-xs text-[#5A5448] mt-1.5 leading-relaxed">
                   Navigate seasonal dual monsoons, find dry sunny coasts, and avoid vacation rainouts.

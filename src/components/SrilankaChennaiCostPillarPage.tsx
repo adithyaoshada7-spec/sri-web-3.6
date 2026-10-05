@@ -1549,6 +1549,16 @@ export default function SrilankaChennaiCostPillarPage() {
               <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
             <Link
+              to="/where-to-go-in-sri-lanka-in-october"
+              className="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#D4AF37]/50 hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group shadow-xs hover:shadow-md ring-1 ring-[#D4AF37]/20"
+            >
+              <div>
+                <span className="text-[9px] uppercase font-mono text-[#B38728] block mb-0.5">Chennai & Family Guide</span>
+                <span>Where to Go in October</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#B38728] group-hover:translate-x-1 transition-transform shrink-0" />
+            </Link>
+            <Link
               to="/sri-lanka-5-day-itinerary-from-chennai"
               className="p-3.5 bg-white rounded-xl border border-[#E8E4D9] hover:border-[#1F3D2B] transition-all text-xs font-bold text-[#1F3D2B] flex items-center justify-between group"
             >

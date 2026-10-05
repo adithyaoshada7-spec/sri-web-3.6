@@ -287,5 +287,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "1.0"
+  },
+  {
+    path: "/where-to-go-in-sri-lanka-in-october",
+    title: "The Ultimate October Travel Guide to Sri Lanka: Complete Costs, Itinerary, and Family Advice from Chennai",
+    description: "An expert, high-trust October Sri Lanka travel guide. Discover transitional inter-monsoon weather, itemized trip costs in INR/LKR, verified driver safety, and a custom 7-day family itinerary from Chennai.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.95"
   }
 ];

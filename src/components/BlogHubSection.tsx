@@ -175,6 +175,14 @@ const getArticleMeta = (path: string) => {
         readTime: "8 Min Read",
         badge: "Must-Read 2026"
       };
+    case "/where-to-go-in-sri-lanka-in-october":
+      return {
+        category: "October Seasonal Guide",
+        tag: "Chennai & Family Advice",
+        icon: <Calendar className="w-3.5 h-3.5 text-[#d4af37]" />,
+        readTime: "11 Min Read",
+        badge: "October Special"
+      };
     default:
       return {
         category: "Travel Guide",

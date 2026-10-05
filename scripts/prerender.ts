@@ -1072,6 +1072,111 @@ function generatePrerenderPages(): PrerenderPage[] {
           </tbody>
         </table>
       </section>
+    `,
+    "/where-to-go-in-sri-lanka-in-october": `
+      <header>
+        <h1>The Ultimate October Travel Guide to Sri Lanka: Complete Costs, Itinerary, and Family Advice from Chennai</h1>
+        <p><strong>Are you dreaming of an escape to the tropical paradise of Sri Lanka? From misty emerald peaks to ancient UNESCO ruins, discover how to navigate October's transitional weather with total financial clarity, verified local drivers, and zero tour agency stress.</strong></p>
+      </header>
+
+      <section>
+        <h2>1. Why Visit Sri Lanka in October?</h2>
+        <p>October marks Sri Lanka's second inter-monsoon period, bridging major weather shifts. It offers lush emerald landscapes, roaring waterfalls, uncrowded UNESCO heritage sites, and up to 40% lower hotel rates compared to peak winter months.</p>
+      </section>
+
+      <section>
+        <h2>2. The Flaw with Traditional Travel Agencies and Competitors</h2>
+        <p>Traditional mass-market operators force rigid itineraries, gatekeep planning behind consultation paywalls, and outsource drivers randomly. Plan Sri Lanka provides total flexibility, transparent multi-currency estimates, and dedicated licensed local drivers.</p>
+      </section>
+
+      <section>
+        <h2>3. A 100% Free Interactive Trip Planner</h2>
+        <p>Use our free route validator to test durations, travel vibes, and group compositions (with dedicated adult and child counters) risk-free with zero fees.</p>
+      </section>
+
+      <section>
+        <h2>4. October Travel Costs & Budget Breakdown for Chennai Travelers</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Cost Category</th>
+              <th>Estimate in USD ($)</th>
+              <th>Estimate in INR (₹)</th>
+              <th>Estimate in LKR (Rs)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Return Flight (Chennai - Colombo)</td>
+              <td>$150 – $250</td>
+              <td>₹12,500 – ₹21,000</td>
+              <td>Rs 45,000 – 75,000</td>
+            </tr>
+            <tr>
+              <td>Family Hotel Stay (Per Night)</td>
+              <td>$65 – $70</td>
+              <td>₹5,400 – ₹5,800</td>
+              <td>Rs 20,000 / night</td>
+            </tr>
+            <tr>
+              <td>Daily Food & Dining (Per Person)</td>
+              <td>$15 – $30</td>
+              <td>₹1,250 – ₹2,500</td>
+              <td>Rs 4,500 – 9,000</td>
+            </tr>
+            <tr>
+              <td>Activities & Safari Tickets</td>
+              <td>$50 – $100 / person</td>
+              <td>₹4,200 – ₹8,400</td>
+              <td>Rs 15,000 – 30,000</td>
+            </tr>
+            <tr>
+              <td>Private Car & Verified Chauffeur-Guide</td>
+              <td>$50 – $80 / day</td>
+              <td>₹4,200 – ₹6,700 / day</td>
+              <td>Rs 15,000 – 24,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>5. Trusted, Verified Local Drivers vs. Unreliable Public Transport</h2>
+        <p>Navigating mountain roads via public buses with kids causes burnout. Vetted local drivers provide child safety, local dining recommendations, and luggage security.</p>
+      </section>
+
+      <section>
+        <h2>6. Airport Transport: Taxi Booking vs. Online Pre-Booking</h2>
+        <p>Online pre-booking via Plan Sri Lanka guarantees fixed transparent rates, arrivals meet-and-greet, and zero airport pricing scams.</p>
+      </section>
+
+      <section>
+        <h2>7. Fully Adjustable Itineraries vs. Rigid Mass-Market Tour Packages</h2>
+        <p>Enjoy logical route transitions without backtracking, with dynamic flexibility to adapt to afternoon rain or children's rest needs.</p>
+      </section>
+
+      <section>
+        <h2>8. Scam Prevention Advice for Tourists</h2>
+        <p>Demand meters on city tuk-tuks, hire official guides only at monument ticket counters, and keep baggage with your verified driver.</p>
+      </section>
+
+      <section>
+        <h2>9. Traveling with Children: Essential Advice for Sri Lanka</h2>
+        <p>Limit schedules to 1-2 activities daily, travel in air-conditioned comfort, and keep pediatric motion sickness remedies handy.</p>
+      </section>
+
+      <section>
+        <h2>10. Optimized 7-Day Sri Lanka Itinerary (From Chennai)</h2>
+        <ul>
+          <li><strong>Day 1:</strong> Arrival at CMB & transfer to Kandy with Pinnawala Elephant visit.</li>
+          <li><strong>Day 2:</strong> Kandy Temple of the Tooth & Royal Botanical Gardens.</li>
+          <li><strong>Day 3:</strong> Iconic Blue Train journey through tea mountains to Ella.</li>
+          <li><strong>Day 4:</strong> Nine Arch Bridge walk & Little Adam's Peak hike.</li>
+          <li><strong>Day 5:</strong> Nuwara Eliya tea estate tour, strawberry farms & Gregory Lake.</li>
+          <li><strong>Day 6:</strong> Sigiriya Lion Rock Fortress & Dambulla Caves.</li>
+          <li><strong>Day 7:</strong> Colombo souvenir shopping & return evening flight to Chennai.</li>
+        </ul>
+      </section>
     `
   };
 
@@ -1842,6 +1947,85 @@ function generatePrerenderPages(): PrerenderPage[] {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Vehicles are rented directly from local Sri Lankan families, providing them with stable, fair monthly incomes."
+              }
+            }
+          ]
+        }, null, 2)
+      );
+    }
+
+    if (art.path === "/where-to-go-in-sri-lanka-in-october") {
+      schemas.push(
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": art.title,
+          "description": art.description,
+          "image": art.image,
+          "author": {
+            "@type": "Person",
+            "name": "Oshada Adithya",
+            "url": `${domain}/about-founder`
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Plan Sri Lanka",
+            "logo": {
+              "@type": "ImageObject",
+              "url": `${domain}/logo.png`
+            }
+          }
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": `${domain}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Seasonal Guides",
+              "item": `${domain}/best-time-to-visit-sri-lanka`
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Where to Go in October",
+              "item": `${domain}/where-to-go-in-sri-lanka-in-october`
+            }
+          ]
+        }, null, 2),
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is October a good time to visit Sri Lanka from Chennai?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! October is an excellent transitional month with lush green highlands, roaring waterfalls, uncrowded UNESCO sites, and lower hotel rates. Direct flights from Chennai (MAA) to Colombo (CMB) take only 1 hour and 15 minutes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does a 7-day Sri Lanka trip cost from Chennai in October?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A comfortable 7-day holiday averages ₹35,000 – ₹55,000 per person. Roundtrip flights from Chennai are ₹12,500 – ₹21,000, comfortable hotel rooms average Rs 20,000/night, and a private car with driver is USD 50 – 80 per day."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is a private driver recommended over public transport for families?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Winding mountain roads and crowded stations can cause fatigue for children. A vetted private chauffeur-guide provides safety, flexible stops, air-conditioned comfort, and luggage protection."
               }
             }
           ]
