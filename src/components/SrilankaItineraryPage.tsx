@@ -9,6 +9,7 @@ import { trackEvent } from "../lib/analytics";
 import { itineraryFaqs, FaqItem } from "../data/itineraryFaqs";
 import { itinerarySchedules, DailySchedule } from "../data/itinerarySchedules";
 import ItineraryPlanningSuite from "./ItineraryPlanningSuite";
+import SevenDayFunnelModal from "./SevenDayFunnelModal";
 
 export default function SrilankaItineraryPage() {
   usePageMetadata({
@@ -19,6 +20,7 @@ export default function SrilankaItineraryPage() {
   });
 
   // State
+  const [isFunnelOpen, setIsFunnelOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [faqSearchQuery, setFaqSearchQuery] = useState("");
   const [selectedFaqCategory, setSelectedFaqCategory] = useState<string>("all");
@@ -201,18 +203,47 @@ Please send me the optimized free 24-page PDF and confirm private chauffeur pack
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4 max-w-2xl mx-auto">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4 max-w-3xl mx-auto">
+            {/* Primary Glowing / Pulsing 7-Day Funnel CTA */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              animate={{
+                boxShadow: [
+                  "0 0 0 0 rgba(197, 160, 89, 0.7)",
+                  "0 0 0 16px rgba(197, 160, 89, 0)",
+                  "0 0 0 0 rgba(197, 160, 89, 0.7)"
+                ]
+              }}
+              transition={{
+                boxShadow: {
+                  repeat: Infinity,
+                  duration: 2.2,
+                  ease: "easeInOut"
+                }
+              }}
+              onClick={() => {
+                trackEvent("open_7day_funnel_hero", "engagement", "7_day_itinerary");
+                setIsFunnelOpen(true);
+              }}
+              className="w-full sm:w-auto px-8 py-4.5 bg-gradient-to-r from-[#C5A059] via-[#D4AF37] to-[#B38F46] text-white hover:brightness-110 font-bold uppercase tracking-[0.14em] text-xs sm:text-sm rounded-full flex items-center justify-center gap-3 shadow-2xl cursor-pointer border-2 border-white/20"
+            >
+              <Sparkles className="w-4 h-4 text-white animate-spin" />
+              <span>Customize 7-Day Route & Stays Free</span>
+              <ArrowRight className="w-4 h-4 text-white" />
+            </motion.button>
+
             <button
               onClick={() => window.print()}
-              className="w-full sm:w-auto px-8 py-4 bg-[#1A2F23] text-white hover:bg-[#C5A059] font-bold uppercase tracking-[0.12em] text-xs transition-all rounded-full flex items-center justify-center gap-2 shadow-xl cursor-pointer"
+              className="w-full sm:w-auto px-7 py-4 bg-[#1A2F23] text-white hover:bg-[#C5A059] font-bold uppercase tracking-[0.12em] text-xs transition-all rounded-full flex items-center justify-center gap-2 shadow-xl cursor-pointer"
             >
               <Printer className="w-4 h-4 text-white" /> Print Itinerary
             </button>
             <a 
               href="#interactive-suite-anchor"
-              className="w-full sm:w-auto px-8 py-4 bg-[#C5A059] text-white hover:bg-[#1A2F23] font-bold uppercase tracking-[0.12em] text-xs transition-all rounded-full flex items-center justify-center gap-2.5 shadow-xl"
+              className="w-full sm:w-auto px-7 py-4 bg-white text-[#1A2F23] hover:bg-[#FAF8F5] border border-[#0F1412]/15 font-bold uppercase tracking-[0.12em] text-xs transition-all rounded-full flex items-center justify-center gap-2 shadow-md"
             >
-              15-in-1 Interactive Suite <ArrowRight className="w-4 h-4 text-white" />
+              15-in-1 Suite ➔
             </a>
           </div>
 
@@ -459,6 +490,33 @@ Please send me the optimized free 24-page PDF and confirm private chauffeur pack
               );
             })}
           </AnimatePresence>
+
+          {/* Mid-article Call-To-Action to launch 7-Day Funnel */}
+          <div className="bg-gradient-to-r from-[#1A2F23] to-[#243F30] rounded-3xl p-6 sm:p-10 text-white border border-[#C5A059]/30 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 text-center md:text-left">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#C5A059] font-bold">
+                Tailored Stays & Private Driver
+              </span>
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                Ready to Lock in Your 7-Day Hotels & Driver?
+              </h3>
+              <p className="text-xs sm:text-sm text-white/70 max-w-lg font-light leading-relaxed">
+                Choose your favorite hotels in Sigiriya, Kandy, Ella & Galle (LKR 20,000 / night comfort standard) and review your personalized total trip cost.
+              </p>
+            </div>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => {
+                trackEvent("open_7day_funnel_mid_ledger", "engagement", "7_day_itinerary");
+                setIsFunnelOpen(true);
+              }}
+              className="w-full md:w-auto px-8 py-4 bg-[#C5A059] hover:bg-white hover:text-[#1A2F23] text-white font-serif font-bold uppercase tracking-widest text-xs rounded-full transition-all shrink-0 shadow-xl cursor-pointer flex items-center justify-center gap-2"
+            >
+              <span>Build My 7-Day Plan Free</span>
+              <ArrowRight className="w-4 h-4" />
+            </motion.button>
+          </div>
 
         </div>
       </section>
@@ -709,22 +767,39 @@ Please send me the optimized free 24-page PDF and confirm private chauffeur pack
       </AnimatePresence>
 
       {/* 10. REUSABLE STICKY CONCIERGE FOOTER BAR */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#1A2F23] border-t border-[#C5A059]/30 text-white py-4.5 px-6 shadow-2xl">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#1A2F23] border-t border-[#C5A059]/30 text-white py-3.5 px-6 shadow-2xl">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
           <div className="flex items-center gap-3">
             <span className="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse"></span>
             <p className="text-xs font-mono tracking-wide text-white/90">
-              Online Local Coordinators active (Response time: &lt; 3 mins)
+              Online Local Concierge Active (Response: &lt; 3 mins)
             </p>
           </div>
-          <button 
-            onClick={handleMainWhatsApp}
-            className="w-full sm:w-auto px-6 py-2.5 bg-[#C5A059] hover:bg-white hover:text-[#1A2F23] text-white text-xs uppercase tracking-widest font-mono font-bold rounded-full transition-all cursor-pointer text-center shrink-0"
-          >
-            Chat Live via WhatsApp ➔
-          </button>
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <button 
+              onClick={() => {
+                trackEvent("open_7day_funnel_sticky_bar", "engagement", "7_day_itinerary");
+                setIsFunnelOpen(true);
+              }}
+              className="flex-1 sm:flex-none px-6 py-2.5 bg-[#C5A059] hover:bg-white hover:text-[#1A2F23] text-white text-xs uppercase tracking-widest font-mono font-bold rounded-full transition-all cursor-pointer text-center shadow-md flex items-center justify-center gap-1.5"
+            >
+              <Sparkles className="w-3.5 h-3.5" /> Plan 7-Day Route
+            </button>
+            <button 
+              onClick={handleMainWhatsApp}
+              className="flex-1 sm:flex-none px-6 py-2.5 bg-white/10 hover:bg-white hover:text-[#1A2F23] text-white text-xs uppercase tracking-widest font-mono font-bold rounded-full transition-all cursor-pointer text-center border border-white/20"
+            >
+              WhatsApp Concierge ➔
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* 7-DAY INTERACTIVE ITINERARY & HOTEL FUNNEL MODAL */}
+      <SevenDayFunnelModal
+        isOpen={isFunnelOpen}
+        onClose={() => setIsFunnelOpen(false)}
+      />
 
       {/* Lead capture form final block */}
       <section className="py-24 px-6 bg-white pb-36" id="concierge-form-submit">
