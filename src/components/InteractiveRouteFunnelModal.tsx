@@ -275,8 +275,8 @@ const CURRENCIES: CurrencyConfig[] = [
 ];
 
 export default function InteractiveRouteFunnelModal({ isOpen, onClose }: InteractiveRouteFunnelModalProps) {
-  // Funnel Step: 1, 2, "loading", 3, "success"
-  const [step, setStep] = useState<1 | 2 | "loading" | 3 | "success">(1);
+  // Funnel Step: 1 (Vibes/Days), 2 (Travelers/Group), 3 (Target Budget), "loading", 4 (Contact/Submit), "success"
+  const [step, setStep] = useState<1 | 2 | 3 | "loading" | 4 | "success">(1);
 
   // Step 1 State
   const [selectedVibe, setSelectedVibe] = useState<string>("cultural");
@@ -289,11 +289,13 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
   const [isCustomDays, setIsCustomDays] = useState<boolean>(false);
   const [customDays, setCustomDays] = useState<string>("12");
 
-  // Step 2 State
+  // Step 2 State (Group / Travelers)
   const [groupType, setGroupType] = useState<string>("Couple");
   const [travelerCount, setTravelerCount] = useState<number>(2);
   const [adultCount, setAdultCount] = useState<number>(2);
   const [childCount, setChildCount] = useState<number>(1);
+
+  // Step 3 State (Target Budget)
   const [currencyCode, setCurrencyCode] = useState<string>("USD");
   const [budgetTierType, setBudgetTierType] = useState<"budget" | "comfort" | "luxury" | "custom">("comfort");
   const [customBudgetAmount, setCustomBudgetAmount] = useState<string>("$750 / person");
@@ -301,7 +303,7 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
   // Micro-SaaS Loading simulation message index
   const [loadingTextIndex, setLoadingTextIndex] = useState(0);
 
-  // Step 3 State
+  // Step 4 State (Contact)
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -324,7 +326,7 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
 
       const timer = setTimeout(() => {
         clearInterval(interval);
-        setStep(3);
+        setStep(4);
       }, 1500);
 
       return () => {
@@ -411,8 +413,13 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
     setStep(2);
   };
 
-  const handleStep2Validate = () => {
-    trackEvent("funnel_step_2_validate", "engagement", "route_feasibility_funnel");
+  const handleStep2Next = () => {
+    trackEvent("funnel_step_2_complete", "engagement", "route_feasibility_funnel");
+    setStep(3);
+  };
+
+  const handleStep3Validate = () => {
+    trackEvent("funnel_step_3_validate", "engagement", "route_feasibility_funnel");
     setStep("loading");
   };
 
@@ -424,7 +431,7 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
     }
 
     setFormError("");
-    trackEvent("funnel_step_3_submit", "conversion", "route_feasibility_funnel");
+    trackEvent("funnel_step_4_submit", "conversion", "route_feasibility_funnel");
 
     // Find selected vibe display name
     const vibeObj = TRIP_VIBES.find((v) => v.id === selectedVibe);
@@ -500,28 +507,35 @@ Please send my customized route & budget review directly to my WhatsApp!`;
             </button>
           </div>
 
-          {/* PROGRESS INDICATOR (Steps 1, 2, 3) */}
+          {/* PROGRESS INDICATOR (Steps 1, 2, 3, 4) */}
           {step !== "loading" && step !== "success" && (
-            <div className="bg-[#FAF8F3] px-6 py-3 border-b border-[#E8E4D9] flex items-center justify-between shrink-0 text-xs font-mono">
-              <div className="flex items-center gap-2">
+            <div className="bg-[#FAF8F3] px-3 sm:px-6 py-3 border-b border-[#E8E4D9] flex items-center justify-between shrink-0 text-xs font-mono overflow-x-auto">
+              <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                 <span className={`w-6 h-6 rounded-full flex items-center justify-center font-bold ${step === 1 ? "bg-[#1F3D2B] text-[#D4AF37]" : "bg-[#1F3D2B]/10 text-[#1F3D2B]"}`}>
                   1
                 </span>
-                <span className={`font-semibold ${step === 1 ? "text-[#1F3D2B]" : "text-[#7A7365]"}`}>Vibe & Destinations</span>
+                <span className={`font-semibold ${step === 1 ? "text-[#1F3D2B]" : "text-[#7A7365]"}`}>Vibe & Days</span>
               </div>
-              <div className="h-0.5 w-8 bg-[#E8E4D9] hidden sm:block" />
-              <div className="flex items-center gap-2">
+              <div className="h-0.5 w-3 sm:w-6 bg-[#E8E4D9] shrink-0" />
+              <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                 <span className={`w-6 h-6 rounded-full flex items-center justify-center font-bold ${step === 2 ? "bg-[#1F3D2B] text-[#D4AF37]" : "bg-[#1F3D2B]/10 text-[#1F3D2B]"}`}>
                   2
                 </span>
-                <span className={`font-semibold ${step === 2 ? "text-[#1F3D2B]" : "text-[#7A7365]"}`}>Travelers & Budget</span>
+                <span className={`font-semibold ${step === 2 ? "text-[#1F3D2B]" : "text-[#7A7365]"}`}>Travelers</span>
               </div>
-              <div className="h-0.5 w-8 bg-[#E8E4D9] hidden sm:block" />
-              <div className="flex items-center gap-2">
+              <div className="h-0.5 w-3 sm:w-6 bg-[#E8E4D9] shrink-0" />
+              <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                 <span className={`w-6 h-6 rounded-full flex items-center justify-center font-bold ${step === 3 ? "bg-[#1F3D2B] text-[#D4AF37]" : "bg-[#1F3D2B]/10 text-[#1F3D2B]"}`}>
                   3
                 </span>
-                <span className={`font-semibold ${step === 3 ? "text-[#1F3D2B]" : "text-[#7A7365]"}`}>WhatsApp Delivery</span>
+                <span className={`font-semibold ${step === 3 ? "text-[#1F3D2B]" : "text-[#7A7365]"}`}>Target Budget</span>
+              </div>
+              <div className="h-0.5 w-3 sm:w-6 bg-[#E8E4D9] shrink-0" />
+              <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                <span className={`w-6 h-6 rounded-full flex items-center justify-center font-bold ${step === 4 ? "bg-[#1F3D2B] text-[#D4AF37]" : "bg-[#1F3D2B]/10 text-[#1F3D2B]"}`}>
+                  4
+                </span>
+                <span className={`font-semibold ${step === 4 ? "text-[#1F3D2B]" : "text-[#7A7365]"}`}>Submit</span>
               </div>
             </div>
           )}
@@ -667,14 +681,14 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                     disabled={!selectedVibe}
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#1F3D2B] text-white font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-[#142A1D] transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <span>Next: Travelers & Budget</span>
+                    <span>Next: Select Travelers</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </motion.div>
             )}
 
-            {/* STEP 2: GROUP TYPE & BUDGET */}
+            {/* STEP 2: GROUP TYPE & TRAVELERS (Dedicated Page 2) */}
             {step === 2 && (
               <motion.div
                 key="step2"
@@ -685,10 +699,10 @@ Please send my customized route & budget review directly to my WhatsApp!`;
               >
                 <div>
                   <label className="text-xs font-mono font-bold text-[#1F3D2B] uppercase tracking-wider block mb-1">
-                    Step 2: Group Composition & Target Budget
+                    Step 2: Who Is Traveling?
                   </label>
                   <p className="text-xs text-[#5A5448]">
-                    Specify your group type, number of travelers, and target budget:
+                    Specify your group type and number of travelers so we can calculate vehicle sizing and pacing:
                   </p>
                 </div>
 
@@ -890,15 +904,54 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                   )}
                 </div>
 
+                <div className="pt-4 border-t border-[#E8E4D9] flex items-center justify-between gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setStep(1)}
+                    className="px-4 py-3 rounded-xl border border-[#E8E4D9] text-xs font-bold text-[#7A7365] hover:text-[#1F3D2B] transition-colors"
+                  >
+                    ← Back
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleStep2Next}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#1F3D2B] text-white font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-[#142A1D] transition-all shadow-md"
+                  >
+                    <span>Next: Target Budget</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </motion.div>
+            )}
+
+            {/* STEP 3: TARGET BUDGET (Dedicated Page 3) */}
+            {step === 3 && (
+              <motion.div
+                key="step3"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 10 }}
+                className="space-y-6"
+              >
+                <div>
+                  <label className="text-xs font-mono font-bold text-[#1F3D2B] uppercase tracking-wider block mb-1">
+                    Step 3: Target Budget (Per Pax or Total)
+                  </label>
+                  <p className="text-xs text-[#5A5448]">
+                    Choose your preferred currency or specify your target spending style:
+                  </p>
+                </div>
+
                 {/* Budget Tiers & Currency Switcher */}
                 <div className="space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
                       <span className="text-xs font-mono font-semibold text-[#7A7365] block">
-                        Target Budget (Per Pax or Total):
+                        Currency Selection:
                       </span>
                       <span className="text-[11px] text-[#5A5448]">
-                        Choose your currency or specify custom spending:
+                        Estimates automatically convert to your local currency:
                       </span>
                     </div>
 
@@ -1043,7 +1096,7 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                 <div className="pt-4 border-t border-[#E8E4D9] flex items-center justify-between gap-3">
                   <button
                     type="button"
-                    onClick={() => setStep(1)}
+                    onClick={() => setStep(2)}
                     className="px-4 py-3 rounded-xl border border-[#E8E4D9] text-xs font-bold text-[#7A7365] hover:text-[#1F3D2B] transition-colors"
                   >
                     ← Back
@@ -1051,7 +1104,7 @@ Please send my customized route & budget review directly to my WhatsApp!`;
 
                   <button
                     type="button"
-                    onClick={handleStep2Validate}
+                    onClick={handleStep3Validate}
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#1F3D2B] text-white font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-[#142A1D] transition-all shadow-md"
                   >
                     <span>Validate My Route</span>
@@ -1100,10 +1153,10 @@ Please send my customized route & budget review directly to my WhatsApp!`;
               </motion.div>
             )}
 
-            {/* STEP 3: CONTACT & WHATSAPP DELIVERY */}
-            {step === 3 && (
+            {/* STEP 4: CONTACT & WHATSAPP DELIVERY */}
+            {step === 4 && (
               <motion.div
-                key="step3"
+                key="step4"
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 10 }}
@@ -1177,7 +1230,7 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                   <div className="pt-2 flex items-center justify-between gap-3">
                     <button
                       type="button"
-                      onClick={() => setStep(2)}
+                      onClick={() => setStep(3)}
                       className="px-4 py-3 rounded-xl border border-[#E8E4D9] text-xs font-bold text-[#7A7365] hover:text-[#1F3D2B] transition-colors"
                     >
                       ← Back
