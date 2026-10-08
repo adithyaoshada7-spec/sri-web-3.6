@@ -2282,6 +2282,43 @@ function generatePrerenderPages(): PrerenderPage[] {
     ]
   });
 
+  pages.push({
+    path: "/sri-lanka-summer-roundtrip-guide-june-july-august",
+    title: "Sri Lanka Rondreis in de Zomer (Juni, Juli & Augustus) | Weer, Oostkust & Route Gids",
+    description: "De complete gids voor een rondreis door Sri Lanka in de zomervakantie (juni, juli & augustus). Ontdek zonnige stranden in Nilaveli, Ella Rock hikes, privé chauffeur tips en het weer.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200",
+    ogType: "article",
+    canonicalUrl: `${domain}/sri-lanka-summer-roundtrip-guide-june-july-august`,
+    bodyHtml: `
+      <header>
+        <h1>Sri Lanka Rondreis in de Zomer: Juni, Juli & Augustus</h1>
+        <p><strong>De ultieme reisgids voor Nederlandse reizigers: microklimaat, zonnige oostkust (Nilaveli Beach & Trincomalee), actieve hikes in Ella en rondreizen met privéchauffeur.</strong></p>
+      </header>
+      <section>
+        <h2>Waarom Sri Lanka in de Zomervakantie?</h2>
+        <p>Terwijl het zuidwesten te maken heeft met de Yala-moesson, schijnt aan de oostkust volop de zon. Nilaveli Beach, Trincomalee en Passikudah hebben in juni, juli en augustus rimpelloos, kristalhelder water dat perfect is om te snorkelen met zeeschildpadden bij Pigeon Island National Park.</p>
+      </section>
+      <section>
+        <h2>Hoogtepunten van de 14-Daagse Zomer Rondreis:</h2>
+        <ul>
+          <li><strong>Culturele Driehoek:</strong> Sigiriya Lion Rock, Pidurangala sunset en de olifanten Gathering in Minneriya National Park.</li>
+          <li><strong>Zonnige Oostkust:</strong> Ontspannen stranddagen en rifduiken bij Nilaveli Beach.</li>
+          <li><strong>Groene Hooglanden:</strong> Schilderachtige blauwe treinrit van Kandy naar Ella en de Ella Rock wandeltocht.</li>
+          <li><strong>VOC Erfgoed:</strong> Nederlands koloniaal verleden en de Groote Kerk in UNESCO Galle Dutch Fort.</li>
+        </ul>
+      </section>
+    `,
+    schemas: [
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Sri Lanka Rondreis in de Zomer (Juni, Juli & Augustus)",
+        "description": "De complete gids voor een rondreis door Sri Lanka in de zomervakantie (juni, juli & augustus).",
+        "url": `${domain}/sri-lanka-summer-roundtrip-guide-june-july-august`
+      }, null, 2)
+    ]
+  });
+
   return pages;
 }
 

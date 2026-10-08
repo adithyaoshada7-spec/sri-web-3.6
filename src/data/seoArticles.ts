@@ -296,5 +296,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.95"
+  },
+  {
+    path: "/sri-lanka-summer-roundtrip-guide-june-july-august",
+    title: "Sri Lanka Rondreis in de Zomer (Juni, Juli & Augustus) | Weer, Oostkust & Route Gids",
+    description: "De complete gids voor een rondreis door Sri Lanka in de zomervakantie (juni, juli & augustus). Ontdek zonnige stranden in Nilaveli, Ella Rock hikes, privé chauffeur tips en het weer.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.95"
   }
 ];

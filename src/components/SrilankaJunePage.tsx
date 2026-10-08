@@ -419,6 +419,20 @@ export default function SrilankaJunePage() {
               <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
             </button>
           </div>
+
+          {/* Contextual Link to Summer Roundtrip Guide for Dutch & European Travelers */}
+          <div className="bg-emerald-900/10 border border-emerald-900/20 p-4 rounded-2xl flex items-center justify-between gap-4 text-xs mt-3">
+            <div className="flex items-center gap-2.5 text-[#1e3a2f]">
+              <span className="text-base">🇳🇱</span>
+              <span><strong>Reis je in de zomervakantie?</strong> Bekijk onze speciale 14-daagse rondreisgids voor Nederlanders en Europeanen:</span>
+            </div>
+            <Link
+              to="/sri-lanka-summer-roundtrip-guide-june-july-august"
+              className="font-mono font-bold text-[#1e3a2f] hover:text-[#d4af37] underline decoration-[#d4af37] underline-offset-4 shrink-0"
+            >
+              Lees Zomer Rondreis Gids (Juni, Juli, Aug) ➔
+            </Link>
+          </div>
         </div>
       </section>
 

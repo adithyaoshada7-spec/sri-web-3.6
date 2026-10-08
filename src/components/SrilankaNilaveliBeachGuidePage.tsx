@@ -625,6 +625,16 @@ export default function SrilankaNilaveliBeachGuidePage() {
                 <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
+            <Link to="/sri-lanka-summer-roundtrip-guide-june-july-august" className="p-5 rounded-2xl bg-white/5 border border-[#d4af37]/30 hover:border-[#d4af37] transition-all flex flex-col justify-between group">
+              <div>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-[#d4af37] block mb-1">🇳🇱 Zomer Rondreis</span>
+                <span className="font-serif font-bold text-sm group-hover:text-[#d4af37] block">Sri Lanka Zomer Rondreis Gids</span>
+                <span className="text-[11px] text-white/70 font-light block mt-1">14-daagse zomervakantie route voor Nederlanders: Nilaveli strand, Ella Rock & privéchauffeur.</span>
+              </div>
+              <div className="flex items-center justify-end mt-3">
+                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
             <Link to="/sri-lanka-itinerary-august-couples" className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#d4af37] transition-all flex flex-col justify-between group">
               <div>
                 <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-white/50 block mb-1">Couple Travel</span>
