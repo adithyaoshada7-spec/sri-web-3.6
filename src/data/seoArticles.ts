@@ -305,5 +305,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.95"
+  },
+  {
+    path: "/top-10-sea-view-hotels-sri-lanka-chennai",
+    title: "Top 10 Sea View Hotels in Sri Lanka for Chennai Travelers (2026)",
+    description: "Discover the top 10 sea-view hotels in Sri Lanka for Chennai travelers. Compare per-night prices in INR & LKR, flight-aligned coastal routes, and stay budgets.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.95"
   }
 ];

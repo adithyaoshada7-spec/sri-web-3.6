@@ -2319,6 +2319,43 @@ function generatePrerenderPages(): PrerenderPage[] {
     ]
   });
 
+  pages.push({
+    path: "/top-10-sea-view-hotels-sri-lanka-chennai",
+    title: "Top 10 Sea View Hotels in Sri Lanka for Chennai Travelers (2026)",
+    description: "Discover the top 10 sea-view hotels in Sri Lanka for Chennai travelers. Compare per-night prices in INR & LKR, flight-aligned coastal routes, and stay budgets.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200",
+    ogType: "article",
+    canonicalUrl: `${domain}/top-10-sea-view-hotels-sri-lanka-chennai`,
+    bodyHtml: `
+      <header>
+        <h1>Top 10 Sea View Hotels in Sri Lanka for Chennai Travelers</h1>
+        <p><strong>Compare top oceanfront resorts across Bentota, Mirissa, Galle, and Nilaveli for Chennai vacationers with direct flight alignments, LKR 20,000/night sweet spot pricing, and vegetarian dining.</strong></p>
+      </header>
+      <section>
+        <h2>Why Fly to Sri Lanka from Chennai for a Beach Holiday?</h2>
+        <p>With direct flights taking only 80 minutes from Chennai (MAA) to Colombo (CMB), travelers from Tamil Nadu can reach Sri Lanka's golden coasts faster than many domestic destinations. Accommodation ranges from luxury heritage resorts designed by Geoffrey Bawa to high-value beachfront boutique rooms starting around LKR 20,000 per night (approx. ₹5,500 INR).</p>
+      </section>
+      <section>
+        <h2>Top Recommended Oceanfront Resorts:</h2>
+        <ul>
+          <li><strong>Bentota & Beruwala:</strong> Cinnamon Bentota Beach, Taj Bentota Resort & Spa, Wonder Bentota Peninsula.</li>
+          <li><strong>Mirissa & Weligama:</strong> Weligama Bay Marriott Resort, Triple O Six Mirissa, Mandara Resort Red Cliff.</li>
+          <li><strong>Galle & Unawatuna:</strong> Jetwing Lighthouse, Thaproban Pavilion Waves Unawatuna.</li>
+          <li><strong>Nilaveli & Trincomalee (East Coast):</strong> Nilaveli Beach Hotel, Trinco Blu by Cinnamon.</li>
+        </ul>
+      </section>
+    `,
+    schemas: [
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Top 10 Sea View Hotels in Sri Lanka for Chennai Travelers",
+        "description": "Discover the top 10 sea-view hotels in Sri Lanka for Chennai travelers.",
+        "url": `${domain}/top-10-sea-view-hotels-sri-lanka-chennai`
+      }, null, 2)
+    ]
+  });
+
   return pages;
 }
 

@@ -738,6 +738,28 @@ export default function SrilankaChennaiCostPillarPage() {
               <p className="text-xs text-[#5A5448]">Heritance Kandalama, Cape Weligama, Ceylon Tea Trails, and private beachfront pool villas with personal butler service.</p>
             </div>
           </div>
+
+          {/* Contextual Link to Top 10 Sea View Hotels Guide */}
+          <div className="bg-[#FAF8F3] p-5 rounded-2xl border border-[#C5A059]/30 flex flex-col sm:flex-row items-center justify-between gap-4 mt-2">
+            <div className="space-y-1 text-center sm:text-left">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#C5A059] font-bold block">
+                Looking for Coastal Beach Stays?
+              </span>
+              <p className="text-xs sm:text-sm text-[#1F3D2B] font-serif font-bold">
+                Read our curated guide: Top 10 Sea View Hotels in Sri Lanka for Chennai Travelers
+              </p>
+              <p className="text-xs text-[#7A7365] font-light">
+                Discover oceanfront rooms across Bentota, Mirissa, Galle, and Nilaveli aligned with our LKR 20,000 (~₹5,500 INR) sweet spot budget.
+              </p>
+            </div>
+            <Link
+              to="/top-10-sea-view-hotels-sri-lanka-chennai"
+              className="px-5 py-3 rounded-xl bg-[#1F3D2B] text-white hover:bg-[#C5A059] text-xs font-bold uppercase tracking-wider transition-all shrink-0 shadow flex items-center gap-1.5"
+            >
+              <span>View Top 10 Sea View Hotels</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </section>
 
         {/* SECTION 6: FOOD & DAILY DINING COSTS */}
