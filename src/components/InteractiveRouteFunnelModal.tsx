@@ -305,6 +305,9 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
   const [budgetTierType, setBudgetTierType] = useState<"budget" | "comfort" | "luxury" | "custom">("comfort");
   const [customBudgetAmount, setCustomBudgetAmount] = useState<string>("$750 / person");
 
+  // Micro-SaaS Loading simulation message index
+  const [loadingTextIndex, setLoadingTextIndex] = useState(0);
+
   // Step 4 State (Contact & Flight Assistance)
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -359,6 +362,7 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
       setCustomBudgetAmount("$750 / person");
       setNeedFlightQuote(false);
       setDepartureCity("");
+      setLoadingTextIndex(0);
     }, 300);
   };
 
