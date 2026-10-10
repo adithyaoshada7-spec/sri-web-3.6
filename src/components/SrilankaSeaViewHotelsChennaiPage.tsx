@@ -600,16 +600,48 @@ export default function SrilankaSeaViewHotelsChennaiPage() {
             </div>
           </div>
 
+          {/* Enhanced Authority Backlink Card: Complete Chennai Trip Cost Pillar */}
+          <div className="bg-gradient-to-r from-[#1A2F23] to-[#254633] text-white p-7 md:p-8 rounded-3xl border-2 border-[#C5A059]/40 shadow-2xl relative overflow-hidden">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+              <div className="space-y-2 text-center md:text-left">
+                <div className="inline-flex items-center gap-2 bg-[#C5A059]/20 border border-[#C5A059]/40 px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider text-[#C5A059] font-bold">
+                  🌟 Essential Companion Guide for Chennai Travelers
+                </div>
+                <h3 className="font-serif font-bold text-2xl md:text-3xl text-white">
+                  Planning Your Complete Chennai to Sri Lanka Trip Budget?
+                </h3>
+                <p className="text-xs sm:text-sm text-white/80 max-w-xl font-light leading-relaxed">
+                  Hotels are just one part of your vacation. Read our comprehensive{" "}
+                  <Link
+                    to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+                    className="font-bold text-[#C5A059] underline decoration-[#C5A059] underline-offset-4 hover:text-white"
+                  >
+                    Chennai to Sri Lanka trip cost guide
+                  </Link>
+                  {" "}for verified round-trip flight rates from MAA (IndiGo/Air India), Sri Lanka Tourist ETA visa costs, daily chauffeur charges, and itemized 5-day & 7-day budget blueprints.
+                </p>
+              </div>
+
+              <Link
+                to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
+                className="px-7 py-4 bg-[#C5A059] hover:bg-white hover:text-[#1A2F23] text-white font-serif font-bold uppercase tracking-widest text-xs rounded-full transition-all shrink-0 shadow-xl flex items-center gap-2"
+              >
+                <span>Read Full Chennai Cost Guide</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
           {/* Interactive CTA Banner */}
-          <div className="bg-[#1A2F23] text-white p-8 rounded-3xl border border-[#C5A059]/30 text-center space-y-4 shadow-xl">
-            <h3 className="font-serif font-bold text-2xl text-white">
+          <div className="bg-[#FAF8F5] p-7 md:p-8 rounded-3xl border border-[#0F1412]/10 text-center space-y-4 shadow-sm">
+            <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#1A2F23]">
               Ready to Calculate Your Coastal Route & Stay Costs?
             </h3>
-            <p className="text-xs sm:text-sm text-white/70 max-w-xl mx-auto font-light leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#0F1412]/75 max-w-xl mx-auto font-light leading-relaxed">
               Pair your preferred sea-view hotel with a licensed chauffeur and explore{" "}
               <Link
                 to="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"
-                className="text-[#C5A059] font-bold underline underline-offset-4 hover:text-white"
+                className="text-[#1A2F23] font-bold underline decoration-[#C5A059] underline-offset-4 hover:text-[#C5A059]"
               >
                 realistic flight-and-stay estimates from Chennai
               </Link>
@@ -618,7 +650,7 @@ export default function SrilankaSeaViewHotelsChennaiPage() {
             <div className="pt-2">
               <button
                 onClick={() => handleOpenFunnel("bottom_cta_banner")}
-                className="px-8 py-4 bg-[#C5A059] hover:bg-white hover:text-[#1A2F23] text-white font-serif font-bold uppercase tracking-widest text-xs rounded-full transition-all cursor-pointer shadow-lg inline-flex items-center gap-2"
+                className="px-8 py-4 bg-[#C5A059] hover:bg-[#1A2F23] text-white font-serif font-bold uppercase tracking-widest text-xs rounded-full transition-all cursor-pointer shadow-lg inline-flex items-center gap-2"
               >
                 <Sparkles className="w-4 h-4" /> Open Free Route Feasibility Funnel ➔
               </button>

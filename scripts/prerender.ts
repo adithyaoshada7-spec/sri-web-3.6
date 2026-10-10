@@ -2344,6 +2344,11 @@ function generatePrerenderPages(): PrerenderPage[] {
           <li><strong>Nilaveli & Trincomalee (East Coast):</strong> Nilaveli Beach Hotel, Trinco Blu by Cinnamon.</li>
         </ul>
       </section>
+      <section>
+        <h2>Planning Your Complete Trip Budget from Chennai?</h2>
+        <p>Hotel accommodation is only one part of your vacation budget. Read our comprehensive <a href="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"><strong>Sri Lanka trip cost from Chennai guide</strong></a> for direct flight ticket rates, visa requirements, driver costs, and itemized 5-day & 7-day budget blueprints.</p>
+        <p>Before booking, review our <a href="/how-much-will-it-take-to-visit-sri-lanka-from-chennai"><strong>Chennai to Sri Lanka travel cost breakdown</strong></a> to balance your stay with private chauffeur packages.</p>
+      </section>
     `,
     schemas: [
       JSON.stringify({
