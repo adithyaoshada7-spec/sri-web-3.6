@@ -14,7 +14,10 @@ import {
   MessageSquare,
   Compass,
   Check,
-  Globe
+  Globe,
+  Building,
+  Car,
+  Plane
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
@@ -295,18 +298,19 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
   const [adultCount, setAdultCount] = useState<number>(2);
   const [childCount, setChildCount] = useState<number>(1);
 
-  // Step 3 State (Target Budget)
+  // Step 3 State (Target Budget & Scope)
   const [currencyCode, setCurrencyCode] = useState<string>("USD");
+  const [packageScope, setPackageScope] = useState<"complete_package" | "driver_only">("complete_package");
+  const [hotelPreference, setHotelPreference] = useState<"seaview_4star" | "comfort_3star" | "luxury_5star">("seaview_4star");
   const [budgetTierType, setBudgetTierType] = useState<"budget" | "comfort" | "luxury" | "custom">("comfort");
   const [customBudgetAmount, setCustomBudgetAmount] = useState<string>("$750 / person");
 
-  // Micro-SaaS Loading simulation message index
-  const [loadingTextIndex, setLoadingTextIndex] = useState(0);
-
-  // Step 4 State (Contact)
+  // Step 4 State (Contact & Flight Assistance)
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
+  const [needFlightQuote, setNeedFlightQuote] = useState<boolean>(false);
+  const [departureCity, setDepartureCity] = useState<string>("");
   const [formError, setFormError] = useState("");
 
   const loadingMessages = [
@@ -349,8 +353,12 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
       setAdultCount(2);
       setChildCount(1);
       setCurrencyCode("USD");
+      setPackageScope("complete_package");
+      setHotelPreference("seaview_4star");
       setBudgetTierType("comfort");
       setCustomBudgetAmount("$750 / person");
+      setNeedFlightQuote(false);
+      setDepartureCity("");
     }, 300);
   };
 
@@ -444,6 +452,19 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
         ? `Family / Group (${adultCount} ${adultCount === 1 ? "Adult" : "Adults"}, ${childCount} ${childCount === 1 ? "Child" : "Children"} • Total ${travelerCount} Pax)`
         : `${groupType} (${travelerCount} ${travelerCount === 1 ? "Person" : "Persons"})`;
 
+    const hotelPreferenceDisplay =
+      packageScope === "driver_only"
+        ? "None (Chauffeur Transport Only - Booking stays independently)"
+        : hotelPreference === "seaview_4star"
+        ? "4-Star Category & Sea View Room (with Breakfast)"
+        : hotelPreference === "luxury_5star"
+        ? "5-Star Luxury Resorts & Colonial Estates"
+        : "3-Star Boutique & Nature Stays";
+
+    const flightDisplay = needFlightQuote
+      ? `Yes, please quote flights from ${departureCity.trim() || "my departure city"}`
+      : "Not needed (Booking flights independently)";
+
     // Format WhatsApp message
     const message = `Hi Plan Sri Lanka! 🚀 I used your Route Feasibility Tool for my Sri Lanka trip.
     
@@ -452,6 +473,9 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
 • *Destinations:* ${selectedDestinations.join(", ")}
 • *Duration:* ${selectedDays}
 • *Group Size:* ${formattedGroupSize}
+• *Package Scope:* ${packageScope === "complete_package" ? "Complete Land Package (Driver + Hotels + Breakfast)" : "Private Chauffeur Only"}
+• *Hotel Category:* ${hotelPreferenceDisplay}
+• *Flight Quotation:* ${flightDisplay}
 • *Currency & Budget:* ${formattedBudget}
 
 👤 *My Contact Details:*
@@ -459,7 +483,7 @@ export default function InteractiveRouteFunnelModal({ isOpen, onClose }: Interac
 • *Email:* ${email || "Not provided"}
 • *WhatsApp:* ${whatsapp}
 
-Please send my customized route & budget review directly to my WhatsApp!`;
+Please send my customized route & price breakdown directly to my WhatsApp!`;
 
     const encodedMessage = encodeURIComponent(message);
     const waUrl = `https://wa.me/94722968210?text=${encodedMessage}`;
@@ -936,11 +960,137 @@ Please send my customized route & budget review directly to my WhatsApp!`;
               >
                 <div>
                   <label className="text-xs font-mono font-bold text-[#1F3D2B] uppercase tracking-wider block mb-1">
-                    Step 3: Target Budget (Per Pax or Total)
+                    Step 3: Target Budget & Package Scope
                   </label>
                   <p className="text-xs text-[#5A5448]">
-                    Choose your preferred currency or specify your target spending style:
+                    Choose what you want included (Chauffeur only or Complete Land Package) and your target spending style:
                   </p>
+                </div>
+
+                {/* PACKAGE SCOPE SELECTOR */}
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold text-[#1F3D2B] uppercase tracking-wider block">
+                      Package Scope:
+                    </span>
+                    <span className="text-[10px] font-mono font-bold text-[#D4AF37] uppercase">Customizable</span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setPackageScope("complete_package")}
+                      className={`p-3.5 rounded-2xl border text-left transition-all ${
+                        packageScope === "complete_package"
+                          ? "bg-[#1F3D2B] text-white border-[#1F3D2B] shadow-md ring-2 ring-[#D4AF37]/50"
+                          : "bg-white border-[#E8E4D9] text-[#1A1A1A] hover:border-[#1F3D2B]"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2 mb-1">
+                        <Building className="w-4 h-4 text-[#D4AF37]" />
+                        <span className="font-serif font-bold text-sm">Complete Land Package</span>
+                      </div>
+                      <p className={`text-xs ${packageScope === "complete_package" ? "text-white/80" : "text-[#7A7365]"}`}>
+                        Dedicated Chauffeur + 4★ Stays / Sea View Rooms + Daily Breakfast included.
+                      </p>
+                      <span className={`inline-block mt-2 text-[10px] font-mono font-bold px-2 py-0.5 rounded-md ${
+                        packageScope === "complete_package" ? "bg-[#D4AF37] text-[#1F3D2B]" : "bg-emerald-50 text-emerald-800 border border-emerald-200"
+                      }`}>
+                        ★ Most Popular (Stress-Free)
+                      </span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setPackageScope("driver_only")}
+                      className={`p-3.5 rounded-2xl border text-left transition-all ${
+                        packageScope === "driver_only"
+                          ? "bg-[#1F3D2B] text-white border-[#1F3D2B] shadow-md ring-2 ring-[#D4AF37]/50"
+                          : "bg-white border-[#E8E4D9] text-[#1A1A1A] hover:border-[#1F3D2B]"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2 mb-1">
+                        <Car className="w-4 h-4 text-[#D4AF37]" />
+                        <span className="font-serif font-bold text-sm">Chauffeur & Car Only</span>
+                      </div>
+                      <p className={`text-xs ${packageScope === "driver_only" ? "text-white/80" : "text-[#7A7365]"}`}>
+                        Dedicated AC vehicle, fuel, highway expressway tolls & driver stay. You book hotels separately.
+                      </p>
+                      <span className={`inline-block mt-2 text-[10px] font-mono font-bold px-2 py-0.5 rounded-md ${
+                        packageScope === "driver_only" ? "bg-[#D4AF37] text-[#1F3D2B]" : "bg-[#FAF8F3] text-[#5A5448] border border-[#E8E4D9]"
+                      }`}>
+                        Transport Only
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* Hotel Tier & View Preference (Shown if complete package) */}
+                  {packageScope === "complete_package" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-3 bg-[#FAF8F3] rounded-2xl border border-[#D4AF37]/40 space-y-2 mt-2"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px] font-mono font-bold text-[#1F3D2B] uppercase">
+                          Hotel Room & Category Preference:
+                        </span>
+                        <span className="text-[10px] text-[#7A7365]">Breakfast Included</span>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setHotelPreference("seaview_4star")}
+                          className={`p-2.5 rounded-xl border text-left transition-all ${
+                            hotelPreference === "seaview_4star"
+                              ? "bg-[#1F3D2B] text-white border-[#1F3D2B] shadow-xs"
+                              : "bg-white border-[#E8E4D9] text-[#1A1A1A] hover:border-[#1F3D2B]"
+                          }`}
+                        >
+                          <div className="text-xs font-bold leading-tight">
+                            🌊 4★ Sea View / Boutique
+                          </div>
+                          <p className={`text-[10px] mt-1 ${hotelPreference === "seaview_4star" ? "text-white/80" : "text-[#7A7365]"}`}>
+                            Beachfront sea-view rooms & scenic tea hills
+                          </p>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => setHotelPreference("comfort_3star")}
+                          className={`p-2.5 rounded-xl border text-left transition-all ${
+                            hotelPreference === "comfort_3star"
+                              ? "bg-[#1F3D2B] text-white border-[#1F3D2B] shadow-xs"
+                              : "bg-white border-[#E8E4D9] text-[#1A1A1A] hover:border-[#1F3D2B]"
+                          }`}
+                        >
+                          <div className="text-xs font-bold leading-tight">
+                            🌿 3★ Comfort & Nature
+                          </div>
+                          <p className={`text-[10px] mt-1 ${hotelPreference === "comfort_3star" ? "text-white/80" : "text-[#7A7365]"}`}>
+                            Clean boutique guesthouses & garden villas
+                          </p>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => setHotelPreference("luxury_5star")}
+                          className={`p-2.5 rounded-xl border text-left transition-all ${
+                            hotelPreference === "luxury_5star"
+                              ? "bg-[#1F3D2B] text-white border-[#1F3D2B] shadow-xs"
+                              : "bg-white border-[#E8E4D9] text-[#1A1A1A] hover:border-[#1F3D2B]"
+                          }`}
+                        >
+                          <div className="text-xs font-bold leading-tight">
+                            ✨ 5★ Luxury Resorts
+                          </div>
+                          <p className={`text-[10px] mt-1 ${hotelPreference === "luxury_5star" ? "text-white/80" : "text-[#7A7365]"}`}>
+                            Ultra-luxury ocean suites & colonial estates
+                          </p>
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
                 </div>
 
                 {/* Budget Tiers & Currency Switcher */}
@@ -1220,6 +1370,49 @@ Please send my customized route & budget review directly to my WhatsApp!`;
                       onChange={(e) => setWhatsapp(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-[#E8E4D9] bg-white text-sm text-[#1A1A1A] focus:outline-none focus:border-[#1F3D2B] focus:ring-1 focus:ring-[#1F3D2B]"
                     />
+                  </div>
+
+                  {/* FLIGHT QUOTE ASSISTANCE */}
+                  <div className="p-3.5 bg-[#FAF8F3] border border-[#E8E4D9] rounded-2xl space-y-2.5">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Plane className="w-4 h-4 text-[#1F3D2B]" />
+                        <span className="text-xs font-mono font-bold text-[#1F3D2B] uppercase">
+                          Include Flight Price Assistance?
+                        </span>
+                      </div>
+                      <label className="relative inline-flex items-center cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={needFlightQuote}
+                          onChange={(e) => setNeedFlightQuote(e.target.checked)}
+                          className="sr-only peer"
+                        />
+                        <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#1F3D2B]"></div>
+                      </label>
+                    </div>
+                    <p className="text-[11px] text-[#7A7365]">
+                      We can recommend direct flights & approximate airfare (IndiGo, Air India, SriLankan Airlines, etc.) tailored to your dates.
+                    </p>
+
+                    {needFlightQuote && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        className="pt-1.5"
+                      >
+                        <label className="text-[11px] font-mono font-semibold text-[#1F3D2B] block mb-1">
+                          Departure City or Airport:
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="e.g. Mumbai (BOM), Chennai (MAA), Delhi (DEL), London, or Melbourne"
+                          value={departureCity}
+                          onChange={(e) => setDepartureCity(e.target.value)}
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E4D9] bg-white text-xs text-[#1A1A1A] focus:outline-none focus:border-[#1F3D2B]"
+                        />
+                      </motion.div>
+                    )}
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-[#FAF8F3] border border-[#E8E4D9] text-xs text-[#7A7365] flex items-center gap-2">

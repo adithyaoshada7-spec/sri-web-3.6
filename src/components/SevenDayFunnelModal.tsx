@@ -17,7 +17,8 @@ import {
   MapPin,
   Utensils,
   ChevronRight,
-  Info
+  Info,
+  Plane
 } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 
@@ -66,18 +67,18 @@ export const SEVEN_DAY_ITINERARY_DATA: DayPlan[] = [
     hotelOptions: [
       {
         id: "negombo-comfort-1",
-        name: "Heritance Negombo Beachfront",
-        rating: "4.8 ★ Luxury Beachfront",
+        name: "Heritance Negombo (4★ Sea View Deluxe)",
+        rating: "4.8 ★ 4-Star Sea View Beachfront",
         pricePerNightLkr: 20000,
-        highlight: "Direct golden beach access, sunset ocean deck, sea-view infinity pool",
+        highlight: "Direct golden beach access, sunset ocean deck, sea-view balcony & infinity pool",
         image: "/serene-beaches-sri-lanka.png"
       },
       {
         id: "negombo-comfort-2",
-        name: "Jetwing Blue Negombo",
-        rating: "4.7 ★ Coastal Comfort",
+        name: "Jetwing Blue Negombo (4★ Ocean Club)",
+        rating: "4.7 ★ 4-Star Coastal Comfort",
         pricePerNightLkr: 20000,
-        highlight: "Spacious family suites, beachfront dining, central Negombo strip",
+        highlight: "Spacious sea-facing family suites, beachfront dining, central Negombo strip",
         image: "/luxury-boutique-resort-sri-lanka.jpg"
       }
     ]
@@ -221,19 +222,19 @@ export const SEVEN_DAY_ITINERARY_DATA: DayPlan[] = [
     hotelOptions: [
       {
         id: "galle-comfort-1",
-        name: "Fort Bazaar Boutique Hotel",
-        rating: "4.9 ★ Colonial Fort Luxury",
+        name: "Jetwing Lighthouse (4★ Sea View Coastal Suite)",
+        rating: "4.9 ★ 4-Star Sea View Beachfront",
         pricePerNightLkr: 20000,
-        highlight: "Inside Galle Fort 17th-century merchant villa, courtyard dining, walk to ramparts",
-        image: "/luxury-boutique-resort-sri-lanka.jpg"
+        highlight: "Direct Indian Ocean panoramic sea views, rock pool, coastal sunset veranda designed by Geoffrey Bawa",
+        image: "/serene-beaches-sri-lanka.png"
       },
       {
         id: "galle-comfort-2",
-        name: "Galle Heritage Villa by Jetwing",
-        rating: "4.8 ★ Heritage Splendor",
+        name: "Fort Bazaar Boutique Hotel",
+        rating: "4.8 ★ Colonial Fort Luxury",
         pricePerNightLkr: 20000,
-        highlight: "Colonial Dutch charm, peaceful private veranda, antique four-poster beds",
-        image: "/serene-beaches-sri-lanka.png"
+        highlight: "Inside Galle Fort 17th-century merchant villa, courtyard dining, walk to UNESCO ramparts",
+        image: "/luxury-boutique-resort-sri-lanka.jpg"
       }
     ]
   },
@@ -286,6 +287,7 @@ export default function SevenDayFunnelModal({ isOpen, onClose }: SevenDayFunnelM
   const [adultCount, setAdultCount] = useState<number>(2);
   const [childCount, setChildCount] = useState<number>(0);
   const [currency, setCurrency] = useState<"LKR" | "INR" | "USD">("LKR");
+  const [packageScope, setPackageScope] = useState<"complete_package" | "driver_only">("complete_package");
 
   // Step 3: Selected Hotels for each night (default to first option of each day)
   const [selectedHotels, setSelectedHotels] = useState<{ [dayNumber: number]: string }>({
@@ -298,10 +300,12 @@ export default function SevenDayFunnelModal({ isOpen, onClose }: SevenDayFunnelM
     7: "departure-comfort-1"
   });
 
-  // Step 4: Contact form state
+  // Step 4: Contact form state & Flight assistance
   const [fullName, setFullName] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [email, setEmail] = useState("");
+  const [needFlightQuote, setNeedFlightQuote] = useState<boolean>(false);
+  const [departureCity, setDepartureCity] = useState<string>("");
   const [specialRequests, setSpecialRequests] = useState("");
   const [formError, setFormError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -313,8 +317,8 @@ export default function SevenDayFunnelModal({ isOpen, onClose }: SevenDayFunnelM
   const privateDriverCostLkr = 75000; // Dedicated English speaking licensed chauffeur for 7 days
   const hotelRatePerNightLkr = 20000;
   const hotelNightsCount = selectedHotels[7] === "departure-comfort-1" ? 6 : 7;
-  const totalHotelCostLkr = hotelNightsCount * hotelRatePerNightLkr;
-  const estimatedActivitiesLkr = travelerCount * 28000; // Sigiriya, Tooth Temple, Yala jeep entry, train tickets
+  const totalHotelCostLkr = packageScope === "driver_only" ? 0 : hotelNightsCount * hotelRatePerNightLkr;
+  const estimatedActivitiesLkr = packageScope === "driver_only" ? 0 : travelerCount * 28000; // Sigiriya, Tooth Temple, Yala jeep entry, train tickets
   const totalBudgetLkr = privateDriverCostLkr + totalHotelCostLkr + estimatedActivitiesLkr;
 
   // Convert for display if needed
@@ -360,11 +364,17 @@ export default function SevenDayFunnelModal({ isOpen, onClose }: SevenDayFunnelM
     trackEvent("seven_day_funnel_confirmed", "conversion", "7_day_itinerary_funnel");
 
     // Build Hotel Summary for WhatsApp
-    const hotelSummaryLines = SEVEN_DAY_ITINERARY_DATA.map(day => {
-      const chosenId = selectedHotels[day.day];
-      const hotel = day.hotelOptions.find(h => h.id === chosenId);
-      return `• Day ${day.day} (${day.nightLocation}): ${hotel ? hotel.name : "Standard Stays"}`;
-    }).join("\n");
+    const hotelSummaryLines = packageScope === "driver_only"
+      ? "• None (Traveler booking accommodation independently - Chauffeur Only)"
+      : SEVEN_DAY_ITINERARY_DATA.map(day => {
+          const chosenId = selectedHotels[day.day];
+          const hotel = day.hotelOptions.find(h => h.id === chosenId);
+          return `• Day ${day.day} (${day.nightLocation}): ${hotel ? hotel.name : "Standard Stays"}`;
+        }).join("\n");
+
+    const flightSummary = needFlightQuote
+      ? `Yes, please quote flights from ${departureCity.trim() || "my departure city"}`
+      : "Not needed (Booking flights independently)";
 
     const message = `🌟 *New 7-Day Sri Lanka Booking Request!* 🌟
 -----------------------------------------
@@ -376,16 +386,19 @@ export default function SevenDayFunnelModal({ isOpen, onClose }: SevenDayFunnelM
 • Duration: ${days} Days
 • Travel Month: ${selectedMonth}
 • Group Size: ${groupType} (${travelerCount} Pax ${groupType === "Family / Friends" ? `- ${adultCount} Adults, ${childCount} Children` : ""})
+• Package Scope: ${packageScope === "complete_package" ? "Complete Land Package (Driver + 4★ Stays & Breakfast)" : "Private Chauffeur Only (Transport Only)"}
+• Flight Assistance: ${flightSummary}
 
-🏨 *Selected Hotels (LKR 20,000 / Night Standard):*
+🏨 *Accommodation Plan:*
 ${hotelSummaryLines}
 
 🚗 *Included Private Driver Service:*
 • Dedicated English-speaking Tourist Chauffeur
 • Air-conditioned vehicle, fuel, highway expressway tolls & driver accommodation included.
 
-💰 *Estimated Package Budget:*
-• Total: ${formatCost(totalBudgetLkr)} (${currency})
+💰 *Estimated Budget Breakdown (${currency}):*
+• Driver & Vehicle: ${formatCost(privateDriverCostLkr)}
+${packageScope === "complete_package" ? `• 4★ Hotels & Stays: ${formatCost(totalHotelCostLkr)}\n• Key Activities: ${formatCost(estimatedActivitiesLkr)}\n` : ""}• Total Estimated: ${formatCost(totalBudgetLkr)}
 
 📝 *Notes/Special Wishes:* ${specialRequests || "None"}
 
@@ -595,6 +608,50 @@ Please confirm hotel availability and finalize our 7-day Sri Lanka booking!`;
                       )}
                     </div>
 
+                    {/* Package Scope Selector */}
+                    <div>
+                      <label className="text-xs uppercase font-mono font-bold tracking-wider text-[#0F1412]/60 block mb-2 flex items-center gap-1.5">
+                        <Building className="w-4 h-4 text-[#C5A059]" /> Package Scope:
+                      </label>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setPackageScope("complete_package")}
+                          className={`p-3 rounded-2xl text-left border cursor-pointer transition-all ${
+                            packageScope === "complete_package"
+                              ? "bg-[#1A2F23] text-white border-[#1A2F23] shadow-sm"
+                              : "bg-[#FAF8F5] text-[#0F1412]/80 border-[#0F1412]/10 hover:border-[#C5A059]/40"
+                          }`}
+                        >
+                          <div className="font-bold text-xs flex items-center justify-between">
+                            <span>🏨 Driver + 4★ Stays</span>
+                            {packageScope === "complete_package" && <Check className="w-3.5 h-3.5 text-[#C5A059]" />}
+                          </div>
+                          <p className={`text-[11px] mt-1 ${packageScope === "complete_package" ? "text-white/70" : "text-[#0F1412]/60"}`}>
+                            Complete land package with daily breakfast & 4★ sea view stays.
+                          </p>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => setPackageScope("driver_only")}
+                          className={`p-3 rounded-2xl text-left border cursor-pointer transition-all ${
+                            packageScope === "driver_only"
+                              ? "bg-[#1A2F23] text-white border-[#1A2F23] shadow-sm"
+                              : "bg-[#FAF8F5] text-[#0F1412]/80 border-[#0F1412]/10 hover:border-[#C5A059]/40"
+                          }`}
+                        >
+                          <div className="font-bold text-xs flex items-center justify-between">
+                            <span>🚗 Driver Only</span>
+                            {packageScope === "driver_only" && <Check className="w-3.5 h-3.5 text-[#C5A059]" />}
+                          </div>
+                          <p className={`text-[11px] mt-1 ${packageScope === "driver_only" ? "text-white/70" : "text-[#0F1412]/60"}`}>
+                            Dedicated vehicle, fuel & tolls. You book hotels separately.
+                          </p>
+                        </button>
+                      </div>
+                    </div>
+
                     {/* Currency selector chips */}
                     <div>
                       <label className="text-xs uppercase font-mono font-bold tracking-wider text-[#0F1412]/60 block mb-2 flex items-center gap-1.5">
@@ -625,10 +682,10 @@ Please confirm hotel availability and finalize our 7-day Sri Lanka booking!`;
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-mono tracking-widest uppercase text-[#C5A059] font-bold">
-                          Estimated Total Budget
+                          {packageScope === "complete_package" ? "Estimated Land Package Budget" : "Chauffeur & Transport Budget"}
                         </span>
                         <span className="bg-[#C5A059]/20 text-[#C5A059] text-[10px] font-mono px-2.5 py-0.5 rounded-full border border-[#C5A059]/30">
-                          7 Days / 6 Nights
+                          {packageScope === "complete_package" ? "7 Days / 6 Nights" : "7 Days Private Car"}
                         </span>
                       </div>
 
@@ -643,18 +700,36 @@ Please confirm hotel availability and finalize our 7-day Sri Lanka booking!`;
 
                       {/* Transparent cost breakdown */}
                       <div className="space-y-2 pt-3 border-t border-white/10 text-xs">
-                        <div className="flex justify-between text-white/80">
-                          <span>🏨 Stays ({hotelNightsCount} Nights @ LKR 20,000):</span>
-                          <span className="font-mono font-bold text-[#C5A059]">{formatCost(totalHotelCostLkr)}</span>
-                        </div>
-                        <div className="flex justify-between text-white/80">
-                          <span>🚗 Private Chauffeur & AC Vehicle (7 Days):</span>
-                          <span className="font-mono font-bold text-[#C5A059]">{formatCost(privateDriverCostLkr)}</span>
-                        </div>
-                        <div className="flex justify-between text-white/80">
-                          <span>🎫 Sightseeing & Park Fees (Estimated):</span>
-                          <span className="font-mono font-bold text-[#C5A059]">{formatCost(estimatedActivitiesLkr)}</span>
-                        </div>
+                        {packageScope === "complete_package" ? (
+                          <>
+                            <div className="flex justify-between text-white/80">
+                              <span>🏨 4★ Stays ({hotelNightsCount} Nights @ LKR 20k):</span>
+                              <span className="font-mono font-bold text-[#C5A059]">{formatCost(totalHotelCostLkr)}</span>
+                            </div>
+                            <div className="flex justify-between text-white/80">
+                              <span>🚗 Private Chauffeur & AC Car (7 Days):</span>
+                              <span className="font-mono font-bold text-[#C5A059]">{formatCost(privateDriverCostLkr)}</span>
+                            </div>
+                            <div className="flex justify-between text-white/80">
+                              <span>🎫 Sightseeing & Park Fees (Estimated):</span>
+                              <span className="font-mono font-bold text-[#C5A059]">{formatCost(estimatedActivitiesLkr)}</span>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="flex justify-between text-white/80">
+                              <span>🚗 Dedicated Chauffeur & AC Vehicle (7 Days):</span>
+                              <span className="font-mono font-bold text-[#C5A059]">{formatCost(privateDriverCostLkr)}</span>
+                            </div>
+                            <div className="flex justify-between text-white/60">
+                              <span>🏨 Hotel Accommodation:</span>
+                              <span className="font-mono text-white/60">Self-Booked (Not Included)</span>
+                            </div>
+                            <div className="p-2.5 bg-white/10 rounded-xl text-[11px] text-[#C5A059] leading-relaxed">
+                              💡 Private chauffeur covers vehicle, all fuel, expressway tolls & driver accommodation/meals across Sri Lanka.
+                            </div>
+                          </>
+                        )}
                       </div>
 
                       <div className="p-3 bg-white/5 rounded-xl border border-white/10 text-[11px] text-white/70 leading-relaxed">
@@ -810,6 +885,22 @@ Please confirm hotel availability and finalize our 7-day Sri Lanka booking!`;
                   </p>
                 </div>
 
+                {packageScope === "driver_only" && (
+                  <div className="p-4 bg-amber-50 border border-amber-200 rounded-2xl text-xs text-amber-900 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+                    <div>
+                      <strong className="block text-amber-950 font-bold mb-0.5">🚗 Transport-Only Selection Active:</strong>
+                      You have selected "Driver Only" in Step 1. Hotel accommodations are excluded. If you prefer our team to book and manage these 4-Star Sea View stays for you with daily breakfast, switch to the complete package below:
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setPackageScope("complete_package")}
+                      className="px-4 py-2 bg-[#1A2F23] hover:bg-[#C5A059] text-white rounded-xl text-xs font-bold shrink-0 cursor-pointer transition-all"
+                    >
+                      Include 4★ Stays
+                    </button>
+                  </div>
+                )}
+
                 {/* Night-by-night hotel cards */}
                 <div className="space-y-6">
                   {SEVEN_DAY_ITINERARY_DATA.map((day) => {
@@ -954,8 +1045,10 @@ Please confirm hotel availability and finalize our 7-day Sri Lanka booking!`;
                     {/* Param cards */}
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       <div className="p-3 bg-[#FAF8F5] rounded-xl border border-[#0F1412]/5">
-                        <span className="text-[10px] font-mono text-gray-400 block uppercase">Travel Month</span>
-                        <strong className="text-[#1A2F23]">{selectedMonth} 2026</strong>
+                        <span className="text-[10px] font-mono text-gray-400 block uppercase">Package Type</span>
+                        <strong className="text-[#1A2F23]">
+                          {packageScope === "complete_package" ? "Driver + 4★ Stays" : "Driver Only"}
+                        </strong>
                       </div>
                       <div className="p-3 bg-[#FAF8F5] rounded-xl border border-[#0F1412]/5">
                         <span className="text-[10px] font-mono text-gray-400 block uppercase">Travelers</span>
@@ -963,26 +1056,32 @@ Please confirm hotel availability and finalize our 7-day Sri Lanka booking!`;
                       </div>
                     </div>
 
-                    {/* Stays list */}
+                    {/* Stays list or Transport note */}
                     <div className="space-y-2">
                       <span className="text-[11px] font-mono uppercase font-bold tracking-wider text-[#0F1412]/60 block">
-                        Confirmed Night Stays:
+                        {packageScope === "complete_package" ? "Confirmed Night Stays:" : "Accommodation Status:"}
                       </span>
-                      <div className="space-y-1.5 text-xs max-h-48 overflow-y-auto pr-1">
-                        {SEVEN_DAY_ITINERARY_DATA.map(day => {
-                          const hotel = day.hotelOptions.find(h => h.id === selectedHotels[day.day]);
-                          return (
-                            <div key={day.day} className="flex justify-between items-center p-2 rounded-lg bg-[#FAF8F5] border border-[#0F1412]/5">
-                              <span className="font-medium text-[#1A2F23]">
-                                <strong>D{day.day} ({day.nightLocation}):</strong> {hotel?.name}
-                              </span>
-                              <span className="text-[11px] font-mono text-[#C5A059] font-bold shrink-0">
-                                {hotel?.pricePerNightLkr === 0 ? "Flight" : "LKR 20k"}
-                              </span>
-                            </div>
-                          );
-                        })}
-                      </div>
+                      {packageScope === "complete_package" ? (
+                        <div className="space-y-1.5 text-xs max-h-48 overflow-y-auto pr-1">
+                          {SEVEN_DAY_ITINERARY_DATA.map(day => {
+                            const hotel = day.hotelOptions.find(h => h.id === selectedHotels[day.day]);
+                            return (
+                              <div key={day.day} className="flex justify-between items-center p-2 rounded-lg bg-[#FAF8F5] border border-[#0F1412]/5">
+                                <span className="font-medium text-[#1A2F23]">
+                                  <strong>D{day.day} ({day.nightLocation}):</strong> {hotel?.name}
+                                </span>
+                                <span className="text-[11px] font-mono text-[#C5A059] font-bold shrink-0">
+                                  {hotel?.pricePerNightLkr === 0 ? "Flight" : "LKR 20k"}
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <div className="p-3 bg-amber-50/70 rounded-xl border border-amber-200/60 text-xs text-amber-900 leading-relaxed">
+                          🏨 <strong>Self-Arranged Stays:</strong> You have chosen chauffeur transport only. You are free to book any hotels, homestays, or Airbnbs directly.
+                        </div>
+                      )}
                     </div>
 
                     {/* Inclusions */}
@@ -998,7 +1097,9 @@ Please confirm hotel availability and finalize our 7-day Sri Lanka booking!`;
                     {/* Total */}
                     <div className="p-4 bg-[#1A2F23] text-white rounded-2xl flex items-center justify-between">
                       <div>
-                        <span className="text-[10px] font-mono uppercase text-[#C5A059] block font-bold">Total Estimated Budget</span>
+                        <span className="text-[10px] font-mono uppercase text-[#C5A059] block font-bold">
+                          {packageScope === "complete_package" ? "Total Estimated Budget" : "Total Driver & Car Budget"}
+                        </span>
                         <span className="text-2xl font-serif font-bold text-white">{formatCost(totalBudgetLkr)}</span>
                       </div>
                       <span className="text-xs font-mono text-[#C5A059] bg-[#C5A059]/20 px-3 py-1 rounded-full border border-[#C5A059]/30">
@@ -1059,6 +1160,36 @@ Please confirm hotel availability and finalize our 7-day Sri Lanka booking!`;
                           placeholder="e.g. name@example.com"
                           className="w-full p-3 bg-[#FAF8F5] border border-[#0F1412]/15 rounded-xl text-xs focus:outline-none focus:border-[#C5A059]"
                         />
+                      </div>
+
+                      {/* Flight Quote Assistance Toggle */}
+                      <div className="p-3 bg-[#FAF8F5] rounded-xl border border-[#0F1412]/10 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <label className="text-xs font-mono font-bold text-[#1A2F23] flex items-center gap-1.5 cursor-pointer">
+                            <Plane className="w-3.5 h-3.5 text-[#C5A059]" />
+                            <span>Include Flight Price Assistance?</span>
+                          </label>
+                          <input
+                            type="checkbox"
+                            checked={needFlightQuote}
+                            onChange={(e) => setNeedFlightQuote(e.target.checked)}
+                            className="w-4 h-4 text-[#C5A059] rounded cursor-pointer"
+                          />
+                        </div>
+                        <p className="text-[10px] text-gray-500">
+                          We can suggest best direct flight routes (IndiGo, Air India, SriLankan Airlines) alongside your land package.
+                        </p>
+                        {needFlightQuote && (
+                          <div className="pt-1">
+                            <input
+                              type="text"
+                              value={departureCity}
+                              onChange={(e) => setDepartureCity(e.target.value)}
+                              placeholder="e.g. Mumbai (BOM), Chennai (MAA), Delhi (DEL), London"
+                              className="w-full p-2.5 bg-white border border-[#0F1412]/15 rounded-lg text-xs focus:outline-none focus:border-[#C5A059]"
+                            />
+                          </div>
+                        )}
                       </div>
 
                       <div className="space-y-1 text-xs">
