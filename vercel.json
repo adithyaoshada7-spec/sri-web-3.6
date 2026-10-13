@@ -1,13 +1,15 @@
 {
-  "version": 2,
-  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/sitemap.xml",
       "destination": "/sitemap.xml"
     },
     {
-      "source": "/((?!assets|sitemap\\.xml|robots\\.txt|.*\\.(?:js|css|png|jpg|jpeg|gif|webp|ico|svg|ttf|woff|woff2)).*)$",
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
