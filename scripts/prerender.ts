@@ -2361,6 +2361,58 @@ function generatePrerenderPages(): PrerenderPage[] {
     ]
   });
 
+  // 37. Plan My Trip AI Route Planner
+  pages.push({
+    path: "/plan-my-trip",
+    title: "Plan My Trip Sri Lanka | AI Route Builder & Instant Budget Breakdown",
+    description: "Type your dream journey and target budget to generate an optimal Sri Lanka route, verified driving times, dedicated chauffeur cost, and 4★ sea view hotel breakdown in seconds.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "website",
+    canonicalUrl: `${domain}/plan-my-trip`,
+    bodyHtml: `
+      <header>
+        <h1>Plan My Trip Sri Lanka | AI Route Builder & Instant Budget Breakdown</h1>
+        <p><strong>Type your dream journey and target budget to generate an optimal Sri Lanka route, verified driving times, dedicated chauffeur cost, and 4★ sea view hotel breakdown in seconds.</strong></p>
+      </header>
+      <section>
+        <h2>Hybrid AI + Sri Lanka Geographic Constraints Engine</h2>
+        <p>Generic AI bots fail by suggesting impossible 8-hour drives across mountain passes. Our engine guarantees:</p>
+        <ul>
+          <li><strong>Pacing Safety:</strong> Maximum 3.5 hours driving per day.</li>
+          <li><strong>Real Chauffeur Rates:</strong> All-inclusive dedicated AC vehicle, fuel, highway tolls, and driver lodging.</li>
+          <li><strong>Handpicked 4★ Sea View Stays:</strong> Verified oceanfront and heritage boutique resorts with daily breakfast.</li>
+          <li><strong>Instant Multi-Currency Calculations:</strong> Exact breakdowns in INR (₹), USD ($), EUR (€), GBP (£), and LKR.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>How It Works</h2>
+        <p>Describe your dates, group size, and favorite vibes (wildlife, beaches, culture, tea hills) to generate an actionable day-by-day blueprint and lock it with a single click to our WhatsApp concierge.</p>
+      </section>
+    `,
+    schemas: [
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Plan My Trip - Sri Lanka AI Route Builder",
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "All",
+        "url": `${domain}/plan-my-trip`,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }, null, 2),
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "Plan Sri Lanka",
+        "url": `${domain}/plan-my-trip`,
+        "priceRange": "$$"
+      }, null, 2)
+    ]
+  });
+
   return pages;
 }
 

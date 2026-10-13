@@ -314,5 +314,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "0.95"
+  },
+  {
+    path: "/plan-my-trip",
+    title: "Plan My Trip Sri Lanka | AI Route Builder & Instant Budget Breakdown",
+    description: "Type your dream journey and target budget to generate an optimal Sri Lanka route, verified driving times, dedicated chauffeur cost, and 4★ sea view hotel breakdown in seconds.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "1.0"
   }
 ];
