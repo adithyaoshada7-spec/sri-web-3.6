@@ -34,6 +34,7 @@ import {
 } from "../lib/tripRuleEngine";
 import { parseTripPrompt, ParsedTripResult } from "../lib/tripAiParser";
 import InteractiveRouteFunnelModal from "./InteractiveRouteFunnelModal";
+import InteractiveDarkRouteMap from "./InteractiveDarkRouteMap";
 
 const PRESET_PROMPTS = [
   {
@@ -85,6 +86,7 @@ export default function PlanMyTripPage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [simulationIndex, setSimulationIndex] = useState(0);
   const [result, setResult] = useState<ParsedTripResult | null>(null);
+  const [selectedDay, setSelectedDay] = useState<number | null>(null);
   const [isFunnelOpen, setIsFunnelOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -499,6 +501,37 @@ Please confirm hotel availability and assign our dedicated local chauffeur!`;
 
           </div>
 
+          {/* INTERACTIVE MIDNIGHT NAVY ROUTE MAP */}
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <span className="text-xs font-mono font-bold text-[#D4AF37] uppercase tracking-wider block">
+                  Geographic Route Visualization
+                </span>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1F3D2B]">
+                  Interactive Island Map & Flight Gateways
+                </h3>
+              </div>
+              <p className="text-xs font-mono text-[#7A7365]">
+                Real road pacing enforced: ≤ 3.5 hrs drive time per day
+              </p>
+            </div>
+
+            <InteractiveDarkRouteMap
+              itinerary={result.itinerary}
+              currencyCode={result.breakdown.currency}
+              departureCity={result.intent.departureCity || "Mumbai"}
+              selectedDay={selectedDay}
+              onSelectDay={(dayNum) => {
+                setSelectedDay(dayNum);
+                const el = document.getElementById(`day-card-${dayNum}`);
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
+              }}
+            />
+          </div>
+
           {/* DAY-BY-DAY VISUAL ROUTE TIMELINE */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
@@ -519,7 +552,12 @@ Please confirm hotel availability and assign our dedicated local chauffeur!`;
               {result.itinerary.map((day) => (
                 <div
                   key={day.day}
-                  className="bg-white rounded-2xl p-5 sm:p-6 border border-[#E8E4D9] shadow-xs hover:border-[#1F3D2B]/30 transition-all space-y-4"
+                  id={`day-card-${day.day}`}
+                  className={`bg-white rounded-2xl p-5 sm:p-6 border transition-all space-y-4 ${
+                    selectedDay === day.day
+                      ? "border-[#D4AF37] ring-2 ring-[#D4AF37]/20 shadow-md"
+                      : "border-[#E8E4D9] shadow-xs hover:border-[#1F3D2B]/30"
+                  }`}
                 >
                   {/* Top Day Header */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#E8E4D9]/60 gap-2">

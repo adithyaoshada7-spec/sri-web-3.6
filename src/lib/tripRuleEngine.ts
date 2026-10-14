@@ -87,21 +87,70 @@ export interface HubNode {
   region: "coastal" | "cultural" | "highland" | "wildlife" | "urban" | "north";
   recommendedNights: number;
   highlight: string;
+  lat: number;
+  lng: number;
+  priceLkr?: number;
 }
 
 export const SRI_LANKA_HUBS: Record<string, HubNode> = {
-  negombo: { id: "negombo", name: "Negombo & Airport CMB", region: "coastal", recommendedNights: 1, highlight: "Lagoon & soft beach arrival" },
-  sigiriya: { id: "sigiriya", name: "Sigiriya & Cultural Triangle", region: "cultural", recommendedNights: 2, highlight: "Lion Rock & Pidurangala sunset" },
-  kandy: { id: "kandy", name: "Kandy Sacred Hills", region: "cultural", recommendedNights: 1, highlight: "Temple of the Tooth & Botanic Gardens" },
-  nuwara_eliya: { id: "nuwara_eliya", name: "Nuwara Eliya (Little England)", region: "highland", recommendedNights: 1, highlight: "Tea estates & colonial bungalows" },
-  ella: { id: "ella", name: "Ella Scenic Highlands", region: "highland", recommendedNights: 2, highlight: "Nine Arch Bridge & scenic blue train" },
-  yala: { id: "yala", name: "Yala National Park", region: "wildlife", recommendedNights: 1, highlight: "Leopard safaris & wild elephant lakes" },
-  mirissa: { id: "mirissa", name: "Mirissa & Southern Beaches", region: "coastal", recommendedNights: 2, highlight: "Golden sea view beach & whale watching" },
-  galle: { id: "galle", name: "Galle Dutch Fort", region: "coastal", recommendedNights: 1, highlight: "UNESCO cobblestone fortress ramparts" },
-  bentota: { id: "bentota", name: "Bentota Golden Coast", region: "coastal", recommendedNights: 2, highlight: "Water sports & tranquil sea-view resorts" },
-  trincomalee: { id: "trincomalee", name: "Trincomalee & Nilaveli", region: "coastal", recommendedNights: 2, highlight: "Turquoise shallow bays & Pigeon Island" },
-  colombo: { id: "colombo", name: "Colombo Marina & City", region: "urban", recommendedNights: 1, highlight: "Galle Face Green & dining at Ministry of Crab" }
+  negombo: { id: "negombo", name: "Negombo & Airport CMB", region: "coastal", recommendedNights: 1, highlight: "Lagoon & soft beach arrival", lat: 7.2008, lng: 79.8737, priceLkr: 68000 },
+  sigiriya: { id: "sigiriya", name: "Sigiriya & Cultural Triangle", region: "cultural", recommendedNights: 2, highlight: "Lion Rock & Pidurangala sunset", lat: 7.9570, lng: 80.7603, priceLkr: 72000 },
+  kandy: { id: "kandy", name: "Kandy Sacred Hills", region: "cultural", recommendedNights: 1, highlight: "Temple of the Tooth & Botanic Gardens", lat: 7.2906, lng: 80.6337, priceLkr: 70000 },
+  nuwara_eliya: { id: "nuwara_eliya", name: "Nuwara Eliya (Little England)", region: "highland", recommendedNights: 1, highlight: "Tea estates & colonial bungalows", lat: 6.9497, lng: 80.7891, priceLkr: 75000 },
+  ella: { id: "ella", name: "Ella Scenic Highlands", region: "highland", recommendedNights: 2, highlight: "Nine Arch Bridge & scenic blue train", lat: 6.8667, lng: 81.0466, priceLkr: 74000 },
+  yala: { id: "yala", name: "Yala National Park", region: "wildlife", recommendedNights: 1, highlight: "Leopard safaris & wild elephant lakes", lat: 6.3686, lng: 81.5204, priceLkr: 85000 },
+  mirissa: { id: "mirissa", name: "Mirissa & Southern Beaches", region: "coastal", recommendedNights: 2, highlight: "Golden sea view beach & whale watching", lat: 5.9483, lng: 80.4716, priceLkr: 69000 },
+  galle: { id: "galle", name: "Galle Dutch Fort", region: "coastal", recommendedNights: 1, highlight: "UNESCO cobblestone fortress ramparts", lat: 6.0535, lng: 80.2210, priceLkr: 76000 },
+  bentota: { id: "bentota", name: "Bentota Golden Coast", region: "coastal", recommendedNights: 2, highlight: "Water sports & tranquil sea-view resorts", lat: 6.4259, lng: 79.9958, priceLkr: 72000 },
+  trincomalee: { id: "trincomalee", name: "Trincomalee & Nilaveli", region: "coastal", recommendedNights: 2, highlight: "Turquoise shallow bays & Pigeon Island", lat: 8.5874, lng: 81.2152, priceLkr: 78000 },
+  colombo: { id: "colombo", name: "Colombo Marina & City", region: "urban", recommendedNights: 1, highlight: "Galle Face Green & dining at Ministry of Crab", lat: 6.9271, lng: 79.8612, priceLkr: 79473 },
+  jaffna: { id: "jaffna", name: "Jaffna Peninsula & North", region: "north", recommendedNights: 2, highlight: "Nallur Kovil & Casuarina Beach", lat: 9.6615, lng: 80.0255, priceLkr: 82813 }
 };
+
+// Regional Origin & Transit Airports (as shown in Flight Radar / Google Flights view)
+export interface RegionalAirportNode {
+  id: string;
+  code: string;
+  name: string;
+  city: string;
+  country: string;
+  lat: number;
+  lng: number;
+  priceLkr: number;
+  highlightRoute?: boolean;
+}
+
+export const REGIONAL_AIRPORTS: RegionalAirportNode[] = [
+  { id: "colombo", code: "CMB", name: "Bandaranaike Int'l", city: "Colombo", country: "Sri Lanka", lat: 6.9271, lng: 79.8612, priceLkr: 79473, highlightRoute: true },
+  { id: "jaffna", code: "JAF", name: "Jaffna Int'l", city: "Jaffna", country: "Sri Lanka", lat: 9.6615, lng: 80.0255, priceLkr: 82813 },
+  { id: "kochi", code: "COK", name: "Cochin Int'l", city: "Kochi", country: "India", lat: 9.9312, lng: 76.2673, priceLkr: 45073 },
+  { id: "madurai", code: "IXM", name: "Madurai Airport", city: "Madurai", country: "India", lat: 9.9252, lng: 78.1198, priceLkr: 46071 },
+  { id: "thiruvananthapuram", code: "TRV", name: "Trivandrum Int'l", city: "Thiruvananthapuram", country: "India", lat: 8.5241, lng: 76.9366, priceLkr: 48716 },
+  { id: "tiruchirappalli", code: "TRZ", name: "Tiruchirappalli Int'l", city: "Tiruchirappalli", country: "India", lat: 10.7905, lng: 78.7047, priceLkr: 46073 },
+  { id: "chennai", code: "MAA", name: "Chennai Int'l", city: "Chennai", country: "India", lat: 13.0827, lng: 80.2707, priceLkr: 54635 },
+  { id: "coimbatore", code: "CJB", name: "Coimbatore Int'l", city: "Coimbatore", country: "India", lat: 11.0168, lng: 76.9558, priceLkr: 60771 },
+  { id: "kozhikode", code: "CCJ", name: "Calicut Int'l", city: "Kozhikode", country: "India", lat: 11.2588, lng: 75.7804, priceLkr: 60490 },
+  { id: "bengaluru", code: "BLR", name: "Kempegowda Int'l", city: "Bengaluru", country: "India", lat: 12.9716, lng: 77.5946, priceLkr: 55274 },
+  { id: "mangaluru", code: "IXE", name: "Mangaluru Int'l", city: "Mangaluru", country: "India", lat: 12.9141, lng: 74.8560, priceLkr: 60000 },
+  { id: "mumbai", code: "BOM", name: "Chhatrapati Shivaji Maharaj", city: "Mumbai", country: "India", lat: 19.0760, lng: 72.8777, priceLkr: 68500 }
+];
+
+export function getCoordinatesForDestination(dest: string): { lat: number; lng: number } {
+  const d = dest.toLowerCase();
+  if (d.includes("negombo") || d.includes("airport") || d.includes("cmb")) return { lat: 7.2008, lng: 79.8737 };
+  if (d.includes("sigiriya") || d.includes("dambulla") || d.includes("triangle")) return { lat: 7.9570, lng: 80.7603 };
+  if (d.includes("kandy")) return { lat: 7.2906, lng: 80.6337 };
+  if (d.includes("nuwara eliya") || d.includes("little england")) return { lat: 6.9497, lng: 80.7891 };
+  if (d.includes("ella")) return { lat: 6.8667, lng: 81.0466 };
+  if (d.includes("yala") || d.includes("tissa")) return { lat: 6.3686, lng: 81.5204 };
+  if (d.includes("mirissa") || d.includes("weligama")) return { lat: 5.9483, lng: 80.4716 };
+  if (d.includes("galle")) return { lat: 6.0535, lng: 80.2210 };
+  if (d.includes("bentota")) return { lat: 6.4259, lng: 79.9958 };
+  if (d.includes("trincomalee") || d.includes("nilaveli")) return { lat: 8.5874, lng: 81.2152 };
+  if (d.includes("colombo")) return { lat: 6.9271, lng: 79.8612 };
+  if (d.includes("jaffna")) return { lat: 9.6615, lng: 80.0255 };
+  return { lat: 7.2008, lng: 79.8737 };
+}
 
 // Driving times between nodes (in hours)
 export const DRIVING_HOURS_MATRIX: Record<string, Record<string, number>> = {
@@ -187,6 +236,8 @@ export interface DayItineraryItem {
   hotelCategory: string;
   hotelBadge: string;
   hotelPriceLkr: number;
+  lat?: number;
+  lng?: number;
 }
 
 export interface BudgetBreakdown {
@@ -249,6 +300,17 @@ export function buildOptimalItinerary(intent: ParsedTripIntent): DayItineraryIte
   const days = Math.max(3, Math.min(14, intent.days || 6));
   const items: DayItineraryItem[] = [];
 
+  const enrichWithCoordinates = (list: DayItineraryItem[]): DayItineraryItem[] => {
+    return list.map((item) => {
+      const coords = getCoordinatesForDestination(item.destination || item.nightLocation);
+      return {
+        ...item,
+        lat: coords.lat,
+        lng: coords.lng
+      };
+    });
+  };
+
   // 3-Day Express Coastal / Triangle Route
   if (days <= 4) {
     items.push({
@@ -299,7 +361,7 @@ export function buildOptimalItinerary(intent: ParsedTripIntent): DayItineraryIte
       hotelBadge: "✈️ Same-Day Departure",
       hotelPriceLkr: 0
     });
-    return items;
+    return enrichWithCoordinates(items);
   }
 
   // 5 to 7 Day Classic Loop: Negombo -> Sigiriya -> Kandy -> Ella -> Galle/Mirissa -> Colombo
@@ -602,7 +664,7 @@ export function buildOptimalItinerary(intent: ParsedTripIntent): DayItineraryIte
     hotelPriceLkr: 0
   });
 
-  return items;
+  return enrichWithCoordinates(items);
 }
 
 /**
