@@ -248,6 +248,29 @@ export default function SrilankaAugustCouplesPage() {
             </span>
           </div>
 
+          {/* UK Summer Holidaymakers Banner */}
+          <div className="mt-8 max-w-2xl mx-auto p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-xs text-white/90 text-left flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5">
+              <span className="text-lg">🇬🇧</span>
+              <span>
+                Flying in from the UK for the August holiday? Explore our tailored{" "}
+                <Link
+                  to="/10-day-sri-lanka-itinerary-uk"
+                  className="font-bold underline decoration-[#d4af37] text-white hover:text-[#d4af37] transition-colors"
+                >
+                  10 to 14-day Sri Lanka itinerary and travel guide for UK travellers
+                </Link>{" "}
+                with direct Heathrow flight details and £ GBP budgets.
+              </span>
+            </div>
+            <Link
+              to="/10-day-sri-lanka-itinerary-uk"
+              className="shrink-0 px-3 py-1.5 rounded-lg bg-[#d4af37] text-[#0d2235] font-mono font-bold text-[11px] hover:bg-[#c49f2f] transition-all"
+            >
+              UK Guide →
+            </Link>
+          </div>
+
           <div className="mt-10">
             <button
               id="plan-trip-cta"

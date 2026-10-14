@@ -1058,9 +1058,11 @@ export default function SrilankaTripPlannerPillarPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { title: "7-Day Sri Lanka Classic Itinerary", desc: "Our flagship ready-to-use first trip roadmap.", link: "/sri-lanka-7-day-itinerary" },
-                  { title: "Sri Lanka Visa ETA Guide for Indians", desc: "Official steps to register entry clearance waivers.", link: "/sri-lanka-visa-for-indians" },
+                  { title: "10 to 14-Day Sri Lanka Guide for UK Travellers", desc: "Heathrow flights, UK 3-pin plugs, and £ GBP budgets.", link: "/10-day-sri-lanka-itinerary-uk" },
+                  { title: "Instant AI Trip Route & Budget Planner", desc: "Simulate driving pacing, chauffeur costs, and 4★ sea view stays.", link: "/plan-my-trip" },
                   { title: "Sri Lanka Family Itinerary (Kids Focus)", desc: "Slow-paced routing sheets designed with kid safety.", link: "/sri-lanka-family-itinerary" },
-                  { title: "Sri Lanka Month-by-Month Weather", desc: "Demystifying dual monsoonal rain patterns.", link: "/best-time-to-visit-sri-lanka" }
+                  { title: "Sri Lanka Month-by-Month Weather", desc: "Demystifying dual monsoonal rain patterns.", link: "/best-time-to-visit-sri-lanka" },
+                  { title: "Sri Lanka Visa ETA Requirements", desc: "Official steps to register online travel authorization.", link: "/sri-lanka-visa-for-indians" }
                 ].map((node, index) => (
                   <Link 
                     to={node.link} 

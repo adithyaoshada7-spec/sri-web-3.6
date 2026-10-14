@@ -2413,6 +2413,55 @@ function generatePrerenderPages(): PrerenderPage[] {
     ]
   });
 
+  // 38. UK Travellers 10 to 14 Day Itinerary & Travel Guide
+  pages.push({
+    path: "/10-day-sri-lanka-itinerary-uk",
+    title: "10 to 14-Day Sri Lanka Itinerary & Travel Guide for UK Travellers (2026)",
+    description: "The definitive Sri Lanka 10-day itinerary for British visitors. Covers direct flights from London Heathrow, UK 3-pin plugs, private chauffeur costs in GBP (£), Sigiriya, the blue train to Ella, Yala safaris, and Galle Fort.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    canonicalUrl: `${domain}/10-day-sri-lanka-itinerary-uk`,
+    bodyHtml: `
+      <header>
+        <h1>10 to 14-Day Sri Lanka Itinerary & Travel Guide for UK Travellers</h1>
+        <p><strong>The definitive holiday guide for British travellers visiting Sri Lanka. Direct flights from London Heathrow, UK 3-pin plugs, private chauffeur costs in GBP (£), Sigiriya, the blue train to Ella, Yala safaris, and Galle Fort.</strong></p>
+      </header>
+      <section>
+        <h2>Why Sri Lanka is Ideally Suited for UK Travellers</h2>
+        <ul>
+          <li><strong>Direct Flights:</strong> SriLankan Airlines operates nonstop flights from London Heathrow (LHR) to Colombo (CMB) in 10.5 hours. Excellent 1-stop connections via Qatar Airways and Emirates from Gatwick, Manchester, and Birmingham.</li>
+          <li><strong>UK 3-Pin Plugs:</strong> Standard British rectangular 3-pin Type G sockets are used across Sri Lanka. No adapters required.</li>
+          <li><strong>Driving on the Left:</strong> Traffic operates on the left-hand side, exactly like the UK. Private chauffeured cars cost approximately £30 - £35 per day.</li>
+          <li><strong>Low Jetlag:</strong> Only +4.5 hours ahead during British Summer Time (BST) and +5.5 hours in winter (GMT).</li>
+        </ul>
+      </section>
+      <section>
+        <h2>10-Day Classic UK Itinerary Overview</h2>
+        <ol>
+          <li>Day 1: London to Colombo CMB ➔ Negombo Coastal Lagoon Unwind</li>
+          <li>Day 2: Dambulla Cave Temples ➔ Sigiriya Lion Rock Golden Hour</li>
+          <li>Day 3: Minneriya Wild Elephant Gathering ➔ Pidurangala Sunset View</li>
+          <li>Day 4: Matale Spice belt ➔ Kandy Sacred Temple of the Tooth</li>
+          <li>Day 5: Nuwara Eliya 'Little England' & Colonial Ceylon Tea Trails</li>
+          <li>Day 6: Scenic Blue Mountain Train ➔ Ella Nine Arch Bridge</li>
+          <li>Day 7: Little Adam's Peak sunrise ➔ Yala National Park Leopard Safari</li>
+          <li>Day 8: Weligama Surf ➔ Mirissa Sunset Coconut Tree Hill</li>
+          <li>Day 9: UNESCO Galle Dutch Fort Ramparts & Living History</li>
+          <li>Day 10: Colombo Galle Face Green ➔ Farewell Dinner ➔ Flight to London</li>
+        </ol>
+      </section>
+    `,
+    schemas: [
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "TouristTrip",
+        "name": "10-Day Sri Lanka Itinerary for UK Travellers",
+        "description": "The definitive 10 to 14-day holiday blueprint for British holidaymakers with direct flights from London Heathrow, UK 3-pin plugs, and £ GBP budgets.",
+        "touristType": ["UK Travellers", "Couples", "Families"]
+      }, null, 2)
+    ]
+  });
+
   return pages;
 }
 

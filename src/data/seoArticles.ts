@@ -323,5 +323,14 @@ export const seoArticles: Seometa[] = [
     ogType: "article",
     changefreq: "weekly",
     priority: "1.0"
+  },
+  {
+    path: "/10-day-sri-lanka-itinerary-uk",
+    title: "10 to 14-Day Sri Lanka Itinerary & Travel Guide for UK Travellers (2026)",
+    description: "The definitive Sri Lanka 10-day itinerary for British visitors. Covers direct flights from London Heathrow, UK 3-pin plugs, private chauffeur costs in GBP (£), Sigiriya, the blue train to Ella, Yala safaris, and Galle Fort.",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=1200&h=630",
+    ogType: "article",
+    changefreq: "weekly",
+    priority: "0.95"
   }
 ];

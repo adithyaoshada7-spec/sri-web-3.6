@@ -790,6 +790,29 @@ export default function SrilankaTenDayItineraryPage() {
             Designed by senior Sri Lankan travel consultants. We optimized the classic Colombo-Sigiriya-Kandy-Highlands-Yala-South Coast route with realistic drive times, zero backtracking, balanced rest days, and transparent budget tiers.
           </p>
 
+          {/* UK Travellers Callout Banner */}
+          <div className="max-w-3xl mx-auto p-4 rounded-2xl bg-amber-50/90 border border-amber-200/80 text-xs sm:text-sm text-amber-950 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+            <div className="flex items-center gap-2.5 text-left">
+              <span className="text-xl">🇬🇧</span>
+              <span>
+                Visiting from the UK? Read our dedicated{" "}
+                <Link
+                  to="/10-day-sri-lanka-itinerary-uk"
+                  className="font-bold underline decoration-[#C5A059] decoration-2 hover:text-[#C5A059] transition-colors"
+                >
+                  10 to 14-day Sri Lanka itinerary & travel guide for UK travellers
+                </Link>{" "}
+                with London Heathrow flight routes, UK 3-pin plug compatibility, and costs priced in British Pounds (£).
+              </span>
+            </div>
+            <Link
+              to="/10-day-sri-lanka-itinerary-uk"
+              className="shrink-0 px-3 py-1.5 bg-[#1A2F23] text-white rounded-lg text-xs font-mono font-bold hover:bg-[#C5A059] hover:text-black transition-all self-start sm:self-auto"
+            >
+              UK Guide →
+            </Link>
+          </div>
+
           {/* Action Toolbar */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4 print:hidden">
             <button
