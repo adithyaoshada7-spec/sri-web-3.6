@@ -10,6 +10,7 @@ interface PlanTripStaysWidgetProps {
   nightsCount?: number;
   currencyCode?: string;
   selectedHotelId?: string;
+  initialStayType?: "hotel" | "rental";
   onSelectHotel: (hotel: HotelListing) => void;
 }
 
@@ -19,9 +20,10 @@ export default function PlanTripStaysWidget({
   nightsCount = 1,
   currencyCode = "LKR",
   selectedHotelId,
+  initialStayType = "hotel",
   onSelectHotel
 }: PlanTripStaysWidgetProps) {
-  const [stayType, setStayType] = useState<"hotel" | "rental">("hotel");
+  const [stayType, setStayType] = useState<"hotel" | "rental">(initialStayType);
   const [hotels, setHotels] = useState<HotelListing[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -222,8 +224,15 @@ export default function PlanTripStaysWidget({
 
                 {/* Middle: Name + Room Type + Stars */}
                 <div className="min-w-0 flex-1 space-y-1">
-                  <div className="text-xs sm:text-sm font-bold text-white truncate leading-tight group-hover:text-[#D4AF37] transition-colors">
-                    {hotel.name}
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="text-xs sm:text-sm font-bold text-white truncate leading-tight group-hover:text-[#D4AF37] transition-colors">
+                      {hotel.name}
+                    </span>
+                    {isSelected && (
+                      <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/40 shrink-0">
+                        🤖 AI Match
+                      </span>
+                    )}
                   </div>
                   <div className="text-[11px] text-gray-300 truncate">
                     {hotel.roomType}

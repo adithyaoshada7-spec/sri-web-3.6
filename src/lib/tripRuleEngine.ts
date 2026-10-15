@@ -236,6 +236,9 @@ export interface DayItineraryItem {
   hotelCategory: string;
   hotelBadge: string;
   hotelPriceLkr: number;
+  hotelImage?: string;
+  hotelRating?: number;
+  hotelReviewCount?: number;
   lat?: number;
   lng?: number;
 }

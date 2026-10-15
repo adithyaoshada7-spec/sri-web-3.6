@@ -30,9 +30,11 @@ import { trackEvent } from "../lib/analytics";
 import {
   CURRENCY_RATES,
   DayItineraryItem,
-  BudgetBreakdown
+  BudgetBreakdown,
+  calculateBudgetBreakdown
 } from "../lib/tripRuleEngine";
 import { parseTripPrompt, ParsedTripResult } from "../lib/tripAiParser";
+import { matchHotelsFromSupabaseForItinerary } from "../lib/tripAiHotelMatcher";
 import InteractiveRouteFunnelModal from "./InteractiveRouteFunnelModal";
 import InteractiveDarkRouteMap from "./InteractiveDarkRouteMap";
 import PlanTripStaysWidget from "./PlanTripStaysWidget";
@@ -102,14 +104,33 @@ export default function PlanMyTripPage() {
     "Computing transparent multi-currency budget & private chauffeur allocation..."
   ];
 
-  // Initial generation on component mount
+  // Initial generation on component mount with asynchronous Supabase hotel matching
   useEffect(() => {
     window.scrollTo(0, 0);
     const initialParsed = parseTripPrompt(promptText, explicitBudget, selectedCurrency);
     setResult(initialParsed);
+
+    // Asynchronously query Supabase and AI-match live stays for each day
+    matchHotelsFromSupabaseForItinerary(
+      initialParsed.itinerary,
+      initialParsed.intent,
+      promptText
+    ).then((matched) => {
+      setResult((prev) => {
+        if (!prev) return prev;
+        return {
+          ...prev,
+          itinerary: matched.itinerary,
+          breakdown: matched.breakdown
+        };
+      });
+      setSelectedHotels(matched.selectedHotels);
+    }).catch((err) => {
+      console.error("Initial Supabase hotel matching error:", err);
+    });
   }, []);
 
-  const handleGenerate = (e?: React.FormEvent) => {
+  const handleGenerate = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (!promptText.trim()) return;
 
@@ -121,21 +142,41 @@ export default function PlanMyTripPage() {
       setSimulationIndex((prev) => (prev + 1) % simulationSteps.length);
     }, 300);
 
-    setTimeout(() => {
+    const parsed = parseTripPrompt(promptText, explicitBudget, selectedCurrency);
+
+    try {
+      // Query Supabase database and intelligently match hotels based on user prompt
+      const matched = await matchHotelsFromSupabaseForItinerary(
+        parsed.itinerary,
+        parsed.intent,
+        promptText
+      );
+
+      setTimeout(() => {
+        clearInterval(interval);
+        setResult({
+          ...parsed,
+          itinerary: matched.itinerary,
+          breakdown: matched.breakdown
+        });
+        setSelectedHotels(matched.selectedHotels);
+        setIsGenerating(false);
+
+        // Scroll smoothly to results
+        const resEl = document.getElementById("results-section");
+        if (resEl) {
+          resEl.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 1000);
+    } catch (err) {
+      console.error("AI Hotel Matching error:", err);
       clearInterval(interval);
-      const parsed = parseTripPrompt(promptText, explicitBudget, selectedCurrency);
       setResult(parsed);
       setIsGenerating(false);
-
-      // Scroll smoothly to results
-      const resEl = document.getElementById("results-section");
-      if (resEl) {
-        resEl.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 1200);
+    }
   };
 
-  const applyPreset = (preset: typeof PRESET_PROMPTS[0]) => {
+  const applyPreset = async (preset: typeof PRESET_PROMPTS[0]) => {
     setPromptText(preset.prompt);
     setExplicitBudget(preset.budget);
     setSelectedCurrency(preset.currency);
@@ -143,15 +184,72 @@ export default function PlanMyTripPage() {
 
     setIsGenerating(true);
     setSimulationIndex(0);
-    setTimeout(() => {
-      const parsed = parseTripPrompt(preset.prompt, preset.budget, preset.currency);
+
+    const parsed = parseTripPrompt(preset.prompt, preset.budget, preset.currency);
+
+    try {
+      const matched = await matchHotelsFromSupabaseForItinerary(
+        parsed.itinerary,
+        parsed.intent,
+        preset.prompt
+      );
+
+      setTimeout(() => {
+        setResult({
+          ...parsed,
+          itinerary: matched.itinerary,
+          breakdown: matched.breakdown
+        });
+        setSelectedHotels(matched.selectedHotels);
+        setIsGenerating(false);
+
+        const resEl = document.getElementById("results-section");
+        if (resEl) {
+          resEl.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 800);
+    } catch (err) {
+      console.error("Preset hotel matching error:", err);
       setResult(parsed);
       setIsGenerating(false);
-      const resEl = document.getElementById("results-section");
-      if (resEl) {
-        resEl.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 800);
+    }
+  };
+
+  // Swapping a hotel in PlanTripStaysWidget dynamically recalculates itinerary & budget
+  const handleSelectHotel = (dayNumber: number, hotel: HotelListing) => {
+    setSelectedHotels((prev) => ({
+      ...prev,
+      [dayNumber]: hotel
+    }));
+
+    setResult((prevResult) => {
+      if (!prevResult) return prevResult;
+      const updatedItinerary = prevResult.itinerary.map((item) => {
+        if (item.day === dayNumber) {
+          return {
+            ...item,
+            hotelName: hotel.name,
+            hotelCategory: hotel.roomType,
+            hotelPriceLkr: hotel.pricePerNightLkr,
+            hotelImage: hotel.imageUrl,
+            hotelRating: hotel.rating,
+            hotelReviewCount: hotel.reviewCount,
+            hotelBadge:
+              hotel.stayType === "rental"
+                ? "🏡 Custom Pick · Private Villa"
+                : `🏨 Custom Pick · ${hotel.rating.toFixed(1)}★`
+          };
+        }
+        return item;
+      });
+
+      const newBreakdown = calculateBudgetBreakdown(prevResult.intent, updatedItinerary);
+      return {
+        ...prevResult,
+        itinerary: updatedItinerary,
+        breakdown: newBreakdown
+      };
+    });
   };
 
   const toggleFaq = (idx: number) => {
@@ -639,6 +737,11 @@ Please confirm hotel availability and assign our dedicated local chauffeur!`;
                       <span className="font-semibold text-[#1F3D2B]">
                         {selectedHotels[day.day]?.name || day.hotelName}
                       </span>
+                      {selectedHotels[day.day]?.roomType && (
+                        <span className="hidden md:inline text-[11px] text-[#7A7365]">
+                          · {selectedHotels[day.day].roomType}
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -651,12 +754,8 @@ Please confirm hotel availability and assign our dedicated local chauffeur!`;
                         nightsCount={1}
                         currencyCode={result.breakdown.currency}
                         selectedHotelId={selectedHotels[day.day]?.id}
-                        onSelectHotel={(hotel) => {
-                          setSelectedHotels((prev) => ({
-                            ...prev,
-                            [day.day]: hotel
-                          }));
-                        }}
+                        initialStayType={selectedHotels[day.day]?.stayType || "hotel"}
+                        onSelectHotel={(hotel) => handleSelectHotel(day.day, hotel)}
                       />
                     </div>
                   )}
