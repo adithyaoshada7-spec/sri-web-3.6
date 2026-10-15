@@ -35,6 +35,9 @@ import {
 import { parseTripPrompt, ParsedTripResult } from "../lib/tripAiParser";
 import InteractiveRouteFunnelModal from "./InteractiveRouteFunnelModal";
 import InteractiveDarkRouteMap from "./InteractiveDarkRouteMap";
+import PlanTripStaysWidget from "./PlanTripStaysWidget";
+import OnSiteBookingModal from "./OnSiteBookingModal";
+import { HotelListing } from "../data/sriLankaHotelsData";
 
 const PRESET_PROMPTS = [
   {
@@ -87,6 +90,8 @@ export default function PlanMyTripPage() {
   const [simulationIndex, setSimulationIndex] = useState(0);
   const [result, setResult] = useState<ParsedTripResult | null>(null);
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
+  const [selectedHotels, setSelectedHotels] = useState<Record<number, HotelListing>>({});
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isFunnelOpen, setIsFunnelOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -410,7 +415,16 @@ Please confirm hotel availability and assign our dedicated local chauffeur!`;
               </div>
 
               {/* Action Buttons */}
-              <div className="flex items-center gap-2.5 shrink-0">
+              <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setIsBookingModalOpen(true)}
+                  className="px-5 py-3.5 bg-[#1F3D2B] hover:bg-[#142A1D] text-white font-mono font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md hover:shadow-lg flex items-center gap-2 cursor-pointer"
+                >
+                  <Sparkles className="w-4 h-4 text-[#D4AF37]" />
+                  <span>Book On-Site Now</span>
+                </button>
+
                 <a
                   href={generateWhatsAppUrl()}
                   target="_blank"
@@ -623,10 +637,29 @@ Please confirm hotel availability and assign our dedicated local chauffeur!`;
                         {day.hotelBadge}
                       </span>
                       <span className="font-semibold text-[#1F3D2B]">
-                        {day.hotelName}
+                        {selectedHotels[day.day]?.name || day.hotelName}
                       </span>
                     </div>
                   </div>
+
+                  {/* GOOGLE STAYS WIDGET (SUPABASE POWERED) */}
+                  {day.hotelPriceLkr > 0 && (
+                    <div className="pt-2">
+                      <PlanTripStaysWidget
+                        dayNumber={day.day}
+                        destination={day.nightLocation.split("/")[0].trim()}
+                        nightsCount={1}
+                        currencyCode={result.breakdown.currency}
+                        selectedHotelId={selectedHotels[day.day]?.id}
+                        onSelectHotel={(hotel) => {
+                          setSelectedHotels((prev) => ({
+                            ...prev,
+                            [day.day]: hotel
+                          }));
+                        }}
+                      />
+                    </div>
+                  )}
 
                 </div>
               ))}
@@ -648,23 +681,32 @@ Please confirm hotel availability and assign our dedicated local chauffeur!`;
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <button
+                type="button"
+                onClick={() => setIsBookingModalOpen(true)}
+                className="w-full sm:w-auto px-8 py-4 bg-[#D4AF37] hover:bg-[#c49f2f] text-[#0d2235] font-mono font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-xl flex items-center justify-center gap-2.5 scale-105 cursor-pointer"
+              >
+                <Sparkles className="w-4 h-4" />
+                <span>Book Entire Tour & Stays On-Site ➔</span>
+              </button>
+
               <a
                 href={generateWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-mono font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-xl flex items-center justify-center gap-2.5 scale-105"
+                className="w-full sm:w-auto px-6 py-4 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-mono font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center gap-2"
               >
                 <PhoneCall className="w-4 h-4 fill-current" />
-                <span>Confirm & Send This Blueprint to WhatsApp Concierge ➔</span>
+                <span>WhatsApp Concierge</span>
               </a>
 
               <button
                 type="button"
                 onClick={() => setIsFunnelOpen(true)}
-                className="w-full sm:w-auto px-6 py-4 bg-white/10 hover:bg-white/20 text-white font-mono font-bold text-xs uppercase tracking-wider rounded-xl border border-white/20 transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-5 py-4 bg-white/10 hover:bg-white/20 text-white font-mono font-bold text-xs uppercase tracking-wider rounded-xl border border-white/20 transition-all flex items-center justify-center gap-2"
               >
                 <Compass className="w-4 h-4 text-[#D4AF37]" />
-                <span>Open Multi-Step Funnel</span>
+                <span>Multi-Step Funnel</span>
               </button>
             </div>
 
@@ -800,6 +842,19 @@ Please confirm hotel availability and assign our dedicated local chauffeur!`;
         isOpen={isFunnelOpen}
         onClose={() => setIsFunnelOpen(false)}
       />
+
+      {/* DIRECT ON-SITE BOOKING MODAL */}
+      {result && (
+        <OnSiteBookingModal
+          isOpen={isBookingModalOpen}
+          onClose={() => setIsBookingModalOpen(false)}
+          itinerary={result.itinerary}
+          selectedHotels={selectedHotels}
+          totalDays={result.intent.days}
+          totalCost={result.breakdown.totalCalculated}
+          currencyCode={result.breakdown.currency}
+        />
+      )}
 
     </div>
   );
