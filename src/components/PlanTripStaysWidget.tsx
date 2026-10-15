@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Star, Info, Check, Sparkles, Building, Home, ExternalLink } from "lucide-react";
-import { HotelListing } from "../data/sriLankaHotelsData";
-import { fetchHotels } from "../lib/supabaseClient";
+import { HotelListing, getHotelsForDestination } from "../data/sriLankaHotelsData";
+import { supabase, isSupabaseConfigured } from "../lib/supabaseClient";
 import { CURRENCY_RATES } from "../lib/tripRuleEngine";
 
 interface PlanTripStaysWidgetProps {
@@ -37,20 +37,91 @@ export default function PlanTripStaysWidget({
     let isMounted = true;
     setIsLoading(true);
 
-    fetchHotels(destination, stayType)
-      .then((data) => {
-        if (isMounted) {
-          setHotels(data);
-          setIsLoading(false);
-          // If no hotel currently selected for this day, pre-select the first one
-          if (!selectedHotelId && data.length > 0) {
-            onSelectHotel(data[0]);
+    async function loadHotels() {
+      // 1. Sanitize destination to lowercase and trim
+      const cleanDestination = (destination || "").toLowerCase().trim();
+      const fallbackData = getHotelsForDestination(destination);
+
+      let data: any[] | null = null;
+      let error: any = null;
+
+      // 2. Query Supabase if client is initialized
+      if (supabase) {
+        const res = await supabase
+          .from("hotels")
+          .select("*")
+          .eq("destination_id", cleanDestination);
+
+        data = res.data;
+        error = res.error;
+
+        if (error) {
+          console.error("Error fetching Supabase hotels:", error);
+        }
+
+        // If 0 records returned and destination had multi-word text (e.g. "sigiriya / habarana" or "negombo beachfront"),
+        // also check primary hub token to match user database entries like 'sigiriya' or 'negombo'
+        if (!error && (!data || data.length === 0)) {
+          const primaryToken = cleanDestination.split(/[\s/&-]+/)[0];
+          if (primaryToken && primaryToken !== cleanDestination) {
+            const tokenRes = await supabase
+              .from("hotels")
+              .select("*")
+              .eq("destination_id", primaryToken);
+
+            if (tokenRes.error) {
+              console.error("Error fetching Supabase hotels by token:", tokenRes.error);
+            } else if (tokenRes.data && tokenRes.data.length > 0) {
+              data = tokenRes.data;
+            }
           }
         }
-      })
-      .catch((err) => {
-        if (isMounted) setIsLoading(false);
-      });
+      }
+
+      // 3. Only trigger fallback data if !data || data.length === 0
+      if (!data || data.length === 0) {
+        if (!isMounted) return;
+        const filteredFallback = stayType
+          ? fallbackData.filter((h) => h.stayType === stayType)
+          : fallbackData;
+        const resultFallback = filteredFallback.length > 0 ? filteredFallback : fallbackData;
+        setHotels(resultFallback);
+        setIsLoading(false);
+        if (!selectedHotelId && resultFallback.length > 0) {
+          onSelectHotel(resultFallback[0]);
+        }
+        return;
+      }
+
+      // 4. Map live database partner records
+      const liveHotels: HotelListing[] = data.map((item: any) => ({
+        id: String(item.id),
+        destinationId: item.destination_id || cleanDestination,
+        name: item.name,
+        roomType: item.room_type || "Deluxe Double Room",
+        stayType: (item.stay_type === "rental" ? "rental" : "hotel") as "hotel" | "rental",
+        rating: Number(item.rating) || 4.5,
+        reviewCount: Number(item.review_count) || 25,
+        imageUrl: item.image_url || fallbackData[0]?.imageUrl || "",
+        pricePerNightLkr: Number(item.price_per_night_lkr) || 20000,
+        amenities: Array.isArray(item.amenities) ? item.amenities : ["AC", "Breakfast", "WiFi"]
+      }));
+
+      if (!isMounted) return;
+
+      const filteredLive = stayType
+        ? liveHotels.filter((h) => h.stayType === stayType)
+        : liveHotels;
+      const finalHotels = filteredLive.length > 0 ? filteredLive : liveHotels;
+
+      setHotels(finalHotels);
+      setIsLoading(false);
+      if (!selectedHotelId && finalHotels.length > 0) {
+        onSelectHotel(finalHotels[0]);
+      }
+    }
+
+    loadHotels();
 
     return () => {
       isMounted = false;
@@ -119,7 +190,7 @@ export default function PlanTripStaysWidget({
       <div className="space-y-3 pt-1">
         {isLoading ? (
           <div className="py-8 text-center text-xs text-gray-400 animate-pulse">
-            Loading verified stays from Supabase...
+            Loading partner stays from Supabase...
           </div>
         ) : (
           hotels.map((hotel) => {

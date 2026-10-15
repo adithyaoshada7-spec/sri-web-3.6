@@ -1,35 +1,55 @@
 import { createClient } from "@supabase/supabase-js";
 import { HotelListing, INITIAL_HOTELS_DATA, getHotelsForDestination } from "../data/sriLankaHotelsData";
 
-// Supabase credentials (read from environment or global)
-const SUPABASE_URL =
+// Support both Next.js and Vite environment variables
+const rawSupabaseUrl =
+  (typeof process !== "undefined" && process.env?.NEXT_PUBLIC_SUPABASE_URL) ||
+  (typeof process !== "undefined" && process.env?.VITE_SUPABASE_URL) ||
   (import.meta as any).env?.VITE_SUPABASE_URL ||
-  process.env.VITE_SUPABASE_URL ||
+  (import.meta as any).env?.NEXT_PUBLIC_SUPABASE_URL ||
   "";
 
-const SUPABASE_ANON_KEY =
+const rawSupabaseAnonKey =
+  (typeof process !== "undefined" && process.env?.NEXT_PUBLIC_SUPABASE_ANON_KEY) ||
+  (typeof process !== "undefined" && process.env?.VITE_SUPABASE_ANON_KEY) ||
   (import.meta as any).env?.VITE_SUPABASE_ANON_KEY ||
-  process.env.VITE_SUPABASE_ANON_KEY ||
+  (import.meta as any).env?.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
   "";
+
+// Clean URL in case markdown brackets or extra formatting leaked in
+export const supabaseUrl = rawSupabaseUrl
+  .replace(/^\[/, "")
+  .replace(/\].*$/, "")
+  .replace(/^\(/, "")
+  .replace(/\)$/, "")
+  .trim();
+
+export const supabaseAnonKey = rawSupabaseAnonKey.trim();
+
+// Log to verify keys exist
+console.log("Supabase initialized with URL:", !!supabaseUrl);
 
 export const isSupabaseConfigured =
-  Boolean(SUPABASE_URL) &&
-  Boolean(SUPABASE_ANON_KEY) &&
-  !SUPABASE_URL.includes("your-project-ref") &&
-  !SUPABASE_ANON_KEY.includes("your-anon-key");
+  Boolean(supabaseUrl) &&
+  Boolean(supabaseAnonKey) &&
+  !supabaseUrl.includes("your-project-ref") &&
+  !supabaseAnonKey.includes("your-anon-key") &&
+  !supabaseAnonKey.includes("your_anon_key_here");
 
 export const supabase = isSupabaseConfigured
-  ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+  ? createClient(supabaseUrl, supabaseAnonKey)
   : null;
 
 /**
  * Fetches verified hotels from Supabase PostgreSQL database
- * Automatically falls back to high-resolution local cache if keys are not yet configured
+ * Sanitizes destination_id to lowercase and logs any fetch error
+ * Only triggers fallback data if !data || data.length === 0
  */
 export async function fetchHotels(
   destination: string,
   stayType?: "hotel" | "rental"
 ): Promise<HotelListing[]> {
+  const cleanDestination = (destination || "").toLowerCase().trim();
   const fallbackData = getHotelsForDestination(destination);
 
   if (!supabase || !isSupabaseConfigured) {
@@ -41,29 +61,36 @@ export async function fetchHotels(
   }
 
   try {
-    const d = destination.toLowerCase();
-    let destKey = "negombo";
-    if (d.includes("sigiriya") || d.includes("dambulla")) destKey = "sigiriya";
-    else if (d.includes("kandy")) destKey = "kandy";
-    else if (d.includes("nuwara eliya")) destKey = "nuwara_eliya";
-    else if (d.includes("ella")) destKey = "ella";
-    else if (d.includes("yala")) destKey = "yala";
-    else if (d.includes("mirissa") || d.includes("weligama")) destKey = "mirissa";
-    else if (d.includes("galle")) destKey = "galle";
-    else if (d.includes("colombo")) destKey = "colombo";
-
-    let query = supabase
+    // 1. Direct query with sanitized destination_id
+    let { data, error } = await supabase
       .from("hotels")
       .select("*")
-      .eq("destination_id", destKey);
+      .eq("destination_id", cleanDestination);
 
-    if (stayType) {
-      query = query.eq("stay_type", stayType);
+    if (error) {
+      console.error("Error fetching Supabase hotels:", error);
     }
 
-    const { data, error } = await query;
+    // 2. If 0 records and cleanDestination had multi-word context (e.g. "sigiriya corridor" or "negombo beachfront"),
+    // check primary hub token to match user database entries like 'sigiriya' or 'negombo'
+    if (!error && (!data || data.length === 0)) {
+      const primaryToken = cleanDestination.split(/[\s/&-]+/)[0];
+      if (primaryToken && primaryToken !== cleanDestination) {
+        const tokenQuery = await supabase
+          .from("hotels")
+          .select("*")
+          .eq("destination_id", primaryToken);
+        
+        if (tokenQuery.error) {
+          console.error("Error fetching Supabase hotels by token:", tokenQuery.error);
+        } else if (tokenQuery.data && tokenQuery.data.length > 0) {
+          data = tokenQuery.data;
+        }
+      }
+    }
 
-    if (error || !data || data.length === 0) {
+    // 3. Only trigger fallback data if !data || data.length === 0
+    if (!data || data.length === 0) {
       if (stayType) {
         const filtered = fallbackData.filter((h) => h.stayType === stayType);
         return filtered.length > 0 ? filtered : fallbackData;
@@ -71,21 +98,28 @@ export async function fetchHotels(
       return fallbackData;
     }
 
-    // Map database snake_case columns to HotelListing interface
-    return data.map((item: any) => ({
-      id: item.id,
-      destinationId: item.destination_id,
+    // 4. Map live database partner records
+    const liveMapped: HotelListing[] = data.map((item: any) => ({
+      id: String(item.id),
+      destinationId: item.destination_id || cleanDestination,
       name: item.name,
       roomType: item.room_type || "Deluxe Room",
-      stayType: item.stay_type || "hotel",
+      stayType: (item.stay_type === "rental" ? "rental" : "hotel") as "hotel" | "rental",
       rating: Number(item.rating) || 4.5,
       reviewCount: Number(item.review_count) || 25,
       imageUrl: item.image_url || fallbackData[0]?.imageUrl || "",
       pricePerNightLkr: Number(item.price_per_night_lkr) || 20000,
-      amenities: item.amenities || ["AC", "Breakfast", "WiFi"]
+      amenities: Array.isArray(item.amenities) ? item.amenities : ["AC", "Breakfast", "WiFi"]
     }));
+
+    if (stayType) {
+      const filtered = liveMapped.filter((h) => h.stayType === stayType);
+      return filtered.length > 0 ? filtered : liveMapped;
+    }
+
+    return liveMapped;
   } catch (err) {
-    console.warn("[Supabase] Error querying hotels, using curated fallback:", err);
+    console.error("Error fetching Supabase hotels:", err);
     return fallbackData;
   }
 }
@@ -104,7 +138,7 @@ export async function saveBookingToDatabase(bookingPayload: {
   currency: string;
 }) {
   if (!supabase || !isSupabaseConfigured) {
-    console.log("[Supabase Offline Mock] Booking stored locally:", bookingPayload);
+    console.log("[Supabase Local Booking]:", bookingPayload);
     return { success: true, bookingId: `PSL-${Date.now().toString().slice(-6)}` };
   }
 
@@ -123,7 +157,10 @@ export async function saveBookingToDatabase(bookingPayload: {
       }
     ]).select();
 
-    if (error) throw error;
+    if (error) {
+      console.error("Error creating booking in Supabase:", error);
+      throw error;
+    }
     return { success: true, bookingId: data?.[0]?.id || `PSL-${Date.now().toString().slice(-6)}` };
   } catch (err) {
     console.error("[Supabase Booking Error]:", err);
