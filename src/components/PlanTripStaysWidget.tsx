@@ -49,19 +49,22 @@ export default function PlanTripStaysWidget({
 
       // 2. Query Supabase if client is initialized
       if (supabase) {
+        // Query destination_id using case-insensitive ilike with eq fallback
         const res = await supabase
           .from("hotels")
           .select("*")
-          .eq("destination_id", cleanDestination);
+          .ilike("destination_id", cleanDestination);
 
         data = res.data;
         error = res.error;
+
+        console.log("Supabase Fetch Result:", { cleanDestination, data, error });
 
         if (error) {
           console.error("Error fetching Supabase hotels:", error);
         }
 
-        // If 0 records returned and destination had multi-word text (e.g. "sigiriya / habarana" or "negombo beachfront"),
+        // If 0 records returned and destination had multi-word text (e.g. "sigiriya corridor" or "negombo beachfront"),
         // also check primary hub token to match user database entries like 'sigiriya' or 'negombo'
         if (!error && (!data || data.length === 0)) {
           const primaryToken = cleanDestination.split(/[\s/&-]+/)[0];
@@ -69,39 +72,40 @@ export default function PlanTripStaysWidget({
             const tokenRes = await supabase
               .from("hotels")
               .select("*")
-              .eq("destination_id", primaryToken);
+              .ilike("destination_id", primaryToken);
 
             if (tokenRes.error) {
               console.error("Error fetching Supabase hotels by token:", tokenRes.error);
             } else if (tokenRes.data && tokenRes.data.length > 0) {
               data = tokenRes.data;
+              console.log("Supabase Fetch Result (by token):", { primaryToken, data });
             }
           }
         }
       }
 
-      // 3. Only trigger fallback data if !data || data.length === 0
+      // 3. Fallback logic: Supabase වෙතින් දත්ත ලැබී ඇත්නම් එය පෙන්වන්න, දත්ත නැතිනම් පමණක් fallback පෙන්වන්න
       if (!data || data.length === 0) {
         if (!isMounted) return;
         const filteredFallback = stayType
           ? fallbackData.filter((h) => h.stayType === stayType)
           : fallbackData;
-        const resultFallback = filteredFallback.length > 0 ? filteredFallback : fallbackData;
-        setHotels(resultFallback);
+        const displayHotels = filteredFallback.length > 0 ? filteredFallback : fallbackData;
+        setHotels(displayHotels);
         setIsLoading(false);
-        if (!selectedHotelId && resultFallback.length > 0) {
-          onSelectHotel(resultFallback[0]);
+        if (!selectedHotelId && displayHotels.length > 0) {
+          onSelectHotel(displayHotels[0]);
         }
         return;
       }
 
-      // 4. Map live database partner records
+      // 4. Map live database partner records from Supabase
       const liveHotels: HotelListing[] = data.map((item: any) => ({
         id: String(item.id),
         destinationId: item.destination_id || cleanDestination,
         name: item.name,
         roomType: item.room_type || "Deluxe Double Room",
-        stayType: (item.stay_type === "rental" ? "rental" : "hotel") as "hotel" | "rental",
+        stayType: (item.stay_type?.toLowerCase() === "rental" ? "rental" : "hotel") as "hotel" | "rental",
         rating: Number(item.rating) || 4.5,
         reviewCount: Number(item.review_count) || 25,
         imageUrl: item.image_url || fallbackData[0]?.imageUrl || "",
@@ -114,12 +118,12 @@ export default function PlanTripStaysWidget({
       const filteredLive = stayType
         ? liveHotels.filter((h) => h.stayType === stayType)
         : liveHotels;
-      const finalHotels = filteredLive.length > 0 ? filteredLive : liveHotels;
+      const displayHotels = filteredLive.length > 0 ? filteredLive : liveHotels;
 
-      setHotels(finalHotels);
+      setHotels(displayHotels);
       setIsLoading(false);
-      if (!selectedHotelId && finalHotels.length > 0) {
-        onSelectHotel(finalHotels[0]);
+      if (!selectedHotelId && displayHotels.length > 0) {
+        onSelectHotel(displayHotels[0]);
       }
     }
 

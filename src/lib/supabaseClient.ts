@@ -36,6 +36,13 @@ export const isSupabaseConfigured =
   !supabaseAnonKey.includes("your-anon-key") &&
   !supabaseAnonKey.includes("your_anon_key_here");
 
+console.log(
+  "Supabase Client Status:",
+  isSupabaseConfigured
+    ? "CONNECTED ✅"
+    : "NOT CONFIGURED ⚠️ (Check NEXT_PUBLIC_SUPABASE_ANON_KEY / VITE_SUPABASE_ANON_KEY in .env.local)"
+);
+
 export const supabase = isSupabaseConfigured
   ? createClient(supabaseUrl, supabaseAnonKey)
   : null;
@@ -61,11 +68,13 @@ export async function fetchHotels(
   }
 
   try {
-    // 1. Direct query with sanitized destination_id
+    // 1. Direct query with sanitized destination_id (case-insensitive ilike)
     let { data, error } = await supabase
       .from("hotels")
       .select("*")
-      .eq("destination_id", cleanDestination);
+      .ilike("destination_id", cleanDestination);
+
+    console.log("Supabase Fetch Result:", { cleanDestination, data, error });
 
     if (error) {
       console.error("Error fetching Supabase hotels:", error);
@@ -79,12 +88,13 @@ export async function fetchHotels(
         const tokenQuery = await supabase
           .from("hotels")
           .select("*")
-          .eq("destination_id", primaryToken);
+          .ilike("destination_id", primaryToken);
         
         if (tokenQuery.error) {
           console.error("Error fetching Supabase hotels by token:", tokenQuery.error);
         } else if (tokenQuery.data && tokenQuery.data.length > 0) {
           data = tokenQuery.data;
+          console.log("Supabase Fetch Result (by token):", { primaryToken, data });
         }
       }
     }
