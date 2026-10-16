@@ -16,18 +16,20 @@ const rawSupabaseAnonKey =
   (import.meta as any).env?.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
   "";
 
-// Clean URL in case markdown brackets or extra formatting leaked in
-export const supabaseUrl = rawSupabaseUrl
+// Clean URL in case /rest/v1, markdown brackets, or trailing slashes were provided
+export const supabaseUrl = (rawSupabaseUrl || "")
   .replace(/^\[/, "")
   .replace(/\].*$/, "")
   .replace(/^\(/, "")
   .replace(/\)$/, "")
-  .trim();
+  .trim()
+  .replace(/\/rest\/v1\/?$/i, "")
+  .replace(/\/+$/, "");
 
 export const supabaseAnonKey = rawSupabaseAnonKey.trim();
 
-// Log to verify keys exist
-console.log("Supabase initialized with URL:", !!supabaseUrl);
+// Log to verify sanitized URL
+console.log("Supabase initialized with URL:", supabaseUrl);
 
 export const isSupabaseConfigured =
   Boolean(supabaseUrl) &&
