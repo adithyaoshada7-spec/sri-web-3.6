@@ -35,6 +35,7 @@ import {
 } from "../lib/tripRuleEngine";
 import { parseTripPrompt, ParsedTripResult } from "../lib/tripAiParser";
 import { matchHotelsFromSupabaseForItinerary } from "../lib/tripAiHotelMatcher";
+import { fetchDynamicTripPlan } from "../lib/tripAiPlannerService";
 import InteractiveRouteFunnelModal from "./InteractiveRouteFunnelModal";
 import InteractiveDarkRouteMap from "./InteractiveDarkRouteMap";
 import PlanTripStaysWidget from "./PlanTripStaysWidget";
@@ -145,21 +146,23 @@ export default function PlanMyTripPage() {
     const parsed = parseTripPrompt(promptText, explicitBudget, selectedCurrency);
 
     try {
-      // Query Supabase database and intelligently match hotels based on user prompt
-      const matched = await matchHotelsFromSupabaseForItinerary(
-        parsed.itinerary,
-        parsed.intent,
-        promptText
-      );
+      // Call backend Gemini + Supabase dynamic itinerary generation
+      const plan = await fetchDynamicTripPlan({
+        promptText,
+        explicitBudget,
+        selectedCurrency
+      });
 
       setTimeout(() => {
         clearInterval(interval);
         setResult({
-          ...parsed,
-          itinerary: matched.itinerary,
-          breakdown: matched.breakdown
+          intent: parsed.intent,
+          itinerary: plan.itinerary,
+          breakdown: plan.breakdown,
+          summaryTitle: plan.trip_title,
+          detectedTags: parsed.detectedTags
         });
-        setSelectedHotels(matched.selectedHotels);
+        setSelectedHotels(plan.selectedHotels);
         setIsGenerating(false);
 
         // Scroll smoothly to results
@@ -167,9 +170,9 @@ export default function PlanMyTripPage() {
         if (resEl) {
           resEl.scrollIntoView({ behavior: "smooth" });
         }
-      }, 1000);
+      }, 700);
     } catch (err) {
-      console.error("AI Hotel Matching error:", err);
+      console.error("AI Generation error:", err);
       clearInterval(interval);
       setResult(parsed);
       setIsGenerating(false);
@@ -188,28 +191,30 @@ export default function PlanMyTripPage() {
     const parsed = parseTripPrompt(preset.prompt, preset.budget, preset.currency);
 
     try {
-      const matched = await matchHotelsFromSupabaseForItinerary(
-        parsed.itinerary,
-        parsed.intent,
-        preset.prompt
-      );
+      const plan = await fetchDynamicTripPlan({
+        promptText: preset.prompt,
+        explicitBudget: preset.budget,
+        selectedCurrency: preset.currency
+      });
 
       setTimeout(() => {
         setResult({
-          ...parsed,
-          itinerary: matched.itinerary,
-          breakdown: matched.breakdown
+          intent: parsed.intent,
+          itinerary: plan.itinerary,
+          breakdown: plan.breakdown,
+          summaryTitle: plan.trip_title,
+          detectedTags: parsed.detectedTags
         });
-        setSelectedHotels(matched.selectedHotels);
+        setSelectedHotels(plan.selectedHotels);
         setIsGenerating(false);
 
         const resEl = document.getElementById("results-section");
         if (resEl) {
           resEl.scrollIntoView({ behavior: "smooth" });
         }
-      }, 800);
+      }, 600);
     } catch (err) {
-      console.error("Preset hotel matching error:", err);
+      console.error("Preset dynamic generation error:", err);
       setResult(parsed);
       setIsGenerating(false);
     }

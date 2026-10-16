@@ -143,6 +143,30 @@ async function startServer() {
     }
   });
 
+  // Dynamic AI Plan-Trip Endpoint (Gemini 1.5 Flash + Supabase Hotels)
+  app.post("/api/plan-trip", async (req, res) => {
+    try {
+      const { executePlanTrip } = await import("./api/plan-trip.js");
+      const { userPrompt, days, currency, targetBudget } = req.body || {};
+
+      if (!userPrompt) {
+        return res.status(400).json({ error: "userPrompt is required." });
+      }
+
+      const result = await executePlanTrip({
+        userPrompt,
+        days,
+        currency,
+        targetBudget
+      });
+
+      return res.status(200).json(result);
+    } catch (err: any) {
+      console.error("[Server /api/plan-trip Error]", err);
+      return res.status(500).json({ error: err.message || "Internal server error" });
+    }
+  });
+
 
   // Dynamic sitemap.xml route for SEO compliance
   app.get("/sitemap.xml", (req, res) => {
